@@ -46,6 +46,7 @@
     utils.createDirectory(baseDir)
 
     utils.deleteFile(conf)
+    utils.createFile(baseDir + "/CNAME", "archive.kauri.io")
     utils.createFile(baseDir + "/index.md", "#hello")
     utils.createFile(conf, "site_name: Kauri\n" +
                             "theme: readthedocs\n" +
