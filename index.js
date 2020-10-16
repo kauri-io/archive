@@ -100,6 +100,7 @@
 
     console.log("== REDIRECT")
     utils.appendFile("mkdocs.yml", "plugins:\n" +
+                                   "    - search\n" +
                                    "    - redirects:\n" +
                                    "        redirect_maps:")
     for(article of articles) {

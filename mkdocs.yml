@@ -463,6 +463,7 @@ nav:
         - Sharding PoC: 'ETHBerlin/sharding-poc.md'
         - Good Badger: 'ETHBerlin/good-badger.md'
 plugins:
+    - search
     - redirects:
         redirect_maps:
             building-a-twitter-bot-using-ipfs-cluster/2b430e15c299442588e038cdb814a739/a: IPFS/building-a-twitter-bot-using-ipfs-cluster.md
