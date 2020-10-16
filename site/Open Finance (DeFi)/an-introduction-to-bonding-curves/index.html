@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>An Introduction to Bonding Curves - Kauri</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "An Introduction to Bonding Curves";
+    var mkdocs_page_input_path = "Open Finance (DeFi)/an-introduction-to-bonding-curves.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Kauri</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Communities & Collections</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="#">IPFS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/building-a-twitter-bot-using-ipfs-cluster/">Building a Twitter Bot using IPFS Cluster 🤖</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/hands-on-ipld-tutorial-in-golang%3A-part-2/">Hands-on IPLD Tutorial in Golang- PART 2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/understanding-ipfs-in-depth%2826%29%3A-what-is-interplanetary-linked-data%28ipld%29/">Understanding IPFS in Depth(2/6)- What is InterPlanetary Linked Data(IPLD)?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/hands-on-ipld-tutorial-in-golang/">Hands-on IPLD Tutorial in Golang</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/understanding-ipfs-in-depth%2816%29%3A-a-beginner-to-advanced-guide/">Understanding IPFS in Depth(1/6)- A Beginner to Advanced Guide</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/orbitdb%3A-serverless-distributed-peer-to-peer-database/">OrbitDB- Serverless, Distributed, Peer-to-Peer Database</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/getting-started-with-mahuta-a-search-engine-for-the-ipfs/">Getting started with Mahuta - A Search engine for the IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/peer-to-peer-hypermedia-with-ipfs/">Peer-to-peer hypermedia with IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/installing-ipfs/">Installing IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/improving-ipfs-decentralization-introducing-ahken/">Improving IPFS Decentralization - Introducing Ahken</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS/managing-storage-in-a-java-application-with-ipfs/">Managing storage in a Java application with IPFS</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Getting started with dapp development</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/tips-for-starting-dapp-development/">Tips for Starting Dapp Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/an-introduction-to-solidity-for-experienced-developers/">An Introduction to Solidity for Experienced Developers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/truffle%3A-adding-a-frontend-with-react-box/">Truffle- Adding a frontend with react box</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/truffle%3A-testing-your-smart-contract/">Truffle- Testing your smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/truffle%3A-smart-contract-compilation-and-deployment/">Truffle- Smart Contract Compilation & Deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/understanding-smart-contract-compilation-and-deployment/">Understanding smart contract compilation and deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/tools-for-dapp-development/">Tools for dApp development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/full-stack-dapp-tutorial-series-intro/">Full Stack dApp Tutorial Series - Intro</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/erc-721-non-fungible-token-standard/">ERC-721 Non-Fungible Token Standard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/create-a-%22hello-world%22-fullstack-dapp/">Create a "Hello World" fullstack dapp</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/a-fullstack-dapp-for-creating-tokens/">A fullstack dapp for creating tokens</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/a-fullstack-dapp-for-creating-unique-tradable-tokens/">A fullstack dapp for creating unique tradable tokens</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/blockchain-explained/">Blockchain Explained</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/remix-ide-your-first-smart-contract/">Remix IDE - Your first smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20started%20with%20dapp%20development/an-introduction-to-smart-contracts-with-solidity/">An Introduction to Smart Contracts with Solidity</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Ethereum Node Runners</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/run-an-ethereum-node-on-debian-with-an-external-ssd-%28mar-2020%29/">Run an Ethereum node on Debian with an External SSD (Mar 2020)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card/">Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/">Make use of your remote Ethereum node using an SSH tunnel and MetaMask</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/how-to-install-and-synchronize-your-own-remote-ethereum-node/">How to install and synchronize your own remote Ethereum node</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/how-to-set-up-a-simple-linux-firewall/">How to set up a simple Linux firewall</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/supported-hardware-to-run-an-ethereum-node/">Supported hardware to run an Ethereum node</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/monitor-your-geth-node-with-google-sheet/">Monitor your Geth node with Google Sheet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Node%20Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-%28model-b%29/">Running an Ethereum Full Node on a RaspberryPi 4 (model B)</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Documentation and technical communication</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentation%20and%20technical%20communication/why-do-people-write/">Why do people write?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentation%20and%20technical%20communication/language-and-understandable-writing/">Language and understandable writing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentation%20and%20technical%20communication/documentation-structure/">Documentation structure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Documentation%20and%20technical%20communication/why-write-documentation/">Why write documentation</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Java Ethereum</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/how-to-test-ethereum-smart-contracts-from-java/">How to test Ethereum smart contracts from Java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/web3j-transaction-managers/">Web3j Transaction Managers</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/manage-erc20-tokens-in-java-with-web3j/">Manage ERC20 tokens in Java with Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/running-a-pantheon-node-in-java-integration-tests/">Running a Pantheon Node in Java Integration Tests</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/managing-storage-in-a-java-application-with-ipfs/">Managing storage in a Java application with IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/using-besu-the-java-ethereum-client-with-linuxmacos/">Using Besu, the Java Ethereum Client with Linux/MacOS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/listening-for-ethereum-smart-contract-events-in-java/">Listening for Ethereum Smart Contract Events in Java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/interacting-with-an-ethereum-smart-contract-in-java/">Interacting with an Ethereum Smart Contract in Java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/generate-a-java-wrapper-from-your-smart-contract/">Generate a Java Wrapper from your Smart Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/manage-an-ethereum-account-with-java-and-web3j/">Manage an Ethereum account with Java and Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Java%20Ethereum/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/">Connecting to an Ethereum client with Java, Eclipse and Web3j</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">A Deep Dive Into The Ethereum Virtual Machine (EVM) Series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-%28evm%29-part-1%3A-introduction/">A Deep Dive into the Ethereum Virtual Machine (EVM) - part 1- Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-%28evm%29-part-2%3A-memory-and-storage/">A Deep Dive into the Ethereum Virtual Machine (EVM) - part 2- Memory and Storage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-%28evm%29-part-3%3A-execution-model-of-the-evm/">A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3- Execution Model of the EVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-part-4%3A-the-evm-and-high-level-programming-languages/">A Deep Dive into the Ethereum Virtual Machine - Part 4- The EVM and High-Level Programming Languages</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Build your very own self-hosting platform with Raspberry Pi and Kubernetes</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2818%29-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/">(1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2828%29-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/">(2/8) Install Raspbian Operating-System and prepare the system for Kubernetes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2838%29-install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/">(3/8) Install and configure a Kubernetes cluster with k3s to self-host applications</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2848%29-deploy-nextcloud-on-kuberbetes%3A-the-self-hosted-dropbox/">(4/8) Deploy NextCloud on Kuberbetes- The self-hosted Dropbox</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2858%29-self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/">(5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2868%29-self-host-pi-hole-on-kubernetes-and-block-ads-and-trackers-at-the-network-level/">(6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2878%29-self-host-your-password-manager-with-bitwarden/">(7/8) Self-host your password manager with Bitwarden</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2888%29-deploy-prometheus-and-grafana-to-monitor-a-kubernetes-cluster/">(8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">A Hackathon Survival Guide</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/the-hack%21-what-is-a-hackathon/">The Hack?!? What is a hackathon?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/create-a-%22hello-world%22-fullstack-dapp/">Create a "Hello World" fullstack dapp</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/full-stack-dapp-tutorial-series-intro/">Full Stack dApp Tutorial Series - Intro</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/ethereum-101-part-1-what-is-ethereum/">Ethereum 101 - Part 1 - What is Ethereum?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/remix-ide-your-first-smart-contract/">Remix IDE - Your first smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/interacting-with-an-ethereum-smart-contract-in-java/">Interacting with an Ethereum Smart Contract in Java</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/a-.net-developers-workflow-for-creating-and-calling-ethereum-smart-contracts/">A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/sending-ethereum-transactions-with-rust/">Sending Ethereum Transactions with Rust</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/generate-a-java-wrapper-from-your-smart-contract/">Generate a Java Wrapper from your Smart Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/accelerating-dapp-development-with-ethers.js/">Accelerating DApp Development with Ethers.js</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/nethereum-an-open-source-.net-integration-library-for-blockchain/">Nethereum - An open source .NET integration library for blockchain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/creating-a-dapp-in-go-with-geth/">Creating a DApp in Go with Geth</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/tools-for-dapp-development/">Tools for dApp development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/ethasketch/">EthASketch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/bountibot%3A-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/">Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20Hackathon%20Survival%20Guide/eth-dev-tools/">ETH Dev Tools</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Web3j Cheat Sheet (Java Ethereum)</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/retrieving-an-ethereum-account-balance-in-web3j/">Retrieving an Ethereum Account Balance in Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/converting-between-ether-units-denominations-in-web3j/">Converting Between Ether Units / Denominations in Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/creating-a-web3j-wallet-from-a-mnemonic-code-%28seed-phrase%29/">Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j/">Sending an Ether Transfer Transaction from One Account to Another in Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/signing-an-ethereum-transaction-in-web3j/">Signing an Ethereum Transaction in Web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/signing-data-in-java-and-web3j/">Signing Data in Java and Web3j</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">OpenZeppelin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin/openzeppelin-part-1%3A-introductory/">OpenZeppelin Part 1- Introductory</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin/openzeppelin-part-2%3A-access-control/">OpenZeppelin Part 2- Access Control</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin/openzeppelin-part-3%3A-token-standards/">OpenZeppelin Part 3- Token Standards</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin/openzeppelin-part-4%3A-crowdsales/">OpenZeppelin Part 4- Crowdsales</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">A non practitioner guide to machine learning</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20non%20practitioner%20guide%20to%20machine%20learning%20/getting-started-with-machine-learning-%28non-practitioner-guide%29/">Getting Started With Machine Learning (Non practitioner guide)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20non%20practitioner%20guide%20to%20machine%20learning%20/installing-anaconda-python3-and-tensorflow/">Installing Anaconda, Python3 and Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20non%20practitioner%20guide%20to%20machine%20learning%20/regression-with-python-keras-and-tensorflow/">Regression with Python, Keras and Tensorflow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20non%20practitioner%20guide%20to%20machine%20learning%20/predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem/">Predict cryptocurrency prices with Tensorflow as binary classification problem</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../A%20non%20practitioner%20guide%20to%20machine%20learning%20/multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow/">Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">An ethereum test toolkit in Go</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../An%20ethereum%20test%20toolkit%20in%20Go/sending-transactions-on-geths-simulated-backend/">Sending Transactions on GETH's Simulated Backend</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../An%20ethereum%20test%20toolkit%20in%20Go/interacting-with-smart-contracts-from-geths-simulated-backend/">Interacting with smart contracts from GETH's Simulated Backend</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../An%20ethereum%20test%20toolkit%20in%20Go/generating-a-load-of-keys-for-testing-in-go/">Generating a load of keys for testing in Go</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../An%20ethereum%20test%20toolkit%20in%20Go/the-geth-simulated-backend/">The GETH Simulated Backend</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Monitoring Kubernetes with Elastic Stack</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2815%29-getting-started-with-elastic-stack-for-monitoring-on-kubernetes/">(1/5) Getting started with Elastic Stack for monitoring on Kubernetes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2825%29-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data/">(2/5) Install ElasticSearch and Kibana to store and visualize monitoring data</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2835%29-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes/">(3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2845%29-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes/">(4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2855%29-collect-traces-with-elastic-apm-for-monitoring-kubernetes/">(5/5) Collect traces with Elastic APM for monitoring Kubernetes</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Founder interviews</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Founder%20interviews/fluree%3A-blockchain-graphql-and-more-all-in-one-database/">Fluree- Blockchain, GraphQL, and more all in one database</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Founder%20interviews/true-anonymity-privacy-and-snapps-with-simon-harman-of-loki/">True anonymity, privacy, and SNApps with Simon Harman of Loki</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Founder%20interviews/the-aeternity-blockchain-with-emil-wagner/">The Æternity blockchain with Emil Wagner</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Founder%20interviews/embleema%3A-the-blockchain-that-lets-you-own-your-health-data/">Embleema- The Blockchain That Lets You Own Your Health Data</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Vyper Full Stack dApp Tutorial Series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/remix-ide-your-first-vyper-smart-contract/">Remix IDE - Your first Vyper smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/understanding-smart-contract-compilation-and-deployment/">Understanding smart contract compilation and deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/truffle%3A-smart-contract-compilation-and-deployment/">Truffle- Smart Contract Compilation & Deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/truffle%3A-testing-your-smart-contract/">Truffle- Testing your smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/tools-for-working-with-vyper/">Tools for working with Vyper</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Flexible, Upgradeable & Highly Available NFTs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Flexible%2C%20Upgradeable%20%26%20Highly%20Available%20NFTs/creating-a-flexible-nft-%28part-1%29/">Creating a Flexible NFT (Part 1)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Flexible%2C%20Upgradeable%20%26%20Highly%20Available%20NFTs/creating-a-flexible-nft-%28part-2%29/">Creating a Flexible NFT (Part 2)</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Libra</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Libra/building-and-working-with-facebooks-cryptocurrency-libra/">Building and Working with Facebook’s Cryptocurrency Libra</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Libra/whitepaper-deep-dive-move%3A-facebook-libra-blockchains-new-programming-language/">Whitepaper Deep Dive — Move- Facebook Libra Blockchain’s New Programming Language</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Libra/quick-dive-into-the-move-programming-language/">Quick Dive into the Move Programming Language</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Bitcoin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Bitcoin/bitcoin-blockchain-overview/">Bitcoin Blockchain Overview</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Bitcoin/creating-bitcoin-transactions/">Creating Bitcoin Transactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Bitcoin/bitcoin-contract-scripts/">Bitcoin Contract Scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Bitcoin/lightning-at-home/">Lightning at Home</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Bitcoin/lnd-overview-and-developer-guide/">LND Overview and Developer Guide</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Getting Started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/blockchain-explained/">Blockchain Explained</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/an-introduction-to-smart-contracts-with-solidity/">An Introduction to Smart Contracts with Solidity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/an-introduction-to-smart-contracts-with-vyper/">An Introduction to Smart Contracts with Vyper</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/cute-kitties-and-where-to-find-them-an-introduction-to-non-fungible-tokens/">Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/erc-721-non-fungible-token-standard/">ERC-721 Non-Fungible Token Standard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/erc-20-token-standard/">ERC-20 Token Standard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/develop-your-erc-20-token-explained%21/">Develop your ERC-20 Token — explained!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/gamifying-crypto-assets-with-the-erc998-composables-token-standard/">Gamifying Crypto Assets with the ERC998 Composables Token Standard</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/erc-20-and-its-discontents%3A-the-rise-of-comrades-erc-777-and-erc-1820/">ERC-20 and Its Discontents- The Rise of Comrades ERC-777 & ERC-1820</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/creating-a-dapp-in-go-with-geth/">Creating a DApp in Go with Geth</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/smart-contracts-integration-with-nethereum/">Smart contracts integration with Nethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/signing-messages-with-nethereum/">Signing messages with Nethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/managing-nonces-with-nethereum/">Managing nonces with Nethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Getting%20Started/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/">Connecting to an Ethereum client with Java, Eclipse and Web3j</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Privacy</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/introduction-to-cryptography/">Introduction to Cryptography</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/building-on-bulletproofs-short-proofs-for-confidential-transactions/">Building on Bulletproofs - Short Proofs for Confidential Transactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/enigma-protocol/">Enigma Protocol</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/how-to-code-your-own-confidential-token-on-ethereum/">How to Code Your Own Confidential Token on Ethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/data-privacy-with-the-nucypher-network/">Data Privacy with the NuCypher Network</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/nucypher-pyumbral/">NuCypher - PyUmbral</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/nightfall-private-token-and-nft-transfers-on-ethereum/">Nightfall - Private Token and NFT Transfers on Ethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/privacy-with-pantheon-ethereum-java-client/">Privacy with Pantheon Ethereum Java Client</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/parity-private-transactions/">Parity - Private Transactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/introducing-beam%21/">Introducing Beam!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/a-short-history-of-mimblewimble%3A-from-hogwarts-to-mobile-wallets/">A Short History of Mimblewimble- From Hogwarts to Mobile Wallets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/why-beam-is-sound-money/">Why Beam is Sound Money</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/introduction-to-mimblewimble-and-grin/">Introduction to MimbleWimble and Grin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/a-beginners-guide-to-zcash/">A beginner’s guide to Zcash</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Privacy/a-beginners-guide-to-monero/">A beginner’s guide to Monero</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Open Finance (DeFi)</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../kyber-network%3A-on-chain-liquidity-protocol/">Kyber Network- On-chain liquidity protocol</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../compound%3A-money-markets-on-ethereum/">Compound- Money markets on Ethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../0x%3A-peer-to-peer-exchange-protocol/">0x- Peer-to-peer exchange protocol</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../makerdao%3A-decentralized-stablecoin-and-collateral-loans/">MakerDAO- Decentralized stablecoin and collateral loans</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../uniswap%3A-protocol-for-automated-token-exchange/">Uniswap- Protocol for automated token exchange</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../set-protocol%3A-baskets-of-tokenized-assets/">Set Protocol- Baskets of tokenized assets</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">An Introduction to Bonding Curves</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#inspired-by-bitcoin">Inspired by Bitcoin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#a-case-study-cryptokitties">A Case Study: Cryptokitties</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#linear-curves">Linear Curves</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#exponential">Exponential</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logarithmic">Logarithmic</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#logistic">Logistic</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../incentivizing-high-quality-curation-with-a-token-curated-registry/">Incentivizing high-quality curation with a Token-Curated Registry</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">DevOps</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevOps/lint-your-solidity-contracts-with-solhint/">Lint your Solidity contracts with Solhint</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevOps/lint-your-solidity-contracts-with-ethlint/">Lint your Solidity contracts with Ethlint</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevOps/truffle%3A-testing-your-smart-contract/">Truffle- Testing your smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevOps/truffle-101-development-tools-for-smart-contracts/">Truffle 101 - Development Tools for Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../DevOps/analyze-solidity-smart-contracts-with-slither/">Analyze Solidity Smart Contracts with Slither</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">SecureETH</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecureETH/system-description-document/">System Description Document</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecureETH/secureth-guidelines-getting-started/">SecurEth Guidelines - Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecureETH/secureth-guidelines-introduction/">SecurEth Guidelines Introduction</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">MythX</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/fuzzing-smart-contracts-using-multiple-transactions/">Fuzzing Smart Contracts Using Multiple Transactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/fuzzing-smart-contracts-using-input-prediction/">Fuzzing Smart Contracts Using Input Prediction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/auditing-the-0x-protocol-v2-with-consensys-diligence/">Auditing the 0x Protocol v2 with ConsenSys Diligence</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/mythx-is-upping-the-smart-contract-security-game/">MythX is Upping the Smart Contract Security Game</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/finding-vulnerabilities-in-smart-contracts/">Finding Vulnerabilities in Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../MythX/mythx-is-real./">MythX is real.</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">How you can contribute to the increased decentralization of the Ethereum blockchain</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-install-and-synchronize-your-own-remote-ethereum-node/">How to install and synchronize your own remote Ethereum node</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/">Make use of your remote Ethereum node using an SSH tunnel and MetaMask</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-set-up-a-simple-linux-firewall/">How to set up a simple Linux firewall</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Decentralized Storage</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/swarm%3A-distributed-storage-platform-and-content-distribution-service/">Swarm- Distributed Storage Platform and Content Distribution Service</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/peer-to-peer-hypermedia-with-ipfs/">Peer-to-peer hypermedia with IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/orbitdb%3A-serverless-distributed-peer-to-peer-database/">OrbitDB- Serverless, Distributed, Peer-to-Peer Database</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/storj%3A-decentralized-cloud-object-storage/">Storj- Decentralized Cloud Object Storage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/sia%3A-decentralized-cloud-storage/">Sia- Decentralized Cloud Storage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/bluzelle-a-decentralized-data-cache/">Bluzelle - A decentralized data cache</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Decentralized%20Storage/filecoin%3A-peer-to-peer-storage-network-and-payment-protocol/">Filecoin- Peer-to-Peer Storage Network and Payment Protocol</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Scaling</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/introducing-plasma-group/">Introducing Plasma Group</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/skale%3A-ethereum-compatible-sidechains/">SKALE- Ethereum-compatible sidechains</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/connext%3A-peer-to-peer-payment-channels/">Connext- Peer-to-Peer Payment Channels</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/poa-part-1-develop-and-deploy-a-smart-contract/">POA - Part 1 - Develop and deploy a smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/loom-part-1-develop-and-deploy-a-smart-contract/">Loom - Part 1 - Develop and deploy a smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/raiden%3A-generalized-state-channels/">Raiden- Generalized State Channels</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/minimum-viable-plasma-the-kyokan-implementation/">Minimum Viable Plasma - The Kyokan Implementation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/monoplasma%3A-a-simple-way-to-broadcast-money/">Monoplasma- A simple way to broadcast money</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/top-5-ways-to-scale-your-ethereum-blockchain-application-%28dapp%29/">Top 5 ways to scale your Ethereum blockchain application (dApp)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling/plasma-roundup%3A-from-mvp-to-mainnet/">Plasma Roundup- From MVP to Mainnet</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Kotlin ❤ Web3</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kotlin%20%E2%9D%A4%20Web3/egge.gg-instant-payout-esports-tournaments-for-ethdenver2019/">EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kotlin%20%E2%9D%A4%20Web3/simple-kotlin-springboot-dapp-utilizing-web3j/">Simple Kotlin SpringBoot dApp utilizing web3j</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kotlin%20%E2%9D%A4%20Web3/how-to-achieve-user-authentication-by-web3-wallet-using-spring-security-jwts-web3j-and-kotlin/">How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kotlin%20%E2%9D%A4%20Web3/consuming-ethereum-events-to-kotlin-service-using-eventeum/">Consuming Ethereum Events To Kotlin Service Using Eventeum</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">ETHDenver 2019 Finalists and Winners</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/the-hack%21-what-is-a-hackathon/">The Hack?!? What is a hackathon?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/delfi%3A-an-on-chain-oracle-you-can-reason-about/">Delfi- An On-Chain Oracle You Can Reason About</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/bountibot%3A-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/">Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/safe-cdp/">Safe CDP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/ethvelcro/">EthVelcro</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/hashd-broadcast-on-the-distributed-web/">HashD - Broadcast on the Distributed Web</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/tidbits-smooth-web3-user-experience/">Tidbits - Smooth Web3 User Experience</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/nuvault-proxy-re-encrypted-secret-sharing/">NuVault - Proxy Re-Encrypted Secret Sharing</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/eth-dev-tools/">ETH Dev Tools</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/universal-wallet/">Universal Wallet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/open-curator/">Open Curator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/ethereum-2.0-beacon-chain-simulation/">Ethereum 2.0 Beacon Chain Simulation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/from-dev-to-production-multi-chain-environments-with-splunk/">From Dev to Production Multi-chain Environments with Splunk</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/ethasketch/">EthASketch</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/synchronous-cross-shard-transactions/">Synchronous Cross-shard Transactions</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/carbos%3A-more-than-a-carbon-market/">Carbos- More than a Carbon Market</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/wel-fair/">Wel-fair</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/jobsimple/">JobSimple</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/iq-donate/">IQ Donate</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/token-bonding-curves-for-social-impact-crowdfunding/">Token Bonding Curves for Social Impact Crowdfunding</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/zdai.io-confidential-transactions-on-burner-wallet-with-zksnarks/">zDai.io - confidential transactions on Burner wallet with zkSNARKs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver%202019%20Finalists%20and%20Winners/ethdenver-bounty-winners/">ETHDenver Bounty Winners</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Eventeum</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Eventeum/listening-to-ethereum-events-with-eventeum/">Listening to Ethereum Events with Eventeum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Eventeum/listening-for-ethereum-transactions-with-eventeum/">Listening for Ethereum Transactions with Eventeum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Eventeum/using-eventeum-to-build-a-java-smart-contract-data-cache/">Using Eventeum to Build a Java Smart Contract Data Cache</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Full Stack dApp Tutorial Series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/full-stack-dapp-tutorial-series-intro/">Full Stack dApp Tutorial Series - Intro</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/tools-for-dapp-development/">Tools for dApp development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/tools-for-working-with-solidity/">Tools for Working With Solidity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/remix-ide-your-first-smart-contract/">Remix IDE - Your first smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/understanding-smart-contract-compilation-and-deployment/">Understanding smart contract compilation and deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/truffle%3A-smart-contract-compilation-and-deployment/">Truffle- Smart Contract Compilation & Deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/truffle%3A-testing-your-smart-contract/">Truffle- Testing your smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/truffle%3A-adding-a-frontend-with-react-box/">Truffle- Adding a frontend with react box</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/embark%3A-smart-contract-compilation-and-deployment/">Embark- Smart Contract Compilation & Deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/embark%3A-testing-your-smart-contract/">Embark- Testing Your Smart Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/populus%3A-smart-contract-compilation-and-deployment/">Populus- Smart contract compilation and deployment</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/populus%3A-testing-your-smart-contract/">Populus- Testing your smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-microsoft-azure/">Deploying a full-stack dapp to Microsoft Azure</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/deploying-your-dapp-frontend-to-heroku/">Deploying Your dApp Frontend to Heroku</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-amazon-ec2/">Deploying a full-stack dApp to Amazon EC2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-google-cloud/">Deploying a full-stack dApp to Google Cloud</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Web3 Clients</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3%20Clients/understand-brave-browser-and-bat/">Understand Brave Browser and BAT</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3%20Clients/metamask-interact-with-ethereum-in-your-browser/">Metamask - Interact with Ethereum in your Browser</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3%20Clients/will-the-opera-web3-wallet-drive-adoption/">Will the Opera web3 wallet drive adoption?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Web3%20Clients/non-definitive-list-to-ethereum-block-explorers-not-just-etherscan%21/">Non-definitive list to Ethereum block explorers; not just Etherscan!</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">POA Tutorial series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../POA%20Tutorial%20series/poa-part-1-develop-and-deploy-a-smart-contract/">POA - Part 1 - Develop and deploy a smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../POA%20Tutorial%20series/poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain/">POA - Part 2 - Bridge assets between a sidechain and a mainchain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../POA%20Tutorial%20series/xdai/">xDai</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">SecurEth</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecurEth/secureth-guidelines-introduction/">SecurEth Guidelines Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecurEth/system-description-document/">System Description Document</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../SecurEth/secureth-guidelines-getting-started/">SecurEth Guidelines - Getting Started</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Tron</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tron/tron-quickstart/">Tron Quickstart</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tron/trc10-transfer-in-smart-contracts/">TRC10 Transfer in Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Tron/trc10-and-trc20-tokens/">TRC10 & TRC20 Tokens</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">IPFS 101</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS%20101/peer-to-peer-hypermedia-with-ipfs/">Peer-to-peer hypermedia with IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS%20101/installing-ipfs/">Installing IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../IPFS%20101/getting-started-with-mahuta-a-search-engine-for-the-ipfs/">Getting started with Mahuta - A Search engine for the IPFS</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Ethereum Community and Ecosystem analysis</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem%3A-crowd-psychology-analysis-part-1/">Ethereum community and its ecosystem- crowd psychology analysis part 1</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem%3A-crowd-psychology-analysis-part-2/">Ethereum community and its ecosystem- crowd psychology analysis part 2</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem%3A-needs-based-theories-of-motivation-approach/">Ethereum community and its ecosystem- Needs-Based Theories of Motivation approach</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem%3A-networks-visualisation-analysis/">Ethereum community and its ecosystem- Networks Visualisation Analysis</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem%3A-structural-analysis/">Ethereum community and its ecosystem- structural analysis</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">ZeppelinOS 101</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos%3A-introduction/">Smart Contract Utilities with ZeppelinOS- Introduction</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos%3A-installation-and-use/">Smart Contract Utilities with ZeppelinOS- Installation and Use</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos%3A-linking-publishing-and-vouching/">Smart Contract Utilities with ZeppelinOS- Linking, Publishing, and Vouching</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos%3A-deploying-to-mainnet/">Smart Contract Utilities with ZeppelinOS- Deploying to Mainnet</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">ConsenSys Projects</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/3box-social-profiles-for-web3-applications/">3Box - Social profiles for  web3 applications</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/openlaw-tutorial%3A-blockchain-enabled-legally-enforceable-smart-contracts/">OpenLaw Tutorial- Blockchain-Enabled, Legally Enforceable Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/infura-101-infrastructure-for-dapps/">Infura 101 - Infrastructure for Dapps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/truffle-101-development-tools-for-smart-contracts/">Truffle 101 - Development Tools for Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/listening-to-ethereum-events-with-eventeum/">Listening to Ethereum Events with Eventeum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/getting-started-with-mahuta-a-search-engine-for-the-ipfs/">Getting started with Mahuta - A Search engine for the IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/kaleido-the-blockchain-business-cloud/">Kaleido - the Blockchain Business Cloud</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/pantheon-the-enterprise-ethereum-client/">Pantheon - The Enterprise Ethereum Client</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ConsenSys%20Projects/nethereum-an-open-source-.net-integration-library-for-blockchain/">Nethereum - An open source .NET integration library for blockchain</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">OpenZeppelin 101</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin%20101/openzeppelin-part-1%3A-introductory/">OpenZeppelin Part 1- Introductory</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin%20101/openzeppelin-part-2%3A-access-control/">OpenZeppelin Part 2- Access Control</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin%20101/openzeppelin-part-3%3A-token-standards/">OpenZeppelin Part 3- Token Standards</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin%20101/openzeppelin-part-4%3A-crowdsales/">OpenZeppelin Part 4- Crowdsales</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../OpenZeppelin%20101/openzeppelin-part-5%3A-theres-more%21/">OpenZeppelin Part 5- There's More!</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">EVM package deployment with ZeppelinOS</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i%3A-introduction-and-creating-a-linkedlist-contract/">EVM package deployment with ZeppelinOS - Part I- Introduction and Creating a LinkedList Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii%3A-deploying-and-testing-a-linkedlist-contract/">EVM package deployment with ZeppelinOS - Part II- Deploying and Testing a LinkedList Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii%3A-linking-to-mainnet/">EVM package deployment with ZeppelinOS - Part III- Linking to mainnet</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">ETHDenver</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/using-kauri-at-the-ethdenver-hackathon/">Using Kauri at the ETHDenver Hackathon</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/share-your-knowledge-at-ethdenver-to-build-a-better-ecosystem/">Share your knowledge at ETHDenver to build a better ecosystem</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nucypher/">-BUIDL the Future of Privacy at ETHDenver with NuCypher</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/connect-your-smart-contracts-connected-to-real-world-data-with-chainlink/">Connect your smart contracts connected to real world data with Chainlink</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/rhombus-has-your-oracle-needs-covered-at-ethdenver/">Rhombus has your oracle needs covered at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/quick-guide-listing-dai-or-mkr-tokens-on-exchange/">Quick guide - Listing DAI or MKR tokens on exchange</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/keepers-on-makerdao%3A-resources/">Keepers on MakerDAO- Resources</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/quick-guide-integrating-dai-or-mkr-tokens-in-wallets/">Quick guide - Integrating DAI or MKR tokens in wallets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/query-blockchain-data-with-the-graph-at-ethdenver/">Query Blockchain Data with The Graph at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/api-based-asset-exchange-with-shapeshift-at-ethdenver/">API-based asset exchange with ShapeShift at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/make-your-dapps-accessible-with-portis-at-ethdenver/">Make your DApps accessible with Portis at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/geospatial-oracles-for-dapps-with-xyo-network-at-ethdenver/">GeoSpatial Oracles for DApps with XYO Network at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/bring-realtime-data-into-your-dapp-with-streamr-at-ethdenver/">Bring Realtime Data into your DApp with Streamr at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-ethdenver/">Bzx - the Decentralized Margin Lending Protocol at ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/poa-network-hackers-guide-for-ethdenver/">POA Network Hackers Guide for ETHDenver</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/get-started-with-zeppelinos%21/">Get started with ZeppelinOS!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019/">-BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/chat-browse-and-transact-securely-with-status/">Chat, browse and transact securely with Status</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/blocknative-sponsor-bounty-at-ethdenver-2019%21/">Blocknative - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/the-graph-sponsor-bounty-at-ethdenver-2019%21/">The Graph - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/rhombus-sponsor-bounty-at-ethdenver-2019%21/">Rhombus - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/salt-sponsor-bounty-at-ethdenver-2019%21/">SALT - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/skale-labs-sponsor-bounty-at-ethdenver-2019%21/">SKALE Labs - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/infura-sponsor-bounty-at-ethdenver-2019%21/">Infura - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/ideas-by-nature-sponsor-bounty-at-ethdenver-2019%21/">Ideas by Nature - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/gitcoin-sponsor-bounty-at-ethdenver-2019%21/">Gitcoin - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/chainlink-sponsor-bounty-at-ethdenver-2019%21/">Chainlink - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/zerion-sponsor-bounty-at-ethdenver-2019%21/">Zerion - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/nucypher-sponsor-bounty-at-ethdenver-2019%21/">NuCypher - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/portis-sponsor-bounty-at-ethdenver-2019%21/">Portis - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/xyo-sponsor-bounty-at-ethdenver-2019%21/">XYO - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/mainframe-sponsor-bounty-at-ethdenver-2019%21/">Mainframe - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/status.im-sponsor-bounty-at-ethdenver-2019%21/">Status.im - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/grid%2B-sponsor-bounty-at-ethdenver-2019%21/">Grid+ - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/imbrex-sponsor-bounty-at-ethdenver-2019%21/">Imbrex - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/zilliqa-sponsor-bounty-at-ethdenver-2019%21/">Zilliqa - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/fortmatic-sponsor-bounty-at-ethdenver-2019%21/">Fortmatic - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/zeppelin-sponsor-bounty-at-ethdenver-2019%21/">Zeppelin - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/aave-sponsor-bounty-at-ethdenver-2019%21/">Aave - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/shapeshift-sponsor-bounty-at-ethdenver-2019%21/">ShapeShift - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/quorum-sponsor-bounty-at-ethdenver-2019%21/">Quorum - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/poa-network-sponsor-bounty-at-ethdenver-2019%21/">POA Network - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/clearmatics-sponsor-bounty-at-ethdenver-2019%21/">Clearmatics - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/celer-network-sponsor-bounty-at-ethdenver-2019%21/">Celer Network - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/wyre-sponsor-bounty-at-ethdenver-2019%21/">Wyre - Sponsor Bounty at ETHDenver 2019!</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/bzx-sponsor-bounty-at-ethdenver-2019/">Bzx - Sponsor Bounty at ETHDenver 2019</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHDenver/set-labs-sponsor-bounty-at-ethdenver-2019/">Set Labs - Sponsor Bounty at ETHDenver 2019</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Ethereum 101</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-1-what-is-ethereum/">Ethereum 101 - Part 1 - What is Ethereum?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-2-understanding-nodes/">Ethereum 101 - Part 2 - Understanding Nodes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-3-consensus-protocols/">Ethereum 101 - Part 3 - Consensus Protocols</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-6-mainnet-and-testnets/">Ethereum 101 - Part 6 - Mainnet & Testnets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-7-decentralized-apps/">Ethereum 101 - Part 7 - Decentralized Apps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-explained%3A-merkle-trees-world-state-transactions-and-more/">Ethereum Explained- Merkle Trees, World State, Transactions, and More</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-5-the-smart-contract/">Ethereum 101 - Part 5 - The Smart Contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-4-accounts-transactions-and-messages/">Ethereum 101 - Part 4 - Accounts, Transactions, and Messages</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Ethereum%20101/ethereum-101-part-7-the-evm/">Ethereum 101 - Part 7 - The EVM</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Kauri news and announcements</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/share-your-ethereum-knowledge-and-write-for-kauri/">Share Your Ethereum Knowledge and Write for Kauri</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/november-27th-2018-newsletter/">November 27th 2018 Newsletter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/december-12th-2018-newsletter/">December 12th 2018 Newsletter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/january-2019-ethereum-grant-update/">January 2019 Ethereum Grant Update</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/january-9th-2019-newsletter/">January 9th 2019 Newsletter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/kauri-celebrates-500th-post/">Kauri celebrates 500th post</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/april-25th-2019-newsletter/">April 25th 2019 Newsletter</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/revision/">Revision</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Kauri%20news%20and%20announcements/codemotion-berlin/">Codemotion Berlin</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Status Embark</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Status%20Embark/chat-browse-and-transact-securely-with-status/">Chat, browse and transact securely with Status</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Status%20Embark/build-your-first-smart-contract-and-dapp-on-ethereum-with-embark-%28and-unit-tests%21%29/">Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!)</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Quick start web3.0 series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/remix-ide-your-first-smart-contract/">Remix IDE - Your first smart contract</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/truffle-101-development-tools-for-smart-contracts/">Truffle 101 - Development Tools for Smart Contracts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/getting-started-with-mahuta-a-search-engine-for-the-ipfs/">Getting started with Mahuta - A Search engine for the IPFS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/listening-to-ethereum-events-with-eventeum/">Listening to Ethereum Events with Eventeum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/getting-started-with-rhombus/">Getting started with Rhombus</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Quick%20start%20web3.0%20series/3box-social-profiles-for-web3-applications/">3Box - Social profiles for  web3 applications</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Scaling Today</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling%20Today/analysis%3A-the-state-of-ethereum-today/">Analysis- The State of Ethereum Today</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling%20Today/eli-ben-sasson-on-using-starks-to-scale-ethereum/">Eli Ben Sasson on using STARKs to scale Ethereum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling%20Today/insight-1%3A-documentation/">Insight - 1- Documentation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Scaling%20Today/insight-2%3A-teams/">Insight - 2- Teams</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Gitcoin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gitcoin/buidling-a-mesh-of-humans/">BUIDLing a Mesh of Humans</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gitcoin/setting-your-oss-repos-monetary-policy/">Setting your OSS repo’s monetary policy</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gitcoin/increasing-action-on-your-gitcoin-bounty/">Increasing Action On Your Gitcoin Bounty</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gitcoin/gitcoins-sprint-to-the-holidays/">Gitcoin’s Sprint To The Holidays</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Gitcoin/how-to-earn-money-while-workin-toward-hacktoberfest/">How to earn money while workin toward Hacktoberfest</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Blockchain Game Summit 2018</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/opening-keynote/">Opening Keynote</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/building-aaa-quality-blockchain-game-at-an-indie-studio/">Building AAA-Quality Blockchain Game at an Indie Studio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/we-broke-player-ownership.-lets-fix-it/">We Broke Player Ownership. Let's Fix It</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/blockchain-gaming%3A-a-question-of-design/">Blockchain Gaming- A Question of Design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/presenting-hashrush/">Presenting Hashrush</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/ethereum-scalability-today-and-tomorrow/">Ethereum Scalability, Today and Tomorrow</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/connecting-world-with-neverdie/">Connecting World With NEVERDIE</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/nano-challenges-on-eos/">Nano-challenges on EOS</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Blockchain%20Game%20Summit%202018/panel-%3A-building-communities/">Panel - Building Communities</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Non-Fungible Token Tutorial Series</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../Non-Fungible%20Token%20Tutorial%20Series/understanding-openzeppelin-erc721/">Understanding OpenZeppelin ERC721</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Non-Fungible%20Token%20Tutorial%20Series/tokens-owning-tokens%3A-erc998-and-composables/">Tokens Owning Tokens- ERC998 and Composables</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../Non-Fungible%20Token%20Tutorial%20Series/crypto-items-and-erc1155/">Crypto Items and ERC1155</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">ETHBerlin</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/a-thank-you-message-to-the-ethereum-community/">A Thank-You Message to the Ethereum Community</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/baking-utility-into-nfts/">Baking Utility into NFTs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/blockchain-diy/">Blockchain DIY</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/ethereum-from-a-full-nodes-perspective/">Ethereum from a Full Node's Perspective</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/knowledge-repos-small-talk-and-daos/">Knowledge Repos, Small Talk, and DAOs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/on-chain-governance-panel/">On-Chain Governance Panel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/open-source-banking/">Open Source Banking</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/practical-use-of-ethereum-for-the-sex-worker-community/">Practical Use of Ethereum for the Sex Worker Community</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/price-oracles-%2B-signed-messages-on-and-off-chain/">Price Oracles + Signed Messages On & Off-Chain</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/running-meta-blockchains-on-ethereum-to-scale-dapps/">Running Meta-Blockchains on Ethereum to Scale DApps</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/scaling-and-interoperability-panel/">Scaling & Interoperability Panel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/scaling-community-code-and-contributors/">Scaling Community, Code, & Contributors</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/sharding%3A-implementation-vs.-research/">Sharding- Implementation vs. Research</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/the-power-of-open-financial-primitives/">The Power of Open Financial Primitives</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/to-token-or-not-to-token/">To Token, Or Not To Token?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/token-engineering-panel/">Token Engineering Panel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/towards-a-humanist-blockchain-future/">Towards a Humanist Blockchain Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/true-decentralization/">True Decentralization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/were-all-in%3A-committed-to-a-decentralized-future/">We're All In- Committed to a Decentralized Future</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/decoding-community-what-drake-can-teach-you/">Decoding Community - What Drake Can Teach You</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/how-to-buidl-a-mesh-network-of-humans/">How to BUIDL a Mesh Network of Humans</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/why-are-you-here/">Why Are You Here?</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/playing-cat-and-mouse-with-the-evm/">Playing Cat and Mouse with the EVM</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/cicd-for-smart-contract-development/">CI/CD For Smart Contract Development</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/getting-started-with-web3-and-react/">Getting Started with Web3 and React</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/cdp-liquidator/">CDP Liquidator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/myens-wallet/">MyENS Wallet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/the-game-of-snarks/">The Game of Snarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/gorli-testnet/">Gorli Testnet</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/artonomous/">Artonomous</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/ethstonian-identity/">Ethstonian Identity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/pinata-overlay/">Piñata Overlay</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/smart-alert/">Smart Alert</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/sputnik/">Sputnik</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/sharding-poc/">Sharding PoC</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../ETHBerlin/good-badger/">Good Badger</a>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Kauri</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Open Finance (DeFi) &raquo;</li>
+        
+      
+        
+          <li>Communities & Collections &raquo;</li>
+        
+      
+    
+    <li>An Introduction to Bonding Curves</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="bonding-curves">Bonding Curves</h1>
+<p>The name is Bonding. Bonding Curves. Nothing to fear, bonding curves are pricing curves that mediate the supply of a token. Bonding curves play a crucial role in shaping the token economics for a given crypto ecosystem. With many crypto projects, games, and dApps spiking in popularity before becoming just a one-hit wonder, it is important for project teams looking to turn a positive launch into long-term success, building upon past hype for future success. Given the right incentives, participants can use the reliability of a bonding curve to continue supporting communities, ecosystems, and games beyond their first interaction.</p>
+<p>Much like a preorder system, you’re trying to address the demand that occurs given a constricted supply at the beginning. Even if you sell out, how do you leverage a successful product launch into continued excitement and participation with your brand?</p>
+<h2 id="inspired-by-bitcoin">Inspired by Bitcoin</h2>
+<p>Bonding curves mimic the behaviors of a fixed-supply, difficulty-adjusting Proof-of-Work blockchain like Bitcoin. The reason? As block-rewards halve, the marginal-effort or “cost” put into the network to mine a bitcoin, all being equal, doubles. As a result, to create a finite supply, the issuance adjustments create the effect of a bonding curve in offering up more coins at the beginning to bootstrap the popularity and growth of a network. Then later making its overall inflation rate lower over time to keep holders invested and interested in the long term sustainability of the project as a whole.</p>
+<p>This is another key goal for bonding curves - encouraging both past early adopters and new interested parties to have a reason to stick around. If the price picks up too quickly, the earliest investors stand the biggest to gain. However, if the curve is not steep enough, individuals are likely more hesitant to jump on, citing the rationale that they can participate at a later date, after seeing more progress, more adoption, or whatever reason, if the price is locked in to be relatively low. As a result, many projects seek a happy median between both. In this article, we explore the four main classes of underlying functions for bonding curves: linear, exponential, logarithmic, and logistic.</p>
+<h2 id="a-case-study-cryptokitties">A Case Study: Cryptokitties</h2>
+<p>Take the case of the most famous dApp, Cryptokitties. Cryptokitties is an interesting example, as it only provides a bonding curve for its rarest Gen 0 kitties. All other kitties are produced on the secondary market and not by the founding team themselves. This hybrid structure of the free market mediating the general supply of the “original” cryptokitties, and allowing the free market to dictate the value of different traits, different generations, etc., allows for a flexible framework for individuals to participate in. Thus, the low-end purchaser can still get their cheap Gen-4 kitties for 0.002 ETH, while the premium customer can bid for the rare Gen-0 kitties. This type of price curve allows for customer differentiation, providing different products with different prices such that the collective ecosystem can have aggregate network effects in terms of total participants of all shapes and sizes.</p>
+<p>This pricing also mediates the market price of secondary market Gen 0s - no individual would want to pay more for a lesser kitty. Gen-0 kitties also have a unique constraint on its bonding curve: a fixed supply. There will only ever be 50,000 Gen-0 kitties produced. This means that the bonding curve also has an asymptote, where the release of said tokens stops, regardless of the price you’re willing to pay to coerce a new Gen-0 kitty.</p>
+<p><img alt="Cryptokitties is one of the best examples of a price bonding curve" src="https://api.kauri.io:443/ipfs/QmdYY2q4fGsc9hSX8bm6aVeDJ25rS1NFNrYwsWgyrmFKGh" /></p>
+<p>Because of the immutability of releasing such a smart contract into the open public, the centralized entity that issued the contract is held to their promise, as if they deviate from the initial code for any unreasonable cause, they may torch their hard-earned committee and kill their revenue generating smart contract. If Cryptokitties were to try to print more than they stated, the community would call into question the scarcity of the ERC-721 tokens, and thus drop the value and willingness to pay for potential Cryptokitty customers.</p>
+<p>Cryptokitties also sets a price on its “siring” or “breeding” function, minting new cryptokitties from your existing cryptokitties.</p>
+<p>The cost of this breeding also sets a natural anchor for pricing of non-Gen 0 cryptokitties - if any “second-hand” (Gen &gt;=1) cryptokitty were offered at a price higher than the “newly bred” kitties, nobody would buy the second-hand ones, given equal or inferior attributes for these kitties.</p>
+<p>Thus, the Cryptokitties game features a few neat angles for mediating supply to ensure that individuals can still have a reason to participate in this game.</p>
+<p>The transparency of bonding curves encourages users to continue participating/discussing the project, well after its initial hype phase.</p>
+<p>Uniquely, because the team built Cryptokitties on Ethereum, the choice of currency to denominate the price of a bonding curve is also important. If it is not a stablecoin, it means that those who do not want exposure to any changes in the underlying price of the denominating currency, they must hold that coin or otherwise find ways to hedge out any fluctuations in price.</p>
+<p>Other bonding curves may be denominated in fiats or other currencies. If the underlying currency is expected to depreciate over time (due to supply inflation), the dApp’s bonding curve may need to grow at a rate to compensate for this.</p>
+<h2 id="linear-curves">Linear Curves</h2>
+<p>Dapper Labs, the team behind Cryptokitties, recently launched another game, Cheeze Wizards - in which the team created two different pricing curves: a flat and a linear curve. For its most basic Wizard, the entry price was 0.07 ETH. Thus, no matter how many people decided to purchase a Cheeze Wizard of this type, the price would remain constant.</p>
+<p>Meanwhile, there was an option for another type of Cheeze Wizard, for which each Wizard’s price was 0.01ETH higher than the one before it. This bonding curve would be described as a linear one, with the price being directly related to the level of adoption and demand. However, there’s an added element to this price curve - the “power attribute” of each Wizard is proportional to the price paid for it. This element combats the biggest issue with linearly-increasing bonding curves: a diminishing marginal incentive to participate.</p>
+<p>Typically, in a linear pricing curve, while each purchase equally increases the price for all participants (giving it an image of fairness), the earliest participants still have the highest potential returns, and the marginal percentage returns to the Nth customer are just 1/N, leading to a decay that makes it difficult to sustain sufficient network growth. The Cheeze Wizard set-up allows for later participants to be compensated in a different manner - a more powerful item.</p>
+<p><img alt="Cheeze Wizards" src="https://api.kauri.io:443/ipfs/QmYwoiSAL7qbcRj3ET85Mi9Gg2Cz4eiu7jGSXYyv5jDx7z" /></p>
+<p>Few bonding curves in practice act as purely linear, often because the difficulty of bootstrapping a network often requires a greater “penalty” for being a late bird vs being an early bird.</p>
+<p>For example, during the ICO craze of 2017, many ICOs offered steep discounts for earlier participants (either based on hard caps, rounds, or time tranches). These discounts mimic the properties of bonding curves, except that the price of these tokens often occurred before any product or network was deliverable.</p>
+<h2 id="exponential">Exponential</h2>
+<p>To give every participant the same marginal return for each additional participant, a bonding curve may exhibit features of an exponential function. As with many multi-level marketing schemes, Ponzi schemes, and the like, exponential rewards are hard to sustain and come at a great cost for whoever is the program’s sponsor. However, in many crypto networks, this “cost” may be borne by the token holders themselves in the form of total supply dilution. With exponential function-based Bonding curves, it is important to consider the implications of a continuously compounding and growing pricing function, as someone has to pay. Another consideration is that if the price of the curve rises too quickly, the equilibrium for the demand of the project may be met before it gains scale, as the price may reach impossible heights too quickly. There is also a limitation to the exponential growth - the total value of the coins or tokens that a smart contract may accept to pay for these. If one created a smart contract to collect 2^n ETH for the nth customer, this is bounded by the total supply of ETH today.</p>
+<p>In this 2^n example, with current ETH supply sitting at under 110 million, 2^27 would already be 134217728, so only 26 customers are even possible.</p>
+<p>Even if the common ratio of this exponential function is lower, or for linear pricing curves with a low slope, there is still a risk that the price can be unbounded, making it difficult to predict or project how adoption may continue beyond initial users.</p>
+<p>Speaking of Ponzi schemes, the Fomo3D dApp creates incentives to be the “last purchaser” of a key, making the value of holding the last key of a round worth the entire pot size, and all previous purchasers’ keys worthless. This creates a price curve in which there is no price (or even gas fees) that individuals should pay for certain keys. It creates a time frame in which an individual should not bid up and render their previous purchase worthless, and a huge bounty for individuals who can mine/clog the Ethereum network, or otherwise exploit the smart contract that mediates this function.</p>
+<p><img alt="Fomo3D saw a lot of activity in 2018, with a designed on-chain Ponzi-like scheme." src="https://api.kauri.io:443/ipfs/QmZcQaUEFqrSAYM47om7HRoN67s28D8zSEtfEi773dwsLR" /></p>
+<p>Thus, on-chain bonding curves are not immune to exploits by default; developers must design them with care such that individuals can be confident in the way that they work - otherwise, their predictability, and their usability, may be significantly affected.</p>
+<p>All curves are nominal in nature, and if not denominated in a stablecoin, must be benchmarked to the growth of other things in the space. For example, if a pricing curve was <code>y = x^2</code>, with <code>X</code> being the price of ETH, but ETH fell to its square root at every time <code>t</code> in the future, then you’d have a fixed price in “real” fiat terms. Holding an asset early would’ve meant appreciating in ETH terms but no change or reward in real terms of USD.</p>
+<p>Consequently, as much as many staking mechanisms are promising high nominal interest rates, bonding curve growth must also be treated with a grain of salt in regards to whether or not their “advertised” growth is likely to come to fruition.</p>
+<h2 id="logarithmic">Logarithmic</h2>
+<p>In the most popular choice for bonding curves, many projects choose some logarithmic form for the basis of their bonding curves. The release of supply for a coin often mirrors this type of function as well, as many tokens have a finite, capped eventual circulating supply. However, log formulas are not without their drawbacks. The primary concern is the initial marginal increase in price. Since the early adopters see the most substantial marginal rewards for joining, bonding curves of this nature often create a sense of “FOMO”, encouraging individuals to get in early. However, with many other hands entering at the same time, and shortly after that, the supply dilution of the previously scarce good is also steep. Consequently, individuals participating in the early adoption phases may suffer from higher volatility conditions than later adopters.</p>
+<p>With the derivative of a log function in the form <code>1/x</code>, the marginal discount of being earlier by one person in adoption is much higher than the marginal discount when the product is established. Mirroring the inverse of the network effect, it makes sense that early adopters (who have the hardest time helping the network grow) are compensated the most for support during the crucial initial stages, whereas the additional referral at platform maturity does little in spurring future growth of the platform. Thus, logarithmic functions provide the best “FOMO-inducing” structure to encourage early participants to ride a wave of rapid growth, before quickly reducing the marginal rewards for participation.</p>
+<p>In the long run, just as the Cheeze Wizards example demonstrated, more and more bonding curves may be applied to more than just prices, but other valuable assets such as governance rights, market influence, or other levers of power within crypto communities. What has been explored thus far is where the price is the key variable at play. However, for token ecosystems with governance or other rights of participation - having an asset in hand earlier may, in fact, be more valuable for network participation purposes.</p>
+<p>Imagine being able to have a vote on project parameters amongst a relatively rare supply of Voting Wizards, where one vote has a more significant voice on the governance of the project when the community (supply) is small. Over time, as more are issued, bought, or found, the one vote out of the total becomes less and less powerful at a <code>1/n</code> rate.</p>
+<h2 id="logistic">Logistic</h2>
+<p>The last type of bonding curve, which may be one that will become more popular in future projects, is a logistic curve. Logistic curves try to incorporate some features of both exponential and logarithmic functions. In terms of convexity, a logistic function is divided into three segments, an initial slow growth phase, a step-growth phase, and a second slow phase approaching a finite value. The first initial slow phase intentionally weeds out the short term opportunist, so that those just looking for short term speculative gains are deterred.</p>
+<p>However, the difficulty in growing ecosystems or communities is that nobody ever knows when hockey stick growth can or will happen. As a result, a bonding curve that can trigger the “fast growth phase” based on a certain set of network metrics on adoption, either directly on chain or through a governance vote, may be able to usher in the second phase - a rapid expansion to give a project a significant speed boost in growth. Once the network grows to a sustainable, significant level, the same mechanism can be used to taper the price increases, eventually reaching a finite redemption value.</p>
+<p>This type of pricing structure is particularly relevant for “completable projects”, for which further development or other growth is not necessary. Once a certain group or platform attains a critical level of users, it becomes an evergreen product, then the creators of the network can exit the project at a flat value, and allow others to build secondary, layer-two products on top of it.</p>
+<p>Overall, the importance of a well-designed bonding curve is made clearer by the increasing presence of DeFi applications that are slowly becoming more efficient in determining the time value of value locked in crypto networks. Bonding curves can help anchor or influence the “time value” of participation in the network, helping projects overcome the issues of initial hype and demand as well as sustaining continued support from their communities.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../incentivizing-high-quality-curation-with-a-token-curated-registry/" class="btn btn-neutral float-right" title="Incentivizing high-quality curation with a Token-Curated Registry">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../set-protocol%3A-baskets-of-tokenized-assets/" class="btn btn-neutral" title="Set Protocol- Baskets of tokenized assets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../set-protocol%3A-baskets-of-tokenized-assets/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../incentivizing-high-quality-curation-with-a-token-curated-registry/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
