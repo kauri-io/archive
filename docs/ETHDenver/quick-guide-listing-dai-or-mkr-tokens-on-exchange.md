@@ -1,6 +1,6 @@
 ---
 title: Quick guide - Listing DAI or MKR tokens on exchange
-summary: Github page  Quick guide - Listing DAI or MKR tokens on exchange This document contains the necessary resources for an exchange to integrate the DAI and MKR ERC-20 tokens.Prerequisites This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the Maker platform.Token contracts In order to interact directly with the tokens, you can find the Ethereum mainnet smart contract addresses, source code, and ABIs in the links below. The tokens follow the ERC20
+summary: Github page- Quick guide - Listing DAI or MKR tokens on exchange This document contains the necessary resources for an exchange to integrate the DAI and MKR ERC-20 tokens.Prerequisites This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the Maker platform.Token contracts In order to interact directly with the tokens, you can find the Ethereum mainnet smart contract addresses, source code, and ABIs in the links below. The tokens follow the ERC20
 authors:
   - David Utrobin (@davidutro)
 date: 2019-02-06

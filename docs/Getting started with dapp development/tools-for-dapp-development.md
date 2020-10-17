@@ -1,6 +1,6 @@
 ---
 title: Tools for dApp development
-summary: This article will introduce you to the relevant tools required for developing a simple dApp. We will introduce tools in the following areas  Smart Contract Programming Languages Web3 Libraries Development frameworks IDEs Development blockchains Ethereum Networks Wallets (Key Stores) SaaS / Cloud Infra Data Storage Smart Contract Programming Languages Because a smart contract is deployed on the blockchain in its bytecode form, any language that comes with an EVM compiler could be used to write a
+summary: This article will introduce you to the relevant tools required for developing a simple dApp. We will introduce tools in the following areas- Smart Contract Programming Languages Web3 Libraries Development frameworks IDEs Development blockchains Ethereum Networks Wallets (Key Stores) SaaS / Cloud Infra Data Storage Smart Contract Programming Languages Because a smart contract is deployed on the blockchain in its bytecode form, any language that comes with an EVM compiler could be used to write a
 authors:
   - Josh Cassidy (@joshorig)
 date: 2019-01-16

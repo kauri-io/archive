@@ -1,6 +1,6 @@
 ---
 title: Celer Network - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Celer Network is a leading layer 2 scaling platform that enables fast, easy and secure off-chain transactions for not only payment transactions, but also generalized off-chain smart contract. It enables everyone to quickly build, operate, and use highly scalable decentralized applications through innovations in off-chain scaling techniques and incentive-aligned cryptoeconomics. Bounty 1 Overview  cGamer Description: If you are able to build ANY game using Cel
+summary: Company/Project Name and Description Celer Network is a leading layer 2 scaling platform that enables fast, easy and secure off-chain transactions for not only payment transactions, but also generalized off-chain smart contract. It enables everyone to quickly build, operate, and use highly scalable decentralized applications through innovations in off-chain scaling techniques and incentive-aligned cryptoeconomics. Bounty 1 Overview- cGamer Description- If you are able to build ANY game using Cel
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-16

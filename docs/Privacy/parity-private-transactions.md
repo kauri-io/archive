@@ -1,6 +1,6 @@
 ---
 title: Parity - Private Transactions
-summary: Parity Ethereums private transactions feature allows to store, modify and view encrypted data on the Ethereum blockchain. The solution is agnostic to the type of the chain. You can deploy it on any Ethereum based chain with any consensus algorithm. To learn how to implement the private transactions feature, follow this tutorial. Terminology Public contract  A specifically crafted smart contract deployed on Ethereum blockchain that wraps a private contract. See the source of the contract. The pub
+summary: Parity Ethereums private transactions feature allows to store, modify and view encrypted data on the Ethereum blockchain. The solution is agnostic to the type of the chain. You can deploy it on any Ethereum based chain with any consensus algorithm. To learn how to implement the private transactions feature, follow this tutorial. Terminology Public contract- A specifically crafted smart contract deployed on Ethereum blockchain that wraps a private contract. See the source of the contract. The pub
 authors:
   - Kauri Team (@kauri)
 date: 2019-05-01

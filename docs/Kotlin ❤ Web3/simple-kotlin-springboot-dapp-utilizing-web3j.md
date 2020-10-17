@@ -1,6 +1,6 @@
 ---
 title: Simple Kotlin SpringBoot dApp utilizing web3j
-summary: Are you sick of web3js? I know I am! We are still forced to use it on the frontend but that doesnt mean that our backend event listeners and backend contract interactions have to go through this pile of poorly documented crap. I want to introduce you to a great alternative that Ive been using to write the backend of my dApps. First create a spring boot application  https://start.spring.io/ Pick Maven + Kotlin + latest version (Im using 2.1.4) + you can leave the names as is or give it something
+summary: Are you sick of web3js? I know I am! We are still forced to use it on the frontend but that doesnt mean that our backend event listeners and backend contract interactions have to go through this pile of poorly documented crap. I want to introduce you to a great alternative that Ive been using to write the backend of my dApps. First create a spring boot application- https-//start.spring.io/ Pick Maven + Kotlin + latest version (Im using 2.1.4) + you can leave the names as is or give it something
 authors:
   - Hayder Sharhan (@hshar)
 date: 2019-04-14

@@ -1,6 +1,6 @@
 ---
 title: Fortmatic - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Fortmatic Inc. Fortmatic enables developers to build Web3 DApps without requiring users to download browser extensions or mobile apps before interacting with them. This can be done by adding a couple lines of code, without needing to change any existing Web3 implementation! Bounty 1 Overview  Build user-friendly DApps using Fortmatic for identity management Description: Build a DApp project at the hackathon with amazing user experience by integrating with For
+summary: Company/Project Name and Description Fortmatic Inc. Fortmatic enables developers to build Web3 DApps without requiring users to download browser extensions or mobile apps before interacting with them. This can be done by adding a couple lines of code, without needing to change any existing Web3 implementation! Bounty 1 Overview- Build user-friendly DApps using Fortmatic for identity management Description- Build a DApp project at the hackathon with amazing user experience by integrating with For
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

@@ -1,6 +1,6 @@
 ---
 title: Introduction to MimbleWimble and Grin
-summary: This article is originally part of the grin documentation You can learn how to get started with grin here Read this in other languages , 简体中文, Español, Nederlands, Русский, 日本語, Deutsch, Portuguese, Korean. MimbleWimble is a blockchain format and protocol that provides extremely good scalability, privacy and fungibility by relying on strong cryptographic primitives. It addresses gaps existing in almost all current blockchain implementations. Grin is an open source software project that implement
+summary: This article is originally part of the grin documentation You can learn how to get started with grin here Read this in other languages-, 简体中文, Español, Nederlands, Русский, 日本語, Deutsch, Portuguese, Korean. MimbleWimble is a blockchain format and protocol that provides extremely good scalability, privacy and fungibility by relying on strong cryptographic primitives. It addresses gaps existing in almost all current blockchain implementations. Grin is an open source software project that implement
 authors:
   - Kauri Team (@kauri)
 date: 2019-04-23

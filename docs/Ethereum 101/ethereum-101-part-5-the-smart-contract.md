@@ -1,6 +1,6 @@
 ---
 title: Ethereum 101 - Part 5 - The Smart Contract
-summary: Quick Overview The term smart contract is an ubiquitous term with varying definitions across the greater blockchain ecosystem. Smart contracts are just computer programs. In the context of Ethereum, smart contracts refer to the source code of EVM-specific, special-purpose programming languages  Solidity, Vyper, LLL, Bamboo, and Serpent. There are good reasons for using built-for-purpose languages to write smart contracts, but they will not be discussed in this documentation. To make an attempt a
+summary: Quick Overview The term smart contract is an ubiquitous term with varying definitions across the greater blockchain ecosystem. Smart contracts are just computer programs. In the context of Ethereum, smart contracts refer to the source code of EVM-specific, special-purpose programming languages- Solidity, Vyper, LLL, Bamboo, and Serpent. There are good reasons for using built-for-purpose languages to write smart contracts, but they will not be discussed in this documentation. To make an attempt a
 authors:
   - Wil Barnes (@wil)
 date: 2019-02-13

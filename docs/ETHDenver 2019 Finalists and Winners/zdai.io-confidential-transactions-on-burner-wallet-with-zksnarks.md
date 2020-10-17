@@ -1,6 +1,6 @@
 ---
 title: zDai.io - confidential transactions on Burner wallet with zkSNARKs
-summary: Project Name zDai.io - confidential transactions on Burner wallet with zkSNARKs Project Tagline/Description (140 Characters Max. Will be used on table card for judging) From this day Burner wallet it also support confidential transactions. Luckily we can solve this issue with zkSNARKs! Team Members. First and Last Names Petr Korolev, Igor Gulamov, Roman Semenov, Alina Aseeva Status.im ID for Each Team Member (we will use this to contact you and your team) Code for Petr Korolev  0x04f650f149b4423
+summary: Project Name zDai.io - confidential transactions on Burner wallet with zkSNARKs Project Tagline/Description (140 Characters Max. Will be used on table card for judging) From this day Burner wallet it also support confidential transactions. Luckily we can solve this issue with zkSNARKs! Team Members. First and Last Names Petr Korolev, Igor Gulamov, Roman Semenov, Alina Aseeva Status.im ID for Each Team Member (we will use this to contact you and your team) Code for Petr Korolev- 0x04f650f149b4423
 authors:
   - null (@null)
 date: 2019-02-17

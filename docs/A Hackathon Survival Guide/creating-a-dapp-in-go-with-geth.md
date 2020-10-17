@@ -1,6 +1,6 @@
 ---
 title: Creating a DApp in Go with Geth
-summary: Go Ethereum (or Geth) is the official Go implementation of the Ethereum protocol. The Go Ethereum GitHub repository holds source code for the Geth Ethereum client and other tools and libraries for developing DApps (decentralized applications). This guide walks through writing a riddle application in Go, using the Go Ethereum SDK and the Rinkeby testnet. You can find the sample code for this guide here. Why write DApps using Go? Writing a DApp typically involves two steps  Writing the contract co
+summary: Go Ethereum (or Geth) is the official Go implementation of the Ethereum protocol. The Go Ethereum GitHub repository holds source code for the Geth Ethereum client and other tools and libraries for developing DApps (decentralized applications). This guide walks through writing a riddle application in Go, using the Go Ethereum SDK and the Rinkeby testnet. You can find the sample code for this guide here. Why write DApps using Go? Writing a DApp typically involves two steps- Writing the contract co
 authors:
   - Zed (@zed)
 date: 2019-02-03

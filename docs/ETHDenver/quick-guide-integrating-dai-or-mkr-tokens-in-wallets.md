@@ -1,6 +1,6 @@
 ---
 title: Quick guide - Integrating DAI or MKR tokens in wallets
-summary: Github page  https://github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.mdQuick guide - Integrating DAI or MKR tokens in wallets This document contains the necessary resources to integrate the DAI and MKR ERC-20 tokens into a wallet.Prerequisites This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the Maker platform.Token contracts In order to interact directly with the tokens, you can find the Ethereum ma
+summary: Github page- https-//github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.mdQuick guide - Integrating DAI or MKR tokens in wallets This document contains the necessary resources to integrate the DAI and MKR ERC-20 tokens into a wallet.Prerequisites This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the Maker platform.Token contracts In order to interact directly with the tokens, you can find the Ethereum ma
 authors:
   - David Utrobin (@davidutro)
 date: 2019-02-06

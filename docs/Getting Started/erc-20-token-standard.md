@@ -1,6 +1,6 @@
 ---
 title: ERC-20 Token Standard
-summary: Simple Summary A standard interface for tokens. Abstract The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party. Motivation A standard interface allows any tokens on Ethereum to be re-used by other applications  from wallets to decentralized exchanges. Specification Token Methods NOTES: - The
+summary: Simple Summary A standard interface for tokens. Abstract The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party. Motivation A standard interface allows any tokens on Ethereum to be re-used by other applications- from wallets to decentralized exchanges. Specification Token Methods NOTES- - The
 authors:
   - Kauri Team (@kauri)
 date: 2019-04-16

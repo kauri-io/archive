@@ -1,6 +1,6 @@
 ---
 title: Ethereum 2.0 Beacon Chain Simulation
-summary: Project Name Beacon Thugs n Harmony Project Tagline/Description Ethereum 2.0 Beacon Chain Simulation. Team Members. First and Last Names Richard Ma, Nathan Frenette, Poming Lee, Derek Alia Status.im ID for Each Team Member https //get.status.im/user/0x04eb427697caf4cf2334aa814657801b1f138f908f180cc4f60a7e87d5fd45fc0963416a91aa943cd8edfd232c866b0bd0eaab1a9c6168ee781f8bf79c85a821c9 Detailed Project Description Implements a simulation for the sharded pos ethereum 2.0. The Eth 2.0 Spec is very diffi
+summary: Project Name Beacon Thugs n Harmony Project Tagline/Description Ethereum 2.0 Beacon Chain Simulation. Team Members. First and Last Names Richard Ma, Nathan Frenette, Poming Lee, Derek Alia Status.im ID for Each Team Member https-//get.status.im/user/0x04eb427697caf4cf2334aa814657801b1f138f908f180cc4f60a7e87d5fd45fc0963416a91aa943cd8edfd232c866b0bd0eaab1a9c6168ee781f8bf79c85a821c9 Detailed Project Description Implements a simulation for the sharded pos ethereum 2.0. The Eth 2.0 Spec is very diffi
 authors:
   - Richard Ma (@rtmqsp)
 date: 2019-02-17

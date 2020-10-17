@@ -1,6 +1,6 @@
 ---
 title: Listening for Ethereum Smart Contract Events in Java
-summary: Other articles in this series  - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Generate a Java Wrapper from your Smart Contract - Interacting with an Ethereum Smart Contract in Java - Using Pantheon, the Java Ethereum Client with Linux What is a Smart Contract Event You can emit an event from any smart contract function triggered by a transaction, and they are an important piece of the Ethereum application architecture puzzle. Th
+summary: Other articles in this series- - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Generate a Java Wrapper from your Smart Contract - Interacting with an Ethereum Smart Contract in Java - Using Pantheon, the Java Ethereum Client with Linux What is a Smart Contract Event You can emit an event from any smart contract function triggered by a transaction, and they are an important piece of the Ethereum application architecture puzzle. Th
 authors:
   - Craig Williams (@craig)
 date: 2019-07-22

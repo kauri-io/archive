@@ -1,6 +1,6 @@
 ---
 title: Will the Opera web3 wallet drive adoption?
-summary: A year or so ago I wanted to replace Google Chrome as my main browser. Why? First I was unsure and uncomfortable with the potential amount of data shared with Google. Second Chrome now reminds me too much of Internet Explorer in the 90s and early 2000s, where certain websites and features would only work in one browser, going against the entire concept of an open internet. I embarked on testing all of the alternative browsers to find one that suited me  Firefox: I like that Firefox is open sourc
+summary: A year or so ago I wanted to replace Google Chrome as my main browser. Why? First I was unsure and uncomfortable with the potential amount of data shared with Google. Second Chrome now reminds me too much of Internet Explorer in the 90s and early 2000s, where certain websites and features would only work in one browser, going against the entire concept of an open internet. I embarked on testing all of the alternative browsers to find one that suited me- Firefox- I like that Firefox is open sourc
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-04-24

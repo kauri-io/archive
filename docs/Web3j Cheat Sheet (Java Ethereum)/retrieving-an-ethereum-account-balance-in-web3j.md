@@ -1,6 +1,6 @@
 ---
 title: Retrieving an Ethereum Account Balance in Web3j
-summary: Balance at Current Block To obtain the balance of an account in java with web3j at the current block, the following code snippet can be used //Connect to node.
+summary: Balance at Current Block To obtain the balance of an account in java with web3j at the current block, the following code snippet can be used-//Connect to node.
 authors:
   - Craig Williams (@craig)
 date: 2019-12-18

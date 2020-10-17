@@ -1,6 +1,6 @@
 ---
 title: Portis - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and DescriptionPortis By embedding the Portis SDK with a couple of lines of code, DApp developers allow their users to enjoy a built-in web3-capable wallet in their existing browser, no installation required. And thanks to its end-to-end encryption architecture, users maintain absolute control over their private keys, all through a simple and familiar email and password login method. Bounty 1 Overview  🛴 Take er for a spin! Description: If you created a functional DApp as p
+summary: Company/Project Name and DescriptionPortis By embedding the Portis SDK with a couple of lines of code, DApp developers allow their users to enjoy a built-in web3-capable wallet in their existing browser, no installation required. And thanks to its end-to-end encryption architecture, users maintain absolute control over their private keys, all through a simple and familiar email and password login method. Bounty 1 Overview- 🛴 Take er for a spin! Description- If you created a functional DApp as p
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

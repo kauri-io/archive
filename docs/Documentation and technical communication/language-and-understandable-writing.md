@@ -1,6 +1,6 @@
 ---
 title: Language and understandable writing
-summary: I appreciate that not everyone who writes documentation is a native English speaker, or even if they are, may not understand the best way to write clearly and concisely. Many native English speakers had our last grammar lesson more than 20 years ago, and have learnt the tips and tricks we now use as professional writers recently. There are three important things to remember to justify the time and effort of making your writing more understandable  English is often a default language for technica
+summary: I appreciate that not everyone who writes documentation is a native English speaker, or even if they are, may not understand the best way to write clearly and concisely. Many native English speakers had our last grammar lesson more than 20 years ago, and have learnt the tips and tricks we now use as professional writers recently. There are three important things to remember to justify the time and effort of making your writing more understandable- English is often a default language for technica
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-11-18

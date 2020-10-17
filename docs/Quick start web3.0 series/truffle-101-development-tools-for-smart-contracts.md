@@ -1,6 +1,6 @@
 ---
 title: Truffle 101 - Development Tools for Smart Contracts
-summary: Truffle is a suite of tools to help Dapp developers build, deploy and manage their applications. The three tools provide a stack for managing the development lifecycle of an application similar to those you may have used with other languages and frameworks. These are  Ganache, for starting a personal test Ethereum blockchain on your machine. Truffle, for managing the lifecycle of smart contracts and the artifacts your contracts need. Drizzle, a collection of front-end libraries for standardizing
+summary: Truffle is a suite of tools to help Dapp developers build, deploy and manage their applications. The three tools provide a stack for managing the development lifecycle of an application similar to those you may have used with other languages and frameworks. These are- Ganache, for starting a personal test Ethereum blockchain on your machine. Truffle, for managing the lifecycle of smart contracts and the artifacts your contracts need. Drizzle, a collection of front-end libraries for standardizing
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2018-12-04

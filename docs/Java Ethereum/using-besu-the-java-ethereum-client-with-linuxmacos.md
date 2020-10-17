@@ -1,6 +1,6 @@
 ---
 title: Using Besu, the Java Ethereum Client with Linux/MacOS
-summary: Toolbelt  Besu included! Original photo by Jesse Orrico Update: Pantheon is now Hyperledger Besu. For more information, see here. This is the Linux/MacOS version of an article on installing Besu, the Java client for Ethereum: Linux Windows Having some powerful tools in your toolbelt is essential for a Java developer, and one of the crucial tools for an Ethereum blockchain developer is the network client. This is the piece of software that communicates data to and from the blockchain. Among other
+summary: Toolbelt- Besu included! Original photo by Jesse Orrico Update- Pantheon is now Hyperledger Besu. For more information, see here. This is the Linux/MacOS version of an article on installing Besu, the Java client for Ethereum- Linux Windows Having some powerful tools in your toolbelt is essential for a Java developer, and one of the crucial tools for an Ethereum blockchain developer is the network client. This is the piece of software that communicates data to and from the blockchain. Among other
 authors:
   - Felipe Faraggi (@felipefaraggi)
 date: 2019-11-22

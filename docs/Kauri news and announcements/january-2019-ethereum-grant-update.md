@@ -1,6 +1,6 @@
 ---
 title: January 2019 Ethereum Grant Update
-summary: Welcome to 2019, and what promises to be an interesting year in the Crypto and Blockchain space. Last year we announced our $25,000 grant program for funding technical content thanks to the Ethereum Foundation. Were still looking for writers to contribute content on the following topics  Cryptoeconomic Primitives Token-Curated Registries (TCRs) Bonding Curves Staking Advanced Introductory Tutorials Assembly in Solidity Ethereum for Rust Developers Cryptocollectibles Cryptoitems with ERC1155 Comp
+summary: Welcome to 2019, and what promises to be an interesting year in the Crypto and Blockchain space. Last year we announced our $25,000 grant program for funding technical content thanks to the Ethereum Foundation. Were still looking for writers to contribute content on the following topics- Cryptoeconomic Primitives Token-Curated Registries (TCRs) Bonding Curves Staking Advanced Introductory Tutorials Assembly in Solidity Ethereum for Rust Developers Cryptocollectibles Cryptoitems with ERC1155 Comp
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-01-09

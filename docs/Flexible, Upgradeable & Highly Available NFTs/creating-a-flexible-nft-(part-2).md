@@ -1,6 +1,6 @@
 ---
 title: Creating a Flexible NFT (Part 2)
-summary: Part 2 Step 1  Make new netlify project We begin Part 2 by creating a web page in the same folder as the rest of our code.touch ./index.html && echo hello world : ) > ./index.html Great thats a beautiful website! Lets deploy it to the internet. Create a git repo, commit your code, and push to the origin:git add . && git commit -m 'new website' && git push -u origin master I use netlify for hosting because they have an all in one package for deploying sites from repositories, running a build proc
+summary: Part 2 Step 1- Make new netlify project We begin Part 2 by creating a web page in the same folder as the rest of our code.touch ./index.html && echo hello world - ) > ./index.html Great thats a beautiful website! Lets deploy it to the internet. Create a git repo, commit your code, and push to the origin-git add . && git commit -m 'new website' && git push -u origin master I use netlify for hosting because they have an all in one package for deploying sites from repositories, running a build proc
 authors:
   - Billy Rennekamp (@okwme)
 date: 2019-06-25

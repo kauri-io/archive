@@ -1,6 +1,6 @@
 ---
 title: Clearmatics - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Clearmatics At Clearmatics, we are designing, building and deploying Ethereum-based peer-to-peer platforms for financial market participants to transact seamlessly and securely without unnecessary intermediaries. We call our approach “decentralised automation”, which combines cryptography, consensus protocols and economic mechanism design to push towards a future state of dFMI (distributed Financial Market Infrastructure). Bounty 1 Overview  #BUIDL The ION Pr
+summary: Company/Project Name and Description Clearmatics At Clearmatics, we are designing, building and deploying Ethereum-based peer-to-peer platforms for financial market participants to transact seamlessly and securely without unnecessary intermediaries. We call our approach “decentralised automation”, which combines cryptography, consensus protocols and economic mechanism design to push towards a future state of dFMI (distributed Financial Market Infrastructure). Bounty 1 Overview- -BUIDL The ION Pr
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

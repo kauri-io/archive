@@ -1,6 +1,6 @@
 ---
 title: Zerion - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Zerion is building a trustless bank for Decentralized Finance (DeFi). We aim at transforming the decentralized finance experience to drive the next wave of adoption of blockchain-based finance. Instead of relying on a third party to manage their assets (such as through traditional banking and existing FinTech), Zerion users keep full control over their assets and execute common banking services with minimal fees. Bounty 1 Overview  The best financial product
+summary: Company/Project Name and Description Zerion is building a trustless bank for Decentralized Finance (DeFi). We aim at transforming the decentralized finance experience to drive the next wave of adoption of blockchain-based finance. Instead of relying on a third party to manage their assets (such as through traditional banking and existing FinTech), Zerion users keep full control over their assets and execute common banking services with minimal fees. Bounty 1 Overview- The best financial product
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

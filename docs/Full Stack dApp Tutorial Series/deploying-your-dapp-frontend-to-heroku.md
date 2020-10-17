@@ -1,6 +1,6 @@
 ---
 title: Deploying Your dApp Frontend to Heroku
-summary: Deploying Your App to Heroku Earlier in the series, we deployed our Bounties.sol smart contract using Truffle, and added a react.js front end to interact with the contract through a web browser. In this tutorial we deploy our front-end application to Heroku. This tutorial uses the source code from the tutorial, Truffle  Adding a frontend with react box. You have to add a Procfile to the project, but no other changes are required. Heroku Heroku is a Platform-as-a-Service (PaaS) that enables devel
+summary: Deploying Your App to Heroku Earlier in the series, we deployed our Bounties.sol smart contract using Truffle, and added a react.js front end to interact with the contract through a web browser. In this tutorial we deploy our front-end application to Heroku. This tutorial uses the source code from the tutorial, Truffle- Adding a frontend with react box. You have to add a Procfile to the project, but no other changes are required. Heroku Heroku is a Platform-as-a-Service (PaaS) that enables devel
 authors:
   - Crawford Leeds (@crawfordleeds)
 date: 2019-08-23

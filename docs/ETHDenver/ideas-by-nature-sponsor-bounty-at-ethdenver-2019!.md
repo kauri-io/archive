@@ -1,6 +1,6 @@
 ---
 title: Ideas by Nature - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Ideas by Nature We work alongside blockchain innovators to deliver creative solutions, useful products, and thoughtful brands. We are interested in creative solutions to solve common blockchain related problems. Bounty 1 Overview  Most User-Friendly Onboarding Process Description: How would you onboard someone who has no prior knowledge of your technology or application? This bounty will be awarded to the team/project that communicates and guides the user thr
+summary: Company/Project Name and Description Ideas by Nature We work alongside blockchain innovators to deliver creative solutions, useful products, and thoughtful brands. We are interested in creative solutions to solve common blockchain related problems. Bounty 1 Overview- Most User-Friendly Onboarding Process Description- How would you onboard someone who has no prior knowledge of your technology or application? This bounty will be awarded to the team/project that communicates and guides the user thr
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

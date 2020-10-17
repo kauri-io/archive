@@ -1,6 +1,6 @@
 ---
 title: Universal Wallet
-summary: Project Name Universal Wallet Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A Universal Login Wallet, that on boards users in just couple of steps using counterfactual deployment, universal logins and ability to buy dai with debit/credit card through Wyre. Team Members. First and Last Names Kyle Bryant Marek Kirejczyk Makoto Inoue Status.im ID for Each Team Member (we will use this to contact you and your team) Kyle Bryant | Telegram ID  @kyrrui (Status
+summary: Project Name Universal Wallet Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A Universal Login Wallet, that on boards users in just couple of steps using counterfactual deployment, universal logins and ability to buy dai with debit/credit card through Wyre. Team Members. First and Last Names Kyle Bryant Marek Kirejczyk Makoto Inoue Status.im ID for Each Team Member (we will use this to contact you and your team) Kyle Bryant | Telegram ID- @kyrrui (Status
 authors:
   - Kyle Bryant (@kyrrui)
 date: 2019-02-17

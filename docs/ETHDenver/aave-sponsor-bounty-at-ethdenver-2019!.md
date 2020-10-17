@@ -1,6 +1,6 @@
 ---
 title: Aave - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Aave Aave builds decentralized app on Ethereum. Its main product is ETHLend, a decentralized crypto backed lending marketplace. Bounty 1 Overview  Decentralized Money Market Fund Description: Create a Smart Contract capable of funding loans in the decentralized lending marketplace ETHLend, with parameters established by the entity who controls it. Third parties will be able to subscribe to the Market Fund smart contract sending the amount of ETH or DAI they w
+summary: Company/Project Name and Description Aave Aave builds decentralized app on Ethereum. Its main product is ETHLend, a decentralized crypto backed lending marketplace. Bounty 1 Overview- Decentralized Money Market Fund Description- Create a Smart Contract capable of funding loans in the decentralized lending marketplace ETHLend, with parameters established by the entity who controls it. Third parties will be able to subscribe to the Market Fund smart contract sending the amount of ETH or DAI they w
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-16

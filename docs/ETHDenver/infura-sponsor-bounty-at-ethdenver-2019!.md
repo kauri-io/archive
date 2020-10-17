@@ -1,6 +1,6 @@
 ---
 title: Infura - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Infura Infura provides Ethereum and IPFS infrastructure and developer tools. Our APIs are the easiest way for you to start building your Web3 applications. Bounty 1 Overview  Powered by EthQL Description: EthQL is a next-generation API that allows you to build dApps using the modern tooling and cutting-edge design of GraphQL. EthQL is an open-source GraphQL API implementation which simplifies access to Ethereum data and optimizes the developers experience. Ut
+summary: Company/Project Name and Description Infura Infura provides Ethereum and IPFS infrastructure and developer tools. Our APIs are the easiest way for you to start building your Web3 applications. Bounty 1 Overview- Powered by EthQL Description- EthQL is a next-generation API that allows you to build dApps using the modern tooling and cutting-edge design of GraphQL. EthQL is an open-source GraphQL API implementation which simplifies access to Ethereum data and optimizes the developers experience. Ut
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

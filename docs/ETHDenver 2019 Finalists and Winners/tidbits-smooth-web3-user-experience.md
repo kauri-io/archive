@@ -1,6 +1,6 @@
 ---
 title: Tidbits - Smooth Web3 User Experience
-summary: Project Name Tidbits Project Tagline Web3 with no extensions, no modals, just flow. Offload the tricky stuff to the network. Team Members Taylor Dawson, Gabe Ibarra, Bradley Clarke Status IDs Gabe - blankgriffin, Taylor - Foba, Bradley - bradleyc or https //get.status.im/user/0x0467c701a4adb1a411078dba59e00d11baab58a89cfc46e19972304806d5842b0d7e1fcb1bc00bad0af848df2acbacf8ca224fdd3bae1c3b4879272eea269c8d7a Detailed Project Description Tidbits is a simple game with a simple experience - assemble
+summary: Project Name Tidbits Project Tagline Web3 with no extensions, no modals, just flow. Offload the tricky stuff to the network. Team Members Taylor Dawson, Gabe Ibarra, Bradley Clarke Status IDs Gabe - blankgriffin, Taylor - Foba, Bradley - bradleyc or https-//get.status.im/user/0x0467c701a4adb1a411078dba59e00d11baab58a89cfc46e19972304806d5842b0d7e1fcb1bc00bad0af848df2acbacf8ca224fdd3bae1c3b4879272eea269c8d7a Detailed Project Description Tidbits is a simple game with a simple experience - assemble
 authors:
   - Bradley Clarke (@bradley-clarke)
 date: 2019-02-19

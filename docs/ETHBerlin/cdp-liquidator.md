@@ -1,6 +1,6 @@
 ---
 title: CDP Liquidator
-summary: A Collateralized Debt Position (CDP) is an ETH lockup mechanism by which DAI is created. In extreme liquidity scenarios, some users will need a convenient way to exit risky positions. This project is a cool experiment to let a user send their at-risk CDPs to a contract to pay off debts and return remaining collateral to the user. - Hugh Lang (ECF) https //devpost.com/software/cdp-liquidator Inspiration MakerDAO is a set of smart contracts that manage the operation of a dollar pegged cryptocurren
+summary: A Collateralized Debt Position (CDP) is an ETH lockup mechanism by which DAI is created. In extreme liquidity scenarios, some users will need a convenient way to exit risky positions. This project is a cool experiment to let a user send their at-risk CDPs to a contract to pay off debts and return remaining collateral to the user. - Hugh Lang (ECF) https-//devpost.com/software/cdp-liquidator Inspiration MakerDAO is a set of smart contracts that manage the operation of a dollar pegged cryptocurren
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

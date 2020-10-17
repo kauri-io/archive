@@ -1,6 +1,6 @@
 ---
 title: IQ Donate
-summary: Important  You MUST add a tag (at the top, under Title) for each bounty youd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click ADD TAG, type bounty and select the desired bounty from the list. If youd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties youd like to be considered for. These instruction
+summary: Important- You MUST add a tag (at the top, under Title) for each bounty youd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click ADD TAG, type bounty and select the desired bounty from the list. If youd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties youd like to be considered for. These instruction
 authors:
   - Boris (@thebrightestday)
 date: 2019-02-17

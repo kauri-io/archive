@@ -1,6 +1,6 @@
 ---
 title: Zilliqa - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Zilliqa Zilliqa is a scalable smart contract platform that aims to tackle the congestion issue plaguing the blockchain industry. Zilliqa utilizes a sharded architecture to achieve parallel processing of transactions while maintaining a large number of public nodes, resulting in its ability to reach higher throughput and process more complex computations. Bounty 1 Overview  Cross-chain atomic swap between Zilliqa and Ethereum blockchains Description: Transfer
+summary: Company/Project Name and Description Zilliqa Zilliqa is a scalable smart contract platform that aims to tackle the congestion issue plaguing the blockchain industry. Zilliqa utilizes a sharded architecture to achieve parallel processing of transactions while maintaining a large number of public nodes, resulting in its ability to reach higher throughput and process more complex computations. Bounty 1 Overview- Cross-chain atomic swap between Zilliqa and Ethereum blockchains Description- Transfer
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

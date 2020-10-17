@@ -1,6 +1,6 @@
 ---
 title: Why do people write?
-summary: Why do people write content online? I feel the main reasons someone might start committing words to a topic are one or more of the following  To make money To r
+summary: Why do people write content online? I feel the main reasons someone might start committing words to a topic are one or more of the following- To make money To r
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2020-01-16

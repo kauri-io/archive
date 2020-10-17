@@ -1,6 +1,6 @@
 ---
 title: Introducing Plasma Group
-summary: TLDR  We’ve created a simple way to deploy your own plasma chains. Hello world! We are excited to announce a full service plasma toolbox for deploying, transacting on, building with, and developing on plasma chains. This implementation set foot in the aftermath of devconIV. Though it’s an unaudited beta release, we hope it will lay the groundwork for a community-driven initiative to make plasma a tool for decentralization for everyone. You can deploy your own plasma chain from the command line o
+summary: TLDR- We’ve created a simple way to deploy your own plasma chains. Hello world! We are excited to announce a full service plasma toolbox for deploying, transacting on, building with, and developing on plasma chains. This implementation set foot in the aftermath of devconIV. Though it’s an unaudited beta release, we hope it will lay the groundwork for a community-driven initiative to make plasma a tool for decentralization for everyone. You can deploy your own plasma chain from the command line o
 authors:
   - Plasma Group (@plasma)
 date: 2019-04-22

@@ -1,6 +1,6 @@
 ---
 title: Sputnik
-summary: Team Sputnik is pushing the limits of private smart contracts by creating an assembly language and interpreter that performs arbitrary computations and circuits on encrypted data via Fully Homomorphic Encryption. This performs the computations on the GPU for speed and performance, then commits a merkle root of the entire computation for proof of logic flow to the blockchain via Vyper smart contract. - Hugh Lang (ECF) https //devpost.com/software/sputnik Inspiration Apparently, fully homomorphic
+summary: Team Sputnik is pushing the limits of private smart contracts by creating an assembly language and interpreter that performs arbitrary computations and circuits on encrypted data via Fully Homomorphic Encryption. This performs the computations on the GPU for speed and performance, then commits a merkle root of the entire computation for proof of logic flow to the blockchain via Vyper smart contract. - Hugh Lang (ECF) https-//devpost.com/software/sputnik Inspiration Apparently, fully homomorphic
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

@@ -1,6 +1,6 @@
 ---
 title: Generate a Java Wrapper from your Smart Contract
-summary: Other articles in this series  - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Interacting with an Ethereum Smart Contract in Java - Listening for Ethereum Smart Contract Events in Java - Using Pantheon, the Java Ethereum Client with Linux In this article, we discover how to generate a Java Wrapper Class directly from a smart contract to interact with a smart contract in Java. There are different methods to generate a Java Wrappe
+summary: Other articles in this series- - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Interacting with an Ethereum Smart Contract in Java - Listening for Ethereum Smart Contract Events in Java - Using Pantheon, the Java Ethereum Client with Linux In this article, we discover how to generate a Java Wrapper Class directly from a smart contract to interact with a smart contract in Java. There are different methods to generate a Java Wrappe
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2019-07-19

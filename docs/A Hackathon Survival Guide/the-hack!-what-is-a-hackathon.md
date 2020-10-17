@@ -1,6 +1,6 @@
 ---
 title: The Hack?!? What is a hackathon?
-summary: There are different types of Hackathon, but many in the Ethereum and wider open source world aim to do one of the following  Competing for sponsor prizes by inc
+summary: There are different types of Hackathon, but many in the Ethereum and wider open source world aim to do one of the following- Competing for sponsor prizes by inc
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2020-01-14

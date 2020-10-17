@@ -1,6 +1,6 @@
 ---
 title: Grid+ - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Grid+ Grid+ creates products that enable mainstream use of digital assets and cryptocurrencies. We are hardware, software, and cryptocurrency experts building the foundation for a more efficient and inclusive financial future. Our flagship product, the Lattice1, creates a topology wherein users can remotely store keys and access them in an online fashion through a secure pairing and permission schema. Bounty 1 Overview  Lattice1 Bounty Description: Best use o
+summary: Company/Project Name and Description Grid+ Grid+ creates products that enable mainstream use of digital assets and cryptocurrencies. We are hardware, software, and cryptocurrency experts building the foundation for a more efficient and inclusive financial future. Our flagship product, the Lattice1, creates a topology wherein users can remotely store keys and access them in an online fashion through a secure pairing and permission schema. Bounty 1 Overview- Lattice1 Bounty Description- Best use o
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

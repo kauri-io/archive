@@ -1,6 +1,6 @@
 ---
 title: Synchronous Cross-shard Transactions
-summary: Project Name Synchronous Cross-shard Transactions Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A prototype of synchronous cross-shard transactions that resolve deadlocks. Team Members. First and Last Names Alexander Skidanov Vlad Zamfir Status.im ID for Each Team Member (we will use this to contact you and your team) https //get.status.im/user/0x047aeb756f25e08f84914d67ba8046480414ac229437f05b7f83f740a300cceb34e3a6f454ea3aec2ad04a05e5a649b68dd050d78740
+summary: Project Name Synchronous Cross-shard Transactions Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A prototype of synchronous cross-shard transactions that resolve deadlocks. Team Members. First and Last Names Alexander Skidanov Vlad Zamfir Status.im ID for Each Team Member (we will use this to contact you and your team) https-//get.status.im/user/0x047aeb756f25e08f84914d67ba8046480414ac229437f05b7f83f740a300cceb34e3a6f454ea3aec2ad04a05e5a649b68dd050d78740
 authors:
   - Alexander Skidanov (@alexskidanov)
 date: 2019-02-17

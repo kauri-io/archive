@@ -1,6 +1,6 @@
 ---
 title: Getting started with Mahuta - A Search engine for the IPFS
-summary: Mahuta (formerly known as IPFS-Store) is a convenient library and API to aggregate and consolidate files or documents stored by your application on the IPFS network. It provides a solution to collect, store, index and search data used. Features Indexation  Mahuta stores documents or files on IPFS and index the hash with optional metadata. Discovery: Documents and files indexed can be searched using complex logical queries or fuzzy/full text search) Scalable: Optimised for large scale application
+summary: Mahuta (formerly known as IPFS-Store) is a convenient library and API to aggregate and consolidate files or documents stored by your application on the IPFS network. It provides a solution to collect, store, index and search data used. Features Indexation- Mahuta stores documents or files on IPFS and index the hash with optional metadata. Discovery- Documents and files indexed can be searched using complex logical queries or fuzzy/full text search) Scalable- Optimised for large scale application
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2019-12-10

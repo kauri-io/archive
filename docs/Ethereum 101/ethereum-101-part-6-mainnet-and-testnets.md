@@ -1,6 +1,6 @@
 ---
 title: Ethereum 101 - Part 6 - Mainnet & Testnets
-summary: Quick Overview Mainnet - the live public Ethereum production blockchain, where actual valued transactions occur on the distributed ledger. Public Testnet(s) - public Ethereum blockchain(s) designed for testing, running on valueless ether available from faucets, that mock the mainnet environment as best as possible. Examples  Ropsten, Kovan, Rinkeby, Görli Local Testnet(s) - local, running on your machine or on a small scale, private Ethereum blockchains. Examples: Ganache, eth-tester, private cl
+summary: Quick Overview Mainnet - the live public Ethereum production blockchain, where actual valued transactions occur on the distributed ledger. Public Testnet(s) - public Ethereum blockchain(s) designed for testing, running on valueless ether available from faucets, that mock the mainnet environment as best as possible. Examples- Ropsten, Kovan, Rinkeby, Görli Local Testnet(s) - local, running on your machine or on a small scale, private Ethereum blockchains. Examples- Ganache, eth-tester, private cl
 authors:
   - Wil Barnes (@wil)
 date: 2019-02-13

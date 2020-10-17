@@ -1,6 +1,6 @@
 ---
 title: Quorum - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Quorum is an enterprise version of Go Ethereum that addresses transaction privacy trough a permissioned group of known participants, high speed, network-wide transparency, and high throughput. Get Started  https://www.jpmorgan.com/global/Quorum Bounty 1 Overview: High Performance Description: Best use of Quorums fast transaction processing and throughput. Prize Amount: $1,000 Bounty 2 Overview: Privacy Description: Best use of Quorums privacy features Prize A
+summary: Company/Project Name and Description Quorum is an enterprise version of Go Ethereum that addresses transaction privacy trough a permissioned group of known participants, high speed, network-wide transparency, and high throughput. Get Started- https-//www.jpmorgan.com/global/Quorum Bounty 1 Overview- High Performance Description- Best use of Quorums fast transaction processing and throughput. Prize Amount- $1,000 Bounty 2 Overview- Privacy Description- Best use of Quorums privacy features Prize A
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-17

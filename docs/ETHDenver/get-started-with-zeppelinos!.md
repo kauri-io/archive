@@ -1,6 +1,6 @@
 ---
 title: Get started with ZeppelinOS!
-summary: To help you get prepared for all the hacking at #ETHDenver this year, we wanted to put together a quick toolkit to help you get hacking as quickly and easily (and securely!) as possible. We are offering some sweet bounties this year so check them out as well! ZepKit First- want to get started fast? Like REALLY fast? Get ZepKit everything you need to get up and hacking, like, RIGHT NOW. Includes OpenZeppelin as an EVM package. Upgradeable smart contracts with ZeppelinOS. Includes Infura setup for
+summary: To help you get prepared for all the hacking at -ETHDenver this year, we wanted to put together a quick toolkit to help you get hacking as quickly and easily (and securely!) as possible. We are offering some sweet bounties this year so check them out as well! ZepKit First- want to get started fast? Like REALLY fast? Get ZepKit everything you need to get up and hacking, like, RIGHT NOW. Includes OpenZeppelin as an EVM package. Upgradeable smart contracts with ZeppelinOS. Includes Infura setup for
 authors:
   - Dennison Bertram (@dennisonbertram)
 date: 2019-02-13

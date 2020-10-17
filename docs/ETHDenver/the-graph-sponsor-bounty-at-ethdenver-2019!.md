@@ -1,6 +1,6 @@
 ---
 title: The Graph - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description The Graph is a query protocol for Web3. You can use The Graph to index data from Ethereum and IPFS and easily access it from front-end applications using GraphQL. Bounty 1 Overview  Best usage of The Graph Description: Do you need to get data from Ethereum for your hackathon project? Use The Graph to access that data and qualify for a chance to win. We recently announced Graph Explorer, the easiest place to get data from Ethereum and IPFS. We launched with 7
+summary: Company/Project Name and Description The Graph is a query protocol for Web3. You can use The Graph to index data from Ethereum and IPFS and easily access it from front-end applications using GraphQL. Bounty 1 Overview- Best usage of The Graph Description- Do you need to get data from Ethereum for your hackathon project? Use The Graph to access that data and qualify for a chance to win. We recently announced Graph Explorer, the easiest place to get data from Ethereum and IPFS. We launched with 7
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-16

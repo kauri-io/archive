@@ -1,6 +1,6 @@
 ---
 title: Quick Dive into the Move Programming Language
-summary: NOTE  This is a quick summary on my thoughts as I read through Libras Move Technical Paper, learning as I type. Two Different Types of Programs: Transaction Scripts & Modules Transaction scripts are more single-use, and can invoke modules Modules are long-term pieces of code stored in Libras global state Move Global State Libras global state is a mapping of account addresses => accounts. Think 0x0, 0x1, 0x2 in succession, with each of these account addresses able to hold zero or more modules and
+summary: NOTE- This is a quick summary on my thoughts as I read through Libras Move Technical Paper, learning as I type. Two Different Types of Programs- Transaction Scripts & Modules Transaction scripts are more single-use, and can invoke modules Modules are long-term pieces of code stored in Libras global state Move Global State Libras global state is a mapping of account addresses => accounts. Think 0x0, 0x1, 0x2 in succession, with each of these account addresses able to hold zero or more modules and
 authors:
   - Wil Barnes (@wil)
 date: 2019-06-20

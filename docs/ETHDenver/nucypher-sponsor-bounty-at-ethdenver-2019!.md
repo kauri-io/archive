@@ -1,6 +1,6 @@
 ---
 title: NuCypher - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description NuCypher is the privacy layer for Ethereum. NuCypher enables end-to-end encrypted data sharing workflows within applications – but crucially, without sacrificing scalability, redundancy or performance. NuCypher is a valuable addition to the tech stack of any decentralized application, system or protocol that handles non-public user or organizational data. Bounty 1 Overview  Build on NuCypher! Description: NuCypher will award two, $2500 prizes (total of $5000)
+summary: Company/Project Name and Description NuCypher is the privacy layer for Ethereum. NuCypher enables end-to-end encrypted data sharing workflows within applications – but crucially, without sacrificing scalability, redundancy or performance. NuCypher is a valuable addition to the tech stack of any decentralized application, system or protocol that handles non-public user or organizational data. Bounty 1 Overview- Build on NuCypher! Description- NuCypher will award two, $2500 prizes (total of $5000)
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

@@ -1,6 +1,6 @@
 ---
 title: ShapeShift - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description ShapeShift ShapeShift is an online marketplace where users can buy and sell digital assets. Our company mission is to become the world’s most influential crypto company, by building a digital asset platform that delights, protects, empowers, and inspires those around us. Bounty 1 Overview  Use the ShapeShift or CoinCap API in a useful and novel way. Description: Use at least one ShapeShift or CoinCap API endpoint in an application that targets consumers or bu
+summary: Company/Project Name and Description ShapeShift ShapeShift is an online marketplace where users can buy and sell digital assets. Our company mission is to become the world’s most influential crypto company, by building a digital asset platform that delights, protects, empowers, and inspires those around us. Bounty 1 Overview- Use the ShapeShift or CoinCap API in a useful and novel way. Description- Use at least one ShapeShift or CoinCap API endpoint in an application that targets consumers or bu
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

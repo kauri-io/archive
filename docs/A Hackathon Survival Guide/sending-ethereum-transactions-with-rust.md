@@ -1,6 +1,6 @@
 ---
 title: Sending Ethereum Transactions with Rust
-summary: This tutorial walks you through the code required to send an Ethereum transaction within a Rust application. Prerequisites We assume that you already have a Rust IDE available, and have a reasonable knowledge of Rust programming. We also assumes some basic knowledge of Ethereum and do not cover concepts such as the contents of an Ethereum transaction. For more on any of these subjects, read the following  Getting started with Rust Ethereum 101 Libraries Used This tutorial uses the MIT licensed r
+summary: This tutorial walks you through the code required to send an Ethereum transaction within a Rust application. Prerequisites We assume that you already have a Rust IDE available, and have a reasonable knowledge of Rust programming. We also assumes some basic knowledge of Ethereum and do not cover concepts such as the contents of an Ethereum transaction. For more on any of these subjects, read the following- Getting started with Rust Ethereum 101 Libraries Used This tutorial uses the MIT licensed r
 authors:
   - Craig Williams (@craig)
 date: 2019-08-30

@@ -1,6 +1,6 @@
 ---
 title: Piñata Overlay
-summary: Pinata Overlay is a system consisting of a smart contract and IPFS oracles that allows for decentralized funding of IPFS storage. The smart contract overlay allows dApp companies to have access to and utilize decentralized IPFS nodes without the need to build and host their own IPFS infrastructure. Pinata Overlay is built using Solidity for the funding smart contracts along with an IPFS oracle that watches smart contracts that desire storage. - Mitch Kosowski (ETHPrize) https //devpost.com/softw
+summary: Pinata Overlay is a system consisting of a smart contract and IPFS oracles that allows for decentralized funding of IPFS storage. The smart contract overlay allows dApp companies to have access to and utilize decentralized IPFS nodes without the need to build and host their own IPFS infrastructure. Pinata Overlay is built using Solidity for the funding smart contracts along with an IPFS oracle that watches smart contracts that desire storage. - Mitch Kosowski (ETHPrize) https-//devpost.com/softw
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

@@ -1,6 +1,6 @@
 ---
 title: XYO - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description XYO runs on smartphones and sensors with the goal of implementing a proof of interaction protocol which can be used to identify and prove who interacted with whom, where specific interactions took place on the globe, and under what physical conditions. XYO’s blockchain protocol that generates high-certainty and tamper-evident data sets for any IoT Management or Smart Contract Platform to call upon via various APIs. Bounty 1 Overview  Improve XYO Network! Desc
+summary: Company/Project Name and Description XYO runs on smartphones and sensors with the goal of implementing a proof of interaction protocol which can be used to identify and prove who interacted with whom, where specific interactions took place on the globe, and under what physical conditions. XYO’s blockchain protocol that generates high-certainty and tamper-evident data sets for any IoT Management or Smart Contract Platform to call upon via various APIs. Bounty 1 Overview- Improve XYO Network! Desc
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

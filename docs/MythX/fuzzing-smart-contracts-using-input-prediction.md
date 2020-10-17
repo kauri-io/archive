@@ -1,6 +1,6 @@
 ---
 title: Fuzzing Smart Contracts Using Input Prediction
-summary: In the previous post , we discussed several approaches for automatically finding vulnerabilities in smart contracts and we introduced Harvey  a fuzzer for Ethereum smart contracts being developed by ConsenSys Diligence: Smart contract auditing , in collaboration with Maria Christakis from MPI-SWS and that will be one of the tools powering our MythX analysis platform . Grey-box fuzzers are able to achieve high code coverage even for complex code without using more expensive techniques, such as au
+summary: In the previous post , we discussed several approaches for automatically finding vulnerabilities in smart contracts and we introduced Harvey- a fuzzer for Ethereum smart contracts being developed by ConsenSys Diligence- Smart contract auditing , in collaboration with Maria Christakis from MPI-SWS and that will be one of the tools powering our MythX analysis platform . Grey-box fuzzers are able to achieve high code coverage even for complex code without using more expensive techniques, such as au
 authors:
   - MythX (@mythx)
 date: 2019-04-02

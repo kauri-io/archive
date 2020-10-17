@@ -1,6 +1,6 @@
 ---
 title: Installing IPFS
-summary: In this tutorial, we install IPFS and learn its basic commands. Prerequisites Familiar with the command line and IPFS concepts. Downloading There are 3 ways to install IPFS  from a prebuilt package from ipfs-update building from source In this post, we install from a prebuilt package. Download the appropriate binary from the link above. Unzip the package where you want to store the IPFS binary, and add the IPFS binary to your PATH. Open your terminal and try the following to test that your insta
+summary: In this tutorial, we install IPFS and learn its basic commands. Prerequisites Familiar with the command line and IPFS concepts. Downloading There are 3 ways to install IPFS- from a prebuilt package from ipfs-update building from source In this post, we install from a prebuilt package. Download the appropriate binary from the link above. Unzip the package where you want to store the IPFS binary, and add the IPFS binary to your PATH. Open your terminal and try the following to test that your insta
 authors:
   - Juliette Rocco (@jmrocco)
 date: 2019-03-19

@@ -1,6 +1,6 @@
 ---
 title: Rhombus has your oracle needs covered at ETHDenver
-summary: New Releases We have a few piping hot development treats this week, just in time for developers to unleash their creativity at the ETHDenver hackathon  Rhombus will unveil a Truffle Box that lets you test against our oracles in your local environment: https://github.com/RhombusNetwork/lighthouse-local We will provide lighthouse oracle contracts that you can read to inject quality data into your projects contracts: https://blog.rhombus.network/BUIDL-Resources If you come to our booth, we can even
+summary: New Releases We have a few piping hot development treats this week, just in time for developers to unleash their creativity at the ETHDenver hackathon- Rhombus will unveil a Truffle Box that lets you test against our oracles in your local environment- https-//github.com/RhombusNetwork/lighthouse-local We will provide lighthouse oracle contracts that you can read to inject quality data into your projects contracts- https-//blog.rhombus.network/BUIDL-Resources If you come to our booth, we can even
 authors:
   - Kenny Chandrasekera (@kenny-chandrasekera)
 date: 2019-02-15

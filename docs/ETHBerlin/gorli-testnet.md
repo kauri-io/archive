@@ -1,6 +1,6 @@
 ---
 title: Gorli Testnet
-summary: Görli is a Proof of Authority testnet that can support popular Ethereum clients such as Parity and Geth. Görli bridges the isolation between clients due to using the PoA consensus mechanism. The team managed to have the testnet implemented in Parity and with the Aura PoA consensus work initiated in Geth. You can check it out here.The end of the hackathon is only the beginning of the team’s journey of creating one PoA testnet for all clients  after ETHBerlin the team plans to solidify their curre
+summary: Görli is a Proof of Authority testnet that can support popular Ethereum clients such as Parity and Geth. Görli bridges the isolation between clients due to using the PoA consensus mechanism. The team managed to have the testnet implemented in Parity and with the Aura PoA consensus work initiated in Geth. You can check it out here.The end of the hackathon is only the beginning of the team’s journey of creating one PoA testnet for all clients- after ETHBerlin the team plans to solidify their curre
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-24

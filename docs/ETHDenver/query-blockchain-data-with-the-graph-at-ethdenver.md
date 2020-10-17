@@ -1,6 +1,6 @@
 ---
 title: Query Blockchain Data with The Graph at ETHDenver
-summary: The Graph is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult or impossible to query directly by using a GraphQL interface. Features Fast data access Compatible with any framework or tool that supports GraphQL Filters, pagination, sorting Subscriptions to data updates Prizes Offered Unsure at time of writing, keep an eye on the blog. Getting Started Install with Yarn sudo yarn global add @graphp
+summary: The Graph is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult or impossible to query directly by using a GraphQL interface. Features Fast data access Compatible with any framework or tool that supports GraphQL Filters, pagination, sorting Subscriptions to data updates Prizes Offered Unsure at time of writing, keep an eye on the blog. Getting Started Install with Yarn-sudo yarn global add @graphp
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-02-08

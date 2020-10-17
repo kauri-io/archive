@@ -1,6 +1,6 @@
 ---
-title: #BUIDL the Future of Privacy at ETHDenver with NuCypher
-summary: Hey ETHDenver hackers! All of us at NuCypher, the privacy layer of the decentralized web, are super excited to meet you in a few weeks! Last year’s ETHDenver was our first ETHGlobal event (followed by ETHIndia, ETHBerlin, ETHSan Francisco, and ETHSingapore, so we’re clearly smitten). It’s been a whirlwind in the Ethereum space since then, but we’ve never been more excited about the new dapps and protocols the community continues to #buidl. We think hackathons are one of the best demonstrations o
+title: -BUIDL the Future of Privacy at ETHDenver with NuCypher
+summary: Hey ETHDenver hackers! All of us at NuCypher, the privacy layer of the decentralized web, are super excited to meet you in a few weeks! Last year’s ETHDenver was our first ETHGlobal event (followed by ETHIndia, ETHBerlin, ETHSan Francisco, and ETHSingapore, so we’re clearly smitten). It’s been a whirlwind in the Ethereum space since then, but we’ve never been more excited about the new dapps and protocols the community continues to -buidl. We think hackathons are one of the best demonstrations o
 authors:
   - MacLane Wilkison (@maclane)
 date: 2019-01-25

@@ -1,6 +1,6 @@
 ---
 title: Bzx - the Decentralized Margin Lending Protocol at ETHDenver
-summary: bZx is a fully decentralized protocol for margin lending and margin trading on the Ethereum blockchain. It is a financial primitive, a fundamental building block of the decentralized finance software stack. The bZx protocol works alongside exchange protocols like 0x and KyberNetwork to allow critical functionalities like shorting and leverage. You can understand the bZx stack in terms of two layers  the base layer and the liquidation layer. The base layer of the protocol is a series of smart con
+summary: bZx is a fully decentralized protocol for margin lending and margin trading on the Ethereum blockchain. It is a financial primitive, a fundamental building block of the decentralized finance software stack. The bZx protocol works alongside exchange protocols like 0x and KyberNetwork to allow critical functionalities like shorting and leverage. You can understand the bZx stack in terms of two layers- the base layer and the liquidation layer. The base layer of the protocol is a series of smart con
 authors:
   - KyleKistner (@bzx)
 date: 2019-02-11

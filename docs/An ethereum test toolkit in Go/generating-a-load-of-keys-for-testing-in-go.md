@@ -1,6 +1,6 @@
 ---
 title: Generating a load of keys for testing in Go
-summary: I am in the process of releasing my very hacky golang test environment that deep links into the go-ethereum code base. An important part of testing smart contracts is to be able to generate and use an arbitrary number of keys/addresses to sign / send / receive transactions. Ideally we should not be using live key pairs so I created memorykeys which you can find at https //github.com/DaveAppleton/memorykeys Much of the work of the GETH crypto module is to wrap the go crypto/ecdsa library. ECDSA s
+summary: I am in the process of releasing my very hacky golang test environment that deep links into the go-ethereum code base. An important part of testing smart contracts is to be able to generate and use an arbitrary number of keys/addresses to sign / send / receive transactions. Ideally we should not be using live key pairs so I created memorykeys which you can find at https-//github.com/DaveAppleton/memorykeys Much of the work of the GETH crypto module is to wrap the go crypto/ecdsa library. ECDSA s
 authors:
   - Dave Appleton (@daveappleton)
 date: 2019-08-08

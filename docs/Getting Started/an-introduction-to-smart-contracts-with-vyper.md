@@ -1,6 +1,6 @@
 ---
 title: An Introduction to Smart Contracts with Vyper
-summary: Vyper is a smart contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM). It aims to follow the similar simplicity, security and readability principles of Python and provides the following features  Bounds and overflow checking: On array accesses as well as on arithmetic level. Support for signed integers and decimal fixed point numbers Decidability: It should be possible to compute a precise upper bound for the gas consumption of any function call. Stron
+summary: Vyper is a smart contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM). It aims to follow the similar simplicity, security and readability principles of Python and provides the following features- Bounds and overflow checking- On array accesses as well as on arithmetic level. Support for signed integers and decimal fixed point numbers Decidability- It should be possible to compute a precise upper bound for the gas consumption of any function call. Stron
 authors:
   - Kauri Team (@kauri)
 date: 2019-04-30

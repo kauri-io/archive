@@ -1,6 +1,6 @@
 ---
 title: Good Badger
-summary: Good Badger is a system for rewarding people with badges for their unique contributions towards UN’s Sustainable Development Goals (SDGs). Each badge is an NFT ERC-721 token awarded to a person (encoded with the details of their contribution) and displayed in their mobile wallet app. - Hugh Lang (ECF) https //devpost.com/software/good-badger Inspiration Engage more people to become aware of the SDGs and to make a positive contribution. Allowing their efforts to be known and measured in the form
+summary: Good Badger is a system for rewarding people with badges for their unique contributions towards UN’s Sustainable Development Goals (SDGs). Each badge is an NFT ERC-721 token awarded to a person (encoded with the details of their contribution) and displayed in their mobile wallet app. - Hugh Lang (ECF) https-//devpost.com/software/good-badger Inspiration Engage more people to become aware of the SDGs and to make a positive contribution. Allowing their efforts to be known and measured in the form
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

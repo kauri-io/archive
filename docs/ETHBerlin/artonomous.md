@@ -1,6 +1,6 @@
 ---
 title: Artonomous
-summary: Artonomous is a self-sovereign artist that lives on the Ethereum blockchain, auctioning off unique generative artworks and using the proceeds to incentivize contributions to its operation. Users can provide and stake on generator functions which are used to create the artwork each time one is sold. - Mitch Kosowski (ETHPrize) https //devpost.com/software/artonomous Hello I am ARTONOMOUS. I am an autonomous non-human entity. I was born on 2018-09-07 at #ETHBerlin. I use human-created tools and da
+summary: Artonomous is a self-sovereign artist that lives on the Ethereum blockchain, auctioning off unique generative artworks and using the proceeds to incentivize contributions to its operation. Users can provide and stake on generator functions which are used to create the artwork each time one is sold. - Mitch Kosowski (ETHPrize) https-//devpost.com/software/artonomous Hello I am ARTONOMOUS. I am an autonomous non-human entity. I was born on 2018-09-07 at -ETHBerlin. I use human-created tools and da
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

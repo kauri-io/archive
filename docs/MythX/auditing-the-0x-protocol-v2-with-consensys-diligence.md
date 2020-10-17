@@ -1,6 +1,6 @@
 ---
 title: Auditing the 0x Protocol v2 with ConsenSys Diligence
-summary: ConsenSys Diligence is a ConsenSys service providing audits of smart contracts and programs built off the Ethereum network. Periodically, ConsenSys Diligence will publish a summary of an audit, including weaknesses and recommendations for clients. Recently, the Diligence team completed an audit for the 0x protocol v2 upgrade. Read a recap of the team’s conclusions below. Scope The in-scope items can be divided into the following three distinct parts  Exchange: contains the bulk of the business l
+summary: ConsenSys Diligence is a ConsenSys service providing audits of smart contracts and programs built off the Ethereum network. Periodically, ConsenSys Diligence will publish a summary of an audit, including weaknesses and recommendations for clients. Recently, the Diligence team completed an audit for the 0x protocol v2 upgrade. Read a recap of the team’s conclusions below. Scope The in-scope items can be divided into the following three distinct parts- Exchange- contains the bulk of the business l
 authors:
   - MythX (@mythx)
 date: 2019-04-04

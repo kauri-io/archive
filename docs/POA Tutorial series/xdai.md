@@ -1,6 +1,6 @@
 ---
 title: xDai
-summary: The xDai Chain xDai is a blockchain based on Ethereum that uses Dai as its currency. It features 5-second block speed, a gas price fixed at 1 GWei, free capacity for blocks, and a fixed platform usage price. Using a proof of autonomy consensus, its a fast and cost-efficient chain. Fun Fact  The Burner Wallet featured at EthDenver 2019 ran on the xDai network! The wallet allows the user to exchange currencies through a QR code scanner. To learn more about its success follow the link. What is Dai?
+summary: The xDai Chain xDai is a blockchain based on Ethereum that uses Dai as its currency. It features 5-second block speed, a gas price fixed at 1 GWei, free capacity for blocks, and a fixed platform usage price. Using a proof of autonomy consensus, its a fast and cost-efficient chain. Fun Fact- The Burner Wallet featured at EthDenver 2019 ran on the xDai network! The wallet allows the user to exchange currencies through a QR code scanner. To learn more about its success follow the link. What is Dai?
 authors:
   - Juliette Rocco (@jmrocco)
 date: 2019-04-02

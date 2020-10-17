@@ -1,6 +1,6 @@
 ---
 title: Smart Alert
-summary: Excellent project concept attempting to make keeping track of on-chain smart contract vulnerabilities and general behavior as simple as possible. Strong opportunity for moving forward with a traditional SaaS business orientated towards developer tools for live main-net developers, encouraging robust maintenance of contracts post-deployment. Looking forward to what the team can assemble in a longer time frame! - Bryant Eisenbach (SecurETH) https //devpost.com/software/smart-alert-s5p1zw SmartAler
+summary: Excellent project concept attempting to make keeping track of on-chain smart contract vulnerabilities and general behavior as simple as possible. Strong opportunity for moving forward with a traditional SaaS business orientated towards developer tools for live main-net developers, encouraging robust maintenance of contracts post-deployment. Looking forward to what the team can assemble in a longer time frame! - Bryant Eisenbach (SecurETH) https-//devpost.com/software/smart-alert-s5p1zw SmartAler
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

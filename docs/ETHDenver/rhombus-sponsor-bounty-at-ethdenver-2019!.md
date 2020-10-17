@@ -1,6 +1,6 @@
 ---
 title: Rhombus - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Rhombus Rhombus connects your dapp with real-world data. Bounty 1 Overview  Oracle Description: Best application of a Rhombus oracle Prize Amount: - First place: $1,000 - Second place: $750 - Third place: $500 - Fourth place: $250 Resources/Links: Github: https://github.com/RhombusNetwork Technical docs: https://docs.rhombus.network Example Lighthouse oracle (ETH/USD): https://rinkeby.etherscan.io/address/0x7ce662974fbb9b590c60dbf99f078120405ff0b9#readContrac
+summary: Company/Project Name and Description Rhombus Rhombus connects your dapp with real-world data. Bounty 1 Overview- Oracle Description- Best application of a Rhombus oracle Prize Amount- - First place- $1,000 - Second place- $750 - Third place- $500 - Fourth place- $250 Resources/Links- Github- https-//github.com/RhombusNetwork Technical docs- https-//docs.rhombus.network Example Lighthouse oracle (ETH/USD)- https-//rinkeby.etherscan.io/address/0x7ce662974fbb9b590c60dbf99f078120405ff0b9-readContrac
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

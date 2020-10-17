@@ -1,6 +1,6 @@
 ---
 title: Ethstonian Identity
-summary: A very useful solidity library for verifying signatures made by the Estonian Digital-ID card. By allowing us to identify with our government-issued ID, it has the potential to change how we identify ourselves on the Ethereum network. It’s also an incredibly robust and trustworthy KYC mechanism. - Ivo Georgiev (Adex) https //devpost.com/software/ethstonia-identity Inspiration Identity and KYC/AML are the biggest problems in Blockchain right now. The Estonian government issues an eResidency card t
+summary: A very useful solidity library for verifying signatures made by the Estonian Digital-ID card. By allowing us to identify with our government-issued ID, it has the potential to change how we identify ourselves on the Ethereum network. It’s also an incredibly robust and trustworthy KYC mechanism. - Ivo Georgiev (Adex) https-//devpost.com/software/ethstonia-identity Inspiration Identity and KYC/AML are the biggest problems in Blockchain right now. The Estonian government issues an eResidency card t
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-20

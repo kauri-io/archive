@@ -1,6 +1,6 @@
 ---
 title: POA - Part 2 - Bridge assets between a sidechain and a mainchain
-summary: This article is part of a POA tutorial series  POA - Part 1 - Develop and deploy a smart contract POA - Part 2 - Bridge assets between a sidechain and a maincha
+summary: This article is part of a POA tutorial series- POA - Part 1 - Develop and deploy a smart contract POA - Part 2 - Bridge assets between a sidechain and a maincha
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-01-21

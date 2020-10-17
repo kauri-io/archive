@@ -1,6 +1,6 @@
 ---
 title: How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin
-summary: One of the greatest things that a web3 enabled browser gives us is saying goodbye to our primal ways of authenticating users with a username & password combination. If youre looking to authenticate users using a metamask or any web3 wallet then continue reading this article or simply explore the minimal code here  https://github.com/hshar7/springsecurity-web3-jwt-auth-demo You can checkout the code and follow along, or start fresh from spring initializer and start fresh, or add whatever you lear
+summary: One of the greatest things that a web3 enabled browser gives us is saying goodbye to our primal ways of authenticating users with a username & password combination. If youre looking to authenticate users using a metamask or any web3 wallet then continue reading this article or simply explore the minimal code here- https-//github.com/hshar7/springsecurity-web3-jwt-auth-demo You can checkout the code and follow along, or start fresh from spring initializer and start fresh, or add whatever you lear
 authors:
   - Hayder Sharhan (@hshar)
 date: 2019-08-19

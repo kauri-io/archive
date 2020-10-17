@@ -1,6 +1,6 @@
 ---
 title: Mainframe - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Mainframe Mainframe OS is a complete end-to-end solution that fundamentally simplifies the creation and use of unstoppable, privacy-driven, decentralized applications. Mainframe OS facilitates seamless integration with leading web3 and decentralized protocols and services - enabling simple development, deployment, and a beautiful end-user experience. Bounty 1 Overview  Best User-experience and Design Description: Let’s face it - dapps are not known for the be
+summary: Company/Project Name and Description Mainframe Mainframe OS is a complete end-to-end solution that fundamentally simplifies the creation and use of unstoppable, privacy-driven, decentralized applications. Mainframe OS facilitates seamless integration with leading web3 and decentralized protocols and services - enabling simple development, deployment, and a beautiful end-user experience. Bounty 1 Overview- Best User-experience and Design Description- Let’s face it - dapps are not known for the be
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-12

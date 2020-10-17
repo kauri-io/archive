@@ -1,6 +1,6 @@
 ---
 title: Privacy with Pantheon Ethereum Java Client
-summary: This article is taken from the pantheon documentation Privacy in Pantheon refers to the ability to keep transactions private between the involved parties. Other parties cannot access the transaction content, sending party, or list of participating parties. For production systems requiring private transactions, we recommend using a network with a consensus mechanism supporting transaction finality. For example, IBFT 2.0. Privacy in Pantheon  How PegaSys Has Redefined Blockchain for Enterprises Pr
+summary: This article is taken from the pantheon documentation Privacy in Pantheon refers to the ability to keep transactions private between the involved parties. Other parties cannot access the transaction content, sending party, or list of participating parties. For production systems requiring private transactions, we recommend using a network with a consensus mechanism supporting transaction finality. For example, IBFT 2.0. Privacy in Pantheon- How PegaSys Has Redefined Blockchain for Enterprises Pr
 authors:
   - PegaSys (@pegasys)
 date: 2019-05-03

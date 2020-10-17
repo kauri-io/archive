@@ -1,6 +1,6 @@
 ---
 title: NuVault - Proxy Re-Encrypted Secret Sharing
-summary: Project Name NuVault Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Secret Sharing Via Threshold Proxy Re-Encryption Team Members. First and Last Names Josh Hudson Mathew Gardner Travis Haley Mike Danko Status.im ID for Each Team Member (we will use this to contact you and your team) Josh  0x04fabbab6433f2a8da39a6a7a91daca63d22ec486a11d4f7859f47c497f676fae31804689e8666bd402af2d91c57898a8485db71bc853f56493fad4f10a812a56a Mathew: 0x04eb8c3ecd9a3a9db9b6caca
+summary: Project Name NuVault Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Secret Sharing Via Threshold Proxy Re-Encryption Team Members. First and Last Names Josh Hudson Mathew Gardner Travis Haley Mike Danko Status.im ID for Each Team Member (we will use this to contact you and your team) Josh- 0x04fabbab6433f2a8da39a6a7a91daca63d22ec486a11d4f7859f47c497f676fae31804689e8666bd402af2d91c57898a8485db71bc853f56493fad4f10a812a56a Mathew- 0x04eb8c3ecd9a3a9db9b6caca
 authors:
   - null (@null)
 date: 2019-02-17

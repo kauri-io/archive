@@ -1,6 +1,6 @@
 ---
 title: Blockchain Explained
-summary: What is blockchain anyway? In this article, I will try to provide an in-depth yet simple to understand explanation. I will tell you about what is a blockchain, what features it has, which groups of users exist in blockchain network, and how they interact with each other. Note  this article mostly covers public blockchains, and of that public blockchains, it’s mostly about their use for cryptocurrencies. There are other uses of public blockchains, and there are also private blockchains. Private (
+summary: What is blockchain anyway? In this article, I will try to provide an in-depth yet simple to understand explanation. I will tell you about what is a blockchain, what features it has, which groups of users exist in blockchain network, and how they interact with each other. Note- this article mostly covers public blockchains, and of that public blockchains, it’s mostly about their use for cryptocurrencies. There are other uses of public blockchains, and there are also private blockchains. Private (
 authors:
   - Timur Badretdinov (@destiner)
 date: 2018-11-29

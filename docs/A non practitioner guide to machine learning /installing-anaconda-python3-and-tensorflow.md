@@ -1,6 +1,6 @@
 ---
 title: Installing Anaconda, Python3 and Tensorflow
-summary: First thing first, heres a list of the things we need to start playing around with some data  - Python - Anaconda - Jupiter Notebook - A bunch of data manipulation tools like Numpy, Scikit etc.. Luckily for us, the Anaconda distribution includes all of them, head on to https://www.anaconda.com/distribution/#download-section and follow the instructions. Anaconda homepage On linux is as easy as downloading the file, opening the terminal and type ~$ bash Anaconda3- from the folder you downloaded th
+summary: First thing first, heres a list of the things we need to start playing around with some data- - Python - Anaconda - Jupiter Notebook - A bunch of data manipulation tools like Numpy, Scikit etc.. Luckily for us, the Anaconda distribution includes all of them, head on to https-//www.anaconda.com/distribution/-download-section and follow the instructions. Anaconda homepage On linux is as easy as downloading the file, opening the terminal and type ~$ bash Anaconda3- from the folder you downloaded th
 authors:
   - Davide Scalzo (@davidescalzo)
 date: 2019-10-22

@@ -1,6 +1,6 @@
 ---
 title: Remix IDE - Your first smart contract
-summary: The easiest place to start writing smart contracts in Solidity in with the online Remix IDE. As its an online IDE, no installation or development environment setup is required, you can navigate to the site and get started! Remix also provides good tools for debugging, static analysis, and deployment all within the online environment. You can find the source code used in this tutorial in this GitHub repository. Before we get started, a quick reminder of what we are building  A dApp which allows a
+summary: The easiest place to start writing smart contracts in Solidity in with the online Remix IDE. As its an online IDE, no installation or development environment setup is required, you can navigate to the site and get started! Remix also provides good tools for debugging, static analysis, and deployment all within the online environment. You can find the source code used in this tutorial in this GitHub repository. Before we get started, a quick reminder of what we are building- A dApp which allows a
 authors:
   - Josh Cassidy (@joshorig)
 date: 2019-11-20

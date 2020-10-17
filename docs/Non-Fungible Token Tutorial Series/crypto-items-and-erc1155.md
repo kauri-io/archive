@@ -1,6 +1,6 @@
 ---
 title: Crypto Items and ERC1155
-summary: Improvements on 721 With the recent finalizing of ERC721, games involving non-fungible tokens and cryptocollectibles are poised to explode. Many are nearing beta release as we speak, namely  Gods Unchained, CryptoWars, Zombie Battleground along with officially-affiliated collectibles with the NFL, MLB, and more. The creators of Enjin Coin, an Ethereum-based games platform, identified a few areas for improvement in the token standards as related to the needs of typical games. From the “Motivation
+summary: Improvements on 721 With the recent finalizing of ERC721, games involving non-fungible tokens and cryptocollectibles are poised to explode. Many are nearing beta release as we speak, namely- Gods Unchained, CryptoWars, Zombie Battleground along with officially-affiliated collectibles with the NFL, MLB, and more. The creators of Enjin Coin, an Ethereum-based games platform, identified a few areas for improvement in the token standards as related to the needs of typical games. From the “Motivation
 authors:
   - Kauri Team (@kauri)
 date: 2018-09-04

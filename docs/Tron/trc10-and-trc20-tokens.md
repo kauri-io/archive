@@ -1,6 +1,6 @@
 ---
 title: TRC10 & TRC20 Tokens
-summary: Token Issuance In the TRON network, every account is capable of issuing tokens at the expense of 1024 TRX. Users can lock their tokens in separately. To issue tokens, the issuer needs to specify a token name, total capitalization, the exchange rate to TRX, circulation duration, description, website, maximum bandwidth points consumption per account, total bandwidth points consumption, and token freeze. For example  assetissue password abc 1000000 1 1 2018-5-31 2018-6-30 abcdef a.com 1000 1000000
+summary: Token Issuance In the TRON network, every account is capable of issuing tokens at the expense of 1024 TRX. Users can lock their tokens in separately. To issue tokens, the issuer needs to specify a token name, total capitalization, the exchange rate to TRX, circulation duration, description, website, maximum bandwidth points consumption per account, total bandwidth points consumption, and token freeze. For example- assetissue password abc 1000000 1 1 2018-5-31 2018-6-30 abcdef a.com 1000 1000000
 authors:
   - Kauri Team (@kauri)
 date: 2019-04-01

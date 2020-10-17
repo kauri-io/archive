@@ -23,11 +23,11 @@
 
     // ###### FUNCTIONS
     const parseArticle = article => {
-      const title = (article.title) ? article.title.replace(":"," ") : ""
-      const desc = (article.description) ? article.description.replace(":"," ") : ""
+      const title = (article.title) ? article.title.replace(/[\:\#]/g,'-') : ""
+      const desc = (article.description) ? article.description.replace(/[\:\#]/g,'-') : ""
       const redirect = slugify(article.title, {lower: true}) + "/" + article.id + "/a"
 
-      const file = slugify(article.title, {lower: true}).replace("'","") + ".md"
+      const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-') + ".md"
       const text = "---\n" +
                    "title: " + title+ "\n" +
                    "summary: "  + desc  + "\n" +
@@ -51,11 +51,11 @@
     utils.createFile(conf, "site_name: Kauri\n" +
                             "theme: readthedocs\n" +
                             "nav:\n" +
-                            "    - Home: 'index.md'\n" +
-                            "    - Communities & Collections:\n")
+                            "    - Home: 'index.md'\n")
 
     // ####### EXTRACT
     console.log("== EXTRACT COMMUNITIES")
+    utils.appendFile("mkdocs.yml", "    - Communities:")
     for(id of communities) {
       const data = await graphQLClient.request(community, {id})
       const folder = baseDir + "/" + data.getCommunity.name
@@ -66,8 +66,8 @@
         if(article.type != "ARTICLE") continue
 
         content = parseArticle(article.resource)
-        var path = data.getCommunity.name + "/" + content.file
-        var title = content.title.replace(/[\:\#]/g,'-');
+        const path = data.getCommunity.name + "/" + content.file
+        const title = content.title.replace(/[\:\#]/g,'-');
         utils.appendFile("mkdocs.yml", "        - " + title + ": '" + path + "'")
         utils.createFile(folder + "/" + content.file, content.text)
 
@@ -76,6 +76,7 @@
     }
 
     console.log("== EXTRACT COLLECTIONS")
+    utils.appendFile("mkdocs.yml", "    - Collections:")
     for(id of collections) {
       const data = await graphQLClient.request(collection, {id})
       const folder = baseDir + "/" + data.getCollection.name
@@ -87,8 +88,8 @@
           if(!article.title) continue
 
           content = parseArticle(article)
-          var path = data.getCollection.name + "/" + content.file
-          var title = content.title.replace(/[\:\#]/g,'-');
+          const path = data.getCollection.name + "/" + content.file
+          const title = content.title.replace(/[\:\#]/g,'-');
           utils.appendFile("mkdocs.yml", "        - " + title + ": '" + path + "'")
           utils.createFile(folder + "/" + content.file, content.text)
 
@@ -96,6 +97,10 @@
         }
       }
     }
+
+
+    console.log("== EXTRACT REMAINING ARTICLES")
+    //utils.appendFile("mkdocs.yml", "    - Individual articles:")
 
 
     console.log("== REDIRECT")

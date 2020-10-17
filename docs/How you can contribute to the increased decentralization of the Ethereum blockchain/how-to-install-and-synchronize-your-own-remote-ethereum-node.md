@@ -1,6 +1,6 @@
 ---
 title: How to install and synchronize your own remote Ethereum node
-summary: This is a two part tutorial. The first part covers the process of installing an Ethereum node remotely on a Virtual Private Server (VPS), synchronizing it with the blockchain, and setting it up to allow secure remote access. Why would you even want to be responsible for your own Ethereum node? At a recent Deconomy conference in Seoul, South Korea, Joe Lubin gave a speech called Why Ethereum Will Become the Global Settlement Layer. In it he stated  We would achieve maximal decentralization of a b
+summary: This is a two part tutorial. The first part covers the process of installing an Ethereum node remotely on a Virtual Private Server (VPS), synchronizing it with the blockchain, and setting it up to allow secure remote access. Why would you even want to be responsible for your own Ethereum node? At a recent Deconomy conference in Seoul, South Korea, Joe Lubin gave a speech called Why Ethereum Will Become the Global Settlement Layer. In it he stated- We would achieve maximal decentralization of a b
 authors:
   - Daniel Ellison (@zigguratt)
 date: 2019-05-24

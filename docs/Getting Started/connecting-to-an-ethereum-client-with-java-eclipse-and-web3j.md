@@ -1,6 +1,6 @@
 ---
 title: Connecting to an Ethereum client with Java, Eclipse and Web3j
-summary: Other articles in this series  - Manage an Ethereum account with Java and Web3j - Generate a Java Wrapper from your Smart Contract - Interacting with an Ethereum Smart Contract in Java - Listening for Ethereum Smart Contract Events in Java - Using Pantheon, the Java Ethereum Client with Linux Ethereum is a Blockchain, which means it operates on a peer-to-peer network composed of thousand of nodes where each node agrees on the next state. In order to interact with the Ethereum global state (distr
+summary: Other articles in this series- - Manage an Ethereum account with Java and Web3j - Generate a Java Wrapper from your Smart Contract - Interacting with an Ethereum Smart Contract in Java - Listening for Ethereum Smart Contract Events in Java - Using Pantheon, the Java Ethereum Client with Linux Ethereum is a Blockchain, which means it operates on a peer-to-peer network composed of thousand of nodes where each node agrees on the next state. In order to interact with the Ethereum global state (distr
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2019-07-19

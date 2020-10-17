@@ -1,6 +1,6 @@
 ---
 title: Smart contracts integration with Nethereum
-summary: The purpose of this article is to help .NET developers leverage Nethereum, An open source .NET integration library for blockchain. You can execute this tutorial as a workbook, or download a simplified sample here The purpose of this sample is the following  Understanding how to create contract deployment, function and event definitions to interact with a smart contracts Creating an account object using a private key, this will allow to sign transactions offline. Deploying a smart contract (the s
+summary: The purpose of this article is to help .NET developers leverage Nethereum, An open source .NET integration library for blockchain. You can execute this tutorial as a workbook, or download a simplified sample here The purpose of this sample is the following- Understanding how to create contract deployment, function and event definitions to interact with a smart contracts Creating an account object using a private key, this will allow to sign transactions offline. Deploying a smart contract (the s
 authors:
   - Gaël Blanchemain  (@anegg0)
 date: 2019-04-24

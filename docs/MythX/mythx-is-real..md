@@ -1,6 +1,6 @@
 ---
 title: MythX is real.
-summary: myth  n: a popular belief or tradition that has grown up around something or someone, especially: one embodying the ideals and institutions of a society or segment of society ( Source ) The world of Ethereum is full of myths. Decentralization. Autonomy. Code is law. These are all tenets that we as an ecosystem have chosen to put top-of-mind in our work. There is one tenet that hasn’t had as much success: security. Smart Contracts and dApps offer countless new possibilities. With the responsibili
+summary: myth- n- a popular belief or tradition that has grown up around something or someone, especially- one embodying the ideals and institutions of a society or segment of society ( Source ) The world of Ethereum is full of myths. Decentralization. Autonomy. Code is law. These are all tenets that we as an ecosystem have chosen to put top-of-mind in our work. There is one tenet that hasn’t had as much success- security. Smart Contracts and dApps offer countless new possibilities. With the responsibili
 authors:
   - MythX (@mythx)
 date: 2019-04-02

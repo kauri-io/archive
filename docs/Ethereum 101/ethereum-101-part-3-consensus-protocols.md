@@ -1,6 +1,6 @@
 ---
 title: Ethereum 101 - Part 3 - Consensus Protocols
-summary: Quick Overview The engine that drives consensus among the nodes on the Ethereum network. Ethereum is currently operating on a Proof-of-Work consensus protocol, but in the future will be shifting to a Proof-of-Stake protocol. Current Protocol  Proof of Work (Ethash) The current Ethereum blockchain uses a consensus algorithm built specifically for the Ethereum blockchain called Ethash. The Ethash PoW algorithm introduces the property of “Memory Hardness” to the Ethereum blockchain. Memory hardness
+summary: Quick Overview The engine that drives consensus among the nodes on the Ethereum network. Ethereum is currently operating on a Proof-of-Work consensus protocol, but in the future will be shifting to a Proof-of-Stake protocol. Current Protocol- Proof of Work (Ethash) The current Ethereum blockchain uses a consensus algorithm built specifically for the Ethereum blockchain called Ethash. The Ethash PoW algorithm introduces the property of “Memory Hardness” to the Ethereum blockchain. Memory hardness
 authors:
   - Wil Barnes (@wil)
 date: 2019-02-13

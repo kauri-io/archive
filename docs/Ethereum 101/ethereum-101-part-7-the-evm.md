@@ -1,6 +1,6 @@
 ---
 title: Ethereum 101 - Part 7 - The EVM
-summary: Quick Overview The EVM is the part of Ethereum that handles smart contract deployment and execution. Simple value transfer transactions from one EOA to another don’t need to involve it, practically speaking, but everything else will involve a state update computed by the EVM. At a high level, the EVM running on the Ethereum blockchain can be thought of as a global decentralized computer containing millions of executable objects, each with its own permanent data store. Citation  Mastering Ethereu
+summary: Quick Overview The EVM is the part of Ethereum that handles smart contract deployment and execution. Simple value transfer transactions from one EOA to another don’t need to involve it, practically speaking, but everything else will involve a state update computed by the EVM. At a high level, the EVM running on the Ethereum blockchain can be thought of as a global decentralized computer containing millions of executable objects, each with its own permanent data store. Citation- Mastering Ethereu
 authors:
   - Wil Barnes (@wil)
 date: 2019-02-13

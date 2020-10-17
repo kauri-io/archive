@@ -1,6 +1,6 @@
 ---
 title: Interacting with an Ethereum Smart Contract in Java
-summary: Other articles in this series  - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Generate a Jav
+summary: Other articles in this series- - Connecting to an Ethereum client with Java, Eclipse and Web3j - Manage an Ethereum account with Java and Web3j - Generate a Jav
 authors:
   - Craig Williams (@craig)
 date: 2020-01-26

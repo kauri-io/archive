@@ -1,6 +1,6 @@
 ---
 title: ETH Dev Tools
-summary: Project Name ETH Dev Tools Note - we are pursuing work on this project and plan to release something on the Chrome store soon - sign up to be notified when its ready! - https //goo.gl/forms/ueRQA2NKt5c7KeIj1 Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A chrome dev tools plugin with multiple modules to let users monitor and to help smart contract developers debug directly from their dapps. Team Members. First and Last Names Aidan Musnitzky Billy Rennek
+summary: Project Name ETH Dev Tools Note - we are pursuing work on this project and plan to release something on the Chrome store soon - sign up to be notified when its ready! - https-//goo.gl/forms/ueRQA2NKt5c7KeIj1 Project Tagline/Description (140 Characters Max. Will be used on table card for judging) A chrome dev tools plugin with multiple modules to let users monitor and to help smart contract developers debug directly from their dapps. Team Members. First and Last Names Aidan Musnitzky Billy Rennek
 authors:
   - Aidan Musnitzky (@musnit)
 date: 2019-02-22

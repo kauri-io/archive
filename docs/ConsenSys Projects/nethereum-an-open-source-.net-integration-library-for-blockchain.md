@@ -1,6 +1,6 @@
 ---
 title: Nethereum - An open source .NET integration library for blockchain
-summary: Nethereum is the .Net integration library for Ethereum, simplifying the access and smart contract interaction with Ethereum nodes both public or permissioned like Geth, Parity or Quorum. Features Nethereum provides  JSON RPC / IPC Ethereum core methods. Geth management API (admin, personal, debugging, miner). Parity management API. Quorum integration. Simplified smart contract interaction for deployment, function calling, transaction, event filtering and decoding of topics. Unity 3d integration.
+summary: Nethereum is the .Net integration library for Ethereum, simplifying the access and smart contract interaction with Ethereum nodes both public or permissioned like Geth, Parity or Quorum. Features Nethereum provides- JSON RPC / IPC Ethereum core methods. Geth management API (admin, personal, debugging, miner). Parity management API. Quorum integration. Simplified smart contract interaction for deployment, function calling, transaction, event filtering and decoding of topics. Unity 3d integration.
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-03-01

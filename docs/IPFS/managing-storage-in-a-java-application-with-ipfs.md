@@ -1,6 +1,6 @@
 ---
 title: Managing storage in a Java application with IPFS
-summary: In this article, we learn how to interact with IPFS (InterPlanetary File System) in Java using the official java-ipfs-http-client library. This library connects to an IPFS node and wraps most of the operations offered by the HTTP API. The following diagram describes a Java program connected to an IPFS node via the java-ipfs-http-client library to the API Server. API server (default port  5001): Full API Gateway server (default port: 8080): Read Only API (access to data only) P2P (default port: 4
+summary: In this article, we learn how to interact with IPFS (InterPlanetary File System) in Java using the official java-ipfs-http-client library. This library connects to an IPFS node and wraps most of the operations offered by the HTTP API. The following diagram describes a Java program connected to an IPFS node via the java-ipfs-http-client library to the API Server. API server (default port- 5001)- Full API Gateway server (default port- 8080)- Read Only API (access to data only) P2P (default port- 4
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2019-08-14

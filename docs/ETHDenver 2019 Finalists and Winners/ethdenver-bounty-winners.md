@@ -1,6 +1,6 @@
 ---
 title: ETHDenver Bounty Winners
-summary: In addition to the main finalists and winners were the picks of the bounty sponsors. Fortmatic Best user-friendly DApps using Fortmatic for identity management  DAO Git Bot Charity Watchdog JobSimple PoolTogether EthASketch ShapeShift Ethergram Crypto Messenger SMS Blockchain Protocol Status Best Status extensions: PayPic Red Envelope Proof of Opossum POA Best deployments to POA or xDAI: SPITL Ethergram DAINo zDAI Nabu muggleDAI SpinFM Buffigen React Burner Merchant Ethergram The Graph Best new
+summary: In addition to the main finalists and winners were the picks of the bounty sponsors. Fortmatic Best user-friendly DApps using Fortmatic for identity management- DAO Git Bot Charity Watchdog JobSimple PoolTogether EthASketch ShapeShift Ethergram Crypto Messenger SMS Blockchain Protocol Status Best Status extensions- PayPic Red Envelope Proof of Opossum POA Best deployments to POA or xDAI- SPITL Ethergram DAINo zDAI Nabu muggleDAI SpinFM Buffigen React Burner Merchant Ethergram The Graph Best new
 authors:
   - Chris Ward (@chrischinchilla)
 date: 2019-03-01

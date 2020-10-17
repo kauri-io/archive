@@ -1,6 +1,6 @@
 ---
 title: Wel-fair
-summary: Project Name WelFair Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Government task marketplace to top-up welfare benefits Team Members. First and Last Names Bernard Lin, Sean Oh, Siva Kannan, Ling Zhong Status.im ID for Each Team Member (we will use this to contact you and your team) https //get.status.im/user/0x04168ab2915aaf7d47d5e391414facc39354da41a8cb4a276cb88cfd0e2c02b9bebb856abffd62288b860ce773e5460d503d2ca983b51b4a43a7a37fdae281e050 https://get.
+summary: Project Name WelFair Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Government task marketplace to top-up welfare benefits Team Members. First and Last Names Bernard Lin, Sean Oh, Siva Kannan, Ling Zhong Status.im ID for Each Team Member (we will use this to contact you and your team) https-//get.status.im/user/0x04168ab2915aaf7d47d5e391414facc39354da41a8cb4a276cb88cfd0e2c02b9bebb856abffd62288b860ce773e5460d503d2ca983b51b4a43a7a37fdae281e050 https-//get.
 authors:
   - null (@null)
 date: 2019-02-17

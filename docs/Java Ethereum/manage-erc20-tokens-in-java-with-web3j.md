@@ -1,6 +1,6 @@
 ---
 title: Manage ERC20 tokens in Java with Web3j
-summary: In this article, we learn how to manage ERC20 (Fungible) tokens in Java with the Web3j library. ERC20 is an Ethereum Smart Contract standard for implementing tokens in a compliant way, so it is easy to interact and integrate tokens with any application (dapps, wallets, exchanges, etc.). For more details about ERC20, see the article ERC-20 Token Standard. Prerequisites To follow this tutorial, you need the following software installed on your computer  Java programming language (> 8) A package an
+summary: In this article, we learn how to manage ERC20 (Fungible) tokens in Java with the Web3j library. ERC20 is an Ethereum Smart Contract standard for implementing tokens in a compliant way, so it is easy to interact and integrate tokens with any application (dapps, wallets, exchanges, etc.). For more details about ERC20, see the article ERC-20 Token Standard. Prerequisites To follow this tutorial, you need the following software installed on your computer- Java programming language (> 8) A package an
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2019-08-20

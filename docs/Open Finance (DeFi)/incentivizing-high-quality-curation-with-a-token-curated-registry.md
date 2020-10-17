@@ -1,6 +1,6 @@
 ---
 title: Incentivizing high-quality curation with a Token-Curated Registry
-summary: What is a Token-Curated Registry The idea behind Token-Curated Registry (TCR) is simple. To create a list around a certain topic. For example, a list of people, companies, or schools. Lists are inherent to people  we create, maintain, and consume them all the time. With token-curated registries, this process can become decentralized, as there are no central parties who maintain it. Once deployed, such a list is fully autonomous from its creator. There are three groups of users of a registry: con
+summary: What is a Token-Curated Registry The idea behind Token-Curated Registry (TCR) is simple. To create a list around a certain topic. For example, a list of people, companies, or schools. Lists are inherent to people- we create, maintain, and consume them all the time. With token-curated registries, this process can become decentralized, as there are no central parties who maintain it. Once deployed, such a list is fully autonomous from its creator. There are three groups of users of a registry- con
 authors:
   - Timur Badretdinov (@destiner)
 date: 2019-05-18

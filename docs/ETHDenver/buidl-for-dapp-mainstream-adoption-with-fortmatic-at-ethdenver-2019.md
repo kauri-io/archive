@@ -1,5 +1,5 @@
 ---
-title: #BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019
+title: -BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019
 summary: Hello, ETHDenver hackers! 👋 from all at Fortmatic who are thrilled to meet you in a few days! This is a significant event and milestone for Fortmatic, as ETHDenver will be their first public debut. After many months of hard-work, the team has built an amazing product that allows end-users to directly interact with dApps, without having to download any browser extensions or 3rd party mobile apps. All of this will be available for developers by adding a couple lines of code, without having to cha
 authors:
   - Chris Ward (@chrischinchilla)

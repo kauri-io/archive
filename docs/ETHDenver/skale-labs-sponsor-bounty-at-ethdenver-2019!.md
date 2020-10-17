@@ -1,6 +1,6 @@
 ---
 title: SKALE Labs - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description SKALE Labs SKALE provides an easy to use layer 2 scaling solution for Ethereum Dapps. In less than 60 seconds you can access and connect a SKALE Chain to a web 3 environment. Bounty 1 Overview  Rockies SKALER Description: The most impressive scaling submission based on judgment criteria detailed below 1st Place Prize Amount: $2,000 Honorable Mention: $1,000 each to up to three teams Resources/Links: https://github.com/skalenetwork/hackathon Requirements (e.g.
+summary: Company/Project Name and Description SKALE Labs SKALE provides an easy to use layer 2 scaling solution for Ethereum Dapps. In less than 60 seconds you can access and connect a SKALE Chain to a web 3 environment. Bounty 1 Overview- Rockies SKALER Description- The most impressive scaling submission based on judgment criteria detailed below 1st Place Prize Amount- $2,000 Honorable Mention- $1,000 each to up to three teams Resources/Links- https-//github.com/skalenetwork/hackathon Requirements (e.g.
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-14

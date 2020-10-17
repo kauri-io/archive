@@ -1,6 +1,6 @@
 ---
 title: Bluzelle - A decentralized data cache
-summary: Bluzelle is a decentralized data cache with servers available in data centers across multiple regions, and auto-replication. Quick Start 1. Create an NPM Project With NodeJS and NPM installed creating a project is a straight forward process $ mkdir my-bluzelle-project $ cd my-bluzelle-project $ npm init 2. Install the bluzelle NPM package Run npm install bluzelle to get the latest and greatest Bluzelle sdk \\(see installation for more details\\). 3. Run a simple program Create a file, my-program
+summary: Bluzelle is a decentralized data cache with servers available in data centers across multiple regions, and auto-replication. Quick Start 1. Create an NPM Project With NodeJS and NPM installed creating a project is a straight forward process-$ mkdir my-bluzelle-project $ cd my-bluzelle-project $ npm init 2. Install the bluzelle NPM package Run npm install bluzelle to get the latest and greatest Bluzelle sdk \\(see installation for more details\\). 3. Run a simple program Create a file, my-program
 authors:
   - Kauri Team (@kauri)
 date: 2019-06-06

@@ -1,6 +1,6 @@
 ---
 title: From Dev to Production Multi-chain Environments with Splunk
-summary: Project Name From Dev to Production Multi-chain Environments with Splunk Project Tagline/Description (140 Characters Max. Will be used on table card for judging) From Docker dev net to prod multi-chain analytics. Get 2 prod faster with end to end visibility running real-time across multiple chains. Team Members. First and Last Names Nate McKervey Ryan Moore Jeff Wu Siegfried Puchbauer Status.im ID for Each Team Member (we will use this to contact you and your team) Jeff Wu  0x0433f9647339da77607
+summary: Project Name From Dev to Production Multi-chain Environments with Splunk Project Tagline/Description (140 Characters Max. Will be used on table card for judging) From Docker dev net to prod multi-chain analytics. Get 2 prod faster with end to end visibility running real-time across multiple chains. Team Members. First and Last Names Nate McKervey Ryan Moore Jeff Wu Siegfried Puchbauer Status.im ID for Each Team Member (we will use this to contact you and your team) Jeff Wu- 0x0433f9647339da77607
 authors:
   - Jeff (@jwu)
 date: 2019-02-17

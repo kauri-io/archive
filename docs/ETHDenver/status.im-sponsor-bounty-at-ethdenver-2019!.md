@@ -1,6 +1,6 @@
 ---
 title: Status.im - Sponsor Bounty at ETHDenver 2019!
-summary: Company/Project Name and Description Status.im Status’ goal is to make web 3 more accessible to the world; with a focus on privacy and security. Status is committed to bringing the power of Ethereum and a more distributed internet to your pocket. Bounty 1 Overview  Status Extensions Description: It is simple– use the Status Web API to build a DApp that is fully decentralized and is mobile optimized to be used on Status. The Status web API gives access to a users Whisper ID which can be great for
+summary: Company/Project Name and Description Status.im Status’ goal is to make web 3 more accessible to the world; with a focus on privacy and security. Status is committed to bringing the power of Ethereum and a more distributed internet to your pocket. Bounty 1 Overview- Status Extensions Description- It is simple– use the Status Web API to build a DApp that is fully decentralized and is mobile optimized to be used on Status. The Status web API gives access to a users Whisper ID which can be great for
 authors:
   - Bufficorn (@bufficorn)
 date: 2019-02-14

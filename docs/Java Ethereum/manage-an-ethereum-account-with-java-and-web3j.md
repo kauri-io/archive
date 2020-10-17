@@ -1,6 +1,6 @@
 ---
 title: Manage an Ethereum account with Java and Web3j
-summary: Other articles in this series  Connecting to an Ethereum client with Java, Eclipse and Web3j Generate a Java Wrapper from your Smart Contract Interacting with a
+summary: Other articles in this series- Connecting to an Ethereum client with Java, Eclipse and Web3j Generate a Java Wrapper from your Smart Contract Interacting with a
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-05-01

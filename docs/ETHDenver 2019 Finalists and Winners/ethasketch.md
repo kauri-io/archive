@@ -1,6 +1,6 @@
 ---
 title: EthASketch
-summary: Plotter Main Page Project Name EthASketch Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Instantly sketch collaboratively on the Ethereum blockchain while also instructing a IRL handmade 2d plotter to see everyones doodles. Team Members. First and Last Names Iain Nash Status.im ID for Each Team Member (we will use this to contact you and your team) https //get.status.im/user/0x042f4f62a710aea5ac4dc12499671a319ca9f34283bf550a87ddcfa00183128598c83cdbfd8b81
+summary: Plotter Main Page Project Name EthASketch Project Tagline/Description (140 Characters Max. Will be used on table card for judging) Instantly sketch collaboratively on the Ethereum blockchain while also instructing a IRL handmade 2d plotter to see everyones doodles. Team Members. First and Last Names Iain Nash Status.im ID for Each Team Member (we will use this to contact you and your team) https-//get.status.im/user/0x042f4f62a710aea5ac4dc12499671a319ca9f34283bf550a87ddcfa00183128598c83cdbfd8b81
 authors:
   - iain nash (@iain)
 date: 2019-02-17

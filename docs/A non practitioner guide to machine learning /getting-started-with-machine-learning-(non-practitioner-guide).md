@@ -1,6 +1,6 @@
 ---
 title: Getting Started With Machine Learning (Non practitioner guide)
-summary: In the recent years, machine learning has made a comeback into everybodys conversations. From the classrooms in Stanford or MIT, to movies like HER or Ex-Machina, AI is not just permeating all our lives but also our imagination. But as a developer, how can you start dipping your toes in AI, understand it and possibly change the world with it? Thats what this guide is for, a quick intro from a non-practitioner for non-practitioners  ) Well install the basic tools required, download some datasets
+summary: In the recent years, machine learning has made a comeback into everybodys conversations. From the classrooms in Stanford or MIT, to movies like HER or Ex-Machina, AI is not just permeating all our lives but also our imagination. But as a developer, how can you start dipping your toes in AI, understand it and possibly change the world with it? Thats what this guide is for, a quick intro from a non-practitioner for non-practitioners -) Well install the basic tools required, download some datasets
 authors:
   - Davide Scalzo (@davidescalzo)
 date: 2019-11-07

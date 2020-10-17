@@ -1,6 +1,6 @@
 ---
 title: Lint your Solidity contracts with Solhint
-summary: Solhint is an open source project for linting Solidity code. This project provides both Security and Style Guide validations. Installation You can install Solhint using npm npm install -g solhint # verify that it was installed correctly solhint -V Usage For linting Solidity files you need to run Solhint with one or more Globs as arguments. For example, to lint all files inside contracts directory, you can do:solhint contracts/**/*.sol To lint a single file:solhint contracts/MyToken.sol Solhint c
+summary: Solhint is an open source project for linting Solidity code. This project provides both Security and Style Guide validations. Installation You can install Solhint using npm-npm install -g solhint - verify that it was installed correctly solhint -V Usage For linting Solidity files you need to run Solhint with one or more Globs as arguments. For example, to lint all files inside contracts directory, you can do-solhint contracts/**/*.sol To lint a single file-solhint contracts/MyToken.sol Solhint c
 authors:
   - Kauri Team (@kauri)
 date: 2019-06-05

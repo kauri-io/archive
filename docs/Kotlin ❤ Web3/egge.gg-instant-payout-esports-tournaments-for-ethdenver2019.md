@@ -1,6 +1,6 @@
 ---
 title: EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019
-summary: EGGE.GG The Future Of Esports Competition Team Members  Robbie Weinel Hayder Sharhan Somesh K S Status.im ID for Each Team Member (we will use this to contact you and your team) Robbie: https://get.status.im/user/0x044be687b9a8c52a2af4911a35737f20d834a0c836dd5c202413ab72f36106ef1349aceda14cccacb1463c198bce118be74d7d5338ec27a0101c785483739d0060 Somesh: https://get.status.im/user/0x04aa9d02a29de468e40419a22bf2bed01645ec082ab1682efe38fbae1c5bd0ba8ac5141be0ad2d2b96ec1d7b4a7d5b705fc115bf234ac712e3445
+summary: EGGE.GG The Future Of Esports Competition Team Members- Robbie Weinel Hayder Sharhan Somesh K S Status.im ID for Each Team Member (we will use this to contact you and your team) Robbie- https-//get.status.im/user/0x044be687b9a8c52a2af4911a35737f20d834a0c836dd5c202413ab72f36106ef1349aceda14cccacb1463c198bce118be74d7d5338ec27a0101c785483739d0060 Somesh- https-//get.status.im/user/0x04aa9d02a29de468e40419a22bf2bed01645ec082ab1682efe38fbae1c5bd0ba8ac5141be0ad2d2b96ec1d7b4a7d5b705fc115bf234ac712e3445
 authors:
   - Hayder Sharhan (@hshar)
 date: 2019-02-17
