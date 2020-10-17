@@ -6,40 +6,40 @@ nav:
       - IPFS:
         - Building a Twitter Bot using IPFS Cluster 🤖: 'IPFS/building-a-twitter-bot-using-ipfs-cluster.md'
         - Hands-on IPLD Tutorial in Golang- PART 2: 'IPFS/hands-on-ipld-tutorial-in-golang--part-2.md'
-        - Understanding IPFS in Depth(2/6)- What is InterPlanetary Linked Data(IPLD)?: 'IPFS/understanding-ipfs-in-depth(26)--what-is-interplanetary-linked-data(ipld).md'
+        - Understanding IPFS in Depth(2/6)- What is InterPlanetary Linked Data(IPLD)?: 'IPFS/understanding-ipfs-in-depth(26)--what-is-interpla.md'
         - Hands-on IPLD Tutorial in Golang: 'IPFS/hands-on-ipld-tutorial-in-golang.md'
-        - Understanding IPFS in Depth(1/6)- A Beginner to Advanced Guide: 'IPFS/understanding-ipfs-in-depth(16)--a-beginner-to-advanced-guide.md'
-        - OrbitDB- Serverless, Distributed, Peer-to-Peer Database: 'IPFS/orbitdb--serverless-distributed-peer-to-peer-database.md'
-        - Getting started with Mahuta - A Search engine for the IPFS: 'IPFS/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md'
+        - Understanding IPFS in Depth(1/6)- A Beginner to Advanced Guide: 'IPFS/understanding-ipfs-in-depth(16)--a-beginner-to-ad.md'
+        - OrbitDB- Serverless, Distributed, Peer-to-Peer Database: 'IPFS/orbitdb--serverless-distributed-peer-to-peer-data.md'
+        - Getting started with Mahuta - A Search engine for the IPFS: 'IPFS/getting-started-with-mahuta-a-search-engine-for-t.md'
         - Peer-to-peer hypermedia with IPFS: 'IPFS/peer-to-peer-hypermedia-with-ipfs.md'
         - Installing IPFS: 'IPFS/installing-ipfs.md'
         - Improving IPFS Decentralization - Introducing Ahken: 'IPFS/improving-ipfs-decentralization-introducing-ahken.md'
         - Managing storage in a Java application with IPFS: 'IPFS/managing-storage-in-a-java-application-with-ipfs.md'
       - Getting started with dapp development:
         - Tips for Starting Dapp Development: 'Getting started with dapp development/tips-for-starting-dapp-development.md'
-        - An Introduction to Solidity for Experienced Developers: 'Getting started with dapp development/an-introduction-to-solidity-for-experienced-developers.md'
+        - An Introduction to Solidity for Experienced Developers: 'Getting started with dapp development/an-introduction-to-solidity-for-experienced-devel.md'
         - Truffle- Adding a frontend with react box: 'Getting started with dapp development/truffle--adding-a-frontend-with-react-box.md'
         - Truffle- Testing your smart contract: 'Getting started with dapp development/truffle--testing-your-smart-contract.md'
-        - Truffle- Smart Contract Compilation & Deployment: 'Getting started with dapp development/truffle--smart-contract-compilation-and-deployment.md'
-        - Understanding smart contract compilation and deployment: 'Getting started with dapp development/understanding-smart-contract-compilation-and-deployment.md'
+        - Truffle- Smart Contract Compilation & Deployment: 'Getting started with dapp development/truffle--smart-contract-compilation-and-deploymen.md'
+        - Understanding smart contract compilation and deployment: 'Getting started with dapp development/understanding-smart-contract-compilation-and-depl.md'
         - Tools for dApp development: 'Getting started with dapp development/tools-for-dapp-development.md'
         - Full Stack dApp Tutorial Series - Intro: 'Getting started with dapp development/full-stack-dapp-tutorial-series-intro.md'
         - ERC-721 Non-Fungible Token Standard: 'Getting started with dapp development/erc-721-non-fungible-token-standard.md'
         - Create a "Hello World" fullstack dapp: 'Getting started with dapp development/create-a-"hello-world"-fullstack-dapp.md'
         - A fullstack dapp for creating tokens: 'Getting started with dapp development/a-fullstack-dapp-for-creating-tokens.md'
-        - A fullstack dapp for creating unique tradable tokens: 'Getting started with dapp development/a-fullstack-dapp-for-creating-unique-tradable-tokens.md'
+        - A fullstack dapp for creating unique tradable tokens: 'Getting started with dapp development/a-fullstack-dapp-for-creating-unique-tradable-tok.md'
         - Blockchain Explained: 'Getting started with dapp development/blockchain-explained.md'
         - Remix IDE - Your first smart contract: 'Getting started with dapp development/remix-ide-your-first-smart-contract.md'
         - An Introduction to Smart Contracts with Solidity: 'Getting started with dapp development/an-introduction-to-smart-contracts-with-solidity.md'
       - Ethereum Node Runners:
-        - Run an Ethereum node on Debian with an External SSD (Mar 2020): 'Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-ssd-(mar-2020).md'
-        - Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card: 'Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card.md'
-        - Make use of your remote Ethereum node using an SSH tunnel and MetaMask: 'Ethereum Node Runners/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask.md'
-        - How to install and synchronize your own remote Ethereum node: 'Ethereum Node Runners/how-to-install-and-synchronize-your-own-remote-ethereum-node.md'
+        - Run an Ethereum node on Debian with an External SSD (Mar 2020): 'Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-s.md'
+        - Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card: 'Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full.md'
+        - Make use of your remote Ethereum node using an SSH tunnel and MetaMask: 'Ethereum Node Runners/make-use-of-your-remote-ethereum-node-using-an-ss.md'
+        - How to install and synchronize your own remote Ethereum node: 'Ethereum Node Runners/how-to-install-and-synchronize-your-own-remote-et.md'
         - How to set up a simple Linux firewall: 'Ethereum Node Runners/how-to-set-up-a-simple-linux-firewall.md'
         - Supported hardware to run an Ethereum node: 'Ethereum Node Runners/supported-hardware-to-run-an-ethereum-node.md'
         - Monitor your Geth node with Google Sheet: 'Ethereum Node Runners/monitor-your-geth-node-with-google-sheet.md'
-        - Running an Ethereum Full Node on a RaspberryPi 4 (model B): 'Ethereum Node Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-(model-b).md'
+        - Running an Ethereum Full Node on a RaspberryPi 4 (model B): 'Ethereum Node Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-.md'
       - Documentation and technical communication:
         - Why do people write?: 'Documentation and technical communication/why-do-people-write.md'
         - Language and understandable writing: 'Documentation and technical communication/language-and-understandable-writing.md'
@@ -51,49 +51,49 @@ nav:
         - Manage ERC20 tokens in Java with Web3j: 'Java Ethereum/manage-erc20-tokens-in-java-with-web3j.md'
         - Running a Pantheon Node in Java Integration Tests: 'Java Ethereum/running-a-pantheon-node-in-java-integration-tests.md'
         - Managing storage in a Java application with IPFS: 'Java Ethereum/managing-storage-in-a-java-application-with-ipfs.md'
-        - Using Besu, the Java Ethereum Client with Linux/MacOS: 'Java Ethereum/using-besu-the-java-ethereum-client-with-linuxmacos.md'
-        - Listening for Ethereum Smart Contract Events in Java: 'Java Ethereum/listening-for-ethereum-smart-contract-events-in-java.md'
-        - Interacting with an Ethereum Smart Contract in Java: 'Java Ethereum/interacting-with-an-ethereum-smart-contract-in-java.md'
+        - Using Besu, the Java Ethereum Client with Linux/MacOS: 'Java Ethereum/using-besu-the-java-ethereum-client-with-linuxmac.md'
+        - Listening for Ethereum Smart Contract Events in Java: 'Java Ethereum/listening-for-ethereum-smart-contract-events-in-j.md'
+        - Interacting with an Ethereum Smart Contract in Java: 'Java Ethereum/interacting-with-an-ethereum-smart-contract-in-ja.md'
         - Generate a Java Wrapper from your Smart Contract: 'Java Ethereum/generate-a-java-wrapper-from-your-smart-contract.md'
         - Manage an Ethereum account with Java and Web3j: 'Java Ethereum/manage-an-ethereum-account-with-java-and-web3j.md'
-        - Connecting to an Ethereum client with Java, Eclipse and Web3j: 'Java Ethereum/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j.md'
+        - Connecting to an Ethereum client with Java, Eclipse and Web3j: 'Java Ethereum/connecting-to-an-ethereum-client-with-java-eclips.md'
     - Collections:
       - A Deep Dive Into The Ethereum Virtual Machine (EVM) Series:
-        - A Deep Dive into the Ethereum Virtual Machine (EVM) - part 1- Introduction: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-1--introduction.md'
-        - A Deep Dive into the Ethereum Virtual Machine (EVM) - part 2- Memory and Storage: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-2--memory-and-storage.md'
-        - A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3- Execution Model of the EVM : 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-3--execution-model-of-the-evm.md'
-        - A Deep Dive into the Ethereum Virtual Machine - Part 4- The EVM and High-Level Programming Languages: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-part-4--the-evm-and-high-level-programming-languages.md'
+        - A Deep Dive into the Ethereum Virtual Machine (EVM) - part 1- Introduction: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md'
+        - A Deep Dive into the Ethereum Virtual Machine (EVM) - part 2- Memory and Storage: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md'
+        - A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3- Execution Model of the EVM : 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md'
+        - A Deep Dive into the Ethereum Virtual Machine - Part 4- The EVM and High-Level Programming Languages: 'A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-par.md'
       - Build your very own self-hosting platform with Raspberry Pi and Kubernetes:
-        - (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(18)-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction.md'
-        - (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(28)-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes.md'
-        - (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(38)-install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications.md'
-        - (4/8) Deploy NextCloud on Kuberbetes- The self-hosted Dropbox: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(48)-deploy-nextcloud-on-kuberbetes--the-self-hosted-dropbox.md'
-        - (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett : 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(58)-self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett.md'
-        - (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(68)-self-host-pi-hole-on-kubernetes-and-block-ads-and-trackers-at-the-network-level.md'
-        - (7/8) Self-host your password manager with Bitwarden: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(78)-self-host-your-password-manager-with-bitwarden.md'
-        - (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(88)-deploy-prometheus-and-grafana-to-monitor-a-kubernetes-cluster.md'
+        - (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(18)-build-your-very-own-self-hosting-platform-wi.md'
+        - (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(28)-install-raspbian-operating-system-and-prepar.md'
+        - (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(38)-install-and-configure-a-kubernetes-cluster-w.md'
+        - (4/8) Deploy NextCloud on Kuberbetes- The self-hosted Dropbox: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(48)-deploy-nextcloud-on-kuberbetes--the-self-hos.md'
+        - (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett : 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(58)-self-host-your-media-center-on-kubernetes-wi.md'
+        - (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(68)-self-host-pi-hole-on-kubernetes-and-block-ad.md'
+        - (7/8) Self-host your password manager with Bitwarden: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(78)-self-host-your-password-manager-with-bitward.md'
+        - (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster: 'Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(88)-deploy-prometheus-and-grafana-to-monitor-a-k.md'
       - A Hackathon Survival Guide:
         - The Hack?!? What is a hackathon?: 'A Hackathon Survival Guide/the-hack!-what-is-a-hackathon.md'
         - Create a "Hello World" fullstack dapp: 'A Hackathon Survival Guide/create-a-"hello-world"-fullstack-dapp.md'
         - Full Stack dApp Tutorial Series - Intro: 'A Hackathon Survival Guide/full-stack-dapp-tutorial-series-intro.md'
         - Ethereum 101 - Part 1 - What is Ethereum?: 'A Hackathon Survival Guide/ethereum-101-part-1-what-is-ethereum.md'
         - Remix IDE - Your first smart contract: 'A Hackathon Survival Guide/remix-ide-your-first-smart-contract.md'
-        - Interacting with an Ethereum Smart Contract in Java: 'A Hackathon Survival Guide/interacting-with-an-ethereum-smart-contract-in-java.md'
-        - A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts: 'A Hackathon Survival Guide/a-.net-developer-s-workflow-for-creating-and-calling-ethereum-smart-contracts.md'
+        - Interacting with an Ethereum Smart Contract in Java: 'A Hackathon Survival Guide/interacting-with-an-ethereum-smart-contract-in-ja.md'
+        - A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts: 'A Hackathon Survival Guide/a-.net-developer-s-workflow-for-creating-and-call.md'
         - Sending Ethereum Transactions with Rust: 'A Hackathon Survival Guide/sending-ethereum-transactions-with-rust.md'
         - Generate a Java Wrapper from your Smart Contract: 'A Hackathon Survival Guide/generate-a-java-wrapper-from-your-smart-contract.md'
         - Accelerating DApp Development with Ethers.js: 'A Hackathon Survival Guide/accelerating-dapp-development-with-ethers.js.md'
-        - Nethereum - An open source .NET integration library for blockchain: 'A Hackathon Survival Guide/nethereum-an-open-source-.net-integration-library-for-blockchain.md'
+        - Nethereum - An open source .NET integration library for blockchain: 'A Hackathon Survival Guide/nethereum-an-open-source-.net-integration-library.md'
         - Creating a DApp in Go with Geth: 'A Hackathon Survival Guide/creating-a-dapp-in-go-with-geth.md'
         - Tools for dApp development: 'A Hackathon Survival Guide/tools-for-dapp-development.md'
         - EthASketch: 'A Hackathon Survival Guide/ethasketch.md'
-        - Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community: 'A Hackathon Survival Guide/bountibot--rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community.md'
+        - Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community: 'A Hackathon Survival Guide/bountibot--rewarding-github-pull-requests-for-you.md'
         - ETH Dev Tools: 'A Hackathon Survival Guide/eth-dev-tools.md'
       - Web3j Cheat Sheet (Java Ethereum):
         - Retrieving an Ethereum Account Balance in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/retrieving-an-ethereum-account-balance-in-web3j.md'
-        - Converting Between Ether Units / Denominations in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/converting-between-ether-units-denominations-in-web3j.md'
-        - Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase): 'Web3j Cheat Sheet (Java Ethereum)/creating-a-web3j-wallet-from-a-mnemonic-code-(seed-phrase).md'
-        - Sending an Ether Transfer Transaction from One Account to Another in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j.md'
+        - Converting Between Ether Units / Denominations in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/converting-between-ether-units-denominations-in-w.md'
+        - Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase): 'Web3j Cheat Sheet (Java Ethereum)/creating-a-web3j-wallet-from-a-mnemonic-code-(see.md'
+        - Sending an Ether Transfer Transaction from One Account to Another in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/sending-an-ether-transfer-transaction-from-one-ac.md'
         - Signing an Ethereum Transaction in Web3j: 'Web3j Cheat Sheet (Java Ethereum)/signing-an-ethereum-transaction-in-web3j.md'
         - Signing Data in Java and Web3j: 'Web3j Cheat Sheet (Java Ethereum)/signing-data-in-java-and-web3j.md'
       - OpenZeppelin:
@@ -102,39 +102,39 @@ nav:
         - OpenZeppelin Part 3- Token Standards: 'OpenZeppelin/openzeppelin-part-3--token-standards.md'
         - OpenZeppelin Part 4- Crowdsales: 'OpenZeppelin/openzeppelin-part-4--crowdsales.md'
       - A non practitioner guide to machine learning :
-        - Getting Started With Machine Learning (Non practitioner guide): 'A non practitioner guide to machine learning /getting-started-with-machine-learning-(non-practitioner-guide).md'
+        - Getting Started With Machine Learning (Non practitioner guide): 'A non practitioner guide to machine learning /getting-started-with-machine-learning-(non-practi.md'
         - Installing Anaconda, Python3 and Tensorflow: 'A non practitioner guide to machine learning /installing-anaconda-python3-and-tensorflow.md'
         - Regression with Python, Keras and Tensorflow: 'A non practitioner guide to machine learning /regression-with-python-keras-and-tensorflow.md'
-        - Predict cryptocurrency prices with Tensorflow as binary classification problem: 'A non practitioner guide to machine learning /predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem.md'
-        - Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow: 'A non practitioner guide to machine learning /multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow.md'
+        - Predict cryptocurrency prices with Tensorflow as binary classification problem: 'A non practitioner guide to machine learning /predict-cryptocurrency-prices-with-tensorflow-as-.md'
+        - Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow: 'A non practitioner guide to machine learning /multi-class-classification-example-with-convoluti.md'
       - An ethereum test toolkit in Go:
         - Sending Transactions on GETH's Simulated Backend: 'An ethereum test toolkit in Go/sending-transactions-on-geth-s-simulated-backend.md'
-        - Interacting with smart contracts from GETH's Simulated Backend: 'An ethereum test toolkit in Go/interacting-with-smart-contracts-from-geth-s-simulated-backend.md'
+        - Interacting with smart contracts from GETH's Simulated Backend: 'An ethereum test toolkit in Go/interacting-with-smart-contracts-from-geth-s-simu.md'
         - Generating a load of keys for testing in Go: 'An ethereum test toolkit in Go/generating-a-load-of-keys-for-testing-in-go.md'
         - The GETH Simulated Backend: 'An ethereum test toolkit in Go/the-geth-simulated-backend.md'
       - Monitoring Kubernetes with Elastic Stack:
-        - (1/5) Getting started with Elastic Stack for monitoring on Kubernetes: 'Monitoring Kubernetes with Elastic Stack/(15)-getting-started-with-elastic-stack-for-monitoring-on-kubernetes.md'
-        - (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data: 'Monitoring Kubernetes with Elastic Stack/(25)-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data.md'
-        - (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes : 'Monitoring Kubernetes with Elastic Stack/(35)-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes.md'
-        - (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes: 'Monitoring Kubernetes with Elastic Stack/(45)-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes.md'
-        - (5/5) Collect traces with Elastic APM for monitoring Kubernetes : 'Monitoring Kubernetes with Elastic Stack/(55)-collect-traces-with-elastic-apm-for-monitoring-kubernetes.md'
+        - (1/5) Getting started with Elastic Stack for monitoring on Kubernetes: 'Monitoring Kubernetes with Elastic Stack/(15)-getting-started-with-elastic-stack-for-monit.md'
+        - (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data: 'Monitoring Kubernetes with Elastic Stack/(25)-install-elasticsearch-and-kibana-to-store-an.md'
+        - (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes : 'Monitoring Kubernetes with Elastic Stack/(35)-collect-metrics-with-elastic-metricbeat-for-.md'
+        - (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes: 'Monitoring Kubernetes with Elastic Stack/(45)-collect-logs-with-elastic-filebeat-for-monit.md'
+        - (5/5) Collect traces with Elastic APM for monitoring Kubernetes : 'Monitoring Kubernetes with Elastic Stack/(55)-collect-traces-with-elastic-apm-for-monitori.md'
       - Founder interviews:
-        - Fluree- Blockchain, GraphQL, and more all in one database: 'Founder interviews/fluree--blockchain-graphql-and-more-all-in-one-database.md'
-        - True anonymity, privacy, and SNApps with Simon Harman of Loki: 'Founder interviews/true-anonymity-privacy-and-snapps-with-simon-harman-of-loki.md'
+        - Fluree- Blockchain, GraphQL, and more all in one database: 'Founder interviews/fluree--blockchain-graphql-and-more-all-in-one-da.md'
+        - True anonymity, privacy, and SNApps with Simon Harman of Loki: 'Founder interviews/true-anonymity-privacy-and-snapps-with-simon-harm.md'
         - The Æternity blockchain with Emil Wagner: 'Founder interviews/the-aeternity-blockchain-with-emil-wagner.md'
-        - Embleema- The Blockchain That Lets You Own Your Health Data: 'Founder interviews/embleema--the-blockchain-that-lets-you-own-your-health-data.md'
+        - Embleema- The Blockchain That Lets You Own Your Health Data: 'Founder interviews/embleema--the-blockchain-that-lets-you-own-your-h.md'
       - Vyper Full Stack dApp Tutorial Series:
         - Remix IDE - Your first Vyper smart contract: 'Vyper Full Stack dApp Tutorial Series/remix-ide-your-first-vyper-smart-contract.md'
-        - Understanding smart contract compilation and deployment: 'Vyper Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-deployment.md'
-        - Truffle- Smart Contract Compilation & Deployment: 'Vyper Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deployment.md'
+        - Understanding smart contract compilation and deployment: 'Vyper Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md'
+        - Truffle- Smart Contract Compilation & Deployment: 'Vyper Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deploymen.md'
         - Truffle- Testing your smart contract: 'Vyper Full Stack dApp Tutorial Series/truffle--testing-your-smart-contract.md'
         - Tools for working with Vyper: 'Vyper Full Stack dApp Tutorial Series/tools-for-working-with-vyper.md'
       - Flexible, Upgradeable & Highly Available NFTs:
         - Creating a Flexible NFT (Part 1): 'Flexible, Upgradeable & Highly Available NFTs/creating-a-flexible-nft-(part-1).md'
         - Creating a Flexible NFT (Part 2): 'Flexible, Upgradeable & Highly Available NFTs/creating-a-flexible-nft-(part-2).md'
       - Libra:
-        - Building and Working with Facebook’s Cryptocurrency Libra: 'Libra/building-and-working-with-facebook-s-cryptocurrency-libra.md'
-        - Whitepaper Deep Dive — Move- Facebook Libra Blockchain’s New Programming Language: 'Libra/whitepaper-deep-dive-move--facebook-libra-blockchain-s-new-programming-language.md'
+        - Building and Working with Facebook’s Cryptocurrency Libra: 'Libra/building-and-working-with-facebook-s-cryptocurren.md'
+        - Whitepaper Deep Dive — Move- Facebook Libra Blockchain’s New Programming Language: 'Libra/whitepaper-deep-dive-move--facebook-libra-blockch.md'
         - Quick Dive into the Move Programming Language: 'Libra/quick-dive-into-the-move-programming-language.md'
       - Bitcoin:
         - Bitcoin Blockchain Overview: 'Bitcoin/bitcoin-blockchain-overview.md'
@@ -146,29 +146,29 @@ nav:
         - Blockchain Explained: 'Getting Started/blockchain-explained.md'
         - An Introduction to Smart Contracts with Solidity: 'Getting Started/an-introduction-to-smart-contracts-with-solidity.md'
         - An Introduction to Smart Contracts with Vyper: 'Getting Started/an-introduction-to-smart-contracts-with-vyper.md'
-        - Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens : 'Getting Started/cute-kitties-and-where-to-find-them-an-introduction-to-non-fungible-tokens.md'
+        - Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens : 'Getting Started/cute-kitties-and-where-to-find-them-an-introducti.md'
         - ERC-721 Non-Fungible Token Standard: 'Getting Started/erc-721-non-fungible-token-standard.md'
         - ERC-20 Token Standard: 'Getting Started/erc-20-token-standard.md'
         - Develop your ERC-20 Token — explained!: 'Getting Started/develop-your-erc-20-token-explained!.md'
-        - Gamifying Crypto Assets with the ERC998 Composables Token Standard: 'Getting Started/gamifying-crypto-assets-with-the-erc998-composables-token-standard.md'
-        - ERC-20 and Its Discontents- The Rise of Comrades ERC-777 & ERC-1820: 'Getting Started/erc-20-and-its-discontents--the-rise-of-comrades-erc-777-and-erc-1820.md'
+        - Gamifying Crypto Assets with the ERC998 Composables Token Standard: 'Getting Started/gamifying-crypto-assets-with-the-erc998-composabl.md'
+        - ERC-20 and Its Discontents- The Rise of Comrades ERC-777 & ERC-1820: 'Getting Started/erc-20-and-its-discontents--the-rise-of-comrades-.md'
         - Creating a DApp in Go with Geth: 'Getting Started/creating-a-dapp-in-go-with-geth.md'
         - Smart contracts integration with Nethereum: 'Getting Started/smart-contracts-integration-with-nethereum.md'
         - Signing messages with Nethereum: 'Getting Started/signing-messages-with-nethereum.md'
         - Managing nonces with Nethereum: 'Getting Started/managing-nonces-with-nethereum.md'
-        - Connecting to an Ethereum client with Java, Eclipse and Web3j: 'Getting Started/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j.md'
+        - Connecting to an Ethereum client with Java, Eclipse and Web3j: 'Getting Started/connecting-to-an-ethereum-client-with-java-eclips.md'
       - Privacy:
         - Introduction to Cryptography : 'Privacy/introduction-to-cryptography.md'
-        - Building on Bulletproofs - Short Proofs for Confidential Transactions: 'Privacy/building-on-bulletproofs-short-proofs-for-confidential-transactions.md'
+        - Building on Bulletproofs - Short Proofs for Confidential Transactions: 'Privacy/building-on-bulletproofs-short-proofs-for-confide.md'
         - Enigma Protocol: 'Privacy/enigma-protocol.md'
-        - How to Code Your Own Confidential Token on Ethereum: 'Privacy/how-to-code-your-own-confidential-token-on-ethereum.md'
+        - How to Code Your Own Confidential Token on Ethereum: 'Privacy/how-to-code-your-own-confidential-token-on-ethere.md'
         - Data Privacy with the NuCypher Network: 'Privacy/data-privacy-with-the-nucypher-network.md'
         - NuCypher - PyUmbral: 'Privacy/nucypher-pyumbral.md'
-        - Nightfall - Private Token and NFT Transfers on Ethereum: 'Privacy/nightfall-private-token-and-nft-transfers-on-ethereum.md'
+        - Nightfall - Private Token and NFT Transfers on Ethereum: 'Privacy/nightfall-private-token-and-nft-transfers-on-ethe.md'
         - Privacy with Pantheon Ethereum Java Client: 'Privacy/privacy-with-pantheon-ethereum-java-client.md'
         - Parity - Private Transactions: 'Privacy/parity-private-transactions.md'
         - Introducing Beam!: 'Privacy/introducing-beam!.md'
-        - A Short History of Mimblewimble- From Hogwarts to Mobile Wallets: 'Privacy/a-short-history-of-mimblewimble--from-hogwarts-to-mobile-wallets.md'
+        - A Short History of Mimblewimble- From Hogwarts to Mobile Wallets: 'Privacy/a-short-history-of-mimblewimble--from-hogwarts-to.md'
         - Why Beam is Sound Money: 'Privacy/why-beam-is-sound-money.md'
         - Introduction to MimbleWimble and Grin: 'Privacy/introduction-to-mimblewimble-and-grin.md'
         - A beginner’s guide to Zcash: 'Privacy/a-beginner-s-guide-to-zcash.md'
@@ -177,11 +177,11 @@ nav:
         - Kyber Network- On-chain liquidity protocol: 'Open Finance (DeFi)/kyber-network--on-chain-liquidity-protocol.md'
         - Compound- Money markets on Ethereum: 'Open Finance (DeFi)/compound--money-markets-on-ethereum.md'
         - 0x- Peer-to-peer exchange protocol: 'Open Finance (DeFi)/0x--peer-to-peer-exchange-protocol.md'
-        - MakerDAO- Decentralized stablecoin and collateral loans: 'Open Finance (DeFi)/makerdao--decentralized-stablecoin-and-collateral-loans.md'
+        - MakerDAO- Decentralized stablecoin and collateral loans: 'Open Finance (DeFi)/makerdao--decentralized-stablecoin-and-collateral.md'
         - Uniswap- Protocol for automated token exchange: 'Open Finance (DeFi)/uniswap--protocol-for-automated-token-exchange.md'
         - Set Protocol- Baskets of tokenized assets: 'Open Finance (DeFi)/set-protocol--baskets-of-tokenized-assets.md'
         - An Introduction to Bonding Curves: 'Open Finance (DeFi)/an-introduction-to-bonding-curves.md'
-        - Incentivizing high-quality curation with a Token-Curated Registry: 'Open Finance (DeFi)/incentivizing-high-quality-curation-with-a-token-curated-registry.md'
+        - Incentivizing high-quality curation with a Token-Curated Registry: 'Open Finance (DeFi)/incentivizing-high-quality-curation-with-a-token-.md'
       - DevOps:
         - Lint your Solidity contracts with Solhint: 'DevOps/lint-your-solidity-contracts-with-solhint.md'
         - Lint your Solidity contracts with Ethlint: 'DevOps/lint-your-solidity-contracts-with-ethlint.md'
@@ -193,24 +193,24 @@ nav:
         - SecurEth Guidelines - Getting Started: 'SecureETH/secureth-guidelines-getting-started.md'
         - SecurEth Guidelines Introduction: 'SecureETH/secureth-guidelines-introduction.md'
       - MythX:
-        - Fuzzing Smart Contracts Using Multiple Transactions: 'MythX/fuzzing-smart-contracts-using-multiple-transactions.md'
+        - Fuzzing Smart Contracts Using Multiple Transactions: 'MythX/fuzzing-smart-contracts-using-multiple-transactio.md'
         - Fuzzing Smart Contracts Using Input Prediction: 'MythX/fuzzing-smart-contracts-using-input-prediction.md'
-        - Auditing the 0x Protocol v2 with ConsenSys Diligence: 'MythX/auditing-the-0x-protocol-v2-with-consensys-diligence.md'
+        - Auditing the 0x Protocol v2 with ConsenSys Diligence: 'MythX/auditing-the-0x-protocol-v2-with-consensys-dilige.md'
         - MythX is Upping the Smart Contract Security Game: 'MythX/mythx-is-upping-the-smart-contract-security-game.md'
         - Finding Vulnerabilities in Smart Contracts: 'MythX/finding-vulnerabilities-in-smart-contracts.md'
         - MythX is real.: 'MythX/mythx-is-real..md'
       - How you can contribute to the increased decentralization of the Ethereum blockchain:
-        - How to install and synchronize your own remote Ethereum node: 'How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-install-and-synchronize-your-own-remote-ethereum-node.md'
-        - Make use of your remote Ethereum node using an SSH tunnel and MetaMask: 'How you can contribute to the increased decentralization of the Ethereum blockchain/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask.md'
+        - How to install and synchronize your own remote Ethereum node: 'How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-install-and-synchronize-your-own-remote-et.md'
+        - Make use of your remote Ethereum node using an SSH tunnel and MetaMask: 'How you can contribute to the increased decentralization of the Ethereum blockchain/make-use-of-your-remote-ethereum-node-using-an-ss.md'
         - How to set up a simple Linux firewall: 'How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-set-up-a-simple-linux-firewall.md'
       - Decentralized Storage:
-        - Swarm- Distributed Storage Platform and Content Distribution Service: 'Decentralized Storage/swarm--distributed-storage-platform-and-content-distribution-service.md'
+        - Swarm- Distributed Storage Platform and Content Distribution Service: 'Decentralized Storage/swarm--distributed-storage-platform-and-content-d.md'
         - Peer-to-peer hypermedia with IPFS: 'Decentralized Storage/peer-to-peer-hypermedia-with-ipfs.md'
-        - OrbitDB- Serverless, Distributed, Peer-to-Peer Database: 'Decentralized Storage/orbitdb--serverless-distributed-peer-to-peer-database.md'
+        - OrbitDB- Serverless, Distributed, Peer-to-Peer Database: 'Decentralized Storage/orbitdb--serverless-distributed-peer-to-peer-data.md'
         - Storj- Decentralized Cloud Object Storage: 'Decentralized Storage/storj--decentralized-cloud-object-storage.md'
         - Sia- Decentralized Cloud Storage: 'Decentralized Storage/sia--decentralized-cloud-storage.md'
         - Bluzelle - A decentralized data cache: 'Decentralized Storage/bluzelle-a-decentralized-data-cache.md'
-        - Filecoin- Peer-to-Peer Storage Network and Payment Protocol: 'Decentralized Storage/filecoin--peer-to-peer-storage-network-and-payment-protocol.md'
+        - Filecoin- Peer-to-Peer Storage Network and Payment Protocol: 'Decentralized Storage/filecoin--peer-to-peer-storage-network-and-paymen.md'
       - Scaling:
         - Introducing Plasma Group: 'Scaling/introducing-plasma-group.md'
         - SKALE- Ethereum-compatible sidechains: 'Scaling/skale--ethereum-compatible-sidechains.md'
@@ -220,17 +220,17 @@ nav:
         - Raiden- Generalized State Channels : 'Scaling/raiden--generalized-state-channels.md'
         - Minimum Viable Plasma - The Kyokan Implementation: 'Scaling/minimum-viable-plasma-the-kyokan-implementation.md'
         - Monoplasma- A simple way to broadcast money: 'Scaling/monoplasma--a-simple-way-to-broadcast-money.md'
-        - Top 5 ways to scale your Ethereum blockchain application (dApp): 'Scaling/top-5-ways-to-scale-your-ethereum-blockchain-application-(dapp).md'
+        - Top 5 ways to scale your Ethereum blockchain application (dApp): 'Scaling/top-5-ways-to-scale-your-ethereum-blockchain-appl.md'
         - Plasma Roundup- From MVP to Mainnet: 'Scaling/plasma-roundup--from-mvp-to-mainnet.md'
       - Kotlin ❤ Web3:
-        - EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019: 'Kotlin ❤ Web3/egge.gg-instant-payout-esports-tournaments-for-ethdenver2019.md'
+        - EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019: 'Kotlin ❤ Web3/egge.gg-instant-payout-esports-tournaments-for-et.md'
         - Simple Kotlin SpringBoot dApp utilizing web3j: 'Kotlin ❤ Web3/simple-kotlin-springboot-dapp-utilizing-web3j.md'
-        - How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin: 'Kotlin ❤ Web3/how-to-achieve-user-authentication-by-web3-wallet-using-spring-security-jwts-web3j-and-kotlin.md'
-        - Consuming Ethereum Events To Kotlin Service Using Eventeum: 'Kotlin ❤ Web3/consuming-ethereum-events-to-kotlin-service-using-eventeum.md'
+        - How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin: 'Kotlin ❤ Web3/how-to-achieve-user-authentication-by-web3-wallet.md'
+        - Consuming Ethereum Events To Kotlin Service Using Eventeum: 'Kotlin ❤ Web3/consuming-ethereum-events-to-kotlin-service-using.md'
       - ETHDenver 2019 Finalists and Winners:
         - The Hack?!? What is a hackathon?: 'ETHDenver 2019 Finalists and Winners/the-hack!-what-is-a-hackathon.md'
         - Delfi- An On-Chain Oracle You Can Reason About: 'ETHDenver 2019 Finalists and Winners/delfi--an-on-chain-oracle-you-can-reason-about.md'
-        - Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community: 'ETHDenver 2019 Finalists and Winners/bountibot--rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community.md'
+        - Bountibot- rewarding GitHub Pull Requests for you and the rest of the OSS community: 'ETHDenver 2019 Finalists and Winners/bountibot--rewarding-github-pull-requests-for-you.md'
         - Safe CDP: 'ETHDenver 2019 Finalists and Winners/safe-cdp.md'
         - EthVelcro: 'ETHDenver 2019 Finalists and Winners/ethvelcro.md'
         - HashD - Broadcast on the Distributed Web: 'ETHDenver 2019 Finalists and Winners/hashd-broadcast-on-the-distributed-web.md'
@@ -240,32 +240,32 @@ nav:
         - Universal Wallet: 'ETHDenver 2019 Finalists and Winners/universal-wallet.md'
         - Open Curator: 'ETHDenver 2019 Finalists and Winners/open-curator.md'
         - Ethereum 2.0 Beacon Chain Simulation: 'ETHDenver 2019 Finalists and Winners/ethereum-2.0-beacon-chain-simulation.md'
-        - From Dev to Production Multi-chain Environments with Splunk: 'ETHDenver 2019 Finalists and Winners/from-dev-to-production-multi-chain-environments-with-splunk.md'
+        - From Dev to Production Multi-chain Environments with Splunk: 'ETHDenver 2019 Finalists and Winners/from-dev-to-production-multi-chain-environments-w.md'
         - EthASketch: 'ETHDenver 2019 Finalists and Winners/ethasketch.md'
         - Synchronous Cross-shard Transactions: 'ETHDenver 2019 Finalists and Winners/synchronous-cross-shard-transactions.md'
         - Carbos- More than a Carbon Market: 'ETHDenver 2019 Finalists and Winners/carbos--more-than-a-carbon-market.md'
         - Wel-fair: 'ETHDenver 2019 Finalists and Winners/wel-fair.md'
         - JobSimple: 'ETHDenver 2019 Finalists and Winners/jobsimple.md'
         - IQ Donate: 'ETHDenver 2019 Finalists and Winners/iq-donate.md'
-        - Token Bonding Curves for Social Impact Crowdfunding: 'ETHDenver 2019 Finalists and Winners/token-bonding-curves-for-social-impact-crowdfunding.md'
-        - zDai.io - confidential transactions on Burner wallet with zkSNARKs: 'ETHDenver 2019 Finalists and Winners/zdai.io-confidential-transactions-on-burner-wallet-with-zksnarks.md'
+        - Token Bonding Curves for Social Impact Crowdfunding: 'ETHDenver 2019 Finalists and Winners/token-bonding-curves-for-social-impact-crowdfundi.md'
+        - zDai.io - confidential transactions on Burner wallet with zkSNARKs: 'ETHDenver 2019 Finalists and Winners/zdai.io-confidential-transactions-on-burner-walle.md'
         - ETHDenver Bounty Winners: 'ETHDenver 2019 Finalists and Winners/ethdenver-bounty-winners.md'
       - Eventeum:
         - Listening to Ethereum Events with Eventeum: 'Eventeum/listening-to-ethereum-events-with-eventeum.md'
         - Listening for Ethereum Transactions with Eventeum: 'Eventeum/listening-for-ethereum-transactions-with-eventeum.md'
-        - Using Eventeum to Build a Java Smart Contract Data Cache: 'Eventeum/using-eventeum-to-build-a-java-smart-contract-data-cache.md'
+        - Using Eventeum to Build a Java Smart Contract Data Cache: 'Eventeum/using-eventeum-to-build-a-java-smart-contract-dat.md'
       - Full Stack dApp Tutorial Series:
         - Full Stack dApp Tutorial Series - Intro: 'Full Stack dApp Tutorial Series/full-stack-dapp-tutorial-series-intro.md'
         - Tools for dApp development: 'Full Stack dApp Tutorial Series/tools-for-dapp-development.md'
         - Tools for Working With Solidity: 'Full Stack dApp Tutorial Series/tools-for-working-with-solidity.md'
         - Remix IDE - Your first smart contract: 'Full Stack dApp Tutorial Series/remix-ide-your-first-smart-contract.md'
-        - Understanding smart contract compilation and deployment: 'Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-deployment.md'
-        - Truffle- Smart Contract Compilation & Deployment: 'Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deployment.md'
+        - Understanding smart contract compilation and deployment: 'Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md'
+        - Truffle- Smart Contract Compilation & Deployment: 'Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deploymen.md'
         - Truffle- Testing your smart contract: 'Full Stack dApp Tutorial Series/truffle--testing-your-smart-contract.md'
         - Truffle- Adding a frontend with react box: 'Full Stack dApp Tutorial Series/truffle--adding-a-frontend-with-react-box.md'
         - Embark- Smart Contract Compilation & Deployment: 'Full Stack dApp Tutorial Series/embark--smart-contract-compilation-and-deployment.md'
         - Embark- Testing Your Smart Contract: 'Full Stack dApp Tutorial Series/embark--testing-your-smart-contract.md'
-        - Populus- Smart contract compilation and deployment: 'Full Stack dApp Tutorial Series/populus--smart-contract-compilation-and-deployment.md'
+        - Populus- Smart contract compilation and deployment: 'Full Stack dApp Tutorial Series/populus--smart-contract-compilation-and-deploymen.md'
         - Populus- Testing your smart contract: 'Full Stack dApp Tutorial Series/populus--testing-your-smart-contract.md'
         - Deploying a full-stack dapp to Microsoft Azure: 'Full Stack dApp Tutorial Series/deploying-a-full-stack-dapp-to-microsoft-azure.md'
         - Deploying Your dApp Frontend to Heroku: 'Full Stack dApp Tutorial Series/deploying-your-dapp-frontend-to-heroku.md'
@@ -275,10 +275,10 @@ nav:
         - Understand Brave Browser and BAT: 'Web3 Clients/understand-brave-browser-and-bat.md'
         - Metamask - Interact with Ethereum in your Browser: 'Web3 Clients/metamask-interact-with-ethereum-in-your-browser.md'
         - Will the Opera web3 wallet drive adoption?: 'Web3 Clients/will-the-opera-web3-wallet-drive-adoption.md'
-        - Non-definitive list to Ethereum block explorers; not just Etherscan!: 'Web3 Clients/non-definitive-list-to-ethereum-block-explorers-not-just-etherscan!.md'
+        - Non-definitive list to Ethereum block explorers; not just Etherscan!: 'Web3 Clients/non-definitive-list-to-ethereum-block-explorers-n.md'
       - POA Tutorial series:
         - POA - Part 1 - Develop and deploy a smart contract: 'POA Tutorial series/poa-part-1-develop-and-deploy-a-smart-contract.md'
-        - POA - Part 2 - Bridge assets between a sidechain and a mainchain: 'POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain.md'
+        - POA - Part 2 - Bridge assets between a sidechain and a mainchain: 'POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-.md'
         - xDai: 'POA Tutorial series/xdai.md'
       - SecurEth:
         - SecurEth Guidelines Introduction: 'SecurEth/secureth-guidelines-introduction.md'
@@ -291,28 +291,28 @@ nav:
       - IPFS 101:
         - Peer-to-peer hypermedia with IPFS: 'IPFS 101/peer-to-peer-hypermedia-with-ipfs.md'
         - Installing IPFS: 'IPFS 101/installing-ipfs.md'
-        - Getting started with Mahuta - A Search engine for the IPFS: 'IPFS 101/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md'
+        - Getting started with Mahuta - A Search engine for the IPFS: 'IPFS 101/getting-started-with-mahuta-a-search-engine-for-t.md'
       - Ethereum Community and Ecosystem analysis:
-        - Ethereum community and its ecosystem- crowd psychology analysis part 1: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psychology-analysis-part-1.md'
-        - Ethereum community and its ecosystem- crowd psychology analysis part 2: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psychology-analysis-part-2.md'
-        - Ethereum community and its ecosystem- Needs-Based Theories of Motivation approach: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--needs-based-theories-of-motivation-approach.md'
-        - Ethereum community and its ecosystem- Networks Visualisation Analysis: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--networks-visualisation-analysis.md'
-        - Ethereum community and its ecosystem- structural analysis: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--structural-analysis.md'
+        - Ethereum community and its ecosystem- crowd psychology analysis part 1: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psych.md'
+        - Ethereum community and its ecosystem- crowd psychology analysis part 2: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psych.md'
+        - Ethereum community and its ecosystem- Needs-Based Theories of Motivation approach: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--needs-based.md'
+        - Ethereum community and its ecosystem- Networks Visualisation Analysis: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--networks-vi.md'
+        - Ethereum community and its ecosystem- structural analysis: 'Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--structural-.md'
       - ZeppelinOS 101:
-        - Smart Contract Utilities with ZeppelinOS- Introduction: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--introduction.md'
-        - Smart Contract Utilities with ZeppelinOS- Installation and Use: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--installation-and-use.md'
-        - Smart Contract Utilities with ZeppelinOS- Linking, Publishing, and Vouching: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--linking-publishing-and-vouching.md'
-        - Smart Contract Utilities with ZeppelinOS- Deploying to Mainnet: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--deploying-to-mainnet.md'
+        - Smart Contract Utilities with ZeppelinOS- Introduction: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--introdu.md'
+        - Smart Contract Utilities with ZeppelinOS- Installation and Use: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--install.md'
+        - Smart Contract Utilities with ZeppelinOS- Linking, Publishing, and Vouching: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--linking.md'
+        - Smart Contract Utilities with ZeppelinOS- Deploying to Mainnet: 'ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--deployi.md'
       - ConsenSys Projects:
         - 3Box - Social profiles for  web3 applications: 'ConsenSys Projects/3box-social-profiles-for-web3-applications.md'
-        - OpenLaw Tutorial- Blockchain-Enabled, Legally Enforceable Smart Contracts: 'ConsenSys Projects/openlaw-tutorial--blockchain-enabled-legally-enforceable-smart-contracts.md'
+        - OpenLaw Tutorial- Blockchain-Enabled, Legally Enforceable Smart Contracts: 'ConsenSys Projects/openlaw-tutorial--blockchain-enabled-legally-enfo.md'
         - Infura 101 - Infrastructure for Dapps: 'ConsenSys Projects/infura-101-infrastructure-for-dapps.md'
         - Truffle 101 - Development Tools for Smart Contracts: 'ConsenSys Projects/truffle-101-development-tools-for-smart-contracts.md'
         - Listening to Ethereum Events with Eventeum: 'ConsenSys Projects/listening-to-ethereum-events-with-eventeum.md'
-        - Getting started with Mahuta - A Search engine for the IPFS: 'ConsenSys Projects/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md'
+        - Getting started with Mahuta - A Search engine for the IPFS: 'ConsenSys Projects/getting-started-with-mahuta-a-search-engine-for-t.md'
         - Kaleido - the Blockchain Business Cloud: 'ConsenSys Projects/kaleido-the-blockchain-business-cloud.md'
         - Pantheon - The Enterprise Ethereum Client: 'ConsenSys Projects/pantheon-the-enterprise-ethereum-client.md'
-        - Nethereum - An open source .NET integration library for blockchain: 'ConsenSys Projects/nethereum-an-open-source-.net-integration-library-for-blockchain.md'
+        - Nethereum - An open source .NET integration library for blockchain: 'ConsenSys Projects/nethereum-an-open-source-.net-integration-library.md'
       - OpenZeppelin 101:
         - OpenZeppelin Part 1- Introductory: 'OpenZeppelin 101/openzeppelin-part-1--introductory.md'
         - OpenZeppelin Part 2- Access Control: 'OpenZeppelin 101/openzeppelin-part-2--access-control.md'
@@ -320,27 +320,27 @@ nav:
         - OpenZeppelin Part 4- Crowdsales: 'OpenZeppelin 101/openzeppelin-part-4--crowdsales.md'
         - OpenZeppelin Part 5- There's More!: 'OpenZeppelin 101/openzeppelin-part-5--there-s-more!.md'
       - EVM package deployment with ZeppelinOS:
-        - EVM package deployment with ZeppelinOS - Part I- Introduction and Creating a LinkedList Contract: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--introduction-and-creating-a-linkedlist-contract.md'
-        - EVM package deployment with ZeppelinOS - Part II- Deploying and Testing a LinkedList Contract: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--deploying-and-testing-a-linkedlist-contract.md'
-        - EVM package deployment with ZeppelinOS - Part III- Linking to mainnet: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--linking-to-mainnet.md'
+        - EVM package deployment with ZeppelinOS - Part I- Introduction and Creating a LinkedList Contract: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in.md'
+        - EVM package deployment with ZeppelinOS - Part II- Deploying and Testing a LinkedList Contract: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--d.md'
+        - EVM package deployment with ZeppelinOS - Part III- Linking to mainnet: 'EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--.md'
       - ETHDenver:
         - Using Kauri at the ETHDenver Hackathon: 'ETHDenver/using-kauri-at-the-ethdenver-hackathon.md'
-        - Share your knowledge at ETHDenver to build a better ecosystem: 'ETHDenver/share-your-knowledge-at-ethdenver-to-build-a-better-ecosystem.md'
-        - -BUIDL the Future of Privacy at ETHDenver with NuCypher: 'ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nucypher.md'
-        - Connect your smart contracts connected to real world data with Chainlink: 'ETHDenver/connect-your-smart-contracts-connected-to-real-world-data-with-chainlink.md'
-        - Rhombus has your oracle needs covered at ETHDenver: 'ETHDenver/rhombus-has-your-oracle-needs-covered-at-ethdenver.md'
+        - Share your knowledge at ETHDenver to build a better ecosystem: 'ETHDenver/share-your-knowledge-at-ethdenver-to-build-a-bett.md'
+        - -BUIDL the Future of Privacy at ETHDenver with NuCypher: 'ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nuc.md'
+        - Connect your smart contracts connected to real world data with Chainlink: 'ETHDenver/connect-your-smart-contracts-connected-to-real-wo.md'
+        - Rhombus has your oracle needs covered at ETHDenver: 'ETHDenver/rhombus-has-your-oracle-needs-covered-at-ethdenve.md'
         - Quick guide - Listing DAI or MKR tokens on exchange: 'ETHDenver/quick-guide-listing-dai-or-mkr-tokens-on-exchange.md'
         - Keepers on MakerDAO- Resources : 'ETHDenver/keepers-on-makerdao--resources.md'
-        - Quick guide - Integrating DAI or MKR tokens in wallets: 'ETHDenver/quick-guide-integrating-dai-or-mkr-tokens-in-wallets.md'
+        - Quick guide - Integrating DAI or MKR tokens in wallets: 'ETHDenver/quick-guide-integrating-dai-or-mkr-tokens-in-wall.md'
         - Query Blockchain Data with The Graph at ETHDenver: 'ETHDenver/query-blockchain-data-with-the-graph-at-ethdenver.md'
-        - API-based asset exchange with ShapeShift at ETHDenver: 'ETHDenver/api-based-asset-exchange-with-shapeshift-at-ethdenver.md'
-        - Make your DApps accessible with Portis at ETHDenver: 'ETHDenver/make-your-dapps-accessible-with-portis-at-ethdenver.md'
-        - GeoSpatial Oracles for DApps with XYO Network at ETHDenver: 'ETHDenver/geospatial-oracles-for-dapps-with-xyo-network-at-ethdenver.md'
-        - Bring Realtime Data into your DApp with Streamr at ETHDenver: 'ETHDenver/bring-realtime-data-into-your-dapp-with-streamr-at-ethdenver.md'
-        - Bzx - the Decentralized Margin Lending Protocol at ETHDenver: 'ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-ethdenver.md'
+        - API-based asset exchange with ShapeShift at ETHDenver: 'ETHDenver/api-based-asset-exchange-with-shapeshift-at-ethde.md'
+        - Make your DApps accessible with Portis at ETHDenver: 'ETHDenver/make-your-dapps-accessible-with-portis-at-ethdenv.md'
+        - GeoSpatial Oracles for DApps with XYO Network at ETHDenver: 'ETHDenver/geospatial-oracles-for-dapps-with-xyo-network-at-.md'
+        - Bring Realtime Data into your DApp with Streamr at ETHDenver: 'ETHDenver/bring-realtime-data-into-your-dapp-with-streamr-a.md'
+        - Bzx - the Decentralized Margin Lending Protocol at ETHDenver: 'ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-.md'
         - POA Network Hackers Guide for ETHDenver : 'ETHDenver/poa-network-hackers-guide-for-ethdenver.md'
         - Get started with ZeppelinOS!: 'ETHDenver/get-started-with-zeppelinos!.md'
-        - -BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019: 'ETHDenver/buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019.md'
+        - -BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019: 'ETHDenver/buidl-for-dapp-mainstream-adoption-with-fortmatic.md'
         - Chat, browse and transact securely with Status: 'ETHDenver/chat-browse-and-transact-securely-with-status.md'
         - Blocknative - Sponsor Bounty at ETHDenver 2019!: 'ETHDenver/blocknative-sponsor-bounty-at-ethdenver-2019!.md'
         - The Graph - Sponsor Bounty at ETHDenver 2019!: 'ETHDenver/the-graph-sponsor-bounty-at-ethdenver-2019!.md'
@@ -377,9 +377,9 @@ nav:
         - Ethereum 101 - Part 3 - Consensus Protocols: 'Ethereum 101/ethereum-101-part-3-consensus-protocols.md'
         - Ethereum 101 - Part 6 - Mainnet & Testnets: 'Ethereum 101/ethereum-101-part-6-mainnet-and-testnets.md'
         - Ethereum 101 - Part 7 - Decentralized Apps: 'Ethereum 101/ethereum-101-part-7-decentralized-apps.md'
-        - Ethereum Explained- Merkle Trees, World State, Transactions, and More: 'Ethereum 101/ethereum-explained--merkle-trees-world-state-transactions-and-more.md'
+        - Ethereum Explained- Merkle Trees, World State, Transactions, and More: 'Ethereum 101/ethereum-explained--merkle-trees-world-state-tran.md'
         - Ethereum 101 - Part 5 - The Smart Contract: 'Ethereum 101/ethereum-101-part-5-the-smart-contract.md'
-        - Ethereum 101 - Part 4 - Accounts, Transactions, and Messages: 'Ethereum 101/ethereum-101-part-4-accounts-transactions-and-messages.md'
+        - Ethereum 101 - Part 4 - Accounts, Transactions, and Messages: 'Ethereum 101/ethereum-101-part-4-accounts-transactions-and-mes.md'
         - Ethereum 101 - Part 7 - The EVM: 'Ethereum 101/ethereum-101-part-7-the-evm.md'
       - Kauri news and announcements:
         - Share Your Ethereum Knowledge and Write for Kauri: 'Kauri news and announcements/share-your-ethereum-knowledge-and-write-for-kauri.md'
@@ -393,11 +393,11 @@ nav:
         - Codemotion Berlin: 'Kauri news and announcements/codemotion-berlin.md'
       - Status Embark:
         - Chat, browse and transact securely with Status: 'Status Embark/chat-browse-and-transact-securely-with-status.md'
-        - Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!): 'Status Embark/build-your-first-smart-contract-and-dapp-on-ethereum-with-embark-(and-unit-tests!).md'
+        - Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!): 'Status Embark/build-your-first-smart-contract-and-dapp-on-ether.md'
       - Quick start web3.0 series:
         - Remix IDE - Your first smart contract: 'Quick start web3.0 series/remix-ide-your-first-smart-contract.md'
         - Truffle 101 - Development Tools for Smart Contracts: 'Quick start web3.0 series/truffle-101-development-tools-for-smart-contracts.md'
-        - Getting started with Mahuta - A Search engine for the IPFS: 'Quick start web3.0 series/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md'
+        - Getting started with Mahuta - A Search engine for the IPFS: 'Quick start web3.0 series/getting-started-with-mahuta-a-search-engine-for-t.md'
         - Listening to Ethereum Events with Eventeum: 'Quick start web3.0 series/listening-to-ethereum-events-with-eventeum.md'
         - Getting started with Rhombus: 'Quick start web3.0 series/getting-started-with-rhombus.md'
         - 3Box - Social profiles for  web3 applications: 'Quick start web3.0 series/3box-social-profiles-for-web3-applications.md'
@@ -411,10 +411,10 @@ nav:
         - Setting your OSS repo’s monetary policy: 'Gitcoin/setting-your-oss-repo-s-monetary-policy.md'
         - Increasing Action On Your Gitcoin Bounty: 'Gitcoin/increasing-action-on-your-gitcoin-bounty.md'
         - Gitcoin’s Sprint To The Holidays: 'Gitcoin/gitcoin-s-sprint-to-the-holidays.md'
-        - How to earn money while workin toward Hacktoberfest: 'Gitcoin/how-to-earn-money-while-workin-toward-hacktoberfest.md'
+        - How to earn money while workin toward Hacktoberfest: 'Gitcoin/how-to-earn-money-while-workin-toward-hacktoberfe.md'
       - Blockchain Game Summit 2018:
         - Opening Keynote: 'Blockchain Game Summit 2018/opening-keynote.md'
-        - Building AAA-Quality Blockchain Game at an Indie Studio: 'Blockchain Game Summit 2018/building-aaa-quality-blockchain-game-at-an-indie-studio.md'
+        - Building AAA-Quality Blockchain Game at an Indie Studio: 'Blockchain Game Summit 2018/building-aaa-quality-blockchain-game-at-an-indie-.md'
         - We Broke Player Ownership. Let's Fix It: 'Blockchain Game Summit 2018/we-broke-player-ownership.-let-s-fix-it.md'
         - Blockchain Gaming- A Question of Design: 'Blockchain Game Summit 2018/blockchain-gaming--a-question-of-design.md'
         - Presenting Hashrush: 'Blockchain Game Summit 2018/presenting-hashrush.md'
@@ -434,9 +434,9 @@ nav:
         - Knowledge Repos, Small Talk, and DAOs: 'ETHBerlin/knowledge-repos-small-talk-and-daos.md'
         - On-Chain Governance Panel: 'ETHBerlin/on-chain-governance-panel.md'
         - Open Source Banking: 'ETHBerlin/open-source-banking.md'
-        - Practical Use of Ethereum for the Sex Worker Community: 'ETHBerlin/practical-use-of-ethereum-for-the-sex-worker-community.md'
+        - Practical Use of Ethereum for the Sex Worker Community: 'ETHBerlin/practical-use-of-ethereum-for-the-sex-worker-comm.md'
         - Price Oracles + Signed Messages On & Off-Chain: 'ETHBerlin/price-oracles-+-signed-messages-on-and-off-chain.md'
-        - Running Meta-Blockchains on Ethereum to Scale DApps: 'ETHBerlin/running-meta-blockchains-on-ethereum-to-scale-dapps.md'
+        - Running Meta-Blockchains on Ethereum to Scale DApps: 'ETHBerlin/running-meta-blockchains-on-ethereum-to-scale-dap.md'
         - Scaling & Interoperability Panel: 'ETHBerlin/scaling-and-interoperability-panel.md'
         - Scaling Community, Code, & Contributors: 'ETHBerlin/scaling-community-code-and-contributors.md'
         - Sharding- Implementation vs. Research: 'ETHBerlin/sharding--implementation-vs.-research.md'
@@ -469,38 +469,38 @@ plugins:
         redirect_maps:
             building-a-twitter-bot-using-ipfs-cluster/2b430e15c299442588e038cdb814a739/a: IPFS/building-a-twitter-bot-using-ipfs-cluster.md
             hands-on-ipld-tutorial-in-golang:-part-2/5fa2dc4be27b433d86d571ba857ab02d/a: IPFS/hands-on-ipld-tutorial-in-golang--part-2.md
-            understanding-ipfs-in-depth(26):-what-is-interplanetary-linked-data(ipld)/2de296caf9ac41f296484198e3350e8e/a: IPFS/understanding-ipfs-in-depth(26)--what-is-interplanetary-linked-data(ipld).md
+            understanding-ipfs-in-depth(26):-what-is-interplanetary-linked-data(ipld)/2de296caf9ac41f296484198e3350e8e/a: IPFS/understanding-ipfs-in-depth(26)--what-is-interpla.md
             hands-on-ipld-tutorial-in-golang/d1e5568bc5204ec4a81b9e7249bb3fe9/a: IPFS/hands-on-ipld-tutorial-in-golang.md
-            understanding-ipfs-in-depth(16):-a-beginner-to-advanced-guide/14d7b8a17652428f8c48d5a088a7a400/a: IPFS/understanding-ipfs-in-depth(16)--a-beginner-to-advanced-guide.md
-            orbitdb:-serverless-distributed-peer-to-peer-database/6ae5ffa612044a09be856ff390ce6990/a: IPFS/orbitdb--serverless-distributed-peer-to-peer-database.md
-            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: IPFS/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md
+            understanding-ipfs-in-depth(16):-a-beginner-to-advanced-guide/14d7b8a17652428f8c48d5a088a7a400/a: IPFS/understanding-ipfs-in-depth(16)--a-beginner-to-ad.md
+            orbitdb:-serverless-distributed-peer-to-peer-database/6ae5ffa612044a09be856ff390ce6990/a: IPFS/orbitdb--serverless-distributed-peer-to-peer-data.md
+            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: IPFS/getting-started-with-mahuta-a-search-engine-for-t.md
             peer-to-peer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a: IPFS/peer-to-peer-hypermedia-with-ipfs.md
             installing-ipfs/b01b9b7bebcd4ebf80edf021bdd0e232/a: IPFS/installing-ipfs.md
             improving-ipfs-decentralization-introducing-ahken/012d5a2f2f2f4ab8ba1872248f8ff631/a: IPFS/improving-ipfs-decentralization-introducing-ahken.md
             managing-storage-in-a-java-application-with-ipfs/3e8494f4f56f48c4bb77f1f925c6d926/a: IPFS/managing-storage-in-a-java-application-with-ipfs.md
             tips-for-starting-dapp-development/a6f8cae18e574e1595bd870010100c80/a: Getting started with dapp development/tips-for-starting-dapp-development.md
-            an-introduction-to-solidity-for-experienced-developers/16b7b58597fc4a9e848b29a6299ee967/a: Getting started with dapp development/an-introduction-to-solidity-for-experienced-developers.md
+            an-introduction-to-solidity-for-experienced-developers/16b7b58597fc4a9e848b29a6299ee967/a: Getting started with dapp development/an-introduction-to-solidity-for-experienced-devel.md
             truffle:-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a: Getting started with dapp development/truffle--adding-a-frontend-with-react-box.md
             truffle:-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a: Getting started with dapp development/truffle--testing-your-smart-contract.md
-            truffle:-smart-contract-compilation-and-deployment/cbc38bf09088426fbefcbe7d42ac679f/a: Getting started with dapp development/truffle--smart-contract-compilation-and-deployment.md
-            understanding-smart-contract-compilation-and-deployment/973c5f54c4434bb1b0160cff8c695369/a: Getting started with dapp development/understanding-smart-contract-compilation-and-deployment.md
+            truffle:-smart-contract-compilation-and-deployment/cbc38bf09088426fbefcbe7d42ac679f/a: Getting started with dapp development/truffle--smart-contract-compilation-and-deploymen.md
+            understanding-smart-contract-compilation-and-deployment/973c5f54c4434bb1b0160cff8c695369/a: Getting started with dapp development/understanding-smart-contract-compilation-and-depl.md
             tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a: Getting started with dapp development/tools-for-dapp-development.md
             full-stack-dapp-tutorial-series-intro/3dad5bb77afc46d09666cc87b49c6729/a: Getting started with dapp development/full-stack-dapp-tutorial-series-intro.md
             erc-721-non-fungible-token-standard/b382103e9496409c90c495f35940887e/a: Getting started with dapp development/erc-721-non-fungible-token-standard.md
             create-a-"hello-world"-fullstack-dapp/68fca74301814d09bfcc35e07ff30fbc/a: Getting started with dapp development/create-a-"hello-world"-fullstack-dapp.md
             a-fullstack-dapp-for-creating-tokens/bdd65d6155a74b8aa52672b46b7230a8/a: Getting started with dapp development/a-fullstack-dapp-for-creating-tokens.md
-            a-fullstack-dapp-for-creating-unique-tradable-tokens/2519d02a7a5244949dc12737817f5798/a: Getting started with dapp development/a-fullstack-dapp-for-creating-unique-tradable-tokens.md
+            a-fullstack-dapp-for-creating-unique-tradable-tokens/2519d02a7a5244949dc12737817f5798/a: Getting started with dapp development/a-fullstack-dapp-for-creating-unique-tradable-tok.md
             blockchain-explained/d55684513211466da7f8cc03987607d5/a: Getting started with dapp development/blockchain-explained.md
             remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a: Getting started with dapp development/remix-ide-your-first-smart-contract.md
             an-introduction-to-smart-contracts-with-solidity/6479f4a2cb3446d790dd27e8aeb36f63/a: Getting started with dapp development/an-introduction-to-smart-contracts-with-solidity.md
-            run-an-ethereum-node-on-debian-with-an-external-ssd-(mar-2020)/a73723dd2e924d8c948923709763f409/a: Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-ssd-(mar-2020).md
-            ethereum-on-arm.-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card/e7b2625208af4382acf070fa8068502b/a: Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card.md
-            make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/348d6c66da2949978c85bf2cd913d0ac/a: Ethereum Node Runners/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask.md
-            how-to-install-and-synchronize-your-own-remote-ethereum-node/c287fe53de9b4073a18065443253a86d/a: Ethereum Node Runners/how-to-install-and-synchronize-your-own-remote-ethereum-node.md
+            run-an-ethereum-node-on-debian-with-an-external-ssd-(mar-2020)/a73723dd2e924d8c948923709763f409/a: Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-s.md
+            ethereum-on-arm.-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card/e7b2625208af4382acf070fa8068502b/a: Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full.md
+            make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/348d6c66da2949978c85bf2cd913d0ac/a: Ethereum Node Runners/make-use-of-your-remote-ethereum-node-using-an-ss.md
+            how-to-install-and-synchronize-your-own-remote-ethereum-node/c287fe53de9b4073a18065443253a86d/a: Ethereum Node Runners/how-to-install-and-synchronize-your-own-remote-et.md
             how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a: Ethereum Node Runners/how-to-set-up-a-simple-linux-firewall.md
             supported-hardware-to-run-an-ethereum-node/d92a52587a4e4f439354e9fe3b231352/a: Ethereum Node Runners/supported-hardware-to-run-an-ethereum-node.md
             monitor-your-geth-node-with-google-sheet/5ab5c4d558e04a73accebc652ef2246b/a: Ethereum Node Runners/monitor-your-geth-node-with-google-sheet.md
-            running-an-ethereum-full-node-on-a-raspberrypi-4-(model-b)/9695fcca217f46feb355245275835fc0/a: Ethereum Node Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-(model-b).md
+            running-an-ethereum-full-node-on-a-raspberrypi-4-(model-b)/9695fcca217f46feb355245275835fc0/a: Ethereum Node Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-.md
             why-do-people-write/2d1f63d4be3a4de19981e1f82c41884d/a: Documentation and technical communication/why-do-people-write.md
             language-and-understandable-writing/01db62a1bdf54c4b99a852fe9700e930/a: Documentation and technical communication/language-and-understandable-writing.md
             documentation-structure/cb1cad8db083475389718cbea3217db2/a: Documentation and technical communication/documentation-structure.md
@@ -510,77 +510,77 @@ plugins:
             manage-erc20-tokens-in-java-with-web3j/d13e911bbf624108b1d5718175a5e0a0/a: Java Ethereum/manage-erc20-tokens-in-java-with-web3j.md
             running-a-pantheon-node-in-java-integration-tests/7dc3ecc391e54f7b8cbf4e5fa0caf780/a: Java Ethereum/running-a-pantheon-node-in-java-integration-tests.md
             managing-storage-in-a-java-application-with-ipfs/3e8494f4f56f48c4bb77f1f925c6d926/a: Java Ethereum/managing-storage-in-a-java-application-with-ipfs.md
-            using-besu-the-java-ethereum-client-with-linuxmacos/276dd27f1458443295eea58403fd6965/a: Java Ethereum/using-besu-the-java-ethereum-client-with-linuxmacos.md
-            listening-for-ethereum-smart-contract-events-in-java/760f495423db42f988d17b8c145b0874/a: Java Ethereum/listening-for-ethereum-smart-contract-events-in-java.md
-            interacting-with-an-ethereum-smart-contract-in-java/14dc434d11ef4ee18bf7d57f079e246e/a: Java Ethereum/interacting-with-an-ethereum-smart-contract-in-java.md
+            using-besu-the-java-ethereum-client-with-linuxmacos/276dd27f1458443295eea58403fd6965/a: Java Ethereum/using-besu-the-java-ethereum-client-with-linuxmac.md
+            listening-for-ethereum-smart-contract-events-in-java/760f495423db42f988d17b8c145b0874/a: Java Ethereum/listening-for-ethereum-smart-contract-events-in-j.md
+            interacting-with-an-ethereum-smart-contract-in-java/14dc434d11ef4ee18bf7d57f079e246e/a: Java Ethereum/interacting-with-an-ethereum-smart-contract-in-ja.md
             generate-a-java-wrapper-from-your-smart-contract/84475132317d4d6a84a2c42eb9348e4b/a: Java Ethereum/generate-a-java-wrapper-from-your-smart-contract.md
             manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a: Java Ethereum/manage-an-ethereum-account-with-java-and-web3j.md
-            connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/b9eb647c47a546bc95693acc0be72546/a: Java Ethereum/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j.md
-            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-1:-introduction/b4a6d12332bd4ad58535ac2d59d95dff/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-1--introduction.md
-            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-2:-memory-and-storage/766e5d1e1ba240a7976943b659a871fc/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-2--memory-and-storage.md
-            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-3:-execution-model-of-the-evm/ded63988153147348d7c9617b09135af/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-3--execution-model-of-the-evm.md
-            a-deep-dive-into-the-ethereum-virtual-machine-part-4:-the-evm-and-high-level-programming-languages/7a04c82396fd416892e07db4915eb233/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-part-4--the-evm-and-high-level-programming-languages.md
-            (18)-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(18)-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction.md
-            (28)-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(28)-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes.md
-            (38)-install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(38)-install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications.md
-            (48)-deploy-nextcloud-on-kuberbetes:-the-self-hosted-dropbox/f958350b22794419b09fc34c7284b02e/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(48)-deploy-nextcloud-on-kuberbetes--the-self-hosted-dropbox.md
-            (58)-self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/8ec7c8c6bf4e4cc2a2ed563243998537/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(58)-self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett.md
-            (68)-self-host-pi-hole-on-kubernetes-and-block-ads-and-trackers-at-the-network-level/5268e3daace249aba7db0597b47591ef/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(68)-self-host-pi-hole-on-kubernetes-and-block-ads-and-trackers-at-the-network-level.md
-            (78)-self-host-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(78)-self-host-your-password-manager-with-bitwarden.md
-            (88)-deploy-prometheus-and-grafana-to-monitor-a-kubernetes-cluster/186a71b189864b9ebc4ef7c8a9f0a6b5/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(88)-deploy-prometheus-and-grafana-to-monitor-a-kubernetes-cluster.md
+            connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/b9eb647c47a546bc95693acc0be72546/a: Java Ethereum/connecting-to-an-ethereum-client-with-java-eclips.md
+            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-1:-introduction/b4a6d12332bd4ad58535ac2d59d95dff/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md
+            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-2:-memory-and-storage/766e5d1e1ba240a7976943b659a871fc/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md
+            a-deep-dive-into-the-ethereum-virtual-machine-(evm)-part-3:-execution-model-of-the-evm/ded63988153147348d7c9617b09135af/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-(ev.md
+            a-deep-dive-into-the-ethereum-virtual-machine-part-4:-the-evm-and-high-level-programming-languages/7a04c82396fd416892e07db4915eb233/a: A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-par.md
+            (18)-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(18)-build-your-very-own-self-hosting-platform-wi.md
+            (28)-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(28)-install-raspbian-operating-system-and-prepar.md
+            (38)-install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(38)-install-and-configure-a-kubernetes-cluster-w.md
+            (48)-deploy-nextcloud-on-kuberbetes:-the-self-hosted-dropbox/f958350b22794419b09fc34c7284b02e/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(48)-deploy-nextcloud-on-kuberbetes--the-self-hos.md
+            (58)-self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/8ec7c8c6bf4e4cc2a2ed563243998537/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(58)-self-host-your-media-center-on-kubernetes-wi.md
+            (68)-self-host-pi-hole-on-kubernetes-and-block-ads-and-trackers-at-the-network-level/5268e3daace249aba7db0597b47591ef/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(68)-self-host-pi-hole-on-kubernetes-and-block-ad.md
+            (78)-self-host-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(78)-self-host-your-password-manager-with-bitward.md
+            (88)-deploy-prometheus-and-grafana-to-monitor-a-kubernetes-cluster/186a71b189864b9ebc4ef7c8a9f0a6b5/a: Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(88)-deploy-prometheus-and-grafana-to-monitor-a-k.md
             the-hack!-what-is-a-hackathon/d56f7f8c59f945c1b08b67fb3ecab99e/a: A Hackathon Survival Guide/the-hack!-what-is-a-hackathon.md
             create-a-"hello-world"-fullstack-dapp/68fca74301814d09bfcc35e07ff30fbc/a: A Hackathon Survival Guide/create-a-"hello-world"-fullstack-dapp.md
             full-stack-dapp-tutorial-series-intro/3dad5bb77afc46d09666cc87b49c6729/a: A Hackathon Survival Guide/full-stack-dapp-tutorial-series-intro.md
             ethereum-101-part-1-what-is-ethereum/67a81d8746ee4b49ba19447e8e2a983e/a: A Hackathon Survival Guide/ethereum-101-part-1-what-is-ethereum.md
             remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a: A Hackathon Survival Guide/remix-ide-your-first-smart-contract.md
-            interacting-with-an-ethereum-smart-contract-in-java/14dc434d11ef4ee18bf7d57f079e246e/a: A Hackathon Survival Guide/interacting-with-an-ethereum-smart-contract-in-java.md
-            a-.net-developer's-workflow-for-creating-and-calling-ethereum-smart-contracts/7df58e34248a4153b9a5f1b0c0eb54f3/a: A Hackathon Survival Guide/a-.net-developer-s-workflow-for-creating-and-calling-ethereum-smart-contracts.md
+            interacting-with-an-ethereum-smart-contract-in-java/14dc434d11ef4ee18bf7d57f079e246e/a: A Hackathon Survival Guide/interacting-with-an-ethereum-smart-contract-in-ja.md
+            a-.net-developer's-workflow-for-creating-and-calling-ethereum-smart-contracts/7df58e34248a4153b9a5f1b0c0eb54f3/a: A Hackathon Survival Guide/a-.net-developer-s-workflow-for-creating-and-call.md
             sending-ethereum-transactions-with-rust/97c85229c66445759bb0ce642224d364/a: A Hackathon Survival Guide/sending-ethereum-transactions-with-rust.md
             generate-a-java-wrapper-from-your-smart-contract/84475132317d4d6a84a2c42eb9348e4b/a: A Hackathon Survival Guide/generate-a-java-wrapper-from-your-smart-contract.md
             accelerating-dapp-development-with-ethers.js/805715d4e66440d996fee0930a6d0fbc/a: A Hackathon Survival Guide/accelerating-dapp-development-with-ethers.js.md
-            nethereum-an-open-source-.net-integration-library-for-blockchain/d15dfd4903f149cdb84b3ce666103b52/a: A Hackathon Survival Guide/nethereum-an-open-source-.net-integration-library-for-blockchain.md
+            nethereum-an-open-source-.net-integration-library-for-blockchain/d15dfd4903f149cdb84b3ce666103b52/a: A Hackathon Survival Guide/nethereum-an-open-source-.net-integration-library.md
             creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a: A Hackathon Survival Guide/creating-a-dapp-in-go-with-geth.md
             tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a: A Hackathon Survival Guide/tools-for-dapp-development.md
             ethasketch/eceee829d2184dbf990b21e630be5b15/a: A Hackathon Survival Guide/ethasketch.md
-            bountibot:-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/65ead2d82e104b94a1d3906f32aa6b8a/a: A Hackathon Survival Guide/bountibot--rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community.md
+            bountibot:-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/65ead2d82e104b94a1d3906f32aa6b8a/a: A Hackathon Survival Guide/bountibot--rewarding-github-pull-requests-for-you.md
             eth-dev-tools/03a1ce4d66aa47e2a935f7d65f936371/a: A Hackathon Survival Guide/eth-dev-tools.md
             retrieving-an-ethereum-account-balance-in-web3j/9983473f687348c9b950fff16f71cbfe/a: Web3j Cheat Sheet (Java Ethereum)/retrieving-an-ethereum-account-balance-in-web3j.md
-            converting-between-ether-units-denominations-in-web3j/ecfdb383843b4379bc0c7aac37d6ba77/a: Web3j Cheat Sheet (Java Ethereum)/converting-between-ether-units-denominations-in-web3j.md
-            creating-a-web3j-wallet-from-a-mnemonic-code-(seed-phrase)/a33a03fb66d14920896bb3e7ab77fba7/a: Web3j Cheat Sheet (Java Ethereum)/creating-a-web3j-wallet-from-a-mnemonic-code-(seed-phrase).md
-            sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j/4b90439223894d7da2ee3fcfef5fa49e/a: Web3j Cheat Sheet (Java Ethereum)/sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j.md
+            converting-between-ether-units-denominations-in-web3j/ecfdb383843b4379bc0c7aac37d6ba77/a: Web3j Cheat Sheet (Java Ethereum)/converting-between-ether-units-denominations-in-w.md
+            creating-a-web3j-wallet-from-a-mnemonic-code-(seed-phrase)/a33a03fb66d14920896bb3e7ab77fba7/a: Web3j Cheat Sheet (Java Ethereum)/creating-a-web3j-wallet-from-a-mnemonic-code-(see.md
+            sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j/4b90439223894d7da2ee3fcfef5fa49e/a: Web3j Cheat Sheet (Java Ethereum)/sending-an-ether-transfer-transaction-from-one-ac.md
             signing-an-ethereum-transaction-in-web3j/b730aa78a4474ede88e805386f5c65ae/a: Web3j Cheat Sheet (Java Ethereum)/signing-an-ethereum-transaction-in-web3j.md
             signing-data-in-java-and-web3j/405c1ebadc29451b9df85864fb36b4bf/a: Web3j Cheat Sheet (Java Ethereum)/signing-data-in-java-and-web3j.md
             openzeppelin-part-1:-introductory/c3ef30099d1e404180067ed4f656aad2/a: OpenZeppelin/openzeppelin-part-1--introductory.md
             openzeppelin-part-2:-access-control/6816abb97f104026a946ba65968eefe6/a: OpenZeppelin/openzeppelin-part-2--access-control.md
             openzeppelin-part-3:-token-standards/cbd1b524cd284bf6ae6ab76e71f5ea56/a: OpenZeppelin/openzeppelin-part-3--token-standards.md
             openzeppelin-part-4:-crowdsales/f7287d9006e346f2a628fad7132ff19c/a: OpenZeppelin/openzeppelin-part-4--crowdsales.md
-            getting-started-with-machine-learning-(non-practitioner-guide)/b92d356410cb4ffd9e11e15726972ab7/a: A non practitioner guide to machine learning /getting-started-with-machine-learning-(non-practitioner-guide).md
+            getting-started-with-machine-learning-(non-practitioner-guide)/b92d356410cb4ffd9e11e15726972ab7/a: A non practitioner guide to machine learning /getting-started-with-machine-learning-(non-practi.md
             installing-anaconda-python3-and-tensorflow/5bf3a311af45420781dfbb3963b253b1/a: A non practitioner guide to machine learning /installing-anaconda-python3-and-tensorflow.md
             regression-with-python-keras-and-tensorflow/d035bc33cd37467db92e5b428a7565fd/a: A non practitioner guide to machine learning /regression-with-python-keras-and-tensorflow.md
-            predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem/badf8853afb9404196bd8b5cbeec61a2/a: A non practitioner guide to machine learning /predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem.md
-            multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow/145b4c03a55146cba2051f04e7f499e9/a: A non practitioner guide to machine learning /multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow.md
+            predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem/badf8853afb9404196bd8b5cbeec61a2/a: A non practitioner guide to machine learning /predict-cryptocurrency-prices-with-tensorflow-as-.md
+            multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow/145b4c03a55146cba2051f04e7f499e9/a: A non practitioner guide to machine learning /multi-class-classification-example-with-convoluti.md
             sending-transactions-on-geth's-simulated-backend/282ffccc00104339823222f239d949ee/a: An ethereum test toolkit in Go/sending-transactions-on-geth-s-simulated-backend.md
-            interacting-with-smart-contracts-from-geth's-simulated-backend/350b689ea9cc43bdbeab18645d6d6a2a/a: An ethereum test toolkit in Go/interacting-with-smart-contracts-from-geth-s-simulated-backend.md
+            interacting-with-smart-contracts-from-geth's-simulated-backend/350b689ea9cc43bdbeab18645d6d6a2a/a: An ethereum test toolkit in Go/interacting-with-smart-contracts-from-geth-s-simu.md
             generating-a-load-of-keys-for-testing-in-go/7a0c7497951548b8837634305e62977b/a: An ethereum test toolkit in Go/generating-a-load-of-keys-for-testing-in-go.md
             the-geth-simulated-backend/6285c9692883411aa041b6b970405a17/a: An ethereum test toolkit in Go/the-geth-simulated-backend.md
-            (15)-getting-started-with-elastic-stack-for-monitoring-on-kubernetes/b3be4dbf895b433f93b3cb589d414988/a: Monitoring Kubernetes with Elastic Stack/(15)-getting-started-with-elastic-stack-for-monitoring-on-kubernetes.md
-            (25)-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data/e5b86351f38940b8a071267062f052cb/a: Monitoring Kubernetes with Elastic Stack/(25)-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data.md
-            (35)-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes/935f4e17a10243139b41546780f43c42/a: Monitoring Kubernetes with Elastic Stack/(35)-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes.md
-            (45)-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes/28b4930506794915be2559dc5ee4b0b1/a: Monitoring Kubernetes with Elastic Stack/(45)-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes.md
-            (55)-collect-traces-with-elastic-apm-for-monitoring-kubernetes/bbbc0af03721495b886567ce6af6c59e/a: Monitoring Kubernetes with Elastic Stack/(55)-collect-traces-with-elastic-apm-for-monitoring-kubernetes.md
-            fluree:-blockchain-graphql-and-more-all-in-one-database/0dfaad0705ab49cfb97a7d3564dce236/a: Founder interviews/fluree--blockchain-graphql-and-more-all-in-one-database.md
-            true-anonymity-privacy-and-snapps-with-simon-harman-of-loki/8726f589aba948c5a7ab1def1a13a264/a: Founder interviews/true-anonymity-privacy-and-snapps-with-simon-harman-of-loki.md
+            (15)-getting-started-with-elastic-stack-for-monitoring-on-kubernetes/b3be4dbf895b433f93b3cb589d414988/a: Monitoring Kubernetes with Elastic Stack/(15)-getting-started-with-elastic-stack-for-monit.md
+            (25)-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data/e5b86351f38940b8a071267062f052cb/a: Monitoring Kubernetes with Elastic Stack/(25)-install-elasticsearch-and-kibana-to-store-an.md
+            (35)-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes/935f4e17a10243139b41546780f43c42/a: Monitoring Kubernetes with Elastic Stack/(35)-collect-metrics-with-elastic-metricbeat-for-.md
+            (45)-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes/28b4930506794915be2559dc5ee4b0b1/a: Monitoring Kubernetes with Elastic Stack/(45)-collect-logs-with-elastic-filebeat-for-monit.md
+            (55)-collect-traces-with-elastic-apm-for-monitoring-kubernetes/bbbc0af03721495b886567ce6af6c59e/a: Monitoring Kubernetes with Elastic Stack/(55)-collect-traces-with-elastic-apm-for-monitori.md
+            fluree:-blockchain-graphql-and-more-all-in-one-database/0dfaad0705ab49cfb97a7d3564dce236/a: Founder interviews/fluree--blockchain-graphql-and-more-all-in-one-da.md
+            true-anonymity-privacy-and-snapps-with-simon-harman-of-loki/8726f589aba948c5a7ab1def1a13a264/a: Founder interviews/true-anonymity-privacy-and-snapps-with-simon-harm.md
             the-aeternity-blockchain-with-emil-wagner/b88cdf4cffed4e47aa920b6ea876479a/a: Founder interviews/the-aeternity-blockchain-with-emil-wagner.md
-            embleema:-the-blockchain-that-lets-you-own-your-health-data/1eb4b076c4ee4bd3beb652dd4d2f266c/a: Founder interviews/embleema--the-blockchain-that-lets-you-own-your-health-data.md
+            embleema:-the-blockchain-that-lets-you-own-your-health-data/1eb4b076c4ee4bd3beb652dd4d2f266c/a: Founder interviews/embleema--the-blockchain-that-lets-you-own-your-h.md
             remix-ide-your-first-vyper-smart-contract/15b95281c17a4954a5278865bbc0f515/a: Vyper Full Stack dApp Tutorial Series/remix-ide-your-first-vyper-smart-contract.md
-            understanding-smart-contract-compilation-and-deployment/195c5784663e4963b16d914900ba5cf5/a: Vyper Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-deployment.md
-            truffle:-smart-contract-compilation-and-deployment/1ac9d10358b94945b06b9c893cd5bfcf/a: Vyper Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deployment.md
+            understanding-smart-contract-compilation-and-deployment/195c5784663e4963b16d914900ba5cf5/a: Vyper Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md
+            truffle:-smart-contract-compilation-and-deployment/1ac9d10358b94945b06b9c893cd5bfcf/a: Vyper Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deploymen.md
             truffle:-testing-your-smart-contract/ebc4a29cc1c044fdba99631796ffbd93/a: Vyper Full Stack dApp Tutorial Series/truffle--testing-your-smart-contract.md
             tools-for-working-with-vyper/ca43e064d5054f829f733970909de1ad/a: Vyper Full Stack dApp Tutorial Series/tools-for-working-with-vyper.md
             creating-a-flexible-nft-(part-1)/27640de6baba4aa99d57fd158af5c019/a: Flexible, Upgradeable & Highly Available NFTs/creating-a-flexible-nft-(part-1).md
             creating-a-flexible-nft-(part-2)/85f570393e1448a7a94e2eab1bae6e48/a: Flexible, Upgradeable & Highly Available NFTs/creating-a-flexible-nft-(part-2).md
-            building-and-working-with-facebook's-cryptocurrency-libra/cc41c516e62a4ca593f5ecdd86bdf299/a: Libra/building-and-working-with-facebook-s-cryptocurrency-libra.md
-            whitepaper-deep-dive-move:-facebook-libra-blockchain's-new-programming-language/aaff5b1d82dd46b9a8668ec983a71548/a: Libra/whitepaper-deep-dive-move--facebook-libra-blockchain-s-new-programming-language.md
+            building-and-working-with-facebook's-cryptocurrency-libra/cc41c516e62a4ca593f5ecdd86bdf299/a: Libra/building-and-working-with-facebook-s-cryptocurren.md
+            whitepaper-deep-dive-move:-facebook-libra-blockchain's-new-programming-language/aaff5b1d82dd46b9a8668ec983a71548/a: Libra/whitepaper-deep-dive-move--facebook-libra-blockch.md
             quick-dive-into-the-move-programming-language/b5ca6a19711240ac8e3a55076177d9de/a: Libra/quick-dive-into-the-move-programming-language.md
             bitcoin-blockchain-overview/60804658f033475cad5797438adcab90/a: Bitcoin/bitcoin-blockchain-overview.md
             creating-bitcoin-transactions/ef9245af2bf94699be53e0a9c41393a4/a: Bitcoin/creating-bitcoin-transactions.md
@@ -590,28 +590,28 @@ plugins:
             blockchain-explained/d55684513211466da7f8cc03987607d5/a: Getting Started/blockchain-explained.md
             an-introduction-to-smart-contracts-with-solidity/6479f4a2cb3446d790dd27e8aeb36f63/a: Getting Started/an-introduction-to-smart-contracts-with-solidity.md
             an-introduction-to-smart-contracts-with-vyper/af913a853eaf4db88627b3ff9572b770/a: Getting Started/an-introduction-to-smart-contracts-with-vyper.md
-            cute-kitties-and-where-to-find-them-an-introduction-to-non-fungible-tokens/028ff6bf2fa0432191371e6d39398ba6/a: Getting Started/cute-kitties-and-where-to-find-them-an-introduction-to-non-fungible-tokens.md
+            cute-kitties-and-where-to-find-them-an-introduction-to-non-fungible-tokens/028ff6bf2fa0432191371e6d39398ba6/a: Getting Started/cute-kitties-and-where-to-find-them-an-introducti.md
             erc-721-non-fungible-token-standard/b382103e9496409c90c495f35940887e/a: Getting Started/erc-721-non-fungible-token-standard.md
             erc-20-token-standard/d3e24cbf13fd4af9892773552555c480/a: Getting Started/erc-20-token-standard.md
             develop-your-erc-20-token-explained!/e05b1433dfa6434dba2788df96f423e9/a: Getting Started/develop-your-erc-20-token-explained!.md
-            gamifying-crypto-assets-with-the-erc998-composables-token-standard/436178ce670d4a9e9ffbd9cb7a8476fd/a: Getting Started/gamifying-crypto-assets-with-the-erc998-composables-token-standard.md
-            erc-20-and-its-discontents:-the-rise-of-comrades-erc-777-and-erc-1820/7f05b8f63ca24a8e83d73a1075571f8d/a: Getting Started/erc-20-and-its-discontents--the-rise-of-comrades-erc-777-and-erc-1820.md
+            gamifying-crypto-assets-with-the-erc998-composables-token-standard/436178ce670d4a9e9ffbd9cb7a8476fd/a: Getting Started/gamifying-crypto-assets-with-the-erc998-composabl.md
+            erc-20-and-its-discontents:-the-rise-of-comrades-erc-777-and-erc-1820/7f05b8f63ca24a8e83d73a1075571f8d/a: Getting Started/erc-20-and-its-discontents--the-rise-of-comrades-.md
             creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a: Getting Started/creating-a-dapp-in-go-with-geth.md
             smart-contracts-integration-with-nethereum/b54334b0695342c1bbe161c4c4467b50/a: Getting Started/smart-contracts-integration-with-nethereum.md
             signing-messages-with-nethereum/feb122418c014c8bb7010063263d0a20/a: Getting Started/signing-messages-with-nethereum.md
             managing-nonces-with-nethereum/d7e05d0b1d2e4161a0118df91cb67b89/a: Getting Started/managing-nonces-with-nethereum.md
-            connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/b9eb647c47a546bc95693acc0be72546/a: Getting Started/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j.md
+            connecting-to-an-ethereum-client-with-java-eclipse-and-web3j/b9eb647c47a546bc95693acc0be72546/a: Getting Started/connecting-to-an-ethereum-client-with-java-eclips.md
             introduction-to-cryptography/7431fc3a27d44108b46f8a8a81f5802c/a: Privacy/introduction-to-cryptography.md
-            building-on-bulletproofs-short-proofs-for-confidential-transactions/40506709dca64369b4a133a2c91c27ae/a: Privacy/building-on-bulletproofs-short-proofs-for-confidential-transactions.md
+            building-on-bulletproofs-short-proofs-for-confidential-transactions/40506709dca64369b4a133a2c91c27ae/a: Privacy/building-on-bulletproofs-short-proofs-for-confide.md
             enigma-protocol/0143727c506d4f1d9013a1fca1a4c73c/a: Privacy/enigma-protocol.md
-            how-to-code-your-own-confidential-token-on-ethereum/b699361c8f7b4671aca588f1213e87bd/a: Privacy/how-to-code-your-own-confidential-token-on-ethereum.md
+            how-to-code-your-own-confidential-token-on-ethereum/b699361c8f7b4671aca588f1213e87bd/a: Privacy/how-to-code-your-own-confidential-token-on-ethere.md
             data-privacy-with-the-nucypher-network/3a264ce066b04332b2e03ffa88af39e6/a: Privacy/data-privacy-with-the-nucypher-network.md
             nucypher-pyumbral/7368f23b5e894a9bab71e1deb663f128/a: Privacy/nucypher-pyumbral.md
-            nightfall-private-token-and-nft-transfers-on-ethereum/23d6c65e76614b0ea2af0f3d2606dcfa/a: Privacy/nightfall-private-token-and-nft-transfers-on-ethereum.md
+            nightfall-private-token-and-nft-transfers-on-ethereum/23d6c65e76614b0ea2af0f3d2606dcfa/a: Privacy/nightfall-private-token-and-nft-transfers-on-ethe.md
             privacy-with-pantheon-ethereum-java-client/f0758bcdfad84d70a5d1adf43baa59d4/a: Privacy/privacy-with-pantheon-ethereum-java-client.md
             parity-private-transactions/15d01dbd345340789461b8bd48f56f3c/a: Privacy/parity-private-transactions.md
             introducing-beam!/4a387990f62b472ba2187e3ec3345f10/a: Privacy/introducing-beam!.md
-            a-short-history-of-mimblewimble:-from-hogwarts-to-mobile-wallets/0302f63b51e04462bfb4ddfe9199b527/a: Privacy/a-short-history-of-mimblewimble--from-hogwarts-to-mobile-wallets.md
+            a-short-history-of-mimblewimble:-from-hogwarts-to-mobile-wallets/0302f63b51e04462bfb4ddfe9199b527/a: Privacy/a-short-history-of-mimblewimble--from-hogwarts-to.md
             why-beam-is-sound-money/480ca270b63f444195fb5d0f61e0f54f/a: Privacy/why-beam-is-sound-money.md
             introduction-to-mimblewimble-and-grin/433e9df1049d4862b908d5825f27dadb/a: Privacy/introduction-to-mimblewimble-and-grin.md
             a-beginner's-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a: Privacy/a-beginner-s-guide-to-zcash.md
@@ -619,11 +619,11 @@ plugins:
             kyber-network:-on-chain-liquidity-protocol/9f81242a0dac4e0d91807f30312f0d0e/a: Open Finance (DeFi)/kyber-network--on-chain-liquidity-protocol.md
             compound:-money-markets-on-ethereum/33e45b49f47f42228d3c35726a341a1b/a: Open Finance (DeFi)/compound--money-markets-on-ethereum.md
             0x:-peer-to-peer-exchange-protocol/81054d98abe9412d87f91cd86719e90f/a: Open Finance (DeFi)/0x--peer-to-peer-exchange-protocol.md
-            makerdao:-decentralized-stablecoin-and-collateral-loans/88db636595ca457eb7fec0a4a56d1a80/a: Open Finance (DeFi)/makerdao--decentralized-stablecoin-and-collateral-loans.md
+            makerdao:-decentralized-stablecoin-and-collateral-loans/88db636595ca457eb7fec0a4a56d1a80/a: Open Finance (DeFi)/makerdao--decentralized-stablecoin-and-collateral.md
             uniswap:-protocol-for-automated-token-exchange/ec1b2b004813442a82a916b561efecfb/a: Open Finance (DeFi)/uniswap--protocol-for-automated-token-exchange.md
             set-protocol:-baskets-of-tokenized-assets/f6bedcda0eb24decb02de9f4d3e42ef3/a: Open Finance (DeFi)/set-protocol--baskets-of-tokenized-assets.md
             an-introduction-to-bonding-curves/f7853f4914bd42b6bee19758a97b42ee/a: Open Finance (DeFi)/an-introduction-to-bonding-curves.md
-            incentivizing-high-quality-curation-with-a-token-curated-registry/5d256b3a16c3430080718f29d6758366/a: Open Finance (DeFi)/incentivizing-high-quality-curation-with-a-token-curated-registry.md
+            incentivizing-high-quality-curation-with-a-token-curated-registry/5d256b3a16c3430080718f29d6758366/a: Open Finance (DeFi)/incentivizing-high-quality-curation-with-a-token-.md
             lint-your-solidity-contracts-with-solhint/2ff86d30589b4832ad90f6c87c08fbea/a: DevOps/lint-your-solidity-contracts-with-solhint.md
             lint-your-solidity-contracts-with-ethlint/1cf59f73db9948cf89019e59abb93146/a: DevOps/lint-your-solidity-contracts-with-ethlint.md
             truffle:-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a: DevOps/truffle--testing-your-smart-contract.md
@@ -632,22 +632,22 @@ plugins:
             system-description-document/a3a29cf21736417684361836693388e5/a: SecureETH/system-description-document.md
             secureth-guidelines-getting-started/791ef4c00e924247921e98c95efbdd73/a: SecureETH/secureth-guidelines-getting-started.md
             secureth-guidelines-introduction/15f9b5cb2c644476ab8f68a9924f8549/a: SecureETH/secureth-guidelines-introduction.md
-            fuzzing-smart-contracts-using-multiple-transactions/566c70b35d564ac8a8fcc08c37fb5859/a: MythX/fuzzing-smart-contracts-using-multiple-transactions.md
+            fuzzing-smart-contracts-using-multiple-transactions/566c70b35d564ac8a8fcc08c37fb5859/a: MythX/fuzzing-smart-contracts-using-multiple-transactio.md
             fuzzing-smart-contracts-using-input-prediction/c3d4ee5919064a23bc0e5f3317310f16/a: MythX/fuzzing-smart-contracts-using-input-prediction.md
-            auditing-the-0x-protocol-v2-with-consensys-diligence/db4ae4880b3e4bc399279ada15b04411/a: MythX/auditing-the-0x-protocol-v2-with-consensys-diligence.md
+            auditing-the-0x-protocol-v2-with-consensys-diligence/db4ae4880b3e4bc399279ada15b04411/a: MythX/auditing-the-0x-protocol-v2-with-consensys-dilige.md
             mythx-is-upping-the-smart-contract-security-game/b9057f45fcf247a586eaebee612568ec/a: MythX/mythx-is-upping-the-smart-contract-security-game.md
             finding-vulnerabilities-in-smart-contracts/b34134b451b04911ba7295df4b86a234/a: MythX/finding-vulnerabilities-in-smart-contracts.md
             mythx-is-real./3206b1e377b14cf6954b1061c5bd585c/a: MythX/mythx-is-real..md
-            how-to-install-and-synchronize-your-own-remote-ethereum-node/c287fe53de9b4073a18065443253a86d/a: How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-install-and-synchronize-your-own-remote-ethereum-node.md
-            make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/348d6c66da2949978c85bf2cd913d0ac/a: How you can contribute to the increased decentralization of the Ethereum blockchain/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask.md
+            how-to-install-and-synchronize-your-own-remote-ethereum-node/c287fe53de9b4073a18065443253a86d/a: How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-install-and-synchronize-your-own-remote-et.md
+            make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask/348d6c66da2949978c85bf2cd913d0ac/a: How you can contribute to the increased decentralization of the Ethereum blockchain/make-use-of-your-remote-ethereum-node-using-an-ss.md
             how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a: How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-set-up-a-simple-linux-firewall.md
-            swarm:-distributed-storage-platform-and-content-distribution-service/0a733fa8a829458584d16abe37750041/a: Decentralized Storage/swarm--distributed-storage-platform-and-content-distribution-service.md
+            swarm:-distributed-storage-platform-and-content-distribution-service/0a733fa8a829458584d16abe37750041/a: Decentralized Storage/swarm--distributed-storage-platform-and-content-d.md
             peer-to-peer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a: Decentralized Storage/peer-to-peer-hypermedia-with-ipfs.md
-            orbitdb:-serverless-distributed-peer-to-peer-database/6ae5ffa612044a09be856ff390ce6990/a: Decentralized Storage/orbitdb--serverless-distributed-peer-to-peer-database.md
+            orbitdb:-serverless-distributed-peer-to-peer-database/6ae5ffa612044a09be856ff390ce6990/a: Decentralized Storage/orbitdb--serverless-distributed-peer-to-peer-data.md
             storj:-decentralized-cloud-object-storage/a585dad1cd354e49994f3235452a8bb1/a: Decentralized Storage/storj--decentralized-cloud-object-storage.md
             sia:-decentralized-cloud-storage/c9958fbe0a7f4a2abb6e25ad37ee1107/a: Decentralized Storage/sia--decentralized-cloud-storage.md
             bluzelle-a-decentralized-data-cache/4cdd52b4333f4d579dbb81fd5e2ab100/a: Decentralized Storage/bluzelle-a-decentralized-data-cache.md
-            filecoin:-peer-to-peer-storage-network-and-payment-protocol/6de951ef66854422b8a4803fb1ab419d/a: Decentralized Storage/filecoin--peer-to-peer-storage-network-and-payment-protocol.md
+            filecoin:-peer-to-peer-storage-network-and-payment-protocol/6de951ef66854422b8a4803fb1ab419d/a: Decentralized Storage/filecoin--peer-to-peer-storage-network-and-paymen.md
             introducing-plasma-group/d0bf181104714563b39c151eeae03846/a: Scaling/introducing-plasma-group.md
             skale:-ethereum-compatible-sidechains/1695fa6d727347e58af02ba7c36a0581/a: Scaling/skale--ethereum-compatible-sidechains.md
             connext:-peer-to-peer-payment-channels/ea598e8c666c413e8df0a6dd106a1c28/a: Scaling/connext--peer-to-peer-payment-channels.md
@@ -656,15 +656,15 @@ plugins:
             raiden:-generalized-state-channels/e875bf0e94444f86b3dcdebc730f6c7f/a: Scaling/raiden--generalized-state-channels.md
             minimum-viable-plasma-the-kyokan-implementation/7f9e1c04f3964016806becc33003bdf3/a: Scaling/minimum-viable-plasma-the-kyokan-implementation.md
             monoplasma:-a-simple-way-to-broadcast-money/c94efbb60cf44a8aa663c5812e7f8012/a: Scaling/monoplasma--a-simple-way-to-broadcast-money.md
-            top-5-ways-to-scale-your-ethereum-blockchain-application-(dapp)/7ccaaa2fe7f344d5bf53807cb5c01530/a: Scaling/top-5-ways-to-scale-your-ethereum-blockchain-application-(dapp).md
+            top-5-ways-to-scale-your-ethereum-blockchain-application-(dapp)/7ccaaa2fe7f344d5bf53807cb5c01530/a: Scaling/top-5-ways-to-scale-your-ethereum-blockchain-appl.md
             plasma-roundup:-from-mvp-to-mainnet/3103de2a3a874f348013b96d157451be/a: Scaling/plasma-roundup--from-mvp-to-mainnet.md
-            egge.gg-instant-payout-esports-tournaments-for-ethdenver2019/2d6aad56cc904756bbef18332efb00fc/a: Kotlin ❤ Web3/egge.gg-instant-payout-esports-tournaments-for-ethdenver2019.md
+            egge.gg-instant-payout-esports-tournaments-for-ethdenver2019/2d6aad56cc904756bbef18332efb00fc/a: Kotlin ❤ Web3/egge.gg-instant-payout-esports-tournaments-for-et.md
             simple-kotlin-springboot-dapp-utilizing-web3j/311e46faf254462f9755e245a48de0cb/a: Kotlin ❤ Web3/simple-kotlin-springboot-dapp-utilizing-web3j.md
-            how-to-achieve-user-authentication-by-web3-wallet-using-spring-security-jwts-web3j-and-kotlin/a7a3198e2673406aa730d41854871e1a/a: Kotlin ❤ Web3/how-to-achieve-user-authentication-by-web3-wallet-using-spring-security-jwts-web3j-and-kotlin.md
-            consuming-ethereum-events-to-kotlin-service-using-eventeum/c890f33e17b54d8d95ed99b932245df4/a: Kotlin ❤ Web3/consuming-ethereum-events-to-kotlin-service-using-eventeum.md
+            how-to-achieve-user-authentication-by-web3-wallet-using-spring-security-jwts-web3j-and-kotlin/a7a3198e2673406aa730d41854871e1a/a: Kotlin ❤ Web3/how-to-achieve-user-authentication-by-web3-wallet.md
+            consuming-ethereum-events-to-kotlin-service-using-eventeum/c890f33e17b54d8d95ed99b932245df4/a: Kotlin ❤ Web3/consuming-ethereum-events-to-kotlin-service-using.md
             the-hack!-what-is-a-hackathon/d56f7f8c59f945c1b08b67fb3ecab99e/a: ETHDenver 2019 Finalists and Winners/the-hack!-what-is-a-hackathon.md
             delfi:-an-on-chain-oracle-you-can-reason-about/c59dfaa3c1cb4ee2bcaeb8ff8a97397c/a: ETHDenver 2019 Finalists and Winners/delfi--an-on-chain-oracle-you-can-reason-about.md
-            bountibot:-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/65ead2d82e104b94a1d3906f32aa6b8a/a: ETHDenver 2019 Finalists and Winners/bountibot--rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community.md
+            bountibot:-rewarding-github-pull-requests-for-you-and-the-rest-of-the-oss-community/65ead2d82e104b94a1d3906f32aa6b8a/a: ETHDenver 2019 Finalists and Winners/bountibot--rewarding-github-pull-requests-for-you.md
             safe-cdp/c590a19769d7414f99077b590a7ec218/a: ETHDenver 2019 Finalists and Winners/safe-cdp.md
             ethvelcro/172e228b2e7d4beaa59c0a49a027ef1e/a: ETHDenver 2019 Finalists and Winners/ethvelcro.md
             hashd-broadcast-on-the-distributed-web/adeeef4841ac4a6b9a45885e28a6d18b/a: ETHDenver 2019 Finalists and Winners/hashd-broadcast-on-the-distributed-web.md
@@ -674,30 +674,30 @@ plugins:
             universal-wallet/76ed4c88c6e743259f1e30db224696da/a: ETHDenver 2019 Finalists and Winners/universal-wallet.md
             open-curator/5367fae354344dc2886538d97f5cadb9/a: ETHDenver 2019 Finalists and Winners/open-curator.md
             ethereum-2.0-beacon-chain-simulation/135a5720b9d44104bfbc44a5f69f9f20/a: ETHDenver 2019 Finalists and Winners/ethereum-2.0-beacon-chain-simulation.md
-            from-dev-to-production-multi-chain-environments-with-splunk/bd036d6f040d431dab5b4ebcd5311b04/a: ETHDenver 2019 Finalists and Winners/from-dev-to-production-multi-chain-environments-with-splunk.md
+            from-dev-to-production-multi-chain-environments-with-splunk/bd036d6f040d431dab5b4ebcd5311b04/a: ETHDenver 2019 Finalists and Winners/from-dev-to-production-multi-chain-environments-w.md
             ethasketch/eceee829d2184dbf990b21e630be5b15/a: ETHDenver 2019 Finalists and Winners/ethasketch.md
             synchronous-cross-shard-transactions/51c8d4c8908549468bb0f299f7c044b9/a: ETHDenver 2019 Finalists and Winners/synchronous-cross-shard-transactions.md
             carbos:-more-than-a-carbon-market/6a32aacaed51411ba9cc2d7adb1478a2/a: ETHDenver 2019 Finalists and Winners/carbos--more-than-a-carbon-market.md
             wel-fair/76125c8a2dd543eb8fa2076a46be56f3/a: ETHDenver 2019 Finalists and Winners/wel-fair.md
             jobsimple/ac7653f3b1234a91af80fe21e397d55b/a: ETHDenver 2019 Finalists and Winners/jobsimple.md
             iq-donate/d5ee42ff42b543f98e20aa313a5e214c/a: ETHDenver 2019 Finalists and Winners/iq-donate.md
-            token-bonding-curves-for-social-impact-crowdfunding/093ba3e7182c442583e015b409e7d4e5/a: ETHDenver 2019 Finalists and Winners/token-bonding-curves-for-social-impact-crowdfunding.md
-            zdai.io-confidential-transactions-on-burner-wallet-with-zksnarks/4c026927f1cc4ed29d5a0e95ba3afbf8/a: ETHDenver 2019 Finalists and Winners/zdai.io-confidential-transactions-on-burner-wallet-with-zksnarks.md
+            token-bonding-curves-for-social-impact-crowdfunding/093ba3e7182c442583e015b409e7d4e5/a: ETHDenver 2019 Finalists and Winners/token-bonding-curves-for-social-impact-crowdfundi.md
+            zdai.io-confidential-transactions-on-burner-wallet-with-zksnarks/4c026927f1cc4ed29d5a0e95ba3afbf8/a: ETHDenver 2019 Finalists and Winners/zdai.io-confidential-transactions-on-burner-walle.md
             ethdenver-bounty-winners/f4f31c650bd349f198b2aaf80a41ebed/a: ETHDenver 2019 Finalists and Winners/ethdenver-bounty-winners.md
             listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a: Eventeum/listening-to-ethereum-events-with-eventeum.md
             listening-for-ethereum-transactions-with-eventeum/3e31587c96a74d24b5cdd17952d983e9/a: Eventeum/listening-for-ethereum-transactions-with-eventeum.md
-            using-eventeum-to-build-a-java-smart-contract-data-cache/fe81ee9612eb4e5a9ab72790ef24283d/a: Eventeum/using-eventeum-to-build-a-java-smart-contract-data-cache.md
+            using-eventeum-to-build-a-java-smart-contract-data-cache/fe81ee9612eb4e5a9ab72790ef24283d/a: Eventeum/using-eventeum-to-build-a-java-smart-contract-dat.md
             full-stack-dapp-tutorial-series-intro/3dad5bb77afc46d09666cc87b49c6729/a: Full Stack dApp Tutorial Series/full-stack-dapp-tutorial-series-intro.md
             tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a: Full Stack dApp Tutorial Series/tools-for-dapp-development.md
             tools-for-working-with-solidity/7a27a1c1fbdc428b8058f14db1a227aa/a: Full Stack dApp Tutorial Series/tools-for-working-with-solidity.md
             remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a: Full Stack dApp Tutorial Series/remix-ide-your-first-smart-contract.md
-            understanding-smart-contract-compilation-and-deployment/973c5f54c4434bb1b0160cff8c695369/a: Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-deployment.md
-            truffle:-smart-contract-compilation-and-deployment/cbc38bf09088426fbefcbe7d42ac679f/a: Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deployment.md
+            understanding-smart-contract-compilation-and-deployment/973c5f54c4434bb1b0160cff8c695369/a: Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md
+            truffle:-smart-contract-compilation-and-deployment/cbc38bf09088426fbefcbe7d42ac679f/a: Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deploymen.md
             truffle:-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a: Full Stack dApp Tutorial Series/truffle--testing-your-smart-contract.md
             truffle:-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a: Full Stack dApp Tutorial Series/truffle--adding-a-frontend-with-react-box.md
             embark:-smart-contract-compilation-and-deployment/13758d60f21648a1897fad1fa5b78237/a: Full Stack dApp Tutorial Series/embark--smart-contract-compilation-and-deployment.md
             embark:-testing-your-smart-contract/e8f18d0643c14756b43d698122bba9d9/a: Full Stack dApp Tutorial Series/embark--testing-your-smart-contract.md
-            populus:-smart-contract-compilation-and-deployment/21b6d5256bcd4a0bb23c84c75c1b1f76/a: Full Stack dApp Tutorial Series/populus--smart-contract-compilation-and-deployment.md
+            populus:-smart-contract-compilation-and-deployment/21b6d5256bcd4a0bb23c84c75c1b1f76/a: Full Stack dApp Tutorial Series/populus--smart-contract-compilation-and-deploymen.md
             populus:-testing-your-smart-contract/55a5ce344a31434ab7c749da26b58119/a: Full Stack dApp Tutorial Series/populus--testing-your-smart-contract.md
             deploying-a-full-stack-dapp-to-microsoft-azure/d37518870cba4caeab6a95624254a6b8/a: Full Stack dApp Tutorial Series/deploying-a-full-stack-dapp-to-microsoft-azure.md
             deploying-your-dapp-frontend-to-heroku/a2e8c4a594344f7a951613a73f463fe7/a: Full Stack dApp Tutorial Series/deploying-your-dapp-frontend-to-heroku.md
@@ -706,9 +706,9 @@ plugins:
             understand-brave-browser-and-bat/855e778477644972b3023383c9925d74/a: Web3 Clients/understand-brave-browser-and-bat.md
             metamask-interact-with-ethereum-in-your-browser/2a587f3962044515937a8105cfa1568c/a: Web3 Clients/metamask-interact-with-ethereum-in-your-browser.md
             will-the-opera-web3-wallet-drive-adoption/2cfdfa427d324b57b2afd034f3cfb145/a: Web3 Clients/will-the-opera-web3-wallet-drive-adoption.md
-            non-definitive-list-to-ethereum-block-explorers-not-just-etherscan!/e6b81c07f6eb4c1fac417a4cbff7ddf0/a: Web3 Clients/non-definitive-list-to-ethereum-block-explorers-not-just-etherscan!.md
+            non-definitive-list-to-ethereum-block-explorers-not-just-etherscan!/e6b81c07f6eb4c1fac417a4cbff7ddf0/a: Web3 Clients/non-definitive-list-to-ethereum-block-explorers-n.md
             poa-part-1-develop-and-deploy-a-smart-contract/549b50d2318741dbba209110bb9e350e/a: POA Tutorial series/poa-part-1-develop-and-deploy-a-smart-contract.md
-            poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain/19072f7340184628b47c0d86e7feac6d/a: POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain.md
+            poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain/19072f7340184628b47c0d86e7feac6d/a: POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-.md
             xdai/7834a00daa6f4b1ba7c90d76a7350dec/a: POA Tutorial series/xdai.md
             secureth-guidelines-introduction/15f9b5cb2c644476ab8f68a9924f8549/a: SecurEth/secureth-guidelines-introduction.md
             system-description-document/a3a29cf21736417684361836693388e5/a: SecurEth/system-description-document.md
@@ -718,50 +718,50 @@ plugins:
             trc10-and-trc20-tokens/6b8ebe84d0a14af48bdc09b62bf3d27c/a: Tron/trc10-and-trc20-tokens.md
             peer-to-peer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a: IPFS 101/peer-to-peer-hypermedia-with-ipfs.md
             installing-ipfs/b01b9b7bebcd4ebf80edf021bdd0e232/a: IPFS 101/installing-ipfs.md
-            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: IPFS 101/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md
-            ethereum-community-and-its-ecosystem:-crowd-psychology-analysis-part-1/7adc2e0de2f14225a48da85795b513ef/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psychology-analysis-part-1.md
-            ethereum-community-and-its-ecosystem:-crowd-psychology-analysis-part-2/99ccd629fce5482e8ddcb9e48d12bcb6/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psychology-analysis-part-2.md
-            ethereum-community-and-its-ecosystem:-needs-based-theories-of-motivation-approach/da4ec20a1daf4cdc98e00ef8d001ddb7/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--needs-based-theories-of-motivation-approach.md
-            ethereum-community-and-its-ecosystem:-networks-visualisation-analysis/cd37b69782ee45d6a96caa6e1ab43f42/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--networks-visualisation-analysis.md
-            ethereum-community-and-its-ecosystem:-structural-analysis/9a486bc098674bb6b70408334947eb93/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--structural-analysis.md
-            smart-contract-utilities-with-zeppelinos:-introduction/a054c697f68c434bb657f070cad83e98/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--introduction.md
-            smart-contract-utilities-with-zeppelinos:-installation-and-use/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--installation-and-use.md
-            smart-contract-utilities-with-zeppelinos:-linking-publishing-and-vouching/01f3c20ef0cc4614b4b1a1f9b1927cdb/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--linking-publishing-and-vouching.md
-            smart-contract-utilities-with-zeppelinos:-deploying-to-mainnet/c6aadc15a87b403ca428602f4d6ea30e/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--deploying-to-mainnet.md
+            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: IPFS 101/getting-started-with-mahuta-a-search-engine-for-t.md
+            ethereum-community-and-its-ecosystem:-crowd-psychology-analysis-part-1/7adc2e0de2f14225a48da85795b513ef/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psych.md
+            ethereum-community-and-its-ecosystem:-crowd-psychology-analysis-part-2/99ccd629fce5482e8ddcb9e48d12bcb6/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--crowd-psych.md
+            ethereum-community-and-its-ecosystem:-needs-based-theories-of-motivation-approach/da4ec20a1daf4cdc98e00ef8d001ddb7/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--needs-based.md
+            ethereum-community-and-its-ecosystem:-networks-visualisation-analysis/cd37b69782ee45d6a96caa6e1ab43f42/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--networks-vi.md
+            ethereum-community-and-its-ecosystem:-structural-analysis/9a486bc098674bb6b70408334947eb93/a: Ethereum Community and Ecosystem analysis/ethereum-community-and-its-ecosystem--structural-.md
+            smart-contract-utilities-with-zeppelinos:-introduction/a054c697f68c434bb657f070cad83e98/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--introdu.md
+            smart-contract-utilities-with-zeppelinos:-installation-and-use/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--install.md
+            smart-contract-utilities-with-zeppelinos:-linking-publishing-and-vouching/01f3c20ef0cc4614b4b1a1f9b1927cdb/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--linking.md
+            smart-contract-utilities-with-zeppelinos:-deploying-to-mainnet/c6aadc15a87b403ca428602f4d6ea30e/a: ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--deployi.md
             3box-social-profiles-for-web3-applications/204bee70b23549f2acdc873d265d98f8/a: ConsenSys Projects/3box-social-profiles-for-web3-applications.md
-            openlaw-tutorial:-blockchain-enabled-legally-enforceable-smart-contracts/3a4016d6e3bd4c1fbba839244f1802e8/a: ConsenSys Projects/openlaw-tutorial--blockchain-enabled-legally-enforceable-smart-contracts.md
+            openlaw-tutorial:-blockchain-enabled-legally-enforceable-smart-contracts/3a4016d6e3bd4c1fbba839244f1802e8/a: ConsenSys Projects/openlaw-tutorial--blockchain-enabled-legally-enfo.md
             infura-101-infrastructure-for-dapps/9113c37841e5451fbb2cf2477a3a63e5/a: ConsenSys Projects/infura-101-infrastructure-for-dapps.md
             truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a: ConsenSys Projects/truffle-101-development-tools-for-smart-contracts.md
             listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a: ConsenSys Projects/listening-to-ethereum-events-with-eventeum.md
-            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: ConsenSys Projects/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md
+            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: ConsenSys Projects/getting-started-with-mahuta-a-search-engine-for-t.md
             kaleido-the-blockchain-business-cloud/4bfbae2d64984868aaa65f115df0de49/a: ConsenSys Projects/kaleido-the-blockchain-business-cloud.md
             pantheon-the-enterprise-ethereum-client/48c4c61a77304ecab8df7247aa1900ac/a: ConsenSys Projects/pantheon-the-enterprise-ethereum-client.md
-            nethereum-an-open-source-.net-integration-library-for-blockchain/d15dfd4903f149cdb84b3ce666103b52/a: ConsenSys Projects/nethereum-an-open-source-.net-integration-library-for-blockchain.md
+            nethereum-an-open-source-.net-integration-library-for-blockchain/d15dfd4903f149cdb84b3ce666103b52/a: ConsenSys Projects/nethereum-an-open-source-.net-integration-library.md
             openzeppelin-part-1:-introductory/c3ef30099d1e404180067ed4f656aad2/a: OpenZeppelin 101/openzeppelin-part-1--introductory.md
             openzeppelin-part-2:-access-control/6816abb97f104026a946ba65968eefe6/a: OpenZeppelin 101/openzeppelin-part-2--access-control.md
             openzeppelin-part-3:-token-standards/cbd1b524cd284bf6ae6ab76e71f5ea56/a: OpenZeppelin 101/openzeppelin-part-3--token-standards.md
             openzeppelin-part-4:-crowdsales/f7287d9006e346f2a628fad7132ff19c/a: OpenZeppelin 101/openzeppelin-part-4--crowdsales.md
             openzeppelin-part-5:-there's-more!/83d04613ba4a4a428d941483fe4fc45c/a: OpenZeppelin 101/openzeppelin-part-5--there-s-more!.md
-            evm-package-deployment-with-zeppelinos-part-i:-introduction-and-creating-a-linkedlist-contract/307e1eb5f1044e3e8aabb33e12f60c9d/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--introduction-and-creating-a-linkedlist-contract.md
-            evm-package-deployment-with-zeppelinos-part-ii:-deploying-and-testing-a-linkedlist-contract/077f5e1d62e147089f21f709f77d8ccb/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--deploying-and-testing-a-linkedlist-contract.md
-            evm-package-deployment-with-zeppelinos-part-iii:-linking-to-mainnet/28d6318d3afb483286aec2243cffd8a3/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--linking-to-mainnet.md
+            evm-package-deployment-with-zeppelinos-part-i:-introduction-and-creating-a-linkedlist-contract/307e1eb5f1044e3e8aabb33e12f60c9d/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in.md
+            evm-package-deployment-with-zeppelinos-part-ii:-deploying-and-testing-a-linkedlist-contract/077f5e1d62e147089f21f709f77d8ccb/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--d.md
+            evm-package-deployment-with-zeppelinos-part-iii:-linking-to-mainnet/28d6318d3afb483286aec2243cffd8a3/a: EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--.md
             using-kauri-at-the-ethdenver-hackathon/c0a2014e14964677a8fc849d9d73bde0/a: ETHDenver/using-kauri-at-the-ethdenver-hackathon.md
-            share-your-knowledge-at-ethdenver-to-build-a-better-ecosystem/27dd1da338a24c0b979c39f1ee12aaf7/a: ETHDenver/share-your-knowledge-at-ethdenver-to-build-a-better-ecosystem.md
-            buidl-the-future-of-privacy-at-ethdenver-with-nucypher/892e5ee1912e4478a0066b922585c17c/a: ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nucypher.md
-            connect-your-smart-contracts-connected-to-real-world-data-with-chainlink/f7defa7f512b4dc6b2398ac9b0a3ff42/a: ETHDenver/connect-your-smart-contracts-connected-to-real-world-data-with-chainlink.md
-            rhombus-has-your-oracle-needs-covered-at-ethdenver/e407aed4ec014b0797232b796e892707/a: ETHDenver/rhombus-has-your-oracle-needs-covered-at-ethdenver.md
+            share-your-knowledge-at-ethdenver-to-build-a-better-ecosystem/27dd1da338a24c0b979c39f1ee12aaf7/a: ETHDenver/share-your-knowledge-at-ethdenver-to-build-a-bett.md
+            buidl-the-future-of-privacy-at-ethdenver-with-nucypher/892e5ee1912e4478a0066b922585c17c/a: ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nuc.md
+            connect-your-smart-contracts-connected-to-real-world-data-with-chainlink/f7defa7f512b4dc6b2398ac9b0a3ff42/a: ETHDenver/connect-your-smart-contracts-connected-to-real-wo.md
+            rhombus-has-your-oracle-needs-covered-at-ethdenver/e407aed4ec014b0797232b796e892707/a: ETHDenver/rhombus-has-your-oracle-needs-covered-at-ethdenve.md
             quick-guide-listing-dai-or-mkr-tokens-on-exchange/c7b0426e21404c7cb4d06380219bf18d/a: ETHDenver/quick-guide-listing-dai-or-mkr-tokens-on-exchange.md
             keepers-on-makerdao:-resources/b5c74816b2034971aec5add073ae16c5/a: ETHDenver/keepers-on-makerdao--resources.md
-            quick-guide-integrating-dai-or-mkr-tokens-in-wallets/10158e201b024ffe99389879da006599/a: ETHDenver/quick-guide-integrating-dai-or-mkr-tokens-in-wallets.md
+            quick-guide-integrating-dai-or-mkr-tokens-in-wallets/10158e201b024ffe99389879da006599/a: ETHDenver/quick-guide-integrating-dai-or-mkr-tokens-in-wall.md
             query-blockchain-data-with-the-graph-at-ethdenver/10cd2a6e80f04cb9a5bbc06a15348722/a: ETHDenver/query-blockchain-data-with-the-graph-at-ethdenver.md
-            api-based-asset-exchange-with-shapeshift-at-ethdenver/fc9af330a3e44f3ab2c557486aaccf2e/a: ETHDenver/api-based-asset-exchange-with-shapeshift-at-ethdenver.md
-            make-your-dapps-accessible-with-portis-at-ethdenver/c6935bb83d3f477891f98a114998e40f/a: ETHDenver/make-your-dapps-accessible-with-portis-at-ethdenver.md
-            geospatial-oracles-for-dapps-with-xyo-network-at-ethdenver/33522c3e6fd44551afa07017f4a37c10/a: ETHDenver/geospatial-oracles-for-dapps-with-xyo-network-at-ethdenver.md
-            bring-realtime-data-into-your-dapp-with-streamr-at-ethdenver/4ddcc10ac04c41d79531c159cbd875bc/a: ETHDenver/bring-realtime-data-into-your-dapp-with-streamr-at-ethdenver.md
-            bzx-the-decentralized-margin-lending-protocol-at-ethdenver/77dd7d47505c42948f1f585761221fac/a: ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-ethdenver.md
+            api-based-asset-exchange-with-shapeshift-at-ethdenver/fc9af330a3e44f3ab2c557486aaccf2e/a: ETHDenver/api-based-asset-exchange-with-shapeshift-at-ethde.md
+            make-your-dapps-accessible-with-portis-at-ethdenver/c6935bb83d3f477891f98a114998e40f/a: ETHDenver/make-your-dapps-accessible-with-portis-at-ethdenv.md
+            geospatial-oracles-for-dapps-with-xyo-network-at-ethdenver/33522c3e6fd44551afa07017f4a37c10/a: ETHDenver/geospatial-oracles-for-dapps-with-xyo-network-at-.md
+            bring-realtime-data-into-your-dapp-with-streamr-at-ethdenver/4ddcc10ac04c41d79531c159cbd875bc/a: ETHDenver/bring-realtime-data-into-your-dapp-with-streamr-a.md
+            bzx-the-decentralized-margin-lending-protocol-at-ethdenver/77dd7d47505c42948f1f585761221fac/a: ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-.md
             poa-network-hackers-guide-for-ethdenver/bd3960fa9d124de0bbecd72691c0f89b/a: ETHDenver/poa-network-hackers-guide-for-ethdenver.md
             get-started-with-zeppelinos!/f6371bb1254b43aaa34ab821f3043e40/a: ETHDenver/get-started-with-zeppelinos!.md
-            buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019/5ce02c1566f44fc09bc471bd6e3fdbd6/a: ETHDenver/buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019.md
+            buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019/5ce02c1566f44fc09bc471bd6e3fdbd6/a: ETHDenver/buidl-for-dapp-mainstream-adoption-with-fortmatic.md
             chat-browse-and-transact-securely-with-status/7da7e02418b84a898688bbf44d88abe5/a: ETHDenver/chat-browse-and-transact-securely-with-status.md
             blocknative-sponsor-bounty-at-ethdenver-2019!/80219f341f3742b7b1529a3494d38576/a: ETHDenver/blocknative-sponsor-bounty-at-ethdenver-2019!.md
             the-graph-sponsor-bounty-at-ethdenver-2019!/4d7af74855534454a5d57ca98ab8432a/a: ETHDenver/the-graph-sponsor-bounty-at-ethdenver-2019!.md
@@ -797,9 +797,9 @@ plugins:
             ethereum-101-part-3-consensus-protocols/1c2c9e3a3db0461584757a60ca2424a9/a: Ethereum 101/ethereum-101-part-3-consensus-protocols.md
             ethereum-101-part-6-mainnet-and-testnets/3eba08b801a44776a07607b9e046dd08/a: Ethereum 101/ethereum-101-part-6-mainnet-and-testnets.md
             ethereum-101-part-7-decentralized-apps/b282e90cb260459fb8a8cc6e24ae34fa/a: Ethereum 101/ethereum-101-part-7-decentralized-apps.md
-            ethereum-explained:-merkle-trees-world-state-transactions-and-more/1f4196c3db7f41e5845f063dc1581a4e/a: Ethereum 101/ethereum-explained--merkle-trees-world-state-transactions-and-more.md
+            ethereum-explained:-merkle-trees-world-state-transactions-and-more/1f4196c3db7f41e5845f063dc1581a4e/a: Ethereum 101/ethereum-explained--merkle-trees-world-state-tran.md
             ethereum-101-part-5-the-smart-contract/e4f66c6079e74a4a9b532148d3158188/a: Ethereum 101/ethereum-101-part-5-the-smart-contract.md
-            ethereum-101-part-4-accounts-transactions-and-messages/7e79b6932f8a41a4bcbbd194fd2fcc3a/a: Ethereum 101/ethereum-101-part-4-accounts-transactions-and-messages.md
+            ethereum-101-part-4-accounts-transactions-and-messages/7e79b6932f8a41a4bcbbd194fd2fcc3a/a: Ethereum 101/ethereum-101-part-4-accounts-transactions-and-mes.md
             ethereum-101-part-7-the-evm/a7ac47d26eab4ce899a865619122d42e/a: Ethereum 101/ethereum-101-part-7-the-evm.md
             share-your-ethereum-knowledge-and-write-for-kauri/b5c15961f13d4112bc82f6edb6fd3a75/a: Kauri news and announcements/share-your-ethereum-knowledge-and-write-for-kauri.md
             november-27th-2018-newsletter/8ea94a23b51b4f8eb5928a89a6dfaa93/a: Kauri news and announcements/november-27th-2018-newsletter.md
@@ -811,10 +811,10 @@ plugins:
             revision/982decaab16a49179a2c619921512d61/a: Kauri news and announcements/revision.md
             codemotion-berlin/c5c5dfb2bc944cb49dcb5ac457042c91/a: Kauri news and announcements/codemotion-berlin.md
             chat-browse-and-transact-securely-with-status/7da7e02418b84a898688bbf44d88abe5/a: Status Embark/chat-browse-and-transact-securely-with-status.md
-            build-your-first-smart-contract-and-dapp-on-ethereum-with-embark-(and-unit-tests!)/7911df325c10483cb0e71d90e403a290/a: Status Embark/build-your-first-smart-contract-and-dapp-on-ethereum-with-embark-(and-unit-tests!).md
+            build-your-first-smart-contract-and-dapp-on-ethereum-with-embark-(and-unit-tests!)/7911df325c10483cb0e71d90e403a290/a: Status Embark/build-your-first-smart-contract-and-dapp-on-ether.md
             remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a: Quick start web3.0 series/remix-ide-your-first-smart-contract.md
             truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a: Quick start web3.0 series/truffle-101-development-tools-for-smart-contracts.md
-            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: Quick start web3.0 series/getting-started-with-mahuta-a-search-engine-for-the-ipfs.md
+            getting-started-with-mahuta-a-search-engine-for-the-ipfs/874b1fe11d00406bbbef053405fd4538/a: Quick start web3.0 series/getting-started-with-mahuta-a-search-engine-for-t.md
             listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a: Quick start web3.0 series/listening-to-ethereum-events-with-eventeum.md
             getting-started-with-rhombus/c93193f04cf649ebb4762b8ba8cfbefc/a: Quick start web3.0 series/getting-started-with-rhombus.md
             3box-social-profiles-for-web3-applications/204bee70b23549f2acdc873d265d98f8/a: Quick start web3.0 series/3box-social-profiles-for-web3-applications.md
@@ -826,9 +826,9 @@ plugins:
             setting-your-oss-repo's-monetary-policy/b0f233605054472fb7766ff0bdce4d6e/a: Gitcoin/setting-your-oss-repo-s-monetary-policy.md
             increasing-action-on-your-gitcoin-bounty/4a504eff854e49f99d7872ece5abbf2c/a: Gitcoin/increasing-action-on-your-gitcoin-bounty.md
             gitcoin's-sprint-to-the-holidays/7e32e1edd63d4dc4a86e763e1459fc4a/a: Gitcoin/gitcoin-s-sprint-to-the-holidays.md
-            how-to-earn-money-while-workin-toward-hacktoberfest/9d180d91abd5467d9d2dbfcaaa93ce63/a: Gitcoin/how-to-earn-money-while-workin-toward-hacktoberfest.md
+            how-to-earn-money-while-workin-toward-hacktoberfest/9d180d91abd5467d9d2dbfcaaa93ce63/a: Gitcoin/how-to-earn-money-while-workin-toward-hacktoberfe.md
             opening-keynote/22df3d4301eb4661b6835e0caa37e182/a: Blockchain Game Summit 2018/opening-keynote.md
-            building-aaa-quality-blockchain-game-at-an-indie-studio/91bc8a4e323347d4a3f60780370e69d1/a: Blockchain Game Summit 2018/building-aaa-quality-blockchain-game-at-an-indie-studio.md
+            building-aaa-quality-blockchain-game-at-an-indie-studio/91bc8a4e323347d4a3f60780370e69d1/a: Blockchain Game Summit 2018/building-aaa-quality-blockchain-game-at-an-indie-.md
             we-broke-player-ownership.-let's-fix-it/5996163a1dce468596843db05d285cc7/a: Blockchain Game Summit 2018/we-broke-player-ownership.-let-s-fix-it.md
             blockchain-gaming:-a-question-of-design/606b8e33d0f944d690e5334978a0f843/a: Blockchain Game Summit 2018/blockchain-gaming--a-question-of-design.md
             presenting-hashrush/5146a36e4b904499ac2d77569d13ff81/a: Blockchain Game Summit 2018/presenting-hashrush.md
@@ -846,9 +846,9 @@ plugins:
             knowledge-repos-small-talk-and-daos/81e9127689584112a9802ee305634fe4/a: ETHBerlin/knowledge-repos-small-talk-and-daos.md
             on-chain-governance-panel/cdbfafd32fcc4bcbaa08f0abb6372316/a: ETHBerlin/on-chain-governance-panel.md
             open-source-banking/ac531017256d48ec8759ab5f4fda0f66/a: ETHBerlin/open-source-banking.md
-            practical-use-of-ethereum-for-the-sex-worker-community/07a1fe601ccc4c33a19d05d1b1942551/a: ETHBerlin/practical-use-of-ethereum-for-the-sex-worker-community.md
+            practical-use-of-ethereum-for-the-sex-worker-community/07a1fe601ccc4c33a19d05d1b1942551/a: ETHBerlin/practical-use-of-ethereum-for-the-sex-worker-comm.md
             price-oracles-+-signed-messages-on-and-off-chain/f15060278d494aeabb6ea89d77a25a38/a: ETHBerlin/price-oracles-+-signed-messages-on-and-off-chain.md
-            running-meta-blockchains-on-ethereum-to-scale-dapps/c9bd76f7cd2548a4882f286dcc5b4364/a: ETHBerlin/running-meta-blockchains-on-ethereum-to-scale-dapps.md
+            running-meta-blockchains-on-ethereum-to-scale-dapps/c9bd76f7cd2548a4882f286dcc5b4364/a: ETHBerlin/running-meta-blockchains-on-ethereum-to-scale-dap.md
             scaling-and-interoperability-panel/95d12f8f35054f208d6a918669fb834f/a: ETHBerlin/scaling-and-interoperability-panel.md
             scaling-community-code-and-contributors/d6b56a44bc5745ba84b110478bde91e5/a: ETHBerlin/scaling-community-code-and-contributors.md
             sharding:-implementation-vs.-research/b3002a822403473b9a36326be719d49f/a: ETHBerlin/sharding--implementation-vs.-research.md

@@ -27,7 +27,7 @@
       const desc = (article.description) ? article.description.replace(/[\:\#]/g,'-') : ""
       const redirect = slugify(article.title, {lower: true}) + "/" + article.id + "/a"
 
-      const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-') + ".md"
+      const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-').substring(0, 49) + ".md"
       const text = "---\n" +
                    "title: " + title+ "\n" +
                    "summary: "  + desc  + "\n" +
