@@ -131,5 +131,90 @@ query getCollection($id: String!) {
 }
 `
 
+const articles = gql`
+query searchResultsAutocomplete(
+    $page: Int
+) {
+    searchAutocomplete(
+        page: $page
+        size: 1000
+        filter: {type: ARTICLE}
+        parameter: { scoringMode: MOST_POPULAR }
+    ) {
+        totalElements
+        totalPages
+        totalElementsBreakdown
+        isLast
+        content {
+            resourceIdentifier {
+                id
+                type
+            }
+            resource {
+                ... on ArticleDTO {
+                    id
+                    version
+                    title
+                    content
+                    description
+                    authorId
+                    dateCreated
+                    datePublished
+                    status
+                    attributes
+                    contentHash
+                    checkpoint
+                    tags
+                    voteResult {
+                        sum
+                    }
+                    contributors {
+                        id
+                        name
+                        username
+                        avatar
+                    }
+                    author {
+                        id
+                        name
+                        username
+                        avatar
+                    }
+                    owner {
+                      ... on PublicUserDTO {
+                        id
+                        publicUserName: name
+                        username
+                        avatar
+                        resourceIdentifier {
+                            id
+                            type
+                        }
+                      }
+                    }
+                    comments {
+                        content {
+                            author {
+                                id
+                                name
+                                username
+                                avatar
+                            }
+                            posted
+                            body
+                        }
+                        totalPages
+                        totalElements
+                        isLast
+                    }
+                    isBookmarked
+                }
+            }
+        }
+    }
+}
+`
+
 exports.community = community
 exports.collection = collection
+exports.articles = articles
