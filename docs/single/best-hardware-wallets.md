@@ -88,6 +88,7 @@ Trezor One was the first model developed by Trezor and Trezor Model T is the sec
 
 ---
 
+- **Kauri original title:** Best Hardware Wallets
 - **Kauri original link:** https://kauri.io/best-hardware-wallets/0abae63b1c6f4f3c85ef724b182936b0/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18

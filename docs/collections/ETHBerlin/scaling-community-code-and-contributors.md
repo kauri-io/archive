@@ -17,6 +17,7 @@ By Brittany Laughlin
 
 ---
 
+- **Kauri original title:** Scaling Community, Code, & Contributors
 - **Kauri original link:** https://kauri.io/scaling-community-code-and-contributors/d6b56a44bc5745ba84b110478bde91e5/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

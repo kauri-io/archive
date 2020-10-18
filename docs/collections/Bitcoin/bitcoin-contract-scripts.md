@@ -284,6 +284,7 @@ following transaction:
 
 ---
 
+- **Kauri original title:** Bitcoin Contract Scripts
 - **Kauri original link:** https://kauri.io/bitcoin-contract-scripts/51a63137f2544b4a97ad1e9dc7eac110/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-04

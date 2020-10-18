@@ -74,6 +74,7 @@ _My thanks to [Mark Beylin](https://medium.com/@mark.beylin) and others for thei
 
 ---
 
+- **Kauri original title:** Why and How We Built the Bounties Network
 - **Kauri original link:** https://kauri.io/why-and-how-we-built-the-bounties-network/1d5500b865fe4e2fa0b06e535216d233/a
 - **Kauri original author:** Will Villanueva (@will)
 - **Kauri original Publication date:** 2018-11-30

@@ -132,6 +132,7 @@ For more support get in touch with our community:  https://gitter.im/Nethereum/N
 
 ---
 
+- **Kauri original title:** Signing messages with Nethereum
 - **Kauri original link:** https://kauri.io/signing-messages-with-nethereum/feb122418c014c8bb7010063263d0a20/a
 - **Kauri original author:** Gaël Blanchemain  (@anegg0)
 - **Kauri original Publication date:** 2019-06-06

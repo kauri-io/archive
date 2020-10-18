@@ -182,6 +182,7 @@ From the [Embark documentation](https://embark.status.im/docs/), verbatim:
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 5 - The Smart Contract
 - **Kauri original link:** https://kauri.io/ethereum-101-part-5-the-smart-contract/e4f66c6079e74a4a9b532148d3158188/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

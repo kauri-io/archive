@@ -124,6 +124,7 @@ Twitter:
 
 ---
 
+- **Kauri original title:** Tips for Starting Dapp Development
 - **Kauri original link:** https://kauri.io/tips-for-starting-dapp-development/a6f8cae18e574e1595bd870010100c80/a
 - **Kauri original author:** Coogan (@cooganb)
 - **Kauri original Publication date:** 2020-02-03

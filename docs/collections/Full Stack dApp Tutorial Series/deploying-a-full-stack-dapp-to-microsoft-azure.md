@@ -75,6 +75,7 @@ With active directory support and the permissions it brings, Azure's blockchain 
 
 ---
 
+- **Kauri original title:** Deploying a full-stack dapp to Microsoft Azure
 - **Kauri original link:** https://kauri.io/deploying-a-full-stack-dapp-to-microsoft-azure/d37518870cba4caeab6a95624254a6b8/a
 - **Kauri original author:** Sri Sanketh Uppalapati (@srisankethu)
 - **Kauri original Publication date:** 2019-08-16

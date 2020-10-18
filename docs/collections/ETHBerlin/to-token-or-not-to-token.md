@@ -17,6 +17,7 @@ Discussion with Jack Du Rose and Christina Frankopan
 
 ---
 
+- **Kauri original title:** To Token, Or Not To Token? 
 - **Kauri original link:** https://kauri.io/to-token-or-not-to-token/db02bef52ffb4cf9bd454284ff9c7380/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18

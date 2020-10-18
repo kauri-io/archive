@@ -60,6 +60,7 @@ https://www.dropbox.com/s/8hgb0t12emf4ogq/AutoPR-spedup.mp4?dl=0
 
 ---
 
+- **Kauri original title:** Allow your community to manage your code using a DAO!
 - **Kauri original link:** https://kauri.io/allow-your-community-to-manage-your-code-using-a-/a20c2d43ab954852a48227c5dd4eed99/a
 - **Kauri original author:** David Conroy (@david-conroy)
 - **Kauri original Publication date:** 2019-02-17

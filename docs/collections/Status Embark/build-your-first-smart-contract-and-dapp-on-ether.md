@@ -22,6 +22,7 @@ Programming on Ethereum is actually really easy, and with this series you'll be 
 
 ---
 
+- **Kauri original title:** Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!)
 - **Kauri original link:** https://kauri.io/build-your-first-smart-contract-and-dapp-on-ether/7911df325c10483cb0e71d90e403a290/a
 - **Kauri original author:** Dan Lipert (@danlipert)
 - **Kauri original Publication date:** 2019-02-03

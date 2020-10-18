@@ -30,6 +30,7 @@ To receive the bounty, create an account during ETHDenver, use the _suggest an e
 
 ---
 
+- **Kauri original title:** ETHDenver Blog bounties
 - **Kauri original link:** https://kauri.io/ethdenver-blog-bounties/efe82d94ee2c408e95abc6f979bcab93/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-02-04

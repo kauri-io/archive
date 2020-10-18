@@ -53,6 +53,7 @@ https://github.com/aalireza/ethpages
 
 ---
 
+- **Kauri original title:** ETH Pages
 - **Kauri original link:** https://kauri.io/eth-pages/73af293d7bd94579b450299892771e9b/a
 - **Kauri original author:** Cameron Dennis (@cjd425)
 - **Kauri original Publication date:** 2019-02-17

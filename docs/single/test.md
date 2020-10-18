@@ -15,6 +15,7 @@ test
 
 ---
 
+- **Kauri original title:** test
 - **Kauri original link:** https://kauri.io/test/a3e678a491884261b33487584dfd1708/a
 - **Kauri original author:** Dev (@dev)
 - **Kauri original Publication date:** 2020-09-21

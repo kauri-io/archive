@@ -55,6 +55,7 @@ https://github.com/hammadtq/Cross-Chain-Pacman
 
 ---
 
+- **Kauri original title:** Cross-Chain Pacman
 - **Kauri original link:** https://kauri.io/cross-chain-pacman/7c9264f8b9b74601a3a247472baa3b77/a
 - **Kauri original author:** Hammad Tariq (@hammadtariq)
 - **Kauri original Publication date:** 2019-02-17

@@ -86,6 +86,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Making P2P marketplaces trustless 
 - **Kauri original link:** https://kauri.io/making-p2p-marketplaces-trustless/c9b3cc69bec243b085255c65120b9f8b/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-15

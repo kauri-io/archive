@@ -100,6 +100,7 @@ With your shiny new firewall, your remote Ethereum node is now much safer from m
 
 ---
 
+- **Kauri original title:** How to set up a simple Linux firewall
 - **Kauri original link:** https://kauri.io/how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a
 - **Kauri original author:** Daniel Ellison (@zigguratt)
 - **Kauri original Publication date:** 2019-07-16

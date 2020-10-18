@@ -49,6 +49,7 @@ Ryan Caruso - ryan@nucypher.com
 
 ---
 
+- **Kauri original title:** NuCypher - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/nucypher-sponsor-bounty-at-ethdenver-2019!/d1854ecd2f34497e8170a4157360ccbb/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

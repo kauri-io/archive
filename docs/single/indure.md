@@ -82,6 +82,7 @@ https://github.com/angularityio/indure
 
 ---
 
+- **Kauri original title:** indure
 - **Kauri original link:** https://kauri.io/indure/f2e82cbb198e4d5dbd40e495c7036bf8/a
 - **Kauri original author:** Alexandra Gardner (@gardnera)
 - **Kauri original Publication date:** 2019-02-17

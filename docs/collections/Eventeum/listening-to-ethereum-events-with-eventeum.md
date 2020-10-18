@@ -144,6 +144,7 @@ Lastly, Eventeum is fully open-source and we welcome community contributions, so
 
 ---
 
+- **Kauri original title:** Listening to Ethereum Events with Eventeum
 - **Kauri original link:** https://kauri.io/listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-08-06

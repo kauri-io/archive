@@ -138,6 +138,7 @@ Since it's simply a smart contract, once deployed, the exchange can be accessed 
 
 ---
 
+- **Kauri original title:** Exchange types explained  CLOB, RFQ, and Automated
 - **Kauri original link:** https://kauri.io/exchange-types-explained:-clob-rfq-and-automated/2e23af304e7f4d64b3302ed53e07788b/a
 - **Kauri original author:** Hummingbot (@hummingbot)
 - **Kauri original Publication date:** 2019-05-23

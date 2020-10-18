@@ -19,6 +19,7 @@ By Jordan Spence (MyCrypto)
 
 ---
 
+- **Kauri original title:** Why Are You Here?
 - **Kauri original link:** https://kauri.io/why-are-you-here/bdaa14d23cb945df91653e64dcc258a4/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

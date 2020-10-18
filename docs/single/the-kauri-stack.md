@@ -112,6 +112,7 @@ The passwordless authentication module process is as follows: first a user will 
 
 ---
 
+- **Kauri original title:** The Kauri Stack
 - **Kauri original link:** https://kauri.io/the-kauri-stack/774f8a80d2584bebb46ac7dbde8b51cd/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-12-17

@@ -53,6 +53,7 @@ _Healthcare via Pexels_
 
 ---
 
+- **Kauri original title:** DOES HEALTHCARE NEED BLOCKCHAIN?
 - **Kauri original link:** https://kauri.io/does-healthcare-need-blockchain/2b56213519cf42eaab4f607b2316251e/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11

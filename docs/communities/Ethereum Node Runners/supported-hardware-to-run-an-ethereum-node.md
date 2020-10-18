@@ -68,6 +68,7 @@ TBD
 
 ---
 
+- **Kauri original title:** Supported hardware to run an Ethereum node
 - **Kauri original link:** https://kauri.io/supported-hardware-to-run-an-ethereum-node/d92a52587a4e4f439354e9fe3b231352/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-12-18

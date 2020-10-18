@@ -188,6 +188,7 @@ With this setup, you can perform Truffle testing as usual, and not have to worry
 
 ---
 
+- **Kauri original title:** Building a dapp with the Rhombus Oracle
 - **Kauri original link:** https://kauri.io/building-a-dapp-with-the-rhombus-oracle/093b82a34e924fedb2fed3c80034aec1/a
 - **Kauri original author:** Jeff Rosen (@jeffrosen)
 - **Kauri original Publication date:** 2019-05-10

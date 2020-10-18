@@ -185,6 +185,7 @@ For more support get in touch with our community:  https://gitter.im/Nethereum/N
 
 ---
 
+- **Kauri original title:** Managing nonces with Nethereum
 - **Kauri original link:** https://kauri.io/managing-nonces-with-nethereum/d7e05d0b1d2e4161a0118df91cb67b89/a
 - **Kauri original author:** Gaël Blanchemain  (@anegg0)
 - **Kauri original Publication date:** 2019-06-06

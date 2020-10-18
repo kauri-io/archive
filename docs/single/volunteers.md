@@ -55,6 +55,7 @@ We will finish the shift scheduling about 1 week prior to the event and you will
 
 ---
 
+- **Kauri original title:** Volunteers
 - **Kauri original link:** https://kauri.io/volunteers/a578018f4fef4016aa950bae20496833/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

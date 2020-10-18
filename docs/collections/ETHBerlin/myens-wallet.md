@@ -60,6 +60,7 @@ Some features that I'd like to include in the future:
 
 ---
 
+- **Kauri original title:** MyENS Wallet
 - **Kauri original link:** https://kauri.io/myens-wallet/a9cb6da01bce48c08cb8a536481e15fc/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

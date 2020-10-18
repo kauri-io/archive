@@ -110,6 +110,7 @@ If you’d like to continue onto learning about the sharding proposal in more de
 
 ---
 
+- **Kauri original title:** Here’s The Deal on Sharding
 - **Kauri original link:** https://kauri.io/here-s-the-deal-on-sharding/04b66cfa4382448c93440ebf3da26224/a
 - **Kauri original author:** Ramy Zhang (@ramyjzhang)
 - **Kauri original Publication date:** 2019-03-07

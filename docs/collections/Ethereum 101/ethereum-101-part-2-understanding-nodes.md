@@ -98,6 +98,7 @@ Additional reading:
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 2 - Understanding Nodes
 - **Kauri original link:** https://kauri.io/ethereum-101-part-2-understanding-nodes/48d5098292fd4f11b251d1b1814f0bba/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

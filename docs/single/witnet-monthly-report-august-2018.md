@@ -71,6 +71,7 @@ That’s a quick update on what we’ve been working on over the last weeks! Ple
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — August 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-august-2018/40d8cb339dc64675b767dcb405e701d7/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

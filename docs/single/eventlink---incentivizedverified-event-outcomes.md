@@ -75,6 +75,7 @@ https://github.com/HenryNguyen5/ethdenver2019 -> Backend
 
 ---
 
+- **Kauri original title:** EventLINK   Incentivized/Verified Event Outcomes 
 - **Kauri original link:** https://kauri.io/eventlink-:-incentivizedverified-event-outcomes/9dd2481966a74ea9894049edd582bbf6/a
 - **Kauri original author:** Max Seesing (@maxseesing)
 - **Kauri original Publication date:** 2019-02-17

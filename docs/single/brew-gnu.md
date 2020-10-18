@@ -52,6 +52,7 @@ github.com/souradeep-das/Beereth
 
 ---
 
+- **Kauri original title:** Brew Gnu
 - **Kauri original link:** https://kauri.io/brew-gnu/9d58536df39446baab358b5e9fcada98/a
 - **Kauri original author:** Chris Nunes (@ucnunes)
 - **Kauri original Publication date:** 2019-02-17

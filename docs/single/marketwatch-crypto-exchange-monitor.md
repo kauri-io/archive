@@ -45,6 +45,7 @@ Open
 
 ---
 
+- **Kauri original title:** MarketWatch - Crypto Exchange Monitor
 - **Kauri original link:** https://kauri.io/marketwatch-crypto-exchange-monitor/4c46af598aa24bf4bbf3bfe349afb133/a
 - **Kauri original author:** Cooper Wiegand (@cooper-wiegand)
 - **Kauri original Publication date:** 2019-02-17

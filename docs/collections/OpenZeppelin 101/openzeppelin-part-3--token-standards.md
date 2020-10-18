@@ -108,6 +108,7 @@ For more examples of how to use ERC20 and ERC721 inheritable features check out 
 
 ---
 
+- **Kauri original title:** OpenZeppelin Part 3  Token Standards
 - **Kauri original link:** https://kauri.io/openzeppelin-part-3:-token-standards/cbd1b524cd284bf6ae6ab76e71f5ea56/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-02-28

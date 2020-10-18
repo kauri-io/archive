@@ -130,6 +130,7 @@ Here's an example of the application running remotely in the browser.
 
 ---
 
+- **Kauri original title:** Deploying Your dApp Frontend to Heroku
 - **Kauri original link:** https://kauri.io/deploying-your-dapp-frontend-to-heroku/a2e8c4a594344f7a951613a73f463fe7/a
 - **Kauri original author:** Crawford Leeds (@crawfordleeds)
 - **Kauri original Publication date:** 2019-08-23

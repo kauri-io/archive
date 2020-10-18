@@ -139,6 +139,7 @@ Sneak peak of
 
 ---
 
+- **Kauri original title:** CryptoTwitter Roundup 04/12/2019
 - **Kauri original link:** https://kauri.io/cryptotwitter-roundup-04122019/49a0943de2e444be8712fac09b8cee00/a
 - **Kauri original author:** Joseph Bender (@jdbender128)
 - **Kauri original Publication date:** 2019-04-12

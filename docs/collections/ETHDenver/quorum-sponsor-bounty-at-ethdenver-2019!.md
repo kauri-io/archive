@@ -62,6 +62,7 @@ Matt Wright - matthew.d.wright@jpmchase.com
 
 ---
 
+- **Kauri original title:** Quorum - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/quorum-sponsor-bounty-at-ethdenver-2019!/a75b9640b7de4ecebb69a103c202351f/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-17

@@ -49,6 +49,7 @@ P.S. If you're having trouble using Kauri, we recommend viewing the articles in 
 
 ---
 
+- **Kauri original title:** November 27th 2018 Newsletter
 - **Kauri original link:** https://kauri.io/november-27th-2018-newsletter/8ea94a23b51b4f8eb5928a89a6dfaa93/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-10

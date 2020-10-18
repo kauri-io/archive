@@ -60,6 +60,7 @@ We’ll return with more on this as well when we have something to offer around 
 
 ---
 
+- **Kauri original title:** How to test Ethereum smart contracts from Java
 - **Kauri original link:** https://kauri.io/how-to-test-ethereum-smart-contracts-from-java/b1d2293f5c4442f1bafbb4eee2ce45d6/a
 - **Kauri original author:** Christian Felde (@cfelde)
 - **Kauri original Publication date:** 2020-01-10

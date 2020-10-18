@@ -196,6 +196,7 @@ _If you'd like to see an article in this series: please contact me on Twitter [@
 
 ---
 
+- **Kauri original title:** (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction
 - **Kauri original link:** https://kauri.io/(18)-build-your-very-own-self-hosting-platform-wi/1229f21044ef4bff8df35875d6803776/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-04-13

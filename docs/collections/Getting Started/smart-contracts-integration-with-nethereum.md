@@ -373,6 +373,7 @@ For more support get in touch with our community:  https://gitter.im/Nethereum/N
 
 ---
 
+- **Kauri original title:** Smart contracts integration with Nethereum
 - **Kauri original link:** https://kauri.io/smart-contracts-integration-with-nethereum/b54334b0695342c1bbe161c4c4467b50/a
 - **Kauri original author:** Gaël Blanchemain  (@anegg0)
 - **Kauri original Publication date:** 2019-04-24

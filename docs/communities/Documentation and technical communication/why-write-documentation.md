@@ -91,6 +91,7 @@ abstract some detail, but that's fine. We'll look at the best places to explain 
 
 ---
 
+- **Kauri original title:** Why write documentation
 - **Kauri original link:** https://kauri.io/why-write-documentation/203c87d1ee4b4444b0139fe054f28607/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-11-20

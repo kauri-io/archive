@@ -79,6 +79,7 @@ For even more hands on help, [we are running a series of workshops](https://medi
 
 ---
 
+- **Kauri original title:** Make your DApps accessible with Portis at ETHDenver
 - **Kauri original link:** https://kauri.io/make-your-dapps-accessible-with-portis-at-ethdenv/c6935bb83d3f477891f98a114998e40f/a
 - **Kauri original author:** Tom Teman (@tomteman)
 - **Kauri original Publication date:** 2019-02-08

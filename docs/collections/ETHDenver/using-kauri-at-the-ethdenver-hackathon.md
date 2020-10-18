@@ -46,6 +46,7 @@ Any questions, come to the Kauri booth at the top of the stairs near the main st
 
 ---
 
+- **Kauri original title:** Using Kauri at the ETHDenver Hackathon
 - **Kauri original link:** https://kauri.io/using-kauri-at-the-ethdenver-hackathon/c0a2014e14964677a8fc849d9d73bde0/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-17

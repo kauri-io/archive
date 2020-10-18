@@ -57,6 +57,7 @@ https://github.com/ethdenver-gts
 
 ---
 
+- **Kauri original title:** Global Trade System
 - **Kauri original link:** https://kauri.io/global-trade-system/1c3815e333ce46f3b8cdbfb2c605620c/a
 - **Kauri original author:** Piotr Adamczyk (@imxeno)
 - **Kauri original Publication date:** 2019-02-17

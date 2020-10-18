@@ -63,6 +63,7 @@ https://github.com/alice-si/alice-tc2
 
 ---
 
+- **Kauri original title:** Impact Curator
 - **Kauri original link:** https://kauri.io/impact-curator/62a6c0e38c094999b6f3945a5ed07cdb/a
 - **Kauri original author:** Jakub Wojciechowski (@kuba)
 - **Kauri original Publication date:** 2019-02-17

@@ -17,6 +17,7 @@ By Lane Rettig
 
 ---
 
+- **Kauri original title:** Towards a Humanist Blockchain Future
 - **Kauri original link:** https://kauri.io/towards-a-humanist-blockchain-future/6adc1c8e52ab406ca0e0f56ebe66ff39/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18

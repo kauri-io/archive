@@ -59,6 +59,7 @@ https://github.com/c-o-l-o-r/standalone-tor-proxy
 
 ---
 
+- **Kauri original title:** Watchtower Implementation for Plasma
 - **Kauri original link:** https://kauri.io/watchtower-implementation-for-plasma/8f1b24f2eab34a62b11e0f59d36d3049/a
 - **Kauri original author:** Matt Garnett (@mattgarnett)
 - **Kauri original Publication date:** 2019-02-17

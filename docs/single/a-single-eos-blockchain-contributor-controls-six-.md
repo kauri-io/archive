@@ -32,6 +32,7 @@ Besides, the network operates on the delegated proof-of-stake mechanism wherein 
 
 ---
 
+- **Kauri original title:** A Single EOS Blockchain Contributor Controls Six Block
 - **Kauri original link:** https://kauri.io/a-single-eos-blockchain-contributor-controls-six-/021d3e4b4b594891adfe95b5855ef8fa/a
 - **Kauri original author:** Nelgzmatic Otty (@nelgzmatic)
 - **Kauri original Publication date:** 2019-11-30

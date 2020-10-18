@@ -112,6 +112,7 @@ Good luck, and have fun!
 
 ---
 
+- **Kauri original title:** Wyre - ETHDenver Hackathon Ideas
 - **Kauri original link:** https://kauri.io/wyre-ethdenver-hackathon-ideas/0f5b10ed0109499c8417b346f1557867/a
 - **Kauri original author:** Thomas Scaria (@tomscaria)
 - **Kauri original Publication date:** 2019-02-15

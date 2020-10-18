@@ -21,6 +21,7 @@ By Benjamin Bollen (OpenST)
 
 ---
 
+- **Kauri original title:** Running Meta-Blockchains on Ethereum to Scale DApps
 - **Kauri original link:** https://kauri.io/running-meta-blockchains-on-ethereum-to-scale-dap/c9bd76f7cd2548a4882f286dcc5b4364/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18

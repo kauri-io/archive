@@ -57,6 +57,7 @@ The blockchain space is in constant flux and thus a list of tools will not be co
 
 ---
 
+- **Kauri original title:** Tools for Working With Solidity
 - **Kauri original link:** https://kauri.io/tools-for-working-with-solidity/7a27a1c1fbdc428b8058f14db1a227aa/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-11-13

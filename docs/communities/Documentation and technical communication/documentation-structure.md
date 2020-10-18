@@ -142,6 +142,7 @@ to show file paths, then stick to it.
 
 ---
 
+- **Kauri original title:** Documentation structure
 - **Kauri original link:** https://kauri.io/documentation-structure/cb1cad8db083475389718cbea3217db2/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-11-14

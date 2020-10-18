@@ -55,6 +55,7 @@ Touché is a Singapore-based technology company whose world leading biometric so
 
 ---
 
+- **Kauri original title:** How biometry will revolutionize in-store cryptocurrency payments.
 - **Kauri original link:** https://kauri.io/how-biometry-will-revolutionize-in-store-cryptocu/c9bc2f882cc44a3ea781d738ec7674ca/a
 - **Kauri original author:** Fabrice CROISEAUX (@fxzo)
 - **Kauri original Publication date:** 2018-12-02

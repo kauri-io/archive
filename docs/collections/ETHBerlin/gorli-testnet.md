@@ -47,6 +47,7 @@ Next we plan on solidifying our current Go implementation of Aura in Geth. From 
 
 ---
 
+- **Kauri original title:** Gorli Testnet
 - **Kauri original link:** https://kauri.io/gorli-testnet/00ff76472aa9486c903687c2d37ab71d/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-24

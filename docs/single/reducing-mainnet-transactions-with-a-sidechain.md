@@ -174,6 +174,7 @@ Thanks to the entire Kauri team, for helping with the design and suggesting edit
 
 ---
 
+- **Kauri original title:** Reducing Mainnet Transactions with a Sidechain
 - **Kauri original link:** https://kauri.io/reducing-mainnet-transactions-with-a-sidechain/a66d50655f8746edb7df90de4b8eb416/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-13

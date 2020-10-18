@@ -224,6 +224,7 @@ Crowd-powered crypto assets management protocol connecting capital 💰 w/ talen
 
 ---
 
+- **Kauri original title:** Betoken is Live on Mainnet!
 - **Kauri original link:** https://kauri.io/betoken-is-live-on-mainnet!/2765b9980e8241e584b1668f03e5ba50/a
 - **Kauri original author:** Guillaume Palayer (@guillaumep)
 - **Kauri original Publication date:** 2019-07-07

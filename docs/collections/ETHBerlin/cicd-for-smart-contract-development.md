@@ -19,6 +19,7 @@ By Miguel Hervas
 
 ---
 
+- **Kauri original title:** CI/CD For Smart Contract Development
 - **Kauri original link:** https://kauri.io/cicd-for-smart-contract-development/d534eac7dcff4d7aac166c43a58414ed/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

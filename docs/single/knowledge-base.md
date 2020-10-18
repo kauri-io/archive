@@ -122,6 +122,7 @@ sleeping bags are not allowed. Please make sure you take this into consideration
 
 ---
 
+- **Kauri original title:** Knowledge Base
 - **Kauri original link:** https://kauri.io/knowledge-base/75f1de6eb6c04ababf1aba0213f886a5/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

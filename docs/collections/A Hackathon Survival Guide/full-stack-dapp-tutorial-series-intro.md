@@ -44,6 +44,7 @@ All tutorials within this series are accompanied by code examples which can be f
 
 ---
 
+- **Kauri original title:** Full Stack dApp Tutorial Series - Intro
 - **Kauri original link:** https://kauri.io/full-stack-dapp-tutorial-series-intro/3dad5bb77afc46d09666cc87b49c6729/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2018-10-29

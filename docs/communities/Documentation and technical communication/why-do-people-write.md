@@ -90,6 +90,7 @@ When you're ready, [start writing whatever you want](https://kauri.io/write-arti
 
 ---
 
+- **Kauri original title:** Why do people write?
 - **Kauri original link:** https://kauri.io/why-do-people-write/2d1f63d4be3a4de19981e1f82c41884d/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-01-16

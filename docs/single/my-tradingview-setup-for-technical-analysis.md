@@ -113,6 +113,7 @@ Hope this helped you, share and tweet me @ericjuta!
 
 ---
 
+- **Kauri original title:** My TradingView setup for Technical Analysis
 - **Kauri original link:** https://kauri.io/my-tradingview-setup-for-technical-analysis/107d00bf882143dc81352008cbe0f1a1/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-04-06

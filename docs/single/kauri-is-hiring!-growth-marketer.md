@@ -41,6 +41,7 @@ We are a ConsenSys funded venture, one of the largest blockchain technology and 
 
 ---
 
+- **Kauri original title:** Kauri is Hiring! Growth Marketer 🚀 
 - **Kauri original link:** https://kauri.io/kauri-is-hiring!-growth-marketer/1565d0ef913f4031a59ca33251860ebe/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-08-29

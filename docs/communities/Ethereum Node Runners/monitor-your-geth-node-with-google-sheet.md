@@ -129,6 +129,7 @@ You can now:
 
 ---
 
+- **Kauri original title:** Monitor your Geth node with Google Sheet
 - **Kauri original link:** https://kauri.io/monitor-your-geth-node-with-google-sheet/5ab5c4d558e04a73accebc652ef2246b/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-05-03

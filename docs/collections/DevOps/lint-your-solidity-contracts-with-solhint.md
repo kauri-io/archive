@@ -172,6 +172,7 @@ Or disable all validations for a group of lines:
 
 ---
 
+- **Kauri original title:** Lint your Solidity contracts with Solhint
 - **Kauri original link:** https://kauri.io/lint-your-solidity-contracts-with-solhint/2ff86d30589b4832ad90f6c87c08fbea/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-05

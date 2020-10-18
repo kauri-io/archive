@@ -72,6 +72,7 @@ _triple store!_
 
 ---
 
+- **Kauri original title:** Ethereum Linked Data
 - **Kauri original link:** https://kauri.io/ethereum-linked-data/deb098bc90a049cc8a64fbd975bea6b2/a
 - **Kauri original author:** Alethio (@alethio)
 - **Kauri original Publication date:** 2018-12-05

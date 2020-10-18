@@ -100,6 +100,7 @@ If you’ve received an email invitation to join a Community, first, click on th
 
 ---
 
+- **Kauri original title:** Using Kauri Communities
 - **Kauri original link:** https://kauri.io/using-kauri-communities/5ba3fa196e994f4f93d1423da7769989/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2020-02-06

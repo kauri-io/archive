@@ -1376,6 +1376,7 @@ Together, we’ll build towards realizing the vision of a more decentralized fut
 
 ---
 
+- **Kauri original title:** Plasma Group’s Plasma Spec
 - **Kauri original link:** https://kauri.io/plasma-group-s-plasma-spec/0b2dadc66e584af397bc9b29bc157076/a
 - **Kauri original author:** Plasma Group (@plasma)
 - **Kauri original Publication date:** 2019-04-22

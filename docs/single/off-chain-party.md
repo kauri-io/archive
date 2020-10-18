@@ -51,6 +51,7 @@ https://github.com/igorbarbashin/offchain-party
 
 ---
 
+- **Kauri original title:** Off-Chain Party 
 - **Kauri original link:** https://kauri.io/off-chain-party/552ad58b38044acabfe388e516362af7/a
 - **Kauri original author:** Igor Barbashin (@igor-barbashin)
 - **Kauri original Publication date:** 2019-02-17

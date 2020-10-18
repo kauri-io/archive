@@ -83,6 +83,7 @@ You can discover Beam’s user-friendly technology and products (Wallet) on the 
 
 ---
 
+- **Kauri original title:** Introducing Beam!
 - **Kauri original link:** https://kauri.io/introducing-beam!/4a387990f62b472ba2187e3ec3345f10/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

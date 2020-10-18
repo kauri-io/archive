@@ -145,6 +145,7 @@ The command `vyper Bounties.vy` returns the contract's bytecode which you can us
 
 ---
 
+- **Kauri original title:** Understanding smart contract compilation and deployment
 - **Kauri original link:** https://kauri.io/understanding-smart-contract-compilation-and-depl/195c5784663e4963b16d914900ba5cf5/a
 - **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
 - **Kauri original Publication date:** 2019-08-29

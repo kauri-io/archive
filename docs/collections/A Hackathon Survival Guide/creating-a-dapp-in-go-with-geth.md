@@ -734,6 +734,7 @@ Our DApp assumes that the user who runs it is the same person who (1) deploys th
 
 ---
 
+- **Kauri original title:** Creating a DApp in Go with Geth
 - **Kauri original link:** https://kauri.io/creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a
 - **Kauri original author:** Zed (@zed)
 - **Kauri original Publication date:** 2019-02-03

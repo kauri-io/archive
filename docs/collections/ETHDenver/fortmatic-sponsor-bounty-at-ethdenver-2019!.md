@@ -45,6 +45,7 @@ Sean Li - sean@fortmatic.com
 
 ---
 
+- **Kauri original title:** Fortmatic - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/fortmatic-sponsor-bounty-at-ethdenver-2019!/67292751c2334f78bd4c6d187dd64f50/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

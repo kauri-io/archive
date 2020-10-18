@@ -60,6 +60,7 @@ https://github.com/pablobrand/BUIDLFoodE
 
 ---
 
+- **Kauri original title:**  BUIDL FoodE Team EthDenver 2019
 - **Kauri original link:** https://kauri.io/buidl-foode-team-ethdenver-2019/89b99aa9160d4c888ef82ed69193db2e/a
 - **Kauri original author:** Pablo Brandenburg (@pablodapp)
 - **Kauri original Publication date:** 2019-02-17

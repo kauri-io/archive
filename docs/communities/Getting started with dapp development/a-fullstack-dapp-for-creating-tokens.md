@@ -224,6 +224,7 @@ And that's all the code. To see the dapp in action, click _Compile_, then _Deplo
 
 ---
 
+- **Kauri original title:** A fullstack dapp for creating tokens
 - **Kauri original link:** https://kauri.io/a-fullstack-dapp-for-creating-tokens/bdd65d6155a74b8aa52672b46b7230a8/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-12-06

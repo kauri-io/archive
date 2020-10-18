@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Hosting a DNS domain on ENS
 - **Kauri original link:** https://kauri.io/hosting-a-dns-domain-on-ens/57b356cec4264cf08104c8a756377eff/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

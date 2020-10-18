@@ -41,6 +41,7 @@ If you run into problems ShapeShift have an [FAQ section](https://info.shapeshif
 
 ---
 
+- **Kauri original title:** API-based asset exchange with ShapeShift at ETHDenver
 - **Kauri original link:** https://kauri.io/api-based-asset-exchange-with-shapeshift-at-ethde/fc9af330a3e44f3ab2c557486aaccf2e/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-08

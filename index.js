@@ -26,8 +26,8 @@
 
     // ###### FUNCTIONS
     const parseArticle = article => {
-      const title = (article.title) ? article.title.replace(/[\:\#]/g,' ') : ""
-      const desc = (article.description) ? article.description.replace(/[\:\#]/g,'-') : ""
+      const title = (article.title) ? article.title.replace(/[\:\#\[\]]/g,' ') : ""
+      const desc = (article.description) ? article.description.replace(/[\:\#\[\]]/g,'-') : ""
       const redirect = slugify(article.title, {lower: true}).replace(/[\']/g,'-').substring(0, 49) + "/" + article.id + "/a"
       const author = article.contributors[0].name +" (@"+article.contributors[0].username+")"
       const datePublication = article.datePublished.split("T")[0]
@@ -61,6 +61,7 @@
                    ((background) ? "![]("+background+")\n\n" : "") +
                    content + "\n\n\n" +
                    "---\n\n" +
+                   "- **Kauri original title:** " + title + "\n" +
                    "- **Kauri original link:** https://kauri.io/" + redirect + "\n" +
                    "- **Kauri original author:** " + author + "\n" +
                    "- **Kauri original Publication date:** " + datePublication + "\n" +

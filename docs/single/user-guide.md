@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** User Guide
 - **Kauri original link:** https://kauri.io/user-guide/4ff5eacc2d304ae8a4de3f9598a80c05/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

@@ -71,6 +71,7 @@ https://github.com/pvela/jobsimple
 
 ---
 
+- **Kauri original title:** JobSimple
 - **Kauri original link:** https://kauri.io/jobsimple/ac7653f3b1234a91af80fe21e397d55b/a
 - **Kauri original author:** Tyler Tworek (@tworektj)
 - **Kauri original Publication date:** 2019-02-17

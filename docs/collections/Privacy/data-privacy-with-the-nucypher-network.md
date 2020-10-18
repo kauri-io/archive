@@ -73,6 +73,7 @@ https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf
 
 ---
 
+- **Kauri original title:** Data Privacy with the NuCypher Network
 - **Kauri original link:** https://kauri.io/data-privacy-with-the-nucypher-network/3a264ce066b04332b2e03ffa88af39e6/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

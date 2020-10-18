@@ -458,6 +458,7 @@ There is a lot going on here, but it's rather simple. Our script cycled through 
 
 ---
 
+- **Kauri original title:** bytecode only analysis of evm smart contracts
 - **Kauri original link:** https://kauri.io/bytecode-only-analysis-of-evm-smart-contracts/9ca9a32cc36340b19fd82de6df12e36c/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-28

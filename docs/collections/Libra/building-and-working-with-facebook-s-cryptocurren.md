@@ -73,6 +73,7 @@ Who knows what Facebook (sorry Libra's) aim with this new crypto currency is, bu
 
 ---
 
+- **Kauri original title:** Building and Working with Facebook’s Cryptocurrency Libra
 - **Kauri original link:** https://kauri.io/building-and-working-with-facebook-s-cryptocurren/cc41c516e62a4ca593f5ecdd86bdf299/a
 - **Kauri original author:** Coogan (@cooganb)
 - **Kauri original Publication date:** 2019-07-02

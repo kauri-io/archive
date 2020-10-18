@@ -43,6 +43,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** LightSig
 - **Kauri original link:** https://kauri.io/lightsig/6b2b6b849f464bf5a00ce89e36a63352/a
 - **Kauri original author:** Poole Party (@poole-party)
 - **Kauri original Publication date:** 2019-02-17

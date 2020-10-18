@@ -69,6 +69,7 @@ Based on popular JavaScript framework, [Redux](https://redux.js.org), Drizzle is
 
 ---
 
+- **Kauri original title:** Truffle 101 - Development Tools for Smart Contracts
 - **Kauri original link:** https://kauri.io/truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-12-04

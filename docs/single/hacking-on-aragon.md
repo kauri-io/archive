@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Hacking on Aragon
 - **Kauri original link:** https://kauri.io/hacking-on-aragon/b7726bb1ce134df1a419fbd2b11c31d0/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

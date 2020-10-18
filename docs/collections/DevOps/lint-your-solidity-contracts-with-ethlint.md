@@ -116,6 +116,7 @@ solium -d contracts/ --fix
 
 ---
 
+- **Kauri original title:** Lint your Solidity contracts with Ethlint
 - **Kauri original link:** https://kauri.io/lint-your-solidity-contracts-with-ethlint/1cf59f73db9948cf89019e59abb93146/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-28

@@ -51,6 +51,7 @@ Some are saying we will all succumb to this winter. Let’s buidl them
 
 ---
 
+- **Kauri original title:** How to survive a Vargavinter (Wolf Winter)
 - **Kauri original link:** https://kauri.io/how-to-survive-a-vargavinter-(wolf-winter)/84190d43eafd4668931273387a12ec25/a
 - **Kauri original author:** Tove Andersson (@superblocks-com)
 - **Kauri original Publication date:** 2019-02-15

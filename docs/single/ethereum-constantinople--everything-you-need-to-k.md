@@ -171,6 +171,7 @@ Thanks for reading! See you on the 16th!
 
 ---
 
+- **Kauri original title:** Ethereum Constantinople  Everything You Need To Know
 - **Kauri original link:** https://kauri.io/ethereum-constantinople:-everything-you-need-to-k/374b4ffa522d4bf2aea5d3100cfbc1b2/a
 - **Kauri original author:** MyCrypto (@mycrypto)
 - **Kauri original Publication date:** 2019-02-04

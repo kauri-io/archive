@@ -64,6 +64,7 @@ https://github.com/casinocats/leonardo-dao-vinci
 
 ---
 
+- **Kauri original title:** Leonardo dao Vinci
 - **Kauri original link:** https://kauri.io/leonardo-dao-vinci/49a76d9ed29a4bbf93d979f678663416/a
 - **Kauri original author:** Ed Harrod (@ech)
 - **Kauri original Publication date:** 2019-02-17

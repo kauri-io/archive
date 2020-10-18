@@ -200,6 +200,7 @@ Copyright and related rights waived via [CC0](https://creativecommons.org/public
 
 ---
 
+- **Kauri original title:** ERC-20 Token Standard
 - **Kauri original link:** https://kauri.io/erc-20-token-standard/d3e24cbf13fd4af9892773552555c480/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-16

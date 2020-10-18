@@ -64,6 +64,7 @@ This shows the value of having a simulation
 
 ---
 
+- **Kauri original title:** Ethereum 2.0 Beacon Chain Simulation
 - **Kauri original link:** https://kauri.io/ethereum-2.0-beacon-chain-simulation/135a5720b9d44104bfbc44a5f69f9f20/a
 - **Kauri original author:** Richard Ma (@rtmqsp)
 - **Kauri original Publication date:** 2019-02-17

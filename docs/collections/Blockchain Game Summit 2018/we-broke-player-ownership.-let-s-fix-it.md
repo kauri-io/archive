@@ -17,6 +17,7 @@ Gareth Jenkins - Founder & CEO - Deckbound
 
 ---
 
+- **Kauri original title:** We Broke Player Ownership. Let's Fix It
 - **Kauri original link:** https://kauri.io/we-broke-player-ownership.-let-s-fix-it/5996163a1dce468596843db05d285cc7/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

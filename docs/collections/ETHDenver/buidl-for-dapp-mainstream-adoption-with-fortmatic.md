@@ -66,6 +66,7 @@ too — don’t hesitate to reach out and ask us anything!
 
 ---
 
+- **Kauri original title:**  BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019
 - **Kauri original link:** https://kauri.io/buidl-for-dapp-mainstream-adoption-with-fortmatic/5ce02c1566f44fc09bc471bd6e3fdbd6/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-14

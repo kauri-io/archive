@@ -70,6 +70,7 @@ The complete report for the audit has been published
 
 ---
 
+- **Kauri original title:** Auditing the 0x Protocol v2 with ConsenSys Diligence
 - **Kauri original link:** https://kauri.io/auditing-the-0x-protocol-v2-with-consensys-dilige/db4ae4880b3e4bc399279ada15b04411/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-04

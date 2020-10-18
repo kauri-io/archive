@@ -294,6 +294,7 @@ Thank you, good luck, and go get ’em.
 
 ---
 
+- **Kauri original title:** My Big Break Into Ethereum
 - **Kauri original link:** https://kauri.io/my-big-break-into-ethereum/3d1c347273bb4f86a79f0e303b06ca5a/a
 - **Kauri original author:** Austin Griffith (@austingriffith)
 - **Kauri original Publication date:** 2018-11-28

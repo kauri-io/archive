@@ -209,6 +209,7 @@ _atpar AG_
 
 ---
 
+- **Kauri original title:** How to address things on blockchains
 - **Kauri original link:** https://kauri.io/how-to-address-things-on-blockchains/157c963a15e94c1a88c68da57afea09c/a
 - **Kauri original author:** Johannes Pfeffer (@oaeee)
 - **Kauri original Publication date:** 2019-04-25

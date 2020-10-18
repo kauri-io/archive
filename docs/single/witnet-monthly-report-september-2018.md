@@ -98,6 +98,7 @@ Please let us know what you think of the recent developments by **sharing your t
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — September 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-september-2018/ef8f6acea5814f61aa7322cd7c041e18/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

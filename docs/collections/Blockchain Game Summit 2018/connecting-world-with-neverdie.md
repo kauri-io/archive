@@ -17,6 +17,7 @@ Jon Jacobs - Founder - NeverdieTeleport
 
 ---
 
+- **Kauri original title:** Connecting World With NEVERDIE
 - **Kauri original link:** https://kauri.io/connecting-world-with-neverdie/c635e4040b2940dcb64fb19fd71741f7/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

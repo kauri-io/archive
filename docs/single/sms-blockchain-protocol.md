@@ -56,6 +56,7 @@ https://github.com/web3devs/sms-blockchain-protocol
 
 ---
 
+- **Kauri original title:** SMS-blockchain-protocol
 - **Kauri original link:** https://kauri.io/sms-blockchain-protocol/00d6519895f44cc0ae1e8a5cd537366b/a
 - **Kauri original author:** null (@a68e919d220aef723b522b18abc7d012718b3c72)
 - **Kauri original Publication date:** 2019-02-17

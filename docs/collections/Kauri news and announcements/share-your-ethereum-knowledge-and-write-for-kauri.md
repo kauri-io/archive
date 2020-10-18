@@ -81,6 +81,7 @@ Slack: [Write the docs community](http://slack.writethedocs.org/) | [Gitcoin sla
 
 ---
 
+- **Kauri original title:** Share Your Ethereum Knowledge and Write for Kauri
 - **Kauri original link:** https://kauri.io/share-your-ethereum-knowledge-and-write-for-kauri/b5c15961f13d4112bc82f6edb6fd3a75/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-10-29

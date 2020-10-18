@@ -108,6 +108,7 @@ _Twitter —_
 
 ---
 
+- **Kauri original title:** ICO — Is it Completely Over ?
 - **Kauri original link:** https://kauri.io/ico-is-it-completely-over/5f3a41b8e18f45728398a4ad6b394015/a
 - **Kauri original author:** Ramesh Babu (@rameshbabu)
 - **Kauri original Publication date:** 2019-02-27

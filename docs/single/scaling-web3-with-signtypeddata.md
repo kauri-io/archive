@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Scaling Web3 with SignTypedData
 - **Kauri original link:** https://kauri.io/scaling-web3-with-signtypeddata/e767162a2d944790851e3461a4422b5c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

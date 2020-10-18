@@ -795,6 +795,7 @@ This guide began from a discussion about how hard it is to keep an Ethereum node
 
 ---
 
+- **Kauri original title:** Running an Ethereum Full Node on a RaspberryPi 4 (model B)
 - **Kauri original link:** https://kauri.io/running-an-ethereum-full-node-on-a-raspberrypi-4-/9695fcca217f46feb355245275835fc0/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-02-23

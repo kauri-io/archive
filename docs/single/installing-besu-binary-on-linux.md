@@ -109,6 +109,7 @@ Get more information on Besu here:
 
 ---
 
+- **Kauri original title:** Installing Besu binary on Linux
 - **Kauri original link:** https://kauri.io/installing-besu-binary-on-linux/e00df6efcb644e07ab44df169d9375e9/a
 - **Kauri original author:** Felipe Faraggi (@felipefaraggi)
 - **Kauri original Publication date:** 2020-02-26

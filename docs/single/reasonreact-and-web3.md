@@ -185,6 +185,7 @@ Here's the ReasonReact component implementation code btw!
 
 ---
 
+- **Kauri original title:** ReasonReact and Web3
 - **Kauri original link:** https://kauri.io/reasonreact-and-web3/99d20b1ab1bc43518bf65cdefd77c445/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2018-09-19

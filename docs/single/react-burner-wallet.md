@@ -53,6 +53,7 @@ github hosted page (demo): https://adamgoth.github.io/react-burner-wallet/
 
 ---
 
+- **Kauri original title:** React Burner Wallet
 - **Kauri original link:** https://kauri.io/react-burner-wallet/73caa695608744a892c09370c7ab1abe/a
 - **Kauri original author:** Adam Goth (@ag)
 - **Kauri original Publication date:** 2019-02-17

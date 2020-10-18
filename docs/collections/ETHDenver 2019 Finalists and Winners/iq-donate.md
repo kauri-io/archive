@@ -48,6 +48,7 @@ https://github.com/jamslevy/foothodl
 
 ---
 
+- **Kauri original title:** IQ Donate
 - **Kauri original link:** https://kauri.io/iq-donate/d5ee42ff42b543f98e20aa313a5e214c/a
 - **Kauri original author:** Boris (@thebrightestday)
 - **Kauri original Publication date:** 2019-02-17

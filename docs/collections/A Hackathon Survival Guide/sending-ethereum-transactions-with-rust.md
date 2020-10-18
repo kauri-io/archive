@@ -356,6 +356,7 @@ This is just scratching the surface of Ethereum transaction sending, and in a fu
 
 ---
 
+- **Kauri original title:** Sending Ethereum Transactions with Rust
 - **Kauri original link:** https://kauri.io/sending-ethereum-transactions-with-rust/97c85229c66445759bb0ce642224d364/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-08-30

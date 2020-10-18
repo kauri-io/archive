@@ -75,6 +75,7 @@ Before closing the ceremony, the ETH Global team has announced [ETH Cape Town](h
 
 ---
 
+- **Kauri original title:** ETH Singapore Hackathon - Roundup
 - **Kauri original link:** https://kauri.io/eth-singapore-hackathon-roundup/c38807b010d74c2a9e91a742eae6cc29/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2018-12-10

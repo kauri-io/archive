@@ -269,6 +269,7 @@ _I also post random thoughts about crypto on [Twitter](https://twitter.com/Desti
 
 ---
 
+- **Kauri original title:** How to generate your very own Bitcoin private key
 - **Kauri original link:** https://kauri.io/how-to-generate-your-very-own-bitcoin-private-key/b05de74bdcb94b1aaf5bf604a05c266e/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2018-11-29

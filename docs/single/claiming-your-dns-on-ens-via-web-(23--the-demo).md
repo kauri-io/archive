@@ -92,6 +92,7 @@ In this blog post, I showed you the demo app which allows you to claim DNS on EN
 
 ---
 
+- **Kauri original title:** Claiming your DNS on ENS via Web (2/3  The Demo)
 - **Kauri original link:** https://kauri.io/claiming-your-dns-on-ens-via-web-(23:-the-demo)/8666e3b3000541498f3e9d08cd9a4808/a
 - **Kauri original author:** Makoto Inoue (@makoto)
 - **Kauri original Publication date:** 2018-10-30

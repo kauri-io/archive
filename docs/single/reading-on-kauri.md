@@ -70,6 +70,7 @@ Below the voting arrows are widgets to share an article to social networks. Shar
 
 ---
 
+- **Kauri original title:** Reading on Kauri
 - **Kauri original link:** https://kauri.io/reading-on-kauri/1c08250d4c4f4c4eb84d5c064541fd3c/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-12-19

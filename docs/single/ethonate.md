@@ -53,6 +53,7 @@ https://github.com/blurpesec/ed-back
 
 ---
 
+- **Kauri original title:** Ethonate
 - **Kauri original link:** https://kauri.io/ethonate/ca9cf9060c2d4718bd09867c813b07e9/a
 - **Kauri original author:** Jonathan Chhabra (@sonicrida)
 - **Kauri original Publication date:** 2019-02-17

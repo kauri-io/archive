@@ -111,6 +111,7 @@ To learn more about the latest with Bloom:
 
 ---
 
+- **Kauri original title:** Introducing Bloom Starter
 - **Kauri original link:** https://kauri.io/introducing-bloom-starter/61d982a9c6d441049670c1f0acf6358f/a
 - **Kauri original author:** Isaac Patka (@isaacpatka)
 - **Kauri original Publication date:** 2019-02-16

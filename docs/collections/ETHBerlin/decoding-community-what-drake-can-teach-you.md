@@ -17,6 +17,7 @@ By Brittany Laughlin
 
 ---
 
+- **Kauri original title:** Decoding Community - What Drake Can Teach You
 - **Kauri original link:** https://kauri.io/decoding-community-what-drake-can-teach-you/6dd178dc932442b99be82916912814d9/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

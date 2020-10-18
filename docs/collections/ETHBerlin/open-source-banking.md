@@ -17,6 +17,7 @@ By Richard Burton
 
 ---
 
+- **Kauri original title:** Open Source Banking
 - **Kauri original link:** https://kauri.io/open-source-banking/ac531017256d48ec8759ab5f4fda0f66/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

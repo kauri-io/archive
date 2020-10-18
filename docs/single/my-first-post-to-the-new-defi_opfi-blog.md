@@ -45,6 +45,7 @@ More detail to come in future posts ...
 
 ---
 
+- **Kauri original title:** My first post to the new Defi_Opfi blog
 - **Kauri original link:** https://kauri.io/my-first-post-to-the-new-defi_opfi-blog/056f5d1d53cb4d4990f43b99e8544de4/a
 - **Kauri original author:** Fred Blauer (@fblauer)
 - **Kauri original Publication date:** 2019-07-24

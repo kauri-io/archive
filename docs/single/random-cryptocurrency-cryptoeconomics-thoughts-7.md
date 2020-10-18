@@ -84,6 +84,7 @@ _Disclaimers: just my ideas about possible scenarios for near-term future. This 
 
 ---
 
+- **Kauri original title:** random cryptocurrency / cryptoeconomics thoughts  7
 - **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-7/aa55c22a8b9c43fbbc00587e6359c66f/a
 - **Kauri original author:** blacque64 (@blacque)
 - **Kauri original Publication date:** 2019-05-20

@@ -79,6 +79,7 @@ https://github.com/sjarvie/rtoken_quorum
 
 ---
 
+- **Kauri original title:** RToken Quorum, a Permissioned Security Token Platform
 - **Kauri original link:** https://kauri.io/rtoken-quorum-a-permissioned-security-token-platf/2a3279632e9c4cbbbe3bd40048023084/a
 - **Kauri original author:** Shane Jarvie (@sjarvie)
 - **Kauri original Publication date:** 2019-02-17

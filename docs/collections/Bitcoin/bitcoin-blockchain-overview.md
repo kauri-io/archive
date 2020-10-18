@@ -359,6 +359,7 @@ transactions using the current consensus rules.
 
 ---
 
+- **Kauri original title:** Bitcoin Blockchain Overview
 - **Kauri original link:** https://kauri.io/bitcoin-blockchain-overview/60804658f033475cad5797438adcab90/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-04

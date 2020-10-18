@@ -51,6 +51,7 @@ Balances are returned in the smallest denomination, called `wei`.  To convert to
 
 ---
 
+- **Kauri original title:** Retrieving an Ethereum Account Balance in Web3j
 - **Kauri original link:** https://kauri.io/retrieving-an-ethereum-account-balance-in-web3j/9983473f687348c9b950fff16f71cbfe/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18

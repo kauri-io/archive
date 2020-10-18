@@ -17,6 +17,7 @@ Karlis Vaivids Kristaps & Robert Nicholls - CTO & CEO - Hashrush
 
 ---
 
+- **Kauri original title:** Presenting Hashrush
 - **Kauri original link:** https://kauri.io/presenting-hashrush/5146a36e4b904499ac2d77569d13ff81/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

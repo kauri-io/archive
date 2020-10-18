@@ -106,6 +106,7 @@ Contact [integrate@makerdao.com](mailto:integrate@makerdao.com) or #dev channel 
 
 ---
 
+- **Kauri original title:** Quick guide - Listing DAI or MKR tokens on exchange
 - **Kauri original link:** https://kauri.io/quick-guide-listing-dai-or-mkr-tokens-on-exchange/c7b0426e21404c7cb4d06380219bf18d/a
 - **Kauri original author:** David Utrobin (@davidutro)
 - **Kauri original Publication date:** 2019-02-06

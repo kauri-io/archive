@@ -52,6 +52,7 @@ These words intended to be a "forward" to yet another compliment of a ((nother i
 
 ---
 
+- **Kauri original title:** Forward ... to the Hall of the Ancient Martian Wormhole and/or Jim's Gallery
 - **Kauri original link:** https://kauri.io/forward-...-to-the-hall-of-the-ancient-martian-wo/e7754849da2347079353eda7279ccc7d/a
 - **Kauri original author:** Adam Marshall Dobrin (@gydpsjzq)
 - **Kauri original Publication date:** 2020-05-15

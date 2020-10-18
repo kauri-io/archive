@@ -52,6 +52,7 @@ Sponsors for
 
 ---
 
+- **Kauri original title:** Blockchain Meets Healthcare with HealthChainHack
 - **Kauri original link:** https://kauri.io/blockchain-meets-healthcare-with-healthchainhack/c79ca6bed0c8443192c5b92481384679/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11

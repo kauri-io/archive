@@ -54,6 +54,7 @@ Launch it into orbit...
 
 ---
 
+- **Kauri original title:** Sputnik
 - **Kauri original link:** https://kauri.io/sputnik/8806bbaf6a924a6b91f2b1400f31bb81/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

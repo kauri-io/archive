@@ -164,6 +164,7 @@ Thanks for checking out meta transactions on Ethereum. Hit me up on Twitter:
 
 ---
 
+- **Kauri original title:** Ethereum Meta Transactions
 - **Kauri original link:** https://kauri.io/ethereum-meta-transactions/8b1e4a4cdbb240c892925cd4779e34ca/a
 - **Kauri original author:** Austin Griffith (@austingriffith)
 - **Kauri original Publication date:** 2018-11-28

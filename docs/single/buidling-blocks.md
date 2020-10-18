@@ -61,6 +61,7 @@ https://github.com/drewstaylor/buidlingblocks
 
 ---
 
+- **Kauri original title:** BUIDLing Blocks
 - **Kauri original link:** https://kauri.io/buidling-blocks/ec7c65bbd56842d88db5fdfdea9aae20/a
 - **Kauri original author:** Drew Taylor (@drewtaylor)
 - **Kauri original Publication date:** 2019-02-17

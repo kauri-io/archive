@@ -183,6 +183,7 @@ for row in range(ROWS):
 
 ---
 
+- **Kauri original title:** Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow
 - **Kauri original link:** https://kauri.io/multi-class-classification-example-with-convoluti/145b4c03a55146cba2051f04e7f499e9/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2019-10-09

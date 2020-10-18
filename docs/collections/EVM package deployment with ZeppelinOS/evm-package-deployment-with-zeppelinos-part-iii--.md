@@ -226,6 +226,7 @@ reading early drafts and providing feedback._
 
 ---
 
+- **Kauri original title:** EVM package deployment with ZeppelinOS - Part III  Linking to mainnet
 - **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-iii:-/28d6318d3afb483286aec2243cffd8a3/a
 - **Kauri original author:** Dennison Bertram (@dennisonbertram1)
 - **Kauri original Publication date:** 2019-03-07

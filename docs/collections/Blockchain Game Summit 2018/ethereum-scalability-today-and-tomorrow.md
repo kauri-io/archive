@@ -17,6 +17,7 @@ Jerome de Tychey - Director - Solutions - Consensys
 
 ---
 
+- **Kauri original title:** Ethereum Scalability, Today and Tomorrow
 - **Kauri original link:** https://kauri.io/ethereum-scalability-today-and-tomorrow/6aeb6da779944b44bcaa518211a02333/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

@@ -59,6 +59,7 @@ https://github.com/BaldyAsh/ETHDenver-BuffiOS
 
 ---
 
+- **Kauri original title:** BuffiOS xDai-based p2p lending platform
 - **Kauri original link:** https://kauri.io/buffios-xdai-based-p2p-lending-platform/b69a10fed7e84c50a6d592934dd282bf/a
 - **Kauri original author:** null (@03c47a4ee673b49850faefa8e83cfaf707946a46)
 - **Kauri original Publication date:** 2019-02-17

@@ -97,6 +97,7 @@ _Disclosure: I published my debut novel, [The Hannover Game](https://shop.public
 
 ---
 
+- **Kauri original title:** Books on the Blockchain - A Quick Look at Publica
 - **Kauri original link:** https://kauri.io/books-on-the-blockchain-a-quick-look-at-publica/31abb57ad45f4744a41e8713fdd78b32/a
 - **Kauri original author:** Mark Crowther (@mark-crowther)
 - **Kauri original Publication date:** 2019-06-27

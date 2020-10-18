@@ -201,6 +201,7 @@ discord:
 
 ---
 
+- **Kauri original title:** A proper examination of ERC-721s. What are ERC-721s and what is their potential?
 - **Kauri original link:** https://kauri.io/a-proper-examination-of-erc-721s.-what-are-erc-72/ecd47323706d4d7db1abc55a4aa6071b/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-12-05

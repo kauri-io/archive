@@ -97,6 +97,7 @@ Once the community managed to form a consensus on this matter* then we will also
 
 ---
 
+- **Kauri original title:** Ethereum community and its ecosystem  structural analysis
 - **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-structural-/9a486bc098674bb6b70408334947eb93/a
 - **Kauri original author:** Michael A (@silver84)
 - **Kauri original Publication date:** 2019-03-20

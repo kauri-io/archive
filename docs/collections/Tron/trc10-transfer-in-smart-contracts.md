@@ -112,6 +112,7 @@ Msg.tokenvalue, represents the token value in the current msg call, with a defau
 
 ---
 
+- **Kauri original title:** TRC10 Transfer in Smart Contracts
 - **Kauri original link:** https://kauri.io/trc10-transfer-in-smart-contracts/c761dbe2e46f4374959c867119888761/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-01

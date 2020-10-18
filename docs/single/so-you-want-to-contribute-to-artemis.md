@@ -125,6 +125,7 @@ _[Ben Edgington](https://twitter.com/benjaminion_xyz), on behalf of the PegaSys 
 
 ---
 
+- **Kauri original title:** So you want to contribute to Artemis?
 - **Kauri original link:** https://kauri.io/so-you-want-to-contribute-to-artemis/43989eea892f4b15b1937990b354502d/a
 - **Kauri original author:** Ben Edgington (@benjaminion)
 - **Kauri original Publication date:** 2019-02-01

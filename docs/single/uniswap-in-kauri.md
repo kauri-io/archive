@@ -19,6 +19,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** Uniswap in Kauri
 - **Kauri original link:** https://kauri.io/uniswap-in-kauri/5a85c6b24b5b474ea15a4db408cd4642/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-04-18

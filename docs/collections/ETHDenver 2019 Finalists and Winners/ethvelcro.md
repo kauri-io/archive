@@ -59,6 +59,7 @@ Graph Protocol
 
 ---
 
+- **Kauri original title:** EthVelcro
 - **Kauri original link:** https://kauri.io/ethvelcro/172e228b2e7d4beaa59c0a49a027ef1e/a
 - **Kauri original author:** Brendan Asselstine (@asselstine)
 - **Kauri original Publication date:** 2019-02-17

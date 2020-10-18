@@ -63,6 +63,7 @@ Yaniv Tal - yaniv@thegraph.com
 
 ---
 
+- **Kauri original title:** The Graph - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/the-graph-sponsor-bounty-at-ethdenver-2019!/4d7af74855534454a5d57ca98ab8432a/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-16

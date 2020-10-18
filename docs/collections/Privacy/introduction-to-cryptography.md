@@ -151,6 +151,7 @@ Privacy-focused projects
 
 ---
 
+- **Kauri original title:** Introduction to Cryptography 
 - **Kauri original link:** https://kauri.io/introduction-to-cryptography/7431fc3a27d44108b46f8a8a81f5802c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-01

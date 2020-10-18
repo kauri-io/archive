@@ -77,6 +77,7 @@ https://github.com/oasisethdenver2019/UpTown
 
 ---
 
+- **Kauri original title:** UpTown 
 - **Kauri original link:** https://kauri.io/uptown/5bc0603263a745aab70373b319622abc/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

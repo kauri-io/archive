@@ -69,6 +69,7 @@ P.S. If you're having trouble using Kauri, we recommend viewing the articles in 
 
 ---
 
+- **Kauri original title:** March 13th - An improved reading and writing experience
 - **Kauri original link:** https://kauri.io/march-13th-an-improved-reading-and-writing-experi/904ece2aaa764ccb8918c6c0199958cc/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-03-14

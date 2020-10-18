@@ -145,6 +145,7 @@ Good luck!
 
 ---
 
+- **Kauri original title:** Monoplasma  A simple way to broadcast money
 - **Kauri original link:** https://kauri.io/monoplasma:-a-simple-way-to-broadcast-money/c94efbb60cf44a8aa663c5812e7f8012/a
 - **Kauri original author:** Matthew Fontana (@fonty)
 - **Kauri original Publication date:** 2019-05-04

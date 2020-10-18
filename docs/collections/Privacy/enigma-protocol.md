@@ -109,6 +109,7 @@ If you are instead seeing a message informing you that it is still loading, repe
 
 ---
 
+- **Kauri original title:** Enigma Protocol
 - **Kauri original link:** https://kauri.io/enigma-protocol/0143727c506d4f1d9013a1fca1a4c73c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-17

@@ -59,6 +59,7 @@ That’s what we’ve been working on over the last month! Please let us know wh
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — March 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-march-2018/0f80353fac864afe95d840f8dd420f7c/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

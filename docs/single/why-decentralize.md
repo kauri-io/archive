@@ -54,6 +54,7 @@ https://github.com/K-Ho/why_decentralize
 
 ---
 
+- **Kauri original title:** Why Decentralize?
 - **Kauri original link:** https://kauri.io/why-decentralize/0602925eb327497ba9582b327c7ca9c1/a
 - **Kauri original author:** Kevin Ho (@k-ho)
 - **Kauri original Publication date:** 2019-02-17

@@ -1,6 +1,6 @@
 ---
 title: Enabling networks to become cross-chain with Witnet
-summary: For a quick primer on Witnet, check out this post- (3 minute read)](https-//medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4). The Aragon Network aims to be a fully digital jurisdiction. By running entirely on the blockchain, it allows DAOs to interact with each other with notable guarantees. These include a decentralized arbitration system and mutual staking just in case any of the arbitration participants needs to be compensated. Without going into much further detail, the
+summary: For a quick primer on Witnet, check out this post- (3 minute read)-(https-//medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4). The Aragon Network aims to be a fully digital jurisdiction. By running entirely on the blockchain, it allows DAOs to interact with each other with notable guarantees. These include a decentralized arbitration system and mutual staking just in case any of the arbitration participants needs to be compensated. Without going into much further detail, the
 authors:
   - Witnet (@witnet)
 date: 2018-11-13
@@ -136,6 +136,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Enabling networks to become cross-chain with Witnet
 - **Kauri original link:** https://kauri.io/enabling-networks-to-become-cross-chain-with-witn/3d109c86ee4849ad95516ea071fda33a/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13

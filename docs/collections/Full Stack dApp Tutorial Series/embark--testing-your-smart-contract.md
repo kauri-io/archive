@@ -441,6 +441,7 @@ You can find the [complete bounties.js test file here for reference] (https://gi
 
 ---
 
+- **Kauri original title:** Embark  Testing Your Smart Contract
 - **Kauri original link:** https://kauri.io/embark:-testing-your-smart-contract/e8f18d0643c14756b43d698122bba9d9/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2018-09-12

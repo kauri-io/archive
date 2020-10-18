@@ -90,6 +90,7 @@ This could involve much higher level of self-management, wholeness, and evolutio
 
 ---
 
+- **Kauri original title:** Why You Shouldn’t Be Concerned With Blockchain’s “Killer App”
 - **Kauri original link:** https://kauri.io/why-you-shouldn-t-be-concerned-with-blockchain-s-/595591b5f4e94288adf6239580a59a17/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11

@@ -38,6 +38,7 @@ In addition in really free countries, like Switzerland, the privacy coins will b
 
 ---
 
+- **Kauri original title:**  Monero and Zcash are no longer privacy coins?
 - **Kauri original link:** https://kauri.io/monero-and-zcash-are-no-longer-privacy-coins/e162b391d6484dcf86a56738820dc914/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-09

@@ -25,6 +25,7 @@ It's not fair that a browser use this for destroy websites incomes and destroy t
 
 ---
 
+- **Kauri original title:** Brave and binance browser scandal
 - **Kauri original link:** https://kauri.io/brave-and-binance-browser-scandal/c385e999e0914fd6b7f23c80c889d2c5/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-08

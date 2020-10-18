@@ -73,6 +73,7 @@ Impact
 
 ---
 
+- **Kauri original title:** zDai.io - confidential transactions on Burner wallet with zkSNARKs
 - **Kauri original link:** https://kauri.io/zdai.io-confidential-transactions-on-burner-walle/4c026927f1cc4ed29d5a0e95ba3afbf8/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

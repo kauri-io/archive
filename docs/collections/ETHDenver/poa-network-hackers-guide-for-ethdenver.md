@@ -124,6 +124,7 @@ The final wave of applications for ETHDenver closes January 31st so
 
 ---
 
+- **Kauri original title:** POA Network Hackers Guide for ETHDenver 
 - **Kauri original link:** https://kauri.io/poa-network-hackers-guide-for-ethdenver/bd3960fa9d124de0bbecd72691c0f89b/a
 - **Kauri original author:** Ziggy Zeidan (@ziggy)
 - **Kauri original Publication date:** 2019-01-29

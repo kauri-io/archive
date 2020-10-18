@@ -105,6 +105,7 @@ Thanks a lot for reading! You can also:
 
 ---
 
+- **Kauri original title:** In Pursuit of Truth
 - **Kauri original link:** https://kauri.io/in-pursuit-of-truth/5b01bd8fb4554597a380a0fe0c13e62a/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

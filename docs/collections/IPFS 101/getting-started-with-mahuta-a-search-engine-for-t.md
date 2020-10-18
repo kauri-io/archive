@@ -280,6 +280,7 @@ curl -X POST \
 
 ---
 
+- **Kauri original title:** Getting started with Mahuta - A Search engine for the IPFS
 - **Kauri original link:** https://kauri.io/getting-started-with-mahuta-a-search-engine-for-t/874b1fe11d00406bbbef053405fd4538/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-12-10

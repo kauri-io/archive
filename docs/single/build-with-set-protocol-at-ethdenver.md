@@ -82,6 +82,7 @@ The final wave of applications for ETHDenver closes January 31st so
 
 ---
 
+- **Kauri original title:** Build with Set Protocol at ETHDenver
 - **Kauri original link:** https://kauri.io/build-with-set-protocol-at-ethdenver/01f3f38475304944852bb9f24d7c0fe6/a
 - **Kauri original author:** Richard Liang (@richard-liang)
 - **Kauri original Publication date:** 2019-02-08

@@ -118,6 +118,7 @@ SayToshi provides a way for crypto influencers to make money by essentially allo
 
 ---
 
+- **Kauri original title:** ETH San Francisco Winner Roundup
 - **Kauri original link:** https://kauri.io/eth-san-francisco-winner-roundup/a1ba2aed040b4fa5b24c73f53a8fe8d3/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2018-12-20

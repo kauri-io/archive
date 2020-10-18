@@ -388,6 +388,7 @@ Later in the series, we’ll discuss how to write tests within the Embark framew
 
 ---
 
+- **Kauri original title:** Embark  Smart Contract Compilation & Deployment
 - **Kauri original link:** https://kauri.io/embark:-smart-contract-compilation-and-deployment/13758d60f21648a1897fad1fa5b78237/a
 - **Kauri original author:** null (@iurimatias)
 - **Kauri original Publication date:** 2018-09-19

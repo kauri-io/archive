@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Dharma Protocol in a Nutshell
 - **Kauri original link:** https://kauri.io/dharma-protocol-in-a-nutshell/10bca395e3cf4d7d854d90087ff77274/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

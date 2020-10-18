@@ -64,6 +64,7 @@ https://github.com/Xivis/opencurator
 
 ---
 
+- **Kauri original title:** Open Curator
 - **Kauri original link:** https://kauri.io/open-curator/5367fae354344dc2886538d97f5cadb9/a
 - **Kauri original author:** Agustin Ferreira (@agustin-xivis-com)
 - **Kauri original Publication date:** 2019-02-21

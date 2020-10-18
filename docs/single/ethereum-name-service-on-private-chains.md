@@ -279,6 +279,7 @@ Unlike storing records, which is rarely necessary to do from an on-chain contrac
 
 ---
 
+- **Kauri original title:** Ethereum Name Service on Private Chains
 - **Kauri original link:** https://kauri.io/ethereum-name-service-on-private-chains/30ed03248cc2432ba5565375c4413608/a
 - **Kauri original author:** null (@d68b300ccdf5795ac5cbf64a483518b89bfe6e8e)
 - **Kauri original Publication date:** 2019-05-31

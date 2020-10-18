@@ -54,6 +54,7 @@ Users will have full ownership of their data which will also be censorship resis
 
 ---
 
+- **Kauri original title:** What is Web 3.0?
 - **Kauri original link:** https://kauri.io/what-is-web-3.0/2678d5d36f5c45f981e482de289ce154/a
 - **Kauri original author:** Web3 Developer (@web3developer)
 - **Kauri original Publication date:** 2019-06-02

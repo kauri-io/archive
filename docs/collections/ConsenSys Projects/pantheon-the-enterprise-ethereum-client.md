@@ -127,6 +127,7 @@ It is recommended that you create a VM with the following attributes:
 
 ---
 
+- **Kauri original title:** Pantheon - The Enterprise Ethereum Client
 - **Kauri original link:** https://kauri.io/pantheon-the-enterprise-ethereum-client/48c4c61a77304ecab8df7247aa1900ac/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-03-01

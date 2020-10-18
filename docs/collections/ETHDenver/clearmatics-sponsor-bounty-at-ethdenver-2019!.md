@@ -82,6 +82,7 @@ Christophe MacIntosh - cm@clearmatics.com
 
 ---
 
+- **Kauri original title:** Clearmatics - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/clearmatics-sponsor-bounty-at-ethdenver-2019!/b278d667893c4ef98441b2ccc3a62b6d/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

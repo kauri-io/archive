@@ -260,6 +260,7 @@ When the `wallet_enable` method is sent, Metamask asks the user for the permissi
 
 ---
 
+- **Kauri original title:** How to create a Metamask Plugin
 - **Kauri original link:** https://kauri.io/how-to-create-a-metamask-plugin/937a0e7fb83047f39ec6cba27e679f89/a
 - **Kauri original author:** Sachin Mittal (@sachin_mittal)
 - **Kauri original Publication date:** 2020-01-29

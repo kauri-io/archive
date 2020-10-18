@@ -179,6 +179,7 @@ previous releases:
 
 ---
 
+- **Kauri original title:** random cryptocurrency / cryptoeconomics thoughts  10
 - **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-10/1aa6113f335d4e96810672188029c215/a
 - **Kauri original author:** blacque64 (@blacque)
 - **Kauri original Publication date:** 2019-05-20

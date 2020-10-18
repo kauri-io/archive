@@ -21,6 +21,7 @@ By Brett Sun (Aragon)
 
 ---
 
+- **Kauri original title:** Playing Cat and Mouse with the EVM
 - **Kauri original link:** https://kauri.io/playing-cat-and-mouse-with-the-evm/8862028187b244a0957b22ecadd6cd50/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

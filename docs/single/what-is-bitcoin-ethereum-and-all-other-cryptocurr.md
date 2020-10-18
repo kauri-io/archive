@@ -106,6 +106,7 @@ Quick 3 Questions + Ask Me Anything
 
 ---
 
+- **Kauri original title:** What is Bitcoin, Ethereum and all other Cryptocurrencies all about?
 - **Kauri original link:** https://kauri.io/what-is-bitcoin-ethereum-and-all-other-cryptocurr/e5901416b8ca4f069472ec10475932f4/a
 - **Kauri original author:** Pedro Gomes (@pedrouid)
 - **Kauri original Publication date:** 2018-11-30

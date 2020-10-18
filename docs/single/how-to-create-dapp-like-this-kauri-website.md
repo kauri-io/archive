@@ -15,6 +15,7 @@ abx
 
 ---
 
+- **Kauri original title:** How to create Dapp like this Kauri Website ?
 - **Kauri original link:** https://kauri.io/how-to-create-dapp-like-this-kauri-website/621c44d95f564384b00c5bddc728b3a1/a
 - **Kauri original author:** David  (@leong9898)
 - **Kauri original Publication date:** 2020-09-21

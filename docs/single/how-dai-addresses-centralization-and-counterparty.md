@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** How Dai Addresses Centralization and Counterparty Risk
 - **Kauri original link:** https://kauri.io/how-dai-addresses-centralization-and-counterparty/7e5d2ed8339542019ce95885fda8e9d4/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

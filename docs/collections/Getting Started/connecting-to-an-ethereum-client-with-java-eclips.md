@@ -282,6 +282,7 @@ Gas price: 3000000000
 
 ---
 
+- **Kauri original title:** Connecting to an Ethereum client with Java, Eclipse and Web3j
 - **Kauri original link:** https://kauri.io/connecting-to-an-ethereum-client-with-java-eclips/b9eb647c47a546bc95693acc0be72546/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-07-19

@@ -104,6 +104,7 @@ There are a number of `TransactionManager` implementations bundled with Web3j, e
 
 ---
 
+- **Kauri original title:** Web3j Transaction Managers
 - **Kauri original link:** https://kauri.io/web3j-transaction-managers/4cb780bb4d0846438d11885a25b6d7e7/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-09-09

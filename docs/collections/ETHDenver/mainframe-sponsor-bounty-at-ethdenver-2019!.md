@@ -63,6 +63,7 @@ Pete Abilla - pete@mainframe.com
 
 ---
 
+- **Kauri original title:** Mainframe - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/mainframe-sponsor-bounty-at-ethdenver-2019!/8b22522e2f414450a3f911111f11edd1/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

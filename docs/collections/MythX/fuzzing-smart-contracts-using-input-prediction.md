@@ -152,6 +152,7 @@ Thanks to
 
 ---
 
+- **Kauri original title:** Fuzzing Smart Contracts Using Input Prediction
 - **Kauri original link:** https://kauri.io/fuzzing-smart-contracts-using-input-prediction/c3d4ee5919064a23bc0e5f3317310f16/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-02

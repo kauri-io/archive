@@ -86,6 +86,7 @@ MakerDAO - Use DAI token in Telegram!
 
 ---
 
+- **Kauri original title:** Ethergram
 - **Kauri original link:** https://kauri.io/ethergram/db03ca50ad79458ea66e9de25d53fb2a/a
 - **Kauri original author:** Nikita Kozlov (@enormousrage)
 - **Kauri original Publication date:** 2019-02-17

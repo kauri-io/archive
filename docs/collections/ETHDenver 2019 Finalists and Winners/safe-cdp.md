@@ -69,6 +69,7 @@ https://github.com/derekchiang/safe-cdp
 
 ---
 
+- **Kauri original title:** Safe CDP
 - **Kauri original link:** https://kauri.io/safe-cdp/c590a19769d7414f99077b590a7ec218/a
 - **Kauri original author:** Derek Chiang (@derekchiang)
 - **Kauri original Publication date:** 2019-02-17

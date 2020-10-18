@@ -76,6 +76,7 @@ https://github.com/RyanJoseph15/uport-mobile
 
 ---
 
+- **Kauri original title:** Pin-ID  Proof-of-Location as a uPort Attestation
 - **Kauri original link:** https://kauri.io/pin-id:-proof-of-location-as-a-uport-attestation/2c54b0a3da9348e2838e7d53732469bd/a
 - **Kauri original author:** Christopher Robison (@cbobrobison)
 - **Kauri original Publication date:** 2019-02-17

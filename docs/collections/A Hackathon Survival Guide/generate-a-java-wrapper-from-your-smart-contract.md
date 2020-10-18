@@ -489,6 +489,7 @@ In this last step, we execute the build using `./gradlew tasks --all` and verify
 
 ---
 
+- **Kauri original title:** Generate a Java Wrapper from your Smart Contract
 - **Kauri original link:** https://kauri.io/generate-a-java-wrapper-from-your-smart-contract/84475132317d4d6a84a2c42eb9348e4b/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-07-19

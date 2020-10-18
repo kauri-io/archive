@@ -311,6 +311,7 @@ Congratulations! You created your first colony and made your first payment. Colo
 
 ---
 
+- **Kauri original title:** Get Started with colonyJS
 - **Kauri original link:** https://kauri.io/get-started-with-colonyjs/6325600fdb894517832a26a9cf0babc1/a
 - **Kauri original author:** Ryan Christoffersen (@ryanchristo)
 - **Kauri original Publication date:** 2019-09-16

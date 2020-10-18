@@ -220,6 +220,7 @@ they have shared with the community:
 
 ---
 
+- **Kauri original title:** Nightfall - Private Token and NFT Transfers on Ethereum
 - **Kauri original link:** https://kauri.io/nightfall-private-token-and-nft-transfers-on-ethe/23d6c65e76614b0ea2af0f3d2606dcfa/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

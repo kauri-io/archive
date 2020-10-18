@@ -171,6 +171,7 @@ This introduction and example was taken from [the official Vyper documentation](
 
 ---
 
+- **Kauri original title:** An Introduction to Smart Contracts with Vyper
 - **Kauri original link:** https://kauri.io/an-introduction-to-smart-contracts-with-vyper/af913a853eaf4db88627b3ff9572b770/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-30

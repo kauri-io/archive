@@ -161,6 +161,7 @@ If you have anything you’ve tried that’s really help, please [get in touch o
 
 ---
 
+- **Kauri original title:** Increasing Action On Your Gitcoin Bounty
 - **Kauri original link:** https://kauri.io/increasing-action-on-your-gitcoin-bounty/4a504eff854e49f99d7872ece5abbf2c/a
 - **Kauri original author:** Gitcoin (@gitcoin)
 - **Kauri original Publication date:** 2018-10-26

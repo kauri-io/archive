@@ -47,6 +47,7 @@ I hope this helps you navigate your way through the Devcash Bounty Platform. May
 
 ---
 
+- **Kauri original title:** Hunt bounties on the Devcash Bounty Platform
 - **Kauri original link:** https://kauri.io/hunt-bounties-on-the-devcash-bounty-platform/8980b81b337e489788a7734ed66e4753/a
 - **Kauri original author:** Antoine (@antron3000)
 - **Kauri original Publication date:** 2020-07-20

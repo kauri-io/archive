@@ -15,6 +15,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** DevCon 3 - Day One Streaming
 - **Kauri original link:** https://kauri.io/devcon-3-day-one-streaming/bccbbc58fd864d69a14b892c59c1829a/a
 - **Kauri original author:** Davide Scalzo (@davide)
 - **Kauri original Publication date:** 2018-09-25

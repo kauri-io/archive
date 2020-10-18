@@ -76,6 +76,7 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 
 ---
 
+- **Kauri original title:** EthASketch
 - **Kauri original link:** https://kauri.io/ethasketch/eceee829d2184dbf990b21e630be5b15/a
 - **Kauri original author:** iain nash (@iain)
 - **Kauri original Publication date:** 2019-02-17

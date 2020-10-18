@@ -358,6 +358,7 @@ If Metamask is unlocked and connected to the Solok network, The web3 provider co
 
 ---
 
+- **Kauri original title:** POA - Part 1 - Develop and deploy a smart contract
 - **Kauri original link:** https://kauri.io/poa-part-1-develop-and-deploy-a-smart-contract/549b50d2318741dbba209110bb9e350e/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-01-21

@@ -134,6 +134,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Ethereum ❤ Witnet
 - **Kauri original link:** https://kauri.io/ethereum-witnet/8386be0c5e084542a11276fe13fa02c5/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13

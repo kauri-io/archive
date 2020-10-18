@@ -60,6 +60,7 @@ https://github.com/duneanalytics/dune-coincapper
 
 ---
 
+- **Kauri original title:** Ethereum smart contract data with token/usd prices
 - **Kauri original link:** https://kauri.io/ethereum-smart-contract-data-with-tokenusd-prices/551ac5d48be34043a59977d6f57e268d/a
 - **Kauri original author:** Fredrik Haga (@hagaetc)
 - **Kauri original Publication date:** 2019-02-17

@@ -117,6 +117,7 @@ Stop by our [Discord Community](https://discord.gg/3fzMe8x) for support, the lat
 
 ---
 
+- **Kauri original title:** 3Box - Social profiles for  web3 applications
 - **Kauri original link:** https://kauri.io/3box-social-profiles-for-web3-applications/204bee70b23549f2acdc873d265d98f8/a
 - **Kauri original author:** Danny Zuckerman (@dazuck)
 - **Kauri original Publication date:** 2019-01-04

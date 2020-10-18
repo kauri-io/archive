@@ -49,6 +49,7 @@ Albert Ni - albert@ethereum.org
 
 ---
 
+- **Kauri original title:** Ethereum Foundation - Sponsor Bounty at ETHDenver2019!
 - **Kauri original link:** https://kauri.io/ethereum-foundation-sponsor-bounty-at-ethdenver20/3c7581f62c8b4babb78d3b133b415d60/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-16

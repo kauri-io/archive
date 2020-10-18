@@ -273,6 +273,7 @@ Read the documentation for more on [libraries](https://solidity.readthedocs.io/v
 
 ---
 
+- **Kauri original title:** An Introduction to Solidity for Experienced Developers
 - **Kauri original link:** https://kauri.io/an-introduction-to-solidity-for-experienced-devel/16b7b58597fc4a9e848b29a6299ee967/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-01-20

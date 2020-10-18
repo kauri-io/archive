@@ -111,6 +111,7 @@ A selection of images from Kauri adventures at ETHDenver 2019
 
 ---
 
+- **Kauri original title:** ETHDenver Image gallery
 - **Kauri original link:** https://kauri.io/ethdenver-image-gallery/7741738f6844496ca6577f1814a3903a/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-20

@@ -48,6 +48,7 @@ https://github.com/pshirlyn/crypto-messenger
 
 ---
 
+- **Kauri original title:** CryptoMessenger
 - **Kauri original link:** https://kauri.io/cryptomessenger/594e5305566e4630bf6f992c05afcde6/a
 - **Kauri original author:** Shirlyn Prabahar (@pshirlyn)
 - **Kauri original Publication date:** 2019-02-17

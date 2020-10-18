@@ -41,6 +41,7 @@ For our ETHDenver bounty, we are awarding a total of $5,000 of LINK or ETH equiv
 
 ---
 
+- **Kauri original title:** Connect your smart contracts connected to real world data with Chainlink
 - **Kauri original link:** https://kauri.io/connect-your-smart-contracts-connected-to-real-wo/f7defa7f512b4dc6b2398ac9b0a3ff42/a
 - **Kauri original author:** Chainlink (@chainlink)
 - **Kauri original Publication date:** 2019-01-29

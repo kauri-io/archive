@@ -97,6 +97,7 @@ We wonder if there would be any interest in live documenting or blog writing?
 
 ---
 
+- **Kauri original title:** Kauri news - Writers, writers, writers
 - **Kauri original link:** https://kauri.io/kauri-news-writers-writers-writers/58a3c62a07404391a2e9b10ab1774652/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-12-18

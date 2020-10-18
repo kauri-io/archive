@@ -101,6 +101,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Team Insights  Anler, Functional Programmer
 - **Kauri original link:** https://kauri.io/team-insights:-anler-functional-programmer/2d8e9280c54a451e8d7a9a199d4675db/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

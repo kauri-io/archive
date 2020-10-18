@@ -20,6 +20,7 @@ The Kauri project are at Codemotion Berlin to show enthusiastic developers and w
 
 ---
 
+- **Kauri original title:** Codemotion Berlin
 - **Kauri original link:** https://kauri.io/codemotion-berlin/c5c5dfb2bc944cb49dcb5ac457042c91/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-10-30

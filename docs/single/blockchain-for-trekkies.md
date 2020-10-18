@@ -45,6 +45,7 @@ Note: No Unicorn Dogs were harmed in the making of this Trekkie Blockchain guide
 
 ---
 
+- **Kauri original title:** Blockchain for Trekkies🖖
 - **Kauri original link:** https://kauri.io/blockchain-for-trekkies/ed9690f8d50442378cbadb217ea2705c/a
 - **Kauri original author:** Mattias (@mat7ias)
 - **Kauri original Publication date:** 2018-11-16

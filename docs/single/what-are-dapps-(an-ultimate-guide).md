@@ -110,6 +110,7 @@ The future of Dapps seems bright and full of possibilities. Many sectors have ye
 
 ---
 
+- **Kauri original title:** What are Dapps? (An ultimate guide)
 - **Kauri original link:** https://kauri.io/what-are-dapps-(an-ultimate-guide)/69bf3b02cd4449a7adcc3a98aea15e22/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18

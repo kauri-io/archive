@@ -239,6 +239,7 @@ _Diagrams by_
 
 ---
 
+- **Kauri original title:** Building Identity-linked zkSNARKs with ZoKrates
 - **Kauri original link:** https://kauri.io/building-identity-linked-zksnarks-with-zokrates/37a2319942ce4916a60a6f84a193edb4/a
 - **Kauri original author:** Jacob Eberhardt (@jacob-eberhardt)
 - **Kauri original Publication date:** 2019-05-09

@@ -55,6 +55,7 @@ Chris Hutchinson, Nabil Naghdy, Michael Bradley & Ben Morris
 
 ---
 
+- **Kauri original title:** Chat, browse and transact securely with Status
 - **Kauri original link:** https://kauri.io/chat-browse-and-transact-securely-with-status/7da7e02418b84a898688bbf44d88abe5/a
 - **Kauri original author:** Status (@status)
 - **Kauri original Publication date:** 2019-02-07

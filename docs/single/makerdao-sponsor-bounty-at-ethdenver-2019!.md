@@ -58,6 +58,7 @@ Richard Brown - rich@makerdao.com
 
 ---
 
+- **Kauri original title:** MakerDAO - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/makerdao-sponsor-bounty-at-ethdenver-2019!/1aa7db4858614e21b0446a03680b9846/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-14

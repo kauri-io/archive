@@ -51,6 +51,7 @@ To learn how to create a customised oracle that is decentralized, just go to our
 
 ---
 
+- **Kauri original title:** iExec V3 for developers
 - **Kauri original link:** https://kauri.io/iexec-v3-for-developers/5efac22690a64becae14cc29c5bc0f70/a
 - **Kauri original author:** Julien Béranger (@julienbrg)
 - **Kauri original Publication date:** 2019-05-27

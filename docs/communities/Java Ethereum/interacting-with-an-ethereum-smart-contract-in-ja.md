@@ -271,6 +271,7 @@ In the next article in this series, we will walk you through how to [listen for 
 
 ---
 
+- **Kauri original title:** Interacting with an Ethereum Smart Contract in Java
 - **Kauri original link:** https://kauri.io/interacting-with-an-ethereum-smart-contract-in-ja/14dc434d11ef4ee18bf7d57f079e246e/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2020-01-26

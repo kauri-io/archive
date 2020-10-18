@@ -62,6 +62,7 @@ Now, the prover, that’s another nice thing about it, can be written and execut
 
 ---
 
+- **Kauri original title:** Eli Ben Sasson on using STARKs to scale Ethereum
 - **Kauri original link:** https://kauri.io/eli-ben-sasson-on-using-starks-to-scale-ethereum/bd1cefe782a64962b4f42920cf947a11/a
 - **Kauri original author:** Chris Spannos (@chris-spannos)
 - **Kauri original Publication date:** 2018-11-06

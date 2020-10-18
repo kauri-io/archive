@@ -76,6 +76,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — July 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-july-2018/5eb9d4a5304e4d0f83faf94678c40b30/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

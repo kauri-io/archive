@@ -48,6 +48,7 @@ Open
 
 ---
 
+- **Kauri original title:** Delfi  An On-Chain Oracle You Can Reason About
 - **Kauri original link:** https://kauri.io/delfi:-an-on-chain-oracle-you-can-reason-about/c59dfaa3c1cb4ee2bcaeb8ff8a97397c/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

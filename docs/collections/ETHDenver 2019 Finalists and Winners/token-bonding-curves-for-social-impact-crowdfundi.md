@@ -42,6 +42,7 @@ https://github.com/curved-ethdenver/Curved
 
 ---
 
+- **Kauri original title:** Token Bonding Curves for Social Impact Crowdfunding
 - **Kauri original link:** https://kauri.io/token-bonding-curves-for-social-impact-crowdfundi/093ba3e7182c442583e015b409e7d4e5/a
 - **Kauri original author:** Abbey Titcomb (@abbey-titcomb)
 - **Kauri original Publication date:** 2019-02-17

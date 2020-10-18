@@ -68,6 +68,7 @@ To Callicoder for this tutorial series that taught me how to do spring security 
 
 ---
 
+- **Kauri original title:** How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin
 - **Kauri original link:** https://kauri.io/how-to-achieve-user-authentication-by-web3-wallet/a7a3198e2673406aa730d41854871e1a/a
 - **Kauri original author:** Hayder Sharhan (@hshar)
 - **Kauri original Publication date:** 2019-08-19

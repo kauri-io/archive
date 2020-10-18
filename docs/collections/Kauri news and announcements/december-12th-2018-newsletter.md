@@ -52,6 +52,7 @@ P.S. If you're having trouble using Kauri, we recommend viewing the articles in 
 
 ---
 
+- **Kauri original title:** December 12th 2018 Newsletter
 - **Kauri original link:** https://kauri.io/december-12th-2018-newsletter/8da33fca3f2d41fe9dde3c033794237f/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-10

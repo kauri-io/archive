@@ -97,6 +97,7 @@ Now that you have a high level idea of what a relayer does, it's time to get sta
 
 ---
 
+- **Kauri original title:** 0x  Peer-to-peer exchange protocol
 - **Kauri original link:** https://kauri.io/0x:-peer-to-peer-exchange-protocol/81054d98abe9412d87f91cd86719e90f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-08

@@ -105,6 +105,7 @@ The metadata patterns for NFTs are still evolving (along with the storage option
 
 ---
 
+- **Kauri original title:** Metadata and Hosting Options
 - **Kauri original link:** https://kauri.io/metadata-and-hosting-options/e931dca3476f49b4ba7433a747ab5022/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

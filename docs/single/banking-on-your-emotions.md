@@ -80,6 +80,7 @@ _Twitter —_
 
 ---
 
+- **Kauri original title:** Banking on your emotions
 - **Kauri original link:** https://kauri.io/banking-on-your-emotions/2d23c1a8e4814901ba6e8cf41e683c00/a
 - **Kauri original author:** Ramesh Babu (@rameshbabu)
 - **Kauri original Publication date:** 2019-02-27

@@ -540,6 +540,7 @@ different amounts, `3`, `6`, `7`, ... -- have fun\!
 
 ---
 
+- **Kauri original title:** Raiden  Generalized State Channels 
 - **Kauri original link:** https://kauri.io/raiden:-generalized-state-channels/e875bf0e94444f86b3dcdebc730f6c7f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-17

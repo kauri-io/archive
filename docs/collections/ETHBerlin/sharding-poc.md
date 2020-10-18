@@ -34,6 +34,7 @@ $ pipenv shell
 
 ---
 
+- **Kauri original title:** Sharding PoC
 - **Kauri original link:** https://kauri.io/sharding-poc/0193c7d7a1d34604880adedae157c09d/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

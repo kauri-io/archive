@@ -461,6 +461,7 @@ To send a transaction between two accounts, Web3j can generate a transaction oje
 
 ---
 
+- **Kauri original title:** Manage an Ethereum account with Java and Web3j
 - **Kauri original link:** https://kauri.io/manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-05-01

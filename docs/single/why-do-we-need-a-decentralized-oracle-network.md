@@ -115,6 +115,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Why do we need a Decentralized Oracle Network?
 - **Kauri original link:** https://kauri.io/why-do-we-need-a-decentralized-oracle-network/9bb7b7a0f51c4ad8a656988472640cc6/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

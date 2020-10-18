@@ -55,6 +55,7 @@ https://github.com/PositiveControl/shares-app (Web App - shares.dwns.io)
 
 ---
 
+- **Kauri original title:** Shares - Issue Private Company Shares in Minutes
 - **Kauri original link:** https://kauri.io/shares-issue-private-company-shares-in-minutes/e2c50b7aec4d4546abe94700ed3fa7ac/a
 - **Kauri original author:** Mark Evans (@mevans)
 - **Kauri original Publication date:** 2019-02-17

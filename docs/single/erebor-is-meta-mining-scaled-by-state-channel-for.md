@@ -52,6 +52,7 @@ https://github.com/elevenbuckets/ETHDenver_2019_Erebor
 
 ---
 
+- **Kauri original title:** Erebor is meta mining scaled by state channel for other state channels 
 - **Kauri original link:** https://kauri.io/erebor-is-meta-mining-scaled-by-state-channel-for/0427ea3098034ba686d59b7f2514df6d/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

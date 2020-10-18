@@ -19,6 +19,7 @@ By Luis Cuende (Aragon)
 
 ---
 
+- **Kauri original title:** True Decentralization
 - **Kauri original link:** https://kauri.io/true-decentralization/57841346d25b491fafa55b837ae5ece5/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

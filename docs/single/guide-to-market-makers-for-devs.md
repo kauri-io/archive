@@ -104,6 +104,7 @@ Contact integrate@makerdao.com or #dev channel on chat.makerdao.com
 
 ---
 
+- **Kauri original title:** Guide to Market Makers for Devs 
 - **Kauri original link:** https://kauri.io/guide-to-market-makers-for-devs/352051ae2cdc4cb9b1f6b87b651df505/a
 - **Kauri original author:** David Utrobin (@davidutro)
 - **Kauri original Publication date:** 2019-02-06

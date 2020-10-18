@@ -44,6 +44,7 @@ https://github.com/SkidanovAlex/xshardsynccalls
 
 ---
 
+- **Kauri original title:** Synchronous Cross-shard Transactions
 - **Kauri original link:** https://kauri.io/synchronous-cross-shard-transactions/51c8d4c8908549468bb0f299f7c044b9/a
 - **Kauri original author:** Alexander Skidanov (@alexskidanov)
 - **Kauri original Publication date:** 2019-02-17

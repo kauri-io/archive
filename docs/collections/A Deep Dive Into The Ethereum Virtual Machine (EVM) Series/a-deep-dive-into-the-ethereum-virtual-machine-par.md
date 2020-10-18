@@ -265,6 +265,7 @@ and Implemented Using Formal Semantics](https://www.ideals.illinois.edu/bitstrea
 
 ---
 
+- **Kauri original title:** A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages
 - **Kauri original link:** https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-par/7a04c82396fd416892e07db4915eb233/a
 - **Kauri original author:** Adrian Hacker (@adrian-h)
 - **Kauri original Publication date:** 2020-02-17

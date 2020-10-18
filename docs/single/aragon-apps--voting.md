@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Aragon Apps  Voting
 - **Kauri original link:** https://kauri.io/aragon-apps:-voting/4ef8d8a3cb344865bfe3e77af0503525/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

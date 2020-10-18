@@ -997,6 +997,7 @@ End of part 1, celebrate by minting a token or two.
 
 ---
 
+- **Kauri original title:** Creating a Flexible NFT (Part 1)
 - **Kauri original link:** https://kauri.io/creating-a-flexible-nft-(part-1)/27640de6baba4aa99d57fd158af5c019/a
 - **Kauri original author:** Billy Rennekamp (@okwme)
 - **Kauri original Publication date:** 2019-06-25

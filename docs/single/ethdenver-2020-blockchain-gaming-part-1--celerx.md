@@ -51,6 +51,7 @@ In part two of my ETHDenver 2020 Blockchain Gaming series, I’m going to talk a
 
 ---
 
+- **Kauri original title:** ETHDenver 2020 Blockchain Gaming Part 1  CelerX
 - **Kauri original link:** https://kauri.io/ethdenver-2020-blockchain-gaming-part-1:-celerx/177925ed1dc6415bb5db3f462105d668/a
 - **Kauri original author:** Zak Wolff (@inmathswetrust)
 - **Kauri original Publication date:** 2020-02-17

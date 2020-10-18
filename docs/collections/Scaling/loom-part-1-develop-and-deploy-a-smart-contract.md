@@ -330,6 +330,7 @@ const address = LocalAddress.fromPublicKey(publicKey).toString();
 
 ---
 
+- **Kauri original title:** Loom - Part 1 - Develop and deploy a smart contract
 - **Kauri original link:** https://kauri.io/loom-part-1-develop-and-deploy-a-smart-contract/6f807cc4fe01479b8b14bd5625b68191/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-07-05

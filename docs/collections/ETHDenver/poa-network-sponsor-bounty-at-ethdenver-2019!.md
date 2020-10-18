@@ -49,6 +49,7 @@ Igor Barinov - igor@poa.network
 
 ---
 
+- **Kauri original title:** POA Network - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/poa-network-sponsor-bounty-at-ethdenver-2019!/3f2b37024c0e448293cd9099ad451f36/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

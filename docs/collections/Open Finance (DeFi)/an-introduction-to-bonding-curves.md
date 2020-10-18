@@ -99,6 +99,7 @@ Overall, the importance of a well-designed bonding curve is made clearer by the 
 
 ---
 
+- **Kauri original title:** An Introduction to Bonding Curves
 - **Kauri original link:** https://kauri.io/an-introduction-to-bonding-curves/f7853f4914bd42b6bee19758a97b42ee/a
 - **Kauri original author:** C (@calvin)
 - **Kauri original Publication date:** 2019-06-04

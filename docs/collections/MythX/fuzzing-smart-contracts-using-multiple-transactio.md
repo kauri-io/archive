@@ -164,6 +164,7 @@ Thanks to
 
 ---
 
+- **Kauri original title:** Fuzzing Smart Contracts Using Multiple Transactions
 - **Kauri original link:** https://kauri.io/fuzzing-smart-contracts-using-multiple-transactio/566c70b35d564ac8a8fcc08c37fb5859/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-02

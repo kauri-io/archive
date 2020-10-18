@@ -230,6 +230,7 @@ In this article, we've covered the ERC721 token standard, the OpenZeppelin imple
 
 ---
 
+- **Kauri original title:** Understanding OpenZeppelin ERC721
 - **Kauri original link:** https://kauri.io/understanding-openzeppelin-erc721/9a7a50e503a1477f8b91397ecf1677da/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-04

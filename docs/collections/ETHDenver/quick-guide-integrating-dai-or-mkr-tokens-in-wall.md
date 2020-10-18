@@ -112,6 +112,7 @@ Contact integrate@makerdao.com or #dev channel on [chat.makerdao.com](https://ch
 
 ---
 
+- **Kauri original title:** Quick guide - Integrating DAI or MKR tokens in wallets
 - **Kauri original link:** https://kauri.io/quick-guide-integrating-dai-or-mkr-tokens-in-wall/10158e201b024ffe99389879da006599/a
 - **Kauri original author:** David Utrobin (@davidutro)
 - **Kauri original Publication date:** 2019-02-06

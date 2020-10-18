@@ -41,6 +41,7 @@ Link to website: [https://kauri.io](https://kauri.io)
 
 ---
 
+- **Kauri original title:** Kauri Importer Guidelines
 - **Kauri original link:** https://kauri.io/kauri-importer-guidelines/15673b4f86da49f5aed621696499c662/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-04-27

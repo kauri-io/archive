@@ -43,6 +43,7 @@ I'd love to hear your thoughts.
 
 ---
 
+- **Kauri original title:** Tokenize All the Things and What Happens Next?
 - **Kauri original link:** https://kauri.io/tokenize-all-the-things-and-what-happens-next/2d1045cceeba4738a42155d198c91eca/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-09-30

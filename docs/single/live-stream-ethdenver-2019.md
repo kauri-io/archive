@@ -44,6 +44,7 @@ ETHDenver — Fortmatic Stage
 
 ---
 
+- **Kauri original title:** Live Stream ETHDenver 2019
 - **Kauri original link:** https://kauri.io/live-stream-ethdenver-2019/50aa214aa9e4475d8f276f093a74cd30/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-02-15

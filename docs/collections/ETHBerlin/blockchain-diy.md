@@ -17,6 +17,7 @@ By Reto Trinkler
 
 ---
 
+- **Kauri original title:** Blockchain DIY
 - **Kauri original link:** https://kauri.io/blockchain-diy/abdbc3332d544d3ca625d578734ab4b8/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

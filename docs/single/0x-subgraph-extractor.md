@@ -51,6 +51,7 @@ https://github.com/michaelhly/0x-subgraph-extractor
 
 ---
 
+- **Kauri original title:** 0x-subgraph-extractor
 - **Kauri original link:** https://kauri.io/0x-subgraph-extractor/1622d337e0c14e55b26e5907548e057e/a
 - **Kauri original author:** Michael Huang (@michaelhly)
 - **Kauri original Publication date:** 2019-02-17

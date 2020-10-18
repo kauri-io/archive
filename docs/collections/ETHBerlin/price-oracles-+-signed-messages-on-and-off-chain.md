@@ -17,6 +17,7 @@ By Mariano Conti
 
 ---
 
+- **Kauri original title:** Price Oracles + Signed Messages On & Off-Chain
 - **Kauri original link:** https://kauri.io/price-oracles-+-signed-messages-on-and-off-chain/f15060278d494aeabb6ea89d77a25a38/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

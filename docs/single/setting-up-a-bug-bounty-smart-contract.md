@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Setting Up a Bug Bounty Smart Contract
 - **Kauri original link:** https://kauri.io/setting-up-a-bug-bounty-smart-contract/9371f1885f174c9e8a1ecaf4362f7b78/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

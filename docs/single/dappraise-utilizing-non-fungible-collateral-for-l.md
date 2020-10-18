@@ -172,6 +172,7 @@ Our next steps are to build out this project to integrate with the dharmas/swap 
 
 ---
 
+- **Kauri original title:** dAppraise - Utilizing Non-Fungible Collateral For Loans
 - **Kauri original link:** https://kauri.io/dappraise-utilizing-non-fungible-collateral-for-l/f498a856b40047bdad6db727a037c5fc/a
 - **Kauri original author:** C (@calvin)
 - **Kauri original Publication date:** 2018-10-12

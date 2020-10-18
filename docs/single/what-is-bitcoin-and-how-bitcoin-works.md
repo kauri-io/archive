@@ -123,6 +123,7 @@ Here are some [common Bitcoin questions](https://blog.coincodecap.com/bitcoin-fo
 
 ---
 
+- **Kauri original title:** What is Bitcoin and How Bitcoin Works?
 - **Kauri original link:** https://kauri.io/what-is-bitcoin-and-how-bitcoin-works/359547ca842744f6bb213050a3abd635/a
 - **Kauri original author:** CoinCodeCap (@coincodecap__)
 - **Kauri original Publication date:** 2020-02-25

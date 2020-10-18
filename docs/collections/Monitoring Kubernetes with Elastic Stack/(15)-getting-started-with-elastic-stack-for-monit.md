@@ -349,6 +349,7 @@ In the following article, we will get started with the installation of ElasticSe
 
 ---
 
+- **Kauri original title:** (1/5) Getting started with Elastic Stack for monitoring on Kubernetes
 - **Kauri original link:** https://kauri.io/(15)-getting-started-with-elastic-stack-for-monit/b3be4dbf895b433f93b3cb589d414988/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-10-19

@@ -114,6 +114,7 @@ Use the network status link to check the status of the chain nodes.
 
 ---
 
+- **Kauri original title:** xDai
 - **Kauri original link:** https://kauri.io/xdai/7834a00daa6f4b1ba7c90d76a7350dec/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-04-02

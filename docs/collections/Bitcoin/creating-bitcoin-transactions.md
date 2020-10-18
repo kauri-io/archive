@@ -1265,6 +1265,7 @@ node, which accepts it.
 
 ---
 
+- **Kauri original title:** Creating Bitcoin Transactions
 - **Kauri original link:** https://kauri.io/creating-bitcoin-transactions/ef9245af2bf94699be53e0a9c41393a4/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-28

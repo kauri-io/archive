@@ -1,5 +1,5 @@
 ---
-title: Josh Stark - Understanding L2 scaling solutions [notes]
+title: Josh Stark - Understanding L2 scaling solutions  notes 
 summary: Josh Stark - L4, Counterfactual DEVCON 4 MainStage, October 31st 2018 Recording- Starts at 3 hours and 33 mins, https-//slideslive.com/38911427/devcon4-day-1 Goal of talk Leave you with a clear conceptual understanding of what Layer 2 means and why it matters. Fundamental limits of blockchains What is Layer 2 State Channels Plasma Context Blockchains are expensive and slow FB ~175,000 tps Visa 2,000 - 45,000 tps PayPal 200 tps Ethereum 20 tps Ethereum is made of many individual nodes which are s
 authors:
   - Andreas Wallendahl (@andreaswallend1)
@@ -7,7 +7,7 @@ date: 2018-10-31
 some_url: 
 ---
 
-# Josh Stark - Understanding L2 scaling solutions [notes]
+# Josh Stark - Understanding L2 scaling solutions  notes 
 
 ![](https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK)
 
@@ -112,6 +112,7 @@ Same technique for payments can let us do arbitrary state updates rather than ju
 
 ---
 
+- **Kauri original title:** Josh Stark - Understanding L2 scaling solutions  notes 
 - **Kauri original link:** https://kauri.io/josh-stark-understanding-l2-scaling-solutions-not/17fb968e07a14e05bb69e1e448741a7b/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2018-10-31

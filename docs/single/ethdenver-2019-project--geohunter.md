@@ -71,6 +71,7 @@ https://github.com/edgefund/GeoHunter
 
 ---
 
+- **Kauri original title:** ETHDenver 2019 Project  GeoHunter
 - **Kauri original link:** https://kauri.io/ethdenver-2019-project:-geohunter/9338d348dd194f6e83a1dbf83e56fc60/a
 - **Kauri original author:** Colin McCrae (@colinmccrae)
 - **Kauri original Publication date:** 2019-02-17

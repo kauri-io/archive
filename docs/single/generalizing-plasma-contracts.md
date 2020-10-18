@@ -65,6 +65,7 @@ https://github.com/kfichter/plasma-predicates/tree/ben
 
 ---
 
+- **Kauri original title:** Generalizing Plasma Contracts
 - **Kauri original link:** https://kauri.io/generalizing-plasma-contracts/5bd6c39b19494fcb97308971af88ea93/a
 - **Kauri original author:** Plasma Group (@plasma)
 - **Kauri original Publication date:** 2019-02-17

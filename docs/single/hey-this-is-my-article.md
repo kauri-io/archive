@@ -17,6 +17,7 @@ This is my article
 
 ---
 
+- **Kauri original title:** HEY THIS IS MY ARTICLE
 - **Kauri original link:** https://kauri.io/hey-this-is-my-article/7a770e88b5534397bfb84feaf0ba7e8d/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2018-09-04

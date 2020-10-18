@@ -88,6 +88,7 @@ Bluzelle does not currently implement secure WebSockets \(WSS\). If you try to c
 
 ---
 
+- **Kauri original title:** Bluzelle - A decentralized data cache
 - **Kauri original link:** https://kauri.io/bluzelle-a-decentralized-data-cache/4cdd52b4333f4d579dbb81fd5e2ab100/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

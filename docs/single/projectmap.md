@@ -62,6 +62,7 @@ https://github.com/justinschuldt/project-map-browser
 
 ---
 
+- **Kauri original title:** ProjectMap
 - **Kauri original link:** https://kauri.io/projectmap/cff659cda55242b3885242e97675fba9/a
 - **Kauri original author:** Kas Osterbuhr (@kaso)
 - **Kauri original Publication date:** 2019-02-17

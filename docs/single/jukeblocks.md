@@ -69,6 +69,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** JukeBlocks
 - **Kauri original link:** https://kauri.io/jukeblocks/33ff68626283451496d06400c9b193f0/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

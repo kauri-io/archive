@@ -90,6 +90,7 @@ Until then, see you in Berlin and Prague!
 
 ---
 
+- **Kauri original title:** Witnet’s Fall Event Schedule
 - **Kauri original link:** https://kauri.io/witnet-s-fall-event-schedule/74f3d118f7ae4068bbf615bf6e50468f/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

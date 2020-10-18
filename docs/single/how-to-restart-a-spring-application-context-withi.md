@@ -149,6 +149,7 @@ This feature can be implemented by making a few trivial extensions to a couple o
 
 ---
 
+- **Kauri original title:** How to Restart a Spring Application Context within a JUnit test
 - **Kauri original link:** https://kauri.io/how-to-restart-a-spring-application-context-withi/3251991670674bcf846cc5792c95fc77/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-09-20

@@ -1438,6 +1438,7 @@ If you have found any errors, update this tutorial by selecting the **Suggest Ed
 
 ---
 
+- **Kauri original title:** Learn Blockchain | Create Your First Blockchain | Blocks & Consensus
 - **Kauri original link:** https://kauri.io/learn-blockchain-or-create-your-first-blockchain-/92034a0c23ed4cb4a6ca959e0a4b78b9/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-12-13

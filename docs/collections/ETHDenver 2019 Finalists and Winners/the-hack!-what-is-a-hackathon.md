@@ -31,6 +31,7 @@ Hackathons often have guidelines for submissions and prizes, make sure you read 
 
 ---
 
+- **Kauri original title:** The Hack?!? What is a hackathon?
 - **Kauri original link:** https://kauri.io/the-hack!-what-is-a-hackathon/d56f7f8c59f945c1b08b67fb3ecab99e/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-01-14

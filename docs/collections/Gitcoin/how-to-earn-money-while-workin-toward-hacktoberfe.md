@@ -171,6 +171,7 @@ Now get out there and complete some bounties!
 
 ---
 
+- **Kauri original title:** How to earn money while workin toward Hacktoberfest
 - **Kauri original link:** https://kauri.io/how-to-earn-money-while-workin-toward-hacktoberfe/9d180d91abd5467d9d2dbfcaaa93ce63/a
 - **Kauri original author:** Gitcoin (@gitcoin)
 - **Kauri original Publication date:** 2018-10-26

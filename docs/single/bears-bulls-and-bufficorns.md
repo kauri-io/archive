@@ -48,6 +48,7 @@ https://github.com/XavierEkkel/ETHDenver
 
 ---
 
+- **Kauri original title:** Bears, Bulls, & Bufficorns
 - **Kauri original link:** https://kauri.io/bears-bulls-and-bufficorns/7c2ceac6a11a4d0099abe15d0c0abad1/a
 - **Kauri original author:** Xavier Ekkel (@xavierekkel)
 - **Kauri original Publication date:** 2019-02-17

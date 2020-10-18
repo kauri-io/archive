@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** uPort AppManager  Create an identity for your app
 - **Kauri original link:** https://kauri.io/uport-appmanager:-create-an-identity-for-your-app/70f4dd34adc148dbaeeb5eff717e5ec1/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

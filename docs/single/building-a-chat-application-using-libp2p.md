@@ -756,6 +756,7 @@ This article was first published on
 
 ---
 
+- **Kauri original title:** Building a Chat Application using Libp2p
 - **Kauri original link:** https://kauri.io/building-a-chat-application-using-libp2p/32b0d9455bfa4312a2f6fb02cae8383f/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-05

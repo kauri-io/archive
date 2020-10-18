@@ -55,6 +55,7 @@ https://github.com/feewet/lca-hub
 
 ---
 
+- **Kauri original title:** Flight Fund - Research Reward Network
 - **Kauri original link:** https://kauri.io/flight-fund-research-reward-network/b73537efe4184e70a26f829914e99641/a
 - **Kauri original author:** Todd Youngblood (@function-xy)
 - **Kauri original Publication date:** 2019-02-17

@@ -100,6 +100,7 @@ Integrated development environments all generally serve the same purpose: to str
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 7 - Decentralized Apps
 - **Kauri original link:** https://kauri.io/ethereum-101-part-7-decentralized-apps/b282e90cb260459fb8a8cc6e24ae34fa/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

@@ -77,6 +77,7 @@ Notes :
 
 ---
 
+- **Kauri original title:** The GETH Simulated Backend
 - **Kauri original link:** https://kauri.io/the-geth-simulated-backend/6285c9692883411aa041b6b970405a17/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2019-08-08

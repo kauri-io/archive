@@ -278,6 +278,7 @@ I hope you find this information helpful. Feel free to send me your comments or 
 
 ---
 
+- **Kauri original title:** Mining with Pantheon
 - **Kauri original link:** https://kauri.io/mining-with-pantheon/1016a4a10e5742638a5445d6268bdcdf/a
 - **Kauri original author:** Web3 Developer (@web3developer)
 - **Kauri original Publication date:** 2019-06-02

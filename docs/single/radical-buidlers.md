@@ -41,6 +41,7 @@ https://github.com/flockonus/eth-denver-2019
 
 ---
 
+- **Kauri original title:** Radical BUIDLers
 - **Kauri original link:** https://kauri.io/radical-buidlers/e7cdcb4eefea48b4a3df48450403468c/a
 - **Kauri original author:** Sam Hutch (@samhutch)
 - **Kauri original Publication date:** 2019-02-17

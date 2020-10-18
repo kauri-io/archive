@@ -51,6 +51,7 @@ https://github.com/brennanfife/DOXA
 
 ---
 
+- **Kauri original title:** DOXA
 - **Kauri original link:** https://kauri.io/doxa/deca1e67ba3b4016b6aebb5ac306185a/a
 - **Kauri original author:** Brennan Fife (@brennanfife)
 - **Kauri original Publication date:** 2019-02-17

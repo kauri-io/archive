@@ -15,6 +15,7 @@ We are going to create a digital token. Tokens in the Ethereum ecosystem can rep
 
 ---
 
+- **Kauri original title:** The Coin
 - **Kauri original link:** https://kauri.io/the-coin/ed4ef1d3e71c4ecd8cfb7e2023ee23a0/a
 - **Kauri original author:** null (@e34e752ce6e08d2deb347bed9ebac35973c6a2f0)
 - **Kauri original Publication date:** 2018-11-26

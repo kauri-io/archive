@@ -52,6 +52,7 @@ Get more information on Besu here:
 
 ---
 
+- **Kauri original title:** Updating the Besu client binary on Linux
 - **Kauri original link:** https://kauri.io/updating-the-besu-client-binary-on-linux/b8900d3bcd5347a5bd88999b366561bc/a
 - **Kauri original author:** Felipe Faraggi (@felipefaraggi)
 - **Kauri original Publication date:** 2020-02-25

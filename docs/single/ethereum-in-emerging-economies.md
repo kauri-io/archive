@@ -132,6 +132,7 @@ If you are interested in building or designing the next iteration of the Burner 
 
 ---
 
+- **Kauri original title:** Ethereum in Emerging Economies
 - **Kauri original link:** https://kauri.io/ethereum-in-emerging-economies/98c8af5e3c734ef29798b55975fa0dbc/a
 - **Kauri original author:** Austin Griffith (@austingriffith)
 - **Kauri original Publication date:** 2018-11-28

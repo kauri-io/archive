@@ -233,6 +233,7 @@ our top stories here
 
 ---
 
+- **Kauri original title:** What could blockchains offer to freelancers?
 - **Kauri original link:** https://kauri.io/what-could-blockchains-offer-to-freelancers/3ebc9fe0343c4acf8c9cc65695daab05/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-11-30

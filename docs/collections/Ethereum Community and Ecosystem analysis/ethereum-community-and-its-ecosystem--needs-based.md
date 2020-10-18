@@ -101,6 +101,7 @@ Thank you cards address: [Kudos me](https://gitcoin.co/kudos/marketplace/) @0x2e
 
 ---
 
+- **Kauri original title:** Ethereum community and its ecosystem  Needs-Based Theories of Motivation approach
 - **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-needs-based/da4ec20a1daf4cdc98e00ef8d001ddb7/a
 - **Kauri original author:** Michael A (@silver84)
 - **Kauri original Publication date:** 2019-03-19

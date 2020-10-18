@@ -17,6 +17,7 @@ Jon Jordan - Editor - Accidental Gizmo
 
 ---
 
+- **Kauri original title:** Opening Keynote
 - **Kauri original link:** https://kauri.io/opening-keynote/22df3d4301eb4661b6835e0caa37e182/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2019-03-14

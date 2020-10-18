@@ -57,6 +57,7 @@ I also like to spend time with my girlfriend and my friends. Traveling to new co
 
 ---
 
+- **Kauri original title:** Luis Rubio, Back End Engineer
 - **Kauri original link:** https://kauri.io/luis-rubio-back-end-engineer/099b2f27716046599392a51e1cdb357f/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-21

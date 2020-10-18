@@ -79,6 +79,7 @@ Copyright and related rights waived via [CC0](https://creativecommons.org/public
 
 ---
 
+- **Kauri original title:** System Description Document
 - **Kauri original link:** https://kauri.io/system-description-document/a3a29cf21736417684361836693388e5/a
 - **Kauri original author:** Rex Hygate (@rhygate)
 - **Kauri original Publication date:** 2019-03-13

@@ -81,6 +81,7 @@ The final wave of applications for ETHDenver closes January 31st so [apply today
 
 ---
 
+- **Kauri original title:**  BUIDL the Future of Privacy at ETHDenver with NuCypher
 - **Kauri original link:** https://kauri.io/buidl-the-future-of-privacy-at-ethdenver-with-nuc/892e5ee1912e4478a0066b922585c17c/a
 - **Kauri original author:** MacLane Wilkison (@maclane)
 - **Kauri original Publication date:** 2019-01-25

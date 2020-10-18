@@ -70,6 +70,7 @@ I am personally skeptical about the bankruptcy of the euro in a few years, but e
 
 ---
 
+- **Kauri original title:** The Euro Collapsing and Bitcoin
 - **Kauri original link:** https://kauri.io/the-euro-collapsing-and-bitcoin/0b3c8675e235444eadcb160f7c110660/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-01

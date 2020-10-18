@@ -263,6 +263,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id
 
 ---
 
+- **Kauri original title:** Quorum how-to
 - **Kauri original link:** https://kauri.io/quorum-how-to/97e916abb4b5431bbb297f42d0ce8b88/a
 - **Kauri original author:** Antoine Toulme (@tmio)
 - **Kauri original Publication date:** 2018-12-05

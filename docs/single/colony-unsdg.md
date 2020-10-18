@@ -51,6 +51,7 @@ https://github.com/fuguefoundation/truffle-colony-unsdg
 
 ---
 
+- **Kauri original title:** Colony UNSDG
 - **Kauri original link:** https://kauri.io/colony-unsdg/e878bfe46a164bd9826f71ba432fd7e5/a
 - **Kauri original author:** David Houston (@fuguefoundation)
 - **Kauri original Publication date:** 2019-02-17

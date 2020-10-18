@@ -52,6 +52,7 @@ All the etherium based systems use Metamask, and the EOS ones use Scatter. So, y
 
 ---
 
+- **Kauri original title:** Defi and Opfi lending and borrowing platforms (Users perspective)
 - **Kauri original link:** https://kauri.io/defi-and-opfi-lending-and-borrowing-platforms-(us/6012ca70153c4bb2af8b7849bcb6909f/a
 - **Kauri original author:** Fred Blauer (@fblauer)
 - **Kauri original Publication date:** 2019-07-24

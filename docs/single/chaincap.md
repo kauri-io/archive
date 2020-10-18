@@ -51,6 +51,7 @@ I'm not familiar with Github so I apologize if I uploaded it wrong.
 
 ---
 
+- **Kauri original title:** ChainCap
 - **Kauri original link:** https://kauri.io/chaincap/ac7d7dc2346441cb8a9ec14e3bb09d5a/a
 - **Kauri original author:** Matt Wojnoski (@matt-wojnoski)
 - **Kauri original Publication date:** 2019-02-17

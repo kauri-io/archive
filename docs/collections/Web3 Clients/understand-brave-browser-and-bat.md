@@ -127,6 +127,7 @@ To conclude, Brave Browser provides a privacy-first solution to build a sustaina
 
 ---
 
+- **Kauri original title:** Understand Brave Browser and BAT
 - **Kauri original link:** https://kauri.io/understand-brave-browser-and-bat/855e778477644972b3023383c9925d74/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-02-10

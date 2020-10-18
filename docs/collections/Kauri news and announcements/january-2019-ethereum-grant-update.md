@@ -59,6 +59,7 @@ Email: <info@kauri.io> Twitter: [@kauri_io](https://twitter.com/kauri_io)
 
 ---
 
+- **Kauri original title:** January 2019 Ethereum Grant Update
 - **Kauri original link:** https://kauri.io/january-2019-ethereum-grant-update/56de1edb7c4746568c608f0de24f75fb/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-09

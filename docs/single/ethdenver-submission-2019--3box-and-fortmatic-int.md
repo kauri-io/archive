@@ -59,6 +59,7 @@ https://github.com/rej156/fortmatic-3box-integration
 
 ---
 
+- **Kauri original title:** EthDenver submission 2019  3box and Fortmatic integration
 - **Kauri original link:** https://kauri.io/ethdenver-submission-2019:-3box-and-fortmatic-int/536a6f4edec840f6b392788378ba35e0/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-02-16

@@ -50,6 +50,7 @@ https://github.com/ubien/WyreCostAverage
 
 ---
 
+- **Kauri original title:** Dollar Cost Averaging using Wyre
 - **Kauri original link:** https://kauri.io/dollar-cost-averaging-using-wyre/6cf6ec391af0484ab87e3eca720cc480/a
 - **Kauri original author:** Jacob Mortensen (@ubien)
 - **Kauri original Publication date:** 2019-02-17

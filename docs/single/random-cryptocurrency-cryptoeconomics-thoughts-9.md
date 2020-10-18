@@ -49,6 +49,7 @@ _Disclaimers:. YMMV. This is not investment advice. I’m ego-driven, clueless a
 
 ---
 
+- **Kauri original title:** random cryptocurrency / cryptoeconomics thoughts  9
 - **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-9/8bc57926af17404a9a853cdf9dbff858/a
 - **Kauri original author:** blacque64 (@blacque)
 - **Kauri original Publication date:** 2019-05-20

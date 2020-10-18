@@ -61,6 +61,7 @@ Kyokan's Plasma MVP is planning to integrate the Plasma MVP smart contracts from
 
 ---
 
+- **Kauri original title:** Minimum Viable Plasma - The Kyokan Implementation
 - **Kauri original link:** https://kauri.io/minimum-viable-plasma-the-kyokan-implementation/7f9e1c04f3964016806becc33003bdf3/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-14

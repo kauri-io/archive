@@ -176,6 +176,7 @@ Third, a majority of nodes behaves badly. In fact, the majority doesn’t even n
 
 ---
 
+- **Kauri original title:** Blockchain Explained
 - **Kauri original link:** https://kauri.io/blockchain-explained/d55684513211466da7f8cc03987607d5/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2018-11-29

@@ -261,6 +261,7 @@ Now you’re ready to start building! Try your hand at some of our tutorials:
 
 ---
 
+- **Kauri original title:** Set Protocol  Baskets of tokenized assets
 - **Kauri original link:** https://kauri.io/set-protocol:-baskets-of-tokenized-assets/f6bedcda0eb24decb02de9f4d3e42ef3/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-08

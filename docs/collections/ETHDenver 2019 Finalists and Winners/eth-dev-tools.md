@@ -73,6 +73,7 @@ We added a module to allow developers and dapp users to create and delete subscr
 
 ---
 
+- **Kauri original title:** ETH Dev Tools
 - **Kauri original link:** https://kauri.io/eth-dev-tools/03a1ce4d66aa47e2a935f7d65f936371/a
 - **Kauri original author:** Aidan Musnitzky (@musnit)
 - **Kauri original Publication date:** 2019-02-22

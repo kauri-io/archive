@@ -276,6 +276,7 @@ We've covered the basics of working with IPFS. Here is a summary of all the comm
 
 ---
 
+- **Kauri original title:** Installing IPFS
 - **Kauri original link:** https://kauri.io/installing-ipfs/b01b9b7bebcd4ebf80edf021bdd0e232/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-19

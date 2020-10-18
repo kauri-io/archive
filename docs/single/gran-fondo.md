@@ -76,6 +76,7 @@ https://github.com/tokensoft/gran-fondo
 
 ---
 
+- **Kauri original title:** Gran Fondo 
 - **Kauri original link:** https://kauri.io/gran-fondo/3add68e04da54dde94c3fc07b81cf289/a
 - **Kauri original author:** Gran Fondo (@gran-fondo)
 - **Kauri original Publication date:** 2019-02-17

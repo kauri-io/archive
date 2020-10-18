@@ -45,6 +45,7 @@ https://github.com/jschiarizzi/superRandom
 
 ---
 
+- **Kauri original title:** Super Random EVM
 - **Kauri original link:** https://kauri.io/super-random-evm/7a723ab5dd1943daaa6ac79fb380ab69/a
 - **Kauri original author:** Joseph S (@josephs)
 - **Kauri original Publication date:** 2019-02-17

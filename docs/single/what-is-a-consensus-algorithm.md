@@ -28,6 +28,7 @@ Other commonly used consensus algorithms include the proof-of-stake consensus al
 
 ---
 
+- **Kauri original title:** WHAT IS A CONSENSUS ALGORITHM?
 - **Kauri original link:** https://kauri.io/what-is-a-consensus-algorithm/09a45da0c1304638b15831bde98a3d05/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11

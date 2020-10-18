@@ -150,6 +150,7 @@ To use the private transactions functionality, Parity client must be launched wi
 
 ---
 
+- **Kauri original title:** Parity - Private Transactions
 - **Kauri original link:** https://kauri.io/parity-private-transactions/15d01dbd345340789461b8bd48f56f3c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-01

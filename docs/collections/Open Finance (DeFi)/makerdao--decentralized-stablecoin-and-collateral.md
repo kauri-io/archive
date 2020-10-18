@@ -65,6 +65,7 @@ If you’re looking for market making resources, this guide gives insight into t
 
 ---
 
+- **Kauri original title:** MakerDAO  Decentralized stablecoin and collateral loans
 - **Kauri original link:** https://kauri.io/makerdao:-decentralized-stablecoin-and-collateral/88db636595ca457eb7fec0a4a56d1a80/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-08

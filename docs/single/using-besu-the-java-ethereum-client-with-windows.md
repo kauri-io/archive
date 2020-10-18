@@ -193,6 +193,7 @@ Find more information in the [Besu documentation](http://besu.hyperledger.org/).
 
 ---
 
+- **Kauri original title:** Using Besu, the Java Ethereum Client with Windows
 - **Kauri original link:** https://kauri.io/using-besu-the-java-ethereum-client-with-windows/8ed3a9dac7e044f9b6b45491fcef0df5/a
 - **Kauri original author:** Felipe Faraggi (@felipefaraggi)
 - **Kauri original Publication date:** 2019-11-22

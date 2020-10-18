@@ -33,6 +33,7 @@ Smart contracts are mostly implemented in blockchain to enhance the system, howe
 
 ---
 
+- **Kauri original title:** Blockchain Powered by AI
 - **Kauri original link:** https://kauri.io/blockchain-powered-by-ai/076f7740bae44f5983d406d7a7c785e5/a
 - **Kauri original author:** Leaon Luongo (@libonomy)
 - **Kauri original Publication date:** 2020-04-22

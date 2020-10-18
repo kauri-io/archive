@@ -102,6 +102,7 @@ more-math
 
 ---
 
+- **Kauri original title:** Ethstonian Identity
 - **Kauri original link:** https://kauri.io/ethstonian-identity/5b76e878edb04eee914b17e5e45b0f62/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

@@ -64,6 +64,7 @@ Likewise, multi client testnets create environments that allow for testing of cl
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 6 - Mainnet & Testnets
 - **Kauri original link:** https://kauri.io/ethereum-101-part-6-mainnet-and-testnets/3eba08b801a44776a07607b9e046dd08/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

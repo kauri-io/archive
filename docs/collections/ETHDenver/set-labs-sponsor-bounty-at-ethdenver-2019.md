@@ -47,6 +47,7 @@ Inje Yeo - Inje@setprotocol.com
 
 ---
 
+- **Kauri original title:** Set Labs - Sponsor Bounty at ETHDenver 2019
 - **Kauri original link:** https://kauri.io/set-labs-sponsor-bounty-at-ethdenver-2019/769106c9f7474782bf57a1a49fefe1d2/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

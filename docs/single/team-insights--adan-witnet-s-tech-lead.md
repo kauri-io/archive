@@ -87,6 +87,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Team Insights  Adán, Witnet’s Tech Lead
 - **Kauri original link:** https://kauri.io/team-insights:-adan-witnet-s-tech-lead/d81d793f82b745ed86aa8cf05c5c2bf3/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-16

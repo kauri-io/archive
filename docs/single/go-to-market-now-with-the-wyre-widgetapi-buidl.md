@@ -51,6 +51,7 @@ We want to thank everyone in advance for participating in the hackathon, it will
 
 ---
 
+- **Kauri original title:** Go to Market NOW with the Wyre Widget/API  BUIDL
 - **Kauri original link:** https://kauri.io/go-to-market-now-with-the-wyre-widgetapi-buidl/95398111de5f4606a345ad721afaa93d/a
 - **Kauri original author:** Thomas Scaria (@tomscaria)
 - **Kauri original Publication date:** 2019-02-15

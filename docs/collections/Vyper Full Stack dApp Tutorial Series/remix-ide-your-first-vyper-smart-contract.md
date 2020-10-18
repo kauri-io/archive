@@ -197,6 +197,7 @@ You can find the [complete Bounties.vy file here for reference](https://github.c
 
 ---
 
+- **Kauri original title:** Remix IDE - Your first Vyper smart contract
 - **Kauri original link:** https://kauri.io/remix-ide-your-first-vyper-smart-contract/15b95281c17a4954a5278865bbc0f515/a
 - **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
 - **Kauri original Publication date:** 2019-08-29

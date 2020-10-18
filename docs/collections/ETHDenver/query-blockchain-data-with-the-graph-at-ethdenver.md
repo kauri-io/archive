@@ -49,6 +49,7 @@ If you need help with The Graph, they have a [discord](https://discord.gg/vtvv7F
 
 ---
 
+- **Kauri original title:** Query Blockchain Data with The Graph at ETHDenver
 - **Kauri original link:** https://kauri.io/query-blockchain-data-with-the-graph-at-ethdenver/10cd2a6e80f04cb9a5bbc06a15348722/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-08

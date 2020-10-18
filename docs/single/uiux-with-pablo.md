@@ -49,6 +49,7 @@ https://drive.google.com/open?id=1K8sGnANbccx33Hc5Pe-asfwYirkJKqBE
 
 ---
 
+- **Kauri original title:** UI/UX with Pablo
 - **Kauri original link:** https://kauri.io/uiux-with-pablo/6a9b195fb42340678cfa0d0debc2b7a0/a
 - **Kauri original author:** Federico Malvezzi (@fedemalvezzi)
 - **Kauri original Publication date:** 2019-02-17

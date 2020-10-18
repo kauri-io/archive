@@ -291,6 +291,7 @@ _This post was originally posted on [future-processing technical blog](https://w
 
 ---
 
+- **Kauri original title:** Storing files in a distributed file system using blockchain technology
 - **Kauri original link:** https://kauri.io/storing-files-in-a-distributed-file-system-using-/7d8b71b6976b4a26aa6865873f75dc4c/a
 - **Kauri original author:** krb (@krb)
 - **Kauri original Publication date:** 2018-12-17

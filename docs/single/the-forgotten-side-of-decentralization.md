@@ -99,6 +99,7 @@ As developers test drive these Layer 2 solutions over the coming months––for
 
 ---
 
+- **Kauri original title:** The Forgotten Side of Decentralization
 - **Kauri original link:** https://kauri.io/the-forgotten-side-of-decentralization/1dce7ead0840458d930e5980ce879728/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2018-09-14

@@ -68,6 +68,7 @@ https://github.com/Dziubutkus/etherradio
 
 ---
 
+- **Kauri original title:** EtherRadio 
 - **Kauri original link:** https://kauri.io/etherradio/c95eac6849ab438e91ae72de13ea4197/a
 - **Kauri original author:** Kareem (@kareem9000)
 - **Kauri original Publication date:** 2019-02-17

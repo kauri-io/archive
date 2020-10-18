@@ -71,6 +71,7 @@ Maria Magenes - maria@aave.com
 
 ---
 
+- **Kauri original title:** Aave - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/aave-sponsor-bounty-at-ethdenver-2019!/31d67441cffc4f4aa83901a82ccac7ac/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-16

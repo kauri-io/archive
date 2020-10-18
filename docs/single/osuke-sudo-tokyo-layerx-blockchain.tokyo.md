@@ -54,6 +54,7 @@ Blockchain research meetup - Osaka - October 9th with LayerX, Quantstamp and Myt
 
 ---
 
+- **Kauri original title:** Osuke Sudo - Tokyo - LayerX, blockchain.tokyo
 - **Kauri original link:** https://kauri.io/osuke-sudo-tokyo-layerx-blockchain.tokyo/371428400af6444eb854ba21ecf43147/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-10-02

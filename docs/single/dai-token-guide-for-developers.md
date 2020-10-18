@@ -190,6 +190,7 @@ In this guide, we briefly discussed the technical details of the Dai token contr
 
 ---
 
+- **Kauri original title:** Dai Token Guide for Developers 
 - **Kauri original link:** https://kauri.io/dai-token-guide-for-developers/9ef53381beb14100a2af9817e22bd812/a
 - **Kauri original author:** David Utrobin (@davidutro)
 - **Kauri original Publication date:** 2019-02-06

@@ -119,6 +119,7 @@ Right nice and clear, I should add my key.
 
 ---
 
+- **Kauri original title:** Language and understandable writing
 - **Kauri original link:** https://kauri.io/language-and-understandable-writing/01db62a1bdf54c4b99a852fe9700e930/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-11-18

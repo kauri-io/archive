@@ -122,6 +122,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — October 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-october-2018/e9a33360b3444342abadca28cf85213e/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

@@ -17,6 +17,7 @@ By Nadav Hollander
 
 ---
 
+- **Kauri original title:** The Power of Open Financial Primitives
 - **Kauri original link:** https://kauri.io/the-power-of-open-financial-primitives/13819ff53ced467c8515295e83bf527a/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

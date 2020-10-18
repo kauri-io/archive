@@ -116,6 +116,7 @@ We will continue to work with more patient associations with different diseases,
 
 ---
 
+- **Kauri original title:** Embleema  The Blockchain That Lets You Own Your Health Data
 - **Kauri original link:** https://kauri.io/embleema:-the-blockchain-that-lets-you-own-your-h/1eb4b076c4ee4bd3beb652dd4d2f266c/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-09-23

@@ -55,6 +55,7 @@ As the community keeps developing and working together to bring new solutions to
 
 ---
 
+- **Kauri original title:** The state of Web3 UX in 2018
 - **Kauri original link:** https://kauri.io/the-state-of-web3-ux-in-2018/e58bc467b7474a0eb3e1afe4eb9fe634/a
 - **Kauri original author:** Pedro Gomes (@pedrouid)
 - **Kauri original Publication date:** 2018-11-30

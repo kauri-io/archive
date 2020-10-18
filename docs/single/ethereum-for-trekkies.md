@@ -57,6 +57,7 @@ In Ethereum, [we have ERC-721](http://erc721.org/) , a token standard which is t
 
 ---
 
+- **Kauri original title:** Ethereum for Trekkies
 - **Kauri original link:** https://kauri.io/ethereum-for-trekkies/def2b053db4f472d83e8dedec8357f49/a
 - **Kauri original author:** ShatnerHODL (@shatnerhodl)
 - **Kauri original Publication date:** 2018-11-13

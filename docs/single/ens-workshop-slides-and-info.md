@@ -15,6 +15,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** ENS Workshop - Slides and info 
 - **Kauri original link:** https://kauri.io/ens-workshop-slides-and-info/3267204789654929ac633e7ff5402192/a
 - **Kauri original author:** null (@mp)
 - **Kauri original Publication date:** 2018-09-24

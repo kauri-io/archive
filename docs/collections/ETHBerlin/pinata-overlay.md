@@ -65,6 +65,7 @@ We will continue building out Pinata Overlay for #ETHSanFransisco where we inten
 
 ---
 
+- **Kauri original title:** Piñata Overlay
 - **Kauri original link:** https://kauri.io/pinata-overlay/31db845be1fd42e2be03ec6da4d7259b/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

@@ -66,6 +66,7 @@ And if you'd like to lead a Community, apply to our [Ambassador Program](https:/
 
 ---
 
+- **Kauri original title:** Communities for DeFi, Scaling, Privacy and More
 - **Kauri original link:** https://kauri.io/communities-for-defi-scaling-privacy-and-more/33d197077e5440d195a8ab76a7ba46d9/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-07-22

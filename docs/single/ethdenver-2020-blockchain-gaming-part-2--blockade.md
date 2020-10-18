@@ -65,6 +65,7 @@ Wrapping things up in style, Ben and [some friends](https://twitter.com/coin_art
 
 ---
 
+- **Kauri original title:** ETHDenver 2020 Blockchain Gaming Part 2  Blockade Games
 - **Kauri original link:** https://kauri.io/ethdenver-2020-blockchain-gaming-part-2:-blockade/4e9f978ee4cd4286b33a6b1b57c3ca55/a
 - **Kauri original author:** Zak Wolff (@inmathswetrust)
 - **Kauri original Publication date:** 2020-02-19

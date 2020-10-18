@@ -186,6 +186,7 @@ Mark
 
 ---
 
+- **Kauri original title:** Updating and Testing a Raffle Contract
 - **Kauri original link:** https://kauri.io/updating-and-testing-a-raffle-contract/c0525a7f8f554071bd5db03d8dd7dce8/a
 - **Kauri original author:** Mark Crowther (@mark-crowther)
 - **Kauri original Publication date:** 2019-06-27

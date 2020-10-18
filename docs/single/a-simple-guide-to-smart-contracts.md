@@ -29,6 +29,7 @@ Although technically the first mover in smart contracts, Bitcoin is limited to v
 
 ---
 
+- **Kauri original title:** A SIMPLE GUIDE TO SMART CONTRACTS
 - **Kauri original link:** https://kauri.io/a-simple-guide-to-smart-contracts/f162d68b662443aab76627d4e9951b36/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11

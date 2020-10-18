@@ -56,6 +56,7 @@ By the way, do you love Rust and want to join one of the most exciting projects 
 
 ---
 
+- **Kauri original title:** 8 reasons Witnet Is Building With Rust
 - **Kauri original link:** https://kauri.io/8-reasons-witnet-is-building-with-rust/09d57dce0b2f4a43bb411c68c5f147e6/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-15

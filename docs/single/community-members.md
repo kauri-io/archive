@@ -19,6 +19,7 @@ Moreover, on the 7. of September, in addition to the main venue, ETHBerlin is ho
 
 ---
 
+- **Kauri original title:** Community Members
 - **Kauri original link:** https://kauri.io/community-members/6a288e4d47754db783f5f47093a48f42/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

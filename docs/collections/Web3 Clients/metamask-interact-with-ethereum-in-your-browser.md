@@ -140,6 +140,7 @@ There are various DApps to explore depending on your interest. For our example, 
 
 ---
 
+- **Kauri original title:** Metamask - Interact with Ethereum in your Browser
 - **Kauri original link:** https://kauri.io/metamask-interact-with-ethereum-in-your-browser/2a587f3962044515937a8105cfa1568c/a
 - **Kauri original author:** Maliha Balala (@malihawrites)
 - **Kauri original Publication date:** 2019-01-25

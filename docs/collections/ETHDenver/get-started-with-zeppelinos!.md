@@ -73,6 +73,7 @@ You are not alone! Team Zeppelin will be at the hackathon! You will recognize us
 
 ---
 
+- **Kauri original title:** Get started with ZeppelinOS!
 - **Kauri original link:** https://kauri.io/get-started-with-zeppelinos!/f6371bb1254b43aaa34ab821f3043e40/a
 - **Kauri original author:** Dennison Bertram (@dennisonbertram)
 - **Kauri original Publication date:** 2019-02-13

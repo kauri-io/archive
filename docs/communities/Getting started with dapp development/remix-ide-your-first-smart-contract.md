@@ -404,6 +404,7 @@ You can find the [complete Bounties.sol file here for reference](https://github.
 
 ---
 
+- **Kauri original title:** Remix IDE - Your first smart contract
 - **Kauri original link:** https://kauri.io/remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-11-20

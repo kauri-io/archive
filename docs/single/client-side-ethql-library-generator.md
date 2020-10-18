@@ -76,6 +76,7 @@ https://github.com/ryanchristo/lil-buidl
 
 ---
 
+- **Kauri original title:** Client-Side EthQL Library Generator
 - **Kauri original link:** https://kauri.io/client-side-ethql-library-generator/1a7dffd63e6f44eaa35bd7772133156b/a
 - **Kauri original author:** Scott Street (@sprusr)
 - **Kauri original Publication date:** 2019-02-17

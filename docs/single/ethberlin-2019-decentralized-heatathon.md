@@ -74,6 +74,7 @@ And that's at! See you at DevCon in Osaka. 🇯🇵 👋
 
 ---
 
+- **Kauri original title:** ETHBerlin 2019 - Decentralized Heatathon 
 - **Kauri original link:** https://kauri.io/ethberlin-2019-decentralized-heatathon/09019039d2564449a129f7f415b79187/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-08-30

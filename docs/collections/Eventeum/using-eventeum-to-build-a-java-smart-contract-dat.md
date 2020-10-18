@@ -305,6 +305,7 @@ Congratulations!  You have just implemented a caching service that listens to ev
 
 ---
 
+- **Kauri original title:** Using Eventeum to Build a Java Smart Contract Data Cache
 - **Kauri original link:** https://kauri.io/using-eventeum-to-build-a-java-smart-contract-dat/fe81ee9612eb4e5a9ab72790ef24283d/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-04-14

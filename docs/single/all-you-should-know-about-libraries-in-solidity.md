@@ -250,6 +250,7 @@ Happy Coding 😇
 
 ---
 
+- **Kauri original title:** All you should know about libraries in solidity
 - **Kauri original link:** https://kauri.io/all-you-should-know-about-libraries-in-solidity/bb7efad0f7204a67aa6fa2b71b9641bc/a
 - **Kauri original author:** Sarvesh Jain (@sarveshgs)
 - **Kauri original Publication date:** 2019-05-13

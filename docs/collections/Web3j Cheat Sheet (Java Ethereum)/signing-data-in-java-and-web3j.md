@@ -52,6 +52,7 @@ String hexSigS = Numeric.toHexString(signedMessage.getS());
 
 ---
 
+- **Kauri original title:** Signing Data in Java and Web3j
 - **Kauri original link:** https://kauri.io/signing-data-in-java-and-web3j/405c1ebadc29451b9df85864fb36b4bf/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18

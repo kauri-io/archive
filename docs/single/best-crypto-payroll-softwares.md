@@ -111,6 +111,7 @@ If you are a company in the crypto space, consider using a crypto payroll softwa
 
 ---
 
+- **Kauri original title:** Best Crypto Payroll Softwares
 - **Kauri original link:** https://kauri.io/best-crypto-payroll-softwares/22cecdf974cd4552b367ed5b2d9e12d9/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18

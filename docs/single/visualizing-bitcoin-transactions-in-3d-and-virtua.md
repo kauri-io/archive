@@ -96,6 +96,7 @@ The application and all the assets are open-source and available for you to down
 
 ---
 
+- **Kauri original title:** Visualizing Bitcoin Transactions in 3D and Virtual Reality
 - **Kauri original link:** https://kauri.io/visualizing-bitcoin-transactions-in-3d-and-virtua/ef32ddae59094e8b99c92131b9148200/a
 - **Kauri original author:** Kevin Small (@kevnsmall)
 - **Kauri original Publication date:** 2019-04-02

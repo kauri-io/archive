@@ -60,6 +60,7 @@ https://github.com/gomox/poap
 
 ---
 
+- **Kauri original title:** POAP SUBMISSION
 - **Kauri original link:** https://kauri.io/poap-submission/f444b199f5814e6397aaa9b9bd42494f/a
 - **Kauri original author:** DANIEL FERNANDEZ (@dmf7z)
 - **Kauri original Publication date:** 2019-02-17

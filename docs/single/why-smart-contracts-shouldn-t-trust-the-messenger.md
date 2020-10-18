@@ -104,6 +104,7 @@ Smart contract platforms grant us much power to create entirely new ways of doin
 
 ---
 
+- **Kauri original title:** Why Smart Contracts Shouldn’t Trust the Messenger
 - **Kauri original link:** https://kauri.io/why-smart-contracts-shouldn-t-trust-the-messenger/9d97c9aa9bff4424ad47a803f02ace86/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

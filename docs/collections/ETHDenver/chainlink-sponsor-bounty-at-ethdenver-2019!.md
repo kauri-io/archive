@@ -56,6 +56,7 @@ Adelyn Zhou - adelyn@smartcontract.com
 
 ---
 
+- **Kauri original title:** Chainlink - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/chainlink-sponsor-bounty-at-ethdenver-2019!/9c67f8cfcd6f4872a2827249db718521/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

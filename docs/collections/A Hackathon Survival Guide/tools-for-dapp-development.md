@@ -254,6 +254,7 @@ Consensys Labs along with the Ethereum developer community, have been aggregatin
 
 ---
 
+- **Kauri original title:** Tools for dApp development
 - **Kauri original link:** https://kauri.io/tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-01-16

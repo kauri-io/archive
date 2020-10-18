@@ -134,6 +134,7 @@ _powerfu_
 
 ---
 
+- **Kauri original title:** Privacy, a Philosophical Approach Beyond Morality
 - **Kauri original link:** https://kauri.io/privacy-a-philosophical-approach-beyond-morality/44486d3af3d4471d8f0ddb80531916b4/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

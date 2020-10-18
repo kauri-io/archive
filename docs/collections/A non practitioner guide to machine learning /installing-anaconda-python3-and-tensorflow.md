@@ -110,6 +110,7 @@ Well done so far and let's start building our first model!
 
 ---
 
+- **Kauri original title:** Installing Anaconda, Python3 and Tensorflow
 - **Kauri original link:** https://kauri.io/installing-anaconda-python3-and-tensorflow/5bf3a311af45420781dfbb3963b253b1/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2019-10-22

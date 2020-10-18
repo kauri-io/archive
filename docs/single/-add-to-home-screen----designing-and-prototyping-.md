@@ -116,6 +116,7 @@ _._
 
 ---
 
+- **Kauri original title:** ‘Add to home screen’   Designing & prototyping a native app in HTML
 - **Kauri original link:** https://kauri.io/-add-to-home-screen--:-designing-and-prototyping-/45d39987ae974e5ab52a2cc0dd772c35/a
 - **Kauri original author:** L Daniel Swakman (@ldanielswakman)
 - **Kauri original Publication date:** 2019-05-24

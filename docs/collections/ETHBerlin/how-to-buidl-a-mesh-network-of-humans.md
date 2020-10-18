@@ -19,6 +19,7 @@ By Kevin Owocki (Gitcoin)
 
 ---
 
+- **Kauri original title:** How to BUIDL a Mesh Network of Humans
 - **Kauri original link:** https://kauri.io/how-to-buidl-a-mesh-network-of-humans/4bfa522c473f46a0ba544977c3b24940/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

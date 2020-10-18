@@ -67,6 +67,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Team Insights  Gorka, Research Lead
 - **Kauri original link:** https://kauri.io/team-insights:-gorka-research-lead/b6d848a946a24482b7f7b6bbd94030a4/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

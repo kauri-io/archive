@@ -1,5 +1,5 @@
 ---
-title: Not Fade Away  A Short Life Well Lived [Book Review]
+title: Not Fade Away  A Short Life Well Lived  Book Review 
 summary: Brief Summary of the Book Half biography-autobiography, successful husband, father, friend, and businessman, Peter Barton, implores the help of writer, Laurence Shames, in documenting the last months of his life after he is diagnosed with a terminal stomach cancer. Coauthored by the two young men, Not Fade Away- A Short Life Well Lived is an intimate illustration of a man in understanding of his capstone life lessons. Humbly, Peter, makes no grandiose attempts at lifes big questions. His story i
 authors:
   - Christopher Robison (@cbobrobison)
@@ -7,7 +7,7 @@ date: 2018-11-30
 some_url: 
 ---
 
-# Not Fade Away  A Short Life Well Lived [Book Review]
+# Not Fade Away  A Short Life Well Lived  Book Review 
 
 ![](https://ipfs.infura.io/ipfs/QmbtmY5xhpoLu6EvXgZpKwGjAyEwMXya7uvZ5XSbQq5Vvj)
 
@@ -61,6 +61,7 @@ The chapter that took me the longest to read was the last one. It's no surprise 
 
 ---
 
+- **Kauri original title:** Not Fade Away  A Short Life Well Lived  Book Review 
 - **Kauri original link:** https://kauri.io/not-fade-away:-a-short-life-well-lived-book-revie/1cdfddc8d55d4c17bcf2ddfe3465723d/a
 - **Kauri original author:** Christopher Robison (@cbobrobison)
 - **Kauri original Publication date:** 2018-11-30

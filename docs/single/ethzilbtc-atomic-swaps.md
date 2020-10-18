@@ -54,6 +54,7 @@ https://github.com/mattBlackDesign/chainabstractionlayer/tree/master/src/provide
 
 ---
 
+- **Kauri original title:** ETH/ZIL/BTC Atomic Swaps
 - **Kauri original link:** https://kauri.io/ethzilbtc-atomic-swaps/7c3b7e1a4d78437d923a666f50f4c7e2/a
 - **Kauri original author:** Tony Cai (@runrafter)
 - **Kauri original Publication date:** 2019-02-17

@@ -101,6 +101,7 @@ A quick internet search will return a long list of ongoing, more theoretical wor
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 1 - What is Ethereum?
 - **Kauri original link:** https://kauri.io/ethereum-101-part-1-what-is-ethereum/67a81d8746ee4b49ba19447e8e2a983e/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

@@ -50,6 +50,7 @@ Copyright and related rights waived via [CC0](https://creativecommons.org/public
 
 ---
 
+- **Kauri original title:** SecurEth Guidelines Introduction
 - **Kauri original link:** https://kauri.io/secureth-guidelines-introduction/15f9b5cb2c644476ab8f68a9924f8549/a
 - **Kauri original author:** Rex Hygate (@rhygate)
 - **Kauri original Publication date:** 2019-06-06

@@ -91,6 +91,7 @@ The Uniswap frontend is an open source interface designed to improve user experi
 
 ---
 
+- **Kauri original title:** Uniswap  Protocol for automated token exchange
 - **Kauri original link:** https://kauri.io/uniswap:-protocol-for-automated-token-exchange/ec1b2b004813442a82a916b561efecfb/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-01

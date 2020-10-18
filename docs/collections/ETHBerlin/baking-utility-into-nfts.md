@@ -25,6 +25,7 @@ By Christopher Robison
 
 ---
 
+- **Kauri original title:** Baking Utility into NFTs
 - **Kauri original link:** https://kauri.io/baking-utility-into-nfts/c5f31cd6bd464d15aa7c8e10fa35c55f/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

@@ -130,6 +130,7 @@ You can find an example test class demonstrating the code described in this tuto
 
 ---
 
+- **Kauri original title:** Running a Pantheon Node in Java Integration Tests
 - **Kauri original link:** https://kauri.io/running-a-pantheon-node-in-java-integration-tests/7dc3ecc391e54f7b8cbf4e5fa0caf780/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-08-13

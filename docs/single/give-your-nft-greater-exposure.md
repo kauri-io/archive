@@ -17,6 +17,7 @@ Tristan Colombet - CEO - Auctionity
 
 ---
 
+- **Kauri original title:** Give Your NFT Greater Exposure
 - **Kauri original link:** https://kauri.io/give-your-nft-greater-exposure/5380c2ef886b40d9a6722db704ee1945/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

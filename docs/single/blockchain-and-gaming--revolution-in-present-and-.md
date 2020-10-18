@@ -169,6 +169,7 @@ Launch your current or new game on blockchain:
 
 ---
 
+- **Kauri original title:** Blockchain & Gaming  Revolution in present & future games
 - **Kauri original link:** https://kauri.io/blockchain-and-gaming:-revolution-in-present-and-/3c64fc2224814375ac14cc21daf24c98/a
 - **Kauri original author:** Preetam (@preetam)
 - **Kauri original Publication date:** 2019-06-15

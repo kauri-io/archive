@@ -61,6 +61,7 @@ We would like to give resounding thanks to our donors:
 
 ---
 
+- **Kauri original title:** Introducing Plasma Group
 - **Kauri original link:** https://kauri.io/introducing-plasma-group/d0bf181104714563b39c151eeae03846/a
 - **Kauri original author:** Plasma Group (@plasma)
 - **Kauri original Publication date:** 2019-04-22

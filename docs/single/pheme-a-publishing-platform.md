@@ -23,6 +23,7 @@ Original of this article can be found [here](https://aloha.pheme.app/@pheme/bed5
 
 ---
 
+- **Kauri original title:** Pheme, a publishing platform
 - **Kauri original link:** https://kauri.io/pheme-a-publishing-platform/8658ae649c7541a986cf264d163066e8/a
 - **Kauri original author:** Pheme (@pheme)
 - **Kauri original Publication date:** 2018-11-02

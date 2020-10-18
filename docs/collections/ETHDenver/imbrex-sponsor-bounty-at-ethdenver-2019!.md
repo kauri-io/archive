@@ -47,6 +47,7 @@ Alex Jacoby - alex@imbrex.io
 
 ---
 
+- **Kauri original title:** Imbrex - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/imbrex-sponsor-bounty-at-ethdenver-2019!/fd78e02b283b4e7db3d7a1495757923f/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

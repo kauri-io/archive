@@ -58,6 +58,7 @@ https://github.com/Struka9/TangerineCoffee
 
 ---
 
+- **Kauri original title:** SPITL - Tipping multiple users with a single step
 - **Kauri original link:** https://kauri.io/spitl-tipping-multiple-users-with-a-single-step/2178f8c1b7af4d41a3ca2e133b01006f/a
 - **Kauri original author:** Cristian Espinoza (@crisgarner)
 - **Kauri original Publication date:** 2019-02-17

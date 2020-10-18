@@ -129,6 +129,7 @@ _, Blog :_
 
 ---
 
+- **Kauri original title:** How to Eat a Bank — One Business at a Time ?
 - **Kauri original link:** https://kauri.io/how-to-eat-a-bank-one-business-at-a-time/8531b641bbb34e73ad9d54c876ef3c86/a
 - **Kauri original author:** Ramesh Babu (@rameshbabu)
 - **Kauri original Publication date:** 2019-02-27

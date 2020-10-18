@@ -36,6 +36,7 @@ Collections group together articles around themes, [create your own here](https:
 
 ---
 
+- **Kauri original title:** January 9th 2019 Newsletter
 - **Kauri original link:** https://kauri.io/january-9th-2019-newsletter/fdb92acde71e4feb8093bfd169ee10e9/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-10

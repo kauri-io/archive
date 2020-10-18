@@ -202,6 +202,7 @@ Pull Requests welcome 😁
 
 ---
 
+- **Kauri original title:** Making a URL shortener on Ethereum Blockchain ⛓
 - **Kauri original link:** https://kauri.io/making-a-url-shortener-on-ethereum-blockchain/a7ba00394f414496827730f0ce4aeacd/a
 - **Kauri original author:** sauravtom (@sauravtom)
 - **Kauri original Publication date:** 2018-12-04

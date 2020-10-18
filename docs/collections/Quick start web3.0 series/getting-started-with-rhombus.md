@@ -29,6 +29,7 @@ To learn the Rhombus API, read about our activation/delivery methods, and explor
 
 ---
 
+- **Kauri original title:** Getting started with Rhombus
 - **Kauri original link:** https://kauri.io/getting-started-with-rhombus/c93193f04cf649ebb4762b8ba8cfbefc/a
 - **Kauri original author:** Kenny Chandrasekera (@kenny-chandrasekera)
 - **Kauri original Publication date:** 2019-02-06

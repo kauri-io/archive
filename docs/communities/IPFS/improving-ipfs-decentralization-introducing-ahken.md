@@ -69,6 +69,7 @@ Like I said previously, this project is in its very early stages so it would be 
 
 ---
 
+- **Kauri original title:** Improving IPFS Decentralization - Introducing Ahken
 - **Kauri original link:** https://kauri.io/improving-ipfs-decentralization-introducing-ahken/012d5a2f2f2f4ab8ba1872248f8ff631/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2018-12-20

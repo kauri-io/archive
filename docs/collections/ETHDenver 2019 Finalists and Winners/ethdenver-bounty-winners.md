@@ -288,6 +288,7 @@ Best powered by [EthQL](https://kauri.io/article/795fbac6a6f243ef890965428e2e404
 
 ---
 
+- **Kauri original title:** ETHDenver Bounty Winners
 - **Kauri original link:** https://kauri.io/ethdenver-bounty-winners/f4f31c650bd349f198b2aaf80a41ebed/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-03-01

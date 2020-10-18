@@ -59,6 +59,7 @@ As always with blockchain projects I encounter, details actual users are thin or
 
 ---
 
+- **Kauri original title:** The Æternity blockchain with Emil Wagner
 - **Kauri original link:** https://kauri.io/the-aeternity-blockchain-with-emil-wagner/b88cdf4cffed4e47aa920b6ea876479a/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-09-19

@@ -62,6 +62,7 @@ This introduction and example was taken from [the official Solidity documentatio
 
 ---
 
+- **Kauri original title:** An Introduction to Smart Contracts with Solidity
 - **Kauri original link:** https://kauri.io/an-introduction-to-smart-contracts-with-solidity/6479f4a2cb3446d790dd27e8aeb36f63/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-30

@@ -17,6 +17,7 @@ By Andy Tudhope
 
 ---
 
+- **Kauri original title:** Knowledge Repos, Small Talk, and DAOs
 - **Kauri original link:** https://kauri.io/knowledge-repos-small-talk-and-daos/81e9127689584112a9802ee305634fe4/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

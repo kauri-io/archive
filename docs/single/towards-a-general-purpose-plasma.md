@@ -82,6 +82,7 @@ We’d love to hear from all of you. ❤
 
 ---
 
+- **Kauri original title:** Towards A General Purpose Plasma
 - **Kauri original link:** https://kauri.io/towards-a-general-purpose-plasma/9df6bb07a0dc40c5b2334931cb336491/a
 - **Kauri original author:** Plasma Group (@plasma)
 - **Kauri original Publication date:** 2019-04-22

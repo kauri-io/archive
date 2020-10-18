@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Getting Started
 - **Kauri original link:** https://kauri.io/getting-started/29ac3b8ad92d40a8b4c99f2f76a73837/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

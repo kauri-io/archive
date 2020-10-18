@@ -60,6 +60,7 @@ https://github.com/netus-io/spin-fm/
 
 ---
 
+- **Kauri original title:** Spin.FM  Decentralized Partying
 - **Kauri original link:** https://kauri.io/spin.fm:-decentralized-partying/a8f1b12e984949b08323522a54cf189f/a
 - **Kauri original author:** Juliana Mei (@julianapeace)
 - **Kauri original Publication date:** 2019-02-17

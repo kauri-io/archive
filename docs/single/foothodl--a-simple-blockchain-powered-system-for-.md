@@ -53,6 +53,7 @@ http://www.github.com/jamslevy/foothodl
 
 ---
 
+- **Kauri original title:** FootHodl  A simple blockchain-powered system for helping people in need 
 - **Kauri original link:** https://kauri.io/foothodl:-a-simple-blockchain-powered-system-for-/d1382b1b07e143d48158949ba86f89ec/a
 - **Kauri original author:** James Levy (@jameslevy)
 - **Kauri original Publication date:** 2019-02-17

@@ -99,6 +99,7 @@ Overall, Plasma is making great leaps forward, but there are still obstacles to 
 
 ---
 
+- **Kauri original title:** Plasma Roundup  From MVP to Mainnet
 - **Kauri original link:** https://kauri.io/plasma-roundup:-from-mvp-to-mainnet/3103de2a3a874f348013b96d157451be/a
 - **Kauri original author:** Chris Spannos (@chrisspannos)
 - **Kauri original Publication date:** 2019-04-09

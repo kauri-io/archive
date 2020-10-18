@@ -29,6 +29,7 @@ Copyright and related rights waived via [CC0](https://creativecommons.org/public
 
 ---
 
+- **Kauri original title:** SecurEth Guidelines - Getting Started
 - **Kauri original link:** https://kauri.io/secureth-guidelines-getting-started/791ef4c00e924247921e98c95efbdd73/a
 - **Kauri original author:** Rex Hygate (@rhygate)
 - **Kauri original Publication date:** 2019-06-06

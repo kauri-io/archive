@@ -124,6 +124,7 @@ Since we do not know in advance which function are going to be constant and whic
 
 ---
 
+- **Kauri original title:** Getting return values from a solidity transaction
 - **Kauri original link:** https://kauri.io/getting-return-values-from-a-solidity-transaction/ea44be3e30264e0ea116c7ec0621bb51/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2019-06-21

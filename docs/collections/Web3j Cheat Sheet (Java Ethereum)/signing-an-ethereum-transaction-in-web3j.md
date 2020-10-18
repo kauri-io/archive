@@ -60,6 +60,7 @@ Thanks to Greg Jeanmart, and the article [Managing an Ethereum Account with Java
 
 ---
 
+- **Kauri original title:** Signing an Ethereum Transaction in Web3j
 - **Kauri original link:** https://kauri.io/signing-an-ethereum-transaction-in-web3j/b730aa78a4474ede88e805386f5c65ae/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18

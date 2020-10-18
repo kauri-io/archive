@@ -35,6 +35,7 @@ Step 5:  Once all set, type the ens name on metamask sender field. If successful
 
 ---
 
+- **Kauri original title:** How to setup ENS address
 - **Kauri original link:** https://kauri.io/how-to-setup-ens-address/d6530b8ff5ad460bbc12da85deedf7c0/a
 - **Kauri original author:** Makoto Inoue (@makoto)
 - **Kauri original Publication date:** 2019-02-16

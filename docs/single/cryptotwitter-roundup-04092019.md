@@ -176,6 +176,7 @@ _most consumers will prioritize usability over ideals_
 
 ---
 
+- **Kauri original title:** CryptoTwitter Roundup 04/09/2019
 - **Kauri original link:** https://kauri.io/cryptotwitter-roundup-04092019/7e74da559702421991d506a3c157ddf7/a
 - **Kauri original author:** Joseph Bender (@jdbender128)
 - **Kauri original Publication date:** 2019-04-11

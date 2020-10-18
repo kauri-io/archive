@@ -47,6 +47,7 @@ Daniela Osorio - daniela.osorio@consensys.net
 
 ---
 
+- **Kauri original title:** Infura - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/infura-sponsor-bounty-at-ethdenver-2019!/795fbac6a6f243ef890965428e2e4047/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

@@ -58,6 +58,7 @@ https://github.com/morelazers/ethdenver-paypic
 
 ---
 
+- **Kauri original title:** PayPic - ETHDenver 2019 Submission
 - **Kauri original link:** https://kauri.io/paypic-ethdenver-2019-submission/484af4a597d143c181df5f151e01ad7d/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

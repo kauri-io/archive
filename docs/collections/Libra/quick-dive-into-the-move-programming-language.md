@@ -84,6 +84,7 @@ This guide will be updated over time as I gain more experience working with the 
 
 ---
 
+- **Kauri original title:** Quick Dive into the Move Programming Language
 - **Kauri original link:** https://kauri.io/quick-dive-into-the-move-programming-language/b5ca6a19711240ac8e3a55076177d9de/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-06-20

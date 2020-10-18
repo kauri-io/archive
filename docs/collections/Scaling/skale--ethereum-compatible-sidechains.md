@@ -55,6 +55,7 @@ Once your smart contracts have been moved over to your SKALE Chain, you can test
 
 ---
 
+- **Kauri original title:** SKALE  Ethereum-compatible sidechains
 - **Kauri original link:** https://kauri.io/skale:-ethereum-compatible-sidechains/1695fa6d727347e58af02ba7c36a0581/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-17

@@ -42,6 +42,7 @@ https://github.com/riusricardo/burner-wallet/tree/Burner-wallet-ETHDenver
 
 ---
 
+- **Kauri original title:** Improve Burner Wallet
 - **Kauri original link:** https://kauri.io/improve-burner-wallet/c287ed1802b34e10a0cbdf3a7053c242/a
 - **Kauri original author:** Ricardo Rius (@riusricardo)
 - **Kauri original Publication date:** 2019-02-17

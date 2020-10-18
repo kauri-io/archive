@@ -59,6 +59,7 @@ Token Engineering - 8th October - Osaka - https://www.meetup.com/ja-JP/Token-Eng
 
 ---
 
+- **Kauri original title:** Kazuaki Ishiguro - Tokyo - Couger, EEA, blockchain.EXE, Token Engineering
 - **Kauri original link:** https://kauri.io/kazuaki-ishiguro-tokyo-couger-eea-blockchain.exe-/f5a359292f084aa0864b8bbe9947f470/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-10-02

@@ -56,6 +56,7 @@ We want to add more customisation options to the badges so issuers can make it "
 
 ---
 
+- **Kauri original title:** Good Badger
 - **Kauri original link:** https://kauri.io/good-badger/5fb7052e24ec47fc85591d334809f51b/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

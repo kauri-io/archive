@@ -100,6 +100,7 @@ https://github.com/TrevorJTClarke/dappush
 
 ---
 
+- **Kauri original title:** Dappush.info ETHDenver Impact Track Submission
 - **Kauri original link:** https://kauri.io/dappush.info-ethdenver-impact-track-submission/ff1b7f1460974edebf369e512e0cc53e/a
 - **Kauri original author:** Josh Han (@joshglobal)
 - **Kauri original Publication date:** 2019-02-17

@@ -134,6 +134,7 @@ _Events — We will be at many events in the next coming weeks in Asia. If you a
 
 ---
 
+- **Kauri original title:** Mint any ERC-721 you want in seconds -Manage all your 721 assets — easily.
 - **Kauri original link:** https://kauri.io/mint-any-erc-721-you-want-in-seconds-manage-all-y/d7b523cabb8f44419a14ea5ce1a4c0f3/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-12-05

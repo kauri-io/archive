@@ -277,6 +277,7 @@ To read more about DApps, Blockchain and Web 3.0,
 
 ---
 
+- **Kauri original title:** Sending Transactions to Pantheon
 - **Kauri original link:** https://kauri.io/sending-transactions-to-pantheon/8fab39d41b834c6ca127ee112af3d6c9/a
 - **Kauri original author:** Web3 Developer (@web3developer)
 - **Kauri original Publication date:** 2019-06-12

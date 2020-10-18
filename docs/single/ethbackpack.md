@@ -66,6 +66,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** ETHBackpack
 - **Kauri original link:** https://kauri.io/ethbackpack/d3d2bcaa4e494319943cf7ff4a49e659/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

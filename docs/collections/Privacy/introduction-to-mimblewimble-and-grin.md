@@ -469,6 +469,7 @@ amount of blockchain data, allowing for great scaling and fast sync of new peers
 
 ---
 
+- **Kauri original title:** Introduction to MimbleWimble and Grin
 - **Kauri original link:** https://kauri.io/introduction-to-mimblewimble-and-grin/433e9df1049d4862b908d5825f27dadb/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-23

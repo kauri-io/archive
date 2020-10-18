@@ -118,6 +118,7 @@ You can also:
 
 ---
 
+- **Kauri original title:** Witnet Monthly Report — April 2018
 - **Kauri original link:** https://kauri.io/witnet-monthly-report-april-2018/8b4d7cfb339a4cc7a2a7f5c920a08217/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19

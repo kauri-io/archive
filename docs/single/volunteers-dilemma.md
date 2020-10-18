@@ -54,6 +54,7 @@ https://github.com/Tirion77/Volunteer-s-Dilemma
 
 ---
 
+- **Kauri original title:** Volunteers Dilemma
 - **Kauri original link:** https://kauri.io/volunteers-dilemma/6f3bc8cd471f4f9c974f38b69021dcec/a
 - **Kauri original author:** Grant and George (@grant-and-george)
 - **Kauri original Publication date:** 2019-02-17

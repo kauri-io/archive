@@ -62,6 +62,7 @@ DAPP development is in a nascent phase but the benefits that DAPPs provide (whic
 
 ---
 
+- **Kauri original title:** What is a dApp?
 - **Kauri original link:** https://kauri.io/what-is-a-dapp/d53499905f484fa9940ea2e1a4f9b53d/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2018-09-06

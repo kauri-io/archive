@@ -52,6 +52,7 @@ Also in his speech, President Xi said China - the world's biggest emitter of gre
 
 ---
 
+- **Kauri original title:** UN General Assembly  US-China tensions flare over coronavirus
 - **Kauri original link:** https://kauri.io/un-general-assembly:-us-china-tensions-flare-over/10bdac926e18432893d0d6e19f4c2246/a
 - **Kauri original author:** David  (@leong9898)
 - **Kauri original Publication date:** 2020-09-22

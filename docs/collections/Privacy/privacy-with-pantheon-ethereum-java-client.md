@@ -99,6 +99,7 @@ The above illustrates two privacy groups enabling:
 
 ---
 
+- **Kauri original title:** Privacy with Pantheon Ethereum Java Client
 - **Kauri original link:** https://kauri.io/privacy-with-pantheon-ethereum-java-client/f0758bcdfad84d70a5d1adf43baa59d4/a
 - **Kauri original author:** PegaSys (@pegasys)
 - **Kauri original Publication date:** 2019-05-03

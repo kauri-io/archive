@@ -68,6 +68,7 @@ My ZenCash address = znk9GjfbzRHwDiMWmq2xeTi5FNkgnzQXthg
 
 ---
 
+- **Kauri original title:** random cryptocurrency / cryptoeconomics thoughts  1
 - **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-1/f20af020db864fffb5439f6e9870c143/a
 - **Kauri original author:** blacque64 (@blacque)
 - **Kauri original Publication date:** 2019-05-20

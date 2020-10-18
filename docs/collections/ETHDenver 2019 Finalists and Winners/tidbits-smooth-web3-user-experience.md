@@ -55,6 +55,7 @@ Oracle / bridge repo - https://github.com/taylorjdawson/ion
 
 ---
 
+- **Kauri original title:** Tidbits - Smooth Web3 User Experience
 - **Kauri original link:** https://kauri.io/tidbits-smooth-web3-user-experience/186fdbdf6d6a437bb76ed7012b406462/a
 - **Kauri original author:** Bradley Clarke (@bradley-clarke)
 - **Kauri original Publication date:** 2019-02-19

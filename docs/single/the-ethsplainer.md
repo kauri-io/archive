@@ -58,6 +58,7 @@ https://github.com/solipsis/ethsplain
 
 ---
 
+- **Kauri original title:** The Ethsplainer
 - **Kauri original link:** https://kauri.io/the-ethsplainer/ca2ba545af584220aa169a164349a852/a
 - **Kauri original author:** Dave Alexander (@dave-alexander)
 - **Kauri original Publication date:** 2019-02-17

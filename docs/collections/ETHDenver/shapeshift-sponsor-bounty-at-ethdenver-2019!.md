@@ -60,6 +60,7 @@ Lizzy - lizzy.fit@shapeshift.io
 
 ---
 
+- **Kauri original title:** ShapeShift - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/shapeshift-sponsor-bounty-at-ethdenver-2019!/0ce38ea26ee046beb0d6590a5b33207a/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

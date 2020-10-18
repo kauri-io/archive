@@ -297,6 +297,7 @@ The functions that use these variables use the bitwise operator & to return the 
 
 ---
 
+- **Kauri original title:** Crypto Items and ERC1155
 - **Kauri original link:** https://kauri.io/crypto-items-and-erc1155/d94806ce6d194b698bb616569f53ceff/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-04

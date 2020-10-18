@@ -219,6 +219,7 @@ there is a [Discord Server](https://discordapp.com/invite/TAefehN) for that.
 
 ---
 
+- **Kauri original title:** Building a profile hover with 3box
 - **Kauri original link:** https://kauri.io/building-a-profile-hover-with-3box/e16d5d2362c64f879426b2bed7a976e7/a
 - **Kauri original author:** Rachid (@rachid)
 - **Kauri original Publication date:** 2020-01-27

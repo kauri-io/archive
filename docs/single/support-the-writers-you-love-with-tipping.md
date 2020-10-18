@@ -46,6 +46,7 @@ As a writer, you should receive tips to the Ethereum address you registered to K
 
 ---
 
+- **Kauri original title:** Support the writers you love with tipping
 - **Kauri original link:** https://kauri.io/support-the-writers-you-love-with-tipping/2985889f4ba54a70883c52ff7e19f4d0/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-02-12

@@ -50,6 +50,7 @@ Kendra Staggs & Aiden McClelland - ethdenver@saltlending.com
 
 ---
 
+- **Kauri original title:** SALT - Sponsor Bounty at ETHDenver 2019!
 - **Kauri original link:** https://kauri.io/salt-sponsor-bounty-at-ethdenver-2019!/962506b954fb4d788f4b961499aa66dc/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12

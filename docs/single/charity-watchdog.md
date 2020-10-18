@@ -74,6 +74,7 @@ https://github.com/peteygao/charity-watchdog
 
 ---
 
+- **Kauri original title:** Charity Watchdog
 - **Kauri original link:** https://kauri.io/charity-watchdog/aab03a8dfc8c4626b5e32b0a5d0546a7/a
 - **Kauri original author:** Artem Kuznetsov (@artemkhere)
 - **Kauri original Publication date:** 2019-02-17

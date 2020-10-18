@@ -41,6 +41,7 @@ The Ethereum roadmap includes a transition to Proof of Stake at an indefinite ti
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 3 - Consensus Protocols
 - **Kauri original link:** https://kauri.io/ethereum-101-part-3-consensus-protocols/1c2c9e3a3db0461584757a60ca2424a9/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

@@ -20,6 +20,7 @@ Our Technical content lead represents the Kauri project at Revision Berlin to ho
 
 ---
 
+- **Kauri original title:** Revision
 - **Kauri original link:** https://kauri.io/revision/982decaab16a49179a2c619921512d61/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-10-30

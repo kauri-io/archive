@@ -208,6 +208,7 @@ Finally, Bob decrypts the re-encrypted ciphertext using the activated capsule.
 
 ---
 
+- **Kauri original title:** NuCypher - PyUmbral
 - **Kauri original link:** https://kauri.io/nucypher-pyumbral/7368f23b5e894a9bab71e1deb663f128/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-17

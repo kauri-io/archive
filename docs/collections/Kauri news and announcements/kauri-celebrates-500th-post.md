@@ -27,6 +27,7 @@ Here's to the next 500, if you want to help us get there, then create an account
 
 ---
 
+- **Kauri original title:** Kauri celebrates 500th post
 - **Kauri original link:** https://kauri.io/kauri-celebrates-500th-post/de927174d7b54ac2a33d8a37c43f9797/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2020-02-03

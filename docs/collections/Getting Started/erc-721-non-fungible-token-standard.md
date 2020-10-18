@@ -452,6 +452,7 @@ Copyright and related rights waived via [CC0](https://creativecommons.org/public
 
 ---
 
+- **Kauri original title:** ERC-721 Non-Fungible Token Standard
 - **Kauri original link:** https://kauri.io/erc-721-non-fungible-token-standard/b382103e9496409c90c495f35940887e/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-16

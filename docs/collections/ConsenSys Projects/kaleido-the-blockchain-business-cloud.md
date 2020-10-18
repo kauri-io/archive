@@ -112,6 +112,7 @@ export APIURL=\"https://console-ko.kaleido.io/api/v1\"
 
 ---
 
+- **Kauri original title:** Kaleido - the Blockchain Business Cloud
 - **Kauri original link:** https://kauri.io/kaleido-the-blockchain-business-cloud/4bfbae2d64984868aaa65f115df0de49/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-03-01

@@ -58,6 +58,7 @@ We are holding a layer2 and business event with Karl Floersch and top researcher
 
 ---
 
+- **Kauri original title:** Sogo Ochiai - Tokyo - Cryptoeconomics Lab, GBEC
 - **Kauri original link:** https://kauri.io/sogo-ochiai-tokyo-cryptoeconomics-lab-gbec/cc8c66b15db04754a9b4fb997d8402fb/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-10-02

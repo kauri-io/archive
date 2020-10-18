@@ -129,6 +129,7 @@ The same clients that originally requested the retrieval of the information and 
 
 ---
 
+- **Kauri original title:** Powered by Witnet  the “Digital Knowledge Arks”
 - **Kauri original link:** https://kauri.io/powered-by-witnet:-the-"digital-knowledge-arks"/2b7dc6b605e240319a15ee303e1c6ec5/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13

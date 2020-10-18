@@ -63,6 +63,7 @@ https://github.com/UniversalLogin/UniversalLoginSDK/tree/hackathon
 
 ---
 
+- **Kauri original title:** Universal Wallet
 - **Kauri original link:** https://kauri.io/universal-wallet/76ed4c88c6e743259f1e30db224696da/a
 - **Kauri original author:** Kyle Bryant (@kyrrui)
 - **Kauri original Publication date:** 2019-02-17

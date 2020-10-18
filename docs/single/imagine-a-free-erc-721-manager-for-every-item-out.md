@@ -160,6 +160,7 @@ App:
 
 ---
 
+- **Kauri original title:** Imagine a free ERC-721 Manager for every item out there. Its coming! Mintable can do this
 - **Kauri original link:** https://kauri.io/imagine-a-free-erc-721-manager-for-every-item-out/03b468526ca34341b6535f6d120a203d/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-12-05

@@ -52,6 +52,7 @@ You can set the api url in `/frontend/src/constants/env.js`
 
 ---
 
+- **Kauri original title:** Smart Alert
 - **Kauri original link:** https://kauri.io/smart-alert/9b3f5bbebfd64623bf4478004bda405c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

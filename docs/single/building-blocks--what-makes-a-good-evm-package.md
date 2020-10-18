@@ -144,6 +144,7 @@ future.
 
 ---
 
+- **Kauri original title:** Building Blocks  What makes a good EVM package?
 - **Kauri original link:** https://kauri.io/building-blocks:-what-makes-a-good-evm-package/583aaad5aff749dab1edb80933350936/a
 - **Kauri original author:** Dennison Bertram (@dennisonbertram1)
 - **Kauri original Publication date:** 2019-03-07

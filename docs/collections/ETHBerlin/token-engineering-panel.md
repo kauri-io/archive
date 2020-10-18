@@ -17,6 +17,7 @@ With Trent McConaghy, Benjamin Bollen, Dimitri De Jonghe, and Ryan Selkis
 
 ---
 
+- **Kauri original title:** Token Engineering Panel
 - **Kauri original link:** https://kauri.io/token-engineering-panel/f22c4538e8eb406b9e220eb99fe6e360/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18

@@ -82,6 +82,7 @@ https://github.com/someusername6/little-butterfly
 
 ---
 
+- **Kauri original title:** Little Butterfly
 - **Kauri original link:** https://kauri.io/little-butterfly/a2cd025bfb234c1f9f1442f95415b68d/a
 - **Kauri original author:** Telmo Correa (@telmo-correa)
 - **Kauri original Publication date:** 2019-02-17

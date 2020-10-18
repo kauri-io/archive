@@ -67,6 +67,7 @@ Kauri is a decentralized blogging platform built using IPFS and Ethereum. The pl
 
 ---
 
+- **Kauri original title:** Top Ethereum Newsletters
 - **Kauri original link:** https://kauri.io/top-ethereum-newsletters/863ca4d2f5eb42558a43c35cc0e752ad/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18

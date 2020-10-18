@@ -700,6 +700,7 @@ In the following article, we will learn how to install and configure Metricbeat:
 
 ---
 
+- **Kauri original title:** (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data
 - **Kauri original link:** https://kauri.io/(25)-install-elasticsearch-and-kibana-to-store-an/e5b86351f38940b8a071267062f052cb/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-09-03

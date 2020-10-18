@@ -50,6 +50,7 @@ See you at the hackathon!
 
 ---
 
+- **Kauri original title:** Share your knowledge at ETHDenver to build a better ecosystem
 - **Kauri original link:** https://kauri.io/share-your-knowledge-at-ethdenver-to-build-a-bett/27dd1da338a24c0b979c39f1ee12aaf7/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-01-28

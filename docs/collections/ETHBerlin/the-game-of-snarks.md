@@ -81,6 +81,7 @@ Artem Vorobyev, artall64
 
 ---
 
+- **Kauri original title:** The Game of Snarks
 - **Kauri original link:** https://kauri.io/the-game-of-snarks/b5c16a6c2b754ed08f25210c4983bc31/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

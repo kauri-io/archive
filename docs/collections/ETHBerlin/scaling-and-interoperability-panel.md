@@ -17,6 +17,7 @@ By Fredrik Harrysson, Philip Stehlik, Lefteris Karapetsas, and Igor Barniov
 
 ---
 
+- **Kauri original title:** Scaling & Interoperability Panel
 - **Kauri original link:** https://kauri.io/scaling-and-interoperability-panel/95d12f8f35054f208d6a918669fb834f/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17

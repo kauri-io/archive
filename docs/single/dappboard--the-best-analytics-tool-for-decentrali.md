@@ -97,6 +97,7 @@ At
 
 ---
 
+- **Kauri original title:** DAppBoard  The Best Analytics Tool for Decentralized applications and protocols.
 - **Kauri original link:** https://kauri.io/dappboard:-the-best-analytics-tool-for-decentrali/7ecbf211f6ae4960873573f23e64ee82/a
 - **Kauri original author:** Aimable Dusingizimana (@aimable-dusingizimana)
 - **Kauri original Publication date:** 2019-02-01

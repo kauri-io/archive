@@ -55,6 +55,7 @@ https://github.com/itstehkman/DeployerDAO
 
 ---
 
+- **Kauri original title:** DAO for Secure Smart Contract Deploys
 - **Kauri original link:** https://kauri.io/dao-for-secure-smart-contract-deploys/d136d4ed652a4f8db279f552796b9df5/a
 - **Kauri original author:** Kareem Moussa (@kareemmoussa)
 - **Kauri original Publication date:** 2019-02-17

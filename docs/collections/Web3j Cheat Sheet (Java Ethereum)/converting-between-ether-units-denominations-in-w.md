@@ -53,6 +53,7 @@ BigInteger convertedToWei = Convert.toWei(valueInGwei, Unit.GWEI);
 
 ---
 
+- **Kauri original title:** Converting Between Ether Units / Denominations in Web3j
 - **Kauri original link:** https://kauri.io/converting-between-ether-units-denominations-in-w/ecfdb383843b4379bc0c7aac37d6ba77/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18

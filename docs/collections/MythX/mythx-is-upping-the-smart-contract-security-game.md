@@ -87,6 +87,7 @@ The best way to get in contact is to ping the team on
 
 ---
 
+- **Kauri original title:** MythX is Upping the Smart Contract Security Game
 - **Kauri original link:** https://kauri.io/mythx-is-upping-the-smart-contract-security-game/b9057f45fcf247a586eaebee612568ec/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-04

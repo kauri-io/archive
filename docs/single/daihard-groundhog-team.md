@@ -64,6 +64,7 @@ https://github.com/androolloyd/daihard
 
 ---
 
+- **Kauri original title:** DaiHard - Groundhog Team
 - **Kauri original link:** https://kauri.io/daihard-groundhog-team/2c56254175fa4ef4be679bc84764dbfd/a
 - **Kauri original author:** Andrew Redden (@androolloyd)
 - **Kauri original Publication date:** 2019-02-17

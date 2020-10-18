@@ -1,6 +1,6 @@
 ---
 title: Introducing Witnet  smart contracts with real power!
-summary: [ For of a visual experience, you should watch the_ 1-minute explainer video . ] Meet the oracle problem Blockchain technology promises to revolutionize business by creating smart contracts that, unlike paper contracts, are impossible to breach. However, up until now, smart contracts are completely isolated from the rest of the Internet. This is called “the oracle problem” . The solution- a decentralized oracle network The Witnet protocol connects smart contracts to any data source available onl
+summary: - For of a visual experience, you should watch the_ 1-minute explainer video . - Meet the oracle problem Blockchain technology promises to revolutionize business by creating smart contracts that, unlike paper contracts, are impossible to breach. However, up until now, smart contracts are completely isolated from the rest of the Internet. This is called “the oracle problem” . The solution- a decentralized oracle network The Witnet protocol connects smart contracts to any data source available onl
 authors:
   - Witnet (@witnet)
 date: 2018-11-13
@@ -116,6 +116,7 @@ The Stampery team has also been involved in the development of [Aragon](https://
 
 ---
 
+- **Kauri original title:** Introducing Witnet  smart contracts with real power!
 - **Kauri original link:** https://kauri.io/introducing-witnet:-smart-contracts-with-real-pow/422d877072e941a58081dd6df36275d3/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13

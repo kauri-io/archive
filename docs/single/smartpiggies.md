@@ -108,6 +108,7 @@ https://github.com/smartpiggies/smartpiggies
 
 ---
 
+- **Kauri original title:** SmartPiggies
 - **Kauri original link:** https://kauri.io/smartpiggies/06b31a287ddf407e98e31893994bad31/a
 - **Kauri original author:** Michael Arief (@mikearief)
 - **Kauri original Publication date:** 2019-02-17

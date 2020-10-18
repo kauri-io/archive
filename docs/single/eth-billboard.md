@@ -49,6 +49,7 @@ https://github.com/zappycode/ethbillboard
 
 ---
 
+- **Kauri original title:** ETH Billboard
 - **Kauri original link:** https://kauri.io/eth-billboard/b4933342927a4d2d82ff4df007c9bc54/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

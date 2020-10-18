@@ -51,6 +51,7 @@ https://github.com/oojr/ethdenver-point-of-sale
 
 ---
 
+- **Kauri original title:** xDai Point of Sale
 - **Kauri original link:** https://kauri.io/xdai-point-of-sale/234a92e4ae0e475db263374284ac2a55/a
 - **Kauri original author:** Olajide Ogundipe (@olajide-ogundipe)
 - **Kauri original Publication date:** 2019-02-17

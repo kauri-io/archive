@@ -56,6 +56,7 @@ https://github.com/FrankyAguilar/BattleBombers
 
 ---
 
+- **Kauri original title:** Battle Bombers
 - **Kauri original link:** https://kauri.io/battle-bombers/ce805bf2e6664b919b6a8eb150462d06/a
 - **Kauri original author:** Mark Pereira (@markp)
 - **Kauri original Publication date:** 2019-02-17

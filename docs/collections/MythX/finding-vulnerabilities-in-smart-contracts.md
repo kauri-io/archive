@@ -147,6 +147,7 @@ Thanks to Rocky Bernstein, Maria Christakis, Joran Honig, Everett Muzzy, and Ger
 
 ---
 
+- **Kauri original title:** Finding Vulnerabilities in Smart Contracts
 - **Kauri original link:** https://kauri.io/finding-vulnerabilities-in-smart-contracts/b34134b451b04911ba7295df4b86a234/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-02

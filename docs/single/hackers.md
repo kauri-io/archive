@@ -64,6 +64,7 @@ What your submission should have:
 
 ---
 
+- **Kauri original title:** Hackers
 - **Kauri original link:** https://kauri.io/hackers/67e7676d2178467f8231ac65b11cec07/a
 - **Kauri original author:** null (@sinamahmoodi)
 - **Kauri original Publication date:** 2018-09-06

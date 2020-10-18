@@ -66,6 +66,7 @@ SoulToken: https://rinkeby.etherscan.io/address/0x358c520dd479d693fbc3e733199d9f
 
 ---
 
+- **Kauri original title:** Artonomous
 - **Kauri original link:** https://kauri.io/artonomous/a736b9830cc34c63b6b8c43720f64dfa/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

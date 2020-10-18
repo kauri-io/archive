@@ -474,6 +474,7 @@ td, th {
 
 ---
 
+- **Kauri original title:** TRC10 & TRC20 Tokens
 - **Kauri original link:** https://kauri.io/trc10-and-trc20-tokens/6b8ebe84d0a14af48bdc09b62bf3d27c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-01

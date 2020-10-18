@@ -591,6 +591,7 @@ For more information, view our Comments documentation.
 
 ---
 
+- **Kauri original title:** Building a Distributed AppStore with 3Box
 - **Kauri original link:** https://kauri.io/building-a-distributed-appstore-with-3box/a9544b3cd4484369a97cb5171c420ceb/a
 - **Kauri original author:** Rachel (@rachblondon)
 - **Kauri original Publication date:** 2020-01-03

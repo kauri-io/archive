@@ -88,6 +88,7 @@ We'd love to hear from you! If you have content to add to Kauri, here's how:
 
 ---
 
+- **Kauri original title:** April 25th 2019 Newsletter
 - **Kauri original link:** https://kauri.io/april-25th-2019-newsletter/81555225559743089665e46d2619037a/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-04-26

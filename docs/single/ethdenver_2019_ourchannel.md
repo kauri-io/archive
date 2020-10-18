@@ -70,6 +70,7 @@ https://github.com/our-channel/hackathon
 
 ---
 
+- **Kauri original title:** ETHDenver_2019_OurChannel
 - **Kauri original link:** https://kauri.io/ethdenver_2019_ourchannel/6a811c2cb38444c795957beb32137e89/a
 - **Kauri original author:** Chim HImidumage (@chim)
 - **Kauri original Publication date:** 2019-02-17

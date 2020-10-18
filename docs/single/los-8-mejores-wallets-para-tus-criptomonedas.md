@@ -120,6 +120,7 @@ Disponible para Android e iOS.
 
 ---
 
+- **Kauri original title:** Los 8 mejores wallets para tus criptomonedas
 - **Kauri original link:** https://kauri.io/los-8-mejores-wallets-para-tus-criptomonedas/cf527c66cb9743068afea1524385fa18/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-03

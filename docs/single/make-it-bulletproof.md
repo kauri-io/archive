@@ -145,6 +145,7 @@ Lastly, an interesting thing to note that is that Bulletproofs are still very mu
 
 ---
 
+- **Kauri original title:** Make it Bulletproof
 - **Kauri original link:** https://kauri.io/make-it-bulletproof/117ed6a341254792b2120857b3a14dd8/a
 - **Kauri original author:** Ramy Zhang (@ramyjzhang)
 - **Kauri original Publication date:** 2019-01-14

@@ -186,6 +186,7 @@ Now kick off your application and let the service do its job! Let me know if you
 
 ---
 
+- **Kauri original title:** Consuming Ethereum Events To Kotlin Service Using Eventeum
 - **Kauri original link:** https://kauri.io/consuming-ethereum-events-to-kotlin-service-using/c890f33e17b54d8d95ed99b932245df4/a
 - **Kauri original author:** Hayder Sharhan (@hshar)
 - **Kauri original Publication date:** 2020-02-17

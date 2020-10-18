@@ -1189,6 +1189,7 @@ reach us out on our [discord channel](https://discord.gg/x2kmUXW).**
 
 ---
 
+- **Kauri original title:** Building a Twitter Bot using IPFS Cluster 🤖
 - **Kauri original link:** https://kauri.io/building-a-twitter-bot-using-ipfs-cluster/2b430e15c299442588e038cdb814a739/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-25

@@ -217,6 +217,7 @@ References:
 
 ---
 
+- **Kauri original title:** Why Beam is Sound Money
 - **Kauri original link:** https://kauri.io/why-beam-is-sound-money/480ca270b63f444195fb5d0f61e0f54f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06

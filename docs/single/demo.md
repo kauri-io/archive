@@ -16,6 +16,7 @@ Solidity security links https://github.com/sigp/solidity-security-blog
 
 ---
 
+- **Kauri original title:** Demo
 - **Kauri original link:** https://kauri.io/demo/b4aa274605594f7785c254b26817db71/a
 - **Kauri original author:** Rahul Bishnoi (@nanspro)
 - **Kauri original Publication date:** 2019-07-04

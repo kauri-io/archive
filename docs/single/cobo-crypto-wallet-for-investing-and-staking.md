@@ -61,6 +61,7 @@ This is a different type of investment vehicle than  the Celsius financial plat
 
 ---
 
+- **Kauri original title:** Cobo Crypto wallet for investing and staking 
 - **Kauri original link:** https://kauri.io/cobo-crypto-wallet-for-investing-and-staking/1ab97af325d645128b6bf46760cbb873/a
 - **Kauri original author:** Fred Blauer (@fblauer)
 - **Kauri original Publication date:** 2019-07-24

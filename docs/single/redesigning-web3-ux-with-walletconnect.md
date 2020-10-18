@@ -87,6 +87,7 @@ https://discord.gg/fM8kbHh
 
 ---
 
+- **Kauri original title:** Redesigning Web3 UX with WalletConnect
 - **Kauri original link:** https://kauri.io/redesigning-web3-ux-with-walletconnect/d77f0c2ca81445f78a2974b5206c6891/a
 - **Kauri original author:** Pedro Gomes (@pedrouid)
 - **Kauri original Publication date:** 2018-11-30

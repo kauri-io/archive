@@ -54,6 +54,7 @@ https://github.com/sidthekidder/nabu-project
 
 ---
 
+- **Kauri original title:** NABU  Education Incentivised
 - **Kauri original link:** https://kauri.io/nabu:-education-incentivised/791d926441e141f49685722c5f34d8fe/a
 - **Kauri original author:** Siddhartha Sahai (@sidthekid)
 - **Kauri original Publication date:** 2019-02-17

@@ -53,6 +53,7 @@ https://rinkeby.etherscan.io/address/0x0093b9e1fcd792b9876a2281af876de50595d24c 
 
 ---
 
+- **Kauri original title:** Nomad Mobile
 - **Kauri original link:** https://kauri.io/nomad-mobile/c55775aa47f44f46a13483b1278d2da5/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

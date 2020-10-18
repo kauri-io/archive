@@ -243,6 +243,7 @@ _Note: This blog post was originally posted on Lucas Saldanha's personal website
 
 ---
 
+- **Kauri original title:** Ethereum Explained  Merkle Trees, World State, Transactions, and More
 - **Kauri original link:** https://kauri.io/ethereum-explained:-merkle-trees-world-state-tran/1f4196c3db7f41e5845f063dc1581a4e/a
 - **Kauri original author:** PegaSys (@pegasys)
 - **Kauri original Publication date:** 2019-01-15

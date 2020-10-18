@@ -343,6 +343,7 @@ In the following article, we will learn how to install and configure APM:
 
 ---
 
+- **Kauri original title:** (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes
 - **Kauri original link:** https://kauri.io/(45)-collect-logs-with-elastic-filebeat-for-monit/28b4930506794915be2559dc5ee4b0b1/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-09-03

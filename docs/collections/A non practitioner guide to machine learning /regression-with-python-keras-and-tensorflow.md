@@ -251,6 +251,7 @@ If you have any question or spot any error please feel free to comment or submit
 
 ---
 
+- **Kauri original title:** Regression with Python, Keras and Tensorflow
 - **Kauri original link:** https://kauri.io/regression-with-python-keras-and-tensorflow/d035bc33cd37467db92e5b428a7565fd/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2019-10-22

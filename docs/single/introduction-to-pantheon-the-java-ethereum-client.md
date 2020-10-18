@@ -166,6 +166,7 @@ Twitter:
 
 ---
 
+- **Kauri original title:** Introduction to Pantheon — The Java Ethereum Client
 - **Kauri original link:** https://kauri.io/introduction-to-pantheon-the-java-ethereum-client/28c03622682842c888f6106a60c4d323/a
 - **Kauri original author:** Web3 Developer (@web3developer)
 - **Kauri original Publication date:** 2019-06-02

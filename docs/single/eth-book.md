@@ -54,6 +54,7 @@ https://github.com/jschiarizzi/ethbookOS
 
 ---
 
+- **Kauri original title:** Eth Book 
 - **Kauri original link:** https://kauri.io/eth-book/db5152f67e8941d0aeb905022206f786/a
 - **Kauri original author:** Joseph Schiarizzi (@jschiarizzi)
 - **Kauri original Publication date:** 2019-02-17

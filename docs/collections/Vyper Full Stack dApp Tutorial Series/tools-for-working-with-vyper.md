@@ -48,6 +48,7 @@ The blockchain space is in constant flux and thus a list of tools will not be co
 
 ---
 
+- **Kauri original title:** Tools for working with Vyper
 - **Kauri original link:** https://kauri.io/tools-for-working-with-vyper/ca43e064d5054f829f733970909de1ad/a
 - **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
 - **Kauri original Publication date:** 2019-08-29

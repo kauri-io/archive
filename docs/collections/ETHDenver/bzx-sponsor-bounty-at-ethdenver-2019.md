@@ -82,6 +82,7 @@ If you need help, please contact us on Telegram at t.me/b0xNet. Direct any techn
 
 ---
 
+- **Kauri original title:** Bzx - Sponsor Bounty at ETHDenver 2019
 - **Kauri original link:** https://kauri.io/bzx-sponsor-bounty-at-ethdenver-2019/fb0c79750e92413ca218e40b7f25324f/a
 - **Kauri original author:** Andreas Wallendahl (@awallendahl)
 - **Kauri original Publication date:** 2019-02-16

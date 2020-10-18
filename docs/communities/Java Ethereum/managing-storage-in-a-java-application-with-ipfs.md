@@ -549,6 +549,7 @@ peers.forEach(multihash ->
 
 ---
 
+- **Kauri original title:** Managing storage in a Java application with IPFS
 - **Kauri original link:** https://kauri.io/managing-storage-in-a-java-application-with-ipfs/3e8494f4f56f48c4bb77f1f925c6d926/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-08-14

@@ -108,6 +108,7 @@ Moreover, this methodology also permits to include knowledge during the building
 
 ---
 
+- **Kauri original title:** Introduction to a Privacy Ontology
 - **Kauri original link:** https://kauri.io/introduction-to-a-privacy-ontology/f7b84779281a420a8a710cecc72cd552/a
 - **Kauri original author:** Beni Issembert (@bissembert)
 - **Kauri original Publication date:** 2019-06-23

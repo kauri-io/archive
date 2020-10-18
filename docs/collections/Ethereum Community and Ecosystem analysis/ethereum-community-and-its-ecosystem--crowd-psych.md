@@ -118,6 +118,7 @@ I would argue in further articles that Ethereum also brings together all the con
 
 ---
 
+- **Kauri original title:** Ethereum community and its ecosystem  crowd psychology analysis part 2
 - **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-crowd-psych/99ccd629fce5482e8ddcb9e48d12bcb6/a
 - **Kauri original author:** Michael A (@silver84)
 - **Kauri original Publication date:** 2019-04-01

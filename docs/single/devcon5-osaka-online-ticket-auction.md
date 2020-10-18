@@ -172,6 +172,7 @@ function withdrawRefund() public
 
 ---
 
+- **Kauri original title:** Devcon5 Osaka online ticket Auction
 - **Kauri original link:** https://kauri.io/devcon5-osaka-online-ticket-auction/c26a5fcda75c4b35bbee651ae2beed98/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2019-08-27

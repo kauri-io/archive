@@ -59,6 +59,7 @@ Okay back to BUIDLing. See ya’ll around!
 
 ---
 
+- **Kauri original title:** BUIDLing a Mesh of Humans
 - **Kauri original link:** https://kauri.io/buidling-a-mesh-of-humans/950354a448a54d7c8e7448a7c0d93237/a
 - **Kauri original author:** Gitcoin (@gitcoin)
 - **Kauri original Publication date:** 2018-10-26

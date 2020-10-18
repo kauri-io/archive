@@ -17,6 +17,7 @@ Mapping [DeFi ecosystem](https://defiprime.com)
 
 ---
 
+- **Kauri original title:** Mapping DeFi ecosystem
 - **Kauri original link:** https://kauri.io/mapping-defi-ecosystem/be2b43aab6604beaab8f95e7b6c4f471/a
 - **Kauri original author:** defiprime (@defiprime)
 - **Kauri original Publication date:** 2019-08-06

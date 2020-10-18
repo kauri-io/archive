@@ -57,6 +57,7 @@ https://github.com/oasisethdenver2019/Wel-Fair
 
 ---
 
+- **Kauri original title:** Wel-fair
 - **Kauri original link:** https://kauri.io/wel-fair/76125c8a2dd543eb8fa2076a46be56f3/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17

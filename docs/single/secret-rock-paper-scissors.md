@@ -220,6 +220,7 @@ _, or_
 
 ---
 
+- **Kauri original title:** Secret Rock, Paper, Scissors
 - **Kauri original link:** https://kauri.io/secret-rock-paper-scissors/468b49fcd2ef48feaada3a4399d0b2a6/a
 - **Kauri original author:** Ainsley Sutherland (@ainsleys)
 - **Kauri original Publication date:** 2019-01-30

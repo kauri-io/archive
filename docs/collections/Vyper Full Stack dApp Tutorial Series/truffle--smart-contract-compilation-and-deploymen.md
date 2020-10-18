@@ -568,6 +568,7 @@ Later in the series, we’ll cover how to write tests within the Truffle framewo
 
 ---
 
+- **Kauri original title:** Truffle  Smart Contract Compilation & Deployment
 - **Kauri original link:** https://kauri.io/truffle:-smart-contract-compilation-and-deploymen/1ac9d10358b94945b06b9c893cd5bfcf/a
 - **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
 - **Kauri original Publication date:** 2019-08-29

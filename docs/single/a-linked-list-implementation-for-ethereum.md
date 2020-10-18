@@ -144,6 +144,7 @@ If you are considering using this code in a project, want to contribute, or have
 
 ---
 
+- **Kauri original title:** A Linked List Implementation for Ethereum
 - **Kauri original link:** https://kauri.io/a-linked-list-implementation-for-ethereum/2b40f522f07a45f391dafebfaadc444d/a
 - **Kauri original author:** Alberto Cuesta Cañada (@albertocuesta)
 - **Kauri original Publication date:** 2020-03-02

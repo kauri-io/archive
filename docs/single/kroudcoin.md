@@ -50,6 +50,7 @@ https://github.com/psiva/Campaign
 
 ---
 
+- **Kauri original title:** KroudCoin
 - **Kauri original link:** https://kauri.io/kroudcoin/b622147d1bd0488ba23148afac5cfb27/a
 - **Kauri original author:** Siva (@siva)
 - **Kauri original Publication date:** 2019-02-18

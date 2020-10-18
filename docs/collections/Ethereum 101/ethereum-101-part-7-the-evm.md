@@ -209,6 +209,7 @@ The EVM is a subject that should be discussed at length. We won't go into any mo
 
 ---
 
+- **Kauri original title:** Ethereum 101 - Part 7 - The EVM
 - **Kauri original link:** https://kauri.io/ethereum-101-part-7-the-evm/a7ac47d26eab4ce899a865619122d42e/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13

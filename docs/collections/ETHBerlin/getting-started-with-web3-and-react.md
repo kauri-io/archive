@@ -21,6 +21,7 @@ By Razvan Dinicut
 
 ---
 
+- **Kauri original title:** Getting Started with Web3 and React
 - **Kauri original link:** https://kauri.io/getting-started-with-web3-and-react/0da601617f444d99993dca80497d83ae/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-14

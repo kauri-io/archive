@@ -69,6 +69,7 @@ https://github.com/eshavkun/redenvelope-contract
 
 ---
 
+- **Kauri original title:** 🧧 Red Envelope - gift anytime, any place, and to anyone
 - **Kauri original link:** https://kauri.io/red-envelope-gift-anytime-any-place-and-to-anyone/4484917c7868429c9c030ca9de61ebc2/a
 - **Kauri original author:** Johann Barbie (@johba)
 - **Kauri original Publication date:** 2019-02-17

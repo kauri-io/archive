@@ -295,6 +295,7 @@ The following guide will discuss the Populus testing process in greater detail.
 
 ---
 
+- **Kauri original title:** Populus  Smart contract compilation and deployment
 - **Kauri original link:** https://kauri.io/populus:-smart-contract-compilation-and-deploymen/21b6d5256bcd4a0bb23c84c75c1b1f76/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2018-09-13

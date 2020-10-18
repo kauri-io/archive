@@ -27,6 +27,7 @@ i imagine he did not know "hammurabi's" name; and even today in this place where
 
 ---
 
+- **Kauri original title:** has abaslom and the ethos of arcadia
 - **Kauri original link:** https://kauri.io/has-abaslom-and-the-ethos-of-arcadia/c69700272499484da5ab1e4da74a501f/a
 - **Kauri original author:** Adam Marshall Dobrin (@gydpsjzq)
 - **Kauri original Publication date:** 2020-05-15

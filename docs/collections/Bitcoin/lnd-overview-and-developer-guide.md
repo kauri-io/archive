@@ -250,6 +250,7 @@ You have completed the conceptual overview of LND and a high level primer on the
 
 ---
 
+- **Kauri original title:** LND Overview and Developer Guide
 - **Kauri original link:** https://kauri.io/lnd-overview-and-developer-guide/7d91c7cd0bc84c97b322d4491950d35f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-29

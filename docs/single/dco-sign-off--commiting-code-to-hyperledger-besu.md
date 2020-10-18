@@ -123,6 +123,7 @@ for more information on DCO sign-off, including how to deal with DCO errors flag
 
 ---
 
+- **Kauri original title:** DCO Sign-Off  Commiting code to Hyperledger Besu
 - **Kauri original link:** https://kauri.io/dco-sign-off:-commiting-code-to-hyperledger-besu/f58190e5e3bc4b1a9ed902bfccfe58b9/a
 - **Kauri original author:** Felipe Faraggi (@felipefaraggi)
 - **Kauri original Publication date:** 2019-11-27

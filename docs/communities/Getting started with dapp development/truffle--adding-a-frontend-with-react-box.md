@@ -1281,6 +1281,7 @@ Try adding UI components so users can use these features.
 
 ---
 
+- **Kauri original title:** Truffle  Adding a frontend with react box
 - **Kauri original link:** https://kauri.io/truffle:-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-01-24

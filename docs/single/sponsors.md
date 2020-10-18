@@ -34,6 +34,7 @@ after which ETHBerlin's funding is modeled.
 
 ---
 
+- **Kauri original title:** Sponsors
 - **Kauri original link:** https://kauri.io/sponsors/3650e7e5774c46dc9b945fb3b08ec9c0/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

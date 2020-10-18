@@ -17,6 +17,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** Visual Cryptocurrencies ICO History
 - **Kauri original link:** https://kauri.io/visual-cryptocurrencies-ico-history/d748ac1d62cf471191d6fd8d8ed2da9e/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-04

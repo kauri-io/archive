@@ -72,6 +72,7 @@ profit
 
 ---
 
+- **Kauri original title:** CDP Liquidator
 - **Kauri original link:** https://kauri.io/cdp-liquidator/5843d9b8b7dd4a8ba889eb1b7619b27f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-20

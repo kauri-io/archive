@@ -20,6 +20,7 @@ some_url:
 
 ---
 
+- **Kauri original title:** Ethereum Price
 - **Kauri original link:** https://kauri.io/ethereum-price/cb0d98eca70548109ce5fadebd185847/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-04-18

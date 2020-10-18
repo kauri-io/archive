@@ -157,6 +157,7 @@ Feel free to stop by our [Slack channel](https://empireslacking.herokuapp.com) (
 
 ---
 
+- **Kauri original title:** Analyze Solidity Smart Contracts with Slither
 - **Kauri original link:** https://kauri.io/analyze-solidity-smart-contracts-with-slither/4f4dcf7d105d4714b212a86da742baf6/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-28

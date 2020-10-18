@@ -334,6 +334,7 @@ For more information about subscribing to events with Web3j, I highly recommend 
 
 ---
 
+- **Kauri original title:** Manage ERC20 tokens in Java with Web3j
 - **Kauri original link:** https://kauri.io/manage-erc20-tokens-in-java-with-web3j/d13e911bbf624108b1d5718175a5e0a0/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-08-20

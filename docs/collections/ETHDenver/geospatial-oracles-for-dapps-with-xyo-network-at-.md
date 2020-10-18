@@ -36,6 +36,7 @@ If you need answers to questions visit XYO's [gitter channel](https://gitter.im/
 
 ---
 
+- **Kauri original title:** GeoSpatial Oracles for DApps with XYO Network at ETHDenver
 - **Kauri original link:** https://kauri.io/geospatial-oracles-for-dapps-with-xyo-network-at-/33522c3e6fd44551afa07017f4a37c10/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-08

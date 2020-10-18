@@ -46,6 +46,7 @@ https://gitlab.com/mpcahn/ethgeocaching
 
 ---
 
+- **Kauri original title:** EthoCaching
 - **Kauri original link:** https://kauri.io/ethocaching/d980ca8f058e4df78c1849932e0348dd/a
 - **Kauri original author:** Matthew Cahn (@mpcahn)
 - **Kauri original Publication date:** 2019-02-17

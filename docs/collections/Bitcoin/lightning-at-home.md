@@ -204,6 +204,7 @@ You'll have to make sure that you start both pieces of software again, and unloc
 
 ---
 
+- **Kauri original title:** Lightning at Home
 - **Kauri original link:** https://kauri.io/lightning-at-home/f4b1817865f3475099d5fb60a013878b/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-30

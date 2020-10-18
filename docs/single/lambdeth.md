@@ -46,6 +46,7 @@ https://github.com/siromivel/lambdeth
 
 ---
 
+- **Kauri original title:** Lambdeth
 - **Kauri original link:** https://kauri.io/lambdeth/1b265a0a82bb48d1a4c7326f3a38a1b6/a
 - **Kauri original author:** Tara Regan (@squeakattack)
 - **Kauri original Publication date:** 2019-02-17

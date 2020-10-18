@@ -17,6 +17,7 @@ Oscar Clark - Consultant - Fundamentally Games
 
 ---
 
+- **Kauri original title:** Blockchain Gaming  A Question of Design
 - **Kauri original link:** https://kauri.io/blockchain-gaming:-a-question-of-design/606b8e33d0f944d690e5334978a0f843/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04

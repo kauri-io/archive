@@ -15,6 +15,7 @@ undefined
 
 ---
 
+- **Kauri original title:** Evolution of Smart Contract Security in Ethereum
 - **Kauri original link:** https://kauri.io/evolution-of-smart-contract-security-in-ethereum/776f5e520cd14a1cbfd049b65ef196ef/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03

@@ -226,6 +226,7 @@ Different categories of wallet exists:
 
 ---
 
+- **Kauri original title:** Blockchain glossary
 - **Kauri original link:** https://kauri.io/blockchain-glossary/1f5da0c171cd4eecb68d23be9acce25d/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2019-05-21

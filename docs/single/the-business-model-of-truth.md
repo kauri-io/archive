@@ -81,6 +81,7 @@ Decentralized oracle networks and the notion of truth that depends on decentrali
 
 ---
 
+- **Kauri original title:** The Business Model of Truth
 - **Kauri original link:** https://kauri.io/the-business-model-of-truth/2bd87589bcdc426aac3c1873cc512b3b/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13

@@ -255,6 +255,7 @@ Thanks a lot for reading! You can also:
 
 ---
 
+- **Kauri original title:** On Oracles and Schelling Points
 - **Kauri original link:** https://kauri.io/on-oracles-and-schelling-points/560693efab534c97a8f97b251984773d/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20

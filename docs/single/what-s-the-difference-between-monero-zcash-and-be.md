@@ -181,6 +181,7 @@ __
 
 ---
 
+- **Kauri original title:** What’s the difference between Monero, Zcash, and BEAM?
 - **Kauri original link:** https://kauri.io/what-s-the-difference-between-monero-zcash-and-be/86aba6d03b05423088d273057c576a82/a
 - **Kauri original author:** Beni Issembert (@bissembert)
 - **Kauri original Publication date:** 2019-06-23

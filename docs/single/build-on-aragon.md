@@ -40,6 +40,7 @@ You can find all the information and tutorials on how to build on Aragon in the 
 
 ---
 
+- **Kauri original title:** Build on Aragon
 - **Kauri original link:** https://kauri.io/build-on-aragon/35357041f8774dc785ae79989b0f0711/a
 - **Kauri original author:** null (@sinamahmoodi)
 - **Kauri original Publication date:** 2018-09-04

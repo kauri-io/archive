@@ -80,6 +80,7 @@ If you used Infura before, make sure your applications are using the new `https:
 
 ---
 
+- **Kauri original title:** Infura 101 - Infrastructure for Dapps
 - **Kauri original link:** https://kauri.io/infura-101-infrastructure-for-dapps/9113c37841e5451fbb2cf2477a3a63e5/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2018-12-07

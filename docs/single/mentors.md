@@ -47,6 +47,7 @@ For all the general event infos, please go to the [ETHBerlin website](https://et
 
 ---
 
+- **Kauri original title:** Mentors
 - **Kauri original link:** https://kauri.io/mentors/070bca5119664fd290764dd8a9764b99/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-03

@@ -237,6 +237,7 @@ I know I will get there soon but no promised deadlines.
 
 ---
 
+- **Kauri original title:** Getting started with Caddy 2
 - **Kauri original link:** https://kauri.io/getting-started-with-caddy-2/6391aa56db3143ab989590f060f722a8/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2020-06-25

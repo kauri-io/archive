@@ -109,6 +109,7 @@ Click the _Submit Article to On-Chain_ button at the bottom of an article.
 
 ---
 
+- **Kauri original title:** Writing on Kauri
 - **Kauri original link:** https://kauri.io/writing-on-kauri/cc1cefd3523b4faeafc700a44698e43d/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-12-16

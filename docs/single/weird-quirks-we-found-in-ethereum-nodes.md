@@ -49,6 +49,7 @@ _parses and classifies every on-chain transaction (currently from the Ethereum b
 
 ---
 
+- **Kauri original title:** Weird quirks we found in Ethereum nodes
 - **Kauri original link:** https://kauri.io/weird-quirks-we-found-in-ethereum-nodes/9d659d2cecd14c2bb65992f316fefcf9/a
 - **Kauri original author:** null (@eca41677558025c76bfd20e9289283cb4ca85f46)
 - **Kauri original Publication date:** 2018-12-20

@@ -124,6 +124,7 @@ Please let us know if you have any questions or comments below. You can
 
 ---
 
+- **Kauri original title:** Welcome To Sheikah
 - **Kauri original link:** https://kauri.io/welcome-to-sheikah/8fbccefcf99044ae93fa76147f50991b/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20
