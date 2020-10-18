@@ -9,6 +9,7 @@ some_url:
 
 # Weird quirks we found in Ethereum nodes
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmdDSza1PPqfpKDRkKsMekYCzE8TeFLowEj71LPBCE3nBw)
 At TokenAnalyst we are experts at hosting, running, and extracting valuable information from blockchain nodes. Through our time working with Ethereum, we encountered some interesting quirks that we’d love to share with the broader community. We work with the two top most-used Ethereum clients, namely Geth ( 
 [go-ethereum](https://github.com/ethereum/go-ethereum)

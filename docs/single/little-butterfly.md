@@ -9,33 +9,34 @@ some_url:
 
 # Little Butterfly
 
+
 Project link: https://littlebutterfly.info
 
 Read more about us at Medium: https://medium.com/@telmo_correa/little-butterfly-7233b50043e4
 
-# Project Name
+## Project Name
 
 Little Butterfly
 
 
-# Project Tagline/Description
+## Project Tagline/Description
 
 Live the fluttering experience of a short passion. 
 
 Butterflies can visit your garden, but must leave in 24 hours, or they will die – leaving behind only memories.
 
 
-# Team Members
+## Team Members
 
 Telmo Correa
 
 
-# Status.im ID for Each Team Member
+## Status.im ID for Each Team Member
 
 [Telmo Correa -- telmo](https://get.status.im/user/0x049d2f7a6d8eef463854d4c4d8e94dceda9e85e5ffba2b2bb93bad4be049c7047f97aaff651bd7436319fdd37b019a2f07b73bc8331f60998796525cac71bcc634)
 
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 
 - Small crypto-collectible game about butterflies, flowers, and hearts -- or, about the ephemerality of experiences and the memories they leave behind
 - Implements ERC721 tokens with computed state that evolves over time, without requiring smart contract calls
@@ -46,7 +47,7 @@ A more complete retelling of the story of this project is available at Medium:
 https://medium.com/@telmo_correa/little-butterfly-7233b50043e4
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 - [ERC721](http://erc721.org/) smart contract implemented in [Solidity](https://solidity.readthedocs.io/en/v0.4.24/), using and adapting [OpenZeppelin](https://openzeppelin.org/) libraries
 - Project structure developed with [Truffle](https://truffleframework.com/)
@@ -60,16 +61,16 @@ https://medium.com/@telmo_correa/little-butterfly-7233b50043e4
 - [Infura](https://infura.io/dashboard) gateway used for read-only access
 
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 [Fortmatic-2019: Bounty 1 Overview: Build user-friendly DApps using Fortmatic for identity management](https://kauri.io/article/67292751c2334f78bd4c6d187dd64f50/v2/fortmatic-sponsor-bounty-at-ethdenver-2019!)
 
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/someusername6/little-butterfly
 

@@ -10,10 +10,11 @@ some_url:
 # Witnet Monthly Report — May 2018
 
 
+
 Today we want to share what we have been up to over the last month, the challenges we have met and 
 **the progress we have made towards our first milestone: the Witnet prototype**.
 
-## 💰 Fundraising
+### 💰 Fundraising
 After the public sale we run in March on 
 [Republic Crypto](https://republic.co/witnet)
  , we have now closed also the private sale we run during April and May. We are still finalizing the accounting process but 
@@ -22,14 +23,14 @@ After the public sale we run in March on
 **A big thank you to all those who participated!**
  
 
-## 💜 Team
+### 💜 Team
 This month we’ve 
 **interviewed** [María](https://medium.com/witnet/team-insights-mar%C3%ADa-back-end-engineer-27fef70af1d1) **and** [Anler](https://medium.com/witnet/team-insights-anler-back-end-engineer-and-functional-programmer-eca357baef47)**, our two latest additions to the team.** They’re two very talented back end engineers with really interesting careers so far. Make sure you check out their interviews! We’ve also **welcomed a scrum master and a front end developer into our team.** You’ll get to know them very soon through our [Team Insights](https://medium.com/witnet/tagged/team).
 
 **We still have** [open positions](https://angel.co/witnet-foundation-1/jobs)
  , so if you are aware of the impact a decentralized oracle network will have on the crypto landscape, be sure to check them out!
 
-## 🔧 Product
+### 🔧 Product
 As you may know, 
 **Sheikah is Witnet’s first desktop client.**
  It will serve both as a wallet for the native Wit token and as an IDE for Witnet’s smart contracts and RAD requests.

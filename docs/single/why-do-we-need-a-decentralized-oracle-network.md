@@ -10,6 +10,7 @@ some_url:
 # Why do we need a Decentralized Oracle Network?
 
 
+
 ----
 
 
@@ -25,7 +26,7 @@ Yet, what are some real, tangible
  , and it would be naive to say we can list them all: smart contracts will literally be able to feed on any piece of data available online.
 We’ll explore some of the most common concepts we have faced up to date, leaving the door open for innovators to make these examples seem obvious by defining new frontiers with their work. Let’s get started!
 
-## 🔮 Prediction Markets
+### 🔮 Prediction Markets
 Prediction markets are platforms that 
 **allow you to buy and sell ‘shares’ of a certain event’s outcome**
  . The more the public believes something is likely to happen, the cheaper the outcome will be, and vice versa.
@@ -33,7 +34,7 @@ For prediction markets to work in a fully decentralized way
 **there has to be a mechanism in place to trustlessly assess what the true outcome of an event was**
  . In that outcome validation process is where distributed oracles play a role: you can connect the market’s smart contract to external sources to check on the final result. Then, money can be distributed to the buyers that predicted the outcome correctly.
 
-## 📅 Crowdfunding
+### 📅 Crowdfunding
 Crowdfunding is a way for everyone to 
 **fund projects and initiatives**
  you might like or support. 
@@ -43,7 +44,7 @@ Crowdfunding can be easily conducted using smart contracts, as they are an effic
 **For smart contracts to know if a milestone has been reached by the team**
  (information that escapes the reach of the contract’s code) a decentralized network of oracles can assure a truthful, secure addressing of the team’s achievements.
 
-## 💰 Finance
+### 💰 Finance
 Finance is a broad topic, but the uses for a trustless oracle in this field are also quite broad. Accessing the 
 **price of any good or asset**
  can’t be done without using a trusted third party: until now.
@@ -58,7 +59,7 @@ A team’s salary
 [Witnet](http://witnet.io)
  provides the best incentive system to ensure parties always tell the truth.
 
-## 🚨 Insurance
+### 🚨 Insurance
 When an 
 **unexpected event happens**
  (a robbery, a natural disaster…) it is common to have insurance in place to 
@@ -68,7 +69,7 @@ Was that automatic door locked? Did this company have an encryption system in pl
 **smart contract to connect to all these data points from the real world without relying on corruptible intermediaries**
  , a network of distributed oracles must coordinate to retrieve and verify all the necessary data.
 
-## 👤 Identity
+### 👤 Identity
 Identity is a 
 **popular topic in the crypto space**
  . How funds, votes, or non-fungible tokens are 
@@ -80,11 +81,11 @@ These blockchain based identities will be key for the
 **connect smart contracts to the identities of voters, asset owners or medical patients**
  .
 
-## 🎲 Gambling
+### 🎲 Gambling
 Whether we’re talking about a big online Casino or a small group of people making a friendly bet, a final result must be set in order for that bet or gamble to finalize. Who won last night’s NBA game? Or how does a smart contract define “winning”, in the first place?
 Smart contracts shouldn’t have to rely on central entities (a Casino’s management, a trusted API…) in order to make this call. Instead, they can make a request to a network of anonymous nodes and get the consensus result. Hello p2p platforms!
 
-## 💡 New Frontiers
+### 💡 New Frontiers
 As we’ve said before, the possibilities for the technology we’re developing are very broad. From simple things like random number generation to heavier processes like freight management or weather data, a decentralized oracle network is a much needed layer of the trustless future the crypto space is building.
 What we’re truly excited about at Witnet are the ideas developers, innovators and creators will come up with once this tech is fully available for use. Most of the new things that a decentralized oracle can empower are probably outside the realm of our current imagination, which is precisely what drives us to work hard for current and future developers interested in our protocol.
 

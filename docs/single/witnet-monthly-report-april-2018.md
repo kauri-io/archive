@@ -10,6 +10,7 @@ some_url:
 # Witnet Monthly Report — April 2018
 
 
+
 ----
 
 
@@ -25,7 +26,7 @@ Hi there, Witnet community! As you might know, every month we update you on our 
 **the progress we have made towards our first milestone: the Witnet prototype**
  .
 
-## ☯️ Partnerships
+### ☯️ Partnerships
 We’re really glad to announce we have agreed on a 
 **partnership with Reflective Ventures**
  , a 
@@ -47,7 +48,7 @@ We’re really glad to announce we have agreed on a
 **bridges for Ethereum and for a decentralized storage protocol**
  . We’re very excited about the future we are building together!
 
-## 💜 Team
+### 💜 Team
 Over the past month 
 [we have interviewed Daniele](https://medium.com/witnet/team-insights-daniele-witnets-operations-lead-6a72c8da8268)
  , our Operations Lead, to know about 
@@ -73,7 +74,7 @@ Over the past weeks, we’ve
 [check them out](https://angel.co/witnet-foundation-1/jobs)
  !
 
-## 🔧 Product
+### 🔧 Product
  
 [In our last Monthly Report](https://medium.com/witnet/witnet-monthly-report-march-2018-cf79a2cf859d)
  , we outlined the 

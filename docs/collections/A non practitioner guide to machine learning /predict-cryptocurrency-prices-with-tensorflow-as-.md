@@ -9,19 +9,20 @@ some_url:
 
 # Predict cryptocurrency prices with Tensorflow as binary classification problem
 
-## Introduction
+
+### Introduction
 In this tutorial we'll go through the prototype for a neural network which will allow us to estimate cryptocurrency prices in the future, as a binary classification problem, using Keras and Tensorflow as the  our main clarvoyance tools.
 
 While it is most likely not the best way to approach the problem (after all investment banks invest billions in developing such algorithms), if we can get it right more than 55% of the times, we are in the money!
 
-## What we'll be doing
+### What we'll be doing
 - Download data using Binance API
 - Preprocess the data
 - Train our model(s)
 - Feature engineering
 - Evaluate best performing models
 
-## Downloading data using Binance API
+### Downloading data using Binance API
 for this example we'll download the maximum amount of data that can be fetched in a single call. If you want to train a better more and use it in the real world (which is not recommended by the way, you will likely loose real money), I would suggest to gather more data using multiple calls.
 
 ```python
@@ -55,7 +56,7 @@ ethusdt.to_csv('./data.csv', index=False)
 
 In this simple piece of code we are requiring the necessary packages, setup a couple of parameters (I picked a 15 minutes interval but you can pick more granular interval for higher frequency trading) and setup a couple of convenience functions, then save the data to csv for future reuse. This should be self explanatory but if something confuses you, please feel free to leave a comment asking for clarifications :)
 
-## Preprocessing the data
+### Preprocessing the data
 
 As prices overtime is a form of sequential data we are going to use a LSTM layer (Long-short-term-memory) as the first layer in our net. We want to provide data as a sequence of events, which will predict the price at time `t+n` where `t` is the current time and `n` defines how far in the future we want to predict, to do so we'll feed data as a time window  of `w` length. It will all be clearer once we look at the code, let's start importing the required packages.
 
@@ -200,7 +201,7 @@ len(y_train)
 After running the snippet a couple of time, you should get something like this, with an even split of buys and sells (left vs right) across both datasets.
 
 
-## Training the model(s)
+### Training the model(s)
 
 We are now ready to train the model, but as we have yet to explore what hyper-parameters work best with our model and data we'll try a slightly more complex approach. First let's define four hyper-parameters arrays:
 
@@ -272,7 +273,7 @@ We are also adding a Tensorboard callback, which will allow us to see how each m
 
 Feel free to run this code and then run Tensorboard, in your terminal `tensorboard --logdir=logs`
 
-## Feature engineering
+### Feature engineering
 The best model should have an accuracy on the validation data that is higher than 60%, which is already quite good. However, we can improve our model very quickly by extracting more data from our existing data set. The process of extracting new features from existing features is called `Feature Engineering`. Examples of feature engineering would be extracting a weekend boolean column from a data, or a country from a coordinates pair. In our case we are going to add technical analysis data to our OHLC dataset.
 
 At the top of your notebook or file, add the `ta` package: `from ta import *`.
@@ -280,7 +281,7 @@ At the top of your notebook or file, add the `ta` package: `from ta import *`.
 Just after loading the data from csv, add the following line, which will append TA data to our existing dataset in the form of new columns
 ```python
 data = pd.read_csv('./data.csv')
-#add the following line
+##add the following line
 add_all_ta_features(data, "o", "h", "l", "c", "v", fillna=True) 
 data['future_value'] = data['c'].shift(-LOOKAHEAD)
 ```
@@ -291,7 +292,7 @@ That's it, in a few line we have massively enriched our dataset. We can now run 
 
 A richer, more meaningful dataset should ensure a more accurate model, and in the image above, we can clearly see how the richer dataset perform better than the simple data-set, with a validation accuracy hovering around the 80% mark!
 
-## Evaluating the best performing models.
+### Evaluating the best performing models.
 Now that we have some models that seem to perform nicely on paper, how do we evaluate which one should be used in an hypothetical trading system?
 
 This can be quite subjective, but in my opinion a good approach would be to separately looks at the buys and sells from the known validation labels and plot the distribution of the corresponding predictions. Hopefully, for all the buys, our model mostly predicts buys and not many sells and viceversa.

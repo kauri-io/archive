@@ -9,11 +9,12 @@ some_url:
 
 # Metamask - Interact with Ethereum in your Browser
 
-# Metamask 101
+
+## Metamask 101
 
 This post introduces [Metamask](https://metamask.io), how to install it in different browsers, add Ethereum (ETH) to a test account, and explore first interactions with a Web3 application.
 
-## Why Use Metamask?
+### Why Use Metamask?
 
 How do you connect regular users to DApps? Can you interact with the Ethereum blockchain in an intuitive and user-friendly manner? Metamask set out with a mission "make Ethereum as easy to use for as many people as possible." Metamask allows you to interact with the Ethereum blockchain from the convenience of your preferred browser.
 
@@ -28,7 +29,7 @@ Metamask created a JavaScript library that allows your preferred browser to comm
 - **An Identity Vault**: Allows you to manage your identities on different sites using a secure single sign-on process and interact with multiple DApps with different addresses as well as sign blockchain transactions. This keeps your data disconnected from each other while protecting your identity as well.
 - **A Blockchain connection**: Allows a fast connection to the Ethereum blockchain without the need to run a full node. Developers can also design and run Ethereum DApps from their browsers as well.
 
-## Installing Metamask
+### Installing Metamask
 
 You can install the MetaMask add-on in Chrome, Firefox, Opera, and Brave browser. The installation is pretty straightforward across the browsers. In this post, we walk you through installing Metamask on the Chrome browser.
 
@@ -80,7 +81,7 @@ You are now on the Ethereum Main Network.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmeACn7zaxA2aRP2QYXQuhjzTQtVzy3SauKsXcqweF2uXX)
 
-## Adding ETH to a Test Account
+### Adding ETH to a Test Account
 
 To experiment with Metamask, select one of the test networks like _Ropsten_, _Kovan_, or _Rinkeby_. For this example use _Ropsten_.
 
@@ -108,7 +109,7 @@ To experiment with Metamask, select one of the test networks like _Ropsten_, _Ko
 
 ![](https://api.beta.kauri.io:443/ipfs/QmUYwsxPsoMGWMxvjhUh22BCiZCPJN2YE8G7mxDG1N8rse)
 
-## Metamask's Interaction with a Web3 Application: Cryptokitties
+### Metamask's Interaction with a Web3 Application: Cryptokitties
 
 There are various DApps to explore depending on your interest. For our example, we explore Metamask's interaction with Cryptokitties. Cryptokitties is a game created through blockchain technology that allows users to collect and breed cat-like creatures called "Cryptokitties."
 

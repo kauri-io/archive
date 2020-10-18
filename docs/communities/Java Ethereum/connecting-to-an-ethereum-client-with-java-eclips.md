@@ -10,6 +10,7 @@ some_url:
 # Connecting to an Ethereum client with Java, Eclipse and Web3j
 
 
+
 **Other articles in this series:**
 - [Manage an Ethereum account with Java and Web3j](https://kauri.io/article/925d923e12c543da9a0a3e617be963b4)
 - [Generate a Java Wrapper from your Smart Contract](https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b)
@@ -27,7 +28,7 @@ In this article, we will learn how to start an Ethereum Java project and connect
 
 ![](https://web3j.readthedocs.io/en/latest/_images/web3j_network.png)
 
-## Prerequisite
+### Prerequisite
 
 To run this tutorial, we must have the following installed:
 
@@ -41,11 +42,11 @@ java version "1.8.0_201"
 -   A package and dependancy manager, for example [Maven](https://maven.apache.org/) or [Gradle](https://gradle.org/install/)
 -   An IDE (Integrated development environment), for this tutorial, we use [Eclipse](https://www.eclipse.org/downloads/)
 
-## Start a new project
+### Start a new project
 
 First create a new Maven project called `java_ethereum` in Eclipse.
 
-### 1. Create a new Maven project
+#### 1. Create a new Maven project
 
 Once Eclipse is launched, we need to create a new Maven project. Go to _File > New > Project > Maven > Maven Project_
 
@@ -63,7 +64,7 @@ It should result of a new project in the _Project Explorer_
 
 ![](https://imgur.com/7uiey3U.png)
 
-### 2. Configure our project to use Java 8
+#### 2. Configure our project to use Java 8
 
 Finally, we need to tell Eclipse and Maven to use Java version 8.
 
@@ -82,7 +83,7 @@ In the _Project Explorer_, You should see the _JRE System library_ changing from
 
 ![](https://imgur.com/7Pvq9hJ.png)
 
-## Add Web3j library to our project
+### Add Web3j library to our project
 
 In this step, we import the latest version of Web3j to our project via maven.
 
@@ -102,7 +103,7 @@ _Full pom.xml file available [here](https://github.com/gjeanmart/kauri-content/b
 
 Save file and dependencies will import. In your package explorer you will see a Maven dependencies folder with all the JAR (Java ARchive) packages for web3j and its dependencies.
 
-## Create a Main class
+### Create a Main class
 
 Now, we have all the required dependencies to use Web3j, we can start coding our Ethereum Java program.
 
@@ -124,11 +125,11 @@ public class Main {
 }
 ```
 
-## Connect to an Ethereum node with Web3j.
+### Connect to an Ethereum node with Web3j.
 
 Now we have created our project, imported the Web3j library and prepared a program to run our code. We can now connect to an Ethereum node and start executing operations over the JSON-RPC API abstracted by Web3j.
 
-### 1. Add imports
+#### 1. Add imports
 
 First import the packages needed for our code, or allow your IDE to automatically import them for you:
 
@@ -141,7 +142,7 @@ import org.web3j.protocol.core.methods.response.EthGasPrice;
 import org.web3j.protocol.core.methods.response.Web3ClientVersion;
 ```
 
-### 2. Connect to the node
+#### 2. Connect to the node
 
 To connect to the node, Web3j requires the JSON-RPC API endpoint:
 
@@ -149,7 +150,7 @@ To connect to the node, Web3j requires the JSON-RPC API endpoint:
 Web3j web3 = Web3j.build(new HttpService("<NODE ENDPOINT>"));
 ```
 
-#### Local Ethereum node or ganache-cli
+##### Local Ethereum node or ganache-cli
 
 If you are running locally a [Geth](https://geth.ethereum.org/), [Parity](https://www.parity.io/), [Pantheon](https://github.com/PegaSysEng/pantheon) client or [ganache-cli](https://github.com/trufflesuite/ganache-cli). Your node JSON-RPC API endpoint is `http://localhost:8545` by default
 
@@ -157,7 +158,7 @@ If you are running locally a [Geth](https://geth.ethereum.org/), [Parity](https:
 Web3j web3 = Web3j.build(new HttpService("http://localhost:8545"));
 ```
 
-#### Ganache application: Local development blockchain
+##### Ganache application: Local development blockchain
 
 If you are running the [Ganache](https://www.trufflesuite.com/ganache) application on your machine. Your node JSON-RPC API endpoint is `http://localhost:7545` by default. _ganche-cli uses port 8545_
 
@@ -167,7 +168,7 @@ Web3j web3 = Web3j.build(new HttpService("http://localhost:7545"));
 
 _Note: As a test network, Ganache doesn't support all the JSON-RPC API operations specified, for example `net_peercount`._
 
-#### Infura: Hosted nodes for public mainet and testnets
+##### Infura: Hosted nodes for public mainet and testnets
 
 If you use [Infura](https://infura.io). The node JSON-RPC API endpoint is `https://<network>.infura.io/v3/<project key>`.
 
@@ -175,7 +176,7 @@ If you use [Infura](https://infura.io). The node JSON-RPC API endpoint is `https
 Web3j web3 = Web3j.build(new HttpService("https://mainnet.infura.io/v3/<project key>"));
 ```
 
-### 3. Execute API operations
+#### 3. Execute API operations
 
 Web3j implements a JSON-RPC API client for Ethereum which can be used in the following way `<response> = web3.<operation>.send()`. For example:
 
@@ -197,7 +198,7 @@ try {
 
 **Note:** Serilization of the JSON-RPC request can raise an `IOException` exception, so you need to handle it.
 
-## Result
+### Result
 
 The following code shows the entire Java program which connects to an Ethereum node and runs some JSON-RPC calls.
 
@@ -256,7 +257,7 @@ Gas price: 3000000000
 
 ![](https://imgur.com/MWJqowg.gif)
 
-## References
+### References
 
 -   [GitHub Project code](https://github.com/gjeanmart/kauri-content/tree/master/java-ethereum)
 -   [Web3j website](https://web3j.io/)

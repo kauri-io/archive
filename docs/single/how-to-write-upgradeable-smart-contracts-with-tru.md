@@ -9,7 +9,8 @@ some_url:
 
 # How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0
 
-## Context
+
+### Context
 
 In this post, we'll learn how to write upgradeable smart contracts with the latest versions of Truffle and ZeppelinOS. In particular, version ^5.0 of Truffle introduces a plethora of updates, with the most prominent one being the integration with web3 ^1.0. Let's unpack these updates and introduce upgradeable smart contracts with the state-of-the-art ZeppelinOS.
 
@@ -20,7 +21,7 @@ This is not an introductory article to Ethereum development, if you want that, t
 
 Do note that the blockchain world moves at a ridiculous pace, giving little to no time for standards to sink in. This means that a lot of code snippets from the articles above may not work as expected, but don't panic and return here when that happens.
 
-## Prerequisites
+### Prerequisites
 
 Make sure you are equipped with the following:
 
@@ -28,7 +29,7 @@ Make sure you are equipped with the following:
 - ganache-cli or the [Ganache](https://truffleframework.com/ganache) desktop app
 - curiosity to learn more
 
-## Truffle ^5.0
+### Truffle ^5.0
 
 ![Truffle Logo](https://paulrberg.com/post/upgradeable-smart-contracts/truffle.png)
 
@@ -49,11 +50,11 @@ $ truffle init
 
 This will initialise a bunch of files. If you used older versions of Truffle, you may notice that "truffle-config.js" is more verbose now and has many more configurable options. Let's go through the important changes.
 
-### Web3 ^1.0
+#### Web3 ^1.0
 
 This is a major API change, but it's a good one, because the new library is much more elegant and intuitive to use. Of course, there are transition costs if you had already written your Truffle tests using older versions, so bookmark the web3 ^1.0 [documentation](https://web3js.readthedocs.io/en/1.0/) just in case.
 
-### HD Wallet Provider
+#### HD Wallet Provider
 
 If you were previously using the "truffle-hdwallet-provider" npm module, you **must** upgrade to "truffle-hdwallet-provider@web3-one" to make it work with Truffle ^5.0:
 
@@ -63,7 +64,7 @@ $ npm install truffle-hdwallet-provider@web3-one --save-dev
 
 To load your mnemonic, you can either use the "fs" module natively provided by node or you can install "dotenv". Never hardcode it in JavaScript!
 
-### Bring Your Own Compiler
+#### Bring Your Own Compiler
 
 It used to be a huge [pain in the neck](https://ethereum.stackexchange.com/questions/17551/how-to-upgrade-solidity-compiler-in-truffle) to change the Solidity compiler when compiling with Truffle, but fear not any more! You can define whatever (remote) version you want by doing this:
 
@@ -85,15 +86,15 @@ In this particular example, we set the compiler version to "0.4.25", but you can
 $ truffle compile --list
 ```
 
-### Support for Async, Await
+#### Support for Async, Await
 
 If you're a fan of JavaScript ES8's super duper cool "async" and "await", you can now make good use of them when running `$ truffle develop` or `$ truffle console`.
 
-### Others
+#### Others
 
 There a few other new features, such as the added support for plugins, but they are outside the scope of this tutorial. Check out the [changelog](https://github.com/trufflesuite/truffle/releases/tag/v5.0.0) if you're looking for an exhaustive list.
 
-## Deploy a Smart Contract
+### Deploy a Smart Contract
 
 ![Smart Contract](https://paulrberg.com/post/upgradeable-smart-contracts/smart-contract.png)
 
@@ -175,11 +176,11 @@ module.exports = {
 
 If it works, you should get a beautiful report like the [one here](https://gist.github.com/PaulRBerg/e582f77a6e59da1e4719b5877dd88cd8). Awesome! Now you know how to compile and deploy a contract with Truffle ^5.0, but you haven't got your hands dirty with the cooler part yet: making the smart contracts upgradeable.
 
-## ZeppelinOS
+### ZeppelinOS
 
 ![ZeppelinOS Logo](https://paulrberg.com/post/upgradeable-smart-contracts/zeppelinOS.png)
 
-### Set Up
+#### Set Up
 
 If you're completely unfamiliar with upgradeable smart contracts, go watch Elena Nadolinski's [presentation](https://www.youtube.com/watch?v=FzmzUHLiutg) on the topic. It's totally worth it and it can do a much better job than someone can on a blog.
 
@@ -288,7 +289,7 @@ If it worked, you should've got something like this:
 
 This command finally deploys your smart contract to the blockchain. This is where you can find important information about your project, such as the addresses of your deployed contracts.
 
-### Upgradeability
+#### Upgradeability
 
 It is highly important to understand that ZeppelinOS, under the hood, works by creating two contracts:
 
@@ -373,7 +374,7 @@ It should print "65".
 
 Voilà! You just wrote, deployed and upgraded an Ethereum smart contract.
 
-### Caveats
+#### Caveats
 
 - "YOUR\_DEPLOYMENT\_ACCOUNT" must only be used when setting up a session, for any other interaction with the contract, you have to use other account.
 - If you got a `A network name must be provided to execute the requested action` error, just start a new session, the old one expired.
@@ -381,7 +382,7 @@ Voilà! You just wrote, deployed and upgraded an Ethereum smart contract.
 - There is more to upgradeable smart contracts than what we discussed here. Head to Zeppelin's awesome [documentation](https://docs.zeppelinos.org/docs/start.html) to get the whole picture. In particular, I recommend looking over the [limitations](https://docs.zeppelinos.org/docs/start.html) to upgrading storage variables.
 - ~~If you're planning to migrate to Solidity ^0.5.0, I'm sorry to disappoint you that ZeppelinOS doesn't support it yet, as of Dec 2018. There is an option called "--skip-compile", but I felt that it added too much complexity to be worth it.~~ Santiago Palladino from Zeppelin [reached out](https://twitter.com/smpalladino/status/1080460733333336065) on Twitter and announced that they now do support the ^0.5.0 versions of Solidity. If you want to test it out, just do `npm install zos-lib@2.1.0-rc.0 --global`.
 
-## Wrap-Up
+### Wrap-Up
 
 I hope you enjoyed this tutorial and you're as excited about blockchain development as I am, despite the occasional versioning and coordination issues. 
 

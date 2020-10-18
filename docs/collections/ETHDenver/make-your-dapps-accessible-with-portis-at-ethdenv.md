@@ -9,6 +9,7 @@ some_url:
 
 # Make your DApps accessible with Portis at ETHDenver
 
+
 Portis is a platform for making decentralized applications accessible to mainstream users. We offer developers an SDK that they can integrate into their decentralized application (DApp) to make it familiar and easy for their users, just like using a regular web app. 
 
 **Portis is a standard web3 provider that comes pre-bundled in your DApp.**
@@ -22,7 +23,7 @@ In addition, thanks to Portis’ end-to-end encryption architecture, its users e
 See [https://portis.io](https://portis.io) and [https://developers.portis.io/](https://developers.portis.io/) for more details.
 
 
-## Table of Contents
+### Table of Contents
 
 [Background](#tv-background)
 
@@ -31,16 +32,16 @@ See [https://portis.io](https://portis.io) and [https://developers.portis.io/](h
 [Resources](#hammer_and_wrench-resources)
 
 
-# 📺Background
+## 📺Background
 
 Mass adoption. It's the holy grail of blockchain applications. Everybody's saying it has to happen for blockchain to survive and eventually flourish. So how do we make it a reality?
 
 We believe that with a solution like Portis, building a decentralized application with the average user in mind is no longer just wishful thinking. Users can maintain their decentralized identity and interact with the blockchain without being forced to understand complicated technical terms. Heck, they don't even have to know they're using a decentralized application at all!
 
-## ✊ We want you to bring on the revolution of mainstream adoption. ✊
+### ✊ We want you to bring on the revolution of mainstream adoption. ✊
 
 
-# 🚀Challenge
+## 🚀Challenge
 
 Build a DApp that anybody can use. Your parents, your highschool history teacher, anyone. With Portis powering your DApp, they'll only need to register with an email and password, from inside their browser, something they're already familiar with. 
 
@@ -48,17 +49,17 @@ Most DApps today provide some sort of "user guide" due to the complexity of onbo
 
 Our Hackathon bounties are comprised of two tracks:
 
-### 🛴 Track 1 - "Take 'er for a spin!"
+#### 🛴 Track 1 - "Take 'er for a spin!"
 
 If you created a functional DApp as part of the ETHDenver 2019 Hackathon, which runs on a live environment ([deploying for free is super easy nowadays](https://zeit.co/now)) and you integrated Portis into it as its default or fallback web3 provider, please claim one of the bounties we opened on [GitCoin](https://gitcoin.co/explorer?bounty_type=feature&network=mainnet&idx_status=open&order_by=-web3_created&org=Portis) by issuing a PR with a link to your DApp. If all the above conditions are met, then you will be rewarded the ETH in the bounty. 
 
 It's our way of giving you a little gas money, so you can deploy to mainnet and play around with your DApp there. Or use it to buy an NFT for charity on [RadiCards](https://radi.cards). Whatever tickles your fancy.
 
-### 🏎 Track 2 - "Lambos On The Moon"
+#### 🏎 Track 2 - "Lambos On The Moon"
 
 We will be looking for DApps created in the Hackathon that have taken our vision to heart. That have decided to utilize the frictionless experience provided by Portis to build a DApp with the mainstream crowd in mind. The top two applications to do so will receive $750 and $250 respectively.
 
-# :hammer_and_wrench: Resources
+## :hammer_and_wrench: Resources
 
 1. [Portis SDK GitHub](https://github.com/portis-project/portis-sdk) - Instructions on how to embed Portis into your DApp.
 1. [Portis Documentation](https://docs.portis.io/) - Your guide for all the various useful configurations you have at your disposal when you're developing on Portis.
@@ -66,7 +67,7 @@ We will be looking for DApps created in the Hackathon that have taken our vision
 1. [Now](https://zeit.co/now) — Global serverless deployments made simple. Useful for deploying your DApp so all your friends can play around with it! Also, it's a requirement for receiving the "Take 'er for a spin" bounty.
 
 
-# Need Help? Get in Touch
+## Need Help? Get in Touch
 
 Tom, Itay and Scott from Portis will be on site, either roaming the premises or at our booth. You can also find them on our [Telegram channel](https://t.me/PortisHQ) as @notgivingawayNIS, @radotzki and @scottgr.
 

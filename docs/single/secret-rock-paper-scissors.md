@@ -9,6 +9,7 @@ some_url:
 
 # Secret Rock, Paper, Scissors
 
+
  
 _Demo and code for game using “secret state” on Ethereum and Enigma._
  
@@ -37,7 +38,7 @@ Games are an amazing vertical to explore because of their diversity. They can ra
 **(secret game state)**
  can be an important key to a wide range of applications.
 
-## Rock, Paper, Scissors — Shoot!
+### Rock, Paper, Scissors — Shoot!
 Rock, Paper, Scissors (RPS) is a simple game for two people. If you’ve never played it, here’s how gameplay works.
 Players have just one choice to make: to play Rock, Paper, or Scissors. Players simultaneously pick their object, make the sign associated with it (a fist, scissors from first two fingers, or a flat hand), and either Player 1 wins, Player 2 wins, or there is a draw. A winner is chosen in the following manner:
 
@@ -57,7 +58,7 @@ _one_
 ![](https://api.beta.kauri.io:443/ipfs/QmbdKgJ3X9X9yPCchKLFF3HAsXVTZWXcuYQkqC56B7hT9H)
 
 
-## User-flow for this demo:
+### User-flow for this demo:
 
 
 
@@ -75,7 +76,7 @@ _one_
 
  * Users can withdraw their funds.
 
-## Enigma-Specific Functions
+### Enigma-Specific Functions
 For 
 [secret contracts](https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2)
  , we have functions called 
@@ -117,7 +118,7 @@ Feel free to dig into the
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/1ojeU9bcJZs" width="512"></iframe>
 
 
-## Comparisons and Reflections
+### Comparisons and Reflections
 We looked at a few other implementations of decentralized RPS for comparison. First, we looked at a 
 [demo made for Raiden](https://github.com/cryptoplayerone/cryptobotwars)
  (which is awesome, more about it can be found 
@@ -157,19 +158,19 @@ Two things come up from these examples:
 **winner calculation**
  .
 
-## Timing
+### Timing
 In single-round play, we think Secret RPS has a distinct UX advantage over these other two implementations.
 However, it would be awesome to enable best of 3 or best of 5 round-based play, letting users develop more complex strategies. Without the ability to tell time inside the secret contract (which our initial release lacks), this leaves Peter’s implementation open to the dropped-player problem across multiple rounds.
 For example, say Alice and Bob are playing. Alice wins the first round, and Bob suddenly has his laptop with his private keys stolen. There’s no way for the game to “time out” and for Alice to retrieve her funds (or Bob for that matter. Sorry to do this to you Bob!). This is something we hope to address soon as it appears in multiple use-cases, especially for gaming. In a single-round (which is what the code is for right now), you can always play yourself to get the funds back if no counterparty accepts your game. This UX isn’t ideal, but adding a start time to the game struct, and then check for elapsed time in the 
 `withdraw()`
  function would be straightforward to implement.
 
-## Winner Calculation
+### Winner Calculation
 In Secret RPS, the winner is calculated within the Enigma Node immediately when both players have made their respective moves. Users can withdraw their funds anytime after this occurs with the 
 `withdraw()`
  function. This is in contrast to the “game guardian” in the Raiden example, where a server external to the network performs the computation and returns instruction to the Raiden nodes. For gaming implementations, this design may present both regulatory risk and other liabilities.
 
-## Wrapping it up
+### Wrapping it up
 Usability is incredibly important, and we’re really beginning to come to terms with that as a community. Looking at emerging projects like Veil, the proliferation of decentralized exchange relayers, 3box, and other usability layers, it’s clear that this has been a blind spot in dApp development so far. 
 **What is really interesting to us here at Enigma is to what degree data privacy and scalability solutions can enable usability gains — and how Enigma specifically can contribute.**
  
@@ -194,7 +195,7 @@ So, if:
 ![](https://api.beta.kauri.io:443/ipfs/QmaQUr43FZ4YPZ1KhH3QZE3wPjaPdq6f7PJL8xG6L9eRGv)
 
 
-### Enigma is building the privacy layer for the decentralized web.
+#### Enigma is building the privacy layer for the decentralized web.
 Come build and discover privacy-first applications and join our community!
  
 **Learn more about the Enigma project**

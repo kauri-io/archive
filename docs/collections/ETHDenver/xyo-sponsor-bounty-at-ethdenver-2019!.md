@@ -9,11 +9,12 @@ some_url:
 
 # XYO - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **XYO** runs on smartphones and sensors with the goal of implementing a proof of interaction protocol which can be used to identify and prove who interacted with whom, where specific interactions took place on the globe, and under what physical conditions. XYO’s blockchain protocol that generates high-certainty and tamper-evident data sets for any IoT Management or Smart Contract Platform to call upon via various APIs. 
 
-# Bounty 1 Overview: Improve XYO Network!
+## Bounty 1 Overview: Improve XYO Network!
 
 **Description:**
 1. User interface for a payment-on-delivery smart contract. 
@@ -24,22 +25,22 @@ some_url:
 
 **Prize Amount:** $500 each for the top 2 submissions
 
-# Resources/Links:
+## Resources/Links:
 Tools found here: https://github.com/XYOracleNetwork & https://developers.xyo.network/
 - Dapper to test Smart Contracts
 - Dapploy to deploy smart contracts locally
 - SCSC has smart contracts for user interfaces
 
-# Requirements (e.g., link to open source code)
+## Requirements (e.g., link to open source code)
 
 1. User interfaces require a React Github project
 2. Bug report should be a Github with documentation and reproduction steps and expected behavior
 
-# Judging Criteria
+## Judging Criteria
 
 User interfaces will have consistency with XYO network design standards from Web Site. Thoroughness and severity of vulnerabilities exposed. 
 
-# Contact Information
+## Contact Information
 
 Bryce Paul - bryce@xyo.network
 

@@ -10,19 +10,20 @@ some_url:
 # zDai.io - confidential transactions on Burner wallet with zkSNARKs
 
 
-# Project Name
+
+## Project Name
 zDai.io - confidential transactions on Burner wallet with zkSNARKs
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 
 
 From this day [Burner wallet](https://xdai.io) it also support confidential transactions. Luckily we can solve this issue with zkSNARKs!
 
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Petr Korolev, Igor Gulamov, Roman Semenov, Alina Aseeva
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 Code for Petr Korolev: 0x04f650f149b442360a4ef325602b3d082b18f22f35b6dab486192d3ac94dd71b508c31ad6eb10e877d8e3531a7814a9b9af8f7139189dadf4bef2f38c4d8217fba
 
@@ -35,34 +36,34 @@ Code for Roman Semenov
 Code for Alina Aseeva (Gloomy Disguised Burro): 0x042da81026c2bf121e6b6897c097fb3473e6dd1ea120e7d8f6c4c5b733b4677c116b9497de4a6441f57cc1a7828bb34de3d1143094484b05740936e209dc3ff383
 
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 
 Our team loves [burner wallet](https://xdai.io) for its usability and xDai’s fast transaction. 
 **But** there is a lack of privacy, each vendor whom I pay can see the history of my transactions. Luckily we can solve this issue with zkSNARKs!
 
 We are bringing privacy to [burner wallet](https://xdai.io) (all fincitonality impemented directly in [Burner wallet fork](https://github.com/poma/burner-wallet) and DAI infrastructure with confidential micropayments. :sunglasses:
 
-### Usage: 
+#### Usage: 
 - open Burner wallet fork by link: zdai.io :iphone: 
 - Exchange xDAI to zDAI :currency_exchange: 
 - Send confidetial private transaction :arrow_heading_up: 
 - ... ( take a cup of ☕️, while zkSNARK proof calculating approx 1 minute)
 - Profit! :tada: 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 zkSNARKs, [circom](https://github.com/iden3/circom), xDAI, ReactNative, Web3, Solidity, Smart-contracts, Dapp
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Impact
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 - Maker DAO - Bounty 1
 - POA - Bounty 1
 - Ethereum Foundation - Bounty 3
 
 
 
-# A link to all your source code on a public repo (i.e., Github)
+## A link to all your source code on a public repo (i.e., Github)
 - Backend (with SNARK prover) & Solidity smart contract: https://github.com/snjax/zDai-mixer
 - Burner wallet with privacy features: https://github.com/poma/burner-wallet
 - Worked public version of Wallet: [zDai.io](zDai.io)

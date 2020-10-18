@@ -9,6 +9,7 @@ some_url:
 
 # Plapps and Predicates  Understanding the Generalized Plasma Architecture
 
+
 We recently published 
 [an article](https://medium.com/plasma-group/towards-a-general-purpose-plasma-f1cc4d49c1f4)
  that describes our new work on a more generalized plasma 
@@ -19,7 +20,7 @@ We recently published
 [sample implementation](https://github.com/plasma-group/research/tree/master/gen-plasma)
  in Python. You can scroll forward to the diagrams if you’re already very familiar with plasma.
 
-## Introduction
+### Introduction
 The main takeaways from our previous article are:
 
 
@@ -32,7 +33,7 @@ So we set out to create a platform that makes it easy to build scalable blockcha
 ![](https://api.kauri.io:443/ipfs/QmNm8cUS2YrEXmdUTbEFpP8YVLaMfFaAmxXHVHV5n8Uy7j)
 
 
-## Layer 2: Claims about State
+### Layer 2: Claims about State
 The core idea behind “Layer 2” is that we can use data outside of a main blockchain (“off-chain data”) to provide guarantees about assets sitting on the main blockchain (“on-chain data”). For example, that off-chain data might give you the right to withdraw an asset held in an on-chain escrow contract on Ethereum. But the 
 _ownership_
  of that asset changed hands without touching Ethereum.
@@ -51,7 +52,7 @@ _when_
 _in block Y_
  that gave me asset Z.” This extra time dimension is also important for disputes because you sometimes want to know whether something happened before or after something else!
 
-## Abstract Offchaindataism
+### Abstract Offchaindataism
 So as we’ve just seen, Layer 2 is primarily about using some off-chain data to affect things sitting on-chain. So far, off-chain data has mostly been used to represent 
 _ownership_
  — who owns what, and whether it changed hands.
@@ -62,7 +63,7 @@ We can also represent more complex things than ownership. Let’s say Alice depo
 
 Whether it’s changing the kitty’s fur color or eye color, the smart contract back on Ethereum needs to have a way of understanding these changes. Each new piece of functionality — or new type of “state transition” — requires a change to the logic followed by the plasma contract. In previous plasma specs, adding a feature like this meant that one would have to re-deploy the *entire* plasma contract and migrate everyone’s assets from the old plasma chain to the new one. This is not secure, scalable, or upgradeable.
 
-## Predicates: Making Plasma Useful
+### Predicates: Making Plasma Useful
 We ran into this upgradeability problem once we got far enough into our plasma chain design that we wanted to add new functionality. After some brainstorming, we realized there was an easy way to add new functionality without changing the main plasma chain contract.
 All of the various scenarios we’ve talked about so far have something in common — the off chain data is always for the purpose of “disputing” incorrect on-chain claims. The dispute for a particular claim is basically just some proof that the state referenced in the claim is outdated. A dispute about ownership proves that the user making the claim later transferred ownership to someone else. A dispute about kitty fur color requires proving that the kitty’s fur color has been changed.
 Our primary breakthrough was realizing that dispute conditions don’t need to be checked in the main smart contract. Instead, we could have other smart contracts implement a function that would tell us if the dispute was valid or not. We could add new functionality by creating a new contract that implemented the necessary logic for that functionality and then have our main contract reference the new one. We call these external contracts 
@@ -76,9 +77,9 @@ Simple! We just add the requirement that the state update also says which predic
  )”
 Since users can specify any predicate address they want, anyone can add new functionality to the plasma chain at any time by deploying a new predicate on Ethereum. There’s a little more to predicates than just handling disputes, but we’ll get into that later. What’s important is that predicates just have to implement a standard interface, defined in this next section.
 
-## Predicates in Practice
+### Predicates in Practice
 
-### State Objects
+#### State Objects
 Now let’s dive into the details of how this all works in practice. The building block of our plasma chain design is the ‘state object’. A state object is just a piece of data with two attributes:
 
 
@@ -132,7 +133,7 @@ The plasma chain contract on Ethereum, where the operator submits plasma blockha
 `updateWitness`
  ) that the state update was indeed committed.
 
-### The Predicate Interface
+#### The Predicate Interface
 Predicates need to implement a standard contract interface. Let’s go over those functions.
 The most important thing thing the plasma contract does is determine the validity of state updates. Particularly, we need to prevent the operator (who has full control over blocks) from being able to “sneak in” a valid state update which has its 
 `stateObject.parameters.owner == operator`
@@ -209,7 +210,7 @@ This function allows the predicate to increase the dispute period of a claim. We
 `0`
  .
 
-### Predicates by Example: Ownership Predicate
+#### Predicates by Example: Ownership Predicate
 Everything is easier with examples, so let’s take a look at one. The simplest predicate is the ownership predicate. This state allows its current 
 `parameters.owner`
  to exit at any time, or approve any state update.
@@ -313,7 +314,7 @@ And there we have it! A predicate that represents transferable ownership of an a
 [ETHDenver](https://www.ethdenver.com/)
  . It was mostly a matter of moving around code that we’d already written.
 
-## Back to the Future
+### Back to the Future
 This architecture is a significant step forward in our understanding of plasma. It is analogous to the jump from payment channels to generalized state channels–we are able to fit new features and functionalities in the plasma architecture without upgrading the plasma protocol itself.
 Further, we believe the predicate design space presents a rich new area of research for plasma. It’s still early days, but some of the predicates we think are possible include:
 
@@ -332,7 +333,7 @@ However, it’s important to remember that predicates are not a panacea–they a
 We think this represents an opportunity for standardization within the entire plasma ecosystem. Any plasma implementation which shares this state-deprecation architecture can share predicates and interoperate in new ways.
 Layer 2 scaling solutions are all about using off-chain data to guarantee future on-chain state. Whether old state is deprecated through signatures (state channels), commitments (plasma), or something else, these tools are ultimately accomplishing the same thing. We hope that this advancement is a step towards a unified, shared language which encompasses all layer 2 solutions. We envision a future where wallets can connect to any layer 2 solution through utilizing a standard interface, rather than writing custom integration each time. All for interoperability, and interoperability for all!
 
-## Resources
+### Resources
 Python simulation:  
   
 [https://github.com/plasma-group/research/tree/master/gen-plasma](https://github.com/plasma-group/research/tree/master/gen-plasma)
@@ -346,7 +347,7 @@ Python simulation:
 [https://t.me/plasmacontributors](https://t.me/plasmacontributors)
  
 
-## Our Thanks to:
+### Our Thanks to:
 Alex Attar  
  Dan Robinson  
  Dan Tsui  

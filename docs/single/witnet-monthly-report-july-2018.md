@@ -10,13 +10,14 @@ some_url:
 # Witnet Monthly Report — July 2018
 
 
+
 ----
 
 
 ![](https://cdn-images-1.medium.com/max/2000/0*Ox1o_NziP0oE-L7H)
 
  
-## 💜 Team
+### 💜 Team
 Over the course of July 
 [we’ve introduced you to Tomás](https://medium.com/witnet/team-insights-tom%C3%A1s-full-stack-developer-49dd5bf91ca2), **a full-stack developer** who has joined our technical team to contribute to the development of the Sheikah desktop client, along with the rest of the team.
 
@@ -25,9 +26,9 @@ We also welcome [James Ryan Moreau](https://twitter.com/jrmoreau) **as our Techn
  
 **The Witnet Foundation still has** [open positions](https://angel.co/witnet-foundation-1/jobs), so if you are aware of the impact a decentralized oracle network will have on the crypto landscape and want to get involved, be sure to check them out!
 
-## 🔧 Product
+### 🔧 Product
 
-### Sheikah prototype (Witnet desktop wallet app + smart contracts IDE)
+#### Sheikah prototype (Witnet desktop wallet app + smart contracts IDE)
 
 
 
@@ -37,7 +38,7 @@ We also welcome [James Ryan Moreau](https://twitter.com/jrmoreau) **as our Techn
 
  * Expect an **early September prototype** release!
 
-### witnet-rust (Witnet full node implementation)
+#### witnet-rust (Witnet full node implementation)
 
 
 

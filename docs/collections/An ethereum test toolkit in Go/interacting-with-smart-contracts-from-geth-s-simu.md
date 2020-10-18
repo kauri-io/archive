@@ -9,6 +9,7 @@ some_url:
 
 # Interacting with smart contracts from GETH's Simulated Backend
 
+
 I am in the process of releasing my very "hacky" golang test environment that deep links into the go-ethereum code base.
 
 This is the next in the series.....
@@ -17,7 +18,7 @@ Now you have a simulated ethereum network running it is time to see the EVM in a
 
 GETH comes with a really useful tool to help you integrate your GO code with solidity smart contracts.
 
-## Introducing ABIGEN
+### Introducing ABIGEN
 
 ABIGEN creates a wrapper around your smart contract to help with most interactions that you could want to perform.
 
@@ -107,7 +108,7 @@ $ go run testAuction.go
 4.700000000000000000
 ```
 
-## Bonus - Time in a bottle
+### Bonus - Time in a bottle
 
 The Devcon5 Auction contract is a time dependent contract. There are three phases:
 
@@ -117,7 +118,7 @@ The Devcon5 Auction contract is a time dependent contract. There are three phase
 
 If we want to test such a contract we need to be able to speed the blockchain clock to arrive at some specific times.
 
-### Getting the simulated blockchain's time
+#### Getting the simulated blockchain's time
 
 ``` go
 func currentTime() uint64 {
@@ -128,7 +129,7 @@ func currentTime() uint64 {
 }
 ```
 
-### Jumping forward in time
+#### Jumping forward in time
 
 My small contribution to the go-ethereum codebase is the `AdjustTime` function in the simulated back end.
 
@@ -180,7 +181,7 @@ Bidding IS NOT open
 time : 1568332810
 Bidding IS open
 ```
-## The complete code
+### The complete code
 
 ``` go
 package main

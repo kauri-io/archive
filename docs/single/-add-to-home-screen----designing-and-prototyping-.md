@@ -9,6 +9,7 @@ some_url:
 
 # ‘Add to home screen’   Designing & prototyping a native app in HTML
 
+
  
 **TL;DR: at**
   
@@ -65,7 +66,7 @@ So at that point, opened an empty index.html file in my browser, and turned on r
 _Full disclosure_
  : at Parasut, we love designers who code. We have 4 designers, each in a different (product/marketing) team, that are all comfortable writing HTML, (S)CSS and the odd line of jQuery. In practice, this means we deliver HTML mockups to developers, and manage the growth and maintenance of the SCSS design pattern library.
 
-### How does it work?
+#### How does it work?
 Back to the design for our mobile app. The approach was to create one html page for every mobile view. Let’s take the invoice list for example. The mobile design has a Material Design inspired list view, with a colourful top header, tabs for different list types, and a swipeable list view, with a centred plus button to create a new invoice.
 
 ![](https://api.kauri.io:443/ipfs/QmWZmFBSxTR1kjuZjGieA6c6qHo4Zp8BAtbQ5TZTxzsio2)
@@ -85,7 +86,7 @@ I’ve set up the file structure so that it contains both the html files for the
 
 And… as much as I’ld like to dive deeper into how it works, that’s about it! The development workflow comes down to the designer committing the html mockups to the repository and creating a GitHub issue that lists the specs. The developer then opens the mockup in their browser, and keeps referring to that during the implementation. When I asked them about what they think of this workflow, a smile appears on their face and they radiate with joy: no more doubt about how the visual design should be implemented, because it is already defined.
 
-### Takeaways
+#### Takeaways
 After some initial struggling, we found a great way to work out and iterate our app, both for 
 [iOS](https://itunes.apple.com/tr/app/parasut-on-muhasebe-ve-fatura/id976151321?mt=8)
  and 

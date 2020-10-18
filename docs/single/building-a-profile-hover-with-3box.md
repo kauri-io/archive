@@ -10,6 +10,7 @@ some_url:
 # Building a profile hover with 3box
 
 
+
 By design public addresses in Ethereum are represented by a 40 character hexadecimal hash which is unappealing for users. This problem can be solved using profile hovers which instead of displaying a user's Ethereum address, we can display a basic social identity, think of it like using [ENS domains](https://kauri.io/ens:-beginner's-guide/e7f098b57fd24afe9b70506517dd5a63/a) but more sociable.
 Here  is what a profile hover looks like:
 
@@ -17,7 +18,7 @@ Here  is what a profile hover looks like:
 
 In this tutorial, we expand on what 3Box offers and how to use the profile hovers it offers in React and HTML/CSS apps.
 
-## Introducing the 3Box SDK and APIs
+### Introducing the 3Box SDK and APIs
 
 3Box helps front-end web developers to keep user data on an open storage network instead of a centralized database server, browser localStorage, or the blockchain. With 3Box, developers are able to build more secure, lightweight, and powerful applications.
 
@@ -35,7 +36,7 @@ There are different APIs available and these are the most important ones:
 
 [Read more about all the available APIs](https://docs.3box.io/api/index).
 
-## Overview on profile hovers
+### Overview on profile hovers
 
 Integrating profile hovers into an application not only is a good way to associate hex addresses to 3Box profiles but it also increases social verification of other users in the network.
 
@@ -54,7 +55,7 @@ As outlined in the previous section the profile-hover uses the profiles API to g
 
 ![No account](https://github.com/Solexplorer/Content/blob/master/3Box/images/no_account.png)
 
-## Using profile hovers in a React app
+### Using profile hovers in a React app
 
 Before diving in, we need to have NodeJS installed, follow the guide
 [here](https://nodejs.org/en/download/package-manager/)
@@ -144,7 +145,7 @@ npm start
 
 ![App](https://github.com/Solexplorer/Content/blob/master/3Box/images/app.png)
 
-## Using the HTML element
+### Using the HTML element
 
 Create a new HTML file named `index.html` and add the script before the closing `HTML` tag.
 
@@ -184,7 +185,7 @@ This is an example of how we can use profile hovers in a HTML App.
   </html>
 ```
 
-## Customize the profile hover
+### Customize the profile hover
 
 Imagine you like the hover but you want to change how they are shown,
 this is possible. Let's take a look at the important properties.
@@ -205,7 +206,7 @@ at the penultimate profile in the example above ).
 These are the most important properties, if you want to take a look at all of them,
 [read more in the documentation](https://github.com/3box/profile-hover#prop-types).
 
-## Conclusion
+### Conclusion
 
 We have seen how to use this feature, now I hope you will use it to improve your
 UI. 

@@ -9,9 +9,10 @@ some_url:
 
 # Deploying a full-stack dapp to Microsoft Azure
 
+
 In the previous [tutorials in this series](https://kauri.io/collection/5b8e401ee727370001c942e3) we saw how to develop a full-stack blockchain dapp. In this tutorial, we learn how to deploy a dapp using [Microsoft Workbench Blockchain](https://azure.microsoft.com/en-us/features/blockchain-workbench/).
 
-## Deploy Blockchain Workbench
+### Deploy Blockchain Workbench
 
 Blockchain Workbench allows you to deploy a blockchain ledger along with a set of Azure services used to build a dapp. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
@@ -33,11 +34,11 @@ The following steps show you how to retrieve the web URL of the deployed framewo
 4.  There are two resources with type **App Service**. Select the resource of type **App Service** _without_ the "-api" suffix.
 5.  In the App Service overview screen, copy the **URL** value, which represents the web URL to your deployed Blockchain Workbench.
 
-### Azure Active Directory (AD) configuration
+#### Azure Active Directory (AD) configuration
 
 Azure Blockchain Workbench requires Azure AD configuration and application registration. You can choose to do the Azure AD [configurations manually](https://docs.microsoft.com/en-gb/azure/blockchain/workbench/deploy#azure-ad-configuration) before deployment or run a script post-deployment. If you are redeploying Blockchain Workbench, read [Azure AD configuration](https://docs.microsoft.com/en-gb/azure/blockchain/workbench/deploy#azure-ad-configuration) to verify your Azure AD configuration.
 
-## Deploy Blockchain applications
+### Deploy Blockchain applications
 
 To create a blockchain dapp read the previous [tutorials in this series](https://kauri.io/collection/5b8e401ee727370001c942e3) on how to create a full-stack dapp.
 
@@ -55,7 +56,7 @@ To add a blockchain application to Blockchain Workbench, you upload the configur
 
 Deployment of the blockchain application takes a few minutes. When the deployment is finished, it displays the new application in **Applications**.
 
-### Modifying a smart contract
+#### Modifying a smart contract
 
 Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as [transitions](https://docs.microsoft.com/en-gb/azure/blockchain/workbench/configuration#transitions) within a [state](https://docs.microsoft.com/en-gb/azure/blockchain/workbench/configuration#states). Members belonging to an allowed application or instance role for the transition can take action.
 
@@ -67,6 +68,6 @@ Depending on the state the contract is in, members can take actions to transitio
 6.  If the action requires parameters, specify the values for the action.
 7.  Select **Take action** to execute the action.
 
-## Conclusion
+### Conclusion
 
 With active directory support and the permissions it brings, Azure's blockchain support aims itself at enterprise users looking to use Blockchain in their businesses. It offers graphical management of contracts and actions upon them, and a way to update and deploy them, again with permissions to determine who can take these actions. Its setup is not for the faint-hearted, but [sign up for a free trial](https://account.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https%3a%2f%2fazure.microsoft.com%2fen-gb%2fget-started%2fwelcome-to-azure%2f&l=en-gb&correlationId=06AC26C311DF6D6E0E532B7010B46CF4) to see if it suits your use-case.

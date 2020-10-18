@@ -9,13 +9,14 @@ some_url:
 
 # Zeppelin - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **Zeppelin**
 
 Zeppelin builds key infrastructure and software to help developers create secure applications, and audits top blockchain companies. We are proud maintainers of OpenZeppelin, an open source repository of general-purpose reusable secure smart contracts. One year ago we launched ZeppelinOS, a toolset for managing upgradeable contracts, now we are growing our ecosystem with more tools for upgradeability and EVM packages- an ecosystem of secure on-chain code. 
 
-# Bounty 1 Overview: Best EVM Package
+## Bounty 1 Overview: Best EVM Package
 
 **Description:** An EVM package is a set of reusable contracts, whose code has already been deployed to the network, so users only need to link it in order to use it in their smart contract projects. 
 
@@ -25,7 +26,7 @@ To join the ZEP Token Private Beta: https://blog.zeppelinos.org/announcing-the-z
 
 **Prize Amount:** $1000
 
-# Resources/Links:
+## Resources/Links:
 - Check out this article on how to build your EVM package using ZeppelinOS: https://blog.zeppelinos.org/evm-package-deployment-with-zeppelinos-part-i-introduction-and-creating-a-linkedlist-contract/
 - **Examples of EVM packages:**
 - Gnosis’ gnosis-safe: https://github.com/gnosis/safe-contracts
@@ -34,27 +35,27 @@ To join the ZEP Token Private Beta: https://blog.zeppelinos.org/announcing-the-z
 - TPL’s tpl-protocol: https://github.com/TPL-protocol/tpl-contracts-eth/
 - Zeppelin’s openzeppelin-eth: https://github.com/OpenZeppelin/openzeppelin-eth/
 
-# Bounty 2 Overview: Best usage of Zeppelin tools (OpenZeppelin & ZeppelinOS)
+## Bounty 2 Overview: Best usage of Zeppelin tools (OpenZeppelin & ZeppelinOS)
 
 **Description:** The most widely used Zeppelin open source tools include OpenZeppelin, a repository of reusable contracts, and ZeppelinOS, a toolset for managing upgradeable systems and linking secure EVM packages. We will award US$1,000 to the best usage of OpenZeppelin and/or ZeppelinOS in a project. Projects may choose to jumpstart their development by relying on our Zeppelin ZepKit , which spins up a react-based DApp pre-configured with OpenZeppelin, ZeppelinOS, and Truffle.
 
 **Prize Amount:** $1000
 
-# Resources/Links:
+## Resources/Links:
 - To download the starter box for DApps, please visit https://zepkit.zeppelinos.org/
 - Get started with OpenZeppelin: https://openzeppelin.org/api/docs/get-started.html
 - Get started with ZeppelinOS: https://docs.zeppelinos.org/docs/start.html
 
 
 
-# Requirements For Both Bounties (e.g., link to open source code)
+## Requirements For Both Bounties (e.g., link to open source code)
 
 - All projects must be open source and must include a link to the repository
 - EVM packages should be published to at least a testnet, and preferably, to mainnet as well. 
 - DApps should be live and accessible for testing. 
 - A README describing the project and how to use it is always appreciated, and mandatory for EVM packages in particular.
 
-# Judging Criteria For Both Bounties
+## Judging Criteria For Both Bounties
 
 **Originality and usefulness:** 
 - We are looking for original and creative projects, which at the same time are useful and practical, either solving a need or introducing a valid use case.
@@ -68,12 +69,12 @@ To join the ZEP Token Private Beta: https://blog.zeppelinos.org/announcing-the-z
 **Easy to use:**
 - This includes documentation, a friendly API, and potentially samples for EVM packages; and good user experience in general for other projects.
 
-# Additional Information
+## Additional Information
 We will extend invitations to the ZEP token private beta to remarkable projects working on top of EVM packages, as well as to security researchers who report vulnerabilities on such packages. Participation in the beta includes eligibility to receive tokens in order to test the network mechanics.
 
 ZEP Token private beta: https://blog.zeppelinos.org/announcing-the-zep-token-private-beta/
 
-# Contact Information
+## Contact Information
 
 Santiago Palladino - santiago@zeppelin.solutions
 

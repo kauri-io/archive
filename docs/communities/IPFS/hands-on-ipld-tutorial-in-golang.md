@@ -9,6 +9,7 @@ some_url:
 
 # Hands-on IPLD Tutorial in Golang
 
+
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/hands-on-ipld-tutorial-in-golang/). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
 ---
@@ -29,7 +30,7 @@ Here is a preview of the final implementation.
 
 
 
-## Understanding IPLD 
+### Understanding IPLD 
 
 
 When you add the photo to IPFS, this is what happens: 
@@ -182,7 +183,7 @@ Now, as we have understood what is IPLD, how it works and its significance, let�
 
 
 
-## Playing With IPLD 
+### Playing With IPLD 
 
 
 In IPFS, IPLD helps to structure and link all the data chunks/objects. So, as we saw above, IPLD was responsible for organizing all the data chunks that constituted the image of the kitty🐱. 
@@ -192,16 +193,16 @@ In IPFS, IPLD helps to structure and link all the data chunks/objects. So, as we
 In this part, we will use `go-ipfs-api` to write and fetch data via IPLD. Let's get started! 
 
 
-### Install Golang
+#### Install Golang
 
 We recommend you to install the latest version of Golang from the official website](https://golang.org/doc/install). There are instructions available for installing Golang on Windows, Linux, FreeBSD &amp; MacOS. 
 
-### Writing to IPFS via IPLD
+#### Writing to IPFS via IPLD
 
 The purpose of the code is to get access to some of the deeper abstractions of IPFS that can allow developers to store information apart from files. This was possible by operating directly on the [Merkle DAGs](https://simpleaswater.com/merkle-dag). Although versions of [similar implementations are available in Javascript](https://simpleaswater.com/chat-using-libp2p), we wanted to [implement something in Golang](https://github.com/0zAND1z/ipld-crud). 
 
 
-### Coding the IPLD operations block-by-block
+#### Coding the IPLD operations block-by-block
 
 The code primarily depends upon the go package called [`go-ipfs-api`](https://github.com/ipfs/go-ipfs-api). It is maintained by IPFS and offers wrappers to many core HTTP APIs. 
 
@@ -308,7 +309,7 @@ Here is how our code looks in action😎
 ![Final code in action](https://simpleaswater.com/content/images/2020/01/go-ipld-3.gif)
 
 
-## Conclusion 
+### Conclusion 
 
 
 In summary, we have covered the basic concepts of hashing, IPFS and how IPLD is used. Further, we have also provided a hands-on code demonstration in Golang to effectively building a key-value based data interface using the [`go-ipfs-api`](https://github.com/ipfs/go-ipfs-api) package. 
@@ -318,7 +319,7 @@ In summary, we have covered the basic concepts of hashing, IPFS and how IPLD is 
 In the upcoming part of the series, we will be introducing how to extend this code for enacting the storage of `docstore` entries. 
 
 
-## About the authors
+### About the authors
 
 **Ganesh Prasad Kumble** 
 

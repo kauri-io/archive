@@ -9,9 +9,10 @@ some_url:
 
 # Sogo Ochiai - Tokyo - Cryptoeconomics Lab, GBEC
 
+
 _Ahead of devcon, Kauri is interviewing local community members in Japan. We hope you readers will learn more about the local industry and blockchain activity. There will also be some gems from our interviews that hopefully give you some ideas of how to see Japan from a local perspective_
 
-##What is your role?
+###What is your role?
 
 I am chief economics officer and co-founder of the Cryptoeconomics Lab. We are mainly working with plasma and our research team is working with plasma group. We are 50% looking at technology and 50% economics. 
 
@@ -21,19 +22,19 @@ Enterprise companies in Japan love rust, so there is a big community here in Tok
 
 ![](https://api.kauri.io:443/ipfs/QmRrdwx8L8CDahWaupyuX39f4HsXdBKtZKT8Jvqbo2jq6A)
 
-##How is the blockchain community in Tokyo?
+###How is the blockchain community in Tokyo?
 
 There are many good economists who love blockchain - Yu Kimura for example is working on modern monetary theory and is making mathematical models of money issuance. As you can see there are strong contributions to blockchain field also from traditional industries. 
 
 GBEC (Go Blockchain Engineering Community) - Chaintope initiated this group as their CTO's name is "Go", they made the group in memory for him after he passed away. This is one of the more technical community groups, several top bitcoin and ethereum researchers have given talks here. 
 
-##What are the most exciting blockchain developments in Japan?
+###What are the most exciting blockchain developments in Japan?
 
 We are working with a large Japanese internet conglomerate with online financial services. They also have a bank so can issue stable coins, they will likely be the first to issue digital yen on the blockchain. 
 
 I am also excited that cutting edge research is being brought to enterprises here in Japan. 
 
-##What would you recommend in Tokyo?
+###What would you recommend in Tokyo?
 
 1 Go to the sauna in Tokyo. It is very good in and around all of Tokyo
 
@@ -43,7 +44,7 @@ I am also excited that cutting edge research is being brought to enterprises her
 
 Once you have enjoyed these things you can leave Japan happy
 
-##Where can people find you at Devcon?
+###Where can people find you at Devcon?
 
 Devcon - Osaka - talk about using Rust to implement OVM and the various benefits. (Teaser: Amongst other things It makes it easier to use in native apps and IoT)
 

@@ -9,17 +9,18 @@ some_url:
 
 # OpenZeppelin Part 4  Crowdsales
 
-# Crowdsales
 
-## What is a Crowdsale?
+## Crowdsales
+
+### What is a Crowdsale?
 
 In Blockchain, crowdsales are fundraisers to assist in the development of a project. Backers use the tokens sold during the crowdsale to participate in the project once it's launched. The tokens are usable only within this project.
 
-## OpenZeppelin & Crowdsales
+### OpenZeppelin & Crowdsales
 
 OpenZeppelin created four categories of contracts to assist in the creation of a crowdsale contract based on the most important properties of a crowdsale.
 
-### Price & Rate Configuration
+#### Price & Rate Configuration
 
 Before creating a crowdsale it's important to understand the rate. Currency math is always done in the smallest denomination. To read the amount, the currency is converted to the correct decimal place. The smallest currency is Wei.
 
@@ -60,7 +61,7 @@ contract IncreasingPriceCrowdsaleImpl is IncreasingPriceCrowdsale {
 
 Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/IncreasingPriceCrowdsaleImpl.sol).
 
-### Emission
+#### Emission
 
 Emission refers to the process of how the token reaches the buyer. The default method is to immediately transfer the token to the buyer. Other methods are available which can help to control other aspects of the crowdsale such as price point and the number of tokens sold.
 
@@ -78,7 +79,7 @@ contract myCrowdsale is emission-you-choose {
 }
 ```
 
-### Validation
+#### Validation
 
 Validation contains contracts that add more customization to your crowdsale. They limit access to token purchases.
 
@@ -97,7 +98,7 @@ contract myCrowdsale is validation-you-choose {
 }
 ```
 
-### Distribution
+#### Distribution
 
 The most important part of the crowdsale is when the tokens are released to the buyer.
 
@@ -115,7 +116,7 @@ contract myCrowdsale is distribution-you-choose {
 }
 ```
 
-## Conclusion
+### Conclusion
 
 Crowdsales don't have to be complex to write and using OpenZeppelin can help incorporate features that give you, the developer, more control.
 
@@ -132,7 +133,7 @@ contract myCrowdsale is PostDeliveryCrowdsale, TimedCrowdsale {
 }
 ```
 
-## Next Steps
+### Next Steps
 
 - <https://openzeppelin.org/api/docs/learn-about-crowdsales.html>
 - <https://openzeppelin.org/api/docs/crowdsale_Crowdsale.html>

@@ -9,6 +9,7 @@ some_url:
 
 # Building a Twitter Bot using IPFS Cluster 🤖
 
+
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/ipfs-cluster-twitter-pinbot/). If you are interested in IPFS, Libp2p, Ethereum, Zero-knowledge Proofs, Defi, CryptoEconomics, IPLD, Multi formats, and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com/).
 
 ---
@@ -46,7 +47,7 @@ You can find the **[full code implementation here](https://github.com/simpleaswa
 
 **If you get stuck in any part or have any queries/doubts, then feel free to reach us out on our [discord channel](https://discord.gg/x2kmUXW).**
 
-### Intro to IPFS Cluster
+#### Intro to IPFS Cluster
 
 Before setting up our own IPFS Cluster network, it’s good to spend a few minutes to understand why do we need IPFS Cluster and what is it.
 
@@ -82,7 +83,7 @@ If you want to know more about IPFS Cluster and see how it works under the hood,
 
 Now, as we have explored why we need IPFS Cluster let’s setup our own IPFS Cluster network, on which we will save our tweets.
 
-### Setting up Your IPFS Peer
+#### Setting up Your IPFS Peer
 
 As IPFS Cluster network is a collection of IPFS peers, first we need to install & run an IPFS peer.
 
@@ -120,7 +121,7 @@ Voila! Your IPFS peer setup is complete!
 
 **If you are having any problems while setting up your IPFS peer, then feel free to reach us out on our [discord channel](https://discord.gg/x2kmUXW).**
 
-### Setting up Your IPFS Cluster Peer
+#### Setting up Your IPFS Cluster Peer
 
 In order to run an IPFS Cluster peer we need to install `ipfs-cluster-service`.
 
@@ -134,7 +135,7 @@ $ ipfs-cluster-service init
 
 Viola! You have setup your IPFS Cluster Peer.
 
-### Making a few changes to IPFS Cluster Config
+#### Making a few changes to IPFS Cluster Config
 
 In order to make the twitter bot example work, we need to change the IPFS Cluster config a bit. If you want to know why we are doing these changes, then you can refer to [this discussion thread](https://discuss.ipfs.io/t/libp2p-peer-fails-to-dial-in-twitter-bot-example/6977).
 
@@ -162,7 +163,7 @@ Now, scroll down to the `api` JSON object. In the `api` section, you will find `
 
 > *NOTE: The *`private_key`* that we are using is just for the demo purpose. If you are building a production bot, you should create your own libp2p *`private_key`* and *`id`*.*
 
-### Starting Your IPFS Cluster Network
+#### Starting Your IPFS Cluster Network
 
 Now, as we have installed IPFS and IPFS Cluster peers, we can start our Cluster network.
 
@@ -185,7 +186,7 @@ You are now running a IPFS Cluster network with 1 peer. For the purpose of this 
 
 **If you have any queries/doubts, then feel free to reach us out on our **[discord channel](https://discord.gg/x2kmUXW)**.**
 
-### Creating a Twitter Developer Account
+#### Creating a Twitter Developer Account
 
 To build a twitter bot, first we need to setup a developer account on twitter.
 
@@ -217,11 +218,11 @@ Now, come back to the [twitter apps page](https://developer.twitter.com/en/apps)
 
 Navigate to the “keys and tokens” section, where you will find all the credentials we want. Copy the “API key”, “API secret key”, “Access token” & “Access token secret”.
 
-### Building the Twitter Bot 🤖
+#### Building the Twitter Bot 🤖
 
 Now, as we have everything we need to build the Twitter Pinbot, let’s fire up our code editor!
 
-### Installing Golang
+#### Installing Golang
 
 We are going to use [Golang](https://golang.org/) to build our Twitter bot. You can [download Golang from here](https://golang.org/dl/#featured).
 
@@ -230,7 +231,7 @@ We are going to use [Golang](https://golang.org/) to build our Twitter bot. You 
 
 After installing Golang, we are ready to start with the twitter bot code.
 
-### Writing the Twitter Bot Code 👩‍💻👨‍💻
+#### Writing the Twitter Bot Code 👩‍💻👨‍💻
 
 We are going to build a twitter bot which works in the following way:
 
@@ -1160,7 +1161,7 @@ In the `main` function, we read the config file from the `path` using the `readC
 
 Also, we wait for `SIGINT` and `SIGTERM` so that hitting `CTRL-C` kills out `bot`.
 
-### Final Showdown
+#### Final Showdown
 
 Now, it’s time to test our code.
 

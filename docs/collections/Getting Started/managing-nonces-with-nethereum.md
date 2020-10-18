@@ -9,11 +9,12 @@ some_url:
 
 # Managing nonces with Nethereum
 
+
 The purpose of this article is to help .NET developers leverage  [Nethereum](https://nethereum.com/), An open source .NET integration library for blockchain.
 
 This document also exists as a [Workbook](https://github.com/Nethereum/Nethereum.Workbooks/blob/master/docs/nethereum-managing-nonces.workbook), find more about workbooks installation requirements  [here](https://docs.microsoft.com/en-us/xamarin/tools/workbooks/install).
 
-## What are nonces?
+### What are nonces?
 
 The nonce is an important component of a transaction, it is an attribute of a an address that represents the number of transactions sent by that address. Nonces act as counters that keeps track of the number of transactions sent  by an account.
 
@@ -26,7 +27,7 @@ In case 2, nonces prevent an attacker from copying one of our transactions and r
 
 For more details on transactions and nonces, we recommend [this article](https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc#the-transaction-nonce) (and more generally, the [Ethereum Book](https://github.com/ethereumbook/ethereumbook))
 
-## Common errors when working with nonces
+### Common errors when working with nonces
 
 Each node will process transactions from a specific account in a strict order according to the value of its nonce, hence the nonce value needs to be incremented precisely.
 
@@ -43,12 +44,12 @@ Error 2/ Gaps: if we leave a gap between the nonces that are attributed to two c
 
 Let's take an example with a first transaction that would have nonce `123` and a second transaction with nonce `126`. In that example, the transaction with nonce `126` wouldn't be processed until transactions with nonces `124` and `125` are sent.
 
-## How Nethereum helps managing nonces
+### How Nethereum helps managing nonces
 
 Nethereum simplifies nonce management thanks to the `NonceService`.
 The `NonceService` keeps track of pending transactions thus preventing the errors mentionned above the below demonstrates how to leverage it.
 
-## Prerequisites:
+### Prerequisites:
 
 In order to run the code in this workbook, we recommended the following setup:
 First, download the test chain matching your environment from <https://github.com/nethereum/testchains>
@@ -56,11 +57,11 @@ First, download the test chain matching your environment from <https://github.co
 Start a geth chain (geth-clique-linux\\, geth-clique-windows\\ or geth-clique-mac\\) using **startgeth.bat** (windows) or **startgeth.sh** (mac/linux). the chain is setup with the proof of authority consensus and will start the mining process immediately.
 
 ```csharp
-#r "nethereum.web3"
+##r "nethereum.web3"
 ```
 
 ```csharp
-#r "nethereum.Accounts"
+##r "nethereum.Accounts"
 ```
 
 Then we will need to add `using` statements:
@@ -81,7 +82,7 @@ using Nethereum.RPC.Eth.Transactions;
 using Nethereum.RPC.Eth.DTOs;
 ```
 
-## Usage
+### Usage
 
 In most cases, Nethereum takes care of incrementing the `nonce` automatically (unless you need to sign a raw transaction manually, we'll explain that in the next chapter).
 
@@ -114,7 +115,7 @@ account.NonceService = new InMemoryNonceService(account.Address, web3.Client);
 
 Let's now examine what happens to the `nonce` value before and after we send a transaction:
 
-### Before a transaction is sent:
+#### Before a transaction is sent:
 
 The `NonceService` keeps track of all transactions, including the ones still pending, making it easy to assign the right nonce to a transaction about to be sent.
 
@@ -139,7 +140,7 @@ var recipientAddress = "0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae";
 var transaction = await web3.TransactionManager.SendTransactionAsync(account.Address, recipientAddress, new HexBigInteger(1));
 ```
 
-#### After a transaction has been sent
+##### After a transaction has been sent
 
 Finally, using the NonceService, we can check if our transaction count has changed:
 
@@ -149,7 +150,7 @@ currentNonce = await web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(
 
 As the above code demonstrates, the `nonce` was automatically incremented, thanks to the use of `TransactionManager`.
 
-## Sending a transaction with an arbitrary nonce
+### Sending a transaction with an arbitrary nonce
 
 There are scenarios where we might want to supply a Nonce manually, for example if we want to sign a transaction completely offline. Here is how to verify the number of transactions sent by an account:
 

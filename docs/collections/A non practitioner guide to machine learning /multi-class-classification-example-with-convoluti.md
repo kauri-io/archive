@@ -9,6 +9,7 @@ some_url:
 
 # Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow
 
+
 In the previous articles, we have looked at a regression problem and a binary classification problem. Let's now look at another common supervised learning problem, multi-class classification.
 
 The staple training exercise for multi-class classification is the MNIST dataset, a set of handwritten roman numerals, while particularly useful, we can spice it up a little and use the  [Kannada MNIST dataset](https://www.kaggle.com/c/Kannada-MNIST) available on Kaggle.
@@ -48,7 +49,7 @@ The train dataset contains 60,000 samples, but we have no validation set, so we 
 ```python
 VALIDATION_SET = 5000 # define the length of the validation set
 
-# load the data
+## load the data
 
 VALIDATION_SET = 5000
 
@@ -82,7 +83,7 @@ sns.distplot(y_train, color='green')
 Now let's preview some of the samples, what do this numbers actually look like??
 
 ```python
-# Let's have a look at some random images
+## Let's have a look at some random images
 
 x_train = x_train.values.reshape(x_train.shape[0], 28, 28) # We need to reshape the images to be arranged in a square format
 
@@ -152,16 +153,16 @@ history = model.fit(
 After a little while your model should be trained with a validation accuracy around ~99%, awesome! Let's test this on our test data:
 
 ```python
-# Preparing the test data first
+## Preparing the test data first
 test_ids = test_raw_data[['id']] # we'll need this for the Kaggle submission
 test_data = test_raw_data.drop(['id'], axis=1)
 test_data = test_data / 255
 test_data = test_data.values.reshape(test_data.shape[0], 28, 28, 1)
 
-# Let's get the model to actually predict the labels
+## Let's get the model to actually predict the labels
 predictions = model.predict(test_data)
 
-# Finally, let's render some of these images
+## Finally, let's render some of these images
 ROWS = 6
 COLUMNS = 6
 fig, ax = plt.subplots(ROWS,COLUMNS, figsize=(40,40))

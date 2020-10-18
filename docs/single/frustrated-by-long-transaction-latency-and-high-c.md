@@ -9,6 +9,7 @@ some_url:
 
 # Frustrated by long transaction latency and high cost? Try Celer SDK!
 
+
 ![](https://api.kauri.io:443/ipfs/QmbQtYwD1sfLDytDbG2HMpGgcVEskqEwPUKNG2cMVGBvG2)
 
 Dear ETHDenver hackers,
@@ -24,13 +25,13 @@ with Celer SDK! Try out our example applications and see what you can build on C
 
 ![](https://ipfs.io/ipfs/QmVmR1GNy1jcQfgUTjUZ18dkjnigR36giu5qgzX4uCkUfx)
 <br>
-# What is Celer?
+## What is Celer?
 
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/jhjGj-i3tOU" width="512"></iframe>
 <br>
 Celer Network is a leading layer 2 scaling platform that enables fast, easy and secure off-chain transactions for not only payment transactions, but also generalized off-chain smart contract. It enables everyone to quickly build, operate, and use highly scalable decentralized applications through innovations in off-chain scaling techniques and incentive-aligned cryptoeconomics.
 
-# What can you build on Celer?
+## What can you build on Celer?
 Our cWallet application with a connect-five board game and instant payment is entirely built based on Celer SDK and you can also build your game on Celer as well!!
 
 **cPay Video:**
@@ -57,7 +58,7 @@ During the past hackathon, we have multiple exciting dApps built on top, some ex
 
 *  [Interactive Game on Celer](https://devpost.com/software/shakieshakie)
 
-# How to build on Celer?
+## How to build on Celer?
 Celer Network’s off-chain SDK is the
 **First and Only**
 tool in the current market which uses generalized state channel to implement its off-chain scalability. Take pride in being one of pioneer developers that adopt this revolutionary tech stack by building dApps on top of Celer!
@@ -76,7 +77,7 @@ tool in the current market which uses generalized state channel to implement its
 [https://medium.com/celer-network/celertech/home](https://medium.com/celer-network/celertech/home)
 
 
-# Where to find Celer Network @ ETHDenver?
+## Where to find Celer Network @ ETHDenver?
 
 We'll be hosting a meetup with the Chainlink team the night before the hackathon, on Thursday February 14th, a perfect prelude to your Valentine's Day evening! Learn more about the meetup and [RSVP](http://bit.ly/denvermeetup) here.
 
@@ -87,7 +88,7 @@ Celer Network’s core engineers with Cnicorn T-shirts will present onsite to gi
 To achieve the level of interaction engaging a larger number of users, simply tweaking the blockchain layer is not enough.
 **A layer-2 scalability platform that enables hyper-interactive applications is a must.**
 
-# Hackathon Checklist:
+## Hackathon Checklist:
 To prepare for hackathon, some resources to help you get started:
 * Join Celer [Telegram](https://t.me/celernetwork) and [Discord](https://discord.gg/Trhab5w)
 * [Read developer documentation](https://celer-network.github.io/docs/guide?utm_source=organic_social&utm_medium=kauri&utm_campaign=celersdk)

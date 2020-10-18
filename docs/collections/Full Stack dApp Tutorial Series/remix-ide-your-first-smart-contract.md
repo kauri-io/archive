@@ -9,6 +9,7 @@ some_url:
 
 # Remix IDE - Your first smart contract
 
+
 The easiest place to start writing smart contracts in Solidity in with the [online Remix IDE.](https://remix.ethereum.org/)
 
 As it's an online IDE, no installation or development environment setup is required, you can navigate to the site and get started!
@@ -68,11 +69,11 @@ In Remix, select the "Compile" tab in the top right-hand side of the screen, and
 
 If everything is ok, you should see a green label with the name of your contract: "Bounties", this indicates the compilation was successful.
 
-## Issuing a Bounty
+### Issuing a Bounty
 
 Now that we have the basic skeleton of our smart contract, we can start adding functions. First, we tackle allowing a user to issue a bounty.
 
-### Declare state variables
+#### Declare state variables
 
 What are state variables in Solidity? A smart contract instance can maintain a state, which the EVM keeps in a storage area. This state consists of one or more variables of the solidity types. These state variables can only be modified via a function call invoked within a transaction.
 
@@ -104,7 +105,7 @@ Now, let's define an array where we store data about each issued bounty:
 Bounty[] public bounties;
 ```
 
-### Issue Bounty Function
+#### Issue Bounty Function
 
 Now that we have declared our state variables we can now add functions to allow users to interact with our smart contract
 
@@ -151,11 +152,11 @@ We set the `msg.sender` as the issuer and the `msg.value` as the bounty amount.
 return (bounties.length - 1);
 ```
 
-## Validation with Modifiers
+### Validation with Modifiers
 
 Modifiers in Solidity allow you to attach additional pieces of code to run before or after the execution of a function. It is a common practice in Solidity to use modifiers to perform argument validation for functions.
 
-## Validate Deadline
+### Validate Deadline
 
 `validateDeadline(_deadline)` is added to ensure the deadline argument is in the future; it should not be possible for a user to issue a bounty with a deadline in the past.
 
@@ -188,7 +189,7 @@ The modifier `validateDeadline` reads as follows:
 
 If the `deadline > now` continue and execute function body, else revert and refund remaining gas to the caller.
 
-### Has Value
+#### Has Value
 
 `hasValue()` is added to ensure `msg.value` is a non zero value. Even though as previously discussed, the `payable` keyword ensures `msg.value` is set, it can still be sent as zero.
 
@@ -205,7 +206,7 @@ modifier hasValue() {
 
 You can read more about how modifiers can be used to restrict access and guard against incorrect usage in the [solidity documentation](https://solidity.readthedocs.io/en/latest/common-patterns.html?highlight=modifier#restricting-access)
 
-### Issue Bounty Event
+#### Issue Bounty Event
 
 It is best practice when modifying state in Solidity to emit an event. Events allow blockchain clients to subscribe to state changes and perform actions based on those changes.
 
@@ -310,7 +311,7 @@ contract Bounties {
 }
 ```
 
-## Deploy & interact in Remix
+### Deploy & interact in Remix
 
 Now that we have our smart contract we can deploy to a local development blockchain running in the RemixIDE (browser), and test our `issueBounty` function.
 
@@ -376,7 +377,7 @@ Set the `uint256` argument of the bounties function to `0` and click the "blue" 
 
 Here we confirm that the data inputs for our issuedBounty are retrieved correctly from the "bounties" array with deployed smart contracts storage.
 
-### Try it yourself
+#### Try it yourself
 
 Now that you have seen how to add a function to issue a bounty, try adding the following functions to the Bounties contract:
 
@@ -388,7 +389,7 @@ Now that you have seen how to add a function to issue a bounty, try adding the f
 
 You can find the [complete Bounties.sol file here for reference](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol).
 
-## Next Steps
+### Next Steps
 
 -   Read the next guide: [Understanding smart contract compilation and deployment](https://kauri.io/article/973c5f54c4434bb1b0160cff8c695369/understanding-smart-contract-compilation-and-deployment)
 -   Learn more about Remix-IDE from the [documentation](https://remix-ide.readthedocs.io/en/latest/) and [github](https://github.com/ethereum/remix-ide)

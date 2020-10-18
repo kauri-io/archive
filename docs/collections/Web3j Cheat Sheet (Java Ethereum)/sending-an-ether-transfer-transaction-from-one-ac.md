@@ -9,6 +9,7 @@ some_url:
 
 # Sending an Ether Transfer Transaction from One Account to Another in Web3j
 
+
 To transfer ether from one account to another, a transaction must be sent to the ethereum network.  The easiest way to achieve this within your java application is to use the useful `Transfer` class of web3j.
 
 The below example transfers 1 ether from the seed phrase account to the `recipientAddress` account:

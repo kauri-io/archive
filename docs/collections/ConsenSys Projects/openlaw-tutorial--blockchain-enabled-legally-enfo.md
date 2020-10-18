@@ -9,18 +9,19 @@ some_url:
 
 # OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts
 
+
 By: Michael Rice
 
 In this article, we’ll explore how to use the 
 [OpenLaw](https://openlaw.io/)
  Core to create a blockchain-based, legally enforceable smart contract. We’ll start by explaining how to create a legal contract on OpenLaw. Then we’ll demonstrate how OpenLaw can facilitate the signature process and store evidence of the agreement on the blockchain. Lastly, we’ll explore how that contract can further interact with a blockchain through a smart contract.
 
-## What is OpenLaw?
+### What is OpenLaw?
 OpenLaw is a blockchain-based protocol for the creation and execution of legal agreements. Our aim is to comprehensively stitch together traditional legal agreements with blockchain-based smart contracts in a user-friendly (through our 
 [markup language](https://docs.openlaw.io/markup-language/#variables)
  ) and legally compliant manner. Using OpenLaw, users can more efficiently engage in transactional work and digitally sign and store legal agreements in a highly secure manner, all while leveraging next generation blockchain-based smart contracts.
 
-### Prerequisites
+#### Prerequisites
 This tutorial assumes the following:
 1. You have an OpenLaw account. If you don’t already have one, you can 
 [sign up for a free account](https://app.openlaw.io/signup)
@@ -34,12 +35,12 @@ This tutorial assumes the following:
 [Remix](https://remix.ethereum.org/)
  .
 
-## Creating a Legally Enforceable Contract with OpenLaw’s Markup Language
+### Creating a Legally Enforceable Contract with OpenLaw’s Markup Language
 In OpenLaw, the first step is to create (or reuse) a legally enforceable contract. A contract is created by first writing a template. Templates contain natural language, such as legal terms and conditions of the agreement between the parties, as well as 
 [markup tags](https://docs.openlaw.io/markup-language/)
  . OpenLaw uses common, well-known markup tag syntax as well as some special tags, which are specific to our protocol. Once the template has been defined, a draft of the contract can be sent to the parties to electronically sign the contract. Evidence of the signature and the agreement will be memorialized on the blockchain once executed.
 
-### Start with a Blank Document
+#### Start with a Blank Document
 Normally, contract professionals start with an example and then tailor it to meet the needs of the parties. In this tutorial, however, we will start from scratch to show you how to construct a template using the powerful OpenLaw markup language.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3)
@@ -48,7 +49,7 @@ Normally, contract professionals start with an example and then tailor it to mee
 ![](https://api.beta.kauri.io:443/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC)
 
 
-### Creating a Legal Document
+#### Creating a Legal Document
 In this tutorial, we’ll write up a legal contract where a buyer will buy a Volkswagen bus from a seller for 200 ether (a cryptocurrency on the Ethereum blockchain). A traditional paper-based agreement to support this commercial transaction might look like this:
 
 ![](https://api.beta.kauri.io:443/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN)
@@ -77,7 +78,7 @@ After updating the markup, saving the document on OpenLaw, and clicking the “D
 ![](https://api.beta.kauri.io:443/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3)
 
 
-## Signing the Contract on OpenLaw
+### Signing the Contract on OpenLaw
 In draft mode we can fill in the fields with the buyer’s address, seller’s address, a description of the Volkswagen Bus, and the purchase price, so now the parties can sign the document.
 The first step is to insert the buyer and seller email addresses as this will serve as their identity in OpenLaw (in the future, more options will be available). This is available on the left hand set of fields above like the other fields. Then click the send button to send the document out for signature.
 
@@ -95,10 +96,10 @@ The Identity suffix notifies OpenLaw that this field will serve as the user’s 
 [Identity and Signature topic of the markup language documentation](https://docs.openlaw.io/markup-language/#identity-and-signatures)
  .
 
-## Interacting with the Ethereum Blockchain
+### Interacting with the Ethereum Blockchain
 Contracts developed on the OpenLaw platform can also interact with Ethereum-based blockchains. They do this through smart contracts. Smart contracts are small programs deployed on the blockchain at an Ethereum address which can transfer digital assets (i.e., crypto, property, etc.) among many other uses. OpenLaw is able to interact with smart contracts via function calls at those addresses using the same markup language we used to document the legal terms between the parties.
 
-## Developing an Example Smart Contract
+### Developing an Example Smart Contract
 Returning to our example above, the parties can automate the purchase and sale of the Volkswagen Bus using a smart contract, such as the follow example in 
 [the Solidity programming language](https://solidity.readthedocs.io/)
  , the most popular language for developing smart contracts on the Ethereum blockchain.
@@ -115,7 +116,7 @@ Now that we have our smart contract language, we can deploy it using whatever to
 [Mist Wallet](https://github.com/ethereum/mist/releases/)
  browser. When you do so, you will have access to the ABI (“application binary interface,” which is a JSON description of the functions your smart contract exposes) and the address on the Ethereum network where the contract was deployed.
 
-## Integrating Blockchain Programming with OpenLaw
+### Integrating Blockchain Programming with OpenLaw
 The last step in our process is to connect our template to the smart contract we created above. To do that, we need to edit our template and add a few more tags.
 The first declares the smart contract’s key features. Using the example above, we can add additional markup tags to the source above:
 [[@Purchase Price in Wei = Purchase Price * 1000000000000000000]]
@@ -144,7 +145,7 @@ This tag simply instructs the OpenLaw interpreter to call the smart contract onc
 Now, when our Volkswagen Bus buyer and seller execute their contract on OpenLaw, OpenLaw will interact with the blockchain via the smart contract and automate the flow of ether between the parties, as well as providing low cost safeguards for the buyer through the use of the smart contract — with just a little more work on the smart contract code to enable that feature.
 Using a smart contract enabled wallet like Mist, the buyer can confirm that he or she received the vehicle as promised by calling recordContract, which will then transfer the ether to the seller.
 
-## Conclusion
+### Conclusion
 Since the law pervades every part of our life, as you can imagine, there are several use cases where OpenLaw can create, execute and automate legal contracts while leveraging blockchain-based technology. Using OpenLaw, we’re bringing users an speedy and secure way digitally sign and store legal agreements. To learn more about OpenLaw, check out our 
 [site](https://openlaw.io/)
  and 

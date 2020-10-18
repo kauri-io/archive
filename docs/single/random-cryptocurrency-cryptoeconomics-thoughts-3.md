@@ -9,6 +9,7 @@ some_url:
 
 # random cryptocurrency / cryptoeconomics thoughts  3
 
+
  
 _The below is ungroomed, thinking out loud, a collection of thought bubbles written as a messy tangle. It has not been processed for concision/to make it easier to read. Patience and indulgence is required. There is not a sequential flow, paragraphs are ordered randomly. No effort was made to format for easier reading/viewing._
  

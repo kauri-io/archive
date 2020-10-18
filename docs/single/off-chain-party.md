@@ -9,20 +9,21 @@ some_url:
 
 # Off-Chain Party 
 
-# Project Name
+
+## Project Name
 Off-Chain Party
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 Off-Chain Party is an a marketplace for offline experiences offered by creative people: artists, music bands and alike.
 
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Igor Barbashin and Bryson Kruk
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 Alarming Pricey Annelid, Bryson K - Bewitched Average Wildcat,
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 https://offchain.party
 The project is aiming to pair artists with their biggest followers (patrons) by offering access to unique experiences in exchange to funding the meaningful projects.
 
@@ -30,17 +31,17 @@ We believe that we can create a community of artists and musicians incentivized 
 
 Music has always been a medium of capturing ideas and making them spread. This project aims to merge the tech space with the most vocal part of our society the artists.
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 Solidity, Truffle, React
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Impact Track
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 Important: You MUST add a tag (at the top, under Title) for each bounty you'd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click "ADD TAG", type  "bounty" and select the desired bounty from the list. If you'd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties you'd like to be considered for. These instructions can be deleted.
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/igorbarbashin/offchain-party
 
 

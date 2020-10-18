@@ -9,16 +9,17 @@ some_url:
 
 # Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching
 
+
 A feature of ZeppelinOS is the ability to link to EVM packages that are already deployed. In this tutorial, we will learn how to link to these packages and publish our own!
 
-## Prerequisites
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - An understanding of [Solidity](https://solidity.readthedocs.io/en/v0.5.1/solidity-in-depth.html) the programming language for smart contracts.
 - [Truffle](https://truffleframework.com/truffle), a development framework for Ethereum to test and deploy smart contracts.
 - [Ganache](https://truffleframework.com/ganache), a personal blockchain installed to test and run our smart contracts.
 
-## Installing
+### Installing
 
 After installing Node.js we are now ready to install ZeppelinOS. Using the terminal do the following:
 
@@ -32,7 +33,7 @@ That's it! We installed ZeppelinOS.
 
 **Note**: `zos --help` gives you a full list of all ZeppelinOS commands should you require them.
 
-## Creating our project
+### Creating our project
 
 In the directory of your choice, create your project and then change to that directory:
 
@@ -63,7 +64,7 @@ The last step is to download the ZeppelinOS project library.
 npm install zos-lib --save
 ```
 
-## Creating a Contract
+### Creating a Contract
 
 Open your project in a text editor of your choice (I'm using Atom) and create a new file called _MyToken.sol_ under the _contracts_ folder.
 
@@ -145,7 +146,7 @@ After this command, there should be a lot of output detailing the transaction.
 
 That's it! You've linked to an EVM package and deployed it on your local blockchain with the arguments we submitted above and successfully joined our **StandaloneERC20** token contract with our **MyToken** contract.
 
-## Publishing
+### Publishing
 
 We've seen how to deploy, upgrade, and link our smart contracts. Now it's time to learn about publishing. If you've created your own EVM package, you have the option of publishing it to the network for others to use.
 
@@ -235,11 +236,11 @@ zos link your-project-name
 
 That's it! It's easy to publish an EVM package and it's even easier to link to one!
 
-## Vouching
+### Vouching
 
 Vouching is useful to ensure the authenticity of a package. Anyone can create an EVM package but not all packages are useful or reliable. Vouching provides a way for the user to measure the quality of code. Right now vouching is in its beta stage and the following [contract](https://github.com/zeppelinos/zos/blob/v2.0.0/packages/vouching/contracts/Vouching.sol) controls it. The ZEP token is an ERC20 token that will be used to vouch in this process. This is the next feature to be released.
 
-## Next Steps
+### Next Steps
 
 - <https://docs.zeppelinos.org/docs/linking.html>
 - <https://docs.zeppelinos.org/docs/vouching.html>

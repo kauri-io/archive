@@ -9,11 +9,12 @@ some_url:
 
 # Create a "Hello World" fullstack dapp
 
+
 > This dapp implements a "Hello World" style application that echoes a message passed to the contract to the front end. This tutorial is intended to be followed using the online IDE available at [studio.ethereum.org](https://studio.ethereum.org), and selecting the "Hello World" template.
 
 ![Select Hello World template](https://api.kauri.io:443/ipfs/QmWkqKZ61bGkReDVGZY8hdWhr9S9gaaNpQcADQkGQ9YE2q)
 
-## The smart contract
+### The smart contract
 
 The first line, `pragma solidity ^0.5.10` specifies that the source code is for a Solidity version greater than 0.5.10. [Pragmas](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#pragma) are common instructions for compilers about how to treat the source code (e.g., pragma once).
 
@@ -23,7 +24,7 @@ The [`constructor`](https://solidity.readthedocs.io/en/latest/contracts.html#con
 
 The `update` function is another public function that is similar to the constructor, taking a string as a parameter, and updating the `message` variable.
 
-## The Web app
+### The Web app
 
 This tutorial doesn't cover the HTML or CSS as it's not web3 specific, aside from the element IDs that the JavaScript manipulates. A lot of the JavaScript code follows standard patterns for object-oriented JavaScript, so this tutorial focuses on the web3js specific parts.
 

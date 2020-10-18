@@ -10,6 +10,7 @@ some_url:
 # Interacting with an Ethereum Smart Contract in Java
 
 
+
 **Other articles in this series:**
 - [Connecting to an Ethereum client with Java, Eclipse and Web3j](https://kauri.io/article/b9eb647c47a546bc95693acc0be72546)
 - [Manage an Ethereum account with Java and Web3j](https://kauri.io/article/925d923e12c543da9a0a3e617be963b4)
@@ -78,9 +79,9 @@ contract DocumentRegistry {
 }
 ```
 
-## A Brief Primer on Mining and Gas
+### A Brief Primer on Mining and Gas
 
-### Mining
+#### Mining
 
 Any interactions with the Ethereum network that update EVM state must be triggered by a transaction that is broadcast to the blockchain.  Some example interactions include sending Ether to another account, deploying a smart contract and some smart contract function invocations.
 
@@ -88,7 +89,7 @@ Miners are entities that secure the Ethereum network by constantly attempting to
 
 It is the job of miners to gather a bundle of pending transactions (from the mempool) and create a block that includes these transactions.  Once a transaction is included within a mined block, it is considered executed, and any related state changes will be applied.
 
-### Gas
+#### Gas
 
 Ether, the native cryptocurrency of Ethereum, is paid by the transaction sender to the miner that included the transaction within a block.  This is one of the ways that miners are incentivized.
 
@@ -96,7 +97,7 @@ Gas is a unit of computational work within the Ethereum network, and the amount 
 
 It is also possible to define the absolute maximum amount of gas that a transaction sender is willing to consume in order to execute the transaction, by specifying the `gasLimit` attribute.
 
-## Deploying
+### Deploying
 
 The ability to deploy immutable smart contracts that live indefinitely is the secret sauce of Ethereum!  Smart contracts are pieces of code with functions that can be executed by any interested parties.  They live as bytecode within the network but are usually written in a language such as [Solidity](https://solidity.readthedocs.io/en) or [Vyper](https://vyper.readthedocs.io), then encoded and deployed.
 
@@ -142,7 +143,7 @@ public interface ContractGasProvider {
 }
 ```
 
-## Creating a Wrapper Instance for an Already Deployed Contract
+### Creating a Wrapper Instance for an Already Deployed Contract
 More often than not, the smart contract that you want to interact with will already be deployed to the Ethereum network.  In this scenario, the static `load(..)` method can be used:
 
 ``` java
@@ -161,13 +162,13 @@ Credentials creds = Credentials.create("0x8f2a55949038a9610f50fb23b5883af3b4ecb3
 
 DocumentRegistry registryContract = DocumentRegistry.load(credentials.getAddress(),web3j, creds, new DefaultGasProvider());
 ```
-## Invoking a Smart Contract Function
+### Invoking a Smart Contract Function
 
-### Transactions vs Calls
+#### Transactions vs Calls
 
 A smart contract function can be invoked in 2 different ways, depending on the behaviour of the function.  
 
-#### Transactions
+##### Transactions
 
 To invoke a smart contract function that can potentially change contract state (adding / updating / deleting a value), a transaction must be broadcast to the Ethereum network.  The function invocation details such as function name and argument values are encoded in the data field of a transaction in a well known format, and much like a regular Ether value transaction, the invocation will consume gas.  
 
@@ -175,17 +176,17 @@ A miner must choose to include the transaction within a block in order for the f
 
 For a detailed explanation of Ethereum transactions, see [this guide](https://medium.com/blockchannel/life-cycle-of-an-ethereum-transaction-e5c66bae0f6e).
 
-#### Calls
+##### Calls
 
 A call is local to the Ethereum client that your service is connected to, and does not broadcast anything to the wider Ethereum network.  Because of this, a contract call is free to execute; they do not consume any gas. However, call operations are read only, meaning that any state changes that occur within the smart contract function are not persisted and are rolled back after execution.  There is no mining involved, so executions are synchronous.
 
-### Using the Contract Wrapper
+#### Using the Contract Wrapper
 
 As was true for deploying, invoking a function using a Web3j generated contract wrapper is by far the easiest approach.  The tricky data encoding is encapsulated and handled for you under the covers.  
 
 A java method is generated that corresponds to each function within your smart contract.  Web3j establishes if the function should be invoked via a transaction or call automatically, at wrapper generation, based on the keywords of the function.  For example, a function definition that includes the `view` or `pure` keywords will be executed via a call, otherwise its assumed that there will be some potential state changes, and a transaction approach is used.
 
-#### Invoking `notarizeDocument(..)`
+##### Invoking `notarizeDocument(..)`
 In our `DocumentRegistry` example smart contract, the `notarizeDocument(..)` function stores the document details in the smart contract state and should therefore be triggered via a transaction in an asynchronous manner.  The generated function signature is:
 
 ``` java
@@ -205,7 +206,7 @@ String txHash = receipt.getTransactionHash();
 
 A `TransactionException` is thrown if the transaction fails.
 
-#### Invoking `isNotarized(..)`
+##### Invoking `isNotarized(..)`
 As this function is marked as a `view` function, this indicates that it is read-only and can therefore be called locally.  The generated method signature is:
 
 ``` java
@@ -213,7 +214,7 @@ public RemoteCall<Boolean> isNotarized(String _documentHash)
 ```
 This method is quite similar to the `notarizeDocument(..)` method, with one major difference;  the returned `RemoteCall` is of `Boolean` type and not `TransactionReceipt`.  This is because a transaction was not sent, and instead the return value of the smart contract function (`bool` in this case, converted to `Boolean`) is returned synchronously.
 
-### Manual Transaction Sending
+#### Manual Transaction Sending
 If for some reason, using the smart contract wrapper is not desirable, Web3j provides a number of helper classes to simplify the process of broadcasting a function invocation transaction, such as encoding the data field of the transaction, and the signing process.
 
 _Manual Transaction Sending Code_
@@ -239,7 +240,7 @@ String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultG
 
 - Once we have a transaction manager and encoded data, invoking the `notarizeDocument` function is simply a matter of calling the `sendTransaction` method of the transaction manager.  Behind the scenes this will construct a transaction object, and signing it with the private key defined in the `Credentials` and then broadcast the transaction to the Ethereum network via the connected client.  Whereas it was the job of the `GasProvider` to set the gas values in the wrapper case, we much specify them manually with this method.  We have used default values in this example but you can change these values as you wish.  As its possible for a smart contract function to receive Ether during the invocation (a `payable` function), the last argument can be used to specify the amount of Ether (in the smallest denomination, `wei`) that should be sent from the sender account to the smart contract.  No Ether should be transferred in our case, so the value is set to zero.
 
-#### Obtaining the TransactionReceipt
+##### Obtaining the TransactionReceipt
 You've probably noticed that the `sendTransaction` method in the code above, returns a transaction hash, and not a transaction receipt.  This is because of the asynchronous nature of transaction processing that has been mentioned earlier in this guide.  Luckily, web3j also provides a simple way to poll the network and wait until the transaction has been included within a block by a miner, the `TransactionReceiptProcessor`:
 
 ``` java
@@ -249,7 +250,7 @@ TransactionReceiptProcessor receiptProcessor =
 
 TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
 ```
-## Summary
+### Summary
 In this guide you have learnt how to perform some of the most common interactions with the Ethereum blockchain in java, namely deploying a smart contract and then invoking functions on this contract via both transactions and calls.  Using the generated smart contract java wrappers are by far the easiest way to perform these tasks, but there are other options if you require more granularity.  Congratulations, you're well on your way to becoming a proficient Ethereum java developer!
 
 In the next article in this series, we will walk you through how to [listen for emitted smart contract events](https://kauri.io/article/760f495423db42f988d17b8c145b0874/listening-for-ethereum-smart-contract-events-in-java).

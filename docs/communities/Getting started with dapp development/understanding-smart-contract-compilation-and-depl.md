@@ -10,6 +10,7 @@ some_url:
 # Understanding smart contract compilation and deployment
 
 
+
 As discussed earlier in the series, when developing dApps, and especially writing smart contracts, there are many repetitive tasks you will undertake. Such as compiling source code, generating ABIs, testing, and deployment.
 
 Development frameworks hide the complexity of these tasks and enable you as a developer to focus on developing your dApp/idea.
@@ -20,7 +21,7 @@ Understanding whats happening under the hood is particularly useful when you run
 
 So this article will walk you through how to manually compile and deploy your Bounties.sol smart contract from the command line, to a local development blockchain.
 
-## Steps
+### Steps
 
 Before deployment, a smart contract needs to be encoded into EVM friendly binary called bytecode, much like a compiled Java class.
 The following steps typically need to take place before a contract is deployed:
@@ -33,11 +34,11 @@ The following steps typically need to take place before a contract is deployed:
 
 So for step 1, will we use the [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/manual-compilation-and-deploy/Bounties.sol) contract we have written previously in this series.
 
-## Solc Compiler
+### Solc Compiler
 
 Step 2 requires us to compile our smart contract, in order to compile Solidity we need to use the Solc compiler. Typically frameworks such as [truffle] (https://truffleframework.com/), [embark] (https://embark.status.im/) and [populous] (https://github.com/ethereum/populus) come with a version of solc preconfigured, however since we will be compiling without a framework, we will need to install solc manually.
 
-### Installing Solc
+#### Installing Solc
 
 We can install solc using homebrew:
 ```
@@ -68,7 +69,7 @@ solc, the solidity compiler commandline interface
 Version: 0.5.1+commit.c8a2cb62.Linux.g++
 ```
 
-### Installing JQ
+#### Installing JQ
 
 To help with processing json content, during compilation and deployment lets install JQ
 Using homebrew:
@@ -83,7 +84,7 @@ Read more about [installing jq here] (https://stedolan.github.io/jq/download/)
 
 Windows users should also read the link above.
 
-### Compiling Solidity
+#### Compiling Solidity
 
 Once solc is installed we can now compile our smart contract. Here we want to generate
 
@@ -127,11 +128,11 @@ The above output has been trimmed down since the abi and bin outputs are quite l
 * The bytecode (bin)
 * The version of the compiler
 
-## Development Blockchain: Geth & Ganache-CLI
+### Development Blockchain: Geth & Ganache-CLI
 
 In order to deploy our smart contract we’re going to need an Ethereum environment to deploy to. For this, we will use Ganache-CLI to run a local development blockchain environment.
 
-### Installing Ganache-CLI
+#### Installing Ganache-CLI
 
 NOTE: If you have a windows machine you will need to install the windows developer tools first
 ```
@@ -141,7 +142,7 @@ npm install -g windows-build-tools
 $ npm install -g ganache-cli
 ```
 
-### Installing Geth
+#### Installing Geth
 
 We will also install [Geth] (https://github.com/ethereum/go-ethereum/wiki/geth), which is the Go implementation of an Ethereum node. You can run Geth to setup your own private network by following these [instructions] (https://github.com/ethereum/go-ethereum/wiki/Private-network). However, we will only be using Geth in this tutorial as a helper since it provides a nice Javascript console environment with web3 installed which we can use to interact with Ganache-CLI.
 
@@ -161,7 +162,7 @@ Read more about [installing Geth here] (https://github.com/ethereum/go-ethereum/
 
 *Windows users should check out the link above.
 
-### Starting Ganache-CLI & attaching Geth Console
+#### Starting Ganache-CLI & attaching Geth Console
 
 So lets start our local development blockchain environment:
 ```
@@ -219,7 +220,7 @@ at block: 0 (Mon, 10 Dec 2018 17:00:39 UTC)
  modules: eth:1.0 evm:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0
 >
 ```
-### Deployment preparation
+#### Deployment preparation
 
 In order to deploy we first need to load our compiled json output into our Geth console.
 
@@ -299,7 +300,7 @@ undefined
 "Ox608060405234801561001057600080fd5b50611040806100206000396000f30060806040526004361061006d576000357c01000000000000000000000000000000000000000...."
 ```
 
-## Deployment
+### Deployment
 
 Now its time to deploy our smart contract!
 
@@ -415,7 +416,7 @@ Above now you notice the **bountiesInstance** object now references the correct 
 
 Also, we can see the list available functions which are provided by our smart contract.
 
-## Interacting with our contract
+### Interacting with our contract
 
 In our console, it is also possible to interact with our Bounties contract.
 
@@ -490,7 +491,7 @@ There you have it, we have successfully:
 
 Now that we have done it the hard way, the next part of the series will look at home development frameworks such as [truffle] (https://truffleframework.com/), [embark] (https://embark.status.im/) and [populous] (https://github.com/ethereum/populus) hide the complexity of this process from us, and allow us to focus on writing smart contracts when developing our dApps!
 
-## Next Steps
+### Next Steps
 - Read the next guide: [Truffle: Smart Contract Compilation & Deployment](https://kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/truffle:-smart-contract-compilation-and-deployment)
 - Learn more about the Truffle suite of tools from the [website](https://truffleframework.com/)
 

@@ -9,6 +9,7 @@ some_url:
 
 # Getting return values from a solidity transaction
 
+
 In solidity we have learned that there are two ways to directly interact with smart contracts, by transactions and calls.
 
 Transactions change the state of the blockchain, Calls allow you to read that state.

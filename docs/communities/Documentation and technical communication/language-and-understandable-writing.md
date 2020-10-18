@@ -9,6 +9,7 @@ some_url:
 
 # Language and understandable writing
 
+
 I appreciate that not everyone who writes documentation is a native
 English speaker, or even if they are, may not understand the best way to write clearly and concisely. Many native English speakers had our last
 grammar lesson more than 20 years ago, and have learnt the tips and tricks we now use as professional writers recently. There are three important things to
@@ -22,7 +23,7 @@ remember to justify the time and effort of making your writing more understandab
 
 While you can spend a lot of time crafting the perfect sentence to explain something, here are a handful of tips to add that dash of clarity your need.
 
-## K.I.S.S.
+### K.I.S.S.
 
 > Or Keep it simple (stupid).
 
@@ -49,7 +50,7 @@ it's "easy", they will find that out themselves.
 
 When you edit your first draft (which of course you should!), consider how many words you need to explain a concept. One of the advantages of English is that you can do quite a lot with few words, but many choose to use way more than they need. Continuing the theme of this section, every extraneous word adds syntactical noise that people have to sift through to find the information they need.
 
-## Show off
+### Show off
 
 There are words that people use to show off how clever they are,
 which is comparable to creating overly complicated code for no
@@ -61,7 +62,7 @@ complexity for your indulgence is selfish and doesn't help anyone. If a
 simpler word does the job, use it. Let your code and ideas speak for how
 smart you are, not your knowledge of obscure English words.
 
-## Write confidently
+### Write confidently
 
 My final writing advice is a grammatical one, and something more subtle
 that I spend a lot of my time changing in the text that I edit, but I feel strongly about it. It's the topic of writing confidently. Confident
@@ -82,13 +83,13 @@ making it clear who the actor and subject are in each sentence. There
 are often situations where this isn't possible or relevant but try it as
 much as possible. It may not be clear what I mean, so here's an example.
 
-### Passive voice
+#### Passive voice
 
 > Functions can be used to return a value
 
 Are you sure about that, can they or not?
 
-### Active voice
+#### Active voice
 
 > You can use functions to return a value
 
@@ -100,7 +101,7 @@ clarifies details, and the active voice gives readers more confidence,
 as the lack of clarity in passive voice can make it seem like you're not
 sure.
 
-### Confident words
+#### Confident words
 
 Another trick alongside this (and an example of English vagueness) is using more confident words elsewhere or removing less confident ones. For example, using "can" instead of "may" or "should", or telling the reader directly what they can do instead of making it sound like it's optional. For example:
 

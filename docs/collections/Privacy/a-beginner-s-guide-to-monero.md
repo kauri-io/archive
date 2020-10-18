@@ -9,6 +9,7 @@ some_url:
 
 # A beginner’s guide to Monero
 
+
  
 This article was originally published on [Medium](https://medium.com/@linda.xie/a-beginners-guide-to-monero-7a5df2c50ed9) 
 

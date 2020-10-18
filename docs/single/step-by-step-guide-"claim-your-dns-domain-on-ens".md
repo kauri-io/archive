@@ -10,13 +10,14 @@ some_url:
 # Step by step guide “Claim your DNS domain on ENS”
 
 
+
 ----
 
 This is a note I took while setting up **matoken.xyz** ENS address using NameCheap and Google Cloud DNS. Before continuing this blog post, make sure you read the original post by [Nick Johnson](https://medium.com/@weka) 
 Nick’s blog post is fairly concise and well written for people who have good understanding of how to administer DNS. If you are not so familiar with administering DNS like me, then this step by step guide with plenty of screenshots may help.
 (Warning: readers are expected to know how to work with command line tools and git).
 
-## 0 — Pre-requisite
+### 0 — Pre-requisite
 Before starting this, make sure you have the following.
 
 
@@ -30,7 +31,7 @@ Before starting this, make sure you have the following.
 ![](https://cdn-images-1.medium.com/max/1600/1*uTfgoMNQb3zT0JuW7LdnPg.png)
 
 
-## 1 — Setting up DNSSEC signing
+### 1 — Setting up DNSSEC signing
 
 ```
 Depending on your DNS provider, this may be really easy, or quite involved.
@@ -113,7 +114,7 @@ I probably waited 15 ~ 20 min for the record to be reflected on [https://dnssec-
 
 You just finished the hardest part. The rest is relatively easy compared to what you have done so far.
 
-## 2 — Adding a TXT record
+### 2 — Adding a TXT record
 
 ```
 To claim ownership of mydomain.xyz, create a TXT record in your DNS zone, _ens.mydomain.xyz, with text data of the form a=0x1234..., where 0x1234... is the Ethereum address you want to give control of the ENS record to.
@@ -125,7 +126,7 @@ This part is relatively straight forward. TXT is a type of DNS record literally 
 ![](https://cdn-images-1.medium.com/max/1600/1*mMskHCxnrLRqZSEvRpUsBw.png)
 
 
-## 3 — Interacting with the DNSSEC oracle
+### 3 — Interacting with the DNSSEC oracle
  **3.1 Setup go environment** 
 This part may be super easy if you use golang day to day. I don’t code golang but my Mac already had it installed. Maybe it was installed when I installed go-ethereum ? If golang is installed, you have to set two environment variable, GOROOT, GOPATH, put $GOROOT/bin into your $PATH, then create a folder with `src` , `bin` , and `pkg` folder
 
@@ -182,7 +183,7 @@ Anyway, if all goes well, it should see the following output (it also asks to se
 ![](https://cdn-images-1.medium.com/max/1600/1*COVMYcwQj5kauXWGfvjvCA.png)
 
 
-## 4— Claiming your domain in ENS
+### 4— Claiming your domain in ENS
 In Nick’s original post, he assumed that you have local geth node in sync so that you can claim the domain from geth console. However, I used Infura remote node so my local node is not in sync? How do I work around?
  **4.1 Encode your name through node console.** 
 The workaround Nick suggested was to first generate the encoded string from node console then copy & paste the outcome to [MyCrypto](http://mycrypto.com) .

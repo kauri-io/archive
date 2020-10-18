@@ -9,6 +9,7 @@ some_url:
 
 # Introducing Bloom Starter
 
+
 ![](https://api.kauri.io:443/ipfs/QmPsZKGrX7F7swmezHEXGLigX3dxzvqJvC5NQv7kbYeAj1)
 
 
@@ -19,11 +20,11 @@ Getting started with integrating a third-party ecosystem can seem daunting, Bloo
 Here at Bloom we use a Typescript + React + Express stack so our first implementation of Bloom Starter is in this stack, available under the Bloom Starter repo [here](https://github.com/hellobloom/bloom-starter/tree/master/bloom-starter-react). This is a very simple integration that renders a QR Code via Share Kit and manages users with a session.
 
 
-# Use Bloom Protocol for Login, Lending, and Financial Compliance
+## Use Bloom Protocol for Login, Lending, and Financial Compliance
 
 Bloom Protocol is an end-to-end protocol for decentralized login, identity, and credit scoring. With Bloom Protocol, you can verify a user’s identity, reduce the risk of fraud, and build compliant financial applications, all without sacrificing user privacy or risking data breaches. You can do this without taking custody of a user’s personal data, and without relying on centralized systems.
 
-# Get Started Building on Bloom Protocol
+## Get Started Building on Bloom Protocol
 
 Start developing on top of the Bloom Protocol with Bloom Starter. Please see the repos below, as well as step-by-step instructions in our [Bloom Workshop video](https://www.youtube.com/watch?v=SM3KicBROpw&feature=youtu.be&t=1785).
 
@@ -32,11 +33,11 @@ Start developing on top of the Bloom Protocol with Bloom Starter. Please see the
 - Bloom Starter React
 
 
-# Development
+## Development
 
 There are two parts to this app, the server-side (express) and client-side (react).
 
-# Getting Started
+## Getting Started
 
 `git clone https://github.com/hellobloom/bloom-starter.git`
 
@@ -45,7 +46,7 @@ There are two parts to this app, the server-side (express) and client-side (reac
 3. Before starting up the dev server, you will need a `.env` file with these variables set: `PORT`, `NODE_ENV` and `SESSION_SECRET`. See `.env.sample` for an example of where your `.env` should be look like.
 4. `npm run dev`
 
-# What does this do?
+## What does this do?
 
 - Start the express server
 
@@ -57,22 +58,22 @@ There are two parts to this app, the server-side (express) and client-side (reac
 
     - The `REACT_APP_SERVER_URL` env var is set to the ngrok url
 
-# Production
+## Production
 
-## Build app (client and server)
+### Build app (client and server)
 
 This will build client and server code and output to the build/ directory
 
 `npm run build`
 
-## Start app (client and server)
+### Start app (client and server)
 
 `npm run start`
 
-## Deploy to Heroku
+### Deploy to Heroku
 Commands must be done from the root of the git project.
 
-# Init heroku (one time)
+## Init heroku (one time)
 Assuming that your heroku app is called bloom-starter-react.
 
 ```
@@ -81,10 +82,10 @@ heroku git:remote -a bloom-starter-react
 ```
 
 
-## Push latest
+### Push latest
 `git subtree push --prefix bloom-starter-react heroku master`
 
-# Join Us at ETHDenver
+## Join Us at ETHDenver
 Starting next Friday, come join us for a fun weekend of creativity and development at ETHDenver!
 
 - What: [ETHDenver #BUIDLATHON](https://www.ethdenver.com/)
@@ -95,10 +96,10 @@ Starting next Friday, come join us for a fun weekend of creativity and developme
 
 We’ve built a strong developer ecosystem, supporting development on the Bloom Protocol. Now join us at ETHDenver as we continue to foster our developer ecosystem and work to build even more applications on top of the protocol!
 
-# About Bloom
+## About Bloom
 Bloom is a blockchain solution for identity security and cross-border credit scoring, restoring ownership and control of identity information and financial data back to consumers. By decentralizing the way that information is shared between untrusted parties, the system reduces the risk of identity theft and minimizes the costs associated with customer on-boarding, compliance and fraud prevention.
 
-# Learn More
+## Learn More
 To learn more about the latest with Bloom:
 
 - [Download the Bloom App](https://bloom.app.link/n84SaYZx6P)

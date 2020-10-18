@@ -10,6 +10,7 @@ some_url:
 # 3Box Builders Series  How to Integrate with Profiles
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmVRP9wYpyZg52iYMDaFeJx8wdJ7rnUaaCi7WWnZLJGFjj)
 
  
@@ -20,19 +21,19 @@ _. This article is the first in the series, and contains everything you need to 
 _._
  
 
-## 3Box Profiles Overview
+### 3Box Profiles Overview
 
-### Why profiles?
+#### Why profiles?
  
 [3Box Profiles](https://github.com/3box/3box-js#profiles-api)
  are a quick and easy way to make your decentralized application more social, useable, and interactive with basic social identity that works natively with Ethereum. We provide the infrastructure that makes it easy for distributed application developers to replace user hex addresses with human-readable names, images, descriptions, and other social metadata in their application’s UI.
 
-### Why 3Box?
+#### Why 3Box?
  
 [3Box](https://github.com/3box/3box)
  is a distributed data storage and identity network built on IPFS and OrbitDB, where users are always in control of their information. By storing data on 3Box, developers don’t need to operate a centralized backend service to store and manage all of this user information, nor do they need to store it on the blockchain where it’s expensive and exists forever. Rather, 3Box data lives directly with users and is available to be shared across various application front-ends.
 
-### Summary of Benefits
+#### Summary of Benefits
 
 
 
@@ -48,7 +49,7 @@ _._
 
  * Native support for Ethereum accounts
 
-### Example Integrations
+#### Example Integrations
 Experience 3Box profiles at any of our partner applications: 
 [3Box Hub](https://3box.io)
  , 
@@ -79,7 +80,7 @@ _coming soon_
 _coming soon_
  )
 
-### User Experience Demo
+#### User Experience Demo
 Below is a video demonstration of how profiles could integrate natively into an application, in this case — the Livepeer Explorer app. This example is for demonstration purposes only and does not reflect an actual live Livepeer integration. Thanks to 
 [Jake Brukhman](https://medium.com/@jbrukh)
  for letting me use him and 
@@ -90,7 +91,7 @@ Below is a video demonstration of how profiles could integrate natively into an 
 
 We will reference this Livepeer example for user and application flows, as well as code examples for the remainder of this tutorial.
 
-## Get Started Developing with Profiles
+### Get Started Developing with Profiles
 Follow these steps to get profiles running smoothly in your app:
 
 
@@ -101,7 +102,7 @@ Follow these steps to get profiles running smoothly in your app:
 
  * Display the user’s profile, throughout your application UI
 
-## 📁 Install 3Box.js in your Project
+### 📁 Install 3Box.js in your Project
  
 [3Box](https://github.com/3box/3box)
  provides a JavaScript client library that allows browser-based web applications to interact with the 3Box data network without requiring the user to install any software. 
@@ -115,12 +116,12 @@ $ npm install 3box
 
 
 
-## ⚙️ Configure User Profiles
+### ⚙️ Configure User Profiles
 This section describes the application logic and code that should be implemented on the 
 **account or profile page**
  of your application.
 
-### 1. Detect and display default user profile information.
+#### 1. Detect and display default user profile information.
 When the user arrives at their profile page, your app should check whether or not they have previously configured their profile for your app. This is indicated by the presence of a 
 `defaultProfile`
  setting saved in your app's space. The 
@@ -160,7 +161,7 @@ console.log(livepeerProfile.defaultProfile)
 
  * If no value is returned, the user has never configured their profile for your app before. Display a blank profile. _Complete all steps below._ 
 
-### 2. Ask permission to update their profile.
+#### 2. Ask permission to update their profile.
 Regardless of the user’s 
 `defaultProfile`
  setting, since they came to their profile page they likely want to create or update their profile, which requires saving data to 3Box. To allow your application to update a user’s 3Box, you will need to ask for the user’s consent then you will need to sync their data.
@@ -190,7 +191,7 @@ await spaceSyncPromise
 _**Note: Steps 3–4 below are only relevant for new users who have no existing defaultProfile setting for your app. At this point, all other users with preconfigured profiles should be able to use and update their profile with no problems._
  
 
-### 3. Configure default profile, if not done previously.
+#### 3. Configure default profile, if not done previously.
 
 ![](https://api.kauri.io:443/ipfs/QmZEv5vhUz5gVsKSf3ngfX1p5Mp3WTFojt5JWW8wGhktoa)
 
@@ -230,7 +231,7 @@ livepeerSpace.public.set('defaultProfile', 'livepeer')
 
 
 
-### 4a. Display profile information, if 3Box is chosen as default.
+#### 4a. Display profile information, if 3Box is chosen as default.
  
 **Display profile with 3Box as default:**
  If the user opts to use their 3Box profile for your app, you should display their 3Box profile information (name, image, URL) on screen using: 
@@ -248,7 +249,7 @@ livepeerSpace.public.set('defaultProfile', 'livepeer')
 ![](https://api.kauri.io:443/ipfs/QmYmvDpPjp3YCScnFzTxXHQff8cCkYnryJhsmYu25aC8WX)
 
 
-### 4b. Display profile information, if your app is chosen as default.
+#### 4b. Display profile information, if your app is chosen as default.
  
 **Save new app profile data**
  : If users opt for creating a new profile in your app, then you should provide them with an interface to enter their new profile information.
@@ -302,13 +303,13 @@ livepeerSpace.private.set('email', 'youremail@gmail.com')
 ![](https://api.kauri.io:443/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY)
 
 
-## 🌈 Display Profiles Throughout Your App
+### 🌈 Display Profiles Throughout Your App
 Now that a user has configured their profile for your app, you will want to display it in your app’s UI, making it available to this user and other users on various pages. This section describes the application logic and code that should be implemented on other pages of your app where you wish to display user profiles.
 
 ![](https://api.kauri.io:443/ipfs/QmXvJYxMayWGCcYrcxMvwCp3Paev2AZLsXydfXa32tSNiD)
 
 
-### How to Display User Profiles
+#### How to Display User Profiles
 When your app displays a profile in the UI, you must first check the users’ default profile settings to determine which information to display.
 This code snippet checks for the 
 `defaultProfile`
@@ -344,7 +345,7 @@ console.log(livepeerProfile.defaultProfile)
 
  * If no value is returned, the user has never configured their profile for your app before. Display a blank profile, or keep their Ethereum hex address.
 
-## 👋 Get in touch
+### 👋 Get in touch
 We love to hear about your use cases and we’re happy to answer any questions that arise as you build with our profiles API. Join our Discord at 
 [chat.3box.io](https://chat.3box.io)
  .

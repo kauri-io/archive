@@ -9,7 +9,8 @@ some_url:
 
 # Truffle  Testing your smart contract
 
-# Truffle: Testing your smart contract
+
+## Truffle: Testing your smart contract
 
 Earlier in this series, we took a look at how to setup Truffle and use it to compile, deploy and interact with our _Bounties.vy_ smart contract.
 
@@ -17,13 +18,13 @@ This article covers the steps required to write tests for our smart contract wit
 
 [You can find source code for this tutorial on GitHub](https://github.com/iamonuwa/Bounties).
 
-## Prerequisites
+### Prerequisites
 
-### NodeJS 7.6
+#### NodeJS 7.6
 
 Since web3.js and truffle executions are asynchronous, we use [async/await](https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9) to simplify our test code and you need Node 7.6 or higher.
 
-### Truffle
+#### Truffle
 
 ```shell
 npm install -g truffle
@@ -31,7 +32,7 @@ npm install -g truffle
 
 Read more on [installing truffle in their docs](https://truffleframework.com/docs/truffle/getting-started/installation).
 
-### Truffle Project
+#### Truffle Project
 
 In order to test our _Bounties.vy_ smart contract we need to have a truffle project set up to compile and deploy our smart contract. Let's start with the truffle project we created earlier in the series:
 
@@ -44,7 +45,7 @@ $ cd Bounties
 
 <!-- TODO: No package.json at this time -->
 
-### Development Blockchain: Ganache-CLI
+#### Development Blockchain: Ganache-CLI
 
 In order to deploy our smart contract, we need an Ethereum environment to deploy to. For this, we use Ganache-CLI to run a local development environment
 
@@ -67,7 +68,7 @@ Then run:
 npm install -g ganache-cli
 ```
 
-## Setting up a test file
+### Setting up a test file
 
 Now that we have our project setup we can create our first test:
 
@@ -121,7 +122,7 @@ Running truffle test executes all tests in your truffle projects **/test** folde
 2.  Runs migrations to deploy the contracts to the network
 3.  Runs tests against the contracts deployed on the network
 
-## Writing a Test
+### Writing a Test
 
 Let's take a look at the `issueBounty` function:
 
@@ -148,7 +149,7 @@ There are a few things we want to test within this function:
 -   `validationZero`:  Issuing a bounty with a value of 0 should fail
 -   `validateDeadline`: Issuing a bounty with a deadline less than or equal to now should fail
 
-### Helper Functions
+#### Helper Functions
 
 To create our bounty, we need to pass in a deadline which is greater than the current timestamp on the EVM.
 
@@ -217,7 +218,7 @@ const dayInSeconds = 86400;
 
 We also added a `dayInSeconds` constant to help us add days.
 
-### Happy Path for tests
+#### Happy Path for tests
 
 **Note: all the following tests should be placed in the bounties.js file**
 
@@ -294,7 +295,7 @@ Above we add `.call` to `issueBounty` to make a call to the function rather than
 
 **NOTE: Because our result is a `BigNumber`, we need to call `.toNumber()` in our assert function.**
 
-### Error Path
+#### Error Path
 
 Our error path tests involve sending a transaction with invalid inputs as an argument to our `assertRevert` helper function. To test our `payable` keyword, we invoke a transaction without setting a value:
 
@@ -358,7 +359,7 @@ Contract: Bounties
   7 passing (1s)
 ```
 
-### Time travel
+#### Time travel
 
 One of the main tests is to check that a fulfilment should not be accepted if the deadline has passed. In order to test this, we need to add a helper function which advances the timestamp of the EVM.
 
@@ -410,7 +411,7 @@ it("Should not allow a user to fulfil an existing bounty where the deadline has 
 });
 ```
 
-## Try it yourself
+### Try it yourself
 
 Now that you have seen how to test the `issueBounty` function, try adding tests for the following functions:
 
@@ -420,7 +421,7 @@ Now that you have seen how to test the `issueBounty` function, try adding tests 
 
 You can find the [complete bounties.js test file here for reference](https://github.com/iamonuwa/Bounties/blob/master/test/bounties.js)
 
-## Next Steps
+### Next Steps
 
 -   Read the next guide: [Truffle: Adding a Frontend with React Box](https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/truffle:-adding-a-frontend-with-react-box)
 -   Learn more about the Truffle suite of tools from the [website](https://truffleframework.com/)

@@ -9,15 +9,16 @@ some_url:
 
 # Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card
 
+
 **Ethereum on ARM** is a project that provides custom Linux images for ARM devices that run Geth, Parity and Nethermind Ethereum clients as a boot service and automatically turns these ARM boards into a full Ethereum node.
 
-## Why running a full node?
+### Why running a full node?
 
 You may ask yourself, why should I run a full Ethereum node? Well, probably, there is not a perfect answer to this question but this quote from Mastering Ethereum book is a good one: _“The health, resilience, and censorship resistance of blockchains depend on them having many independently operated and geographically dispersed full nodes. Each full node can help other new nodes obtain the block data to bootstrap their operation, as well as offering the operator an authoritative and independent verification of all transactions and contracts.”_
 
 So, basically, what you are doing by running a full node is supporting the Ethereum network. Other possible reasons to run a node are: validate / send transactions without relying on third party services, host your own node infrastructure to develop Dapps or test eth2.0 implementations.
 
-## Why ARM devices?
+### Why ARM devices?
 
 Think about it, if you are going to run a full node, would you be willing to let your laptop or desktop running 24/7 for such a specific task? Would you buy an expensive server?. We did ask ourselves these questions when we first decided to run full nodes some years ago and came to the conclusion that **ARM** devices are the most convenient devices for doing so.
 
@@ -28,22 +29,22 @@ Among other reasons:
 - **Efficient**: The device is dedicated to this particular task (no graphical environments or other user tasks)
 - **Small**: It fits pretty much in any corner of your home or office
 
-## What is Ethereum on **ARM**
+### What is Ethereum on **ARM**
 
 Ethereum on ARM provides images to easily turn you **ARM** device into a full Ethereum node. Images take care of all necessary steps, from setting up the environment and formatting the SSD disk to installing and running the Ethereum software as well as synchronizing the blockchain.
 
-## Supported devices (February 2020)
+### Supported devices (February 2020)
 
 - Raspberry Pi 4 https://www.raspberrypi.org/products/raspberry-pi-4-model-b/ (4 GB RAM)
 - NanoPC-T4 https://www.friendlyarm.com/index.php?route=product/product&product_id=225
 - RockPro64 https://www.pine64.org/rockpro64 (4 GB RAM)
 
-## Ethereum on ARM images
+### Ethereum on ARM images
 
 - https://github.com/diglos/pi-gen (Raspberry Pi 4 32-bit)
 - https://github.com/diglos/userpatches (NanoPC-T4 and RockPro64)
 
-## Main features
+### Main features
 
 - Support for Geth, Nethermind and Parity 1.0 clients
 - Based on Armbian Ubuntu Bionic 18.04 and Raspbian Debian Buster
@@ -56,20 +57,20 @@ Ethereum on ARM provides images to easily turn you **ARM** device into a full Et
 - Includes an APT repository for upgrade Ethereum software through apt command
 - Includes automatic upgrades through "Unattended upgrades" system (only 64 bit)
 
-## Software installed
+### Software installed
 
-### Ethereum 1.0 clients
+#### Ethereum 1.0 clients
 
 - Geth 1.9.10
 - Parity 2.7.2
 - Nethermind 1.5.8
 
-### Ethereum 2.0 (64-bit only)
+#### Ethereum 2.0 (64-bit only)
 
 - Prysm 0.3.1
 - Lighthouse 0.1.0
 
-### Ethereum ecosystem
+#### Ethereum ecosystem
 
 - Swarm: 0.5.5
 - Raiden Network: 0.200.0~rc1
@@ -77,7 +78,7 @@ Ethereum on ARM provides images to easily turn you **ARM** device into a full Et
 - Status.im: 0.34.0~beta3
 - Vipnode: 2.3
 
-## Equipment
+### Equipment
 
 - Ethereum on ARM image (links above)
 - Raspberry PI 4 / NanoPC-T4 / RockPro64
@@ -87,11 +88,11 @@ Ethereum on ARM provides images to easily turn you **ARM** device into a full Et
 - (Optional) 30303 Port forwarding. This is a recommended setting
 - (Optional) USB keyboard, Monitor and HDMI cable
 
-# Workshop. Raspberry Pi 4 image installation
+## Workshop. Raspberry Pi 4 image installation
 
 This is a step-by-step guide of Ethereum on ARM image installation for the Raspberry Pi 4.
 
-## Hardware used
+### Hardware used
 - Raspberry Pi 4 https://www.raspberrypi.org/products/raspberry-pi-4-model-b/
 - Inateck Box https://www.inateck.com/fe2011-aluminum-2-5-hard-drive-enclosure.html
 - Kingston A400 SSD SA400S37/480G https://www.kingston.com/es/ssd/a400-solid-state-drive?partnum=SA400S37/480G
@@ -103,9 +104,9 @@ This is a step-by-step guide of Ethereum on ARM image installation for the Raspb
 ![](https://api.kauri.io:443/ipfs/QmNsFNp2rUMSXQrDcdv2Yqr9RE8cAs4przQPhwvG7YzE6e)
 _Necessary hardware (Raspberry Pi 4)_
 
-## Installation steps
+### Installation steps
 
-### Download the latest Ethereum on ARM [image](https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip)
+#### Download the latest Ethereum on ARM [image](https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip)
 
 ``` shell
 [fernando@etherNode ~]$ wget https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip
@@ -121,13 +122,13 @@ image_2019-12-20-EthRaspbian2.0-lite.zip            100%[=======================
 
 2020-02-08 15:35:02 (11,4 MB/s) - ‘image_2019-12-20-EthRaspbian2.0-lite.zip’ saved [574317534/574317534]
 ```
-### Unzip the downloaded file
+#### Unzip the downloaded file
 ``` shell
 [fernando@etherNode ~]$ unzip image_2019-12-20-EthRaspbian2.0-lite.zip
 Archive:  image_2019-12-20-EthRaspbian2.0-lite.zip
   inflating: 2019-12-20-EthRaspbian2.0-lite.img
 ```
-### Flash the uncompressed image
+#### Flash the uncompressed image
 
 We need to find the right block device in order to flash the  image
 
@@ -148,7 +149,7 @@ PATH="/dev/nvme0n1p6" MODEL=""
 ```
 In this case /dev/sdc is the MicroSD card. Other possible device is /dev/mmcblk0
 
-### Flash the image to the right device
+#### Flash the image to the right device
 
 ``` shell
 [fernando@etherNode ~]$ sudo dd bs=1M if=2019-12-20-EthRaspbian2.0-lite.img of=/dev/sdc conv=fdatasync status=progress
@@ -164,7 +165,7 @@ Note: **If you have a Windows desktop you can use Balena Etcher to flash the Mic
 ![](https://api.kauri.io:443/ipfs/QmWEFd3wErZ9n3qiS7LzBUbjkkXr9mUeyoh6pXdNeaD5m2)
 _Etcher main menu_
 
-### First connection
+#### First connection
 
 Using nmap you can easily find the local IP of your Raspi
 
@@ -220,7 +221,7 @@ Retype new password:
 passwd: password updated successfully
 Connection to 172.16.10.163 closed.
 ```
-## Software update
+### Software update
 
 1. First run update-ethereum in order to get the latest software
 
@@ -278,7 +279,7 @@ CURRENT: 000137ab
 
 **You are now running a full Ethereum node (Geth) on your Raspberry Pi 4.**
 
-## Addendum. Some pictures of the installation
+### Addendum. Some pictures of the installation
 
 ![](https://api.kauri.io:443/ipfs/QmXpnWXgyTMFt59hKg2VwyJeKtVN4hJrBKqCwYP1ZCxQt2)
 _Power consumption during sync_

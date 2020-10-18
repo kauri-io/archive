@@ -10,11 +10,12 @@ some_url:
 # Wyre - ETHDenver Hackathon Ideas
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmT3XSa3BVP6WNFBNqAm4MuGyZEzjyHJMCgrdsb3fZhN1t)
 
 We’re always there to be the bridge between fiat & crypto so that the target market is not just crypto, but anyone who’s got an internet connection. Lowering the barriers to entry is our focus because accelerating the product feedback loop will hackers iterate more quickly.
 
-## tl;dr
+### tl;dr
 
 
 
@@ -36,10 +37,10 @@ ETHDenver is going to be absolutely rocking, and we’re pumped to meet you if w
 ![](https://api.kauri.io:443/ipfs/QmY7ocHERXEic2mXAGdcBFtJEunPgfeiziTWXv51RXb5x4)
 
 
-## Hackathon Ideas
+### Hackathon Ideas
 It’s always helpful to get the brain juices flowing. With the amount of opportunity in front of you all, it’s easy to get decision paralysis and not even know where to begin. Below are a few ideas that could be great long-term for the community!
 
-### 👑🌽 Trustless BTC-20 👑🌽
+#### 👑🌽 Trustless BTC-20 👑🌽
 
 
 
@@ -48,7 +49,7 @@ It’s always helpful to get the brain juices flowing. With the amount of opport
 ERC-20 is table stakes for most exchanges around the world.
 Trustless implementation would allow Bitcoin holders to capitalize on their hodlings from things like Compound, CDP’s, Uniswap, etc…
 
-### 🎟 Demo Wall — Badge Clearance 🎟
+#### 🎟 Demo Wall — Badge Clearance 🎟
 
 
 
@@ -61,14 +62,14 @@ Good starting point by
 [Github here](https://github.com/BrennerSpear/CryptoProof)
  .
 
-### ⛽️ Community Gas Pump ⛽️
+#### ⛽️ Community Gas Pump ⛽️
 
 
 
  *  **Problem:**  _New users to crypto can’t get sent Dai because of the gas fees to use that Dai once it’s received._ 
 Why not have a communal CDP for users to leverage when inviting new friends to the platform? The stakeholders of the communal CDP are given access to capital, while the end-user is getting a more frictionless experience.
 
-### 🤖 Make Chat Bots Great Again 🤖
+#### 🤖 Make Chat Bots Great Again 🤖
 
 
 
@@ -79,7 +80,7 @@ Why not have a communal CDP for users to leverage when inviting new friends to t
  * Have an onboarding bot for each community that could increase adoption, while accumulating incentives for the sign-ups, that can be pooled and returned to the community.
 Had something else in mind? Awesome! Give us a buzz, and we’d love to help you out and give feedback :)
 
-## Resources
+### Resources
 
 
 
@@ -89,7 +90,7 @@ Had something else in mind? Awesome! Give us a buzz, and we’d love to help you
 
  *  [Example Guide](https://github.com/sendwyre/Hackathon-Resource/blob/master/README.md#-hackathon-example---fiat-onoff-ramps-) .
 
-## 💡Get Support From Our Team💡
+### 💡Get Support From Our Team💡
 
 
 

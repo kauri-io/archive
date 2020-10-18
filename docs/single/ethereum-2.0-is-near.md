@@ -9,6 +9,7 @@ some_url:
 
 # Ethereum 2.0 is near
 
+
 ![](https://api.kauri.io:443/ipfs/QmUvZk7yughHkwMRLo1GavttF98GQ4bY5PZDX298eBhTpc)
 
 Ethereum 2.0 or ETH2 is the planned update for Ethereum by its creator Vitalik Buterin.

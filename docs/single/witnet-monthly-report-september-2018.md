@@ -10,6 +10,7 @@ some_url:
 # Witnet Monthly Report — September 2018
 
 
+
 ----
 
 
@@ -19,7 +20,7 @@ some_url:
 
 Greetings, Witnet community! As planned, every month we update you on our work towards the milestones [set in our project roadmap](https://republic.co/witnet). Last month, we proudly shared [the release of our prototype, Sheikah](https://medium.com/witnet/welcome-to-sheikah-5b658d4815c8). Today we will share what we have been up to since then and **the progress we have made towards our next milestone: the Witnet testnet**.
 
-## 🔧 Product
+### 🔧 Product
 Over the last few weeks, we have been discussing and defining the architecture for [Witnet-rust](https://github.com/witnet/witnet-rust) , the first open source implementation of the Witnet Decentralized Oracle Network protocol.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*CojziNXvdIBsyJibqYMCeQ.png)
@@ -30,10 +31,10 @@ Development of `Witnet-rust` has already been kick-started, and many important c
 
 **Summing up,** things are moving crazy fast over here. We are still on track for an early 2019 testnet release. You’d better get ready!
 
-### By The Way… Open Source Contributors:
+#### By The Way… Open Source Contributors:
 Are you interested in contributing to the development of `Witnet-rust` ? We would be thrilled to have you! Visit our new contributing guide for more info: ( [https://docs.witnet.io/contributing/](https://docs.witnet.io/contributing/) )
 
-## 💜 Community
+### 💜 Community
 October is shaping up to be an epic month for the blockchain community and Witnet will be speaking at, sponsoring and attending a variety of conferences and hackathons in the coming weeks. We are looking forward to being part of the many exciting conversations happening around the rapid innovation and development in our space. Below are events we are confirmed to be a part of. If you’d like to connect with us while we’re there, don’t hesitate to reach out and let us know!
 
 
@@ -48,14 +49,14 @@ October is shaping up to be an epic month for the blockchain community and Witne
 
  *  [DevCon 4](https://devcon4.ethereum.org/) , Prague, October 30 — November 2
 
-### Chit-Chat
+#### Chit-Chat
 Based off of requests from our community members as well as a need for greater flexibility to host conversations about the roll out of our Witnet test-net, we’ve decided to introduce some additional communications channels.
  
 **Discord Chat:**  [Join Us Here](https://discord.gg/QKEa5gU) 
 
  **Discourse Forum:**  [Sign-up Here](https://community.witnet.io) 
 
-## 🎨 Content
+### 🎨 Content
 Since we started this journey towards solving the oracle problem, we’ve produced a number of posts focusing on explaining different aspects of the project to our community. We’ve compiled these in a post, [Witnet Must-Reads Digest](https://medium.com/witnet/witnet-must-reads-digest-b8d26a909efb) , which will be updated on an ongoing basis as we keep coming up with content. It is currently divided in the following sections:
 
  * Data Oracle Basics
@@ -79,7 +80,7 @@ Please let us know what you think of the recent developments by **sharing your t
 ----
 
 
-### Thanks for your time! You can also:
+#### Thanks for your time! You can also:
 
 
 

@@ -10,6 +10,7 @@ some_url:
 # What is a dApp?
 
 
+
 dApp is the abbreviated term for **decentralised application**. A dApps main application logic and data storage runs on a decentralised and distributed peer-to-peer network (like Ethereum). dApps allow for direct interaction between users without the need for a central authority or intermediary.
 
 dApps usually demonstrate the following characteristics:
@@ -19,7 +20,7 @@ dApps usually demonstrate the following characteristics:
 * No central point of failure
 * Open source code
 
-## Ethereum dApps
+### Ethereum dApps
 
 In the Ethereum landscape a dApp is not required to store all of its data and application logic on the blockchain. Due to scalability and also end user cost, many dApps stick to using the blockchain for trusted state and executions, which anyone case access and review. Many also use other distributed data storage technologies like IPFS and Swarm to handle off chain data storage. There are also protocols being developed for trusted off chain executions such as Golem and TrueBit which would enable developers to run computationally intensive tasks which would be costly off chain in a secure manner.
 
@@ -40,12 +41,12 @@ Gnosis? Prediction market
 SpankChain
 
 
-## Why dApps?
+### Why dApps?
 
 Example of Uber as a dAPP
 
 
-## So why have dApps not taken over the world yet?
+### So why have dApps not taken over the world yet?
 
 Ethereum is new (3 years old at time of writing)
 

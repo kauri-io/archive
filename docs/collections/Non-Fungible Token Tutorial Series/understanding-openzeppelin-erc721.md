@@ -9,7 +9,8 @@ some_url:
 
 # Understanding OpenZeppelin ERC721
 
-### What is an NFT?
+
+#### What is an NFT?
 
 Non-fungible Tokens (NFTs/NFTYs/Nifties) are an emerging tool to create provably unique digital assets. Whereas ERC20 ushered in a flood of fungible (where no single token or fraction of a token is unique or distinguishable from any other) tokens, ERC721 and others are allowing for rare and unique units. These units can represent everything from a specific piece of digital artwork (or physical art!) to a real estate asset, financial instrument (a futures contract to buy 1,000 barrels of oil for $60k on December 1), or even a [KYC compliance check](https://blog.sendwyre.com/community-driven-on-chain-compliance-d334e0f5962b).
 
@@ -17,7 +18,7 @@ One of the first implementations of the NFT pattern is CryptoKitties from Axiom 
 
 In the 6 months since the release of CK, NFTs have exploded, with major organizations and game studios developing products around the concept of digital collectibles. In this article, we'll walk through the standard interface referred to in EIP721, as well as the popular OpenZeppelin implementation. And most importantly, how to use it yourself!
 
-### Getting to Know the Standard
+#### Getting to Know the Standard
 
 EIP 721: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md
 
@@ -74,7 +75,7 @@ The interface itself is composed of 8 functions:
 `isApprovedForAll`: returns true or false if the _operator is listed as the approved owner for all of _owner's tokens (setApprovalForAll called previously)
 
 
-### The OpenZeppelin implementation
+#### The OpenZeppelin implementation
 
 As with many common smart contract patterns, the Zeppelin team has released an audited version of the ERC721 implementation, which will likely be one of the most highly used. There are 6 files that compose the standard.
 
@@ -98,7 +99,7 @@ Packages the optional metadata and enumerable extensions for use in ERC721Token.
 **ERC721Token.sol** 
 This is the full implementation of the standard, and what we will be focusing on.
 
-## Most Relevant Functions
+### Most Relevant Functions
 
 **Constructor**
 ```
@@ -159,13 +160,13 @@ Removes from circulation
   }
 ```
 
-### Metadata
+#### Metadata
 
 Metadata is crucial to the vast majority of NFTs, as it gives the token it's unique attributes. In CryptoKitties for instance, this can be the name of the cat, it's “cattributes”, and other useful information.
 
 To learn more about this standard: read our article here.
 
-### Creating a Token
+#### Creating a Token
 
 Below is a very simple example of using the OpenZeppelin ERC721Token contract.
 
@@ -221,6 +222,6 @@ function _getNextTokenId() private view returns (uint256) {
     }
 ```
 
-### Wrap Up
+#### Wrap Up
 
 In this article, we've covered the ERC721 token standard, the OpenZeppelin implementation, and how to use the implementation in a simple contract. Further articles in this series will cover more advanced usage patterns for NFTs, including Refungibles, Cryptocomposables (ERC998), and other NFT-compatible standards like ERC1155.

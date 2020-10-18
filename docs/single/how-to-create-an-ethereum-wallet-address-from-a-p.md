@@ -10,6 +10,7 @@ some_url:
 # How to create an Ethereum wallet address from a private key
 
 
+
 ----
 
 
@@ -24,7 +25,7 @@ Here, we’ll use that key to get the public address and then the Ethereum walle
 Creating the Bitcoin wallet address from the private key is a bit complicated. Here, the process will be much simpler. We need to apply one hash function to get the public key and another one to get the address.
 So let’s get started.
 
-## Public key
+### Public key
 This part is almost identical to what we discussed in the 
 [Bitcoin article](https://medium.freecodecamp.org/how-to-create-a-bitcoin-wallet-address-from-a-private-key-eca3ddd9c05f)
  , so if you read that one, you can skip it (unless you need a refresher).
@@ -52,7 +53,7 @@ In Python, it would look like this:
 
 ```
 private_key_bytes = codecs.decode(private_key, ‘hex’)
-# Get ECDSA public key
+## Get ECDSA public key
 key = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
 key_bytes = key.to_string()
 key_hex = codecs.encode(key_bytes, ‘hex’)
@@ -75,7 +76,7 @@ Now, there’s a little catch: a string, say,
 `codecs.decode`
  method does: it converts a string into a byte array. This will be the same for all cryptographic manipulations that we’ll do in this article.
 
-## Wallet address
+### Wallet address
 Once we’ve gotten the public key, we can calculate the address. Now, unlike Bitcoin, Ethereum has the same addresses on both the main and all test networks. Users specify the network that they want to use later in the process when they make and sign a transaction.
 To make an address from the public key, all we need to do is to apply Keccak-256 to the key and then take the last 20 bytes of the result. And that’s it. No other hash functions, no Base58 or any other conversion. The only thing you need is to add ‘0x’ at the start of the address.
 Here’s the Python code:
@@ -85,14 +86,14 @@ public_key_bytes = codecs.decode(public_key, ‘hex’)
 keccak_hash = keccak.new(digest_bits=256)
 keccak_hash.update(public_key_bytes)
 keccak_digest = keccak_hash.hexdigest()
-# Take the last 20 bytes
+## Take the last 20 bytes
 wallet_len = 40
 wallet = ‘0x’ + keccak_digest[-wallet_len:]
 ```
 
 
 
-## Checksum
+### Checksum
 Now, as you may remember, Bitcoin creates the checksum by hashing the public key and taking the first 4 bytes of the result. This is true for all Bitcoin addresses, so you can’t get the valid address without adding the checksum bytes.
 In Ethereum, that’s not how things work. Initially, there were no checksum mechanisms to validate the integrity of the key. However, in 2016, Vitalik Buterin 
 [introduced](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-55.md)
@@ -119,7 +120,7 @@ And here’s the code to add checksum to the Ethereum address:
 
 ```
 checksum = ‘0x’
-# Remove ‘0x’ from the address
+## Remove ‘0x’ from the address
 address = address[2:]
 address_byte_array = address.encode(‘utf-8’)
 keccak_hash = keccak.new(digest_bits=256)
@@ -136,7 +137,7 @@ for i in range(len(address)):
 
 
 
-## Conclusion
+### Conclusion
 As you can see, creating an address for Ethereum is much simpler than for Bitcoin. All we need to do is to apply the ECDSA to public key, then apply Keccak-256, and finally take the last 20 bytes of that hash.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmWDnVCb5rQLUQwcggjQcLQnB1vAckGnPUNquo6z92LS3Z)

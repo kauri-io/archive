@@ -9,6 +9,7 @@ some_url:
 
 # Auditing the 0x Protocol v2 with ConsenSys Diligence
 
+
  
 _ConsenSys Diligence is a ConsenSys service providing [audits of smart contracts and programs built off the Ethereum network](https://consensys.net/diligence/). Periodically, ConsenSys Diligence will publish a summary of an audit, including weaknesses and recommendations for clients. Recently, the Diligence team completed an audit for the 0x protocol v2 upgrade. Read a recap of the team’s conclusions below._
  
@@ -16,7 +17,7 @@ _ConsenSys Diligence is a ConsenSys service providing [audits of smart contracts
 ![](https://api.kauri.io:443/ipfs/QmPyrBr5KpJg4b8sCk6GHPnoJE3s4F7qyHDEfUFP6o5s1Y)
 
 
-## Scope
+### Scope
 The in-scope items can be divided into the following three distinct parts:
 
 
@@ -28,13 +29,13 @@ The in-scope items can be divided into the following three distinct parts:
 ![](https://api.kauri.io:443/ipfs/QmT1AMYm75XjuogAY7JCmoH1h6JvbNmCxdaoQ6TAgEHZsU)
 
 
-## Issue Overview
+### Issue Overview
 25 issues were identified during the audit. About half of the issues have been prioritised and already fixed during the initial audit phase. Remediation efforts to fix the remaining issues are currently ongoing. The full list of issues can be found in the issue table overview.
 
 ![](https://api.kauri.io:443/ipfs/QmNQ8xqUDtpfg74Ew9cNo235G3ZvTuWF1SE6R7UKdLUier)
 
 
-## Recommendations
+### Recommendations
 We found the quality of the code base to be high, which is especially appreciated when approaching a complex protocol. In particular:
 
 
@@ -59,7 +60,7 @@ We believe that the system lacks a rigorous and systematic testing strategy that
 [3.14](https://github.com/ConsenSys/0x_audit_report_2018-07-23#314-erc20proxy-insufficient-testing)
  .
 
-## Report
+### Report
 The complete report for the audit has been published 
 [here](https://github.com/ConsenSys/0x_audit_report_2018-07-23)
  . Github issues were created in a separate audit working repository and links contained in the report are only accessible to the 0x team and the ConsenSys Diligence audit team.

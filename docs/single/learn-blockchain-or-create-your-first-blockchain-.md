@@ -9,9 +9,10 @@ some_url:
 
 # Learn Blockchain | Create Your First Blockchain | Blocks & Consensus
 
+
 > The best way to for a developer to fully understand blockchain technology is to get underneath the hood and build one themselves!
 
-## Learn by doing 
+### Learn by doing 
 
 The aim of this series of tutorials is to help the reader / implementer get to grips with and learn blockchain fundamentals by understanding how to implement them. It is important to note that we will only build a proof of concept blockchain for the purposes of learning.
 
@@ -19,11 +20,11 @@ The aim of this series of tutorials is to help the reader / implementer get to g
 
 This series is aimed at developers and so assumes familiarity with basic programming concepts, this version is implemented in JavaScript so you should be comfortable reading and writing basic JavaScript. Also an understanding of how a basic rest API works since we use an API to allow communication between our blockchain instances.
 
-## Final source code
+### Final source code
 
 The [source code is available here](https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1), feel free to refer to the final example code any time you get stuck during the tutorial. Also if anything is unclear, feel free to leave a comment, or make an update to the tutorial and I will happily review and approve updates!
 
-## Setting up
+### Setting up
 
 Since we are implementing our blockchain in JavaScript you need to have the following installed:
 
@@ -31,7 +32,7 @@ Since we are implementing our blockchain in JavaScript you need to have the foll
 -   NPM
 -   An IDE or TextEditor (I'll be using Atom in this tutorial)
 
-## Part 1: Blocks and Consensus (Proof of Work)
+### Part 1: Blocks and Consensus (Proof of Work)
 
 In part 1 we:
 
@@ -41,7 +42,7 @@ In part 1 we:
 
 At any point during this tutorial you can refer to [**the final source code here**](https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1)
 
-## What is a blockchain?
+### What is a blockchain?
 
 A blockchain is a sequential list of records which we call blocks. Each block contains data, this can be any form of data, files or in the case of most blockchains a list of transactions. These blocks are **chained** together sequentially using cryptographic hashes.
 
@@ -51,7 +52,7 @@ These hashes are fundamental to how blockchains are secured, if you are unfamili
 
 Each block has a hash which is derived from the data it holds and the previous blocks hash. This means that if the previous blocks data is changed then the previous blocks hash also change, which means our current block hash also changes and thus all subsequent block hashes also change. **This allows us to prove that our blockchain is valid or invalid by calculating and comparing the hashes.**
 
-## Step 1: Representing a Block
+### Step 1: Representing a Block
 
 First let's create our Block object.
 
@@ -91,7 +92,7 @@ Our constructor sets the following properties in our Block object:
 
 Essentially our `Block` object is timestamped on creation and hold its data in variable `data`. It references the hash of the previous block in `previousBlockHash` and stores its own cryptographic signature in the variable `hash`
 
-## Step 2: Generating our blocks cryptographic signature
+### Step 2: Generating our blocks cryptographic signature
 
 Now that we have the data construct for our block we now need to generate its cryptographic signature. To do this we need to use a crypto library for an implementation of our hashing algorithm. Remember if you are unfamiliar with hashes [you can get clued up here!](https://medium.com/@ConsenSys/blockchain-underpinnings-hashing-7f4746cbd66b)
 
@@ -172,7 +173,7 @@ function calculateHash(block) {
 
 Notice that we first sort our block details so we can ensure the inputs are always in the same order when hashed, and we use `JSON.stringify` to produce a JSON string which represents our block before hashing.
 
-## Step 3: Representing a blockchain and mining blocks with POW (proof of work)
+### Step 3: Representing a blockchain and mining blocks with POW (proof of work)
 
 Now that we have our `block` object and can generate its `hash` we're now ready to represent our blockchain!
 
@@ -265,7 +266,7 @@ function Blockchain(consensus,blocks){
 
 Since **a blockchain is essentially an ordered list of blocks** we define a variable `blocks` which is an array of block objects.
 
-### Genesis Block
+#### Genesis Block
 
 The first block in a blockchain is called the genesis block, it is the foundation block on which additional blocks in the blockchain are added.
 
@@ -307,7 +308,7 @@ and we set the `newBlockNumber` to the next index value in the blocks array
 newBlockNumber = this.blocks.length
 ```
 
-### Mining a block
+#### Mining a block
 
 We have the data ready to create a block, the **genesis block** has the following data:
 
@@ -337,7 +338,7 @@ this.blocks.push(block);
 return block;
 ```
 
-### Consensus
+#### Consensus
 
 Create a `src/consensus.js` file with the following content:
 
@@ -370,7 +371,7 @@ Create a `src/consensus.js` file with the following content:
 })();
 ```
 
-### Proof of Work (POW)
+#### Proof of Work (POW)
 
 We are implementing a basic version of the proof of work consensus algorithm. As discussed earlier, in POW you must prove that you completed some computationally intensive work in order to gain the right to add a new block to the blockchain.
 
@@ -407,7 +408,7 @@ This means that it is more difficult to solve the math problem and so takes more
 
 We need to easily and more importantly quickly be able to verify our blockchain is correct. We'll come back to this point a little later.
 
-### Implementing Proof of Work
+#### Implementing Proof of Work
 
 First we import the `block` and `utils` dependencies:
 
@@ -484,7 +485,7 @@ Block.prototype.toString = function() {
 
 There you have it, we now have a Blockchain node which uses the POW algorithm to mine new blocks, and is initialised with a genesis block. However, we're not quite done with the Blockchain class, we still need a way to ensure our blockchain data has not been tampered with!
 
-## Validating Our Blockchain
+### Validating Our Blockchain
 
 To recap a blockchain is simply a sequential list of records which we call blocks. Each block contains data, this can be any form of data, files, or in the case of most blockchains, a list of transactions. These blocks are **chained** together sequentially using cryptographic hashes.
 
@@ -526,7 +527,7 @@ Blockchain.prototype.isValid = function() {
 }
 ```
 
-## Testing Our Blockchain
+### Testing Our Blockchain
 
 We're now ready to test our blockchain, we use mocha to write our test, lets install it:
 
@@ -641,7 +642,7 @@ If so, awesome! You have created a simple blockchain which implements proof of w
 
 We're not done yet! We still need to create our blockchain network and let our nodes agree on a shared state!
 
-## Step 4: Creating a blockchain network
+### Step 4: Creating a blockchain network
 
 Now that we have a working blockchain node, we need to set up an API, so multiple nodes can communicate with each other.
 
@@ -749,7 +750,7 @@ Create a `src/api.js` file with the following content:
 })();
 ```
 
-### Setting up Express & Request Parsing
+#### Setting up Express & Request Parsing
 
 First we import our dependencies as follows:
 
@@ -771,7 +772,7 @@ function getAPI(blockchain) {
 }
 ```
 
-### Mine Endpoint
+#### Mine Endpoint
 
 Inside our `getAPI` function we add a `/mine` post endpoint to our express app:
 
@@ -812,7 +813,7 @@ const response = {
 res.status(201).send(response);
 ```
 
-### Blocks Endpoint
+#### Blocks Endpoint
 
 Inside our `getAPI` function we add a `/blocks` `get` endpoint to our express app:
 
@@ -829,7 +830,7 @@ app.get('/blocks', (req, res) => {
 
 We construct a `response` object which returns the blocks array in our blockchain object and also the length for convenience. We then send the response.
 
-### Peers Endpoint
+#### Peers Endpoint
 
 Inside our `getAPI` function we add a `/peers` `get` endpoint to our express app:
 
@@ -897,7 +898,7 @@ Import the `url-parse` dependency to the blockchain class:
 const parse  = require('url-parse');
 ```
 
-### Add Peers Endpoint
+#### Add Peers Endpoint
 
 Inside our `getAPI` function we add a `/peers/add` `post` endpoint to our express app:
 
@@ -942,7 +943,7 @@ const response = {
     };
 ```
 
-### The Server
+#### The Server
 
 Now we have all the components ready for our API we can create the server. Create a `src/server.js` file with the following content:
 
@@ -1009,7 +1010,7 @@ This enables the user to pass command line arguments as follows:
 server.js port=5001
 ```
 
-## Testing Our Network of Nodes
+### Testing Our Network of Nodes
 
 Let's take our network for a spin!
 
@@ -1099,7 +1100,7 @@ Which is a fork in our blockchain network from the genesis block.
 
 What the fork! But we have a consensus mechanism, proof of work! Why are the nodes in the network not reaching consensus! Has consensus failed! No not quite.
 
-## Step 5: Coordinating our blockchain network: coming to consensus with longest valid chain rule
+### Step 5: Coordinating our blockchain network: coming to consensus with longest valid chain rule
 
 Proof of Work accounts for this scenario with the _longest chain rule_ which we have not yet implemented.
 
@@ -1113,7 +1114,7 @@ We need to add a way for a node to check the longest chain in the network, and t
 2.  A new function to our blockchain class `checkLongestChain` which is called via the API and return `true` if our set of blocks is the longest chain
 3.  A new function in our consensus implementation `checkLongestChain` which called the `/blocks` endpoint for each peer and checks the length of their chain
 
-### Add Peers Check EndPoint
+#### Add Peers Check EndPoint
 
 Add the `/peers/check` endpoint to the `/src/api.js` file:
 
@@ -1167,7 +1168,7 @@ response = {
 res.send(response);
 ```
 
-### Blockchain: Check Longest Chain
+#### Blockchain: Check Longest Chain
 
 Now add the `checkLongestChain` function to our `blockchain.js` class:
 
@@ -1204,7 +1205,7 @@ We also must return the result of the call whether the node is indeed the longes
 return result.isLongestChain;
 ```
 
-## Consensus: Check Longest Chain
+### Consensus: Check Longest Chain
 
 First install the [node-fetch](https://www.npmjs.com/package/node-fetch) package
 
@@ -1321,7 +1322,7 @@ Consensus.prototype.isChainValid = function (blocks) {
 }
 ```
 
-## Testing Our Network of Nodes
+### Testing Our Network of Nodes
 
 Let's take our network for a spin!
 
@@ -1408,7 +1409,7 @@ And there you have it!
 
 We have reached consensus between node 1 and node 2 in network and then added a new block!
 
-## Success
+### Success
 
 In this tutorial we built a basic blockchain network with node.js.
 

@@ -9,23 +9,24 @@ some_url:
 
 # ETH Dev Tools
 
-# Project Name
+
+## Project Name
 
 ETH Dev Tools
 
-# Note - we are pursuing work on this project and plan to release something on the Chrome store soon - sign up to be notified when it's ready! - https://goo.gl/forms/ueRQA2NKt5c7KeIj1
+## Note - we are pursuing work on this project and plan to release something on the Chrome store soon - sign up to be notified when it's ready! - https://goo.gl/forms/ueRQA2NKt5c7KeIj1
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 
 A chrome dev tools plugin with multiple modules to let users monitor and to help smart contract developers debug directly from their dapps.
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 
 - Aidan Musnitzky
 - Billy Rennekamp
 - Theo Ephraim
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 - Aidan Musnitzky: musnit // Concerned Lightblue Husky // 0x04b2efa7a9f514b1414b9734bdfe6434f82c6aa5fa453ddd2c671fd3b14350a940f9643faabb1a84e1b4de2e6c5c29764e62b172b83b6ed979a2acf7fb7d02c32b  
 
@@ -33,7 +34,7 @@ A chrome dev tools plugin with multiple modules to let users monitor and to help
 
 - Theo Ephraim: -
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 
 ETH Dev tools is a chrome developer tools extension that acts like a swiss-army knife for dapp developers and curious users. The extension appears in a chrome inspector tab and comes with various modules that introspect the current dapp you're using. The plugin is easily extensible for additional tools but already comes with 4 fully functional modules:
 
@@ -42,17 +43,17 @@ ETH Dev tools is a chrome developer tools extension that acts like a swiss-army 
 - **GraphQL Explorers** — A GraphQL explorer that comes pre-populated with Infura's EthQL endpoints as well as all of the most popular The Graph subgraphs including Uniswap, ENS, Dharma and others. These endpoints come with sample queries ready to ping all the most relevant and highly available content. There's also the option to add a custom endpoint for easy access to any other available datasets.
 - **Watcher** — A tool for monitoring activity on any wallet address or contract. This service is provided by a websocket proxy listening for webhooks from SALT's Meerkat. It's easy to subscribe or unsubscribe to this data with a simple UI and websocket support from an Heroku instance.
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 - Javascript, Chrome Extension / Developer Tools, Vue.js/Vuex/React
 - Test Dummy Dapp with web3.js/truffle (Javascript) and Solidity
 - Golang Webhook and Websocket proxy deployed on Heroku
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 **1) The Graph - Best usage of The Graph**  
 We put a GraphQL playground directly into the chrome inspector developer tools, adding it right where dapp developers have the easiest access in the most convenient, context-specific place. We also added an assortment of pre-populated examples with all of subgraphs currently featured by The Graph allowing users to quickly switch between subgraphs and example queries all from the comfort of their own dapp and development environment.
@@ -63,7 +64,7 @@ We put a GraphQL playground directly into the chrome inspector developer tools, 
 **3) SALT - Meerkats Watch**  
 We added a module to allow developers and dapp users to create and delete subscriptions to wallet and contract addresses with Meerkat. Targeting dapp developers working on a particular contract, or dapp users playing with a contract, they have an in-browser tool that gives them a pane to create subscriptions and watch activity for the particular dapp contracts or accounts they are browsing. Our tool also adds real-time websocket functionality to Meerkat by hosting a web hook to web socket proxy service that allows webhook messages to be routed through a websocket back to the plugin. This means that users can receive the notifications in real time while using/developing any dapp, right in their browser.
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 
 - ETH Dev Tools Chrome Inspector Plugin: https://github.com/theoephraim/ethdevtools
 - Dummy Testing Dapp: https://github.com/okwme/dummy-dapp

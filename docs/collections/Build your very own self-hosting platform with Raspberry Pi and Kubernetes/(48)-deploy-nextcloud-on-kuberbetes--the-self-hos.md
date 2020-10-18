@@ -9,9 +9,10 @@ some_url:
 
 # (4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -25,7 +26,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 Now we have prepared our RaspberryPi cluster to receive Kubernetes as a self-hosting platform, it's time to start installing applications !
 
@@ -37,7 +38,7 @@ In this article we will learn how to safely install NextCloud on a Kubernetes en
 
 <br />
 <br />
-## Prerequisite
+### Prerequisite
 
 In order to run entirely the tutorial, we will need:
 
@@ -49,7 +50,7 @@ In order to run entirely the tutorial, we will need:
 
 <br />
 <br />
-## Namespace
+### Namespace
 
 We are going to isolate all the Kubernetes objects related to NextCloud in the namespace `nextcloud`.
 
@@ -61,7 +62,7 @@ $ kubectl create namespace nextcloud
 
 <br />
 <br />
-## Persistence
+### Persistence
 
 The first step consists in setting up a volume to store our NextCloud data (files and database). If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on `/mnt/ssd`.
 
@@ -77,7 +78,7 @@ The Persistent Volume specify the name, the size, the location and the access mo
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# nextcloud.persistentvolume.yml
+## nextcloud.persistentvolume.yml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -118,7 +119,7 @@ The Persistent Volume Claim is used to map a Persistent Volume to a deployment o
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# nextcloud.persistentvolumeclaim.yml
+## nextcloud.persistentvolumeclaim.yml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -151,7 +152,7 @@ nextcloud-ssd   Bound    nextcloud-ssd   50Gi       RWO            manual       
 
 <br />
 <br />
-## Deployment
+### Deployment
 
 In the next part, we are now going to deploy NextCloud using the [stable/nextcloud Helm chart](https://github.com/helm/charts/tree/master/stable/nextcloud).
 
@@ -170,7 +171,7 @@ If you open the file, you will see the default configuration values to setup Nex
 We now need to update a few properties before installing the Helm chart. Open the file `nextcloud.values.yml` and change the following properties (_replace the information surrounded by <brackets> with your information_).
 
 ```yaml
-# nextcloud.values.yml
+## nextcloud.values.yml
 nextcloud:
   host: "nextcloud.<domain.com>" # Host to reach NextCloud
   username: "admin" # Admin
@@ -228,7 +229,7 @@ Otherwise check the folder `/mnt/ssd/nextcloud/data/nextcloud.log`.
 
 <br />
 <br />
-## Outside access
+### Outside access
 
 _This step is configured before the ingress in order to be able to issue a certificate automatically when we deploy the ingress_
 
@@ -264,7 +265,7 @@ _GoDaddy_
 
 <br />
 <br />
-## Ingress
+### Ingress
 
 At this point, the application (pod `nextcloud-78f5564f89-854jr`) is only accessible within the cluster on port 8080. To make it accessible from outside the cluster (on our network), we need to deploy an Ingress mapping **service:port** to a route of the Nginx proxy.
 
@@ -275,7 +276,7 @@ Because, this route will also be exposed over the Internet, we will also issue a
 Create the file `nextcloud.ingress.yml` containing:
 
 ```yaml
-# nextcloud.ingress.yml
+## nextcloud.ingress.yml
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -330,7 +331,7 @@ nextcloud   nextcloud-prod-tls   True    nextcloud-prod-tls   letsencrypt-prod  
 
 <br />
 <br />
-## Conclusion
+### Conclusion
 
 Alright, still with me :) You can now try to access your NextCloud instance using your browser, mobile or the Android/iOS app from home or outside via [https://nextcloud.<domain.com>](https://nextcloud.<domain.com>).
 

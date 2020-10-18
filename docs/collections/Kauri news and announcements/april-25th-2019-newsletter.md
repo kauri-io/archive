@@ -9,7 +9,8 @@ some_url:
 
 # April 25th 2019 Newsletter
 
-## Taking you from start to web-scale
+
+### Taking you from start to web-scale
 
 Kauri aims to make building with Ethereum as straightforward as existing web 2.0 developer tools and frameworks. To help reach that goal, we are building a content platform for experts in the ecosystem to share their knowledge with those looking to grow theirs.
 
@@ -20,12 +21,12 @@ PS. If you're looking for an Ethereum focussed bootcamp, take a look at what our
 -Keep calm and Kauri on!
 
 
-## New homepage layout
+### New homepage layout
 
 The main focus of our latest release was redesigning our home page. This redesign highlights our work in progress new content categories and gives more space to highlighting the activities in our community.
 
 
-## Kauri celebrates 500th post
+### Kauri celebrates 500th post
 
 Just after our last newsletter [Kevin Small](https://kauri.io/public-profile/043f19855cc8b31941f72d4728a4d32c0476a70d)  posted [Visualizing Bitcoin Transactions in 3D and Virtual Reality](https://kauri.io/article/ef32ddae59094e8b99c92131b9148200) , making it the 500th post submitted to Kauri. We reviewed some of the other [most popular posts](https://kauri.io/article/de927174d7b54ac2a33d8a37c43f9797/v1) .
 
@@ -48,7 +49,7 @@ We are still looking to fund content covering:
 If you're interested in being involved in any of the above, [please let us know](mailto:info@kauri.io?subject=Write%20for%20Kauri) .
 
 
-## Improve documentation and get paid
+### Improve documentation and get paid
 
 Until April 30th we are sponsoring two bounties as part of the Ethereal virtual hackathon. These are:
 
@@ -58,7 +59,7 @@ Until April 30th we are sponsoring two bounties as part of the Ethereal virtual 
 We also submitted an application to act as a mentor organization for [Google's Season of Docs](https://developers.google.com/season-of-docs/)  where we hope to help writers to continue improving documentation for Plasma group as well as Remix.
 
 
-## New Articles
+### New Articles
 
 Here's a selection of the [latest articles](https://kauri.io/articles) that caught our eye.
 
@@ -68,7 +69,7 @@ Here's a selection of the [latest articles](https://kauri.io/articles) that caug
 * [A round up of Plasma related projects](https://kauri.io/article/3103de2a3a874f348013b96d157451be/v7/plasma-roundup:-from-mvp-to-mainnet)
 * [Using Ethereum with .NET](https://kauri.io/article/7df58e34248a4153b9a5f1b0c0eb54f3/v1/a-.net-developer's-workflow-for-creating-and-calling-ethereum-smart-contracts)
 
-##  Collection Highlights
+###  Collection Highlights
 
 Collections group together articles around themes, create your own here (https://kauri.io/login?r=create-collection).
 
@@ -77,7 +78,7 @@ Collections group together articles around themes, create your own here (https:/
 * [Open and decentralized finance](https://kauri.io/collection/5cab3a8c4e04590001eccfa2/open-finance-(defi))
 
 
-## Kauri News and Tips
+### Kauri News and Tips
 
 We'd love to hear from you! If you have content to add to Kauri, here's how:
 

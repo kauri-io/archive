@@ -9,6 +9,7 @@ some_url:
 
 # Cobo Crypto wallet for investing and staking 
 
+
 Intro
 
 I have been evaluating the Cobo.com wallet services for the past few of months. I have been testing the staking pool, and interest earning capabilities, as an alternative to Celsius (which I really like – I will also be writing some articles about Celsius finance). There are 3 types of Cobo wallets – Cloud/mobile, Hardware/vault, and custody solution for enterprises. For the purposes of this article, I will be discussing the mobile/cloud wallet and investment capabilities.

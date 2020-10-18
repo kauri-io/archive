@@ -10,6 +10,7 @@ some_url:
 # Claiming your DNS on ENS via Web (3/3  The code)
 
 
+
 ----
 
 
@@ -37,7 +38,7 @@ Before diving into the code, let me quickly explain various components which thi
  *  [dnsregistrar](https://github.com/ensdomains/dnsregistrar) = This project contains a special [registrar](https://docs.ens.domains/en/latest/implementers.html#writing-a-registrar) smart contract that allows you to claim the ENS name based on the proof existing on DNSSEC Oracle as well a wrapper to the dnsprovejs library.
  [The demo code is on my github](https://github.com/makoto/dnssec-ens-example) . It’s quickly built on top of Truffle react box. and I will show you the process step by step.
 
-### 1. Setup Truffle box
+#### 1. Setup Truffle box
 First thing first, you create react and unbox react components.
 
 ```
@@ -55,7 +56,7 @@ If it’s successful, you should see the stored value of 5 on the page.
 
 When I first tried, it was just showing 0. It was because I was starting up ganache on port 8545, you need to edit getWeb3.js manually to change port number.
 
-### 2. Install necessary npm modules
+#### 2. Install necessary npm modules
 
 ```
 npm install --save @ensdomains/ens @ensdomains/dnssec-oracle @ensdomains/dnsregistrar eth-ens-namehash
@@ -64,7 +65,7 @@ npm install --save @ensdomains/ens @ensdomains/dnssec-oracle @ensdomains/dnsregi
 
 I already explained the three libraries. `eth-ens-namehash` is used to hash your ENS name when looking up if your ENS entity exists.
 
-### 3. Create & run a migration file
+#### 3. Create & run a migration file
 You don’t need to see what [this migration file](https://github.com/makoto/dnssec-ens-example/blob/dnssec/migrations/2_deploy_contracts.js) does line by line as we are trying to encapsulate it, but this is what the migration does:
 
 
@@ -78,7 +79,7 @@ You don’t need to see what [this migration file](https://github.com/makoto/dns
  * Set algorithm and digest to DNSSEC contract for verifying signature.
 Once the migration file is created, run `truffle migrate` .
 
-### 4. Write frontend code
+#### 4. Write frontend code
  [I modified Truffle box default App.js.](https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684dadd) Looks like it’s doing a lot but the gist of the code is not a lot.
  **4.1**  [Instantiate DNSRegistrarjs](https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684daddR99) 
 

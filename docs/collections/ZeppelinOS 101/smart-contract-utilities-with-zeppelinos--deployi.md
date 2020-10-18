@@ -9,6 +9,7 @@ some_url:
 
 # Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet
 
+
 In previous tutorials, we used our local development environment for testing. This tutorial describes how to change your code so that you can deploy to the Etehreum mainnet.
 
 The first step is to install the truffle hdwallet provider. The wallet allows you to sign (authenticate) transactions.
@@ -93,6 +94,6 @@ zos push --network mainnet
 
 That's it!! Your contract is now published. To apply this to our previous tutorials we change the commands that say `--network local` to `--network mainnet`, as well as follow the steps outlined above.
 
-# Next Steps
+## Next Steps
 
 - <https://docs.zeppelinos.org/docs/mainnet>

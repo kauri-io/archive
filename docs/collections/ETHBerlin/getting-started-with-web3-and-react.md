@@ -9,6 +9,7 @@ some_url:
 
 # Getting Started with Web3 and React
 
+
 By Razvan Dinicut
 
 [PDF](https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/getting-started-web3-react/Getting-started-with-Web3-and-React.pdf)

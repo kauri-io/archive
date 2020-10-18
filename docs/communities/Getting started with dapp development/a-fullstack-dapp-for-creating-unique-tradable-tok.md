@@ -9,11 +9,12 @@ some_url:
 
 # A fullstack dapp for creating unique tradable tokens
 
+
 > This dapp implements is a Crypto-collectible game built on top of the ERC-721 standard for creating unique tokens.. This tutorial is intended to be followed using the online IDE available at [studio.ethereum.org](https://studio.ethereum.org), and selecting the "CryptoPizza" template.
 
 ![Select CryptoPizza template](https://api.kauri.io:443/ipfs/QmYL7nkdTBNpsMSL1T4xQJP3g45j15pxg6EBHCrvXuTY7k)
 
-## The smart contract
+### The smart contract
 
 After the `pragma` line are a series of `import` statements [that imports all global symbols from another file](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#importing-other-source-files) to make them available to the current contract.
 

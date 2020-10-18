@@ -9,6 +9,7 @@ some_url:
 
 # A beginner’s guide to Zcash
 
+
  This article was originally published on [Medium](https://medium.com/@linda.xie/a-beginners-guide-to-zcash-3b37190affc) 
 
 **What is Zcash?**

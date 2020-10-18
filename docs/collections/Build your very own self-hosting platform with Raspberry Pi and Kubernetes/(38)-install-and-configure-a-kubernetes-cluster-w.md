@@ -9,9 +9,10 @@ some_url:
 
 # (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -24,7 +25,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 In the previous article, we freshly prepared three machines (one master and two workers). In this article, we are going to learn how to install Kubernetes using [k3s](https://k3s.io), a lightweight version of Kubernetes, suitable for ARM-based computers such as Raspberry Pi. If you need any support with k3s, I recommend checking the [official documentation](https://rancher.com/docs/k3s/latest/en/) as well as the [GitHub repository](https://github.com/rancher/k3s).
 
@@ -39,7 +40,7 @@ Once the cluster is up and each node connected to each other, we will install so
 
 <br />
 <br />
-## Install k3s server (master node)
+### Install k3s server (master node)
 
 In the first part of this article, we will install the Kubernetes master node which represents the orchestrator of the cluster.
 
@@ -140,7 +141,7 @@ K106edce2ad174510a840ff7e49680fc556f8830173773a1ec1a5dc779a83d4e35b::server:5a9b
 
 <br />
 <br />
-## Install k3s agent (worker nodes)
+### Install k3s agent (worker nodes)
 
 In the second part, we are now installing the k3s agent to connect on each worker to the k3s server (master).
 
@@ -222,7 +223,7 @@ kube-worker2   Ready    <none>   2m9s    v1.17.0+k3s.1   192.168.0.24   <none>  
 
 <br />
 <br />
-## Connect remotely to the cluster
+### Connect remotely to the cluster
 
 If you don't want to connect via SSH to a node every time you need to query your cluster, it is possible to install `kubectl` (k8s command line tool) on your local machine and control remotely your cluster.
 
@@ -261,7 +262,7 @@ kube-master    Ready    master   44h   v1.17.0+k3s.1   192.168.0.22   <none>    
 
 <br />
 <br />
-## Install Helm (version >= 3.x.y) - Kubernetes Package Manager
+### Install Helm (version >= 3.x.y) - Kubernetes Package Manager
 
 [Helm](https://helm.sh/) is a package manager for Kubernetes. An application deployed on Kubernetes is usually composed of multiple config files (deployment, service, secret, ingress, etc.) which can be more or less complex and are generally the same for common applications.
 
@@ -311,7 +312,7 @@ I also recommend checking this page to learn more [how to use Helm cli](https://
 
 <br />
 <br />
-## Install MetalLB - Kubernetes Load Balancer
+### Install MetalLB - Kubernetes Load Balancer
 
 [MetalLB](https://metallb.universe.tf) is a load-balancer implementation for bare metal Kubernetes clusters. When configuring a [Kubernetes service](https://kubernetes.io/docs/concepts/services-networking/service/) of type _LoadBalancer_, MetalLB will dedicate a virtual IP from an address-pool to be used as load balancer for an application.
 
@@ -347,7 +348,7 @@ All done. No every time a new Kubenertes service of type _LoadBalancer_ is deplo
 
 <br />
 <br />
-## Install Nginx - Web Proxy
+### Install Nginx - Web Proxy
 
 [Nginx](https://www.nginx.com/) is a recognized high-performance web server / reverse proxy. It can be used as [Kubernetes Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) to expose HTTP and HTTPS routes from outside the cluster to services within the cluster.
 
@@ -386,7 +387,7 @@ From you local machine, you can try to externally access Nginx via the LoadBalan
 
 <br />
 <br />
-## Install cert-manager
+### Install cert-manager
 
 [Cert Manager](https://cert-manager.io) is a set of Kubernetes tools used to automatically deliver and manage x509 certificates against the ingress (Nginx in our case) and consequently secure via SSL all the HTTP routes with almost no configuration.
 
@@ -509,7 +510,7 @@ spec:
 
 <br />
 <br />
-## Manage storage
+### Manage storage
 
 Most of the application require a persistence storage to store data and allow running containers to access this storage space from any nodes of the cluster. In the previous chapter, we set up a Persistent Volume to access the SSD connected to the master node via NFS.
 
@@ -518,7 +519,7 @@ Most of the application require a persistence storage to store data and allow ru
 In order to expose a NFS share to our applications deployed on Kubernetes, we will need first to define a Persistent Volume. Apply the following config:
 
 ```yaml
-# example.nfs.persistentvolume.yml
+## example.nfs.persistentvolume.yml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -547,7 +548,7 @@ $ kubectl apply -f example.nfs.persistentvolume.yml
 Now, we need to configure a Persistent Volume Claim which maps a Peristent Volume to a Deployment or Statefulset. Apply the
 
 ```yaml
-# example.nfs.persistentvolumeclaim.yml
+## example.nfs.persistentvolumeclaim.yml
 ---
   apiVersion: v1
   kind: PersistentVolumeClaim
@@ -590,7 +591,7 @@ This method will be used to declare persistent storage volume for each of our ap
 
 <br />
 <br />
-## Install Kubernetes Dashboard
+### Install Kubernetes Dashboard
 
 [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) is a web-based Kubernetes user interface allowing similar operations as _kubectl_.
 
@@ -700,14 +701,14 @@ Well done, you have now access to a nice web interface to visialise and manage a
 
 <br />
 <br />
-## Conclusion
+### Conclusion
 
 In conclusion of this article, we now have a ready to use Kubernetes cluster to self-host applications. In the next articles, we will learn how to deploy specific applications such as a Media manager with Plex, a self-hosted file sharing solution similar to DropBox and more.
 
 
 <br />
 <br />
-## Teardown
+### Teardown
 
 If you want to uninstall completely the Kubernetes from a machine.
 
@@ -733,7 +734,7 @@ $ sudo rm -rf /var/lib/rancher
 
 <br />
 <br />
-## Known Issues
+### Known Issues
 
 - cert-manager doesn't issue a certificate, it could be a DNS problem: [Cert Manager works! (Jim Nicholson)](https://project.kube.thejimnicholson.com/2020/04/17/cert-manager-works.html)
 

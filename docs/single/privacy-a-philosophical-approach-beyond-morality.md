@@ -9,11 +9,12 @@ some_url:
 
 # Privacy, a Philosophical Approach Beyond Morality
 
+
  
 _The philosophical approach has given insufficient attention so far to the problem of privacy as such the structure of reference within which the privacy paradigm has so lately and extensively become a matter of a dispute is a modern one._
  
 
-## Is Privacy ‘only’ a value?
+### Is Privacy ‘only’ a value?
 
 ![](https://api.kauri.io:443/ipfs/Qmb4xHwgL6X6afWUkycaefYiT5fhh7HRbgpFZ58uuAGCKT)
 
@@ -50,7 +51,7 @@ Given a definition of moral choice as a right of the indi­vidual, one might the
 **Let’s distance ourselves from this equation and put an end to the supremacy of the Moraline**
  [2] when it comes to philosophy in general and privacy in particular.
 
-## Far from the ‘Moraline’
+### Far from the ‘Moraline’
 
 ![](https://api.kauri.io:443/ipfs/QmbFRMz8x2rW4cN9j36L585Agc3SuVhM9qbW5aQdzFZ3PU)
 
@@ -75,7 +76,7 @@ _ittlichkeit_
 **Will to Life**
  [5], (Der Will Zum Leben) and some decades later, Nietzsche offered to use the same dialectics and he continued to carve the stone of the Will by defining life as a Will to power[6] (Der Wille Zur Macht).
 
-## Will to Privacy
+### Will to Privacy
 
 ![](https://api.kauri.io:443/ipfs/QmNZazdZtExCy8EfGMduTm3JFwgMBTsyrPATsfPK5dGSjJ)
 

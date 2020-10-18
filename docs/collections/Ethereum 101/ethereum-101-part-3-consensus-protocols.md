@@ -9,18 +9,19 @@ some_url:
 
 # Ethereum 101 - Part 3 - Consensus Protocols
 
-# Quick Overview
+
+## Quick Overview
  
 The engine that drives consensus among the nodes on the Ethereum network. Ethereum is currently operating on a Proof-of-Work consensus protocol, but in the future will be shifting to a Proof-of-Stake protocol. 
 
-# Current Protocol: Proof of Work (Ethash)
+## Current Protocol: Proof of Work (Ethash)
 
 The current Ethereum blockchain uses a consensus algorithm built specifically for the Ethereum blockchain called Ethash. The Ethash PoW algorithm introduces the property of “Memory Hardness” to the Ethereum blockchain. 
 
 Memory hardness dictates that your computational performance is limited by how fast your machine can move data around in memory, as opposed to how rapidly it can perform computations. By doing this, the Ethereum blockchain aims to prevent large organizations and large mining pools from obtaining undue influence over the network. Reference documentation: 
 - https://github.com/ethereum/wiki/wiki/Ethash
 
-# Target Protocol: Proof of Stake (called Casper or rolled up into the greater Ethereum 2.0)
+## Target Protocol: Proof of Stake (called Casper or rolled up into the greater Ethereum 2.0)
 
 In a Proof-of-Stake consensus algorithm, users who desire to validate blocks are required to deposit a stake of their own ether (right now, that stake is estimated to be 32 ether). That stake is locked, and a consensus algorithm is then used that only these staked users can participate in. 
 

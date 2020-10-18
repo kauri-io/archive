@@ -9,6 +9,7 @@ some_url:
 
 # Updating and Testing a Raffle Contract
 
+
 Over on the Bitfalls website there’s a couple of great tutorials*(1)* for learning Solidity and Ethereum. The tutorials guide readers through the making of a Raffle. Now, the code is not meant to be bullet proof, but as a software tester by day the ‘gaps’ piqued my interest.
 
 In this post I’m going to do two things; firstly provide a few updates to the code readers pointed out or that have become the more current way of doing things since Solidity version updates and secondly, to execute the code in the online tool, Remix, so we can see how it actually runs.
@@ -47,7 +48,7 @@ One final change just so we don’t lose any test Ether is to change the ```addr
 
 One last thing is to change the [‘Unix epoch’ time](https://tldrify.com/ujh) in the `draw()` function to something in the near past if it’s very current. 
 
-## Set-up the Testing Environment
+### Set-up the Testing Environment
 There’s a few things we need to have in place to test this contract effectively:
 - MetaMask
 - Three Ethereum Accounts
@@ -60,7 +61,7 @@ We’ll need to have three Ethereum accounts available to us via MetaMask – on
 
 Remix is a free browser-based IDE for writing smart contracts in Solidity, then compiling and deploying them. It’s available at [https://remix.ethereum.org/](https://remix.ethereum.org/).
 
-## Compile and Execute the Contract Code
+### Compile and Execute the Contract Code
 The Remix UI was updated mid 2019 so may have a different look compared to other tutorials you’ve worked through - be sure to select ‘Solidity’ under the Environments section of the Home page before you start.
 
 To the top-left, change the Compiler version to read ```0.4.26+commit.4563``` as from version 0.5.0 there were breaking changes to the Solidity codebase. This is also above the 0.4.20 compiler version we stated in the contract code, so the code will compile just fine.
@@ -85,7 +86,7 @@ Now hit the orange ‘deploy’ button to deploy the contract to Ropsten, accept
 
 ![Deploy the contract to Ropsten](https://api.kauri.io:443/ipfs/QmUxxmKgkgzmsi12hVT9t1q4zoJ2Ry4CVVvUrZTAuVS5M9)
 
-## Check the Deployed Contract and Interface
+### Check the Deployed Contract and Interface
 Now we’ve deployed the contract we’ll have a set of buttons that provide an interface to the contract elements, shown under ‘Deployed Contracts’. Click the arrow next to the contract name to show the set of buttons that give us an interface to the contract.
 
 ![View the contract elements](https://api.kauri.io:443/ipfs/QmQv3Bb3JvR7FQWpfwurNcoVENQYFXhJsZVVbd6dphK5ET)
@@ -102,10 +103,10 @@ Click on the blue ‘charity’ button and you’ll see a) no MetaMask window as
 
 Note the contract value is showing as ‘0 Ether’ as no raffle monies have been transacted yet.
 
-## Play the Raffle
+### Play the Raffle
 Ordinarily, the public raffle elements we can get to would be wrapped in a Web3.js enabled webpage, using the ABI file, to give us a smart interface. However, for testing, the Remix interface is good enough.
 
-### Player One Plays
+#### Player One Plays
 To play we need to switch to an alternate account in MetaMask, so we’re acting like the raffle’s *Player One* and not the owner. Open MetaMask and switch accounts now, that same account will be shown in Remix in the ‘Account’ field.
 
 - in the ‘Value’ field enter *0.1* and make sure ‘ether’ is selected
@@ -118,14 +119,14 @@ After a few seconds MetaMask will bring up a prompt stating the transaction went
 
 If you now enter `0` in the field next to ‘players’ it will return the address of Player One. This is because we declared `address[] public players;` at the start of our contract then ` players.push(_participant);` in the `play()` function - which takes an address (as we tested above), then pushes it onto the `players` array.
 
-### A Quick Sanity Test
+#### A Quick Sanity Test
 Something we can test now is clicking on the ‘draw’ button. The code here is that we can only run a draw if the number of winners is less than 2: `require (winners.length < 2, "");`. This is interesting as when we click ‘draw’ now it should work and indeed it does. If we enter `0` in the field next to the ‘winners’ button it will return the address of Player One.
 
 It may be that we should change this code in two ways:
 - Change `draw()` to Require the `msg.sender` to be the owner of the contract so not just anyone can call the function
 - Set a Require of `players.length == 2` to ensure two players are needed for a draw to happen
 
-### Player Two Plays
+#### Player Two Plays
 To play a second player is just like playing the first. Switch accounts, set the value to 0.1 ETH, add your Player 2 address into the ‘play’ field and hit ‘play’ as before.
 
 Now in Etherscan we can see:
@@ -149,7 +150,7 @@ However, we may have another potential issue. In the `draw()` function we have t
 
 As we have clause in `draw()` that won’t allow us to send any ETH balance off to the charity address until `winners.length == 2` we need another player to win. As it happens, we can just hit `draw()` again and watch our remaining player win. 
 
-## Re-draw and Contract Payout
+### Re-draw and Contract Payout
 Go ahead and hit `draw()` for a second time, then refresh the Etherscan page for your contract. You’ll eventually see a new 0 ETH transaction for the second draw and the contract value is now 0 ETH.
 
 That proves the ` charity.transfer(address(this).balance);` line in `draw()` must have worked – but where’s the transaction?
@@ -160,7 +161,7 @@ You’ll notice there’s a new tab in Etherscan called ‘Internal Txns’, our
 
 ![Transfer of balance to contract owner](https://api.kauri.io:443/ipfs/QmTCt13MnMgZj6whCmR2THuW5tyHUMdw6BJkibjkWTfs45)
 
-## Conclusion
+### Conclusion
 We’ve seen that at every step of the way we can control how the contract is deployed, deploy it to a non-live blockchain such as the Ropsten Testnet, then carefully test out the contract functionality. Remix and Etherscan combined provide us with a host of features and information to allow us to test our code and check the results.
 
 There are more tests we could add, but the core features have been checked here. We’ve also discovered there are some (expected) weaknesses in the code that could be fixed up. Overall, a good couple of tutorials and a great way to learn more about Solidity and Smart Contract development.

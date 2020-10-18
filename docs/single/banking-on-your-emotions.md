@@ -9,9 +9,10 @@ some_url:
 
 # Banking on your emotions
 
+
 If you are a deal hunter like me, you’d surely love Amazon. Countless services from Amazon such as Prime — two day free shipping, Smile — donate to a charity of your choice through a portion of your purchases, Kindle, needless to mention Alexa and the list keeps extending.
 
-## Banks Vs Brands
+### Banks Vs Brands
 However hard the banks have been trying, they are failing to provide a “brand” experience. We don’t get the same feeling of being a “one customer” whenever we speak to an agent from a bank. You get treated completely as an alien when you get transferred from your cards department to a mortgage department.
 > To survive and thrive when their competition is catching up, banks must understand the principles behind Emotional Banking―a cultural change concept that brings the consumer to the center of rethinking banking products and delivery.
 
@@ -39,7 +40,7 @@ We saw
 [Google Pay strategy](https://www.blog.google/topics/shopping-payments/say-hello-to-google-pay/)
  . Now its the turn for Amazon.
 
-## Welcome to Amazon Bank !! Your emotional banking destination
+### Welcome to Amazon Bank !! Your emotional banking destination
 Amazon, at least for now, doesn’t seem to be interested in building its own bank — possibly because of the regulatory overheads. However, it 
 [wants to partner and co-brand its services](https://www.bloomberg.com/news/articles/2018-03-05/amazon-in-talks-with-jpmorgan-over-checking-accounts-wsj-says)
  . Why take the stress of running a bank and sinking your money — smart move indeed.
@@ -52,7 +53,7 @@ According to a
 
 With Whole Foods acquisition to cover the last mile for Amazon Fresh and the recent announcement of its foray into the health care insurance business in a partnership with JPMorgan Chase, and Warren Buffett’s Berkshire Hathaway, the checking account is certainly a deep thought-out strategy.
 
-## Let’s do a simple math
+### Let’s do a simple math
 Amazon always kept its Prime membership count close to its heart. However, in its recent 10-K filing, Amazon gave a slight glimpse on it by introducing a line item on the revenue generated through membership services as $6.4 Billion. Yes, you got it right, its $6.4 Bn every year. Considering the annual / monthly subscription pricing model for Prime memberships, 
 [analysts estimate that the total Prime members could be anywhere between 65 to 80 million](https://www.cnbc.com/2017/02/17/amazon-hints-at-its-big-secret-how-many-prime-members-it-has.html)
  .
@@ -64,7 +65,7 @@ Amazon is indeed banking on our emotions. Time for Walmart to take note…
 
 Happy to hear your views, thoughts and feedback.
 
-## Disclaimer
+### Disclaimer
 This post is not by any means a recommendation or a legal or an investment advice. Neither me (the author) nor my employer suggest or recommend any entities / individuals mentioned in this post.
  
 _Ramesh Babu is a veteran data evangelist and analytics thought leader, he champions the Analytics, Blockchain, Data themes for customers globally._

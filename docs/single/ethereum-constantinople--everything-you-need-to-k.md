@@ -9,6 +9,7 @@ some_url:
 
 # Ethereum Constantinople  Everything You Need To Know
 
+
  
 _Edit: Ethereum Constantinople has been delayed out of an abundance of caution. Learn more about it here:_
   
@@ -16,9 +17,9 @@ _Edit: Ethereum Constantinople has been delayed out of an abundance of caution. 
  
 The Ethereum Constantinople fork is coming soon, and many of you have been asking what that means and if you’ll have to do anything to prepare.
 
-## TL;DR: If you’re simply an owner of ETH, you do not need to do anything to prepare for this update.
+### TL;DR: If you’re simply an owner of ETH, you do not need to do anything to prepare for this update.
 
-### What is a fork?
+#### What is a fork?
 Most simply, a fork is an 
 **update**
  to the network. It is very similar to how you update your computer or your applications to be more secure or have new features.
@@ -29,7 +30,7 @@ So, to make sure things don’t get wonky, everyone running a the blockchain sof
 ![](https://api.beta.kauri.io:443/ipfs/QmSbC12ETgBrGMB4QtHqH1ouoesQszuK3FdVkhwQiYGszb)
 
 
-### Why is it called a fork?
+#### Why is it called a fork?
 It’s referred to as a fork because, similar to a fork in the road, a single chain of blocks splits into two chains separate of blocks. One path, or chain, is the people playing by the old rules. The second chain the people playing by the new rules.
 With non-contentious hard-forks, most people stop running the old software. No one adds new blocks to that chain. The chain naturally slows and then dies. There is no value to the coins on the old chain.
 However, if an update fork is contentious (meaning there are people who don’t agree with the changes being made), both “paths” of the fork may continue to live and have value. This is how ETC was spawned from ETH and BCH from BTC.
@@ -37,7 +38,7 @@ However, if an update fork is contentious (meaning there are people who don’t 
 ![](https://api.beta.kauri.io:443/ipfs/QmdvkbkXJRKPUKy5vmDHy8hzZ2cJefrkoCiGCgSxdGgGLp)
 
 
-### What is Constantinople?
+#### What is Constantinople?
 Constantinople is simply a name given to this update to the Ethereum network. The updates (below) are non-contentious and it is expected that everyone is in agreement on taking the Ethereum blockchain on this new path.
 As a result, like the non-contentious updates that have come before (Homestead in 2016 and Byzantium in 2017), this hard fork will result in two chains with the old chain dying almost immediately. Also, like the updates that have come before, the average person will not notice any changes or that there was a fork in the road.
 This new ETH blockchain includes a handful of new Ethereum Improvement Proposal (EIP) implementations that are all intended to… improve Ethereum.
@@ -45,7 +46,7 @@ This new ETH blockchain includes a handful of new Ethereum Improvement Proposal 
 ![](https://api.beta.kauri.io:443/ipfs/QmfE65uhwZftSknAcYJ5waicijjSc9VTSJ5F4bjFLuzpR5)
 
 
-### Do I have to do anything with this new blockchain, or move my ETH?
+#### Do I have to do anything with this new blockchain, or move my ETH?
  
 **No.**
  Your ETH will exist simultaneously on the new ETH blockchain and the old ETH blockchain. All of the exchanges (Coinbase, Kraken, ShapeShift), services ( 
@@ -62,7 +63,7 @@ If
  run a node (e.g. you work for Infura or are running Geth or Parity on your home computer), you will need to update to the latest and greatest software. Again, for average users, you will not need to do anything & this will be a painless and smooth transition.
 If the hard fork was contentious, that would be a different story.
 
-### Which EIPs are being included?
+#### Which EIPs are being included?
  
 [EIP 145: Bitwise shifting instructions in EVM](https://eips.ethereum.org/EIPS/eip-145)
  
@@ -126,19 +127,19 @@ If the hard fork was contentious, that would be a different story.
 
  * The video was released before the Ethereum foundation added a 5th EIP to the update, [EIP-1283](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1283.md) .
 
-### Will this affect transaction/confirmation time?
+#### Will this affect transaction/confirmation time?
 
 
 
  * Block time should stay ~15 secs. Full PoS (in the future) may change that, but with PoW there’s some latency involved and a faster transaction speed may create blocks with unreliable transactions. [ETH currently uses uncle blocks to deal with this.](https://forum.ethereum.org/discussion/2262/eli5-whats-an-uncle-in-ethereum-mining) 
 
-### Will this affect cost of transaction?
+#### Will this affect cost of transaction?
 
 
 
  * The cost depends on the quantity of transactions. Some of the EIP’s will optimize smart contract interactions, so, hopefully, the cost of transacting with a smart contract will decrease. However, we don’t know if another dapp like CryptoKitties will show up, congesting the network and increasing fees.
 
-### Will this affect the number of transactions per second?
+#### Will this affect the number of transactions per second?
 
 
 
@@ -146,7 +147,7 @@ If the hard fork was contentious, that would be a different story.
 
  * There will be the same average Tx’s/second, but with how EIP-1024 will optimize state channels, we should see some second-layer solutions starting to come into play (think OmiseGo, Loom Network, Raiden, etc.)
 
-### Is this the Proof of Stake update?
+#### Is this the Proof of Stake update?
 
 
 

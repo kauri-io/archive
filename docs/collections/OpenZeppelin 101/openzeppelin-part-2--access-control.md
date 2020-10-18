@@ -9,17 +9,18 @@ some_url:
 
 # OpenZeppelin Part 2  Access Control
 
-# Access Control
 
-## What is It?
+## Access Control
+
+### What is It?
 
 The first category of contracts is access control. Access control allows a developer to regulate who can use certain features of the contract. Examples are: minting tokens, voting on proposals, ownership, etc. This feature is useful for creating a restrictive contract.
 
-## How to Use
+### How to Use
 
 OpenZeppelin provides two contracts: _Ownable.sol_ and _Roles.sol_ for access control. Both methods are useful in different scenarios depending on how restrictive you want the contract to be.
 
-### Ownership
+#### Ownership
 
 Ownership is the most basic form of access control. It's the best method to use when you have one administrative user. To incorporate ownership, add an import statement at the beginning of your contract.
 
@@ -52,7 +53,7 @@ contract MyContract is Ownable {
 
 _Ownable.sol_ is a basic implementation of access control that is optimal for a smaller group of users as well as one administrator.
 
-### Roles
+#### Roles
 
 Access control is also utilized through the _contracts/access/Roles.sol_ contract. This contract allows you to assign roles to different users as well as control who can use certain functions. This is the best method when you have a multiple of users with varying levels of authority.
 
@@ -80,11 +81,11 @@ contract someRoles {
 }
 ```
 
-### OpenZeppelin Roles
+#### OpenZeppelin Roles
 
 Within the access folder, there are premade roles for you to use: `Capper`, `Minter`,`Pauser`,`Signer`,`Whitelist Admin`,and `Whitelisted`. To use any of these premade roles, import them the same way as with the other contracts. They contain functions to assign the role to your users, renounce the role, and restrict access for functions. All six contracts are identical to each other, except for their names. Thus if you want, you can create your own role contract using one of them as a template. To use, you import it into your function. The benefit of doing this would be that it provides a more detailed role. It also makes your code shorter.
 
-## More Details
+### More Details
 
 - <https://openzeppelin.org/api/docs/learn-about-access-control.html>
 - <https://openzeppelin.org/api/docs/ownership_Ownable.html>

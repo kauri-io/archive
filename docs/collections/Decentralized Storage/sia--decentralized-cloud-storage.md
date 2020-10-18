@@ -9,6 +9,7 @@ some_url:
 
 # Sia  Decentralized Cloud Storage
 
+
 > Sia is a decentralized cloud storage platform and data storage marketplace. Sia encrypts and distributes your files across it's network, keeping your data private.
 
 _This article originally appeared in the [Sia docs](https://www.notion.so/kauriofficial/Sia-becc9fd14d6c41e9b01f33ccd6fe62d8)_
@@ -23,7 +24,7 @@ If you have questions, reach out to us on the
 [#app-dev channel on Discord](https://discord.gg/sia)
  .
 
-## Setup and Configuration
+### Setup and Configuration
 If you haven’t already, download the 
 [Sia Daemon](https://github.com/NebulousLabs/Sia/releases/latest)
  . The Sia Daemon runs a Sia node as well as hosts the API.
@@ -59,12 +60,12 @@ try {
 
 
 
-## Basics
+### Basics
 Let’s check the status of blockchain download using the 
 `/consensus`
  endpoint.
 
-### Curl
+#### Curl
 
 ```
 $curl -i -A "Sia-Agent" -u "":foobar localhost:9980/consensus
@@ -84,7 +85,7 @@ Content-Length: 186
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -104,7 +105,7 @@ The consensus endpoint returns the current state of the blockchain. You should n
  the blockchain has been downloaded.
 While we are waiting we can setup the wallet. If this is your first time running the daemon you’ll need to initialize a new wallet.
 
-### Curl
+#### Curl
 
 ```
 $curl -i -A "Sia-Agent" -u "":foobar -X POST localhost:9980/wallet/init
@@ -121,7 +122,7 @@ Content-Length: 209
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -138,7 +139,7 @@ try {
 The primary seed can be used to recover your wallet should you lose the sia-data directory. Write it down and keep it in a safe place. By default the seed is also used as the encryption password.
 Now that we have initialize a wallet, we need to unlock it. The wallet needs to be unlocked to spend Siacoins, including uploading files. You’ll need to unlock the wallet every time you start Sia Daemon. This call will block while the wallet is unlocking and may therefore take several minutes to complete.
 
-### Curl
+#### Curl
 
 ```
 $curl -i -A "Sia-Agent" -u "":foobar -X POST localhost:9980/wallet/unlock?encryptionpassword=foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar
@@ -149,7 +150,7 @@ Date: Mon, 17 Oct 2016 07:01:12 GMT
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -168,7 +169,7 @@ try {
 
 You’ll need Siacoins in your wallet before you can upload any files to the network. To do this you must send coins to your wallet. The wallet provides an endpoint for getting a new wallet address. Send coins to this address.
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar localhost:9980/wallet/address
@@ -185,7 +186,7 @@ Content-Length: 91
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -203,10 +204,10 @@ Before continuing, wait for
 `"synced": true`
  .
 
-## Uploading and Downloading Files
+### Uploading and Downloading Files
 Before we can upload files we must configure the renter. Primarily, we need to allocate funds and specify the contract period. The contract period is the minimum duration of time we want to store files, and is also the minimum amount of time you pay for at once. For example, to allocate 1000 SC (1000000000000000000000000000 Hastings) for the renter with a 1 month (4320 blocks) contract period:
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar -X POST "localhost:9980/renter?funds=1000000000000000000000000000&period=4320"
@@ -217,7 +218,7 @@ Date: Mon, 17 Oct 2016 07:01:12 GMT
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -242,7 +243,7 @@ We can now upload files to the network. The following call will upload the local
 `/qux/bar.txt`
  on the network.
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar -X POST localhost:9980/renter/upload/qux/bar.txt?source=/home/foo/bar.txt
@@ -253,7 +254,7 @@ Date: Mon, 17 Oct 2016 07:01:12 GMT
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -272,7 +273,7 @@ try {
 
 This call will return immediately. We can check the progress of the upload with the following call
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar localhost:9980/renter/files
@@ -298,7 +299,7 @@ Content-Length: 125
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -321,7 +322,7 @@ We can download files with the
 `/renter/download`
  endpoint.
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar localhost:9980/renter/download/qux/bar.txt?destination=/home/foo/bar.txt
@@ -332,7 +333,7 @@ Date: Mon, 17 Oct 2016 07:01:12 GMT
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  
@@ -352,7 +353,7 @@ The call will block until the file has been downloaded. While the file is downlo
 `/renter/downloads`
  endpoint.
 
-### Curl
+#### Curl
 
 ```
 $ curl -i -A "Sia-Agent" -u "":foobar localhost:9980/renter/downloads
@@ -377,7 +378,7 @@ Content-Length: 125
 
 
 
-### SiaJS
+#### SiaJS
 
 ```
 try {  

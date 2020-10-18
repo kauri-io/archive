@@ -10,6 +10,7 @@ some_url:
 # Enabling networks to become cross-chain with Witnet
 
 
+
 ----
 
 For a quick primer on Witnet, check out this post: (3 minute read)](https://medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4).
@@ -25,13 +26,13 @@ Or, if for some reason the blockchain they are built upon stops serving their ne
 
 In the end, if we want crypto networks to be a success, with blockchains still being a bleeding edge technology, we need to hedge our bets.
 
-## Cross-chain asset transfer
+### Cross-chain asset transfer
 Crypto networks usually require some form of staking or payment using their native token. The AN requires DAOs to stake into the network’s deposit in order for the DAO to build up reputation, being able to interact with other DAOs, or even offer their token in the network’s liquidity pool.
 To truly achieve Aragon’s core proposition (unstoppable organizations), the AN will need to endure any kind of “crypto calamities” that may occur. This is only feasible by allowing the AN to cross over the boundaries of the Ethereum network and become blockchain agnostic.
 The Witnet oracle network provides a secure and trustless way to bridge the gap between Ethereum and any other blockchain with smart contract capability. Thanks to its “bridge nodes”, tokens and assets can be transferred atomically from one chain to another without relying on any single point of failure.
 Discover more about ETH<>WIT bridge nodes in this other post:
 
-### Practical example: transferring ANT from ETH to RSK
+#### Practical example: transferring ANT from ETH to RSK
 Let’s say that we want to transfer 1 ANT from the Ethereum network to the [Rooststock](https://www.rsk.co/) network:
 
 
@@ -51,7 +52,7 @@ Let’s say that we want to transfer 1 ANT from the Ethereum network to the [Roo
  * Once the ANT is credited and the transaction doing so is sufficiently confirmed in the Rootstock blockchain, the bridge nodes from step 5 will generate a PoI for each Rootstock ANT crediting transaction, and use them to claim the fee from the output in step 2 by spending it.
 The reverse process can be easily achieved by locking the Rootstock ANT in the WBI Rootstock contract and specific Ethereum as the destination chain. This will trigger the whole process in the opposite direction and end up unlocking the ANT tokens that were originally locked in the WBI Ethereum contract.
 
-## Cross-chain contract calls
+### Cross-chain contract calls
 The Aragon Network is a network of DAOs, which can be from traditional companies, to non-profit entities, to other crypto networks, or just individuals.
 They need to transact with each other, including cross-chain interactions.
 All DAOs are based on aragonOS, which has a very powerful Access Control List of which entities can call certain functions on certain apps.
@@ -60,7 +61,7 @@ This case is even simpler than cross-chain asset transfer: from an Ethereum smar
 Thanks to [aragonOS](https://github.com/aragon/aragonos) , the changes required for any app in the AN ecosystem to support this mechanism would be minimal and wouldn’t even cause app developers any breaking changes in their existing code.
 All apps in the AN use aragonOS for authentication, thanks to the [ACL](https://github.com/aragon/aragonOS/blob/dev/contracts/acl/ACL.sol) . The ACL checks _msg.sender_ to identify the sender of the transaction. If instead of doing that, the ACL would check signatures, that would enable aragonOS to verify that a transaction was authorized from another chain, and instead of pointing its origin from the WBI, it would point its origin from the account that sent it in another chain.
 
-## Cross-chain contract upgradeability
+### Cross-chain contract upgradeability
 All Aragon entities run on aragonOS, which offers secure and flexible smart contract upgradeability by default. Upgradeability is especially important for crypto networks and protocols, where the canonical version of the rules that are enforced to all token holders needs to be consensuated. Consensus happens via any governance mechanism, and that’s why an Access Control List is so important too, so that only certain governance mechanisms can execute certain changes to the protocol.
 aragonOS achieves this model by taking advantage of proxies. Let’s explore this process:
 
@@ -96,7 +97,7 @@ Now let’s imagine how an upgrade to the Aragon Network would be executed:
 In a scenario in which ANT has become truly cross-chain and the AN contracts live on multiple blockchains, preserving contract upgradability across chains is also necessary.
 Again, Witnet will make these cross-chain contract upgrades nearly as easy to perform as if everything was happening in the same chain, and the changes required for existing dApps to support this mechanism will be minimal and cause no headache to developers willing to make their smart contracts truly chain agnostic.
 
-## Security concerns
+### Security concerns
 In the blockchain space, there’s a generally accepted precept that the maximum value that a network can support and secure is proportional to the cost of rewriting its history of transactions.
 This notion comes from the fact that the security of Proof-of-Work schemes is not based on making it impossible for anyone to tamper with the transactions ledger, but on making it extremely expensive.
 As long as the total network value is lower than the cost of hacking the blockchain (e.g. by means of a majority attack), we can rest assured that no one will try to break it. But in the same moment that the network value goes over the hacking cost, you’ve just created a bounty for any (incredibly powerful) attacker to go and try to to loot everyone’s wallets.
@@ -115,7 +116,7 @@ Summing up, on a network like Witnet, assets of any value can be transferred sec
 ----
 
 
-## Want to know more about the use cases of Witnet?
+### Want to know more about the use cases of Witnet?
 Don’t miss the next article in the series:
 You can also:
 

@@ -9,16 +9,17 @@ some_url:
 
 # Raiden  Generalized State Channels 
 
+
 > The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token.
 
-# Getting started with the Raiden API
+## Getting started with the Raiden API
 
 ```
 .. toctree::
   :maxdepth: 3
 ```
 
-## Introduction
+### Introduction
 
 Raiden has a Restful API with URL endpoints corresponding to actions
 that users can perform with their channels. The endpoints accept and
@@ -39,7 +40,7 @@ is established.
 Furthermore, to see all available endpoints, please see the `REST API
 documentation <rest_api>`.
 
-## Scenarios
+### Scenarios
 
 Below is a series of different scenarios showing different ways a user
 can interact with the Raiden API.
@@ -58,7 +59,7 @@ address chosen, when starting the Raiden node:
 If this returns the same address, we know that the Raiden node is up and
 running correctly.
 
-## Bootstrapping a token network
+### Bootstrapping a token network
 
 In this scenario it is assumed that a user holds some ERC20 token, with
 address `0x9aBa529db3FF2D8409A1da4C9eB148879b046700`, which has not yet
@@ -70,7 +71,7 @@ for that token. For each registered token there is a corresponding token
 network. Token networks are responsible for opening new payment channels
 between two parties.
 
-### Checking if a token is already registered
+#### Checking if a token is already registered
 
 One way of checking if a token is already registered is to get the list
 of all registered tokens. Then, in the returned list, check if the
@@ -88,7 +89,7 @@ already existing token network scenario
 <joining-existing-token-network>`. If it does not exist in the list, it
 is desired to `register the token <adding-a-token>`.
 
-### Registering a token
+#### Registering a token
 
 **Note**
 
@@ -133,7 +134,7 @@ in a one-way-channel, it can be done by opening a channel with this
 node. The way to open a channel with another Raiden node is the same
 whether the partner already holds some tokens or not.
 
-### Opening a channel
+#### Opening a channel
 
 To open a channel with another Raiden node four things are needed: the
 address of the token, the address of the partner node, the amount of
@@ -190,7 +191,7 @@ generated. This means that the channel has been created inside the
 [Token
 Network](https://raiden-network-specification.readthedocs.io/en/latest/smart_contracts.html#tokennetwork-contract).
 
-### Depositing to a channel
+#### Depositing to a channel
 
 A payment channel is now open between the user's node and a
 counterparty. However, since only one of the nodes has deposited to the
@@ -272,7 +273,7 @@ hood.
 In `the next scenario <joining-existing-token-network>` it is explained
 how to join already bootstrapped token networks.
 
-## Joining an already existing token network
+### Joining an already existing token network
 
 In `above scenario <bootstrapping-a-token-network>` it was shown how to
 bootstrap a token network for an unregistered token. In this section the
@@ -291,7 +292,7 @@ It's assumed that a user holds at least 2000 Raiden Testnet ERC20 token
 (RTT). The user knows that a token network already exists for this
 token.
 
-### Connect
+#### Connect
 
 Connecting to an already existing token network is quite simple. All
 that is needed, is as mentioned above, the address of the token network
@@ -330,7 +331,7 @@ token network. This means that it can pay tokens to all nodes
 participating in this network. See the `Token Payments <token-payments>`
 section for instructions on how to pay tokens to other nodes.
 
-### Leave
+#### Leave
 
 If at some point it is desired to leave the token network, the `leave`
 endpoint is available. This endpoint takes care of closing and settling
@@ -349,13 +350,13 @@ settlement of payment channels work. For instance there is a
 `settlement_timeout` period after calling `close` that needs to expire
 before `settle` can be called.
 
-## Token payments
+### Token payments
 
 For the token payment example it is assumed a node is connected to the
 RTT token network as mentioned above. In this case the node is connected
 to five peers, since the standard `connect()` parameters were used.
 
-### Payments
+#### Payments
 
 Paying tokens to another node is quite easy. The address of the token
 desired for the payment is `0x0f114A1E9Db192502E7856309cc899952b3db1ED`.
@@ -403,7 +404,7 @@ there is a path to them with enough capacity, and not just to the nodes
 that a user is directly connected to. This is called *mediated
 transfers*.
 
-### Close
+#### Close
 
 If at any point in time it is desired to close a specific channel it can
 be done with the `close` endpoint:
@@ -441,7 +442,7 @@ Content-Type: application/json
 Notice how the `state` is now set to `"closed"` compared to the previous
 channel objects where it was `"opened"`.
 
-### Settle
+#### Settle
 
 Once `close` has been called, the settle timeout period starts. The
 channel is automatically settled as soon as it is over.
@@ -451,7 +452,7 @@ means that the net balances that the two parties participating in the
 channel owe each other have now been transferred on the blockchain. It
 also means that the life cycle of the payment channel has ended.
 
-## Interacting with the Raiden Echo Node
+### Interacting with the Raiden Echo Node
 
 **Note
 **

@@ -9,7 +9,8 @@ some_url:
 
 # Tips for Starting Dapp Development
 
-# Welcome to dapp Development
+
+## Welcome to dapp Development
 
 Welcome to one of the most exciting areas in computer programming. The potential growth of the blockchain field is matched only by the professional development of those engaged in it. Why? To understand decentralized application (dapp) development, you can touch upon any (or all!) of the following fields:
 
@@ -24,9 +25,9 @@ If this is overwhelming, that’s okay! You can jump right into the fire and sta
 
 What are you waiting for? Here are some resources to start you off. We divided them into two sections: learning dapp development and keeping up with dapp development. The first resources help you understand the similarities and differences from Web 2 to Web 3 (as blockchain is commonly called). The second are resources to keep up with that development (see Pointer #1 above!)
 
-## Learning Dapp Development
+### Learning Dapp Development
 
-### Learn the developer tools
+#### Learn the developer tools
 
 -   [CryptoZombies](https://cryptozombies.io/)
 -   [Full stack dapp tutorial series](https://kauri.io/collection/5b8e401ee727370001c942e3/full-stack-dapp-tutorial-series)
@@ -40,7 +41,7 @@ What are you waiting for? Here are some resources to start you off. We divided t
 -   [Ethernaut](https://ethernaut.openzeppelin.com) - A game that teaches security
 -   [Capture the Ether](https://capturetheether.com/) - A game that teaches security
 
-### Learn the Basics of Development
+#### Learn the Basics of Development
 
 -   [Full stack dapp tutorial series](https://kauri.io/collection/5b8e401ee727370001c942e3/full-stack-dapp-tutorial-series)
 -   [Truffle tutorials](https://www.trufflesuite.com/tutorials)
@@ -50,7 +51,7 @@ What are you waiting for? Here are some resources to start you off. We divided t
 -   [Read Mastering Ethereum](https://github.com/ethereumbook/ethereumbook)
 -   [OpenZeppelin Learn Docs](https://docs.openzeppelin.com/learn/)
 
-### Get Involved with Hackathons
+#### Get Involved with Hackathons
 
 Hackathons take place at blockchain conferences and meetups all over the world. Chances are you can’t hop on a plane on a moment’s notice, but some conferences or projects host virtual hackathons open to anyone with an internet connection.
 
@@ -58,7 +59,7 @@ Hackathons take place at blockchain conferences and meetups all over the world. 
 -   [Coinlist hackathons](https://coinlist.co/build)
 -   [ETHGlobal’s](https://medium.com/@ethglobalco/ethonline-why-hackathons-matter-a09eec05c890) new [ETHOnline](https://docs.google.com/document/d/1ReFCzYyP_ea4rfrch_ncCZ9yVTvmRKeNLwzQu5NfQx4/edit#) remote hackathons
 
-### Meet-ups
+#### Meet-ups
 
 Some meetups are more about trading “investment” advice but a good technical meetup in your area is an excellent way to meet other people interested in Dapp development.
 
@@ -66,9 +67,9 @@ Some meetups are more about trading “investment” advice but a good technical
 -   [Meetup.com](https://Meetup.com) - Type “blockchain” and your area to see if anything’s available. It’s how I found my first Ethereum meetup.
 -   [ETH Global](https://ethglobal.co/) - Ethereum hackathons and meetups
 
-## Keeping Up with Development
+### Keeping Up with Development
 
-### Social Media
+#### Social Media
 
 Dapp development encourages network decentralization, and it also embodies it. Developers are located everywhere in the world! As such, social media has become important to keep people in touch across time zones. Besides the popular platforms, you may be less familiar with platforms such as Telegram, Discord and Gitter.
 
@@ -105,14 +106,14 @@ Twitter:
 -   [Status](https://twitter.com/ethstatus?lang=en)
 -   [OpenZeppelin](https://twitter.com/openzeppelin)
 
-### Newsletters
+#### Newsletters
 
 -   [Week In Ethereum](https://weekinethereumnews.com/)
 -   [EthHub](https://ethhub.io/)
 -   [Chain Letter](https://forms.technologyreview.com/chain-letter/)
 -   [ConsenSys Newsletter Digest](https://share.hsforms.com/1HiFwsb55S5GUf-EOe0KP8Q2urwb?email=)
 
-### Podcasts
+#### Podcasts
 
 -   [Zero Knowledge](https://www.zeroknowledge.fm/)
 -   [Into the Ether](https://ethhub.substack.com/)

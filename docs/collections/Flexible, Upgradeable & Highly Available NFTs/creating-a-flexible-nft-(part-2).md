@@ -9,9 +9,10 @@ some_url:
 
 # Creating a Flexible NFT (Part 2)
 
-# Part 2
 
-## Step 1: Make new netlify project
+## Part 2
+
+### Step 1: Make new netlify project
 
 We begin Part 2 by creating a web page in the same folder as the rest of our code.
 
@@ -49,13 +50,13 @@ If everything went well you should see this beautiful website:
 
 ![](https://www.dropbox.com/s/0hwnvr2a1c7imfg/Screenshot%202018-12-13%2018.29.16.png?dl=1)
 
-## Step 2: Install netlify lambda
+### Step 2: Install netlify lambda
 
 Install `netlify-lambda` as a dev dependency so we can access it with `npx`. This is a utility for building the lambda function and serving it locally so you can test functions before deploying them.
 
 ```bash
 yarn add netlify-lambda -D
-# or
+## or
 npm install netlify-lambda --save-dev
 ```
 
@@ -131,7 +132,7 @@ When the deploy finishes you should be able to access it at <https://{SITE_NAME}
 
 This is the deployed format for the functions so that there aren't any name conflicts with your current routing. This is inconvenient syntax though, we'll add proxy rules to the metadata endpoint in a later step.
 
-## Step 3:  Add Metadata
+### Step 3:  Add Metadata
 
 Now that we've created a dummy endpoint, let's make one that's more useful. Create a new file in your _lambda_ directory called _metadata.js_ and fill it with the same hello world code from before. (Or duplicate the _helloworld.js_ file):
 
@@ -264,7 +265,7 @@ When we check our endpoint (and if you have a JSON prettier browser extension) i
 
 ![](https://www.dropbox.com/s/rwkf098pt2lug1l/Screenshot%202018-12-13%2019.40.31.png?dl=1)
 
-## Step 4: Add proxy routing
+### Step 4: Add proxy routing
 
 On netlify we still use the inconvenient URL format, `/.netlify/functions/metadata?tokenId=666`, to see the new endpoint. Open the _netlify.toml_ file and add some re-write rules so that we can transform a pretty URL like `/metadata/666` into something that our lambda function understands like `/.netlify/functions/metadata?tokenId=666`:
 
@@ -280,7 +281,7 @@ On netlify we still use the inconvenient URL format, `/.netlify/functions/metada
 
 This redirects queries from `/metadata` to whatever is at the location `/.netlify/functions/metadata`. The `:tokenId` placeholder designates that the value should carry over to the same location in the other url. The status it should returns in the header is `200` which means success.
 
-## Step 5: Add opensea.io
+### Step 5: Add opensea.io
 
 To make sure our metadata shows up on sites like opensea we want to serve a format the service understands. The [Opensea docs](https://docs.opensea.io) say they expect metadata that adheres to the following example:
 
@@ -395,7 +396,7 @@ function returnZodiac(tokenId) {
 }
 ```
 
-## Step 6: Add rarebits
+### Step 6: Add rarebits
 
 Another popular NFT marketplace is [rarebits](https://rarebits.io/). Let's adhere to their format as well:
 
@@ -462,7 +463,7 @@ Now we have a fat json object returned.
 
 ![](https://www.dropbox.com/s/evfhgwhs4t6ij60/Screenshot%202018-12-13%2020.44.16.png?dl=1)
 
-## Step 7: Re-deploy and mint a token
+### Step 7: Re-deploy and mint a token
 
 Now we have a metadata API endpoint and we don't have to do anything to service it. We even have a minified website and seeded across a Content Delivery Network. All we're missing is our Token.
 
@@ -542,7 +543,7 @@ Let's add it to rarebits too.
 
 ![](https://www.dropbox.com/s/np167hbcy8p53ht/Screenshot%202018-12-13%2021.11.54.png?dl=1)
 
-## Next Steps
+### Next Steps
 
 -   Make a more interesting generative image
     -   One example is the cloudinary's hue rotate used by ENSNifty.com ([github link](https://github.com/ENS-Nifty/ens-nifty-frontend/blob/master/functions/metadata.js#L73))

@@ -9,16 +9,17 @@ some_url:
 
 # Smart Contract Utilities with ZeppelinOS  Installation and Use
 
+
 In this tutorial, we install ZeppelinOS, deploy a simple contract and then update it.
 
-## Prerequisites
+### Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 - An understanding of [Solidity](https://solidity.readthedocs.io/en/v0.5.1/solidity-in-depth.html) the programming language for smart contracts.
 - [Truffle](https://truffleframework.com/truffle), a development framework for Ethereum to test and deploy smart contracts.
 - [Ganache](https://truffleframework.com/ganache), a personal blockchain installed to test and run our smart contracts.
 
-## Installing
+### Installing
 
 After installing Node.js we are now ready to install ZeppelinOS. Using terminal do the following:
 
@@ -32,7 +33,7 @@ That's it! We installed ZeppelinOSs.
 
 **Note**: `zos --help` gives you a full list of all ZeppelinOS commands should you require them.
 
-## Creating our project
+### Creating our project
 
 In the directory of your choice, create your project and then change to that directory:
 
@@ -63,7 +64,7 @@ The last step is to download the ZeppelinOS project library.
 npm install zos-lib --save
 ```
 
-## Creating a Contract
+### Creating a Contract
 
 After installing and initializing our project we are now ready to create our smart contract.
 
@@ -111,7 +112,7 @@ After creating our contract, we're ready to compile and add information to our _
 zos add FirstContract
 ```
 
-## Deploying
+### Deploying
 
 It's time to deploy our contract onto our test network using ganache.
 
@@ -184,7 +185,7 @@ zos push
 
 That's it! Our contract is successfully deployed to the local network from the default address. If you look at your ganache terminal you will see details about the deployment. In our project folder there is a new file called _zos.dev-"network id".json_ It contains all the information about your project on this network.
 
-## Upgrading
+### Upgrading
 
 The contract we created is now deployed to our local network and we want to upgrade it. Normally this would be impossible but with ZeppelinOS we have the ability to do this.
 
@@ -350,6 +351,6 @@ $ firstContract.year()
 
 That's it! We deployed and updated our contract on our local test network!
 
-## Next Steps
+### Next Steps
 
 - <https://docs.zeppelinos.org/docs/upgrading.html>

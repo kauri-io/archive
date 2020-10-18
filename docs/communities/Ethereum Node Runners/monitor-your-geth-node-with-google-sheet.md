@@ -9,11 +9,12 @@ some_url:
 
 # Monitor your Geth node with Google Sheet
 
+
 In this article, I will explain how to monitor a Geth node and keep track of the syncing process very easily with a **CronJob** and **Google Sheet**
 
 <br />
 
-## Capture and store geth and system metrics every 15 min
+### Capture and store geth and system metrics every 15 min
 
 In the first step, we are configuring a cronjob (15 min scheduled task) on our Linux system where Geth is installed to capture some interesting metrics about the syncing state of Geth (blocks, states, peers) and the operating system (e.g CPU, memory, disk, load average).
 
@@ -70,7 +71,7 @@ $ cat /home/pi/geth_metrics.csv
 
 <br />
 
-## Render the data into a spreadsheet
+### Render the data into a spreadsheet
 
 Now we have a consistent way to capture periodically our Geth and system metrics into a CSV, we can download this file and upload it to a Google Spreadsheet template.
 
@@ -115,7 +116,7 @@ In the "Charts" sheet, you can visualise diagrams for each metrics
 
 <br />
 
-## Congrats
+### Congrats
 
 You can now:
 

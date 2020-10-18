@@ -9,9 +9,10 @@ some_url:
 
 # Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)
 
+
 Deriving a private key from a mnemonic code or sentence (often called a seed phrase) is a very common way to generate an Ethererum wallet.  These seed phrases are usually 12 to 24 words long.  As you would expect, web3j provides some tools to allow you to achieve this task in your java code.
 
-## Wallet Generation with Default Derivation Path
+### Wallet Generation with Default Derivation Path
 
 The default derivation path used by web3j is `m/44'/60'/0'/1`.
 
@@ -25,7 +26,7 @@ String mnemonic = "snap escape shadow school illness flip hollow label melt fetc
 Credentials credentials = WalletUtils.loadBip39Credentials(password, mnemonic);
 ```
 
-## Wallet Generation with Custom Derivation Path
+### Wallet Generation with Custom Derivation Path
 
 This example creates a private key and credentials with a derivation path of `m/44'/60'/0'/0`.
 

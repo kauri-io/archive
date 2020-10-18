@@ -9,11 +9,12 @@ some_url:
 
 # Ethereum 101 - Part 1 - What is Ethereum?
 
-# Purpose of Document
+
+## Purpose of Document
 The purpose of this documentation is to serve as a springboard for anyone looking to gain utility from the Ethereum network. 
 
 
-# What is Ethereum? 
+## What is Ethereum? 
 Ethereum can be explained many different ways. Ethereum also means different things to different people, and by the end of this document it will also mean something to you. To be prudent and concise, I want to cite an author, Andreas M. Antonopoulos, that I feel does a great job summarizing what Ethereum is from both a computer science perspective and a practical perspective. 
 
 From the book "[Mastering Ethereum](https://github.com/ethereumbook/ethereumbook)" by authors Andreas Antonopoulos and Gavin Wood Ph.D. 
@@ -23,7 +24,7 @@ From the book "[Mastering Ethereum](https://github.com/ethereumbook/ethereumbook
 Citation: "[Mastering Ethereum, Section 1 - What is Ethereum?](https://github.com/ethereumbook/ethereumbook/blob/develop/01what-is.asciidoc)" authors Andreas Antonopoulos and Gavin Wood Ph.D. 
 
 
-### Ethereum as a "World Computer"
+#### Ethereum as a "World Computer"
 
 Antonopoulus' primer explanation of Ethereum above includes some interesting terms: world computer, blockchains, deterministic, state, state machine, decentralized computing infrastructure, smart contracts, decentralized apps, and others. 
 
@@ -49,7 +50,7 @@ Ethereum is fault tolerant, meaning that nodes can drop offline with negligible 
 
 Ethereum allows developers to write and deploy immutable programs to the blockchain. When deployed, these programs can be trusted to execute without interference from external non-blockchain events. These programs are colloquially known as "smart contracts."
 
-# Ethereum's Native Currency and Beyond 
+## Ethereum's Native Currency and Beyond 
 
 To be concise, let's look at tried and true definitions:
 
@@ -74,14 +75,14 @@ To pay this gas fee, we use Ether, the native currency of the Ethereum blockchai
 Credit: 
 ["Beigepaper: An Ethereum Technical Specification"](https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf)
 
-# Decentralized Apps (DApps)
+## Decentralized Apps (DApps)
 
 In the most narrow definition, a decentralized application is a smart contract with a frontend. In the context of this documentation, a decentralized application is one which distributes its logic, data storage, or messaging using the Ethereum protocol, or any neighboring web3 protocol. 
 
 * The term "web3" is a colloquial term for a decentralized web. 
 * The term "web2" is a colloquial term for the internet's current state of affairs. 
 
-# Reasons for using a DApp
+## Reasons for using a DApp
 
 A sample of decentralized apps that have surfaced over the past several years includes, but is not limited to: 
 

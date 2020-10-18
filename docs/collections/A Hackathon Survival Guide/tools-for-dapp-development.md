@@ -10,6 +10,7 @@ some_url:
 # Tools for dApp development
 
 
+
 This article will introduce you to the relevant tools required for developing a simple dApp. We will introduce tools in the following areas:
 
 * Smart Contract Programming Languages
@@ -22,7 +23,7 @@ This article will introduce you to the relevant tools required for developing a 
 * SaaS / Cloud Infra
 * Data Storage
 
-# Smart Contract Programming Languages
+## Smart Contract Programming Languages
 
 Because a smart contract is deployed on the blockchain in its bytecode form, any language that comes with an EVM compiler could be used to write a smart contract. Nobody really wants to write bytecode!
 
@@ -58,7 +59,7 @@ https://github.com/ethereum/vyper
 Documentation: https://vyper.readthedocs.io/en/latest/installing-vyper.html
 
 
-# Web3 Libraries
+## Web3 Libraries
 
 Ethereum nodes expose a JSON-RPC API (a stateless, lightweight remote procedure call) protocol which clients can use to interact with a node.
 
@@ -72,13 +73,13 @@ Below is a list of web3 libraries that can be used to interface with your prefer
 
 **Javascript**
 
-####WEB3.js
+#####WEB3.js
 
 https://github.com/ethereum/web3.js/
 
 Documentation: https://web3js.readthedocs.io/en/1.0/
 
-####ETHERS.js
+#####ETHERS.js
 
 https://github.com/ethers-io/ethers.js/
 
@@ -86,7 +87,7 @@ Documentation: https://docs.ethers.io/ethers.js/html/
 
 **Java**
 
-####WEB3J
+#####WEB3J
 
 https://github.com/web3j/web3j
 
@@ -94,7 +95,7 @@ Documentation: https://docs.web3j.io/
 
 **Python**
 
-####WEB3.PY
+#####WEB3.PY
 
 https://github.com/ethereum/web3.py
 
@@ -102,13 +103,13 @@ Documentation: https://web3py.readthedocs.io/en/stable/
 
 **.NET**
 
-####Nethereum
+#####Nethereum
 
 https://github.com/Nethereum/Nethereum
 
 Documentation: https://nethereum.readthedocs.io/en/latest/
 
-# Development frameworks
+## Development frameworks
 
 When developing dApps, and especially writing smart contracts, there are many repetitive tasks you will undertake. Such as compiling source code, generating ABIs, testing, and deployment. Development frameworks hide the complexity of these tasks and enable you as a developer to focus on developing your dApp/idea.
 
@@ -141,30 +142,30 @@ Documentation: https://populus.readthedocs.io/en/latest/
 When you first start playing around with contracts, you should avoid using a framework until you understand the value it provides, much in the same way you shouldn’t start learning how to write HTML with rails new . The easiest thing to do at first is use Remix (https://remix.ethereum.org/) to play around with the language and ideas.
 
 
-#IDEs
+##IDEs
 
 Many developers have their IDE of choice where they are most comfortable developing. There are plugins available which can help you develop dApps in your natural habitat!
 
-###REMIX
+####REMIX
 
 https://remix.ethereum.org/
 
 Remix in an online IDE developed and maintained by the Ethereum Foundation. It’s an easy to use development environment which requires no installation/setup.
 This is a great place to quickly prototype and play around with Solidity smart contacts.
 
-###ETHERATOM (ATOM PLUGIN)
+####ETHERATOM (ATOM PLUGIN)
 
 https://github.com/0mkara/etheratom
 
-###INTELLIJ-SOLIDITY (INTELLIJ PLUGIN)
+####INTELLIJ-SOLIDITY (INTELLIJ PLUGIN)
 
 https://github.com/intellij-solidity/intellij-solidity
 
-###SOLIDITY (VISUAL STUDIO EXTENSION)
+####SOLIDITY (VISUAL STUDIO EXTENSION)
 
 https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity
 
-# Development Blockchains
+## Development Blockchains
 
 When developing dApps, and especially writing smart contracts in your local development environment. It can be useful to spin up a development blockchain where you can quickly deploy your contracts, and run tests, whilst being in control of how the chain operates.
 
@@ -179,7 +180,7 @@ It comes in 2 parts:
 https://truffleframework.com/ganache
 
 
-#Ethereum Networks
+##Ethereum Networks
 
 **Mainnet** — the main Ethereum network, think of this as the production network. ETH here has real world fiat value.
 
@@ -199,7 +200,7 @@ https://github.com/kovan-testnet/faucet
 
 [https://faucet.ropsten.be] (https://faucet.ropsten.be/)
 
-#dApp Browsers
+##dApp Browsers
 
 **Metamask** —  Metamask is a crypto wallet that allows you to run Ethereum dApps in your browser without running a full Ethereum node. We use Metamask on Kauri. 
 
@@ -215,7 +216,7 @@ https://www.toshi.org/
 
 https://www.cipherbrowser.com/
 
-# SaaS / Cloud Infra
+## SaaS / Cloud Infra
 
 **Infura** — A public hosted Ethereum node cluster, which provides access to its nodes via an API.
 
@@ -227,7 +228,7 @@ Documentation: https://infura.io/docs
 
 https://thegraph.com/
 
-# DataStorage
+## DataStorage
 
 **IPFS** —  IPFS (InterPlanetary File System) is a peer to peer protocol for distributing files. Think of it as a filesystem using the ideas behind **bittorrent**and **git** where data is content-addressable and immutable.
 
@@ -244,7 +245,7 @@ Documentation: https://swarm-guide.readthedocs.io/en/latest/introduction.html
 Read Swarm and IPFS comparison (https://github.com/ethersphere/go-ethereum/wiki/IPFS-&-SWARM)
 
 
-#Ethereum Developer Tools List
+##Ethereum Developer Tools List
 
 Consensys Labs along with the Ethereum developer community, have been aggregating a list of open source tools, frameworks, and components, to help developers get started with building on Ethereum. This will be a useful resource to bookmark as you continue your journey into dApp development!
 

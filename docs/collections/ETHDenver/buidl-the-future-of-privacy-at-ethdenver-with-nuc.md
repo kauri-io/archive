@@ -9,6 +9,7 @@ some_url:
 
 #  BUIDL the Future of Privacy at ETHDenver with NuCypher
 
+
 Hey ETHDenver hackers!
 
 All of us at NuCypher, the privacy layer of the decentralized web, are super excited to meet you in a few weeks! Last year’s ETHDenver was our first ETHGlobal event (followed by ETHIndia, ETHBerlin, ETHSan Francisco, and ETHSingapore, so we’re clearly smitten).
@@ -31,7 +32,7 @@ For those of you who aren’t familiar with the NuCypher network, check out Just
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/OuY9WXK61gY" width="512"></iframe>
 
 
-### The Code
+#### The Code
 In preparation, we’ve got a lot of great tools queued up for you on our [GitHub](https://github.com/nucypher):
 
  *  `hackathon` — your home base and the best place to start. Closer to the hackathon, we’ll update this with directions to all the relevant links and our bounties (when announced).
@@ -42,7 +43,7 @@ In preparation, we’ve got a lot of great tools queued up for you on our [GitHu
 
  *  `nufhe` — starting to get more futuristic. NuFHE is our GPU-accelerated fully homomorphic encryption library that lets you process and compute on encrypted data. We use it to #buidl [fully homomorphic smart contracts](https://github.com/nucypher/Sputnik) and other cool proof of concepts.
 
-### Previous Hacks
+#### Previous Hacks
 Last year, we saw lots of great submissions at hackathons all over the world. Here are a few of them to help spark ideas for you to work on at ETHDenver.
  
 _ETHSan Francisco_
@@ -70,7 +71,7 @@ _Crypto Bazar Hackathon_
 [Chrome extension for NuCypher network:](https://gitlab.com/vanes/nucypher---chromeextesion-with-gui-and-logging)
  While the javascript version of NuCypher is still in development, it is still possible to interact with the NuCypher network using the Python code from browsers using a browser extension.
 
-### See you at ETHDenver!
+#### See you at ETHDenver!
 Start exploring our tools, checking out some of the previous submissions, and asking questions in our 
 [Discord](https://discord.gg/7rmXa3S), we can’t wait to see you at ETHDenver and #buidl something awesome together.
 

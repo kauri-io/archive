@@ -9,7 +9,8 @@ some_url:
 
 # ENS  Beginner's Guide
 
-# ENS
+
+## ENS
 
 User experience is a key challenge when developing a dapp. Ethereum has complexities that should be hidden away to enable broad adoption. One such complexity, is an Ethereum address, it is long, unwieldy, and hard to remember.
 
@@ -25,13 +26,13 @@ For example the _ethereum.eth_ name could point to:
 -   Public encryption keys for secure communication
 -   Website content (via IPFS hash or multihash)
 
-# Code Example
+## Code Example
 
 Many Ethereum libraries, including Web3.js now support ENS lookups out-of-the-box. Using ENS is not as intuitive as the library documentation suggests, there are a number of things to look out for.
 
 To show how to lookup ENS names we create a simple Node.js command-line tool called _enslookup_. Given an ENS name as an argument it queries the ENS registry for information about that name.
 
-## Prerequisites
+### Prerequisites
 
 First install Node.js and npm by following the install instructions on the [Node.js website](https://nodejs.org/ "Node.js").
 
@@ -58,7 +59,7 @@ mkdir enslookup
 cd enslookup
 ```
 
-## Web3.js
+### Web3.js
 
 We are using Web3.js to interact with the ENS registry. To install Web3.js use the Node.js package manager.
 
@@ -74,7 +75,7 @@ Then install the Web3.js package.
 npm install web3 --save
 ```
 
-## Enslookup
+### Enslookup
 
 Create a new file called _enslookup_ (notice there is no file extension).
 
@@ -92,7 +93,7 @@ Edit the file in your favorite editor - don't worry too much about the code here
 -   Checks that you have set the Infura URL environment variable
 
 ```js
-#!/usr/bin/env node
+##!/usr/bin/env node
 
 (async () => {
 
@@ -211,7 +212,7 @@ _Note on Windows you have to run node enslookup_
 
 The full code for the enslookup example is available on [github](https://github.com/darrenlangley/enslookup).
 
-# Future of ENS
+## Future of ENS
 
 The ENS team are restlessly adding new features and expanding ENS's capabilities.
 

@@ -10,6 +10,7 @@ some_url:
 # Team Insights  Gorka, Research Lead
 
 
+
 ----
 
  
@@ -47,7 +48,7 @@ Soccer is the activity that I would say consumes most of time outside my work li
 ----
 
 
-### You can follow Witnet on Twitter and stay up to date on our blog.
+#### You can follow Witnet on Twitter and stay up to date on our blog.
 You can also:
 
 

@@ -10,17 +10,18 @@ some_url:
 # SmartPiggies
 
 
-# Project Name
+
+## Project Name
 
 SmartPiggies
 
 https://www.smartpiggies.com/
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 
 Decentralized Derivatives for Universal Price Insurance
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 
 Michael Arief
 
@@ -28,7 +29,7 @@ Toby Algya
 
 Alex Lee
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 Lightgrey Wry Cottontail
 
@@ -42,7 +43,7 @@ Precious Noteworthy Eeve
 
 https://get.status.im/user/0x043d8cb51d0b9089dd23c637fce32287a5c4f3b9d554ee4f1ddc96bc363f262da3126f697589669c11f3b9bd804b0d1a10115f27a57082be3dfaa5eec7f9741f37
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 
 SmartPiggies are non-fungible digital contracts that provide their owners with protection against undesirable changes in the price of any asset, product, or service.
 
@@ -53,7 +54,7 @@ SmartPiggies also have a native self-auctioning mechanism that allows them to gl
 Anyone or any business wishing to protect themselves against unexpected changes price or whom has spare capital and is willing to take on risk in exchange for a premium may wish to participate in the SmartPiggies ecosystem.
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 Ethereum
 
@@ -78,11 +79,11 @@ NodeJS
 Chainlink
 
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 
 Impact
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 Chainlink
 
@@ -95,7 +96,7 @@ Shapeshift
 Maker
 
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/smartpiggies/smartpiggies
 
 

@@ -10,6 +10,7 @@ some_url:
 # Introducing Witnet  smart contracts with real power!
 
 
+
 ----
 
 
@@ -17,7 +18,7 @@ some_url:
 
  _[_  For of a visual experience, you should watch the_  [1-minute explainer video](https://www.youtube.com/watch?v=wEtOiStvQoU)  _. ]_ 
 
-### Meet the "oracle problem"
+#### Meet the "oracle problem"
 
 ![](https://cdn-images-1.medium.com/max/1600/0*V7bZNdRgCh2aP_pm.)
 
@@ -27,7 +28,7 @@ However, up until now, smart contracts are completely isolated from the rest of 
 ----
 
 
-### The solution: a decentralized oracle network
+#### The solution: a decentralized oracle network
 
 ![](https://cdn-images-1.medium.com/max/1600/0*VZDidAcTqGAw1SXR.png)
 
@@ -37,7 +38,7 @@ The protocol works thanks to a **distributed network** of mining nodes — calle
 ----
 
 
-### Wit: a minable token
+#### Wit: a minable token
 
 ![](https://cdn-images-1.medium.com/max/1600/0*2o_Um0cMMsPopXkC.png)
 
@@ -47,7 +48,7 @@ In doing so, they collect **transaction fees** and **block rewards** .
 ----
 
 
-### Decentralized and fair by default
+#### Decentralized and fair by default
 
 ![](https://cdn-images-1.medium.com/max/1600/0*EuiZwV0XmnlyDEgF.png)
 
@@ -57,7 +58,7 @@ The Witnet protocol is designed to make Wit mining viable even on commodity hard
 ----
 
 
-### 100% truth, 0% trust
+#### 100% truth, 0% trust
 
 ![](https://cdn-images-1.medium.com/max/1600/0*zYO2vaeS2v3yM0Uc.png)
 
@@ -67,7 +68,7 @@ In addition, **veracity** of this data is guaranteed by a **consensus algorithm*
 ----
 
 
-### Compatible with existing smart contract platforms
+#### Compatible with existing smart contract platforms
 
 ![](https://cdn-images-1.medium.com/max/1600/1*IMGPwoaJEz7grqbsgL0CcQ.png)
 
@@ -77,7 +78,7 @@ Here’s an article explaining how Ethereum <> Witnet bridge nodes will work in 
 ----
 
 
-### The door to a world where history is no longer written by the victors
+#### The door to a world where history is no longer written by the victors
 
 ![](https://cdn-images-1.medium.com/max/1600/0*0pqx0z5YNJnv5X5v.png)
 
@@ -87,7 +88,7 @@ You can read more about Digital Knowledge Arks in this other article:
 ----
 
 
-### Brought to you by an unstoppable team of makers
+#### Brought to you by an unstoppable team of makers
 Witnet is an open source project devised by [Stampery](https://stampery.com) , the leaders of blockchain-powered data certification. **The protocol is being developed by Witnet Foundation in collaboration with a community of independent contributors** .
 
 ![](https://cdn-images-1.medium.com/max/1200/0*IUic5guCqx5n5UXa.png)
@@ -99,7 +100,7 @@ The Stampery team has also been involved in the development of [Aragon](https://
 ----
 
 
-## Intrigued?
+### Intrigued?
 
 
 

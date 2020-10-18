@@ -9,7 +9,8 @@ some_url:
 
 # Quorum - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **Quorum** is an enterprise version of Go Ethereum that addresses transaction privacy trough a permissioned group of known participants, high speed, network-wide transparency, and high throughput. 
 
@@ -18,18 +19,18 @@ some_url:
 [https://www.jpmorgan.com/global/Quorum
 ](https://www.jpmorgan.com/global/Quorum)
 
-# Bounty 1 Overview: High Performance
+## Bounty 1 Overview: High Performance
 
 **Description:** Best use of Quorum's fast transaction processing and throughput.
 
 **Prize Amount:** $1,000
 
-# Bounty 2 Overview: Privacy
+## Bounty 2 Overview: Privacy
 **Description:** Best use of Quorum's privacy features
 
 **Prize Amount:** $3,000
 
-# Bounty 3 Overview: Public/Private Chain
+## Bounty 3 Overview: Public/Private Chain
 **Description:** Best use of tools and protocols from public Ethereum on Quorum (e.g. MetaMask, Truffle, 0x, Dharma Protocol, etc.)
 
 **Prize Amount:** $1,000
@@ -38,18 +39,18 @@ some_url:
 
 [Find our bounties, hackathon wish-list, and where to get started, here!] (https://medium.com/@mateo_ventures/why-quorum-is-buidl-ing-at-ethdenver-6cf67ae821bb)
 
-# Requirements for All Bounties (e.g., link to open source code)
+## Requirements for All Bounties (e.g., link to open source code)
 
 1. Link to open-source repo
 
-# Judging Criteria for All Bounties
+## Judging Criteria for All Bounties
 
 - Creativity
 - Tech Chops 
 - User-Experience
 - Impact/ Usefulness 
 
-# Contact Information
+## Contact Information
 
 Matt Wright - matthew.d.wright@jpmchase.com
 

@@ -9,13 +9,14 @@ some_url:
 
 # Infura 101 - Infrastructure for Dapps
 
-## Why use Infura?
+
+### Why use Infura?
 
 Creating and maintaining your own Ethereum and IPFS nodes and infrastructure is complex and costly. Infura lets you focus on developing functionality by providing a secure, reliable, and scalable infrastructure for your Dapps that you don't need to worry about.
 
 You access your Infura-hosted infrastructure via TLS-enabled endpoints, and Ferryman, a custom reverse proxy for scaling requests and instances.
 
-## Getting Started with Infura
+### Getting Started with Infura
 
 The onboarding process for Infura walks you through creating an account and projects. You can assign each project to a different Ethereum network, and the project overview gives you the keys and addresses your application needs. The project overview also has a section for whitelisting contracts, and a secret key value, but these are reserved for future functionality.
 
@@ -63,12 +64,12 @@ Then call the method, outputting the value to the interface:
 </script>
 ```
 
-## Statistics
+### Statistics
 
 Once your Dapp has issued some requests to Infura, the _Stats_ pane shows a summary of method calls and information about the bandwidth used.
 
 ![Infura stats dashboard](https://api.beta.kauri.io:443/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk)
 
-## Migrating from V2 to V3
+### Migrating from V2 to V3
 
 If you used Infura before, make sure your applications are using the new `https://rinkeby.infura.io/v3/*` endpoints. If not, you need to re-register and update your Dapps to keep using Infura. BLOG POST?

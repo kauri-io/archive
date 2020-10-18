@@ -9,6 +9,7 @@ some_url:
 
 # ETHDenver Image gallery
 
+
 A selection of images from Kauri adventures at ETHDenver 2019
 
 ![](https://api.kauri.io:443/ipfs/QmYUoSc7cRHEmcCDg6NBbzF8uPxmspCVyvPRzsXYacjko3)

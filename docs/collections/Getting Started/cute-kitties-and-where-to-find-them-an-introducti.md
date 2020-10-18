@@ -9,7 +9,8 @@ some_url:
 
 # Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens 
 
-## A History of Exchange
+
+### A History of Exchange
 
 We’re all familiar with currency exchanges. They come in various online and offline forms and are what people often use for trading one currency to another when speculating or traveling to a new country.
 
@@ -21,13 +22,13 @@ Projects such as [0x](https://0x.org/) have provided a solution for some of the 
 
 A collectible is an item that is often unique in characteristics and valued by collectors. The history of collecting special items date back to ancient history, and it’s also seen in other animals, such as Bowerbirds. Modern day collectors often collect items for their future value, but many do it as a hobby. There are items that are manufactured, specifically, to be collected. Cigarette cards in the late nineteenth century were one of the first manufactured collectibles, then came the era of sports cards representing favorite players, and in the 90’s the different designs of Beanie Babies. Digital collectibles are the most recent form of valued items.
 
-## Non-Fungible Tokens and Ethereum Improvement Proposals
+### Non-Fungible Tokens and Ethereum Improvement Proposals
 
 In the early days of Ethereum, it wasn’t possible to create collectibles, because digital items were fungible and replicable, but thanks to an [Ethereum Improvement Proposal (EIP)](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1.md), and the [EIP-721 token standard proposal](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md), it became possible to create non-fungible digital items.
 
 The Ethereum foundation has a process for suggesting modifications to the Ethereum protocol. Anyone wanting to change or add a feature to the protocol can do so through submitting an EIP. If the community approves an EIP, it’s incorporated into the protocol. EIP-721 allowed for the creation of Non-fungible Tokens (NFTs), an authentic digital scarcity that is verifiable within the network without needing any intermediaries, such as central exchanges.
 
-## ERC-721 Contracts
+### ERC-721 Contracts
 
 Here is a basic example of an ERC-721 contract, borrowed from <https://gist.github.com/aunyks/2d148a77150247f6f9745286ff46fc53#file-erc721-definitions-sol>:
 
@@ -71,7 +72,7 @@ In the words of the creators, the rationale for ERC-721 is that:
 
 > There are many proposed uses of Ethereum smart contracts that depend on tracking distinguishable assets. Examples of existing or planned NFTs are [LAND in Decentraland](https://market.decentraland.org), [the eponymous punks in CryptoPunks](https://www.larvalabs.com/cryptopunks), and in-game items using systems like [DMarket](https://dmarket.com) or [EnjinCoin](https://enjincoin.io). Future uses include tracking real-world assets, like real-estate (as envisioned by companies like [Ubitquity](https://www.ubitquity.io) or [Propy](https://propy.com). It is critical in each of these cases that these items are not "lumped together" as numbers in a ledger, but instead, each asset must have its ownership individually and atomically tracked.
 
-## NFTs and Games
+### NFTs and Games
 
 You might be familiar with the game [CryptoKitties](https://www.cryptokitties.co/) where people can buy a unique Kittie with Ether, the native currency of the Ethereum protocol. Each Kittie is an NFT, meaning that each Kittie is unique in shape, characteristics, and thus value.
 
@@ -83,6 +84,6 @@ Another game called, [God’s Unchained](https://godsunchained.com/), is using 0
 
 Historically, game publishers were a centralized authority that owned the objects players bought on the game, but that’s no longer the case. With NFTs, players can own the token and if the code permits, take it from one game to another. If the game shuts down, the players still have their token. 0x makes it possible for peer-to-peer transfers, the same as trading baseball cards with friends, but without strict digital-rights-management policies.
 
-## ERC-1155, the Future?
+### ERC-1155, the Future?
 
 While ERC-721 allows for a new class of assets to exist and give collectors the opportunity to collect digital items, it has some limitation. For this reason, developers have proposed [ERC-1155](https://github.com/ethereum/eips/issues/1155), perhaps the topic for an upcoming article.

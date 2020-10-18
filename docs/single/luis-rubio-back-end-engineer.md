@@ -9,7 +9,8 @@ some_url:
 
 # Luis Rubio, Back End Engineer
 
-#Luis is one of our talented backend engineers, letting his curiosity and passion drive his work
+
+##Luis is one of our talented backend engineers, letting his curiosity and passion drive his work
 
 ![](https://api.beta.kauri.io:443/ipfs/QmSFZwXyyrYr98xQEomy1tw9sfCB73jZpyJjkDUkGGSu7C)
 
@@ -39,7 +40,7 @@ I am very fascinated by psychology, and enjoy learning how to understand my mind
 
 I also like to spend time with my girlfriend and my friends. Traveling to new countries is really exciting for me as well, but I also enjoy reading and watching movies at my home.
 
-## Thank you for your time! You can also:
+### Thank you for your time! You can also:
 
  *  [Read the Witnet whitepaper](https://witnet.io/static/witnet-whitepaper.pdf) 📃
 

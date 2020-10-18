@@ -9,6 +9,7 @@ some_url:
 
 # Simple Kotlin SpringBoot dApp utilizing web3j
 
+
 Are you sick of web3js? I know I am!
 
 We are still forced to use it on the frontend but that doesn't mean that our backend event listeners and backend contract interactions have to go through this pile of poorly documented crap.

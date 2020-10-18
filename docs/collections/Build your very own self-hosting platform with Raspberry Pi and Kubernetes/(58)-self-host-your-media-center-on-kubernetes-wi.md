@@ -9,9 +9,10 @@ some_url:
 
 # (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -24,7 +25,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 In the next article of this series, we will learn how to install and configure a Media Center onto our Kubernetes platform to automate the media aggregation and management and play our Media files. The Media Center will be composed of the following components:
 
@@ -38,7 +39,7 @@ In the next article of this series, we will learn how to install and configure a
 
 <br />
 <br />
-## Namespace
+### Namespace
 
 We are going to isolate all the Kubernetes objects related to the Media Center into the namespace `media`.
 
@@ -51,7 +52,7 @@ $ kubectl create namespace media
 
 <br />
 <br />
-## Persistence
+### Persistence
 
 The first step consists in setting up a volume to store our media files and data required to run each component. If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on `/mnt/ssd`.
 
@@ -67,7 +68,7 @@ The Persistent Volume specifies the name, the size, the location and the access 
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# media.persistentvolume.yml
+## media.persistentvolume.yml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -108,7 +109,7 @@ The Persistent Volume Claim is used to map a Persistent Volume to a deployment o
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# media.persistentvolumeclaim.yml
+## media.persistentvolumeclaim.yml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -142,7 +143,7 @@ media-ssd       Bound    media-ssd       200Gi      RWO            manual       
 
 <br />
 <br />
-## Ingress
+### Ingress
 
 After the persistent volume, we are now going to deploy the ingress responsible of making accessible a service from outside the cluster by mapping an internal `service:port` to a host. To choose a host, we need to configure a DNS like we did for NextCloud "nextcloud.<domain.com>" in the previous article. However, unlike NextCloud, the Media Center components have no reason to be exposed on the Internet, we can pick a host that will be resolved internally to our Nginx proxy (available at `192.168.0.240` : LoadBalancer IP). The simplest solution is to use [nip.io](https://nip.io) which allows us to map an IP (in our case `192.168.0.240`) to a hostname without touching `/etc/hosts` or configuring a DNS. Basically it resolves `<anything>.<ip>.nip.io` by `<ip>` without requiring anything else, Magic !
 
@@ -157,7 +158,7 @@ Create the following Ingress config file `media.ingress.yaml` to map the routes 
 - `http://media.192.168.0.240.nip.io/` -> `plex-kube-plex:32400`
 
 ```yaml
-# media.ingress.yaml
+## media.ingress.yaml
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -211,7 +212,7 @@ Try the URL [http://media.192.168.0.240.nip.io](http://media.192.168.0.240.nip.i
 
 <br />
 <br />
-## Heml Repository - add Bananaspliff
+### Heml Repository - add Bananaspliff
 
 Someone already made a very good job at creating specific [Helm Charts](https://bananaspliff.github.io/geek-charts/) for the all the software we wish to install in this tutorial. Add the following repository to your Helm using the following command:
 
@@ -228,7 +229,7 @@ $ helm repo update
 
 <br />
 
-## BitTorrent client - Transmission over VPN
+### BitTorrent client - Transmission over VPN
 
 The first bit of software to install is [Transmission](https://transmissionbt.com), an open-source BitTorent client offering an API, great for integration and automation. Because many Internet providers and Governments disproves BitTorent download, we are going to deploy Transmission alongside a VPN. The image [haugene/transmission-openvpn](https://haugene.github.io/docker-transmission-openvpn/) includes Transmission and supports a very large range of VPN providers (see [here](https://haugene.github.io/docker-transmission-openvpn/supported-providers/)) to obfuscate the traffic. I will be using NordVPN but change appropriately to your need.
 
@@ -252,7 +253,7 @@ Next, we will configure the chart [bananaspliff/transmission-openvpn](https://gi
 Create the file `media.transmission-openvpn.values.yml` containing the following configuration.
 
 ```yaml
-# media.transmission-openvpn.values.yml
+## media.transmission-openvpn.values.yml
 replicaCount: 1
 
 image:
@@ -352,7 +353,7 @@ Now Transmission and the Nginx Ingress routes are deployed, you should be able t
 ![](https://api.kauri.io:443/ipfs/QmNsoV9jUjVJVz4dw9RVFUy8N6Q6rsZAHvHXk6aooMnZAZ)
 
 <br />
-## Torrent Providers Aggregator- Jackett over VPN
+### Torrent Providers Aggregator- Jackett over VPN
 
 [Jackett](https://github.com/Jackett/Jackett) is a Torrent Providers Aggregator which translates search queries from applications like Sonarr or Radarr into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. Because some Internet Providers might also block access to Torrent websites, I packaged a version of Jackett using a VPN connection (similar to _transmission-over-vpn_) accessible on [Docker hub - gjeanmart/jackettvpn:arm-latest](https://hub.docker.com/repository/docker/gjeanmart/jackettvpn).
 
@@ -365,7 +366,7 @@ Create the file `media.jackett.values.yml` containing the following configuratio
 
 
 ```yaml
-# media.jackett.values.yml
+## media.jackett.values.yml
 replicaCount: 1
 
 image:
@@ -489,7 +490,7 @@ Go to Jackett on [http://media.192.168.0.240.nip.io/jackett](http://media.192.16
 ![](https://api.kauri.io:443/ipfs/QmXrpHKsVCnsFQpzhprH1TYdBbyZaxssjy8hv34XkybULz)
 
 <br />
-## TV Show Library Management - Sonarr
+### TV Show Library Management - Sonarr
 
 [Sonarr](https://sonarr.tv/) is a TV Show library management tool that offers multiple features:
 
@@ -507,7 +508,7 @@ Let's now configure the chart [bananaspliff/sonarr](https://github.com/bananaspl
 Create the file `media.sonarr.values.yml` containing the following configuration.
 
 ```yaml
-## media.sonarr.values.yml
+### media.sonarr.values.yml
 replicaCount: 1
 
 image:
@@ -600,7 +601,7 @@ Go to Sonarr on [http://media.192.168.0.240.nip.io/sonarr](http://media.192.168.
 ![](https://api.kauri.io:443/ipfs/QmXoFr3jf7GxTXtg5ezY1RKbUDjNiGXBhF2cbwwFYetNSk)
 
 <br />
-## Movie Library Management - Radarr
+### Movie Library Management - Radarr
 
 [Radarr](https://radarr.video/) is a Movie library management tool that offers multiple features:
 
@@ -617,7 +618,7 @@ Let's now configure the chart [bananaspliff/radarr](https://github.com/bananaspl
 Create the file `media.radarr.values.yml` containing the following configuration.
 
 ```yaml
-# media.radarr.values.yml
+## media.radarr.values.yml
 replicaCount: 1
 
 image:
@@ -703,7 +704,7 @@ Go to Radarr on [http://media.192.168.0.240.nip.io/radarr](http://media.192.168.
 ![](https://api.kauri.io:443/ipfs/QmbASTjZAenaVQ3FGg9oGRSjo1PZVG5JwjjKkdRSFPzaEu)
 
 <br />
-## Media Server - Plex
+### Media Server - Plex
 
 [Plex Media Server](https://www.plex.tv/en-gb/) is a software to serve and stream your personal Media library (movies, TV show and music). It fetches the Media resources and builds up a catalogue accessible to any compatible players (Desktop/Mobiles) and transcodes the stream to the player.
 
@@ -732,7 +733,7 @@ This will be used to bind your new PMS instance to your own user account automat
 **3. Create the Helm config file `media.plex.values.yml`**
 
 ```yaml
-# media.plex.values.yml
+## media.plex.values.yml
 
 claimToken: "<CLAIM_TOKEN>" # Replace `<CLAIM_TOKEN>` by the token obtained previously.
 
@@ -850,7 +851,7 @@ Our Media will be accessible from the folder `/data/`.
 
 <br />
 <br />
-## Conclusion
+### Conclusion
 
 In conclusion, you now have everything you need to automate and manage your Media and enjoy watching shows, movies or just listen some music !
 

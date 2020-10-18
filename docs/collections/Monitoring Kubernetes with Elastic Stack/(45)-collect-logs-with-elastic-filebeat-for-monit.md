@@ -10,10 +10,11 @@ some_url:
 # (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes
 
 
+
 In the next section of this series, we are now going to install [**Filebeat**](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html), it is a lightweight agent to collect and forward log data to ElasticSearch within the k8s environment (node and pod logs). Moreover, specific [modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html) can be configured to parse and visualise logs format coming from common applications or system (databases, message bus).
 
 
-## Configuration
+### Configuration
 
 Similarly to Metricbeat, Filebeat requires a settings file to configure the connections to ElasticSearch (endpoint, username, password), the connection to Kibana (to import pre-existing dashboards) and the way to collect and parse logs from each container of the k8s environment.
 
@@ -21,7 +22,7 @@ The following `ConfigMap` represents all the settings needed to capture logs (fi
 
 
 ```yaml
-# filebeat.settings.configmap.yml
+## filebeat.settings.configmap.yml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -103,7 +104,7 @@ data:
 We also configure the [indice lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/index-lifecycle-management.html) on startup to rollover the indice every day and delete 30 days old indices.
 
 ```yaml
-# filebeat.indice-lifecycle.configmap.yml
+## filebeat.indice-lifecycle.configmap.yml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -140,7 +141,7 @@ data:
 The following `DaemonSet` file allows to deploy an agent on each node of the k8s cluster to collect logs according to the settings configured above.
 
 ```yaml
-#filebeat.daemonset.yml
+##filebeat.daemonset.yml
 ---
 apiVersion: extensions/v1beta1
 kind: DaemonSet
@@ -237,7 +238,7 @@ spec:
 Finally, we need to grant permissions to filebeat to access some resources of the Cluster.
 
 ```yaml
-# filebeat.permission.yml
+## filebeat.permission.yml
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -285,7 +286,7 @@ metadata:
 
 <br />
 
-## Installation and result
+### Installation and result
 
 We can now deploy Filebeat:
 
@@ -329,7 +330,7 @@ Filebeat comes also with pre-built dashboards imported to Kibana, go to "Dashboa
 <br />
 <br />
 
-## Next steps
+### Next steps
 
 In the following article, we will learn how to install and configure APM:
 [Collect traces with Elastic APM for monitoring Kubernetes](https://kauri.io/article/bbbc0af03721495b886567ce6af6c59e)

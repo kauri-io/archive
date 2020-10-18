@@ -9,11 +9,12 @@ some_url:
 
 # Hands-on IPLD Tutorial in Golang  PART 2
 
+
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/hands-on-ipld-tutorial-in-golang-2/?ref=kauri). If you are interested in IPFS, Libp2p, Ethereum, Zero-knowledge Proofs, DeFi, CryptoEconomics, IPLD, Multiformats, and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com?ref=kauri).
 
 ---
 
-### Quick recap from PART-1 
+#### Quick recap from PART-1 
 
 
 Before we explore how to use IPLD for document store based interface, have you read the PART 1 of this series yet? Here's the link to PART 1 in case you want to catch up! 
@@ -27,7 +28,7 @@ Before we explore how to use IPLD for document store based interface, have you r
 
 
 
-### What We Will Learn from PART-2? 🤔 
+#### What We Will Learn from PART-2? 🤔 
 
 
 In PART 2 of the series, we will directly dive into the coding and see how to enhance the functionality to build a document storage (similar to MongoDB and other document databases). 
@@ -41,7 +42,7 @@ Here is final shown down 😎
 ![Final IPLD Document Store in Golang](https://asciinema.org/a/293822.svg)
 
 
-### Changing the Data Structures 🛠 
+#### Changing the Data Structures 🛠 
 
 
 In contrast to PART 1, our data structure will be a structure which will be further mapped by a `string` type key. Each document entry we store is of the following format. This is very similar to how you develop schemas: 
@@ -62,7 +63,7 @@ type SampleStruct struct {
 As shown above, we have defined `SampleStruct`, which defines three fields representing an employee's data record. This means, we can contain each employee's `ID`, `Name` and corresponding `Salary` amount in the structure's instances. 
 
 
-### Changing the Way We Track Entries 🧐 
+#### Changing the Way We Track Entries 🧐 
 
 
 Further, we need to manage this relationship in a mapping by it's own `ID` to facilitate Read or Lookup operations for each employee record. Hence, we update the current mapping as follows: 
@@ -76,7 +77,7 @@ DocStoreMap := make(map[string]SampleStruct)
 
 
 
-### Taking User Input 👨‍💻👩‍💻 
+#### Taking User Input 👨‍💻👩‍💻 
 
 
 Now, we can ask users to enter the values for all the three fields as defined in the `SampleStruct`. Once we have the value for all the three fields (namely `ID`, `Name` and `Salary`), we can initiate an object/instance based on the definition and assign the received values as follows: 
@@ -104,7 +105,7 @@ employeeObject := SampleStruct{ID: inputID, Name: inputName, Salary: inputSalary
 
 
 
-### The Document-Storage Magic 🔮✨ 
+#### The Document-Storage Magic 🔮✨ 
 
 
 Once the object is created and the captured values are assigned, we can map the same object in the mapping by it's own `ID` value. Once the mapping is updated, we can now write it to the Merkle DAG as follows: 
@@ -145,7 +146,7 @@ We have now successfully written the mapping to the IPLD DAG and a CID may be re
 
 
 
-### A Change in Reading DAGs for Entries 
+#### A Change in Reading DAGs for Entries 
 
 
 Now, we must update our code to read the document from the mapping. In contrast to PART 1, the read operation will not be returning a mere single-value. It will be returning the whole JSON document as defined in the schema. Hence, we update the getter function by changing the return type as follows: 
@@ -187,7 +188,7 @@ Once the document is returned, we can parse it as required and print the `Salary
 
 
 
-### Conclusion 
+#### Conclusion 
 
 
 We hope you had fun learning how to enhance the code to support document storage. Go crazy and build your own decentralized document database ! 🤪 
@@ -197,10 +198,10 @@ We hope you had fun learning how to enhance the code to support document storage
 And here is the link to the [**full implementation of the code on GitHub**](https://github.com/0zAND1z/ipld-crud). 
 
 
-## About the Authors: 
+### About the Authors: 
 
 
-### Ganesh Prasad Kumble 
+#### Ganesh Prasad Kumble 
 
 ![Ganesh Prasad Kumble profile pic](https://simpleaswater.com/content/images/2020/01/image-30.png)
 
@@ -221,7 +222,7 @@ He is also the author of the [Hands-on Artificial Intelligence for Blockchain](h
 
 
 
-### Vaibhav Saini 
+#### Vaibhav Saini 
 
 
 Vaibhav Saini is Co-founder of [TowardsBlockchain](https://signy.io?ref=kauri), [Dappkit](https://dappkit.io?ref=kauri) &amp; [SimpleAsWater](https://simpleaswater.com?ref=kauri). You can know more about him [here](https://www.linkedin.com/in/vasadev/). 

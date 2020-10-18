@@ -9,20 +9,21 @@ some_url:
 
 # Listening for Ethereum Transactions with Eventeum
 
+
 In this tutorial we will walk through how to use Eventeum to be notified when certain transactions have been mined within the Ethereum network.
 
-## What is Eventeum?
+### What is Eventeum?
 Eventeum is an Ethereum event listener service that provides a bridge between the Ethereum network and your middleware layer. Eventeum supports both smart contract event and transaction subscriptions.  These subscriptions can be registered dynamically, and when the subscribed event occurs, a message containing the details of the event are broadcast onto a message bus (currently either Kafka, RabbitMQ and Pulsar) which can then be consumed by your backend services.
 
 It was developed by the kauri.io team, and the source code is freely available under the Apache 2.0 license.  Click [here](https://github.com/ConsenSys/eventeum/) to view the github repository.
 
-## Prerequisites
+### Prerequisites
 
 - Maven
 - Docker
 - Metamask with Rinkeby ETH
 
-## Deploying Eventeum
+### Deploying Eventeum
 Out of the box, Eventeum has dependencies on a number of external services, namely Kafka/Zookepper and MongoDB.  The easiest way to get an Eventeum instance running locally right now is to clone the repo from github and run the docker-compose script from the server folder.  This will automatically fire up all the dependant services, and connect to an Infura rinkeby node.
 
 `git clone https://github.com/ConsenSys/eventeum.git`
@@ -31,7 +32,7 @@ Out of the box, Eventeum has dependencies on a number of external services, name
 
 `./docker-compose.sh rinkeby`
 
-## Transaction Subscriptions
+### Transaction Subscriptions
 
 Currently, Eventeum supports three different types of transaction subscription:
 
@@ -44,7 +45,7 @@ A transaction subscription can be registered with Eventeum in one of two ways:
 - _Properties File_ - Transactions that Eventeum should listen for can be configured in the application.yml file of Eventeum.  This only makes sense for long lived subscriptions (from / to address).  Property file configuration will not be covered in this guide, but for more information see the [README](https://github.com/ConsenSys/eventeum/#registering-a-transaction-monitor).
 - _REST API _- Transaction subscriptions can be registered dynamically by sending http requests to a REST endpoint. This is the approach that we will use in this tutorial.
 
-## Registering a To Address Transaction Subscription via REST
+### Registering a To Address Transaction Subscription via REST
 
 By default Eventeum listens on port 8060, and exposes a transaction filter registration endpoint at `/api/rest/v1/api/rest/v1/transaction`.  To subscribe to transactions, as POST request must be sent to this endpoint, with the body defining the transaction specification.
 
@@ -78,7 +79,7 @@ Eventeum should respond with the id of the newly registered transaction subscrip
 {"id":"bde1238c3d6c26919dd95303d54ff064a957471fe03cf7741bdacfbbc5166252"}
 ```
 
-### Testing the Transaction Subscription
+#### Testing the Transaction Subscription
 
 To test that the transaction subscription was successful, we must send a transaction to the `0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2` address on the Rinkeby test network.  To do this we will use Metamask, the popular browser extension.
 
@@ -113,7 +114,7 @@ Sending transaction event message:
 ```
 Notice that the status of the broadcast transaction message is `UNCONFIRMED`.  By default, Eventeum waits for 12 blocks before a transaction is considered confirmed, and safe from block reorganizations caused by chain forks.  Wait for 12 blocks to be mined (you should see blocks being broadcast from Eventeum in the logs), and another transaction message will be broadcast from Eventeum, with the same details, but with a `CONFIRMED` status.  The number of blocks to wait can be configured by changing the `broadcaster.event.confirmation.numBlocksToWait` configuration property (or by setting a `BROADCASTER_EVENT_CONFIRMATION_NUMBLOCKSTOWAIT` environment variable).  If this value is set to 0, then a transaction is considered confirmed as soon as it is initially mined, and there will only be one broadcast message per transaction.
 
-## Transaction Message Format
+### Transaction Message Format
 
 Each transaction is encoded in the following JSON format:
 ```json
@@ -135,7 +136,7 @@ Each transaction is encoded in the following JSON format:
 }
 ```
 
-## Summary
+### Summary
 In a few relatively simple steps, you have started a test Eventeum instance, registered a transaction subscription and triggered that subscription by sending a transaction with Metamask.  Congratulations!!
 
 If you haven't already, it would be worth checking out the other Eventeum articles in this series:

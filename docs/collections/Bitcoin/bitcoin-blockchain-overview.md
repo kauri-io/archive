@@ -9,8 +9,9 @@ some_url:
 
 # Bitcoin Blockchain Overview
 
+
 _This article originally appeared on [bitcoin.org](https://bitcoin.org/en/blockchain-guide)_
-## Introduction
+### Introduction
 
 Each full node in the Bitcoin network independently stores a block chain
 containing only blocks validated by that node. When several nodes all
@@ -68,7 +69,7 @@ For example, in the illustration above, each transaction spends 10,000 satoshis
 fewer than it receives from its combined inputs, effectively paying a 10,000
 satoshi transaction fee.
 
-## Proof Of Work
+### Proof Of Work
 
 The block chain is collaboratively maintained by anonymous peers on the network, so
 Bitcoin requires that each block prove a significant amount of work was invested in
@@ -138,7 +139,7 @@ a block does not slow down hashing with extra I/O, and adding additional
 transaction data only requires the recalculation of the ancestor hashes in
 the merkle tree.
 
-## Block Height And Forking
+### Block Height And Forking
 
 Any Bitcoin miner who successfully hashes a block header to a value
 below the target threshold can add the entire block to the block chain
@@ -178,7 +179,7 @@ Since multiple blocks can have the same height during a block chain fork, block
 height should not be used as a globally unique identifier. Instead, blocks
 are usually referenced by the hash of their header (often with the byte order reversed, and in hexadecimal).
 
-## Transaction Data
+### Transaction Data
 
 Every block must include one or more transactions. The first one of these
 transactions must be a coinbase transaction, also called a generation transaction, which should collect and
@@ -241,7 +242,7 @@ Note: If identical txids are found within the same block, there is a possibility
 Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached;
 otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as CVE-2012-2459.
 
-## Consensus Rule Changes
+### Consensus Rule Changes
 
 To maintain consensus, all full nodes validate blocks using the same
 consensus rules. However, sometimes the consensus rules are changed to
@@ -311,7 +312,7 @@ downgrade was removed. A document from Gavin Andresen outlines [how
 future rule changes may be
 implemented](https://gist.github.com/gavinandresen/2355445).
 
-## Detecting Forks
+### Detecting Forks
 
 Non-upgraded nodes may use and distribute incorrect information during
 both types of forks, creating several situations which could lead to

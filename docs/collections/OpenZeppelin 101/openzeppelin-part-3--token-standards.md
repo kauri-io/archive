@@ -9,27 +9,28 @@ some_url:
 
 # OpenZeppelin Part 3  Token Standards
 
-# Token Standards
+
+## Token Standards
 
 OpenZeppelin has incorporated a series of token contracts to assist with creating and managing them.
 
-## What is a Token?
+### What is a Token?
 
 In Ethereum, tokens are a digital asset that can represent anything. It can be a protocol, physical object, or even cryptocurrency. People use them for a variety of actions such as buying or even voting. A token is a smart contract and a smart contract is a piece of code. To send a token you need to write a contract. Keep in mind that this contract must conform to a set of special standards to be able to interact with other tokens and smart contracts.
 
-## Types of Standards
+### Types of Standards
 
 In this tutorial, we cover the two types of standards that OpenZeppelin has made contracts for. Keep in mind that there are more standards.
 
-### ERC20
+#### ERC20
 
 This standard is the most common for Ethereum tokens to follow. It describes the way tokens are transferred between addresses and how their data is accessed. Every ERC20 token is identical and equal to each other.
 
-### ERC721
+#### ERC721
 
 This standard is for a non-fungible token. Non-fungible means that people cannot interchange these tokens whereas ERC20 tokens can be. ERC721 tokens are all unique and have special standards in relation to how they are managed, owned, and traded.
 
-## OpenZeppelin & ERC20
+### OpenZeppelin & ERC20
 
 OpenZeppelin provides different contracts to assist with creating and interacting with an ERC20 token.
 
@@ -53,7 +54,7 @@ contract ERC20Contract is ERC20-option-you-choose {
 }
 ```
 
-## OpenZeppelin & ERC721
+### OpenZeppelin & ERC721
 
 OpenZeppelin provides contracts for creating and interacting with an ERC721 token.
 
@@ -73,7 +74,7 @@ contract ERC721Contract is ERC721-option-you-choose {
 }
 ```
 
-## Usage
+### Usage
 
 To use any of the features from the token library, import them at the top of your contract. `import "openzeppelin-solidity/contracts/token/chosen standard"`. This allows you to inherit its functions into your contract.
 
@@ -90,7 +91,7 @@ contract ERC721Contract is ERC721Mintable , ERC20Burnable {
 }
 ```
 
-## Next Steps
+### Next Steps
 
 - <https://openzeppelin.org/api/docs/learn-about-tokens.html>
 - <https://beta.kauri.io/article/b282e90cb260459fb8a8cc6e24ae34fa/v1/ethereum-101-part-v-tokenization>

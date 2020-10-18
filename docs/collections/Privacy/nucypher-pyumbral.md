@@ -9,6 +9,7 @@ some_url:
 
 # NuCypher - PyUmbral
 
+
 > pyUmbral is the reference implementation of the [Umbral](https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf) threshold proxy re-encryption scheme. It is open-source, built with Python, and uses [OpenSSL](https://www.openssl.org/) and [Cryptography.io](https://cryptography.io/en/latest/).
 
 _This article is adapted from the [pyUmbral documentation](https://pyumbral.readthedocs.io/en/latest/)_
@@ -17,15 +18,15 @@ Using Umbral, Alice (the data owner) can delegate decryption rights to Bob for a
 
 pyUmbral is the cryptographic engine behind [nucypher](https://github.com/nucypher/nucypher,), a proxy re-encryption network to empower privacy in decentralized systems.
 
-## Installing pyUmbral
+### Installing pyUmbral
 v0.1.3-alpha.1
 
-### Using pip
+#### Using pip
 The easiest way to install pyUmbral is using `pip`:
 ```
 $ pip3 install umbral
 ```
-###Build from source code
+####Build from source code
 
 pyUmbral is maintained on GitHub: [pyUmbral](https://github.com/nucypher/pyUmbral)
 
@@ -47,7 +48,7 @@ $ pipenv install .
 ```
 $ pip3 install .
 ```
-###Install dependencies
+####Install dependencies
 The NuCypher team uses pipenv for managing pyUmbral’s dependencies. The recommended installation procedure is as follows:
 ```
 $ sudo pip3 install pipenv
@@ -62,7 +63,7 @@ $ pipenv run python
 ```
 For more information on pipenv, The official documentation is located here: https://docs.pipenv.org/.
 
-###Development Installation
+####Development Installation
 If you want to participate in developing pyUmbral, you’ll probably want to run the test suite and / or build the documentation, and for that, you must install some additional development requirements.
 ```
 $ pipenv install --dev --three
@@ -72,11 +73,11 @@ To build the documentation locally:
 $ pipenv run make html --directory=docs
 ```
 
-## Using pyUmbral
+### Using pyUmbral
 
 ![](https://api.kauri.io:443/ipfs/QmZ2ijWK12hEgrfyuWD2fcj2gE8mx1q834xbEYHZ4HTtpo)
 
-### Configuration
+#### Configuration
 **Setting the default curve**
 
 The best way to start using pyUmbral is to decide on an elliptic curve to use and set it as your default.
@@ -87,7 +88,7 @@ The best way to start using pyUmbral is to decide on an elliptic curve to use an
 ```
 For more information on curves, see [Choosing and Using Curves](https://pyumbral.readthedocs.io/en/latest/choosing_and_using_curves.html).
 
-###Encryption
+####Encryption
 **Generate an Umbral key pair**
 
 First, let’s generate two asymmetric key pairs for Alice: A delegating key pair and a signing key pair.
@@ -116,7 +117,7 @@ Since data was encrypted with Alice’s public key, Alice can open the capsule a
 >>> cleartext = pre.decrypt(ciphertext=ciphertext, capsule=capsule, decrypting_key=alices_private_key)
 ```
 
-##Threshold Re-encryption
+###Threshold Re-encryption
 
 **Bob Exists**
 
@@ -143,7 +144,7 @@ Alice must specify `N` (the total number of kfrags), and a `threshold` (the mini
 
 Next, let’s generate a key pair for Bob, and pretend to send him the capsule through a side channel like S3, IPFS, Google Cloud, Sneakernet, etc.
 ```
-# Bob receives the capsule through a side-channel: IPFS, Sneakernet, etc.
+## Bob receives the capsule through a side-channel: IPFS, Sneakernet, etc.
 capsule = <fetch the capsule through a side-channel>
 ```
 

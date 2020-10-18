@@ -9,34 +9,35 @@ some_url:
 
 # Sputnik
 
+
 Team Sputnik is pushing the limits of private smart contracts by creating an assembly language and interpreter that performs arbitrary computations and circuits on encrypted data via Fully Homomorphic Encryption. This performs the computations on the GPU for speed and performance, then commits a merkle root of the entire computation for proof of logic flow to the blockchain via Vyper smart contract. - Hugh Lang (ECF)
 
 https://devpost.com/software/sputnik
 
 ![](https://api.beta.kauri.io:443/ipfs/QmdLyJwwyJincntk2jrVRp4TkX9U6ZX69XEqnSH3phTGA7)
 
-### Inspiration
+#### Inspiration
 Apparently, fully homomorphic encryption is impractical? Until now...
 
-### What it does
+#### What it does
 Performs arbitrary computations and circuits on encrypted data via Fully Homomorphic Encryption. This allows for private computations on the blockchain via homomorphic smart contracts.
 
-### How we built it
+#### How we built it
 We're building on top of NuCypher's fully homomorphic encryption library called NuFHE. This performs the computations on the GPU for speed and performance, then commits a merkle root of the entire computation for proof of logic flow to the blockchain via Vyper smart contract.
 
-### Challenges we ran into
+#### Challenges we ran into
 Proving correct circuit validation is an open problem for us. We require a specific zero knowledge proof that needs some research before implementation is ready. Soon...
 
-### Accomplishments that we're proud of
+#### Accomplishments that we're proud of
 We created our own language and we're going to execute the first fully homomorphic smart contract.
 
-### What we learned
+#### What we learned
 Building a language is hard.
 
-### What's next for Sputnik
+#### What's next for Sputnik
 Launch it into orbit...
 
-### Built With
+#### Built With
 
 - python
 - nufhe
@@ -45,7 +46,7 @@ Launch it into orbit...
 - vyper
 - sputnik
 
-### Try it out
+#### Try it out
  [GitHub Repo](https://github.com/nucypher/Sputnik)
 
  [docs.google.com](https://docs.google.com/presentation/d/1haXqjNmm3FZA9OvY9BdW4rVR4h9ZQoCzUmRpmL5oEvg/edit?usp=sharing)

@@ -9,6 +9,7 @@ some_url:
 
 # MythX is Upping the Smart Contract Security Game
 
+
 Ethereum is in a dire situation. No, I’m not talking about the price of ETH. I’m talking about the prevalence of high-profile hacks that are harming trust towards decentralized applications and 
 [providing talking points for Bitcoin maximalists](https://medium.com/@jimmysong/the-truth-about-smart-contracts-ae825271811f)
  and blockchain skeptics. What’s especially frustrating is that most, if not all, of the recent hacks that have impeded the growth of the Ethereum ecosystem could have been prevented.
@@ -28,7 +29,7 @@ The Mythril team and community are attempting to solve this problem. We’re cre
 
 This project has been under wraps for a long time, and I’m super excited to finally write about it. In this article, I’ll give a brief high-level overview of the system. Detailed articles about different aspects of the project will follow.
 
-## Smart Contract Security 2.0
+### Smart Contract Security 2.0
 MythX was developed by the team who built 
 [Mythril](https://github.com/ConsenSys/mythril)
  (now named “Mythril Classic”), a popular smart contract analyzer. With a total of 300,000+ downloads from the official Dockerhub and Pypi repositories, Mythril Classic is widely used by developers and 
@@ -49,7 +50,7 @@ All of this will be packaged into a SaaS solution called
  . The service will be free for casual use, but professional users will require licenses to unlock the full functionality (more on this below).
 Mythril Classic will remain available under a MIT license and we’ll continue maintaining it. Anyone is free to use it however they like, including for commercial purposes.
 
-## MythX Tools Marketplace
+### MythX Tools Marketplace
 Having the best security analysis tech is great. Unfortunately, if it comes in the form of a slow and clunky command line tool, only security enthusiasts will use it. Ethereum devs in the real world don’t have time to mess around with this stuff.
 We can’t possibly account for the individual preferences of every Ethereum developer. Therefore, we’re enabling our community and partners to build a whole ecosystem of security tools on top of our platform. These tools will be available in package managers, app stores, and products everywhere. MythX tool developers will earn a share of the revenue generated through the use of their tools. To make this happen, we’re working closely with partners like 
 [Gitcoin](https://gitcoin.co)
@@ -62,14 +63,14 @@ We’re currently running a closed alpha of the API and the community has alread
 [Discord server](https://discord.gg/kktn8Wt)
  for updates.
 
-## Third-Party Integration
+### Third-Party Integration
 Besides building a tools marketplace, we’re also 
 [signing up partners](https://media.consensys.net/powered-by-mythril-introducing-the-mythril-partner-program-8acbca470503)
  that want to use the MythX stack in their own products and services. For example, MythX technology will be integrated into the 
 [Quantstamp](https://quantstamp.com)
  protocol. By leveraging Quantstamp’s distributed computing infrastructure, we‘ll enable “deep” security verification that wouldn’t be possible on a standalone system.
 
-## Become Active in the Mythril Community
+### Become Active in the Mythril Community
 Whether you have an idea for a MythX tool, have developed a novel analysis technique, or want add value to the project in some other way, now is the best time to get involved.
 The best way to get in contact is to ping the team on 
 [Discord](https://discord.gg/kktn8Wt)

@@ -10,7 +10,8 @@ some_url:
 # Tokens Owning Tokens  ERC998 and Composables
 
 
-### Cryptocomposables
+
+#### Cryptocomposables
 
 We're covering a lot of ERCs in this series, and it can be tough to keep track. To recap, the first two covered: 721 and 1155, are all about creating assets themselves. This one is a bit different, as it's about assets (721 specifically) OWNING other assets (721 or 20). 
 
@@ -24,7 +25,7 @@ After winning a few championships in your awesome trucker hat, someone makes an 
 
 ERC998 is an attempt to standardize the above situation: NFTs owning (or being owned by) other NFTs, or even owning ERC20s and other digital assets. The CryptoKitty example is just one possible case. There are many, many more, for instance treating the combination of NFTs as a new object all together (by combining traits in the metadata).
 
-### EIP998
+#### EIP998
 
 https://github.com/ethereum/EIPs/issues/998
 
@@ -51,7 +52,7 @@ Nick sums this up quite well:
 
 In the case of the CryptoKitties and KittyHat example, the Kitty NFT is the “anchor token” as it is the primary owner of the Hat (and any other items), and thus should control those items. Since the NFT already exists and is a regular ERC721, Bottom Up composable tokens should be used to create children.
 
-### The Implementation
+#### The Implementation
 
 https://github.com/mattlockyer/composables-998
 
@@ -59,7 +60,7 @@ An important note from the maintainers of this implementation:
 
 > A WIP (Work-In-Progress) implementation and documentation repo for the proposed ERC-998 standard extension to ERC-721 on the Ethereum blockchain. The purpose of this repo is to see the theory in action to gather insights and feedback on the proposed ERC-998 standard.
 
-### Bottom Up
+#### Bottom Up
 
 Below are the two main interfaces for the Bottom Up token (ComposableBottomUp.sol)
 
@@ -122,7 +123,7 @@ If the token to be transferred already has a Parent token, you'll use transferFr
 
 And in the case of transferring from one Parent to another Parent, you'll need to pass in both the current Parent token contract address and token ID, and the new Parent token address and ID.
 
-### Top Down
+#### Top Down
 
 The Top Down (ComposableTopDown.sol) composable contract is a bit more complex and flexible than Bottom Up. The most interesting part is that Top Down tokens can own both 721 and 20/223 tokens in this implementation. 
 

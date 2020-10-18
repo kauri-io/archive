@@ -9,6 +9,7 @@ some_url:
 
 # Brave and binance browser scandal
 
+
 ![](https://api.kauri.io:443/ipfs/QmaHUPdtLiXdMpKGiDRjr6HwUgRZCtcd9o5H4gCGmsp2hp)
 
 Brave is a new famous browser which has been downloaded millions of times, this is a open source browser that uses blockchain technology such web3 browser, wallet integration, BAT(Basic Attention Token) and more.

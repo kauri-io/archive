@@ -9,6 +9,7 @@ some_url:
 
 # Pantheon - The Enterprise Ethereum Client
 
+
 Pantheon is a suite of ETH-based services created by PegaSys, and aims to create an ethereum client that develops its enterprise-focused
 features in lock-step with the evolution of the public Ethereum
 blockchain. Pantheon helps enterprises profit from the Ethereum public
@@ -29,22 +30,22 @@ Pantheon provides:
 - A command line interface
 - JSON-RPC API for running, maintaining, debugging, and monitoring node operations in an Ethereum network.
 
-## Installation
+### Installation
 
-### Install on macOS Using Homebrew
+#### Install on macOS Using Homebrew
 
 ```shell
 brew tap pegasyseng/pantheon
 brew install pantheon
 ```
 
-### Install on Windows with Chocolatey
+#### Install on Windows with Chocolatey
 
 ```shell
 choco install pantheon
 ```
 
-### Install from Packaged Binaries
+#### Install from Packaged Binaries
 
 Download the Pantheon [packaged binaries](https://bintray.com/consensys/pegasys-repo/pantheon/_latestVersion#files).
 Unpack the downloaded files and in the unpacked directory run:
@@ -53,7 +54,7 @@ Unpack the downloaded files and in the unpacked directory run:
 bin/pantheon --help
 ```
 
-## Build from source
+### Build from source
 
 Pantheon requires Java 8+ to compile, earlier versions are not
 supported. Pantheon is currently supported only on 64-bit versions of
@@ -93,7 +94,7 @@ cd pantheon-{version}/
 bin/pantheon --help
 ```
 
-## Installation on a VM
+### Installation on a VM
 
 You can run Pantheon on a virtual machine (VM) on a cloud service such
 as AWS or Azure, or locally using a VM manager such as
@@ -113,7 +114,7 @@ It is recommended that you create a VM with the following attributes:
 - Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)
 - (Optional) You can create a shared directory to copy block files or genesis files from the host computer to the VM. For details on how to create a shared directory, see "Share Folders" in [Install Ubuntu on Oracle VirtualBox](https://linus.nci.nih.gov/bdge/installUbuntu.html).
 
-## Next Steps
+### Next Steps
 
 - [The build from source tutorial](https://docs.pantheon.pegasys.tech/en/latest/Installation/Build-From-Source/)
 - [The Private Network Quickstart](https://docs.pantheon.pegasys.tech/en/latest/Tutorials/Private-Network-Quickstart/)

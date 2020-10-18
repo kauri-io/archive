@@ -9,9 +9,10 @@ some_url:
 
 # (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -25,7 +26,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 Pi Hole is a network-wide ad blocker. In a typical home environment, this can cut out almost all ads to all devices in your home, without having to install an ad blocker on every single device. Technically Pi-Hole acts as a DNS sinkhole which filters out unwanted results using a blacklist domains list. Pi-Hole also offers a great admin interface to configure and analyse your network traffic (DNS, DHCP, Black/White list, regex, etc.).
 
@@ -35,7 +36,7 @@ In this new article, we will learn how to deploy Pi-Hole on a Kubernetes self-ho
 
 <br />
 <br />
-## Prerequisite
+### Prerequisite
 
 In order to run entirely the tutorial, we will need:
 
@@ -45,7 +46,7 @@ In order to run entirely the tutorial, we will need:
 
 <br /> 
 <br />
-## Namespace
+### Namespace
 
 We are going to isolate all the Kubernetes objects related to Pi-Hole in the namespace `pihole`.
 
@@ -57,7 +58,7 @@ $ kubectl create namespace pihole
 
 <br />
 <br />
-## Persistence
+### Persistence
 
 The first step consists in setting up a volume to store the Pi-Hole config files and data. If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on `/mnt/ssd`.
 
@@ -73,7 +74,7 @@ The Persistent Volume specify the name, the size, the location and the access mo
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# pihole.persistentvolume.yml
+## pihole.persistentvolume.yml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -114,7 +115,7 @@ The Persistent Volume Claim is used to map a Persistent Volume to a deployment o
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# pihole.persistentvolumeclaim.yml
+## pihole.persistentvolumeclaim.yml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -147,7 +148,7 @@ pihole          Bound    pihole          500Mi      RWO            manual       
 
 <br />
 <br />
-## Deployment
+### Deployment
 
 In the next part, we are now going to deploy Pi-Hole using a modified version open-source Helm chart [pihole-kubernetes](https://github.com/MoJo2600/pihole-kubernetes).
 
@@ -185,7 +186,7 @@ If you open the file, you will see the default configuration values to setup Pi-
 We now need to update a few properties before installing the Helm chart. Open the file `pihole.values.yml` and change the following properties (_replace the information surrounded by <brackets> with your information_).
 
 ```yaml
-# pihole.values.yml
+## pihole.values.yml
 
 (...)
 
@@ -203,7 +204,7 @@ extraEnvVars:
 
 (...)
 
-# Use an existing secret for the admin password.
+## Use an existing secret for the admin password.
 admin:
   existingSecret: "pihole-secret" # Reference to the secret created step 2
   passwordKey: "password"
@@ -215,7 +216,7 @@ The network config might be different if your need to get DHCP working with Pi-h
 a. I can override my router default DNS config
 
 ```yaml
-# pihole.values.yml
+## pihole.values.yml
 
 (...)
 
@@ -235,7 +236,7 @@ b. I can't override my router DNS config and I need to enable DHCP on Pi-Hole (d
 In this case, we are going to use the flag `hostNetwork=true` and `privileged=true` to let the pod use the node network with root privilege which will enable DHCP through network broadcast on port 67 ([more info](https://docs.pi-hole.net/docker/DHCP/)).
 
 ```yaml
-# pihole.values.yml
+## pihole.values.yml
 
 (...)
 
@@ -284,7 +285,7 @@ pihole-udp   ClusterIP   10.43.96.245   <none>        53/UDP,67/UDP           45
 
 <br />
 <br />
-## Ingress
+### Ingress
 
 To access Pi-Hole admin, we are now going to deploy an Ingress, responsible of making accessible a service from outside the cluster by mapping an internal `service:port` to a host. To choose a host, we need to configure a DNS like we did for NextCloud "nextcloud.<domain.com>" in the previous article. However, unlike NextCloud, Pi-Hole have no reason to be exposed on the Internet, we can pick a host that will be resolved internally to our Nginx proxy (available at `192.168.0.240` : LoadBalancer IP). The simplest solution is to use [nip.io](https://nip.io) which allows us to map an IP (in our case `192.168.0.240`) to a hostname without touching `/etc/hosts` or configuring a DNS. Basically it resolves `<anything>.<ip>.nip.io` by `<ip>` without requiring anything else, Magic !
 
@@ -293,7 +294,7 @@ To access Pi-Hole admin, we are now going to deploy an Ingress, responsible of m
 Create the following Ingress config file `pihole.ingress.yml` to map the route `/` to Pi-Hole HTTP service:
 
 ```yaml
-# pihole.ingress.yml
+## pihole.ingress.yml
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -326,7 +327,7 @@ ingress.extensions/pihole-ingress created
 
 <br />
 <br />
-## Result
+### Result
 
 You can now access Pi-Hole via [pihole.192.168.0.240.nip.io/admin](http://pihole.192.168.0.240.nip.io/admin).
 

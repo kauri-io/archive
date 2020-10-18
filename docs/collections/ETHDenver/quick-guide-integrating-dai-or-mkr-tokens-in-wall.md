@@ -9,20 +9,21 @@ some_url:
 
 # Quick guide - Integrating DAI or MKR tokens in wallets
 
-# **Github page: [https://github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.md](https://github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.md)**
+
+## **Github page: [https://github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.md](https://github.com/makerdao/developerguides/blob/master/wallets/wallets-guide-01/wallets-guide-01.md)**
 
 
-# **Quick guide - Integrating DAI or MKR tokens in wallets**
+## **Quick guide - Integrating DAI or MKR tokens in wallets**
 
 This document contains the necessary resources to integrate the DAI and MKR ERC-20 tokens into a wallet.
 
 
-## **Prerequisites**
+### **Prerequisites**
 
 This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the [Maker platform](https://www.makerdao.com/).
 
 
-## **Token contracts**
+### **Token contracts**
 
 In order to interact directly with the tokens, you can find the Ethereum mainnet smart contract addresses, source code, and ABIs in the links below. The tokens follow the [ERC20 token standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md), and thus should be interoperable with contracts that implement this standard interface.
 
@@ -56,7 +57,7 @@ When listing Dai or Maker tokens on exchanges or in wallets, you should use the 
 A style guide and additional logos can [be found here](https://github.com/makerdao/Overview-of-MakerDAO-design#style-guide).
 
 
-## **Token libraries**
+### **Token libraries**
 
 **Javascript Library**
 
@@ -67,7 +68,7 @@ A style guide and additional logos can [be found here](https://github.com/makerd
 Similarly to the library above, the [Python API](https://github.com/makerdao/pymaker) provides endpoints to interact with the smart contracts in a Python environment, such as [endpoints for token transfers](https://github.com/makerdao/pymaker#token-transfer).
 
 
-## **Additional source code and developer docs**
+### **Additional source code and developer docs**
 
 **DSToken (token standard for Maker tokens)**
 
@@ -104,6 +105,6 @@ Similarly to the library above, the [Python API](https://github.com/makerdao/pym
 *   [Dai Credit System Whitepaper](https://makerdao.com/whitepaper/)
 
 
-## **Need help?**
+### **Need help?**
 
 Contact integrate@makerdao.com or #dev channel on [chat.makerdao.com](https://chat.makerdao.com/)

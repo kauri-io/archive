@@ -9,17 +9,18 @@ some_url:
 
 # OpenZeppelin Part 1  Introductory
 
-# Introductory To OpenZeppelin
 
-## What Is OpenZeppelin?
+## Introductory To OpenZeppelin
+
+### What Is OpenZeppelin?
 
 OpenZeppelin is a library of reusable smart contracts to use with Ethereum and other EVM and eWASM blockchains. The contracts focus on secure and simple open source code. They are continuously tested and community reviewed to ensure they follow the best industry standards and security practices. As a developer it's difficult to create any piece of code from scratch; especially a contract. Through the use of OpenZeppelin's inheritable contracts, you have a base to start from and build complex features with little to, or no effort.
 
-## OpenZeppelin vs ZeppelinOS
+### OpenZeppelin vs ZeppelinOS
 
 Zeppelin solutions provides two different frameworks that are often confused to be the same thing. [OpenZeppelin](https://openzeppelin.org) is a series of open source contracts to inherit into your code. In contrast, [ZeppelinOS](https://zeppelinos.org) is a platform of utilities to securely manage your smart contracts. Ideally you use them together. In this tutorial series, we focus on OpenZeppelin.
 
-## Types of Contracts
+### Types of Contracts
 
 OpenZeppelin has a variety of contracts to meet your needs divided into the following categories:
 
@@ -37,7 +38,7 @@ OpenZeppelin has a variety of contracts to meet your needs divided into the foll
 
 You inherit or combine OpenZeppelin contracts with your own contracts, serving as a base for you to build from. Later in the series, we will explore the uses of each of these contracts.
 
-## How To Download
+### How To Download
 
 To begin, you need to have [Node.js](https://nodejs.org/en/download/) and [Truffle](https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts) installed on your machine. To work with OpenZeppelin you should be familiar with Solidity, the programming language for smart contracts. The ["Remix IDE - Your first smart contract"](https://kauri.io/article/124b7db1d0cf4f47b414f8b13c9d66e2/v6/remix-ide-your-first-smart-contract) article is a good place to start.
 
@@ -64,7 +65,7 @@ To use the library, add an import statement at the beginning of the contract spe
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 ```
 
-## Conclusion
+### Conclusion
 
 OpenZeppelin allows you to write more complex and secure contracts using their variety of base contracts. Less time spent building the foundation and more time to optimize details.
 

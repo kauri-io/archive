@@ -11,16 +11,17 @@ some_url:
 
 
 
-# Project Name
+
+## Project Name
 BuffiOS
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 Native xDai-based lending platform, with user-friendly wallet, cross-application coordination with marketplaces and p2p lending functionality for micro-loans
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Alina Aseeva, Alexander Seleznev, Petr Korolev, Anton Grigorev
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 Code for Alina Aseeva (Gloomy Disguised Burro): 0x042da81026c2bf121e6b6897c097fb3473e6dd1ea120e7d8f6c4c5b733b4677c116b9497de4a6441f57cc1a7828bb34de3d1143094484b05740936e209dc3ff383
 
@@ -32,21 +33,21 @@ Code for Petr Korolev (skywinder): 0x04f650f149b442360a4ef325602b3d082b18f22f35b
 Code for Anton Grigoriev
 0x04b30c47f44cda4c379f1e1b55b72c6a76f04fa4969a94f8ab5ffe4d91a0495af6c3aaa10fd4fa59ea7e15ed5fc59c32227a6073402e557fedce0df269a64d2c2f
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 We built a native xDai-based lending platform with user-friendly wallet, cross-application coordination (via deep links) to provide p2p micro-loans to users willing to buy goods in various marketplaces with borrowed xDai or lend xDai to their peers earning interest on the deposit of funds on our platform. Our model use case: if I have spent all my buffiDai coins on food already but still hungry, it allows me to borrow 10 buffiDai coins from another ETH Denver participant, who still has them, and return it as 11 buffiDai coins exactly one year later on ETH Denver 2020.
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 Web3swift, Solidity, Smart-contracts, Dapp, Ethereum, Wallet, Deep-links
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 POA Network Bounty 1, Maker DAO Bounty 2
 
 
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/BaldyAsh/ETHDenver-BuffiOS
 
 

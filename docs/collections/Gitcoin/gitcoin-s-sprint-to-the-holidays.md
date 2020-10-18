@@ -10,12 +10,13 @@ some_url:
 # Gitcoin’s Sprint To The Holidays
 
 
+
 The Gitcoin team has been hard at work throughout the summer and fall growing open source. As we transition into winter, we’ll look back at what we accomplished in Q3 while looking forward to the holiday season.
 
 Our Q4 plans include an extension of our Q3 goals — **staying the course + stepping up our infrastructure**  _—_ while meeting our communities in a variety of locations. And — per usual — we’ll have a few holiday surprises for the community. 😉
 First, let’s review what happened the last three months.
 
-## The Summer In Review
+### The Summer In Review
 In our last quarterly update, we brought three objectives to the table for Q3.
 
  *  **Scale Our Platform & Community 🚀** 
@@ -26,7 +27,7 @@ In our last quarterly update, we brought three objectives to the table for Q3.
 
 Here’s how we did.
 
-### Scale Our Platform & Community 🚀
+#### Scale Our Platform & Community 🚀
 As we continue to expand into broader areas of open source, we had clear goals to grow the platform from ~$150K in work at the end of June.
 
  * Grow the platform $500k in active work ( **Actual: $361K;**  _$205K in Q3_ )

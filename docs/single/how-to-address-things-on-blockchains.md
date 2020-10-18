@@ -10,6 +10,7 @@ some_url:
 # How to address things on blockchains
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd)
 
 Generally, 
@@ -38,7 +39,7 @@ Here are some of the challenges:
  * How to deal with upcoming concepts like storage rent?
 Let’s go on a quick journey that will lead us to a working approach.
 
-## Today’s solution
+### Today’s solution
 Let’s take an interesting ERC-20 compatible token, the DAI stable coin, as an example and build and address schema for it.
 
 
@@ -64,7 +65,7 @@ This is basically what is done today. You select the name of the blockchain in a
 
 **It works today, because ambiguity is still limited. In a multi-chain, multi-fork ecosystem, this won’t be the case.**
 
-## The challenge
+### The challenge
 Darn! Ethereum and Bitcoin have already forked several times! Even though only one alternative Ethereum history has been long term sustainable (Ethereum Classic), there may and likely will be others in future. If I say: pay 5 ETH to my address 0x… on "Ethereum" — can you be sure to what fork it should go?
 Ethereum has concepts to separate different Ethereum based chains: 
 [chain IDs](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md)
@@ -88,7 +89,7 @@ This is a bit better — but there are some new problems which lead us to discar
 
  * A contentious fork cannot be forced to change/not change these IDs.
 
-### Hash based addressing
+#### Hash based addressing
 So we need a more universal solution.
 Ethereum mainnet is a blockchain that started on July 30th, 2015 with the block number _0_ and block hash _0xd4e5...8fa3_ .
 The 
@@ -107,7 +108,7 @@ Variant #3 states:
 > I’m addressing an Ethereum blockchain that contains a block with the hash 0x91b3...1aa8. On that blockchain I specifically refer to the contract with the address 0x89d2...0359.
 
 
-### The annoying phenomenon of forks
+#### The annoying phenomenon of forks
 
 ![](https://api.kauri.io:443/ipfs/QmemJWEq8wVcrj4nczn19tXzjh1NmMaE81WmmPxtpLUuLa)
 
@@ -131,7 +132,7 @@ This variant #4 ensures that only a blockchain is addressed that contains a hash
 _recent-block-hash_
  parameter must be as up to date as possible (but as final as necessary) to minimize the ambiguity risk.
 
-### Resolving addresses
+#### Resolving addresses
 The above schemes 3 & 4 lead to addresses consisting of multiple hashes, each 256 byte long (on Ethereum). Unfortunately, these hashes don’t contain any information to help identify the blockchain fork actually containing them.
 One way to solve this is a resolve service. It can be done by centralized provider like 
 [ITSA](http://itsa.global)
@@ -139,7 +140,7 @@ One way to solve this is a resolve service. It can be done by centralized provid
 The resolve service becomes more efficient by adding the first block hash of a chain to the address. This reduces the search space to forks of the blockchain with that 
 [genesis block](https://ethon.consensys.net/class-genesisblock.html) .
 
-## Fork-resistant addresses
+### Fork-resistant addresses
 We have reduced the problem to finding the earliest block hash on a chain, the latest known block hash on that chain which is believed to be final and an identifier, e.g. a transaction hash or a smart contract address. The age of the latest hash is a parameter to the fork risk of the address.
 
 
@@ -173,7 +174,7 @@ _addressOf(contract A)
 _ must exist in that chain’s history.
 However, the purple chain may fork again some time in the future and could make the address ambiguous, again.
 
-## Using the address
+### Using the address
 Say you have received an address for a blockchain asset and have successfully resolved it to a debt token contract (e.g. an ACTUS Principal at Maturity contract or a Dharma debt token) on mainnet Ethereum, using an IPFS or 
 [ITIN](https://itsa.global/what-we-do/#ITIN)
  based resolver.
@@ -187,7 +188,7 @@ In order to buy a share of that contract you will have to actually interact with
 
  * In case the newest hash in the address is older than a certain threshold time it will warn the user to check for forks
 
-## Conclusion
+### Conclusion
 Addressing on blockchains is far from solved. None of the approaches known to me are satisfactory, yet. If we don’t solve this properly, there could be instances of “blockchain fishing” in the future — a new branch of scams that impersonates a whole chain.
 To deal with this proactively, we need to raise awareness and cooperate on solutions. We look forward to and are actively supporting standardization efforts such as ITSA and 
 [multiaddr](https://multiformats.io/multiaddr/) .
@@ -197,7 +198,7 @@ In this article we looked at addressing blockchains and accounting for forks. In
 **[Subscribe to the at par blog](https://medium.com/at-par) to be notified.**
  
 
-### Disclaimer
+#### Disclaimer
 The author is affiliated with 
 _ConsenSys AG_
  and 

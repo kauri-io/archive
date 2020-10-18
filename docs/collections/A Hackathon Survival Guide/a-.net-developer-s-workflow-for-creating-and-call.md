@@ -9,6 +9,7 @@ some_url:
 
 # A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts
 
+
 There are 
 [many great tools](https://github.com/ConsenSys/ethereum-developer-tools-list#developer-tools)
  available to create Ethereum Smart Contracts. It can be hard to choose between them. In this article, you will learn a simple workflow for developing Solidity smart contracts and calling their functions from C#. This workflow is well suited to .NET developers because it minimises the amount of new tools you need to know about. By using the excellent 
@@ -21,7 +22,7 @@ Imagine your goal is to take the contract called
 
 **Update Nov 2019:** This workflow is well suited to situations where smart contracts are changing often (perhaps because you are developing them). When smart contracts are changing less often (perhaps because smart contracts are developed by another team) I have found I prefer the workflow detailed in section **Alternative Workflow with VSCode** at the end of this article. This is because like being able to explicitly control when regeneration happens. Both workflows use the same Nethereum code generation..
 
-## Workflow Overview
+### Workflow Overview
 There are many possible workflows to achieve your goal, and as new versions of tools and plugins are released other options will appear. At the time of writing this workflow was found to be simple and quick:
 
 ![](https://api.kauri.io:443/ipfs/QmTa6xnWda1zJj23HwPhyytQ1vEHhDLvzuJZJZZEDGiiyM)
@@ -41,9 +42,9 @@ In this article the term
 `method`
  refers to a C# method.
 
-## Initial Setup
+### Initial Setup
 
-### Create Project
+#### Create Project
 In a command prompt, you will create a new .NET core console project that you’ll use to hold all your files:
 
 ```
@@ -57,7 +58,7 @@ dotnet add package Nethereum.Autogen.ContractApi
 
 
 
-### Prepare Visual Studio Code
+#### Prepare Visual Studio Code
 
 
 
@@ -101,9 +102,9 @@ The contract is from the
 `get()`
  functions. Now you are ready to begin the main developer workflow. The steps below correspond to the numbers on the diagram above.
 
-## Main Developer Workflow
+### Main Developer Workflow
 
-### Step 1 — Compile Smart Contract in Visual Studio Code
+#### Step 1 — Compile Smart Contract in Visual Studio Code
 In Visual Studio Code, press Shift-Ctrl-P and choose “Solidity: Compile Current Solidity Contract” or press F5. You should see some new files appearing in the 
 `SimpleStorage\bin`
  folder, most importantly 
@@ -112,7 +113,7 @@ In Visual Studio Code, press Shift-Ctrl-P and choose “Solidity: Compile Curren
 `SimpleStorage.bin`
  .
 
-### Step 2 — Rebuild the C# Project in Visual Studio
+#### Step 2 — Rebuild the C# Project in Visual Studio
 Open the solution 
 `DevWorkflowExample.sln`
  in Visual Studio (not Visual Studio Code).
@@ -142,7 +143,7 @@ Notice the C# method naming is different for the
 `get()`
  function doesn't change any values on the blockchain, so it is a simple call and is free (no transaction and no receipt).
 
-### Step 3 — Call Smart Contract functions from C# in Visual Studio
+#### Step 3 — Call Smart Contract functions from C# in Visual Studio
 Now you can call functions from your smart contract in the .NET core console program, by making calls to the generated C# classes mentioned in the previous section. For example, paste the code below into `Program.cs`, replacing everything that is currently there.
 
 ```csharp
@@ -210,7 +211,7 @@ namespace SimpleStorage
 Build the project.
 The workflow is done! You can now make further edits to the smart contract in Visual Studio Code, compile it there, and simply rebuild the project in Visual Studio to be able to make C# calls to the amended Solidity functions.
 
-## Program Execution
+### Program Execution
 Of course, you’d like to check that the program runs successfully. For the project to run, it needs to speak to a blockchain and here you do need a new tool. A good option during development is to run a local blockchain as described here: 
 [https://github.com/Nethereum/TestChains#geth](https://github.com/Nethereum/TestChains#geth)
  .
@@ -234,7 +235,7 @@ Finished
 
 
 
-## Where to go from here
+### Where to go from here
 The next step in your development process would probably be to add some tests for your Solidity contract. Does this mean you absolutely have to go off and learn Truffle or some other tooling? The answer is no, you don’t. There is an 
 [example here](https://github.com/Nethereum/Nethereum/tree/master/src/Nethereum.Contracts.IntegrationTests)
  of using XUnit test fixtures to launch a local chain before running tests to deploy contracts and call functions.
@@ -242,11 +243,11 @@ Note, you don’t have to use the generated
 `SimpleStorageService`
  class to call your smart contract's functions. At the very least, though, it is instructive to see how the calls work in the generated code.
 
-## Alternative Workflow with VSCode
+### Alternative Workflow with VSCode
 **Update Nov 2019:** As mentioned, the workflow detailed above I have found useful when the smart contracts are changing often and you want the C# classes to reflect these changes often. This suited the case where I was developing smart contracts and the C# at the same time.
 In cases where the smart contracts are stable (e.g. you have been sent ABI and bytecode by another development team) I have found I prefer to explicitly control when regeneration happens. This can be done by using VSCode not just to write the smart contracts but also to generate the necessary C# code. The workflow is well explained [over on the Nethereum documentation site](https://docs.nethereum.com/en/latest/nethereum-codegen-vscodesolidity/).
 
-## Credits
+### Credits
 Thanks to 
 [Vijay055](https://github.com/vijay055)
  from the 

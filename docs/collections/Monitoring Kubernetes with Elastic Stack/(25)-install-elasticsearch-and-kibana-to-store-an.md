@@ -10,7 +10,8 @@ some_url:
 # (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data
 
 
-## ElasticSearch cluster
+
+### ElasticSearch cluster
 
 As explained in the introduction of this article, to setup a monitoring stack with the Elastic technologies, we first need to deploy **ElasticSearch** that will act as a Database to store all the data (metrics, logs and traces). The database will be composed of three scalable nodes connected together into a Cluster as recommended for production.
 
@@ -19,14 +20,14 @@ Moreover, we will enable the authentication to make the stack more secure to pot
 
 <br />
 
-### 1. Setup the ElasticSearch `master` node
+#### 1. Setup the ElasticSearch `master` node
 
 The first node of the cluster we're going to setup is the master which is responsible of controlling the cluster.
 
 The first k8s object we need is a `ConfigMap` which describes a YAML file containing all the necessary settings to configure the ElasticSearch master node into the cluster and enable security.
 
 ```yaml
-# elasticsearch-master.configmap.yaml
+## elasticsearch-master.configmap.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -58,7 +59,7 @@ data:
 Secondly, we will deploy a `Service` which defines a network access to a set of pods. In the case of the master node, we only need to communicate through the port `9300` used for cluster communication.
 
 ```yaml
-# elasticsearch-master.service.yaml
+## elasticsearch-master.service.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -81,7 +82,7 @@ spec:
 Finally, the last part is a `Deployment` which describes the running service (docker image, number of replicas, environment variables and volumes).
 
 ```yaml
-# elasticsearch-master.deployment.yaml
+## elasticsearch-master.deployment.yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -163,14 +164,14 @@ elasticsearch-master-6f8c975f9-8gdpb   1/1     Running   0          4m18s
 <br />
 
 
-### 2. Setup the ElasticSearch `data` node
+#### 2. Setup the ElasticSearch `data` node
 
 The second node of the cluster we're going to setup is the data which is responsible of hosting the data and executing the queries (CRUD, search, aggregation).
 
 Like the master node, we need a `ConfigMap` to configure our node which looks similar to the master node but differs a little bit (see `node.data: true`)
 
 ```yaml
-# elasticsearch-data.configmap.yaml
+## elasticsearch-data.configmap.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -202,7 +203,7 @@ data:
 The `Service` only exposes the port `9300` for communicating with the other members of the cluster.
 
 ```yaml
-# elasticsearch-data.service.yaml
+## elasticsearch-data.service.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -225,7 +226,7 @@ spec:
 And finally the `ReplicaSet` is similar to the deployment but involves storage, you can identify a `volumeClaimTemplates` at the bottom of the file to create a persistent volume of 50GB.
 
 ```yaml
-# elasticsearch-data.replicaset.yaml
+## elasticsearch-data.replicaset.yaml
 ---
 apiVersion: apps/v1beta1
 kind: StatefulSet
@@ -313,14 +314,14 @@ elasticsearch-master-9455d4865-42h45   1/1     Running   0          3m
 <br />
 
 
-### 3. Setup the ElasticSearch `client` node
+#### 3. Setup the ElasticSearch `client` node
 
 The last but not least node of the cluster is the client which is responsible of exposing an HTTP interface and pass queries to the data node.
 
 The `ConfigMap` is again very similar to the master node:
 
 ```yaml
-# elasticsearch-client.configmap.yaml
+## elasticsearch-client.configmap.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -352,7 +353,7 @@ data:
 The client node exposes two ports, `9300` to communicate with the other nodes of the cluster and `9200` for the HTTP API.
 
 ```yaml
-# elasticsearch-client.service.yaml
+## elasticsearch-client.service.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -377,7 +378,7 @@ spec:
 The `Deployment` which describes the container for the client node:
 
 ```yaml
-# elasticsearch-client.deployment.yaml
+## elasticsearch-client.deployment.yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -482,7 +483,7 @@ $ kubectl logs -f -n monitoring \
 
 <br />
 
-### 4. Generate a password and store in a k8s secret
+#### 4. Generate a password and store in a k8s secret
 
 We enabled the xpack security module to secure our cluster, so we need to initialise the passwords. Execute the following command which runs the program `bin/elasticsearch-setup-passwords` within the `client` node container (any node would work) to generate default users and passwords.
 
@@ -523,14 +524,14 @@ $ kubectl create secret generic elasticsearch-pw-elastic \
 <br />
 
 
-## Kibana
+### Kibana
 
 The second part of the article consists in deploying **Kibana**, the data visialization plugin for ElasticSearch which offers functionalities to manage an ElasticSeach cluster and visualise all the data.
 
 In terms of setup in k8s, this is very similar to ElasticSearch, we first use `ConfigMap` to provide a config file to our deployment with all the required properties. This particularly includes the access to ElasticSearch (host, username and password) which are configured as environment variables.
 
 ```yaml
-# kibana.configmap.yaml
+## kibana.configmap.yaml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -553,7 +554,7 @@ data:
 The `Service` exposes Kibana default port `5601` to the environment and use `NodePort` to also expose a port directly on the static node IP so we can access it externally.
 
 ```yaml
-# kibana.service.yaml
+## kibana.service.yaml
 ---
 apiVersion: v1
 kind: Service
@@ -575,7 +576,7 @@ spec:
 Finally, the `Deployment` part describes the container, the environment variables and volumes. For the env var `ELASTICSEARCH_PASSWORD`, we use `secretKeyRef` to read the password from the secret.
 
 ```yaml
-# kibana.deployment.yaml
+## kibana.deployment.yaml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -686,7 +687,7 @@ In conclusion, we now have a ready-to-use **ElasticSearch + Kibana** stack which
 <br />
 <br />
 
-## Next steps
+### Next steps
 
 In the following article, we will learn how to install and configure Metricbeat:
 [Collect metrics with Elastic Metricbeat for monitoring Kubernetes](https://kauri.io/article/935f4e17a10243139b41546780f43c42)

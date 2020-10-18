@@ -10,10 +10,11 @@ some_url:
 # Why Beam is Sound Money
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmPnCEie99sQuB4iRDL77rUAJCCJj39faSZt9T2UKmVDGZ)
 
 
-## What is Sound Money?
+### What is Sound Money?
 
 ![](https://api.kauri.io:443/ipfs/QmSKSB1T1S9PxSUmvXakAAYVBFyouhphtTgHJwzgg4xZmT)
 
@@ -27,7 +28,7 @@ some_url:
 **confidence and stability**
  .
 
-## What Philosophers had to say
+### What Philosophers had to say
 
 ![](https://api.kauri.io:443/ipfs/QmbDVNcpSdVFXnra1b6EHkarw8aN2CDLQ4rCrpH6iHyShP)
 
@@ -76,7 +77,7 @@ Over the subsequent centuries, the influence of Aristotle on philosophy was over
 **recommended a plan of establishing a sound currency based on gold**
  .
 
-## When was our money sound?
+### When was our money sound?
 
 ![](https://api.kauri.io:443/ipfs/QmT4C6EXvB9n9UJzderzcfQbk1TxackADmrcPrm3TGxdRA)
 
@@ -91,7 +92,7 @@ However, in the early 20th century
 **t became tied to a single national currency that became the de-facto floating standard**
  . This was the genesis of a fundamental change in the basis of value and currency standards worldwide and forevermore.]
 
-## The Crypto Age
+### The Crypto Age
 
 ![](https://api.kauri.io:443/ipfs/QmcFxtWjXFHZdtPdVXb8zctoVcrDSSZZgVmj5hNgJ2dqdB)
 
@@ -110,7 +111,7 @@ Fast forward to
 [excellent article](https://dailyreckoning.com/the-trickiest-characteristic-of-sound-money/)
  by Joe Bowman contains a good discussion on that).
 
-## Something is still missing
+### Something is still missing
 
 ![](https://api.kauri.io:443/ipfs/QmW7qEvM8JnvZ3aEUoA94gBVswbyVuEWy85NJJmTDPa2QK)
 
@@ -130,7 +131,7 @@ We believe, however, that there is one more fundamental characteristics of sound
 **While excelling in portability, durability, divisibility, and scarcity, Bitcoin and most other cryptos severely lack in confidentiality.**
  
 
-## Why Beam is Sound Money
+### Why Beam is Sound Money
  
 **Beam delivers on the four “classic” properties of sound money and on confidentiality:**
  
@@ -166,7 +167,7 @@ The answer is as follows:
  . Neither source nor destination nor the amount is visible on the blockchain. To even further improve confidentiality and mitigate network monitoring attacks, 
 **Beam implemented** [Dandelion](https://medium.com/beam-mw/about-dandelion-and-mimblewimble-e083597e0355) **with stem-stage transaction merging.**
  
-## Conclusion
+### Conclusion
  
 **We reviewed the key properties of what is defined as Sound Money and introduced Confidentiality as a new property**
  . We showed that 

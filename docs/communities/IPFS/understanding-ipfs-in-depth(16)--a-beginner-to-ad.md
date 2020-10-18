@@ -14,6 +14,7 @@ some_url:
 
 
 
+
 This post marks the first in a new “Understanding IPFS in Depth” series which will help anybody to understand the underlying concepts of IPFS. We will keep the series as fun and engaging as possible 😊 
 
 
@@ -52,7 +53,7 @@ I hope you learn a lot about IPFS from this series. Let’s start!
 
 ---
 
-## A Complete Guide Including IPLD, Libp2p, MultiFormats &amp; Filecoin 
+### A Complete Guide Including IPLD, Libp2p, MultiFormats &amp; Filecoin 
 
 When you ask someone about the latest Avenger’s movie, they probably aren’t going to say something like “the one on this server, at this sub-domain, under this file path, slash Marvel dash Avengers dot mp4”. Instead, they’re probably going to describe the content of the video: “the one in which half of the universe is destroyed by Thanos…”. This is obviously an intuitive way to think about content for humans but is generally NOT how we access content on the web today. Having said that, decentralized protocols such as IPFS actually do use this type of content addressing (labeling and finding content using the content of the file) to find content on the decentralized web. In this article, we’ll explore a little bit how this whole process works, what are the different components involved and how they work together. We will do this by adding a file to IPFS and then exploring what happens when we add a file to IPFS. 
 

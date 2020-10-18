@@ -10,6 +10,7 @@ some_url:
 # How to generate your very own Bitcoin private key
 
 
+
 ----
 
 
@@ -18,7 +19,7 @@ some_url:
 In cryptocurrencies, a private key allows a user to gain access to their wallet. The person who holds the private key fully controls the coins in that wallet. For this reason, you should keep it secret. And if you really want to generate the key yourself, it makes sense to generate it in a secure way.
 Here, I will provide an introduction to private keys and show you how you can generate your own key using various cryptographic functions. I will provide a description of the algorithm and the code in Python.
 
-## Do I need to generate a private key?
+### Do I need to generate a private key?
 Most of the time you don’t. For example, if you use a web wallet like Coinbase or Blockchain.info, they create and manage the private key for you. It’s the same for exchanges.
 Mobile and desktop wallets usually also generate a private key for you, although they might have the option to create a wallet from your own private key.
 So why generate it anyway? Here are the reasons that I have:
@@ -29,7 +30,7 @@ So why generate it anyway? Here are the reasons that I have:
 
  * You just want to learn more about cryptography and random number generation (RNG)
 
-## What exactly is a private key?
+### What exactly is a private key?
 Formally, a private key for Bitcoin (and many other cryptocurrencies) is a series of 32 bytes. Now, there are many ways to record these bytes. It can be a string of 256 ones and zeros (32 * 8 = 256) or 100 dice rolls. It can be a binary string, Base64 string, a 
 [WIF key](https://en.bitcoin.it/wiki/Wallet_import_format)
  , 
@@ -48,17 +49,17 @@ There is an additional requirement for the private key. Because we use ECDSA, th
 `FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141`
  , which is pretty big: almost any 32-byte number will be smaller than it.
 
-## Naive method
+### Naive method
 So, how do we generate a 32-byte integer? The first thing that comes to mind is to just use an RNG library in your language of choice. Python even provides a cute way of generating just enough bits:
 
 ```
 import random
 bits = random.getrandbits(256)
-# 30848827712021293731208415302456569301499384654877289245795786476741155372082
+## 30848827712021293731208415302456569301499384654877289245795786476741155372082
 bits_hex = hex(bits)
-# 0x4433d156e8c53bf5b50af07aa95a29436f29a94e0ccc5d58df8e57bdc8583c32
+## 0x4433d156e8c53bf5b50af07aa95a29436f29a94e0ccc5d58df8e57bdc8583c32
 private_key = bits_hex[2:]
-# 4433d156e8c53bf5b50af07aa95a29436f29a94e0ccc5d58df8e57bdc8583c32
+## 4433d156e8c53bf5b50af07aa95a29436f29a94e0ccc5d58df8e57bdc8583c32
 ```
 
 
@@ -66,7 +67,7 @@ Looks good, but actually, it’s not. You see, normal RNG libraries are not inte
 When you generate a private key, you want to be extremely secure. Remember, if anyone learns the private key, they can easily steal all the coins from the corresponding wallet, and you have no chance of ever getting them back.
 So let’s try to do it more securely.
 
-## Cryptographically strong RNG
+### Cryptographically strong RNG
 Along with a standard RNG method, programming languages usually provide a RNG specifically designed for cryptographic operations. This method is usually much more secure, because it draws entropy straight from the operating system. The result of such RNG is much harder to reproduce. You can’t do it by knowing the time of generation or having the seed, because there is no seed. Well, at least the user doesn’t enter a seed — rather, it’s created by the program.
 In Python, cryptographically strong RNG is implemented in the 
 `secrets`
@@ -75,17 +76,17 @@ In Python, cryptographically strong RNG is implemented in the
 ```
 import secrets
 bits = secrets.randbits(256)
-# 46518555179467323509970270980993648640987722172281263586388328188640792550961
+## 46518555179467323509970270980993648640987722172281263586388328188640792550961
 bits_hex = hex(bits)
-# 0x66d891b5ed7f51e5044be6a7ebe4e2eae32b960f5aa0883f7cc0ce4fd6921e31
+## 0x66d891b5ed7f51e5044be6a7ebe4e2eae32b960f5aa0883f7cc0ce4fd6921e31
 private_key = bits_hex[2:]
-# 66d891b5ed7f51e5044be6a7ebe4e2eae32b960f5aa0883f7cc0ce4fd6921e31
+## 66d891b5ed7f51e5044be6a7ebe4e2eae32b960f5aa0883f7cc0ce4fd6921e31
 ```
 
 
 That is amazing. I bet you wouldn’t be able to reproduce this, even with access to my PC. But can we go deeper?
 
-## Specialized sites
+### Specialized sites
 There are sites that generate random numbers for you. We will consider just two here. One is 
 [random.org](https://random.org)
  , a well-known general purpose random number generator. Another one is 
@@ -116,7 +117,7 @@ Are you interested to see how
 > Quick note: bitaddress.org gives you the private key in a compressed WIF format, which is close to the WIF format that we discussed before. For our purposes, we will make the algorithm return a hex string so that we can use it later for a public key generation.
  
 
-## Bitaddress: the specifics
+### Bitaddress: the specifics
 Bitaddress creates the entropy in two forms: by mouse movement and by key pressure. We’ll talk about both, but we’ll focus on the key presses, as it’s hard to implement mouse tracking in the Python lib. We’ll expect the end user to type buttons until we have enough entropy, and then we’ll generate a key.
 Bitaddress does three things. It initializes byte array, trying to get as much entropy as possible from your computer, it fills the array with the user input, and then it generates a private key.
 Bitaddress uses the 256-byte array to store entropy. This array is rewritten in cycles, so when the array is filled for the first time, the pointer goes to zero, and the process of filling starts again.
@@ -132,14 +133,14 @@ This is all an oversimplification of how the program works, but I hope that you 
  .
 > 
 
-## Doing it yourself
+### Doing it yourself
 For our purposes, we’ll build a simpler version of bitaddress. First, we won’t collect data about the user’s machine and location. Second, we will input entropy only via text, as it’s quite challenging to continually receive mouse position with a Python script (check 
 [PyAutoGUI](https://github.com/asweigart/pyautogui)
  if you want to do that).
 
 That brings us to the formal specification of our generator library. First, it will initialize a byte array with cryptographic RNG, then it will fill the timestamp, and finally it will fill the user-created string. After the seed pool is filled, the library will let the developer create a key. Actually, they will be able to create as many private keys as they want, all secured by the collected entropy.
 
-### Initializing the pool
+#### Initializing the pool
 Here we put some bytes from cryptographic RNG and a timestamp. 
 `__seed_int`
  and 
@@ -179,7 +180,7 @@ def __seed_byte(self, n):
 
 
 
-### Seeding with input
+#### Seeding with input
 Here we first put a timestamp and then the input string, character by character.
 
 ```
@@ -193,7 +194,7 @@ def seed_input(self, str_input):
 
 
 
-### Generating the private key
+#### Generating the private key
 This part might look hard, but it’s actually very simple.
 First, we need to generate 32-byte number using our pool. Unfortunately, we can’t just create our own 
 `random`
@@ -239,20 +240,20 @@ def __generate_big_int(self):
 
 
 
-### In action
+#### In action
 Let’s try to use the library. Actually, it’s really simple: you can generate a private key in three lines of code!
 
 ```
 kg = KeyGenerator()
 kg.seed_input(‘Truly random string. I rolled a dice and got 4.’)
 kg.generate_key()
-# 60cf347dbc59d31c1358c8e5cf5e45b822ab85b79cb32a9f3d98184779a9efc2
+## 60cf347dbc59d31c1358c8e5cf5e45b822ab85b79cb32a9f3d98184779a9efc2
 ```
 
 
 You can see it yourself. The key is random and totally valid. Moreover, each time you run this code, you get different results.
 
-## Conclusion
+### Conclusion
 As you can see, there are a lot of ways to generate private keys. They differ in simplicity and security.
 Generating a private key is only a first step. The next step is extracting a public key and a wallet address that you can use to receive payments. The process of generating a wallet differs for Bitcoin and Ethereum, and I plan to write two more articles on that topic.
 If you want to play with the code, I published it to this 

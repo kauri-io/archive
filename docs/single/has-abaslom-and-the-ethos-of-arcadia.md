@@ -9,6 +9,7 @@ some_url:
 
 # has abaslom and the ethos of arcadia
 
+
 alas, babylon.
 
 i listened to a man yesterday who was talking about "true heroes" ... he of course noted jesus christ and superman together, suggesting the first was one, and the second just a fiction.  he also talked about people like ghandi and "leaders who use non-violent means to "change the world."  i at least agree with him on the third, ghandi is a good prototype for some kind of hero.  staring at this ... "to be completed" work on tales of two cities, whether from sodom and gomorrah all the way to athens and sparta and perhaps even london and paris--and this particular city, babylon; it stands out as one which truly has no equal or even "mirror" in the history of the world.  i suppose i'd add "alexandria" and suggest the library and the laws; something that are fundamental to the ethos of the planet i call "athens."  

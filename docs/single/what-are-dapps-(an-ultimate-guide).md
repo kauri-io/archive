@@ -9,6 +9,7 @@ some_url:
 
 # What are Dapps? (An ultimate guide)
 
+
 ![](https://api.kauri.io:443/ipfs/QmeZPLRQgBL58Bs33zx9hyk8Gdx5YQR2hbcfg7sHu4d92J)
 
 If you have been following blockchain space for a while, you must have come across the word Dapps. but what are Dapps?
@@ -28,7 +29,7 @@ Some of the Dapps characteristics are –
 
 Innovation in Dapp has led to the development of many tools that are making cryptocurrency experience and enjoyable and secure. Some of the field where Dapps have more profound impacts are-
 
-### **Wallet**
+#### **Wallet**
 
 Dapp wallets (Or [Smart contract wallets](https://blog.coincodecap.com/best-smart-contract-wallet/)) have been gaining popularity. They provide various functionality besides storing your private key. These wallets are versatile and secure thanks to the flexibility and innovation in designing smart contracts.
 
@@ -48,7 +49,7 @@ Metamask is a part of the Ethereum ecosystem. It lets you make transactions with
 
 Trust wallet is a non-custodial wallet acquired by Binance. It supports multiple cryptocurrencies. It even supports ERC tokens and lets you interact with Dapps.
 
-### **Exchanges**
+#### **Exchanges**
 
 Exchanges based on Dapps, also called DEXs (Decentralized exchange) are gaining popularity as it does not involve centralized servers. Popular DEXs are-
 
@@ -64,7 +65,7 @@ Kyber is an on-chain token exchange platform. It is an open-source project that 
 
 Airswap is also an open-source, decentralized exchange and a trading platform that lets you exchange and trade Ethereum assets hassle-free. Traders have the power to add or remove liquidity through a pool of products.
 
-### **Games**
+#### **Games**
 
 Dapps game is trendy among Ethereum enthusiasts. Gambling games that weren’t trusted by many in the start, now gaining popularity. Let’s have a look at some of the popular Dapp games.
 
@@ -80,7 +81,7 @@ Axie Infinity is a fantasy pet land where players can raise, battle, and trade, 
 
 Cryptokitties is an Ethereum based game that lets you collect, breed, and sell virtual cats called Cryptokitty. Kittyverse, a collection of games that you can play with your kitties.
 
-### **Banking and Financial Services** 
+#### **Banking and Financial Services** 
 
 The main motive behind [Bitcoin](https://blog.coincodecap.com/tag/bitcoin/) was to make financial services open and decentralized. Dapps, along with cryptocurrency, is here to make banking and financial services automated in a decentralized environment. Let’s see some of Dapps which comes under this category-
 
@@ -96,7 +97,7 @@ ETH Bank is an investment platform that optimizes the investment model extended 
 
 Bank of Tron is a decentralized bank built upon Tron blockchain. Its smart contract generates 3.7–6.7% dividends per day based on the user’s investment. Other than that, it is compatible with [TronLink](https://chrome.google.com/webstore/detail/tronlink/ibnejdfjmmkpcnlpebklmnkoeoihofec?utm_source=chrome-ntp-icon) or [TronPay](https://chrome.google.com/webstore/detail/tronpay/gjdneabihbmcpobmfhcnljaojmgoihfk?hl=zh-CN) and can be even used in mobile through [Banko Wallet](https://www.bankowallet.com/?utm_source=coincodecap.com).
 
-#### Wrapping up…
+##### Wrapping up…
 
 The future of Dapps seems bright and full of possibilities. Many sectors have yet to see the implementation of Dapps. Platforms like [Ethereum](https://blog.coincodecap.com/tag/ethereum/), Tron, and EOS are encouraging developers to deploy the advantages offered by Dapps to produce innovative use cases.
 

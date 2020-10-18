@@ -10,16 +10,17 @@ some_url:
 # Open-Zeppelin Escrow Smart contract
 
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmY9EN1miTFb4k1P6w15d5rVw1rYZFsVBo8arf5g6bwV2V)
 
 Today, we will look in smart contract escrow and understand open-zeppelin escrow smart contract.
 
-### What is escrow?
+#### What is escrow?
  
 [An escrow is a financial arrangement where a third party holds and regulates the payment of the funds required for two parties involved in a given transaction.](https://www.escrow.com/what-is-escrow)
  Escrow is used by businesses as a trusted party for a financial agreement. There are many online escrow services, we can also build an escrow service using smart contract.
 
-### Open zeppelin Escrow Contract-
+#### Open zeppelin Escrow Contract-
 
 <body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/buddies2705/538000dd91f3d99c6c6ed4200102bb0a.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
 
@@ -84,7 +85,7 @@ contract Escrow is Secondary {
 
 
 
-### Permission manager Smart contract (Secondary.sol)
+#### Permission manager Smart contract (Secondary.sol)
 Before diving into open-zeppelin escrow smart contract, we will first look at 
 `Secondary.sol`
  which is also provided by open-zeppelin. It’s essentially a permission manager wrapper which gets used in 
@@ -161,7 +162,7 @@ Now, Let’s look at this contract.
 **Transfer ownership**
  - of course there is a function to change the primary party.
 
-### Escrow Smart contract
+#### Escrow Smart contract
 Because we are providing escrow service. We will control funds in our escrow(We will be the primary party in 
 `Secondary.sol`
  ), we will deposit and withdraw for a party and keep tracks of deposits. Anyone can check how much amount is deposited to a corresponding address for a given address.

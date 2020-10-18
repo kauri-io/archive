@@ -9,7 +9,8 @@ some_url:
 
 # Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!)
 
-# Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!) Solidity Tutorial
+
+## Build Your First Smart Contract and Dapp On Ethereum With Embark (and Unit Tests!) Solidity Tutorial
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/I9ZgAhwxvWY" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
 

@@ -10,7 +10,8 @@ some_url:
 # Visualizing Bitcoin Transactions in 3D and Virtual Reality
 
 
-## Abstract
+
+### Abstract
 Bitcoin transactions form a graph that can be visualized in 3D and Virtual Reality (VR). This article explores how you can see these visualizations.
 The image below shows some of the network of transactions linked to the 
 [bitcoin pizza transaction](https://www.telegraph.co.uk/technology/2018/05/22/inside-story-behind-famous-2010-bitcoin-pizza-purchase-today/)
@@ -22,7 +23,7 @@ Academic research¹ suggests that viewing information in VR helps people to spot
 [blockchain3d.info](https://blockchain3d.info/)
  that aims to develop these visualizations further.
 
-## Introduction
+### Introduction
 Blockchain technologies have grown in popularity very quickly. Having educational and analytical tools to help people make sense of blockchains will help the technologies grow further by removing barriers due to a lack of understanding.
 Over the last few years, VR has also grown in popularity. At the end of 2017 Facebook set the admirable goal of getting 
 [one billion people into VR](https://www.theverge.com/2017/10/11/16459636/mark-zuckerberg-oculus-rift-connect)
@@ -34,7 +35,7 @@ The
  project aims to meet the need for blockchain education by using the benefits of VR. The project provides a free, open-source, multi-platform application for blockchain education and analysis using VR and 3D data visualizations.
 VR education and collaboration scenarios are the primary goals, however full 3D for desktops, tablets, and web browsers is also available. This allows additional use cases of more conventional analytics, forensics, producing 3D “fly-through” videos and other use cases not yet thought of. Exchanges or wallets may wish to differentiate themselves by offering 3D or VR views of transactions or wallets.
 
-## Bitcoin Transactions as a Graph
+### Bitcoin Transactions as a Graph
 There follows a very simple example of an educational use case for bitcoin. It should be emphasized that this just scratches the surface of what can be done even with the current release of the application. Nevertheless, it is a reasonable and tangible first example.
 When dealing with fiat currency we are used to having bank transactions with a single sender and a single receiver. With bitcoin, transactions can move value from many senders to many receivers in a single transaction. In addition, bitcoin held in wallets is not held as a single “pile” but as a list of multiple “leftovers” (think “unspent change”) from previous transactions. These leftovers are the so-called Unspent Transaction Outputs 
 [UTXO](https://www.investopedia.com/terms/u/utxo.asp)
@@ -48,7 +49,7 @@ With the above in mind, we can examine a transaction like the one shown below. T
 ![](https://api.kauri.io:443/ipfs/QmUGUpaTN5TNWA43HCCoyJx3dhRNA4Xji6UCDZxPAGdZLj)
 
 
-## The Bitcoin Pizza Transaction
+### The Bitcoin Pizza Transaction
 Early in 2018, the Google Cloud Platform team made bitcoin data available to their BigQuery web service. 
 [Their article on the subject](https://cloud.google.com/blog/products/gcp/bitcoin-in-bigquery-blockchain-analytics-on-public-data)
  outlines how some interesting 2D visualizations are possible. They focused on the 
@@ -74,10 +75,10 @@ Using
 <iframe allowfullscreen="" frameborder="0" height="600" scrolling="no" src="https://www.youtube.com/embed/YFUZCNbPj0E" width="1024"></iframe>
 
 
-## Lemme Try It!
+### Lemme Try It!
 The application is available for Windows, Mac, Linux, iOS and Android. Google Cardboard is supported for iOS and Android. To download the latest version, search for “Blockchain 3D Explorer” in your favored app store or visit the official site: https://blockchain3d.info.
 
-## Lemme Help!
+### Lemme Help!
 The application and all the assets are open-source and available for you to download. In addition, contributions are very welcome! To fork your own copy or to help out, visit 
 [the project GitHub repository](https://github.com/KevinSmall/blockchain3d)
  .

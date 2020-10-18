@@ -10,10 +10,11 @@ some_url:
 # Not Fade Away  A Short Life Well Lived [Book Review]
 
 
+
 ----
 
 
-## Brief Summary of the Book
+### Brief Summary of the Book
 Half biography-autobiography, successful husband, father, friend, and businessman, Peter Barton, implores the help of writer, Laurence Shames, in documenting the last months of his life after he is diagnosed with a terminal stomach cancer. Coauthored by the two young men, 
 [Not Fade Away: A Short Life Well Lived](https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.amazon.com/Not-Fade-Away-Short-Lived/dp/006073731X&ved=2ahUKEwiVyOea0-PeAhVrHjQIHYf0DosQFjAMegQIBhAB&usg=AOvVaw2Onxre-Ub-z90LvF7pYGOg)
  is an intimate illustration of a man in understanding of his capstone life lessons. Humbly, Peter, makes no grandiose attempts at life's big questions. His story is personal.
@@ -21,7 +22,7 @@ Half biography-autobiography, successful husband, father, friend, and businessma
 ![](https://api.beta.kauri.io:443/ipfs/QmSQBY4N2ndTE3bbm5bsaYeUvrbxpKRKyUG1zRsc8fyBuK)
 
 
-## How I Picked This Book
+### How I Picked This Book
 I am an avid subscriber of The 
 [Tim Ferriss](https://medium.com/@timferriss)
  Show podcast. On 
@@ -38,7 +39,7 @@ He elaborated on the book’s stark contrast between life and death. It clearly 
 [Powell's Books](https://medium.com/@Powells)
  later that week.
 
-## What I Learned In This Book
+### What I Learned In This Book
 
  *  **Faith has secular applications —** Overly considered to be an exclusive practice of religion and spirituality, Peter demonstrates how faith is fundamental to the human experience. Peter made his career as a Grade-A negotiator, but — in the face of death — he has no one to settle terms with. Laurence elaborates on Peter’s hopes and wishes for the future which he will soon no longer be a part of — most notably, life for his family.
 
@@ -46,10 +47,10 @@ He elaborated on the book’s stark contrast between life and death. It clearly 
 
  *  **Why it’s worth committing one’s self to to one’s life —** throughout the book Peter earnestly reflects on many of his life’s most meaningful experiences. Regardless of how simple, grandiose, constructive or destructive they were — or seemed to be — Peter cherishes each for how they uniquely contributed to his journey.
 
-## Would I Recommend To A Friend?
+### Would I Recommend To A Friend?
 Absolutely. To any friend at any stage of life. 
 _Not Fade Away_
  is whole-heartedly satisfying, saturated with honesty, and brutally sobering. Peter is a satellite on the event horizon, relaying his view of a landscape we are all bound to eventually cross, to those of us who are still far away.
 
-## Closing Thoughts
+### Closing Thoughts
 The chapter that took me the longest to read was the last one. It's no surprise that Peter passes on, but as long as I was reading, he was still alive. So I procrastinated, not wanting to say goodbye.

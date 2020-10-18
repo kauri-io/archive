@@ -9,6 +9,7 @@ some_url:
 
 # Practical Use of Ethereum for the Sex Worker Community
 
+
 Original Title: Practical Application of Ethereum for the Sex Worker Community
 
 By Ameen Soleeimani, Janice Griffith, Brenna Sparks, Allie Even Knox, and Maria Paula Fernandez

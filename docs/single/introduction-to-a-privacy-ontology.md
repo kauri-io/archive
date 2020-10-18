@@ -10,6 +10,7 @@ some_url:
 # Introduction to a Privacy Ontology
 
 
+
 ![](https://api.kauri.io:443/ipfs/Qmd32MCdPPq12yGQJE5ZjJ2YF6u7U3doePaHRc2uqmDNxM)
 
  
@@ -27,7 +28,7 @@ This privacy ontology shall provide developers and service providers with an ove
 **the financial world**
  .
 
-## Ontology? Some first basics concepts
+### Ontology? Some first basics concepts
 
 ![](https://api.kauri.io:443/ipfs/QmSVfVqmoyRSF5qBtrcrikmfb7uupoU9ebHW1DKVMFA2S1)
 
@@ -37,7 +38,7 @@ Let’s start by defining our concept of ontology for each one of us does have h
 _Etre comme tel_
  ). We shall address the ontology at the dawn of these two approaches.
 
-## Privacy — a quick view and its evolution
+### Privacy — a quick view and its evolution
 
 ![](https://api.kauri.io:443/ipfs/QmYhXYnTWDPVVMFW5qmF949XkDVWvGkWFT3hLQPoZH4zeH)
 
@@ -69,7 +70,7 @@ Privacy sounds interesting when it comes to access control from a data subject p
 **paradigm of auditing or access tracking looks capital**
  and is, moreover, more powerful. Once permission has been granted to access personal data, individuals would eventually like to identify who actually accesses this information.
 
-## Toward a Privacy Ontology
+### Toward a Privacy Ontology
 
 ![](https://api.kauri.io:443/ipfs/Qma3Ro63Kga9TaDcCWygmjpcei88PQ6wdir14ah8ULMYxC)
 

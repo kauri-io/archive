@@ -9,9 +9,10 @@ some_url:
 
 # Using Kauri Communities
 
+
 Kauri Communities are designed to allow any number of participants to collaborate on the creation and curation of content around a specific topic. 
 
-## Creating a Community
+### Creating a Community
 
 Congratulations, you've decided to create a Community!
 
@@ -27,11 +28,11 @@ Once you submit the signature, you’re Community is created! It typically takes
 
 Now you can start adding content to the community
 
-## Adding Articles
+### Adding Articles
 
 There are two ways to add articles to a community.
 
-### Add Existing Articles
+#### Add Existing Articles
 
 You can add existing articles by selecting _Add Content_ on the Community home page. If you’re familiar with adding articles to collections, the process is similar. The differences being you must select one article to add at a time, and you can only select from articles you’ve written yourself. After choosing an article, you are asked to sign a message transferring the article to the Community.
 
@@ -39,23 +40,23 @@ You can add existing articles by selecting _Add Content_ on the Community home p
 
 **Note:** Transferring an article to a Community allows any admins or moderators to make edits and publish changes to it. If you wrote and published the article originally, you are still credited as the author, but  no longer have exclusive control over its’ content.
 
-## Publish New Articles Directly
+### Publish New Articles Directly
 
 You can publish articles directly to a Community. To do this, start writing an article, and when you publish, select the Community in the dropdown.
 
 ![Publish to community dropdown](https://api.kauri.io:443/ipfs/QmNbEkAD5wUX563X39wPW1KSzBPbvPz8akLtjiEdXnrDN3)
 
-## Adding Collections
+### Adding Collections
 
 Currently, you can only add new collections to a Community. The process is similar to publishing new articles to a Community, in that you can choose to add the collection directly to a Community after selecting “Publish Collection”.
 
-### Curating articles not owned by a moderator or admin
+#### Curating articles not owned by a moderator or admin
 
 You can use collections to curate content from any author on Kauri, not just moderators and admins. To do so, select "All Articles" in the "Add Article" widget, and then select or use the search bar to find content you want to add.
 
 ![Adding articles to a collection](https://api.kauri.io:443/ipfs/QmQ2ZWAaFWJPqfhukzSNLnTHiXfiZuB2sgHbUbjFpdbEfL)
 
-## Curating the Community Home Page
+### Curating the Community Home Page
 
 To help readers explore your content, you can curate a home page for you Community to replace the default “Articles” view. You can organize the page into sections with headers, which can contain the Community’s articles and collections. The flow should be familiar if you’ve created a collection before.
 
@@ -67,7 +68,7 @@ Now you can add any article or collection that is owned by the Community to the 
 
 When you’re happy, select “Update Community” in the upper right hand corner.
 
-## Inviting Moderators
+### Inviting Moderators
 
 To get some help with content creation and curation, you can invite moderators to your Community. Moderators are able to add articles and collections, and edit existing articles and collections. They cannot edit your Community’s metadata, invite or manage new moderators or admins, or edit the home page.
 
@@ -79,7 +80,7 @@ Next, enter the desired recipient’s email address, and their role (Moderator o
 
 Once you’ve invited a moderator, you can see their status in the “Manage Community” tab under “Invited”. 
 
-## Managing Moderators and Admins
+### Managing Moderators and Admins
 
 In addition to inviting moderators to your Community, you can also promote them to Admin, and remove them.
 
@@ -89,7 +90,7 @@ Moderators are the backbone of Kauri Communities. As a moderator, you can write 
 
 If you've received an invitation to join a Community, follow the instructions below. If not, get started by suggesting some edits to a Community's current articles, and get recognized by the admins.
 
-## Accepting an Invitation
+### Accepting an Invitation
 
 If you’ve received an email invitation to join a Community, first, click on the link in the email. You are redirected to Kauri, and see the option to “Accept” or “Reject” the invitation.
 

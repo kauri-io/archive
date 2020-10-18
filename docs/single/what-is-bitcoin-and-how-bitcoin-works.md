@@ -9,21 +9,22 @@ some_url:
 
 # What is Bitcoin and How Bitcoin Works?
 
+
 Let’s talk about Bitcoin today. I know the topic is a little hard to swallow, and there are tons of articles out there, but I will explain it like [John Oliver](https://www.youtube.com/user/LastWeekTonight). 
 
-#### **What is Bitcoin?**
+##### **What is Bitcoin?**
 
 Bitcoin is digital money, and you can buy things using it, yes even those dirty magazines.
 
-#### **But How does Bitcoin start?**
+##### **But How does Bitcoin start?**
 
 Bitcoin project started in 2008, by an alien named Satoshi Nakamoto. Yes, I believe in aliens, so what? It was invented by an anonymous person/group called Satoshi Nakamoto.
 
-#### **Can I touch Bitcoin?** 
+##### **Can I touch Bitcoin?** 
 
 No, you can’t touch Bitcoin. It exists only on computers, all over the world. But why you want to touch it? Do you want to feel it? I know what you do when you open Incognito. 
 
-#### **But if you can’t touch Bitcoin, how can you call it money?**
+##### **But if you can’t touch Bitcoin, how can you call it money?**
 
 Good question, joey. I thought you already went incognito 😉. But let me ask, What is money? Is it something you can buy a [Netflix](https://www.netflix.com/) subscription with? Yes, that’s correct.
 
@@ -37,7 +38,7 @@ Anything, which can perform the above three tasks for us is Money. In a world wh
 
 > **Fun Fact: **[97% of Fiat money exists only in electronic form.](https://positivemoney.org/how-money-%20works/how-banks-%20create-money/)
 
-#### **But Dollar seems to work fine. Why I need Bitcoin?**
+##### **But Dollar seems to work fine. Why I need Bitcoin?**
 
 Ok, smartypants, are you trying to be smart now? Are you? Let me tell you a story. 
 
@@ -53,7 +54,7 @@ Therefore in its true essence, Bitcoin is an alternative to the current financia
 
 > “Bitcoin is a hedge against the greed of the current financial system.”
 
-#### **Ok, But from where do these Bitcoin come from? Who creates i**t**?**
+##### **Ok, But from where do these Bitcoin come from? Who creates i**t**?**
 
 Good question, Joey. So Bitcoin is a protocol. You know what is a protocol, right? A protocol is a set of rules, which everyone has to follow. 
 
@@ -83,21 +84,21 @@ So whenever new Block is correctly added to Blockchain, protocol rewards the min
 
 Bitcoin has [controlled supply](https://en.bitcoin.it/wiki/Controlled_supply), There will be only 21 Million ever, and their issuance schedule is coded in the Bitcoin’s protocol.
 
-#### So, How do I get Bitcoin? Do I need to mine them?
+##### So, How do I get Bitcoin? Do I need to mine them?
 
 Bitcoin mining needs a lot of resources, so it’s out of the question for ordinary peoples. You have to be rich and bald for that. Ok, not bald, but you sure need a shitload of money for it. 
 
 But you can always buy Bitcoins from the market. There are different ways to buy it, for example, using [Crypto exchanges](https://blog.coincodecap.com/tag/crypto-exchange/), P2P exchange, [crypto wallets](https://blog.coincodecap.com/tag/crypto-wallet/), ATMs. Just google “buy Bitcoins” and ready with your credit or debit card. 
 
-#### **Can I get Bitcoin using Cash? **
+##### **Can I get Bitcoin using Cash? **
 
 Yes, there are [Bitcoin ATMs](https://blog.coincodecap.com/tag/bitcoin-atm/), using which you can buy it with Cash.
 
-#### **Ok, once I get it, How you store them?**
+##### **Ok, once I get it, How you store them?**
 
 There are multiple [Bitcoin wallets](https://blog.coincodecap.com/tag/bitcoin-wallet/) to secure your Bitcoin.
 
-#### **What else I need to know about Bitcoin?**
+##### **What else I need to know about Bitcoin?**
 
 Frankly, there are a lot of things to learn about Bitcoin. But don’t get confused with information overloading. Take 1 step a time, lets me summarize it:
 

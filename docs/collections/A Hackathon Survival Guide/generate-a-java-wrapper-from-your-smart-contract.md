@@ -11,6 +11,7 @@ some_url:
 
 
 
+
 **Other articles in this series:**
 - [Connecting to an Ethereum client with Java, Eclipse and Web3j](https://kauri.io/article/b9eb647c47a546bc95693acc0be72546)
 - [Manage an Ethereum account with Java and Web3j](https://kauri.io/article/925d923e12c543da9a0a3e617be963b4)
@@ -85,11 +86,11 @@ contract DocumentRegistry {
 }
 ```
 
-## Method 1 - Web3j Command Line tool and solc
+### Method 1 - Web3j Command Line tool and solc
 
 This first method generates the Smart contract ABI and bytecode from with `solc` and gives those two files as input to `web3j-cli` to generate the Wrapper.
 
-### 1. Install solc and verify the version
+#### 1. Install solc and verify the version
 
 [Install solc](https://solidity.readthedocs.io/en/develop/installing-solidity.html) and run the command below to make sure the solc version is greater than or equal to `0.5.6` (the version specified in the smart contract).
 
@@ -99,7 +100,7 @@ solc, the solidity compiler commandline interface
 Version: 0.5.9+commit.c68bc34e.Linux.g++
 ```
 
-### 2. Install web3j-cli
+#### 2. Install web3j-cli
 
 To install the web3j-cli, download a zipfile/tarball from the [releases](https://github.com/web3j/web3j/releases/latest) page of the project repository, under the **Downloads** section, or for macOS users via [Homebrew](https://github.com/web3j/homebrew-web3j), or for Arch linux users via the [AUR](https://aur.archlinux.org/packages/web3j/).
 
@@ -132,7 +133,7 @@ __      _____| |__      / /_     _   ___
 Usage: web3j version|wallet|solidity ...
 ```
 
-### 3. Compile the smart contract with solc
+#### 3. Compile the smart contract with solc
 
 Given our Solidity file _DocumentRegistry.sol_, the `solc <sol> --bin --abi --optimize -o <output>` command compiles the smart contract and generates two new files in the same directory :
 
@@ -150,7 +151,7 @@ total 12
 -   _DocumentRegistry.bin_: Binary file, bytecode of the smart contract
 -   _DocumentRegistry.abi_: ABI (Application Binary Interface) of the smart contract which defines the interface in a JSON format.
 
-### 4. Generate the Wrapper with the web3j-cli
+#### 4. Generate the Wrapper with the web3j-cli
 
 Using the ABI and bytecode (generated in step 3) and `web3j-cli` (installed during step 2), we can now generate our Smart contract Java Wrapper with the following command:
 
@@ -181,11 +182,11 @@ As a result, you should see the Java Wrapper file generated into the folder _<pa
 ./me/gjeanmart/tutorials/javaethereum/wrapper/DocumentRegistry.java
 ```
 
-## Method 2 - Web3j Command Line tool and Truffle artefacts
+### Method 2 - Web3j Command Line tool and Truffle artefacts
 
 [**Truffle**](https://www.trufflesuite.com/truffle) is one of the most well-known frameworks to help you develop, test and deploy with Ethereum. We can use the artefacts that Truffle generates with the Web3j command line tool to create the wrapper class.
 
-### 1. Install Truffle
+#### 1. Install Truffle
 
 Truffle is available as an npm package.
 
@@ -202,7 +203,7 @@ Node v10.15.3
 Web3.js v1.0.0-beta.37
 ```
 
-### 2. Initialize a new Truffle project
+#### 2. Initialize a new Truffle project
 
 To initialize a Truffle project, use the command `truffle init` in a new folder. The command creates the folders _contracts/_, _migration/_ and _test/_, and the file _truffle-config.js_.
 
@@ -232,11 +233,11 @@ drwxrwxr-x 2 gjeanmart gjeanmart 4096 Jun 24 14:25 test
 -rw-rw-r-- 1 gjeanmart gjeanmart 4233 Jun 24 14:25 truffle-config.js
 ```
 
-### 3. Add the contract into the folder `contracts`
+#### 3. Add the contract into the folder `contracts`
 
 Copy the Smart Contract source _DocumentRegistry.sol_ into the folder _contracts_.
 
-### 4. Compile the contract
+#### 4. Compile the contract
 
 Compile the smart contract with the command `truffle compile`, this command generates a new folder _build/contracts/_, containing a Truffle artefact for each Smart contract compiled.
 
@@ -257,7 +258,7 @@ total 136
 -rw-rw-r-- 1 gjeanmart gjeanmart 54043 Jun 24 14:33 Migrations.json
 ```
 
-### 5. Generate the Smart Contract Java Wrapper from the Truffle Artefact
+#### 5. Generate the Smart Contract Java Wrapper from the Truffle Artefact
 
 Finally, web3j-cli provides a method to generate the Wrapper directly from the Truffle artefact result of `truffle compile` with the command:
 
@@ -284,11 +285,11 @@ As a result, you should see the Java Wrapper file generated into the folder _&lt
 
 **Note**: With Truffle you can do a lot more than shown in this post, such as deployment scriptd (migration), Multi-network configuration, testing, debugging. I recommend reading [the following guide](https://kauri.io/collection/5b8e401ee727370001c942e3) to learn more about all the features.
 
-## Method 3 - web3j-maven-plugin
+### Method 3 - web3j-maven-plugin
 
 The next solution is more elegant than the previous two because we don't have to install the webj-cli and copy the file to the source folder. We can use this method directly inside a Java project using Maven and the [**web3j-maven-plugin**](https://github.com/web3j/web3j-maven-plugin). The following steps assume you have created a Maven project.
 
-### 1. Prerequisites
+#### 1. Prerequisites
 
 [Install solc](https://solidity.readthedocs.io/en/develop/installing-solidity.html) and run the command below to make sure the solc version is greater than or equal to `0.5.6` (the version specified in the smart contract).
 
@@ -298,15 +299,15 @@ solc, the solidity compiler commandline interface
 Version: 0.5.9+commit.c68bc34e.Linux.g++
 ```
 
-### 2. Copy the smart contract into the folder _src/main/resources_
+#### 2. Copy the smart contract into the folder _src/main/resources_
 
 Copy the Smart Contract source _DocumentRegistry.sol_ into the _src/main/resources_ folder of the Maven project.
 
-### 3. Configure Maven to generate the Wrapper during the `generate-sources` phase
+#### 3. Configure Maven to generate the Wrapper during the `generate-sources` phase
 
 In this step, we configure two Maven plugins:
 
-#### web3j-maven-plugin
+##### web3j-maven-plugin
 
 The first plugin does the same as the two previous methods but integrated with Maven. First we configure the plugin to execute automatically when entering the `generate-sources` phase of the project.
 
@@ -316,7 +317,7 @@ Secondly we configure the plugin parameters:
 -   _sourceDestination_: Target destination folder to move the generated Wrapper classes
 -   _soliditySourceFiles_: Where to find the Smart Contract source files
 
-#### build-helper-maven-plugin
+##### build-helper-maven-plugin
 
 The second plugin adds the _sourceDestination_ folder into the classpath so we can import the generated Wrapper classes
 
@@ -372,17 +373,17 @@ _pom.xml_
 </build>
 ```
 
-### 4. Run Maven generate-sources
+#### 4. Run Maven generate-sources
 
 Finally, build the Maven project by using, for example `mvn clean package` (including the generate-sources phase). As a result, we can see the Java Wrapper has been generated into `/target/generated-sources/contracts/me/gjeanmart/tutorials/javaethereum/contracts/generated/DocumentRegistry.java` and added to the classpath automatically.
 
 ![](https://imgur.com/nBMOWGq.png)
 
-## Method 4 - web3j-gradle-plugin
+### Method 4 - web3j-gradle-plugin
 
 The last method is similar to the previous method with Maven, but using Gradle instead.
 
-### 1. Prerequisites
+#### 1. Prerequisites
 
 [Install solc](https://solidity.readthedocs.io/en/develop/installing-solidity.html) and run the command below to make sure the solc version is greater than or equal to `0.5.6` (the version specified in the smart contract).
 
@@ -392,11 +393,11 @@ solc, the solidity compiler commandline interface
 Version: 0.5.9+commit.c68bc34e.Linux.g++
 ```
 
-### 2. Place the smart contract into the folder _src/main/solidity_
+#### 2. Place the smart contract into the folder _src/main/solidity_
 
 Copy the Smart Contract source _DocumentRegistry.sol_ into the folder _src/main/solidity_ of the Gradle project.
 
-### 3. Configure Gradle to generate the Wrapper during build
+#### 3. Configure Gradle to generate the Wrapper during build
 
 First import the web3j-gradle plugin into the _build.gradle_ file
 
@@ -468,7 +469,7 @@ solidity {
 }
 ```
 
-### 4. Execute gradle build
+#### 4. Execute gradle build
 
 In this last step, we execute the build using `./gradlew tasks --all` and verify that our generated wrapper classes have been generated.
 

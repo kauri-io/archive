@@ -9,6 +9,7 @@ some_url:
 
 # The Game of Snarks
 
+
 Game of Snarks is a super cool demonstration of zkSNARKs and in fact one of the best applications to help regular users understand their power since the functionality was introduced to Ethereum in Byzantium. In short, Alex Vlasov came up with the idea to implement a game of “Battleship” (where each player has to guess the location of the other player’s ships on their respective grids) and used zkSNARKs to reveal whether a ship has been hit without fully revealing the state of the opposing player’s board. Realizing that it would be hard to manage all of the state of the game on chain, Alex and his team also started work towards a “plasmafied” version of the game where a fraud-proof exists if the Plasma operator doesn’t update the state of the game (whether a battleship has been hit) properly. - Scott Moore (Gitcoin)
 
 https://devpost.com/software/gameofsnarks_contracts
@@ -17,13 +18,13 @@ https://devpost.com/software/gameofsnarks_contracts
 
 Initial snark prover/verifier, set of smart-contracts for game setup and fraud-proof, and a backend bridge for the game of SNARKs
 
-### Rationale
+#### Rationale
 When the game will be "Plasmafied" there should exist a set of fraud-proof if Plasma operator does not correctly update the state of the game. In addition, challenges should be implemented if one of the players goes offline.
 
-### The game of SNARKs (and STARKs later)
+#### The game of SNARKs (and STARKs later)
 HODL the door!
 
-### Description and rationale
+#### Description and rationale
 During the ETHBerlin we've tried to make a good demonstration of the power of zkSNARKs by implementing a "Battleships" game where an interaction between the players is governed by the SNARKs. During the development we understood that it's actually is quite abstract two-party state-channel with some kind of a smart-contract inside. Keeping the state updates is expensive in the mainnet, so such interaction can be moved to Plasma, where the operator verifies SNARKs upon transaction submissions and updates a "state". Many people forget that Plasma was introduced not only as L2 solution for payments, but also as kind of map-reduce system.
 
 Other repositories related to this work, developers were working in their own repos or reusing the current R&D code:
@@ -35,7 +36,7 @@ Other repositories related to this work, developers were working in their own re
 - Limitations
 - Due to a huge pain of building a libsnark anywhere but Linux this repo contains a binary assembled under Ubuntu16.04, that is called through the command line(!) from the Go backend. In principle Go backend is ready to verify proofs itself, it's just a matter of pain with proof serialization.
 
-### How to run
+#### How to run
 Keep in mind the limitations above!
 
 - go get github.com/shamatar/go-snarks
@@ -51,7 +52,7 @@ Keep in mind the limitations above!
 
 That's all for now
 
-### Intended functionality
+#### Intended functionality
 [x] zkSNARK that proves the correctness of position
 [ ] produce a salted commitment to position (used further as a public input)
 [x] create a smart-contract for players to start a game
@@ -67,12 +68,12 @@ That's all for now
 [ ] implement fraud proofs
 Much work to do!
 
-### Authors (team)
+#### Authors (team)
 Alex Vlasov, shamatar
 
 Konstantin Panarin, Konstantce
 
 Artem Vorobyev, artall64
 
-### Try It Out
+#### Try It Out
 [GitHub Repo](https://github.com/shamatar/go-snarks)

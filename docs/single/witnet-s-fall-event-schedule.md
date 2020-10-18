@@ -10,11 +10,12 @@ some_url:
 # Witnet’s Fall Event Schedule
 
 
+
 ----
 
 With our prototype Sheikah released last month and our development work and research towards an early 2019 testnet launch underway, we are now eager to get out among our peers at the leading blockchain conferences and hackathons in late October. Fortunately for all of us in this space, there are a lot of thriving and diverse international communities gathering almost every other month.
 
-## Berlin
+### Berlin
 
 ![](https://cdn-images-1.medium.com/max/1200/1*D37irGEBh3QkRqyUwOduTg.jpeg)
 
@@ -26,7 +27,7 @@ With our prototype Sheikah released last month and our development work and rese
 We will start off in Berlin, Germany, attending the Web3 Summit, which will be hosting a wide variety of talented developers and researchers to “ 
 _facilitate a fully functional and user-friendly decentralized web_.” With the Witnet Decentralized Oracle Network protocol focusing on providing a trustless and fair way to connect smart contracts to real-world data, we want to listen to and take part in the exciting and unique discussions and workshops being hosted.
 
-## Prague
+### Prague
 
 ![](https://cdn-images-1.medium.com/max/1200/1*WRcBAzmEqokP0bA0S8EKLw.jpeg)
 
@@ -71,7 +72,7 @@ Until then, see you in Berlin and Prague!
 ----
 
 
-### Thanks for your time! You can also:
+#### Thanks for your time! You can also:
 
 
 

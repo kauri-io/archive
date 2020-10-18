@@ -9,14 +9,15 @@ some_url:
 
 # Creating a Flexible NFT (Part 1)
 
+
 ![](https://api.kauri.io:443/ipfs/QmQw83abtCE6d8eac7vhrU6ijJCKRbR6gTY1URTzoZWkeM)
-# Creating a Flexible Non-fungible token
+## Creating a Flexible Non-fungible token
 
 The first part of this tutorial shows you how to deploy a [Non-fungible token (NFT)](https://en.wikipedia.org/wiki/Non-fungible_token) using a technique that makes it easy to update details about your token as infrastructure and your needs change.
 
 The second part of this tutorial will show how to create a serverless solution for serving your token details as metadata. This is a widely used web2 infrastructure solution that is cheap and scaleable. It is not decentralized; This is a solution for using the Internet as it exists today.
 
-## Step 1: Setup Environment
+### Step 1: Setup Environment
 
 I'm using `node v9.11.2` and `yarn v1.7.0` for this tutorial. NPM and other versions of node should work.
 
@@ -103,7 +104,7 @@ Compiling ./contracts/Sample.sol...
   1 passing (171ms)
 ```
 
-## Step 2: Make ERC-721
+### Step 2: Make ERC-721
 
 Rename _contracts/Sample.sol_ to _contracts/Token.sol_ or whatever you want to call your NFT and change the content inside to reflect the change.
 
@@ -138,7 +139,7 @@ contract Token is ERC721Full {
 }
 ```
 
-## Step 3: Make Metadata
+### Step 3: Make Metadata
 
 Create a file called _/contracts/Metadata.sol_ and add the contract basics:
 
@@ -326,7 +327,7 @@ contract Metadata {
 }
 ```
 
-## Step 4: Add Metadata to ERC-721
+### Step 4: Add Metadata to ERC-721
 
 Import the _Metadata.sol_ contract into the header of your ERC-721 token contract, add a new parameter to the contract called `metadata`, and set the parameter with the constructor
 
@@ -380,7 +381,7 @@ contract Token is ERC721Full {
 }
 ```
 
-## Step 5: Create Migrations
+### Step 5: Create Migrations
 
 Open the migrations file called _2_deploy_contracts.js_ and replace `Sample` with `Token`, or whatever you called your token.
 
@@ -463,7 +464,7 @@ Saving artifacts...
 
 If you get errors, try deleting the _build_ folder that truffle creates when compiling or migrating, or add the `--reset` flag to the command.
 
-## Step 6: Make Tests
+### Step 6: Make Tests
 
 Rename _/test/Sample.test.js_ to _/test/Token.test.js_ or whatever you called your token contract, then replace all references to "Sample".
 
@@ -661,7 +662,7 @@ describe('Token.sol', function() {
 })
 ```
 
-## Step 7: Make Migration for Updates
+### Step 7: Make Migration for Updates
 
 If you change your schema, or endpoints, or the `tokenURI` standard changes, you need to update your migration contract. Let's make a migration file that we can run for that need.
 
@@ -788,7 +789,7 @@ yarn migrate --network develop -f 3 --to 3
 
 This only runs **from** (`-f`) migration number 3 **until** (`--to`) migration 3 (i.e., it only runs migration 3)
 
-## Step 8: Update ERC-721 and Tests
+### Step 8: Update ERC-721 and Tests
 
 Since we want to mint tokens, let's add a public function for minting to our Token contract and protect it with the `onlyOwner` modifier:
 
@@ -888,7 +889,7 @@ Using network 'test'.
   2 passing (776ms)
 ```
 
-## Step 9: Deploy
+### Step 9: Deploy
 
 Now that we have tests in place that prove out metadata works and our token can be minted let's deploy it to our local network, then deploy it to Rinkeby.
 
@@ -958,7 +959,7 @@ Saving artifacts...
 
 If you're feeling brave and have a mnemonic phrase with some mainnet ether feel free to go big. : )
 
-## Step 10: Verify Contracts on Etherscan
+### Step 10: Verify Contracts on Etherscan
 
 Now you are able to see your contracts on the block explorer [etherscan.io](https://etherscan.io). What you don't see is the code you used to generate the contract. To add that and provide a user the security of knowing what this code does (and to provide a place to track the token), you can verify the contract. The easiest method is with a flattener, which imports every referenced file and combines them into one single file.
 

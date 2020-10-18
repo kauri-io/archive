@@ -9,6 +9,7 @@ some_url:
 
 # A proper examination of ERC-721s. What are ERC-721s and what is their potential?
 
+
  
 **This is the beginning of a new series of educational material about ERC-721s (Non-fungible tokens) on the Ethereum blockchain.**
  
@@ -23,7 +24,7 @@ _a free resource that lets you transfer/manage your ERC-721s safely and easily. 
 ![](https://api.beta.kauri.io:443/ipfs/QmbHsPexACi5tf8yKutyYdLvKc8LzUgNLhnxcNVzeiJ1K8)
 
 
-## What are Tokens?
+### What are Tokens?
 The ethereum blockchain has many use cases, from a financial ledger that stores your balances, to a global computing machine that can operate like something similar to AWS/Google’s cloud.
 The one killer use case that came from Ethereum was these things called Tokens. ERC-20 tokens to be exact.
 My definition for an ERC-20 token is — 
@@ -63,7 +64,7 @@ First, some definitions:
 
  *  **Metadata** — Metadata is any data that can be stored on each token. We will get into this, but just know — metadata can be ANY data you want. A file, a word, an image, etc. etc.
 
-## So…..What are NFTs/ERC-721s?
+### So…..What are NFTs/ERC-721s?
 
 ![](https://api.beta.kauri.io:443/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
 
@@ -78,7 +79,7 @@ _ACTUALLY_
 > Example: Its 2025, the world is different. Security is tight and violence is rampant. You come over to hang out at my secure compound, so I create an ERC-721 with a special 6 hour access code on it. The code unlocks the gate to my compound. I transfer my access token to your wallet, when you get to my gate, you simply scan your wallet against my gate and it will open for you, allowing you into my compound and all while avoiding being eaten by zombies.
 
 
-## An Real Example of NFTs
+### An Real Example of NFTs
 To help wrap your mind about ERC-721s and NFTs (non-fungible tokens), I like to give this example.
 We know tokens are these digital tokens you own, and we can see that you own these tokens by looking at your address, like you can see you own money in the bank. Since its the blockchain, you can see your balance of tokens, 
 _anywhere in the world._
@@ -127,12 +128,12 @@ That’s one example of an NFT. It could be anything. It could be…
 
  * so much more…
 
-## Current ERC-721s out there
+### Current ERC-721s out there
 
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/mLvFIUKYbUc" width="512"></iframe>
 
 
-### Gods Unchained — https://godsunchained.com
+#### Gods Unchained — https://godsunchained.com
 Gods unchained is a trading card game. Each card has stats, and each card is an ERC-721 you own. You own token #555? Here are its stats: 
 [https://api.godsunchained.com/card/555](https://api.godsunchained.com/card/5555)
  
@@ -148,32 +149,32 @@ _Hades Unworld Lord_
 One thing you might ask is what is their value??
 They are non-fungible. The value is not set. The game might decide to only have 5 copies of the rarest card, so inherently if people buy these cards, that would be the most expensive, sense its the rarest. Besides this internal economic mechanism, there is little to incentivize a price market on some NFTs.
 
-### Zombie Battleground — https://loom.games/
+#### Zombie Battleground — https://loom.games/
 
 ![](https://api.beta.kauri.io:443/ipfs/QmV88SJcT51tNh8pTzT53AuaDCZppnnNeVnY53aZGAU6Dh)
 
 Loom is similar to Gods Unchained. Its a trading card game, where each card is a ERC-721 token. So if you have token #500, thats the 500th card made, and it might be rare, or it might be common. Each card has its rarity, skills, and powers within the token. So when you transfer me token #500, you just gave me a card — that has special abilities — which I can now use to play the game with.
 
-### MLB Baseball — https://mlbcryptobaseball.com
+#### MLB Baseball — https://mlbcryptobaseball.com
 
 ![](https://api.beta.kauri.io:443/ipfs/Qmf93zjtwGvN53F4S6WCHZetgb865UJWViskntT1toiT2i)
 
 MLB baseball cards on the blockchain! What more do I need to say? Each card is a collectible baseball card, and you own it, as an ERC-721.
 
-### CryptoKitties — http://cryptokitties.com
+#### CryptoKitties — http://cryptokitties.com
 
 ![](https://api.beta.kauri.io:443/ipfs/QmY24yQcX8Kj3uvLHJhP46SPjnjDCjTakaeME3vyYvCiwL)
 
 Cryptokitties was the creator of the ERC-721 idea/standard. They were the first to create a game using tokens that held special metadata corresponding to different cats. The way it works is simple — you have a token that has a random string of numbers as the metadata. So your token #1 has a name: Cat 1, and metadata: 32659154922846298626. This string of random numbers would represent special stats. So the first number is the color, and 3 = blue. Therefore, you have a blue cat.
 You’d then breed and sell the cats you got, that have rare genes (aka, rare random bytes of numbers).
 
-### Decentraland — https://decentraland.org/
+#### Decentraland — https://decentraland.org/
 
 ![](https://api.beta.kauri.io:443/ipfs/QmQh9etKwG5gVxQvyW1xRw73LgZEn8aXbWcFfJj4cuXAJs)
 
 Decentraland is the project behind an ERC-20 token you can trade, ERC-721 tokens that are assets, and a VR game you can play. Basically — in the game, it mimics real life in a VR setting, so that you have a shop, a house, land, a business, anything you want. The land is currently plots of land sold as ERC-721 tokens that you own. Pretty cool stuff.
 
-## Do you know what an ERC-721 is now?
+### Do you know what an ERC-721 is now?
 > If I asked you —you can create an ERC-721 contract that has as many tokens as you like, what would you put on these tokens?
 
 > What would your answer be?

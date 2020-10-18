@@ -10,20 +10,21 @@ some_url:
 # You & Your Data, Part 1  Full Disk Encryption
 
 
+
 ----
 
 
 ![](https://api.beta.kauri.io:443/ipfs/QmRttyKJdtNGBXMvTkLrkjGVk7kjdagrnNDXKceiykcsfA)
 
 
-## You & Your Data: Full Disk Encryption
+### You & Your Data: Full Disk Encryption
 This series is called 
 _You & Your Data_
  and is focused on the relationship between You and the Data you should control. Our series is also designed to compliment the vision of increasing user’s data protection in our expanding digital world.
 The first subject we will examine is Full Disk Encryption.
 
 
-## What Is it?
+### What Is it?
 Full disk encryption is basically the act of protecting all of the files residing on the hard drive of your machine. The main benefit is that 
 **full disk encryption keeps your data safe while your computer is off**
  . Without a proper login by someone knowing the decryption key and/or passphrase, the data on your encrypted computer is just a bunch of gobbledy-gook.
@@ -36,7 +37,7 @@ _data on your computer,”_
 As with most things in life, there’s a balance between doing the most when encrypting your drive vs. the time and technical expertise required. This post is aimed on finding the sweet spot, where most users can act on our recommendation while being as secure as possible.
 
 
-## When You Should Use It
+### When You Should Use It
 So when should you use disk encryption? The short answer is always, but the long answer depends on what you use your machine for.
 A good rule of thumb is to ask, 
 _“If my computer was stolen, what personal information or sensitive files are on it?”_
@@ -55,7 +56,7 @@ _very_
  good idea.
 
 
-## Upsides
+### Upsides
 After fully encrypting your machine, you 
 _should_
  notice an immediate benefit to your peace of mind. This comes from knowing that no one can access info on your computer without your permission.
@@ -63,7 +64,7 @@ _should_
 Fully encrypting your disk makes it much harder for hackers, government agents, and especially thieves who steal or acquire your physical device to compromise it. Full disk encryption even protects against a malicious “computer repair person” who could put something nasty on your device while fixing it.
 
 
-## Downsides
+### Downsides
 The downside to fully encrypting your computer is that it takes time — generally around a few hours. The good news is that it’s a one-time action and can be done while you sleep.
 
 Another downside is that if an encrypted drive gets corrupted all of the data on it is probably lost. This is why it is 
@@ -73,7 +74,7 @@ _highly_
 If you lose your key (it is shown to you when you begin the encryption process) & passphrase you will lose access to your computer. Also, if someone else gains access to your passphrase or key, they will now have the ability to decrypt your files — so be sure to store it in a safe place.
 
 
-## How To Do It
+### How To Do It
 According to a 
 _very_
  scientific poll of our team Slack, 
@@ -100,7 +101,7 @@ So how do you actually encrypt your device? This depends on what Operating Syste
 > 
 
 
-## Remember!
+### Remember!
 Keep in mind these two important things:
 
 

@@ -9,9 +9,10 @@ some_url:
 
 # Sending Ethereum Transactions with Rust
 
+
 This tutorial walks you through the code required to send an Ethereum transaction within a Rust application.
 
-## Prerequisites
+### Prerequisites
 
 We assume that you already have a Rust IDE available, and have a reasonable knowledge of Rust programming. We also assumes some basic knowledge of Ethereum and do not cover concepts such as the contents of an Ethereum transaction.
 
@@ -20,7 +21,7 @@ For more on any of these subjects, read the following:
 -   [Getting started with Rust](https://www.rust-lang.org/learn/get-started)
 -   [Ethereum 101](https://kauri.io/collection/5bb65f0f4f34080001731dc2/ethereum-101)
 
-## Libraries Used
+### Libraries Used
 
 This tutorial uses the MIT licensed rust-web3 library. To use this library in your application, add it to the `Cargo.toml` file:
 
@@ -35,7 +36,7 @@ You can then add the library to your crate:
 extern crate web3;
 ```
 
-## Starting an Ethereum Node
+### Starting an Ethereum Node
 
 We need access to a node that we can send transactions to.  In this tutorial we use `ganache-cli`, which allows you to  start a personal Ethereum network, with a number of unlocked and funded accounts.
 
@@ -59,18 +60,18 @@ ganache-cli -d
 
 **Note**: The `-d` argument instructs `ganache-cli` to always start with the same accounts pre-populated with ETH.  This is useful in the _Raw Transaction_ section of this tutorial as we will know the private keys of these accounts.
 
-## Sending a Transaction from a Node-Managed Account
+### Sending a Transaction from a Node-Managed Account
 
 The easiest way to send a transaction is to rely on the connected Ethereum node to perform the transaction signing.  This is generally a less secure approach, as it relies on the account being "unlocked" on the node.
 
-### Required `Use` Declarations
+#### Required `Use` Declarations
 
 ```rust
 use web3::futures::Future;
 use web3::types::{TransactionRequest, U256};
 ```
 
-### Connecting to the Node
+#### Connecting to the Node
 
 ```rust
 let (_eloop, transport) = web3::transports::Http::new("http://localhost:8545").unwrap();
@@ -84,7 +85,7 @@ First we create a transport object used to connect to the node. In this example 
 
 Next we construct a web3 object, passing in the previously created transport variable, and that's it!  We have now have a connection to the Ethereum node!
 
-### Obtaining Account Details
+#### Obtaining Account Details
 
 Ganache-cli automatically unlocks a number of accounts and funds them with 100ETH, which is useful for testing.  The accounts differ on every restart, so we need a way to programmatically get the account information:
 
@@ -94,7 +95,7 @@ let accounts = web3.eth().accounts().wait().unwrap();
 
 The [Eth namespace](https://tomusdrw.github.io/rust-web3/web3/api/struct.Eth.html), obtained via `web3.eth()` contains many useful functions for interacting with the Ethereum node.  Obtaining a list of managed accounts via `accounts()` is one of them.  It returns an asynchronous future, so we wait for the task to complete (`wait()`), and get the result (`unwrap()`).
 
-### Sending the Transaction
+#### Sending the Transaction
 
 We define the parameters of the transaction to send via a `TransactionRequest` structure:
 
@@ -121,7 +122,7 @@ let tx_hash = web3.eth().send_transaction(tx).wait().unwrap();
 
 The `TransactionRequest` is passed to the `send_transaction(..)` function within the `Eth` namespace, which returns a `Future` that completes once the transaction has been broadcast to the network.  On completion, the `Promise` returns the transaction hash `Result`, which we can then unwrap.
 
-### Putting it all Together...
+#### Putting it all Together...
 
 ```rust
 extern crate web3;
@@ -160,13 +161,13 @@ fn main() {
 
 We use the `web3.eth().balance(..)` function to obtain the balance of the recipient account before and after the transfer to prove that the transfer occured.  Run this code, and you should see that the `accounts[1]` balance is 10000 wei greater after the transaction was sent… a successful ether transfer!
 
-## Sending a Raw Transaction
+### Sending a Raw Transaction
 
 Sending a raw transaction means signing a transaction with a private key on the Rust side, rather than on the node.  The node then forwards this transactions to the Ethereum network.
 
 The [ethereum-tx-sign](https://github.com/synlestidae/ethereum-tx-sign) library can help us with this off-chain signing, but it not easy to use alongside `rust-web3` because of a lack of shared structs.  In this section of the guide I'll explain getting these libraries to play nicely together.
 
-### Additional Libraries Used
+#### Additional Libraries Used
 
 The `ethereum-tx-sign` library depends on the `ethereum-types` library when constructing a `RawTransaction`.  We also use the `hex` library to convert a hexadecimal private key into bytes.
 
@@ -186,7 +187,7 @@ extern crate ethereum_types;
 extern crate hex;
 ```
 
-### Signing the Transaction
+#### Signing the Transaction
 
 The `ethereum_tx_sign` libraries contain a `RawTransaction` struct that we can use to sign an Ethereum transaction once initialized.  It's the initialization that's the tricky part, as we need to convert between the `rust-web3` and `ethereum_types` structs.
 
@@ -226,7 +227,7 @@ Note that the `nonce` is not automatically calculated when constructing a `RawTr
 
 Unlike in the `TransactionRequest` struct, we must also provide some sensible `gas` and `gas_price` values manually.
 
-#### Obtaining a Private Key
+##### Obtaining a Private Key
 
 Before signing, we need to have access to a private key that is used to sign.  In this example we hard code the private key of the first ETH populated account in `ganache` (remember to start with the `-d` argument).  This is ok for testing, but **you should never expose a private key in a production environment!**
 
@@ -251,7 +252,7 @@ The `hex:decode` function converts a hexadecimal string (make sure to remove the
 
 The private key is passed to `to_array` as a slice, and this slice is then converted to a `[u8: 32]`.
 
-#### Signing
+##### Signing
 
 Now that we have a function that returns a private key in the correct format, we can sign the transaction by calling:
 
@@ -259,7 +260,7 @@ Now that we have a function that returns a private key in the correct format, we
 let signed_tx = tx.sign(&get_private_key());
 ```
 
-### Sending the Transaction
+#### Sending the Transaction
 
 After signing, broadcasting the transaction to the Ethereum network is also a one-liner:
 
@@ -271,7 +272,7 @@ Note, we have to perform another conversion here!  The `send_raw_transaction` ta
 
 Like the `send_transaction` equivalent, this function returns a `Future`, which in turn returns a `Result` object containing the transaction hash of the broadcast transaction on completion.
 
-### Putting it all Together
+#### Putting it all Together
 
 ```rust
 extern crate web3;
@@ -342,7 +343,7 @@ fn to_array(bytes: &[u8]) -> [u8; 32] {
 }
 ```
 
-## Summary
+### Summary
 
 In this tutorial we learned how to send a basic Ether value transfer transaction from one account to another using Rust.  We explained two signing approaches: signing on a node by an unlocked account, and signing a transaction on the Rust side.
 

@@ -9,40 +9,41 @@ some_url:
 
 # Wyre - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **Wyre**
 
 Fiat to Crypto API that provides out-of-the-box compliance, payments, liquidity solutions for DApps to go to market tomorrow. 
 
-# Bounty 1 Overview: Most End to End Complete Solution with our API
+## Bounty 1 Overview: Most End to End Complete Solution with our API
 
 **Prize Amount:** 1,000 DAI
 
-# Bounty 2 Overview: Best use of our API within the most creative/ ambitious/ sci fi project
+## Bounty 2 Overview: Best use of our API within the most creative/ ambitious/ sci fi project
 
 **Prize Amount:** 1,000 DAI
 
-# Bounty 3 Overview: Most immediate and practical use of our API for immediate impact
+## Bounty 3 Overview: Most immediate and practical use of our API for immediate impact
 
 **Prize Amount:** 1,000 DAI
 
-# Bounty 4 Overview: 100 DAI to the first 20 submissions with our API or Widget
+## Bounty 4 Overview: 100 DAI to the first 20 submissions with our API or Widget
 
 **Prize Amount:** 2,000 DAI total
 
 
-# Resources/Links:
+## Resources/Links:
 - http://docs.sendwyre.com
 
-# Requirements (e.g., link to open source code)
+## Requirements (e.g., link to open source code)
 N/A
 
-# Judging Criteria
+## Judging Criteria
 
 Completeness, Practical Impact, Creative Use
 
-# Contact Information
+## Contact Information
 
 Thomas Scaria - thomas@sendwyre.com
 

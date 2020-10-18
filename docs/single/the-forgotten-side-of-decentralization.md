@@ -9,7 +9,8 @@ some_url:
 
 # The Forgotten Side of Decentralization
 
-#Where should content live on Web3?
+
+##Where should content live on Web3?
 
 One of the most challenging, and overlooked, aspects of decentralization is storage. Where should content live in Web3, and how should we securely and efficiently distribute it?
 
@@ -21,7 +22,7 @@ We’ve distilled our research down into essentially three decentralized solutio
 
 The core data required on the Kauri network is an index of at least the author address and the article hash. This index allows timestamping of user article submissions to the decentralized environment. The advantages and disadvantages of each option is discussed in greater detail below. 
 
-#Storage Option #1: On-chain Index 
+##Storage Option #1: On-chain Index 
 
 _Setup_ 
 
@@ -41,7 +42,7 @@ Escalating a batch of articles on Kauri requires storing and later retrieving th
 
 For the batch escalation solution, all the content is still stored on IPFS, though the index is centralized until someone either triggers the on-chain escalation or all articles are escalated periodically (e.g. every 24 hours, every other day, once a week). One issue with this batching solution is that while a user is storing their articles off-chain, someone could steal the original author’s work and claim ownership of an article that does not belong to them. 
 
-#Storage Option #2: Sidechain Index 
+##Storage Option #2: Sidechain Index 
 
 _Setup_ 
 
@@ -56,7 +57,7 @@ _Disadvantages_
 For the uptick in speed and significantly decreased on-chain data storage costs made possible by a POS/DPOS/POA consensus ruleset on the sidechain, users forfeit decentralization, although the option to exit to the main chain should theoretically always remain available. Additionally, the sidechain can also experience data loss in the event that all participants shut down. It is also likely that at the outset a Kauri sidechain would be a single node implementation. 
 
 
-#Storage Option #3: Read-only Public Index on IPFS
+##Storage Option #3: Read-only Public Index on IPFS
 
 _Setup_ 
 
@@ -71,7 +72,7 @@ _Disadvantages_
 On IPFS, only one participant can publish the index under a static unique name. Consequently, this solution is not censorship resistant (as it is maintained solely by Kauri). A read-only public index on IPFS also suffers with regard to speed, as publishing to IPNS currently takes approximately two minutes. 
 
 
-#The Ask Required of Kauri Users For Each Storage Option 
+##The Ask Required of Kauri Users For Each Storage Option 
 
 _Option #1 On-chain index - Cost_ 
 
@@ -86,7 +87,7 @@ _Option #3 Read-only Public Index on IPFS - Time & effort, with diminished ‘de
 For an IPFS read-only index, users would need to verify the consistency of the data served by the Kauri middleware API against the public index. In short, users will not be able to solely trust the main chain or the sidechain implementation with the expectation that the Kauri maintainers consistently and reliably publish the index in a timely manner. 
 
 
-#Best Bet: Why Levying Storage Costs to the User is Wise
+##Best Bet: Why Levying Storage Costs to the User is Wise
 
 Option #1, an on-chain index, remains the most promising decentralized storage solution for Web3. The price paid by users ensures that the index is persistent on the main chain and that data is reliably extensible to any other dApp or any other user browsing the Ethereum blockchain. Sidechains, with a reliable implementation, offer some of the benefits of decentralization but introduce further complexity to the user, as data must be transferred from the main chain to the sidechain and the user must monitor the sidechain for malfeasance. A read-only public index on IPFS moves away from chain-related decentralization, instead distributing the index across IPFS nodes––a centralized environment in which only one participant under a static unique name can publish the index.
 

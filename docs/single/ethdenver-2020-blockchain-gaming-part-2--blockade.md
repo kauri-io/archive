@@ -10,6 +10,7 @@ some_url:
 # ETHDenver 2020 Blockchain Gaming Part 2  Blockade Games
 
 
+
 The second ETHDenver2020 gaming talk I attended was Ben Heidorn of Blockade Games, presenting on “The Mainstream Blockchain Game Infrastructure.” I was excited about this talk, and it did not disappoint.
 
 Ben set out to walk through his experiences at [Blockage games](https://blockade.games/), bringing blockchain gaming to mainstream audiences with games like [Neon District](https://www.neondistrict.io/), [Plasma Bears](https://plasmabears.com/), and [The Pineapple Arcade](https://www.pineapplearcade.net/).

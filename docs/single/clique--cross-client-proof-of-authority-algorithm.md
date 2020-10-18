@@ -10,6 +10,7 @@ some_url:
 # Clique  cross-client Proof-of-authority algorithm for Ethereum
 
 
+
 Most popular cryptocurrencies use Proof-of-work algorithms to achieve consensus. While some of them might eventually switch to Proof-of-stake, PoW is a standard for now. But there are other options. One of them is Proof-of-authority. Here, we will have a look at the general idea of the protocol, as well as one of the implementation called Clique, with its properties and current applications. We will also cover two testnets that currently implement Clique: Rinkeby and Görli.
 
 Proof-of-authority has one distinctive feature: only approved signers can seal the blocks. That’s it, a valid block doesn’t require hash mining, or staking coins; the only requirement is to be included in the list of approved signers. This list can be static or dynamic. In the first case, a list of sealers is defined in the genesis block and can’t be changed. In the second case, current signers have the ability to add new signers or remove existing ones in case they act maliciously.

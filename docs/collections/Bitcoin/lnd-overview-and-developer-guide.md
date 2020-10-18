@@ -9,16 +9,17 @@ some_url:
 
 # LND Overview and Developer Guide
 
+
 _This article originally appeared on the Lighting Labs [developer blog](https://dev.lightning.community/overview/)_
-### Introduction
+#### Introduction
 
 The LND Overview and Developer Guide aims to provide _just_ enough information about LND to enable readers to build applications. It start with a conceptual review of the Lightning Network, before jumping into the important aspects of working with specifically LND. If you are already comfortable with how the Lightning Network works, feel free to skip down to the [Components](#components) section. The command line examples are for illustrative purposes only and will be covered in more depth in the [installation guide](https://dev.lightning.community/guides/installation/) and [tutorial](https://dev.lightning.community/guides/installation/tutorial/).
 
-#### Preliminaries
+##### Preliminaries
 
 This overview assumes basic knowledge of Bitcoin mechanics. If terms like “UTXO” and “locktime” are unfamiliar to you, you should refer to the [Bitcoin developer guide](https://bitcoin.org/en/developer-guide), which serves a similar purpose.
 
-### Table of Contents
+#### Table of Contents
 
 *   [Lightning Network](#lightning-network)
 *   [Payment Channels](#payment-channels)
@@ -38,7 +39,7 @@ This overview assumes basic knowledge of Bitcoin mechanics. If terms like “UTX
 
 ![Lightning Network Graph](http://imgur.com/xqfllBI.png)
 
-### Lightning Network
+#### Lightning Network
 
 The Lightning Network scales blockchains and enables trustless instant payments by keeping most transactions off-chain and leveraging the security of the underlying blockchain as an arbitration layer.
 
@@ -52,7 +53,7 @@ Hash Time-Locked Contracts (HTLCs) allow transactions to be sent between parties
 
 In short, the Lightning Network enables scalable blockchains through a high-volume of instant transactions not requiring custodial delegation.
 
-### Payment Channels
+#### Payment Channels
 
 Payment channels are the main workhorse of the Lightning Network. They allow multiple transactions to be aggregated into just a few on-chain transactions.
 
@@ -65,7 +66,7 @@ In the vast majority of cases, someone only needs to broadcast the first and las
 
 In the case where either party attempts to defraud the other, a third transaction, which punishes the attacker, will end up being broadcasted on-chain. Let’s investigate how this is possible by the way Lightning does channel updates.
 
-#### Channel Updates
+##### Channel Updates
 
 In between the opening and closing transactions broadcast to the blockchain, Alice and Bob can create a near infinite number of intermediate closing transactions that gives different amounts to the two parties.
 
@@ -79,7 +80,7 @@ When Alice broadcasts a closing transaction to the blockchain, she is attesting 
 
 Channel updates are thus fully trustless. When making an update, both parties exchange the secrets for the prior state, so that all prior states will have been revoked except for the current state. Both parties will never broadcast an old state, because they know the other party can take all their money if they do so.
 
-### Multihop payments
+#### Multihop payments
 
 Single channels work well if you have a financial relationship with some entity where you make payments frequently or in metered amounts. But most payments, like purchasing an umbrella from a corner store because you lost it again, are one-off. For Lightning to help Bitcoin scale for general use cases, there needs to be a way for the whole network to forward payments through channels that already exist. Furthermore, this process should retain the trustless nature of individual channels, otherwise it becomes too hard to identify dishonest actors amongst a large number of hops.
 
@@ -111,11 +112,11 @@ Now, what if Dave is uncooperative and refuses to give `R` to Bob and Carol? Not
 
 We have shown how to make a payment across the Lightning Network using only off-chain transactions, without requiring direct channel links or trusting any intermediaries. As long as there is a path from the payer to the payee, payments can be routed, just like the Internet.
 
-### Network Topology
+#### Network Topology
 
 The expected shape / network topology of the Lightning Network will depend on behavior implemented in the varying Lightning implementations as well as actual usage. Users do not have to manually manage their channels, since `lnd` has an ‘autopilot’ feature including settings optimizing for both everyday use and fee revenue. And of course, channels can be opened on demand via the standard command line, gRPC, and REST interfaces.
 
-### Integration guidelines
+#### Integration guidelines
 
 When integrating `lnd`, hot and cold storage must be considered. To maximize security, we generally want to keep as little as possible in hot wallets, and as much as possible in cold wallets.
 
@@ -123,9 +124,9 @@ It is possible to construct Lightning channels where the keys are cold, but they
 
 This is only a surface level introduction to Lightning integration. For a more illustrative example of how Lightning Network may work in production, check out the “Integration Components” and “Security Considerations” sections of the [Exchange Integration Document](https://docs.google.com/document/d/1r38-_IgtfOkhJh4QbN7l6bl7Rol05qS-i7BjM3AjKOQ/edit) maintained by Bryan Vu.
 
-### Components
+#### Components
 
-#### Network Layers
+##### Network Layers
 
 The Lightning Network is an _overlay_ network on top of another blockchain. To avoid confusion it is crucial to differentiate between the following network layers we encounter when reasoning about `lnd`:
 
@@ -133,7 +134,7 @@ The Lightning Network is an _overlay_ network on top of another blockchain. To a
 *   P2P Network: This is the peer layer where `lnd` nodes add each other as peers so they can send messages between one another via an [encrypted connection](https://github.com/lightningnetwork/lightning-rfc/blob/master/08-transport.md). For example, the `lncli connect` adds a peer, which are identified by identity pubkey and IP address.
 *   Payment channel network: This is the layer where nodes are connected by payment channels. For example, the `lncli openchannel` command opens a channel with a node that was already connected at the peer layer, and the `lncli describegraph` command returns the list of edges and vertices of the payment channel graph.
 
-#### Software Components
+##### Software Components
 
 There are distinct software components we should be aware of when developing on
 
@@ -141,7 +142,7 @@ There are distinct software components we should be aware of when developing on
 *   `lnd` / `lncli`: LND stands for Lightning Network Daemon and serves as the main software component driving the Lightning Network. It manages a database, connects to peers, opens / closes channels, generates payment invoices, sends, forwards, and revokes payments, responds to potential breaches, and more. `lncli` opens up a command line interface for driving `lnd`.
 *   [Neutrino](https://github.com/lightninglabs/neutrino) is an experimental Bitcoin light client designed to support Lightning mobile clients. This is a wallet UI usable with `lnd`. Neutrino is not required from an application development standpoint, but can be regarded as the primary way the LND end user interacts with the Lightning Network and thus and applications built on top of it.
 
-#### LND Interfaces
+##### LND Interfaces
 
 There are several ways to drive `lnd`.
 
@@ -151,7 +152,7 @@ There are several ways to drive `lnd`.
 
 All of these LND interfaces are documented in the [API Reference](https://api.lightning.community), featuring a description of the parameters, responses, and code examples for Python, Javascript, and command line arguments if it exists.
 
-### Channel Lifecycle
+#### Channel Lifecycle
 
 To better understand the development workflow around Lightning channels, it is worthwhile to examine step by step the lifecycle of a payment channel. It contains roughly 4 steps:
 
@@ -181,11 +182,11 @@ btcctl generate 6
 lncli closechannel --funding_txid=<funding_txid> --output_index=<output_index>
 ```
 
-### Payment Lifecycle
+#### Payment Lifecycle
 
 Because Lightning payments are instant, its API tends to be much simpler, since there is no need to wait for block confirmations before a payment is considered accepted. It resembles a fairly standard payment flow, but there are a few additional things to keep in mind.
 
-#### Payment Requests
+##### Payment Requests
 
 Payment requests, often also referred to as Invoices, are a simple, extensible protocol compatible with QR-codes. It includes a 6-character checksum in case there is a mistake with copy/paste or manual entry.
 
@@ -203,7 +204,7 @@ Other possibly unexpected rules include that the payee should accept up the twic
 
 A full specification of the payment request data format, required and optional parts, and required behavior can be found in [BOLT 11](https://github.com/lightningnetwork/lightning-rfc/blob/master/11-payment-encoding.md).
 
-#### Payment flow
+##### Payment flow
 
 Let’s now see what an ideal payment flow looks like.
 
@@ -239,6 +240,6 @@ lncli lookupinvoice --rhash=<R_HASH>
 
 We have now covered the basic workflow for generating invoices and sending/receiving payments.
 
-### Conclusion
+#### Conclusion
 
 You have completed the conceptual overview of LND and a high level primer on the components and workflows. To get started on developing, check out the [installation guide](https://dev.lightning.community/guides/installation/guides/installation/) and [tutorial](https://dev.lightning.community/guides/installation/tutorial/).

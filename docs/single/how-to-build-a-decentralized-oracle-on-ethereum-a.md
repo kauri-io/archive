@@ -9,6 +9,7 @@ some_url:
 
 # How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide
 
+
 Whether you are a developer, tech enthusiast or enterprise, iExec offers one of the most complete and simple-to-use decentralized oracle solutions. This guide will show you how to start feeding Web 2.0 API data into your Ethereum smart contract in no time. For a general overview of what a decentralized oracle is and why it is needed, have a look at our previous article:
 
 [Why your Decentralized Application Needs a Decentralized Oracle
@@ -23,27 +24,27 @@ In the following guide, we are going to see how to fetch the price of any crypto
 All the terminal commands part of this tutorial were run on a macOS machine. If using Linux, you can use almost all the same commands. However, Windows users may need to adapt OS-specific commands and install apps such as Git Bash — but we can not provide full tech support. If you encounter any issues while following the tutorial, our developers we’ll be happy to help or receive feedback on [Slack](http://slack.iex.ec), [Gitter](https://gitter.im/iExecBlockchainComputing/Lobby), or [Telegram](https://t.me/iexec_discussion).
 
 
-## 0. Pre-Requirements
+### 0. Pre-Requirements
 
-### Install OS specific compiling libs
+#### Install OS specific compiling libs
 
-#### On MacOS
+##### On MacOS
 
 Make sure that the [Xcode Command Line Tool](https://stackoverflow.com/a/53078282/10182638) is installed.
 
-#### On Linux
+##### On Linux
 
 sudo apt-get update
 sudo apt-get install python
 sudo apt-get install build-essential
 
-#### On Windows 10
+##### On Windows 10
 
 Unless you are a Windows power user or Windows addict, and installing Visual Studio to be able to compile c++ doesn’t sound terrifying for you, then you may consider using Windows Subsystem for Linux (to get a linux shell integrated in Windows) or you could just install Virtualbox and launch a Linux VM.
 
-### Install Docker
+#### Install Docker
 
-#### On MacOS
+##### On MacOS
 
 Go on Docker website, sign up and install Docker Desktop. Once successfully installed, log in Docker Desktop. Ensure that Docker Desktop is up by running in your terminal:
 
@@ -52,7 +53,7 @@ docker --version
 
 ```
 
-#### On Linux
+##### On Linux
 
 Go on this [Docker documentation page](https://docs.docker.com/install/linux/docker-ce/ubuntu/) explaining how to install Docker on Ubuntu (all Linux flavors are supported). Ensure Docker is installed by running:
 
@@ -61,11 +62,11 @@ docker --version
 
 ```
 
-### Create a repository on DockerHub.
+#### Create a repository on DockerHub.
 
 Head over [dockerhub](https://hub.docker.com/), create a repository and name it price-feed.
 
-### Install NodeJS
+#### Install NodeJS
 
 The cleanest way to install node on Linux & MacOS is by using the [NVM installer](https://github.com/nvm-sh/nvm). Run the command below to install NodeJS on your system:
 
@@ -85,7 +86,7 @@ node --version
 
 On Windows, download the NodeJS Windows installer from [their official website](https://nodejs.org/en/).
 
-### Instal the iExec SDK
+#### Instal the iExec SDK
 
 The iExec SDK is a node module. To install it, just run:
 
@@ -104,7 +105,7 @@ iexec --version
 That’s it for the prerequisites, that’s a one shot install. Next part is about setting up your DOracle project (like create and fill your Ethereum wallet).
 
 
-## 1. Initialize the project
+### 1. Initialize the project
 
 Now let’s initialize our new price-feed oracle project:
 
@@ -166,7 +167,7 @@ iexec account deposit 200 --chain kovan
 ```
 
 
-## 2. Deploy your off-chain application
+### 2. Deploy your off-chain application
 
 In order to run the price-feed application on the iExec’s decentralized cloud, we need to go through the following steps:
 
@@ -245,7 +246,7 @@ iexec order show --app [orderHash]
 ```
 
 
-## 3. Deploy your on-chain DOracle Smart Contract
+### 3. Deploy your on-chain DOracle Smart Contract
 
 Let’s clone the repo on your terminal, enter the smart-contract folder, and install JS dependencies:
 
@@ -273,7 +274,7 @@ MNEMONIC=<YOUR_PRIVATE_KEY> ./node_modules/.bin/truffle migrate --network kovan 
 
 Great, your DOracle smart contract is now deployed on Kovan testnet blockchain. How about feeding it with the ETH/USD price?
 
-## 4. Update your DOracle (as a requester)
+### 4. Update your DOracle (as a requester)
 
 Now let’s buy a “price-feed” run on iExec by running these commands on your terminal:
 

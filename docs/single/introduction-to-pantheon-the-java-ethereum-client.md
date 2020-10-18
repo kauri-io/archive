@@ -9,6 +9,7 @@ some_url:
 
 # Introduction to Pantheon — The Java Ethereum Client
 
+
 Pantheon is the new Java Ethereum client which has recently been open sourced and is now production ready (v1.1 at the time of writing). The code was written in Java and aims to provide enterprises with an Ethereum client that has features such as stability, permissions and access control, privacy, ease of deployment and scalability. These are common requirements for business looking to use Ethereum in their technology stack.
 Pantheon is also mainnet-compatible, and includes features like consensus algorithms that are applicable to enterprise use. Using Pantheon you can send transactions, deploy smart contracts, and interact with the JSON-RPC API. Here is the link to the Pantheon website if you are interested in reading more about it: 
 [https://pegasys.tech](https://pegasys.tech/)
@@ -18,7 +19,7 @@ This image shows the Pantheon roadmap. Pantheon v1.1 has been released and v1.2 
 ![](https://api.kauri.io:443/ipfs/Qma7HGqBFArbdy3Nnfqobgzv21ALPyFqTsgszsnmzrMuHA)
 
 
-### Installation
+#### Installation
 Let’s get started by downloading and installing Pantheon.
 On mac you can install using homebrew:
 
@@ -50,7 +51,7 @@ docker run pegasyseng/pantheon:latest
 
 
 
-### Starting Pantheon
+#### Starting Pantheon
 To run a Pantheon node on the Ethereum mainnet, you can simply run:
 
 ```
@@ -111,7 +112,7 @@ pantheon --network=dev --miner-enabled --miner-coinbase=0xfe3b557e8fb62b89f4916b
 
 When — network=dev is specified, Pantheon uses the development mode genesis configuration with a fixed low difficulty. Setting the network to mainnet, goerli, rinkeby, ropsten or dev will tell Pantheon to use the default preconfigured genesis file for that respective network so you don’t need to manual create your own genesis file.
 
-### Test that Pantheon is Running
+#### Test that Pantheon is Running
 You can confirm that Pantheon is running and connected to the correct network by running these commands against the JSON RPC API:
 
 ```
@@ -137,13 +138,13 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":
 
 The eth_chainId method returns the network id of the running Pantheon node. The eth_syncing method returns the starting, current and highest blocks that have been synced.
 
-### High Level Architecture
+#### High Level Architecture
 Here is a diagram of the Pantheon high level architecture from the official Pantheon documentation.
 
 ![](https://api.kauri.io:443/ipfs/QmUfjkToZaXp17qwbvH5GKG5s9aTBdncBdpQSLXEN7WXJM)
 
 
-### Links and Resources
+#### Links and Resources
 Here are some other useful Pantheon links and resources for your reference if you want to learn more.
 Downloads: 
 [https://pegasys.tech/solutions](https://pegasys.tech/solutions/)

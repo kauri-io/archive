@@ -9,7 +9,8 @@ some_url:
 
 # ERC-20 and Its Discontents  The Rise of Comrades ERC-777 & ERC-1820
 
-# ERC-20 and Its Discontents: The Rise of Comrades ERC-777 & ERC-1820
+
+## ERC-20 and Its Discontents: The Rise of Comrades ERC-777 & ERC-1820
 
 The most well-known Ethereum Request for Comment (ERC) is the [ERC-20](https://en.wikipedia.org/wiki/ERC20), which enabled the growth of Decentralized Apps (dApps), tokens, and token standards that serve the blockchain community as the blueprint for creating tokens.
 
@@ -22,26 +23,26 @@ Under ERC-20, we can send tokens to any Ethereum address, which means we can als
 
 Thanks to recent efforts, it's now possible to purchase an NFT within a single transaction.
 
-## The Efforts of ERC-223
+### The Efforts of ERC-223
 
 ERC-223 has all the features of ERC-20, but it also checks to see if the smart contract can accept tokens. The ERC-223 receiver can call a function, so it can also be used for purchasing NFTs.
 
 Under ERC-223, for a contract to be able to receive tokens, it has to implement the ERC-223 receiver interface. However, it still isn't as complete as ERC-777, which is built with the goal of backward compatibility with ERC-20; solving its main hurdles and avoiding the weaknesses of EIP-223.
 
-## The Introduction of ERC-777
+### The Introduction of ERC-777
 
 ERC-777 is a substantial evolution over ERC-20. More than just sending tokens, ERC-777 defines the lifecycle of a token, starting with the minting process, followed by the sending process, and ending with the burn process. It allows for the management of funds by others, called "operators".
 
-### From transfer (to, amount) to send (to, amount, data)
+#### From transfer (to, amount) to send (to, amount, data)
 
 EIP-777 does not use `transfer` and `transferFrom` functions, instead, it uses `send` and `operatorSend` to avoid interface confusion.
 Similar to the notes field when completing a bank transfer, the "data" in an ERC-777 token transfer can be full or empty. The `tokensReceived` hook allows for both sending and notifying a contract in a single transaction. Whereas ERC-20 required a double call (`approve`/`transferFrom`) to achieve this.
 
-### From Approve to Operators
+#### From Approve to Operators
 
 Another difference in the Solidity contract of ERC-777 is the use of the `operators` function instead of `approve()`. ERC-777 allows holders of an address to authorize others to send and burn tokens on their behalf. Furthermore, token holders are notified when their address is used.
 
-## ERC-1820
+### ERC-1820
 
 ERC-1820 is a registry for checking which address supports which interface. Unlike ERC-777, ERC-1820 is not a token standard; it is a standard for a registry.
 
@@ -49,7 +50,7 @@ While there might be disadvantages to relying on a separate standard, ERC-1820 o
 
 The authors of the protocol had a choice between either making the protocol more complex or creating a separate protocol, which would result in a dependency issue; the parity hack is an obvious example of what problems such dependencies can create.
 
-## The ERC-777 Code and Explanation
+### The ERC-777 Code and Explanation
 
 The code below is a basic example of an ERC-777 contract, from <https://github.com/ethereum/EIPs/blob/master/EIPS/eip-777.md>:
 
@@ -118,7 +119,7 @@ interface ERC777Token {
 
 ERC-777 defines the entire lifecycle of a token, including the minting (4), sending (3), and burning (5) of tokens. Below are the functions and events of the protocol. For more detail, read [the official EIP-777 Github page](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-777.md).
 
-### View Functions
+#### View Functions
 
 -   `name`
 -   `symbol`
@@ -126,7 +127,7 @@ ERC-777 defines the entire lifecycle of a token, including the minting (4), send
 -   `balanceOf`
 -   `granularity`
 
-### Operators
+#### Operators
 
 -   `AuthorizedOperator` event
 -   `RevokedOperator` event
@@ -135,23 +136,23 @@ ERC-777 defines the entire lifecycle of a token, including the minting (4), send
 -   `revokeOperator` function
 -   `isOperatorFor` function
 
-### Sending Tokens
+#### Sending Tokens
 
 -   `Sent` event
 -   `Send` function
 -   `operatorSend` function
 
-### Minting Tokens
+#### Minting Tokens
 
 -   `Minted` event
 
-### Burning Tokens
+#### Burning Tokens
 
 -   `Burned` event
 -   `burn` function
 -   `operatorBurn` function
 
-## Further Reading
+### Further Reading
 
 1.  <https://medium.com/coinmonks/erc-777-a-new-advanced-token-standard-c841788ab3cb>
 2.  <https://github.com/ethereum/EIPs/issues/777>

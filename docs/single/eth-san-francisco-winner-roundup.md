@@ -9,6 +9,7 @@ some_url:
 
 # ETH San Francisco Winner Roundup
 
+
 Another month, another awesome ETH Global hackathon; this time in the capital of tech, San Francisco.  On October 5th, over 1000 hackers congregated on the 100 year old Palace of Fine Arts, where they could listen to high quality talks and dicussions from the likes of Vitalik Buterin and Kevin Owocki whilst building cutting edge decentralized applications on the Ethereum platform.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmdF4CUQZS8knyg8U17Zec6XE4vFWwB8YgbuyCLPA2cb3v)
@@ -17,13 +18,13 @@ The winning DApps from this leg were as varied and interesting as ever, with man
 
 In no particular order, the 10 finalists were:
 
-# Augur Pro
+## Augur Pro
 
 > Betting odds for Augur Markets on iOS
 
 The Augur Pro team created an iOS application that taps into augur markets, but displays them more like a traditional gambling and sports betting website, rather than a trading UI that most current Augur UIs tend to mimic.
 
-# Kora
+## Kora
 
 > A governance tool creating structured guidelines around stakeholder discourse in a decision-making process
 
@@ -33,7 +34,7 @@ The Kora team have built a set of tools that help facilitate distributed decisio
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/eSyji7suojE" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
 
-# CryptoPay
+## CryptoPay
 
 > Anytoken, Anywhere with DAI
 
@@ -43,7 +44,7 @@ The CryptoPay members believe that there is still a lot to be done before blockc
 
 ![](https://api.beta.kauri.io:443/ipfs/QmT7XVCqK3YTnVaYwKgWc8KiurMW3fVUXKbrCgkML13Zpn)
 
-# SplitterConverter
+## SplitterConverter
 
 > Deploy a contract that you can send ETH or DAI to. When users withdraw, the funds are converted and split as desired
 
@@ -51,7 +52,7 @@ A frontend that lets you deploy a smart contract that can split all funds held w
 
 [Github](https://github.com/glitch003/EthSanFranciscoHackathon2018)
 
-# Gifty
+## Gifty
 
 > Send NFTs via SMS
 
@@ -61,7 +62,7 @@ Gifty makes gifting crypto assets to friends easier by allowing Non-Fungible Tok
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/YWGV57KpQTQ" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
 
-# Harberger Ads
+## Harberger Ads
 
 > Purchase advertisement space using a Harberger tax ownership model
 
@@ -73,7 +74,7 @@ The concept of Harberger taxes have become more popular recently, somewhat due t
 
 [Smart Contracts Github](https://github.com/okwme/harberger-ads-contracts)
 
-# Atomic XShard Transactions with Routing / Balancing PoC
+## Atomic XShard Transactions with Routing / Balancing PoC
 
 > EVM sharding
 
@@ -83,7 +84,7 @@ Following on from the work done at ETH Berlin, Vlad Zamfir and friends continued
 
 ![](https://api.beta.kauri.io:443/ipfs/QmUDCH7Ac5Fa3d5Xnz7abD6Q4BE3CqJ7evbxyvnHLe7Wfd)
 
-# Safu
+## Safu
 
 > A rolodex and key manager for all your crypto accounts
 
@@ -91,7 +92,7 @@ The safe team members all agreed that keeping track of their crypto addresses wa
 
 [Github](https://github.com/grant-project/safu-extension)
 
-# Sendput
+## Sendput
 
 > Get paid now for outstanding reimbursements
 
@@ -99,7 +100,7 @@ The Sendput team built an MVP that utilising Bloom and Dharma in order to issue 
 
 [Github](https://github.com/colark/sendput)
 
-# SayToshi
+## SayToshi
 
 > Ethereum’s decentralized social media manager
 
@@ -111,5 +112,5 @@ SayToshi provides a way for crypto influencers to make money by essentially allo
 
 ![](https://api.beta.kauri.io:443/ipfs/QmPNnv4rLMe29B29nWfVSAhmdoaK3DLFm2eYgZ9YVXkBRM)
 
-# Attribution
+## Attribution
 - Palace of Fine Arts Photo - By King of Hearts [CC BY-SA 4.0  (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons_

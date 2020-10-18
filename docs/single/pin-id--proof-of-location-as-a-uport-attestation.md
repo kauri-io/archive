@@ -9,26 +9,27 @@ some_url:
 
 # Pin-ID  Proof-of-Location as a uPort Attestation
 
-# Project Name
+
+## Project Name
 Pin-ID (People-in-Need-Identity)
 
-# Project Tagline/Description
+## Project Tagline/Description
 "Proof-of-Location as a uPort Attestation. Confidently Donate or Lend DAI to People-in-Need (such as Venezuela)."
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 
 - Connor Wallace
 - Ryan Robison
 - Christopher Robison
 
-# Status.im ID for Each Team Member
+## Status.im ID for Each Team Member
 
 - @cowalla
 - @RyanLikesCrypto
 - @CBobRobison
 
 
-# Detailed Project Description
+## Detailed Project Description
 **Summary:** We created a uPort verification using XYO's proof-of-location protocol for the purposes of whitelisting individuals based on who and where they are.
 
 **Example problem:** A person wants to send DAI to people-in-need in Venezuela, but can't trust anonymous accounts on the internet requesting donations.
@@ -36,20 +37,20 @@ Pin-ID (People-in-Need-Identity)
 **Solution:** A person-in-need can use a trusted sentinel ([XYO Proof-of-Location Oracle](https://medium.com/@Cooperzi/xyo-proof-of-location-17bce8d604f2)) to validate their uPort ID with proof that they are physically located in Venezuela.
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 - Protocol - Bluetooth, Ethereum
 - Languages and Frameworks - React Native, Objective-C, Ruby, Javascript, Kotlin, iOS, Swift
 - Projects: uPort, XYO
 
 
-# Track for which you’re submitting
+## Track for which you’re submitting
 
 Impact. [Goal 1 - "No Poverty: Donate what you don't use"](https://www.un.org/sustainabledevelopment/poverty/)
 
 "Social protection systems need to be implemented to help alleviate the suffering of disaster-prone countries and provide support in the face of great economic risks. These systems will help strengthen responses by afflicted populations to unexpected economic losses during disasters and will eventually help to end extreme poverty in the most impoverished areas."
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 1. [XYO - Bounty 1 Overview: Improve XYO Network](https://kauri.io/article/6ee2ef1828dd482582eafd2bfe930b64/v3/xyo-sponsor-bounty-at-ethdenver-2019!)
 
@@ -60,7 +61,7 @@ We've added uPort identity to XYO. Now individuals can be whitelisted to #DeFi c
 Bounty Description: "It should be highly usable, mobile friendly, have a low barrier to entry and be broadly applicable to both developed and emerging economies. Try to find a niche that hasn’t already been filled."
 
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/RyanJoseph15/uport-mobile
 

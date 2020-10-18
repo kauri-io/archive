@@ -9,6 +9,7 @@ some_url:
 
 # How to Get Server Side Rendering Benefits (Unfurling, Indexing, Search-ability) without Building…
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmbDwkHYVZWdLzDfHfaNPycYsJ5eMQkxj8tVvzPinQUTjX)
 
 You’re not going to hear much about the topic of server side rendering (SSR) from many blockchain startups. If it’s not about a new scaling mechanism, token economic structure, or some other revolutionary idea, you may tune out or keep scrolling. However, there are plenty of things to talk about as a blockchain startup that are not related to the protocol layer or other bleeding edge research. We still face the same problems regular startups have — with a little extra magic. In our case, we were building quickly and wanted to forgo the heaviness of implementing a server side rendering (SSR) solution in our code. We found we could get all the benefits of an SSR solution without having to implement SSR into our code.
@@ -18,7 +19,7 @@ You’re not going to hear much about the topic of server side rendering (SSR) f
  2. Link unfurling (preview images and extra data when posting on twitter, slack, facebook)  
  3. Indexing, sitemap generation and more
 
-## Server Side Rendering
+### Server Side Rendering
 We’re a client-side React/Redux application using redux-saga. When we first built the application, we moved fast and focused on #SHIPLING. We did not implement SSR. We quickly discovered tying ourselves into a framework like Next or others would constrict our code and make us too reliant on an external, opinionated library. We also chose not to build our own server side rendering logic from scratch. It would have added too many edge cases, complexity to our code, separate logic for the server vs. frontend, and generally heavy architectural implications. We avoided this at all costs, and these decisions gave us the flexibility and agility to move quickly and skip implementing heavy server logic while still having all the benefits of an SSR solution.
  
 **WHAT WE DID**
@@ -41,7 +42,7 @@ The bots get a fully rendered page in under a second. Meta tags, links, and ever
 
 I will talk more on unfurling below. :)
 
-### The lambda functions (or bot rerouting):
+#### The lambda functions (or bot rerouting):
  
 **Add reroute headers Lambda Function:**
 [Gist](https://gist.github.com/villanuevawill/560a7c2f33748876195130eb3d3f8823#file-reroutelambda-js) 
@@ -58,10 +59,10 @@ For this to work, you also have to turn on custom headers for the bot request to
 ![](https://api.beta.kauri.io:443/ipfs/QmTGv7NvhnEx67DvQCpRjYFk2MBDs18VakEsxsTkdCD3Tp)
 
 
-### Prerender:
+#### Prerender:
 We plan on building our own service soon. In the meantime, [Prerender](https://prerender.io) has worked well for us. Prerender goes to your page, waits until the everything is rendered, saves the rendered html and caches it. When you send bot traffic to it, it serves the page immediately from cache. We send an API request to Prerender any time our site generates a new page or updates an existing page. This request warms up the cache for that page. Since the client-side application uses [React Helmet](https://github.com/nfl/react-helmet), all meta tags are also rendered for the server.
 
-## Unfurling:
+### Unfurling:
 When you share one of our bounties on Twitter, it looks like this:
 
 ![](https://api.beta.kauri.io:443/ipfs/QmRUfgaoApWnTrsMoB7Q8yquyF637226GLCwBNU2A4N17i)
@@ -88,27 +89,27 @@ On the React application, we use React Helmet and serve up the appropriate image
 
 [Gist](https://gist.github.com/villanuevawill/d00ef4ceecc02eccbe91b5666d52d350#file-bountymetatags-js)
 
-## Search Engine Indexing and Sitemaps:
+### Search Engine Indexing and Sitemaps:
 To determine whether search engines can properly view and read your page:
 1. Use Fetch as Google to render your page and make sure their 
 [headless browser](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md) can read your pages correctly  
  2. Make sure there are no remnants of ES6 code (you may be surprised)  
  3. Keep your sitemaps up to data and your pages optimized correctly
 
-### Fetch as Google:
+#### Fetch as Google:
 ![](https://api.beta.kauri.io:443/ipfs/QmZaHrWU32KAf3JekubktziS5WcfSH4xkyHkvSY8RhYH1F)
 
 This one is simple. If the page shows up for you, you’re in the clear. If not, then you have an issue you need to investigate. In our case, Google was not able to render our pages, resulting in us just seeing a blank page. Our issue was stray ES6 code lying around. One of the libraries we used was responsible and was breaking Google, yikes!
 
-### No ES6 Remnants:
+#### No ES6 Remnants:
 Google is running Chrome version 41 to view your page. This means it is not compatible with a lot of modern ES6. In order to make sure you have no ES6 remnants, you should run the following command on your javascript bundle: 
 `es-check es5 [js-filename].js — verbose`. If ES6 remains are found, an error will be thrown and you will need to investigate further. In our case, [IPFS-API](https://github.com/ipfs/js-ipfs-api) was breaking our bundle for Google and other bots across the web, since IPFS-API and its dependencies are not transpiled to ES5. If you’re running a blockchain startup and include that library in your bundle, then you should definitely investigate if your app experiences the same issues.
 
-### A little course on Google’s crawler and indexer:
+#### A little course on Google’s crawler and indexer:
 If you decide not to tackle server side rendering (or a Prerender solution), you will slow down the speed at which your pages will be visited by search engines. For example, Google’s crawler follows links across the web. If the crawler lands on your site and realizes HTML content is not loaded immediately, it will add your site to its indexing queue. This means Google’s indexer will visit your site later to evaluate your single page, client-side rendered application for links to index vs recording your links right away. This slows down discovery of new pages drastically. Only Baidu and Google could index our site before our current SSR solution. Other search engines do not even respect client-side applications (Bing, DuckDuckGo, etc.). Looking at how our site was indexed across the web _before_ we had our current SSR solution, only Baidu and Google could index properly. [@wiekatz](http://twitter.com/wiekatz) has a great article about this topic 
 [here](https://medium.freecodecamp.org/seo-vs-react-is-it-neccessary-to-render-react-pages-in-the-backend-74ce5015c0c9).
 
-### Keeping your sitemap up to date:
+#### Keeping your sitemap up to date:
 Every time an event occurs, a bounty updates, or something new is posted, we generate a new sitemap and we ping google to let them know we’ve updated it. We programmatically generate the sitemap on the fly using our API and Django’s sitemap plugin. Once that sitemap is generated, we upload it to s3 to be served by the CDN for the website. Our serverless function that manages this behavior 
 [can be found here](https://github.com/Bounties-Network/BountiesAPI/blob/master/serverless/ssr-services/handler.js#L5-L25). The API code for Django around constructing the sitemap [can be found here](https://github.com/Bounties-Network/BountiesAPI/blob/master/bounties_api/bounties/sitemaps.py).
  

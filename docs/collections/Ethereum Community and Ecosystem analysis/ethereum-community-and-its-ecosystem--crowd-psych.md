@@ -9,14 +9,15 @@ some_url:
 
 # Ethereum community and its ecosystem  crowd psychology analysis part 2
 
+
 <FONT size="2pt">_Ethereum community and its ecosystem: crowd psychology analysis_<br/></FONT>
 
 
-# <FONT size="5pt">**<u>Ethereum and “the yellow vests” the group consciousness of two extraordinary movements</u>**</FONT>
+## <FONT size="5pt">**<u>Ethereum and “the yellow vests” the group consciousness of two extraordinary movements</u>**</FONT>
 
 Is Ethereum an organized crowd? in the previous article we saw that one particular approach related to the crowd psychology analysis teach us that a community is an organised crowd when it share 5 characteristics. To find out if the crowd aggregate around Ethereum can affirm itself as community, we will try to identify some of these 5 characteristics by compare it, with another similar (in my opinion) grassroots movements, “the yellow vests”.<br/>
 
-##**"Yellow vests" the peculiarities of a novel movement**<br/>
+###**"Yellow vests" the peculiarities of a novel movement**<br/>
 
 <u>A deliberately unstructured and disorganised movement</u><br/>
 
@@ -57,7 +58,7 @@ Every week the “yellow vests” meme put pressure on the government by making 
 
 According to McDouglas, all the condition are meets to satisfied the basic element of a organized mass: A definite representation of the nature, the function, the performances and the demands of the mass and the relationship with other similar mass formations, and the comparative with each mass. By using this particular crowd psychology analysis one can observe that the yellow-vests movement have transform itself as an organized crowd located in one particular country (for now) because it has created a **dose of continuity**, has managed to define a **representation of his nature**, **of his function of a mass** and now have being capable to **put in relationship other mass of people**.<br/><br/>
 
-## **The comparison with Ethereum**<br/><br/><br/>
+### **The comparison with Ethereum**<br/><br/><br/>
 ![](https://api.kauri.io:443/ipfs/QmWWvu3wHNgRbEz4iV4FZxrFWuxWp1YBP8xmW3YVDgxkif)<br/><br/>
 
 <u>Decentralised and polymorph</u><br/><br/>
@@ -92,7 +93,7 @@ An other signal that the crowd around Ethereum is organised and therefore can id
 - **Users**: The third category is less important in quality but extremely important in term of quantity. They are the individuals or group of peoples who use the tools and services enable by the Ethereum platform. In the blockchain world users have a reel influence on governance as they decide what type of software implementation they want to use (full node owners).
 
 
-## **Light-speed community vs Horse-speed Institution**<br/>
+### **Light-speed community vs Horse-speed Institution**<br/>
 ![](https://api.kauri.io:443/ipfs/QmaxcVMHwsPie7Xe9GaG1cgmY7UZ66N6RVZAcYWXFYRB4H)
 
 To conclude this small study, I will tried to summarized and put into context an incredible visionary piece of thoughts that Vinay Gupta has produced [few years ago](https://drive.google.com/file/d/0B4w3Tams6OYoTE1TZS1jWnB4eTg/view)<FONT size="2pt">Vinay Gupta Oxford Democracy.</FONT><br/><br/>
@@ -104,7 +105,7 @@ Despite two different groups (Ethereum and the movement of yellow vests), one of
 Because of the economic power, the social impact that a light-speed system can generated, and the natural move of innovation being globally available and free, light-speed system tend to turn any communities who use it has a political power. <br/>
 We are witness a shift, a slow and gradual transfer of authority from the old system to the so-called Light-speed communities because of "the inability of horse-speed institutions to adapt to a light-speed society, because they are unable to modernize democracy with technological tools in tune with modern society ".
 
-## **Towards the path of decentralized self-organization**<br/><br/>
+### **Towards the path of decentralized self-organization**<br/><br/>
 ![](https://api.kauri.io:443/ipfs/QmdDe6t9FqrxdQZApnc46LrCWbvCHRYJGiqtPmiwmiK1ve)<br/>
 
 The crowd psychology approach from McDougall is teaching us that the crowd around Ethereum has past the stage of being a raw and disorganized crowd, now brings together all the conditions to be organised and therefore can establish itself as a community.

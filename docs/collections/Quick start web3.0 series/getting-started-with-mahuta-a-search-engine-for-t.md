@@ -10,10 +10,11 @@ some_url:
 # Getting started with Mahuta - A Search engine for the IPFS
 
 
+
 [**Mahuta**](https://github.com/ConsenSys/Mahuta) (formerly known as IPFS-Store) is a convenient library and API to aggregate and consolidate files or documents stored by your application on the IPFS network. It provides a solution to collect, store, index and search data used.
 
 
-## Features
+### Features
 
 - **Indexation**: Mahuta stores documents or files on IPFS and index the hash with optional metadata.
 - **Discovery**: Documents and files indexed can be searched using complex logical queries or fuzzy/full text search)
@@ -28,11 +29,11 @@ some_url:
 -------------------------------------------------------------------------
 
 
-## Getting Started
+### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-#### Prerequisites
+##### Prerequisites
 
 Mahuta depends of two components:
 - an IPFS node ([go](https://github.com/ipfs/go-ipfs) or [js](https://github.com/ipfs/js-ipfs) implementation)
@@ -40,7 +41,7 @@ Mahuta depends of two components:
 
 See how to run those two components first [run IPFS and ElasticSearch](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/run_ipfs_and_elasticsearch.md)
 
-## Java library
+### Java library
 
 1. Import the Maven dependencies (core module + indexer)
 
@@ -91,7 +92,7 @@ SearchResponse response = mahuta.prepareSearch()
 
 For more info, [Mahuta Java API](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_java_api.md)
 
-## Spring-Data
+### Spring-Data
 
 1. Import the Maven dependencies 
 
@@ -142,15 +143,15 @@ public class ArticleRepository extends MahutaRepositoryImpl<Article, String> {
 For more info, [Mahuta Spring Data](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_spring_data.md)
 
 
-## HTTP API with Docker
+### HTTP API with Docker
 
-### Prerequisites
+#### Prerequisites
 
 - Docker
 - [run IPFS and ElasticSearch with Docker](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/run_ipfs_and_elasticsearch.md#Docker)
 
 
-### Docker
+#### Docker
 
 ```
 $ docker run -it --name mahuta \ 
@@ -160,15 +161,15 @@ $ docker run -it --name mahuta \
     gjeanmart/mahuta
 ```
 
-### Docker Compose
+#### Docker Compose
 
 [Docker-compose sample file](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_docker-compose.md)
 
-### Examples
+#### Examples
 
 To access the API documentation, go to [Mahuta HTTP API](https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_http-api.md)
 
-#### Create the index `article` 
+##### Create the index `article` 
 
 -   *Sample Request:*
 
@@ -188,7 +189,7 @@ curl -X POST \
 }
 ```
 
-#### Store and index an article and its metadata
+##### Store and index an article and its metadata
 
 -   *Sample Request:*
 
@@ -223,7 +224,7 @@ curl -X POST \
 }
 ```
 
-#### Search by query
+##### Search by query
 
 
 -   *Sample Request:*

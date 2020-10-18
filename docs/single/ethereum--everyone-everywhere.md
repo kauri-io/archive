@@ -9,6 +9,7 @@ some_url:
 
 # Ethereum  Everyone, Everywhere
 
+
 By Andy Tudhope (Status)
 
 [PDF of Slides](https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/ethereum-everyone-everywhere/Ethereum_Everyone_Everywhere.pdf)

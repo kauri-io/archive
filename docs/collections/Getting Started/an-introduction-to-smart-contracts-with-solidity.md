@@ -9,6 +9,7 @@ some_url:
 
 # An Introduction to Smart Contracts with Solidity
 
+
 Smart contracts are programs which govern the behaviour of accounts within the Ethereum state, and Solidity is an object-oriented, high-level language for implementing smart contracts.
 
 With Solidity you can create contracts for uses such as voting, crowdfunding, blind auctions, and multi-signature wallets.
@@ -17,11 +18,11 @@ Solidity was influenced by C++, Python and JavaScript and is designed to target 
 
 Solidity is statically typed, supports inheritance, libraries and complex user-defined types among other features.
 
-## An Introductory Smart Contract
+### An Introductory Smart Contract
 
 The Solidity code below sets the value of a variable and exposes it for other contracts to access.
 
-### Storage Example
+#### Storage Example
 
 ```solidity
 pragma solidity >=0.4.0 <0.7.0;
@@ -47,7 +48,7 @@ To access a state variable, you do not need the prefix `this` as is common in ot
 
 This contract does not do much apart from (due to the infrastructure built by Ethereum) allow anyone to store a single number that is accessible by anyone in the world without a (feasible) way to prevent you from publishing this number. Anyone could call `set` again with a different value and overwrite your number, but the number is still stored in the history of the blockchain. There are ways to impose access restrictions so that only you can alter the number.
 
-## Next Steps
+### Next Steps
 
 This introduction and example was taken from [the official Solidity documentation](https://solidity.readthedocs.io/), which is your best resource. Recommended next steps are:
 

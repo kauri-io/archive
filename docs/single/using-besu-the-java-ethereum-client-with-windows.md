@@ -9,6 +9,7 @@ some_url:
 
 # Using Besu, the Java Ethereum Client with Windows
 
+
 ![Toolbelt: Besu included!](https://i.imgur.com/9aae8yO.jpg)
 Original photo by [Jesse Orrico](https://unsplash.com/@jessedo81?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
 
@@ -27,14 +28,14 @@ Besu is an open-source, Apache 2.0 licensed Ethereum client written in Java. It 
 
 This is the first of a series of step-by-step guides to install and configure the Besu client on Linux/macOS/Windows. This guide focuses on the Windows operating system.
 
-## Try Besu with Docker
+### Try Besu with Docker
 
 This is actually quite tricky on Windows. Docker doesn't really play nice with Windows, so if you want to try the quick docker solution, you'll have to have a do it on macOS or Linux.
 But you can install the software or use the binaries ahead.
 
 * * *
 
-## Getting started with Windows
+### Getting started with Windows
 
 Two installation methods are available:
 
@@ -45,7 +46,7 @@ Two installation methods are available:
 
 > **Requirements**: For both of these methods, Besu needs the Java JDK installed on your machine. Current versions of Besu require Java JDK 11+ installed.
 
-### Binary install
+#### Binary install
 
 Remember to have at least 4GB of RAM if running a private network, and [review  the further requirements](http://besu.hyperledger.org/en/latest/HowTo/Get-Started/System-Requirements/#determining-system-requirements) for other installation types.
 
@@ -75,7 +76,7 @@ $ bin/besu --version
 besu/v1.3.5-dev-bb0ba9b7/linux-x86_64/oracle_openjdk-java-11
 ```
 
-### Build from Source
+#### Build from Source
 
 Two options are available: [installing and running locally](http://besu.hyperledger.org/en/latest/HowTo/Get-Started/Build-From-Source/#running-locally/) or [on a VM](http://besu.hyperledger.org/en/latest/HowTo/Get-Started/Build-From-Source/#installation-on-vm).
 
@@ -108,7 +109,7 @@ $ bin/besu --help
 > Replace <version> with whichever release you downloaded.
 
 
-## Config
+### Config
 
 No additional configuration is necessary for Besu to run correctly.
 Each different network type (including mainnet) set by the `--network` command line flags automatically loads the appropriate default configuration.
@@ -118,7 +119,7 @@ Network-level settings are defined in the genesis file and are loaded by every N
 
 For more information on configuration, [read the corresponding documentation](http://besu.hyperledger.org/en/latest/HowTo/Configure/Using-Configuration-File/).
 
-## Starting Besu
+### Starting Besu
 
 After you have completed the above steps, you can continue using this distribution with the [regular Starting Besu guide](http://besu.hyperledger.org/en/latest/HowTo/Get-Started/Starting-node/).
 

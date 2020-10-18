@@ -9,21 +9,22 @@ some_url:
 
 # Make use of your remote Ethereum node using an SSH tunnel and MetaMask
 
+
 In the [first part](https://kauri.io/article/c287fe53de9b4073a18065443253a86d/v1/how-to-install-and-synchronize-your-own-remote-ethereum-node) of this series we learned how to install and synchronize a `geth` node with the Ethereum blockchain on a Linux Virtual Private Server (VPS). In this second part we explore _secure_ remote access to this Ethereum node via MetaMask.We also cover how to make everything survive crashes and shutdowns.
 
-## Setting up an SSH tunnel
+### Setting up an SSH tunnel
 
 Setting up a _what?_ This is the confusing process I mentioned earlier. I won't go into details here, but in effect it allows requests made to your local machine to be forwarded automatically to another machine, in this case the VPS running your `geth` node. It'll become clear why we need this when we set up MetaMask later.
 
-### Obtaining the IP address of your VPS
+#### Obtaining the IP address of your VPS
 
 In order to forward requests to your VPS you'll need to know its IP address. This is determined by returning to your Linode dashboard and going to the _Linodes_ tab on the left. You should see your node's IP address on the right, just below the geographic location of your VPS. It looks something like this: `172.16.389.54`. Make a note of that IP; we'll be using it shortly.
 
-### SSH on Windows
+#### SSH on Windows
 
 As of the April 2018 update Windows 10 has OpenSSH installed by default. This provides `ssh.exe` as well as several other SSH utilities. To check the state of SSH on Windows at the time of writing I downloaded the latest Windows 10 ISO and installed it into a virtual machine. OpenSSH was already installed and available from `cmd.exe`. If you have Windows 10 but OpenSSH is not installed, follow the instructions in this [Microsoft article](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview). If you have an older version of Windows there are several utilities available that will provide SSH capabilities.
 
-### Initiating the tunnel
+#### Initiating the tunnel
 
 We're going from here with the assumption that you have command-line access to an `ssh` client. The following command sets up the SSH tunnel. This command is identical on all three platforms.
 
@@ -33,7 +34,7 @@ ssh -N -v user@172.16.389.54 -L 8545:localhost:8545
 
 The `-N` switch tells `ssh` not to execute a remote command. We want a continuous connection, or _tunnel_, to our node. There's no command to execute remotely at this point. The `-v` switch makes `ssh` output some logging information as it executes. We then supply the username and IP address in order to log into our VPS. The rest sets up the tunnel itself, specifying that anything your local machine receives on port `8545` (the port on which your node is listening for RPC requests) should be forwarded to the same port on your node _securely through the tunnel_. That's the most important point: nobody else can do this except you. Your node is safe from exploits due to an exposed RPC port.
 
-### Configuring MetaMask
+#### Configuring MetaMask
 
 This is the easiest part of the whole tunnel kerfuffle. I'm assuming you left the SSH tunnel running and that you can see its log output. In your browser, activate MetaMask by clicking on the fox head at the top right of your browser window. At the top of the MetaMask window is the currently-chosen Ethereum network. If you've been using beta dApps, it's probably say something like _Rinkeby Test Network_. Click on that name and you see a dropdown menu. At the top is _Main Ethereum Network_. That's our final destination, but we don't want to use that menu item. If you do, MetaMask connects to an Infura node, defeating the entire purpose of this long journey. Further down the list you see _Localhost 8545_. Click on that, watching the output of your SSH tunnel. You should see lines appear similar to this:
 
@@ -44,11 +45,11 @@ debug1: channel 1: new [direct-tcpip]
 
 MetaMask should now have _Localhost 8545_ at the top and you should see _Deposit_ and _Send_ buttons in the middle. If so, you've now connected your remote `geth` node to MetaMask, though MetaMask believes it has connected to your local machine.
 
-## Making the impermanent permanent
+### Making the impermanent permanent
 
 You now have a fully-functioning `geth` node and are able to connect to it remotely _and securely_ through MetaMask and an SSH tunnel. Congratulations! Of course, computers crash or are shut down deliberately. In order to avoid having to set everything up again on a restart, we need to do two things: one, set up our `geth` node to start automatically on the VPS and two, somehow do the same for the SSH tunnel on our local machine.
 
-### Remote permanence
+#### Remote permanence
 
 In relative terms this is the easy part of the permanence process. We only have to deal with one operating system, Linux, and there's an established way to start tasks automatically: `systemd`. Linux politics aside, let's get started.
 
@@ -101,11 +102,11 @@ If all is well you'll see a stream of lines containing _Imported new chain segme
 
 From now on, when your VPS restarts for any reason `geth` starts up again automatically.
 
-### Local permanence
+#### Local permanence
 
 You've successfully started an SSH tunnel on your machine, but as soon as you close the terminal or put your laptop to sleep the tunnel disconnects and the connection is broken. This is obviously sub-optimal. Having to start up a terminal session and re-activate the tunnel is a bit of a drag. The problem is, the three major operating systems have three different ways to set up permanent services like our SSH tunnel.
 
-#### SSH key pairs
+##### SSH key pairs
 
 In order for any of the following to work automatically you need to have SSH private and public keys. If you regularly `ssh` into remote machines without needing to provide a password, you're already set up. Even in that case, you need to send your public key to the remote machine running `geth`. For instructions on how to do this — and how to generate an SSH key pair in the first place if you need to — [this article from Linode](https://www.linode.com/docs/security/authentication/use-public-key-authentication-with-ssh/) or [this one from Atlassian](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html) explains things fairly well. These articles are already very long and very technical; mucking about with SSH keys is a well-known process so it's not necessary to repeat those instructions here. If you can type:
 
@@ -115,7 +116,7 @@ $ ssh user@172.16.389.54
 
 supplying your own username and the IP of your remote `geth` node, and you are logged in without having to supply a password, you're good to go. If this is not the case, none of the following will work.
 
-#### Linux
+##### Linux
 
 The process of making an SSH tunnel permanent is similar to they way it was done on our VPS.  We install a `persistent.ssh.tunnel.service` file and set things up so that the service starts with the system. The only major difference, aside from the necessarily different `ExecStart` line, is that we need to precede that line with a line specifying a slight startup delay to make sure the network is ready before the service starts. Remember, of course, to replace `user` in `User=user` with your own desktop username and `user@172.16.389.54` with your username on the remote system and its IP address.
 
@@ -151,7 +152,7 @@ To check that the service started successfully, type the following:
 $ sudo systemctl status persistent.ssh.tunnel.service
 ```
 
-#### macOS
+##### macOS
 
 Apple's macOS has its own way of setting up persistent services using `launchctl`. Similar to `systemd` on Linux, you provide a configuration file — this time in the form of an [XML document](https://en.wikipedia.org/wiki/XML) instead of an [INI file](https://en.wikipedia.org/wiki/INI_file) — and then install and activate the service using that XML document. First we create this file, providing as usual the username and IP address of our VPS for`user@172.16.389.54`. As well, provide your macOS username under `UserName`.
 
@@ -192,7 +193,7 @@ $ sudo launchctl load /Library/LaunchDaemons/com.persistent.ssh.tunnel.plist
 
 Installing the `.plist` file into `/Library/LaunchDaemons/` makes it available to any user on the system; it's not dependent on your being logged in for the tunnel to be active.
 
-#### Windows
+##### Windows
 
 In order to set up a persistent service in Windows you need to download a utility that provides this functionality. The one I used is the free, open source, and public domain [NSSM](https://nssm.cc/) so you need to [install that](https://nssm.cc/release/nssm-2.24.zip) before proceeding.
 
@@ -215,11 +216,11 @@ C:\Windows\system32>nssm start persistent-ssh-tunnel
 persistent-ssh-tunnel: START: The operation completed successfully.
 ```
 
-#### Testing the persistent SSH tunnel
+##### Testing the persistent SSH tunnel
 
 Assuming all went well, you now have a system service on either Windows, Linux, or macOS that runs in the background and starts every time your local machine restarts. To test it out, open a browser that has MetaMask installed and follow the instructions above under _Configuring MetaMask_. MetaMask should again connect to _Localhost 8545_, but this time it's using the background service which tunnels requests to your `geth` VPS. You no longer have to think about establishing a connection to your remote Ethereum node.
 
-## Conclusion
+### Conclusion
 
 For the sake of expedience I've made specific choices in these articles. For instance, I chose to use a VPS, and indeed a particular VPS provider, for our Ethereum node. As explained above, this costs money. dApp developers receiving income from their project should definitely consider this route. On the other hand, someone who is simply curious and would like to follow the steps outlined could set up a VPS, follow the tutorial, and after testing it out and learning all there is to be learned, shut down and delete the VPS. This would end up costing just a few cents: if it took you two hours to complete this tutorial you'd be out 24¢ US, assuming a _Linode 16GB_ VPS. Even factoring in the synchronization time, you’re still only out a couple of USDs.
 

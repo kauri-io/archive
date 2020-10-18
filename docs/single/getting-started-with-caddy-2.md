@@ -9,6 +9,7 @@ some_url:
 
 # Getting started with Caddy 2
 
+
 I write a lot of small projects in Go. Many of them have web interfaces and most of them share servers.
 
 Being a cautious kind of fellow, I am reluctant to put my Go web interfaces directly facing the internet and anyway that would require a lot of port management so discovering reverse proxies came as good news but I never really took the time to master NGINX or Lighttpd because I found the configuration non intuitive and certificate management was a pain.

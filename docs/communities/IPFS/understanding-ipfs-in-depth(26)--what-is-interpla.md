@@ -9,6 +9,7 @@ some_url:
 
 # Understanding IPFS in Depth(2/6)  What is InterPlanetary Linked Data(IPLD)?
 
+
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
 ---
@@ -30,13 +31,13 @@ I hope you learn a lot about IPFS from this series. Let’s start!
 
 ---
 
-### The Significance of IPLD
+#### The Significance of IPLD
 
 IPLD is not just a part of the IPFS project, but a [separate project](https://ipld.io) in itself. To understand its significance in the decentralized world we have to understand the concept of ***Linked Data: The Semantic Web***. 
 
 
 
-## What is Linked Data &amp; Why do we Need it? 
+### What is Linked Data &amp; Why do we Need it? 
 
 
 The Semantic Web or Linked Data is a term coined by Sir Tim Berners Lee in a seminal article published in Scientific American in 2001. Berners Lee articulated a vision of a World Wide Web of data that machines could process independently of humans, enabling a host of new services transforming our everyday lives. While the paper’s vision of most web pages containing structured data that could be analyzed and acted upon by software agents ***has NOT materialized***, the Semantic Web has emerged as a platform of increasing importance for data interchange and integration through the growing community implementing data sharing using international [semantic web standards](https://www.w3.org/standards/semanticweb/), called [Linked Data](http://linkeddata.org/). 
@@ -83,49 +84,49 @@ Before diving deeper into IPLD, Let’s see the properties of IPLD.
 
 
 
-## Properties of IPLD 
+### Properties of IPLD 
 
 
 The sky’s the limit as IPLD allows you to work across protocol boundaries. The point is that IPLD provides [libraries](https://github.com/ipld) that make the underlying data interoperable across tools and across protocols by default. 
 
 
 
-## A canonical data model 
+### A canonical data model 
 
 
 A *self-contained descriptive model* that uniquely identifies any hash-based data structure and ensures the same logical object always maps to the exact same sequence of bits. 
 
 
 
-## Protocol independent resolution 
+### Protocol independent resolution 
 
 
 IPLD brings isolated systems together(like connecting Bitcoin, Ethereum and git), making integration with existing protocols simple. 
 
 
 
-## Upgradeable 
+### Upgradeable 
 
 
 With Multiformats(we will dive more into this in [part 4](https://medium.com/hackernoon/understanding-ipfs-in-depth-4-6-what-is-multiformats-cf25eef83966)) support, IPLD is easily upgradeable and will grow with your favorite protocols. 
 
 
 
-## Operates across formats 
+### Operates across formats 
 
 
 Express your IPLD objects in various serializable formats like JSON, CBOR, YAML, XML and many more, making IPLD a cinch to use with any framework. 
 
 
 
-## Backward compatible 
+### Backward compatible 
 
 
 Non-intrusive resolvers make IPLD easy to integrate within your existing work. 
 
 
 
-## A namespace for all protocols 
+### A namespace for all protocols 
 
 
 IPLD allows you to explore data across protocols seamlessly, binding hash-based data structures together through a common namespace. 
@@ -136,7 +137,7 @@ Now, let’s dive deeper into the IPLD.
 
 
 
-## Diving Deeper into IPLD Specs 
+### Diving Deeper into IPLD Specs 
 
 
 IPLD is not a single specification, it is a set of specifications. 
@@ -174,7 +175,7 @@ OK. Enough of theoretical stuff. Let’s dive into the most fun part of this pos
 In IPFS, IPLD helps to structure and link all the data chunks/objects. So, as we saw in part 1, IPLD was responsible for organizing all the data chunks that constituted the image of the kitty🐱. 
 
 
-### Playing with IPLD
+#### Playing with IPLD
 
 In IPFS, IPLD helps to structure and link all the data chunks/objects. So, as we saw in [part 1](https://medium.com/hackernoon/understanding-ipfs-in-depth-1-5-a-beginner-to-advanced-guide-e937675a8c8a), IPLD was responsible for organizing all the data chunks that constituted the image of the kitty🐱.
 
@@ -211,7 +212,7 @@ After installing the module your project structure will look like this:
 ![undefined](https://simpleaswater.com/content/images/2019/12/carbon.png)
 
 
-## Creating an IPLD format node 
+### Creating an IPLD format node 
 
 
 You can create a new node by passing a data object into the `ipfs.dag.put` method, which returns a Content Identifier (CID) for the newly created node. 
@@ -266,7 +267,7 @@ You will get this CID `zdpuAujL3noEMamveLPQWJPY6CYZHhHoskYQaZBvRbAfVwR8S`. We ha
 
 
 
-## Connecting IPLD objects 
+### Connecting IPLD objects 
 
 
 One important feature of Directed Acyclic Graphs (DAGs) is the ability to link them together. 
@@ -319,7 +320,7 @@ async function linkNodes(){
 linkNodes();
 ```
 
-## Reading Nested data using Links 
+### Reading Nested data using Links 
 
 
 You can read data from deeply nested objects using path queries. 
@@ -384,7 +385,7 @@ Now, as we have explored IPFS DAG API we are ready to work with IPLD and create 
 
 
 
-## Creating a Publication System 
+### Creating a Publication System 
 
 
 We will create a simple blogging application. This blogging application can: 

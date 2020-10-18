@@ -9,7 +9,8 @@ some_url:
 
 # Rhombus has your oracle needs covered at ETHDenver
 
-## New Releases
+
+### New Releases
 
 We have a few piping hot development treats this week, just in time for developers to unleash their creativity at the ETHDenver hackathon:
 
@@ -21,7 +22,7 @@ We have a few piping hot development treats this week, just in time for develope
 
 Learn more about these developments [here](https://blog.rhombus.network/).
 
-## And we have bounties for ETHDenver
+### And we have bounties for ETHDenver
 
 These prizes will be awarded for best oracle usage...
 
@@ -35,10 +36,10 @@ Fourth place: $250
 
 Honorable mentions ... see "Additional Info" below 
 
-## How to register your project to qualify for bounties:
+### How to register your project to qualify for bounties:
 Send a message to @rhombusCEO on Telegram with your name, project, and oracle you're gonna use.
 
-## Resources/Links:
+### Resources/Links:
 Github: https://github.com/RhombusNetwork
 
 Technical docs: https://docs.rhombus.network
@@ -48,18 +49,18 @@ https://rinkeby.etherscan.io/address/0x7ce662974fbb9b590c60dbf99f078120405ff0b9#
 
 We’ll release several additional oracles as the hackathon approaches and can add custom oracles for your dapp upon request.
 
-## Additional Information
+### Additional Information
 The first 15 projects that register with us and commit to using a Rhombus oracle in their dapp will receive $100, even if they don't place in the top 4 - as long as they successfully complete a dapp and integrate one of our oracles. Projects after the first 15 will receive a spot on our waitlist, and if any of the first 15 projects aren't able to successfully build dapps integrating Rhombus oracles, their $100 will be allocated to the waitlisted teams in order.
 
 
-## About us
+### About us
 
 Rhombus provides the most reliable and efficient oracle platform on the market today. We connect your smart contract with real-world metrics. Access custom off-chain computing and the industry's highest-grade security. No matter what data your decentralized application needs, Rhombus has you covered.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmduH1ACwpF6gu6BGyK48jNSJd2eW1FVLBLBHfTVN7Wi6G)
 
 
-## Learn more
+### Learn more
 
 To understand the Rhombus API, read about our activation/delivery methods, and explore detailed examples with code, please visit http://docs.rhombus.network/#rhombus-api-reference
 

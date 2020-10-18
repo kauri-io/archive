@@ -9,7 +9,8 @@ some_url:
 
 # Smart Contract Utilities with ZeppelinOS  Introduction
 
-## What is It?
+
+### What is It?
 
 ZeppelinOS is a development platform of utilities to help manage and operate smart contract projects in Ethereum. Its counterpart _OpenZeppelin_ , comprises of a library of reusable and secure smart contracts. In this tutorial series, we are primarily focusing on ZeppelinOS.
 
@@ -29,7 +30,7 @@ Here are a couple definitions to make this introduction easier to understand:
 - **ZEP**: A token created for ZeppelinOS.
 - **dApp**: Decentralized application.
 
-## Features
+### Features
 
 ZeppelinOS has great features to get you started:
 
@@ -38,24 +39,24 @@ ZeppelinOS has great features to get you started:
 - **Linking**: Any project can link to an EVM package that is already deployed on the blockchain. This establishes a database of packages that everyone can use.
 - **Vouching**: To support the creators of EVM packages and promote authenticity, vouching is possible with ZEP tokens. This confirms the reliability of a package. Thus you can earn ZEP by auditing and developing packages.
 
-## Future Features
+### Future Features
 
 ZeppelinOS has more features rolling out in the new year to make development and maintenance even easier. According to their [road map](https://blog.zeppelinos.org/zeppelinos-development-roadmap-pt-one/) we can expect to see the following.
 
-### Kernel Standard Libraries
+#### Kernel Standard Libraries
 
 This is an on-chain set of upgradeable libraries that you can inherit into your smart contracts. This stage of the project is active and available to users in the form of [OpenZeppelin](https://openzeppelin.org/).
 
 Although as per the [whitepaper](https://zeppelinos.org/zeppelin_os_whitepaper.pdf), it sounds as though ZeppelinOS will be receiving its own separate version of a kernel sometime soon.
 
-### Development Tools
+#### Development Tools
 
 A set of tools that makes development and maintenance hassle-free. Examples include:
 
 - **Attack Management system**: To deal with emergency attacks. This allows the user to perform actions such as pause, revert to the previous states, or fork the contract.
 - **Upgrade Management**: Manage progressive deployment of features, security patch maintenance, and updating.
 
-### Interaction
+#### Interaction
 
 Various utilities to enhance inter-contract communications and networking.
 
@@ -63,14 +64,14 @@ Various utilities to enhance inter-contract communications and networking.
 - **Marketplace**: A hub where users can browse and sell services. Hence it's a market place for contracts. Zeppelin reviews submissions to the marketplace to ensure high quality and best security practices.
 - **Blockchain Information Provider**: This feature allows you to have access to information such as current ETH price, gas price, transaction pool size, average mining block times, and more.
 
-### Off-chain Tools
+#### Off-chain Tools
 
 Off-chain tools aim to simplify the development process. Assisting with debugging, testing, deploying and monitoring of smart contract dApps.
 
 - **Analytic Dashboard**: Help you to track the health of your dApp smart contracts.
 - **Interface**: An interface designed to perform security analysis, manage upgrades, and interpret data about contracts once they deploy.
 
-## Next Steps
+### Next Steps
 
 ZeppelinOS expect to roll out new features in the future, in the meantime, we have plenty to get us started. The ZeppelinOS framework is designed to make creating contracts as easy as possible. They've resolved a fundamental issue in providing the ability to upgrade an already deployed contract. Once the rest of the features are launched, creating smart contracts will have never been easier.
 

@@ -9,7 +9,8 @@ some_url:
 
 # It's (nearly) a wrap! 🎉🥳👏
 
-## Audio version of newsletter
+
+### Audio version of newsletter
 
 <audio controls>
         <source src="https://ipfs.infura.io/ipfs/QmZGmqWYQWSNWpfvdaUozvzPh1aCBLNie1HsvTtahAcLX2">
@@ -20,7 +21,7 @@ As we draw into the final week(s) of 2019, we thought it was due time to take a 
 
 Kauri team
 
-## 🎁 But first, an early gift for our users…
+### 🎁 But first, an early gift for our users…
 
 Just in time for you to spend the holidays reading and writing, we released a large new update to kauri.io last week, here are a few features:
 
@@ -31,7 +32,7 @@ Just in time for you to spend the holidays reading and writing, we released a la
 
 Find out more in our [help section](https://kauri.io/help).
 
-## Top Articles
+### Top Articles
 
 Written by us and our users, these are the most viewed in 2019.
 
@@ -41,7 +42,7 @@ Written by us and our users, these are the most viewed in 2019.
 4.  [Ethereum community and its ecosystem: Networks Visualisation Analysis](https://kauri.io/ethereum-community-and-its-ecosystem:-networks-visualisation-analysis/cd37b69782ee45d6a96caa6e1ab43f42/a)  by [silver84](https://kauri.io/silver84/p)
 5.  [Creating a DApp in Go with Geth](https://kauri.io/creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a)  by [zed](https://kauri.io/zed/p)
 
-## Top Collections
+### Top Collections
 
 Curated collections from users helped our readers get to grips with building their first dapp on Ethereum.
 
@@ -51,7 +52,7 @@ Curated collections from users helped our readers get to grips with building the
 4.  [Open finance (DeFi)](https://kauri.io/open-finance-\(defi\)/5cab3a8c4e04590001eccfa2/c)  by [kauri](https://kauri.io/kauri/p)
 5.  [Monitoring Kubernetes with the Elastic stack](https://kauri.io/monitoring-kubernetes-with-elastic-stack/5d6d437fb93cd40001f1cbe3/c)  by [gregjeanmart](https://kauri.io/gregjeanmart/p)
 
-## Top contributors
+### Top contributors
 
 These are our top contributors in 2019 who wrote and updated the most articles on Kauri. Christmas Kauri Kudos are on their way to you! [Web3 Advocate](https://gitcoin.co/kudos/191/web3_advocate)  & [Kauri Pioneer](https://gitcoin.co/kudos/189/kauri_pioneer)
 
@@ -61,7 +62,7 @@ These are our top contributors in 2019 who wrote and updated the most articles o
 4.  [Silver84](https://kauri.io/public-profile/2e34cdb393c08086e759e3d186b3b4fb2ca5b1b2)
 5.  [FelipeFaraggi](https://kauri.io/public-profile/b929d237b337ce356fd0732472175babf08233ce)
 
-## Kauri team favorites
+### Kauri team favorites
 
 Which projects did the Kauri team like most in 2019? 🤔
 
@@ -72,7 +73,7 @@ Which projects did the Kauri team like most in 2019? 🤔
 -   **Nelson**: [eth.build](https://eth.build/)
 -   **Chris**: [Superblocks IDE](https://studio.ethereum.org/) , [Remix](http://remix.ethereum.org/) , [Grid](https://grid.ethereum.org/)
 
-## And Finally…
+### And Finally…
 
 We've added a new community that's still taking shape, but with new moderators on their way, keep an eye on the [IPFS community](https://kauri.io/ipfs/5df11c69001baf0001d03b95/cm)
 for updates moving into the new year. If you have any cool hacks you've built with IPFS, then [let us know](mailto:info@kauri.io)

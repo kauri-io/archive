@@ -9,15 +9,16 @@ some_url:
 
 # TRC10 Transfer in Smart Contracts
 
-# Introduction
+
+## Introduction
 
 TRC10 token is a system-level token type in TRON. Compared to TRC20 tokens, TRC10 tokens face a user experience flexibility issue. In Odyssey 3.2, developers and their smart contract callers can interact with TRC10 token via smart contracts according to the contract logic, giving them more control to implement their token in business scenarios. Unlike a TRC20 token, sending TRC10 tokens is consistent with transferring TRX in a contract, meaning TRC10 usage is similar to TRX usage. 
 
-# Transfer TRC10 to Smart Contract Accounts
+## Transfer TRC10 to Smart Contract Accounts
 
 TRC10 tokens can be transferred to a smart contract via a contract call. The contract call uses the two gRPC APIs of DeployContract and TriggerContract.
 
-## Wallet-CLI and Examples
+### Wallet-CLI and Examples
 
 DeployContract
 
@@ -39,7 +40,7 @@ triggercontract <contractAddress> <function signature> <function_parameters> <is
 triggercontract TTWq4vMEYB2yibAbPV7gQ4mrqTyX92fha6 set(uint256, uint256) 1,1 false  1000000       0            10             1000001  
 ```
 
-## New Parameters Explanation
+### New Parameters Explanation
 
 _**tokenValue**_ 
 The token amount caller wants to send into the contract account from the caller’s account.
@@ -50,7 +51,7 @@ The target token identifier, which is an int64 type in ProtoBuf. In the Wallet c
 > **OriginEnergyLimit** is a new feature in Odyssey_v3.2, which limits the energy cost when a caller spends the developer’s energy. It means the contract owner can set a maximum energy cost value to prevent the other user from over-using the owner’s resource. 
 **TokenId** is a new feature in Odyssey_v3.2. It can be found in a new map field called assetV2 in an account. Use GetAccount(Account) to obtain the TokenId and its value. TokenId is set by the system to begin from number 1_000_001. When a new TRC10 token is created, the number adds 1 and sets the ID for this token.
 
-# TRC10 Interaction in Smart Contracts
+## TRC10 Interaction in Smart Contracts
 
 **TRC10 Contract Example**
 
@@ -98,7 +99,7 @@ Odyssey_v3.2 defined a new tokenBalance function for TRC10 token balance queryin
 
 Msg.tokenvalue, represents the token value in the current msg call, with a default value of 0. Msg.tokenid, represents the token id in current msg call, with a default value of 0.
 
-# Solidity Compiler
+## Solidity Compiler
 
 **GitHub**
 

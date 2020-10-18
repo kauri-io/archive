@@ -9,25 +9,26 @@ some_url:
 
 # Ethergram
 
-## Ethergram - simple payments over telegram
+
+### Ethergram - simple payments over telegram
 
 
 <img src="https://raw.githubusercontent.com/button-tech/hackathon-eth-denver/master/general/ethergram-wide.png" alt="" data-canonical-src="https://raw.githubusercontent.com/button-tech/hackathon-eth-denver/master/general/ethergram-wide.png" height="350" />
 
 
-# [GitHub](https://github.com/button-tech/hackathon-eth-denver)
-# [Try us here](https://t.me/ethergram_bot)
-## [Project presentation in Keynote](https://github.com/button-tech/hackathon-eth-denver/raw/master/presentation/Ethergram.key)
+## [GitHub](https://github.com/button-tech/hackathon-eth-denver)
+## [Try us here](https://t.me/ethergram_bot)
+### [Project presentation in Keynote](https://github.com/button-tech/hackathon-eth-denver/raw/master/presentation/Ethergram.key)
 
-# Main video
+## Main video
 
 <a href=""><img src="http://img.youtube.com/vi/7UXEqFCyymA/2.jpg" 
 alt="IMAGE ALT TEXT HERE" width="750" border="10" /></a>
 
-## [ShapeShift Video](https://www.youtube.com/watch?v=g_ykqcLywh4)
+### [ShapeShift Video](https://www.youtube.com/watch?v=g_ykqcLywh4)
 
-# What is it?
-### It's a Telegram app that allows to:
+## What is it?
+#### It's a Telegram app that allows to:
 1.  Send Ethereum transactions and ERC20 tokens via Telegram messenger (only client side)
 
 2. It uses [Celer Network](https://medium.com/celer-network/celer-network-lets-buidl-scalable-dapps-at-ethdenver-8c3d54e8926f) for the cheap and fast transactions.  
@@ -39,17 +40,17 @@ alt="IMAGE ALT TEXT HERE" width="750" border="10" /></a>
 5. It supports <b>xDAI</b>, <b>DAI</b>, <b>BUFF</b>, <b>BTC</b> and <b>ETH</b> on Mainnet. It means you already can pay for the food on the EthDenver19.
 
 
-# Project Tagline/Description 
+## Project Tagline/Description 
 Telegram client to send and swap crypto secure via @nickname! 
 
-# Team Members. 
+## Team Members. 
 
 1. Nikita Kozlov
 2. Kirill Kuznetcov
 3. Artem Vorobev
 4. Alex Lebed
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 0x04dbfefffadd8acd9e0ece9c52b06440b4b10e2a1ccc52cb546e7923f116bc05e94b39d7f738cb1967545aaaa5f9b540ab1430b719142530be2ef6780b0b738bb1 - Nick Kozlov
 
@@ -59,16 +60,16 @@ Telegram client to send and swap crypto secure via @nickname!
 
 0x048e3092939403ee7d75fd5933510cfeb2ab7721300006f8788a2b9534780fa8a7f8a95ce4295c6c21dd93d2d87909f15889ee66ecaeb6ca4fa86bed8d4955d5bc - Alex Lebed
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 That's a secure messenger client to make transactions which is super easy to use. You don't need to download anything and you can send transactions via @nickname. We were inspired by WeChat payments. We build it not only on ETH but also on BTC and second layer of ETH called Celer Network. That means - very low fees and fast payments!
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 We use NodeJs, Redis, MongoDB and JS on the Frontend and Golang microservices
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 Rhombus Network - We use exchange rate from ETH to USD and BTC to USD to send crypto.
 
 Celer Network - We use payment channel.

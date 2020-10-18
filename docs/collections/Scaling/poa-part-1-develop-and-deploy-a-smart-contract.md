@@ -9,6 +9,7 @@ some_url:
 
 # POA - Part 1 - Develop and deploy a smart contract
 
+
 This article is part of a **POA tutorial series**: 
 
 - [POA - Part 1 - Develop and deploy a smart contract]( https://kauri.io/article/549b50d2318741dbba209110bb9e350e)
@@ -27,7 +28,7 @@ POA currently has two networks up and running:
 
 For the purpose of this tutorial, we will use the POA Sokol network.
 
-## Step 1: Connect Metamask to POA Sokol and fund your account
+### Step 1: Connect Metamask to POA Sokol and fund your account
 
 In this first step, we’re going to learn how to connect our Metamask wallet to a POA test network called Sokol and how to fund the account with Test POA tokens.
 
@@ -51,7 +52,7 @@ In this first step, we’re going to learn how to connect our Metamask wallet to
 
 6. You can your account balance in Metamask or also see in the [POA Sokol Explorer](https://blockscout.com/poa/sokol/) if the transaction went through.
 
-## Step 2: Deploy a contract on the POA Sokol network
+### Step 2: Deploy a contract on the POA Sokol network
 
 The second step consists in writing a very simple Smart Contract in Solidity and deploy it on the POA Sokol Network using Truffle framework.
 
@@ -185,7 +186,7 @@ Running migration: 2_deploy_contracts.js
 Saving artifacts...
 ```
 
-## Step 3: Interact with the contract from the web app
+### Step 3: Interact with the contract from the web app
 
 In the next step, we will develop a dApp using React, Web3 and Truffle to interact with the Smart Contract previously deployed on the POA Sokol network.
 
@@ -310,7 +311,7 @@ If Metamask is unlocked and connected to the Solok network, The web3 provider co
 
 ![](https://media.giphy.com/media/3D5uh6uTIT9K68zrVa/giphy.gif)
 
-## Links and resources
+### Links and resources
 
 **Sokol**
 

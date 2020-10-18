@@ -9,19 +9,20 @@ some_url:
 
 # SALT - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **SALT**
 
 SALT provides financial solutions for blockchain companies. One of SALT's projects, Meerkat, enables users to watch batches of blockchain addresses and receive notifications of activity (Transactions in or out) when they occur in the watched wallet.
 
-# Bounty 1 Overview: Meerkats Watch 
+## Bounty 1 Overview: Meerkats Watch 
 
 **Description:** SALT will be publishing Meerkat API Keys for ETH Denver 2019. The prize will be awarded to the best and most creative use of the Meerkat API. 
 
 **Prize Amount:** $5,000
 
-# Resources/Links:
+## Resources/Links:
 - Link to download API Keys: https://meerkat.watch/ETHDenver
 - Promo code for API Keys: 0xfb71daa0
 
@@ -29,16 +30,16 @@ SALT provides financial solutions for blockchain companies. One of SALT's projec
 
 
 
-# Requirements (e.g., link to open source code)
+## Requirements (e.g., link to open source code)
 N/A
 
-# Judging Criteria
+## Judging Criteria
 
 - Technicality
 - Functionality
 - Creativity
 - Utility
 
-# Contact Information
+## Contact Information
 
 Kendra Staggs & Aiden McClelland - ethdenver@saltlending.com

@@ -10,20 +10,21 @@ some_url:
 # ETHDenver_2019_OurChannel
 
 
+
 Important: You MUST add a tag (at the top, under Title) for each bounty you'd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click "ADD TAG", type  "bounty" and select the desired bounty from the list. If you'd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties you'd like to be considered for. These instructions can be deleted.
 
-# Project Name
+## Project Name
 Our Channel
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 Trusted Communication Hub for Digital Identity
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Michael Coon
 Sam Everett
 Dave McGregor
 Chim Himidumage
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 Michael Coon
 0x04d6bfff38d7a08d3da0bc67be1ef67ef63142aa08e2d910c5db91c1232d497b234869b2cbbc4ced8559a9d5451c55fbec3dc4694c7406240ac00a5ebd63e41358
@@ -39,10 +40,10 @@ Chim Himidumage
 
 
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 Our Channel is an open communication protocol founded on digital, sovereign identity. Users have total ownership of their identity and the channels they open with other trusted individuals, and discoverability is possible via a human-friendly name registry. Messaging is encrypted, decentralized and uncensorable, but is presented in a manner that most will find familiar.
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 Ethereum blockchain
 IPFS for message storage
 Smart contracts written in Solidity
@@ -52,14 +53,14 @@ Web3.js for Ethereum connectivity
 MetaMask for account / signature management
 
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 N/A
 Important: You MUST add a tag (at the top, under Title) for each bounty you'd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click "ADD TAG", type  "bounty" and select the desired bounty from the list. If you'd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties you'd like to be considered for. These instructions can be deleted.
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/our-channel/hackathon
 
 

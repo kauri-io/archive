@@ -10,7 +10,8 @@ some_url:
 # Running an Ethereum Full Node on a RaspberryPi 4 (model B)
 
 
-## Introduction
+
+### Introduction
 
 My wife recently offered me the latest [**Raspberry Pi 4 (model B) 4GB**](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/). So I was really excited to try to sync an **Ethereum Full Node** on the number one Single-Board Computer (SBC).
 
@@ -48,7 +49,7 @@ In this guide we will follow the second synchronisation mode, **fast** (with **f
 
 <br />
 
-## Hardware
+### Hardware
 
 We will start with an example of setup using a Raspberry Pi 4, a SSD and all the necessary components. But you can try alternative and equivalent solutions which should work depending on the following requirements:
 
@@ -56,7 +57,7 @@ We will start with an example of setup using a Raspberry Pi 4, a SSD and all the
 - Fast SSD (recommended to use NVME SSD if the board has a PCIe interface – *this is not the case with the RPi4*)
 - High-speed Internet
 
-### Board
+#### Board
 
 As mentioned, the board is the latest [Raspberry 4 (model B) - 4GB](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) with the following specification:
 
@@ -69,7 +70,7 @@ As mentioned, the board is the latest [Raspberry 4 (model B) - 4GB](https://www.
 
 <br />
 
-### SD Card
+#### SD Card
 
 To host the operating system (OS), I use a [SanDisk 16GB Ultra microSD](https://www.amazon.com/Sandisk-Ultra-Micro-UHS-I-Adapter/dp/B073K14CVB)
 
@@ -80,7 +81,7 @@ To host the operating system (OS), I use a [SanDisk 16GB Ultra microSD](https://
 
 <br />
 
-### Disk SSD
+#### Disk SSD
 
 In order to store the large Ethereum state database, which requires very high Disk IO performance, we connect a [Samsung SSD T5 (500GB)](https://www.amazon.com/Samsung-T5-Portable-SSD-MU-PA500B/dp/B073GZBT36) to the board via USB3.0.
 
@@ -93,7 +94,7 @@ It is recommended that you use at least a 500GB SSD because the actual size of t
 
 <br />
 
-### Power Supply
+#### Power Supply
 
 Finally we use a [3.5A USB-C power supply](https://www.amazon.com/CanaKit-Raspberry-Power-Supply-USB-C/dp/B07TYQRXTK) to power up the SBC.
 
@@ -102,7 +103,7 @@ Finally we use a [3.5A USB-C power supply](https://www.amazon.com/CanaKit-Raspbe
 
 <br />
 
-### Extra stuff
+#### Extra stuff
 
 - If you would like to connect to the Internet through Ethernet, you would need an Ethernet Cable
 
@@ -114,7 +115,7 @@ Finally we use a [3.5A USB-C power supply](https://www.amazon.com/CanaKit-Raspbe
 
 <br />
 
-### Total cost
+#### Total cost
 
 The total cost for this setup is **$160** with an estimated annual recurring cost of $10/year for electricity. 
 
@@ -136,9 +137,9 @@ _Result of the hardware installation_
 
 <br />
 
-## Installation
+### Installation
 
-### Install and configure the OS
+#### Install and configure the OS
 
 In the first part of the installation, we are going to install the **Raspbian** Linux Operating System and configure it in a reliable and secure way.
 
@@ -290,7 +291,7 @@ pi@192.168.0.24's password: <new password>
 
 <br />
 
-### Mount the SSD
+#### Mount the SSD
 
 
 In the second part of this guide, We will mount an SSD connected to one of the two USB3.0 ports. 
@@ -454,7 +455,7 @@ Below 50MB/s (write/read), I wouldn't recommend trying to syncing a Geth node be
 
 <br />
 
-### Other configuration
+#### Other configuration
 
 **Port-forwarding**
 
@@ -494,11 +495,11 @@ arm_64bit=1
 
 <br />
 
-### Install and configure Geth
+#### Install and configure Geth
 
 Now our system is ready for you to install and configure Geth.
 
-#### a. Install and configure Golang
+##### a. Install and configure Golang
 
 1. Download the archive in `~/download`
 
@@ -546,7 +547,7 @@ $ go version
 go version go1.13.1 linux/arm
 ```
 
-#### b. Install Geth from source 
+##### b. Install Geth from source 
 
 To install Ethereum client **Geth**, we will compile it from the [GitHub source](https://github.com/ethereum/go-ethereum).
 
@@ -588,7 +589,7 @@ GOPATH=
 GOROOT=/usr/local/go
 ```
 
-#### c. Configure and run Geth
+##### c. Configure and run Geth
 
 We first need to configure Geth to synchronise in **fast** mode using the flag `--syncmode fast`. 
 
@@ -615,7 +616,7 @@ Ctrl+C to stop it
 *[See the documentation](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) for command line options*
 
 
-#### d. Configure Geth as a service (systemd)
+##### d. Configure Geth as a service (systemd)
 
 We want to run Geth as a service and keep the process running in the background after we close the session, and be able to recover from crashes automatically.
 We need to install a systemctl service ([systemd explanation](https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units))
@@ -683,7 +684,7 @@ Sep 23 15:35:40 geth geth[1876]: INFO [09-23|15:35:40.657] Imported new block he
 
 <br />
 
-## Syncing 
+### Syncing 
 
 We've installed and configured Geth, so now we have to wait a few days until the sync ends. In the meantime, let me share some insights about the syncing process and what's going on under the hood.
 
@@ -735,7 +736,7 @@ WARN [09-26|09:03:22.737] Dropping unsynced node during fast sync  id=032cb470be
 
 <br />
 
-## Transition to full-node
+### Transition to full-node
 
 After exactly **3 days, 23 hours and 49 minutes** we observed the transition from fast mode to full mode:
 
@@ -760,7 +761,7 @@ The website [ethstats](https://ethstats.net/) retrieves the latest state of the 
 
 <br />
 
-## Conclusion
+### Conclusion
 
 In conclusion, this article shows how simple and affordable it is to run a full-node on the Ethereum mainet and contribute to the good health of the network.
 
@@ -769,7 +770,7 @@ In conclusion, this article shows how simple and affordable it is to run a full-
 <br />
 
 
-## Special thanks
+### Special thanks
 
 This guide began from a discussion about how hard it is to keep an Ethereum node stable and synced on a Single-Board Computer. So thank you for the interesting discussions and for your help in the last few weeks to make this experiment a success!
 
@@ -779,7 +780,7 @@ This guide began from a discussion about how hard it is to keep an Ethereum node
 
 <br />
 
-## References
+### References
 
 - [Péter Szilágyi (aka karalabe) on Github - fast sync - March 2018](https://github.com/ethereum/go-ethereum/issues/16218#issuecomment-371454280)
 - [Péter Szilágyi (aka karalabe) on Github - fast synchronization algorithm - Oct 2015](https://github.com/ethereum/go-ethereum/pull/1889)

@@ -9,18 +9,19 @@ some_url:
 
 # Quick guide - Listing DAI or MKR tokens on exchange
 
-# [Github page:](https://github.com/makerdao/developerguides/blob/master/exchanges/exchanges-guide-01/exchanges-guide-01.md)
+
+## [Github page:](https://github.com/makerdao/developerguides/blob/master/exchanges/exchanges-guide-01/exchanges-guide-01.md)
 **Quick guide - Listing DAI or MKR tokens on exchange**
 
 This document contains the necessary resources for an exchange to integrate the DAI and MKR ERC-20 tokens.
 
 
-## **Prerequisites**
+### **Prerequisites**
 
 This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the [Maker platform](https://www.makerdao.com/).
 
 
-## **Token contracts**
+### **Token contracts**
 
 In order to interact directly with the tokens, you can find the Ethereum mainnet smart contract addresses, source code, and ABIs in the links below. The tokens follow the [ERC20 token standard](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md), and thus should be interoperable with contracts that implement this standard interface.
 
@@ -54,7 +55,7 @@ When listing Dai or Maker tokens on exchanges or in wallets, you should use the 
 A style guide and additional logos can [be found here](https://github.com/makerdao/Overview-of-MakerDAO-design#style-guide).
 
 
-## **Additional source code and developer docs**
+### **Additional source code and developer docs**
 
 **DSToken (token standard for Maker tokens)**
 
@@ -72,7 +73,7 @@ A style guide and additional logos can [be found here](https://github.com/makerd
 *   Source: [https://github.com/makerdao/sai](https://github.com/makerdao/sai)
 
 
-### **Token libraries**
+#### **Token libraries**
 
 **Javascript Library**
 
@@ -98,6 +99,6 @@ Similarly to the library above, the [Python API](https://github.com/makerdao/pym
 *   [Dai Credit System Whitepaper](https://makerdao.com/whitepaper/)
 
 
-## **Need help?**
+### **Need help?**
 
 Contact [integrate@makerdao.com](mailto:integrate@makerdao.com) or #dev channel on chat.makerdao.com

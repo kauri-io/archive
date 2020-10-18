@@ -9,6 +9,7 @@ some_url:
 
 # Plasma Roundup  From MVP to Mainnet
 
+
 Ethereum second layer scaling technology has come a long way in a short period of time. Second layer solutions, innovations beyond the layer one protocol level, include State Channels, Side Chains, and Plasma. Taken together, layer two technologies present a wide scope of possibility for scaling the Ethereum blockchain.
 
 In August 2017, Plasma creators Joseph Poon and Vitalik Buterin [proposed this framework](https://plasma.io/plasma.pdf) for scaling Ethereum transaction throughput to a "significant amount of state updates per second," potentially more than Paypal, Visa or other widely used merchant service providers.
@@ -23,11 +24,11 @@ This overview is not meant to be exhaustive. Instead, by highlighting in progres
 
 Although none of the Plasma models reviewed here are production ready, they show that the technology is not just theory. Taken together, the implementations suggest that Plasma is moving rapidly toward realizing the scaling potential that its creators and implementers envision.
 
-## Prerequisites
+### Prerequisites
 
 For most of these projects you need [Truffle](https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts), [Ganache](https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts) and [npm](https://www.npmjs.com) installed.
 
-## FourthState Labs
+### FourthState Labs
 
 Among the earliest Plasma implementations was [FourthState Labs](https://github.com/FourthState/plasma-mvp-rootchain), whose design includes a rootchain contract according to the Plasma MVP. This rootchain, which other projects have also incorporated, is a series of Solidity smart contracts. This implementation may be an excellent place to start if you are considering building your own Plasma chain. It is designed to maintain a mapping from block number to merkle root, processing deposits, withdrawals and resolving transaction disputes. FourthState has written tests that emulate running these features which you can run by following these steps:
 
@@ -41,7 +42,7 @@ npm test
 
 ![](https://api.kauri.io:443/ipfs/QmbDKcmsdeVqnY3abxsJAAnJakrP3bFeFgwKNL6A4oCATX)
 
-## OmiseGO
+### OmiseGO
 
 Other notable early MVPs include [OmiseGO's implementation](https://github.com/omisego/plasma-contracts). OmiseGO aspires to enable financial inclusion and interoperability through a public, decentralized OMG network. A key component of this network is Plasma. OMG's implementation has a root chain, child chain and a client to interact with the Plasma chain, and is different from the MVP specification. For instance, OMG has added protection against the threat of chain re-organization (which can result from 51% attacks). Among other additions, it has built-in support for ERC20 token handling.
 
@@ -55,7 +56,7 @@ make dev
 make test
 ```
 
-## Kyokan
+### Kyokan
 
 Making the significant jump from MVP to mainnet is [Kyokan](https://github.com/kyokan/plasma). Kyokan is a Golang implementation [extending the original MVP specification](https://kauri.io/article/7f9e1c04f3964016806becc33003bdf3/v4/minimum-viable-plasma-the-kyokan-implementation). Their architecture uses the FourthState rootchain contract from above and includes root nodes to process transactions and package them into blocks, broadcast blocks to validator nodes, process exits and more. The team has been working steadily since March 2018 to build a production-ready Plasma implementation.
 
@@ -65,7 +66,7 @@ While Plasma’s arrival on mainnnet is a notable milestone, the technology’s 
 
 It's possible to test and run all the component infrastructure Kyokan needs, but you may run into various dependency and build issues. However, if you get past those, you have the chance to test a mostly functional Plasma implementation. [Find full instructions in the project read me](https://github.com/kyokan/plasma#local-development-installation-and-setup).
 
-## Plasma Group
+### Plasma Group
 
 At the end of 2018, the [Plasma Group](https://plasma.group/) [announced the release of their implementation](https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf) aimed at the greater Ethereum community. It includes a Plasma chain operator, a client and command line wallet, support for ERC20 tokens, a block explorer, transaction load testing and more. While their implementation includes properties such as scalable light client proofs and the possibility for interchain atomic swaps, the group has moved quickly to offer a [general purpose plasma design](https://medium.com/plasma-group/towards-a-general-purpose-plasma-f1cc4d49c1f4). This general purpose design aims to overcome constraints in old design patterns which were not upgradeable nor generalizable.
 
@@ -88,6 +89,6 @@ sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-p
 
 ![](https://api.kauri.io:443/ipfs/Qmcq47SvmNBkmTukfridq4f7UwskLSwTe519VvtRwyeQyw)
 
-## Summary
+### Summary
 
 Overall, Plasma is making great leaps forward, but there are still obstacles to overcome. Implementations need to be audited and tested. With mass adoption and the potential for global application, the stakes are high for these chains which, if all goes according to plan, will be processing a significant number of states per second, each state possibly holding high values. These implementations may suggest that layer two Plasma technology is right around the corner, but careful engineering to protect users and avoid risk takes time.

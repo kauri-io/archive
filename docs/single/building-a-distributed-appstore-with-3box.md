@@ -9,6 +9,7 @@ some_url:
 
 # Building a Distributed AppStore with 3Box
 
+
 ![Building a Distributed AppStore with 3Box](https://miro.medium.com/max/1920/1*vmW1pnGXRTUFELn5eL0pHw.png)
 
 
@@ -21,7 +22,7 @@ some_url:
 
 
 
-# How to build an app with 3Box SDK and Plugins 
+## How to build an app with 3Box SDK and Plugins 
 
 
  
@@ -54,7 +55,7 @@ To illustrate what is currently possible with 3Box, I have created a distributed
 
 
 
-## 👉 [Try the AppStore demo](https://gracious-borg-5f6651.netlify.com/) 
+### 👉 [Try the AppStore demo](https://gracious-borg-5f6651.netlify.com/) 
 
 
  
@@ -68,7 +69,7 @@ To illustrate what is currently possible with 3Box, I have created a distributed
 
 
 
-## Tech Stack 
+### Tech Stack 
 
 
 Our distributed application will include the following tech stack: 
@@ -83,7 +84,7 @@ Please note, this tutorial is 3Box and Web3 focused. We assume some react knowle
 
 
 
-## About 3Box 
+### About 3Box 
 
 
 3Box works by deriving the database keys which control data in the 3Box system from a message signed by an Ethereum wallet. In this example, we are going integrate with MetaMask as the wallet provider, but you could also use any Ethereum wallet such as Fortmatic, WalletConnect, etc. The wallet will give access to an Ethereum provider, which will return the user’s Ethereum address and allow messages to be be signed by its private key using the personal_sign method. 3Box does not write to the Ethereum blockchain directly, and only needs a signed message from the wallet key pair. This means that there are no associated gas costs and that the 3Box ecosystem is not tied exclusively to Ethereum, opening it up to integrating with other blockchains in the future. 
@@ -426,7 +427,7 @@ So far we have only been working with 3Box.js, however 3Box also provide a suite
 
 
 
-## Profile Edit Plugin 
+### Profile Edit Plugin 
 
 
 Providing user profiles makes for a much more human and engaging user experience. Let’s get started by creating a profile page (using react router to handle routing, see App.js). 
@@ -475,7 +476,7 @@ For more information, view our Profile Edit documentation.
 
 
 
-## Profile Hover Plugin 
+### Profile Hover Plugin 
 
 
 Now that we have added the functionality for users to edit and view their profile, we can also use the Profile Hover component. Rather than sitting in its own route, this component will work nicely on the page where we display the applications. 
@@ -522,7 +523,7 @@ For more information, view our Profile Hover documentation.
 
 
 
-## Comments Plugin 
+### Comments Plugin 
 
 
 The last plugin we will use is the Comments Plugin. We will use this to let users add comments to the application listed. First I created a modal for each application. 

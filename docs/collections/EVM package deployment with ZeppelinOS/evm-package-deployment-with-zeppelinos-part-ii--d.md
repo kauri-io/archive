@@ -9,14 +9,15 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract
 
-## Testing and publishing
+
+### Testing and publishing
 
 In this section, we'll make sure the contract we've deployed to our
 local network works by testing directly against it in Truffle Console.
 Once we're happy it works, we'll publish to the mainnet and create an
 EVM package for others to access.
 
-### Testing
+#### Testing
 
 Now that we have an instance of our contract, we're ready to test it
 directly in Truffle Console.
@@ -37,7 +38,7 @@ truffle(local)> myLinkedList = await LinkedList.at('{your-contract-address}')
 The "{your-contract-address}" is the address returned by the `zos create` command but also found in the _zos.dev-{some number here}.json_ file. (This command should return a long output, which
 represents our contract object.)
 
-### Now for the fun!
+#### Now for the fun!
 
 Let's check the head of LinkedList:
 
@@ -93,7 +94,7 @@ Of course, in the real world, during development you would want to build
 unit tests, not just manually test on the console. But for now, this is
 a good way to interact with your contract directly.
 
-### Publishing our contract
+#### Publishing our contract
 
 Great! So now that you have a contract, deployed it on your development
 network, created an instance of it, and tested it directly with Truffle
@@ -119,14 +120,14 @@ In your _zos.dev-{some number here}.json_ file, you will see
 that you now have a `app`, `package` and `provider` fields with
 addresses pointing to their respective contracts.
 
-## The big time
+### The big time
 
 Great! You've just published, but only to your local blockchain
 network, not to NPM, and not to the main Ethereum network. This means
 that so far, it's not useful, as no one can find it. What we need
 to do now is to publish to a real public network and then to NPM!
 
-### Get a mnemonic (and ether!)
+#### Get a mnemonic (and ether!)
 
 To get started, you're going to need a new mnemonic to connect to a
 public blockchain. **REMEMBER THIS IS NOT YOUR DEVELOPMENT MNEMONIC FROM GANACHE.** If you use that, you will probably lose all your money.
@@ -153,7 +154,7 @@ earlier. This can be the default account that MetaMask creates, or you
 can generate a new account to use specifically for deployment. Once you
 have this, you should load the account with some ETH for deployment.
 
-### A note on safety
+#### A note on safety
 
 As a personal preference, I tend to generate mnemonics and fund them
 with only enough ETH to complete whatever deployment or development task
@@ -167,7 +168,7 @@ put on your address, you can limit your losses in the event your code
 use MetaMask to generate your mnemonic, be sure to reset it to a new
 account when you're done with development. **Do not forget and mistakenly go forward using the MetaMask account you created for development as your main wallet.**
 
-### Setup
+#### Setup
 
 If you open your _truffle-config.js_ file, you will see that there is
 only your development blockchain under "local." You will need to add the
@@ -252,16 +253,16 @@ Now you can now proceed to publish.
 zos publish --network mainnet --from <<your from address>>
 ```
 
-### A note on gas and deployment troubleshooting
+#### A note on gas and deployment troubleshooting
 
-#### Gas prices
+##### Gas prices
 
 Typically, gas prices for executing or deploying contracts on public
 networks can vary wildly at times, and figuring out the accurate cost of
 deployment can sometimes be a guessing game. As of ZeppelinOS 2.1.0, gas
 prices are automatically retrieved by ZeppelinOS from [ETH Gas Station](https://ethgasstation.info/).
 
-#### Deployment troubleshooting
+##### Deployment troubleshooting
 
 Depending on the state of the network you're deploying to, deployment
 can sometimes fail, but don't be discouraged. Most of the time it will
@@ -312,7 +313,7 @@ Whew! You did it! Congratulations are in order! If you want to see under
 the hood, have a look at your _zos.mainnet.json_ file to see where
 everything is!
 
-## NPM
+### NPM
 
 You have now deployed your EVM package to the mainnet, where anyone can
 access it. The final step is to add your EVM package to the NPM

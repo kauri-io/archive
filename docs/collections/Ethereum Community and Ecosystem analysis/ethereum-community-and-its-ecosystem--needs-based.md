@@ -9,9 +9,10 @@ some_url:
 
 # Ethereum community and its ecosystem  Needs-Based Theories of Motivation approach
 
+
 <FONT size="2pt">_Ethereum community and its ecosystem: Needs-Based Theories of Motivation approach_ </FONT>
 
-#<FONT size="5pt">**<u>The importance of an open and decentralised protocol.</u>**</FONT>
+##<FONT size="5pt">**<u>The importance of an open and decentralised protocol.</u>**</FONT>
 
 With the approach of crowd psychology, we can see that Ethereum fulfills certain conditions for defining itself as a community. In this article, we will use another approach (influenced by the work of Abraham Maslow) that confirms that Ethereum has others necessary conditions to assert itself not only as a community, but as self-organisation.
 The approach will also attempt to analyze the reasons why some people decide to participate in the Ethereum community, as well as the influence of the effects produced by its protocol on their motivations and needs.

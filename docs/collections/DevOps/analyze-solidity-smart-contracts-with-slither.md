@@ -9,9 +9,10 @@ some_url:
 
 # Analyze Solidity Smart Contracts with Slither
 
+
 Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors, prints visual information about contract details, and provides an API to easily write custom analyses. Slither enables developers to find vulnerabilities, enhance their code comprehension, and quickly prototype custom analyses.
 
-## Features
+### Features
 
 * Detects vulnerable Solidity code with low false positives
 * Identifies where the error condition occurs in the source code
@@ -23,17 +24,17 @@ Slither is a Solidity static analysis framework written in Python 3. It runs a s
 * Correctly parses 99.9% of all public Solidity code
 * Average execution time of less than 1 second per contract
 
-## How to install
+### How to install
 
 Slither requires Python 3.6+ and [solc](https://github.com/ethereum/solidity/), the Solidity compiler.
 
-### Using Pip
+#### Using Pip
 
 ```shell
 $ pip install slither-analyzer
 ```
 
-### Using Git
+#### Using Git
 
 ```bash
 $ git clone https://github.com/trailofbits/slither.git && cd slither
@@ -42,7 +43,7 @@ $ python setup.py install
 
 We recommend using a Python virtual environment, as detailed in the [Developer Installation Instructions](https://github.com/trailofbits/slither/wiki/Developer-installation), if you prefer to install Slither via git.
 
-### Using Docker
+#### Using Docker
 
 Use the [`eth-security-toolbox`](https://github.com/trailofbits/eth-security-toolbox/) docker image. It includes all of our security tools and every major version of Solidity in a single image. `/home/share` will be mounted to `/share`  in the container. Use [`solc-select`](https://github.com/trailofbits/eth-security-toolbox/#usage) to switch the Solidity version.
 
@@ -56,7 +57,7 @@ To share a directory in the container:
 docker run -it -v /home/share:/share trailofbits/eth-security-toolbox
 ```
 
-## Usage
+### Usage
 
 Run Slither on a Truffle/Embark/Dapp/Etherlime application:
 
@@ -72,7 +73,7 @@ $ slither tests/uninitialized.sol
 
 For additional configuration, see the [usage](https://github.com/trailofbits/slither/wiki/Usage) documentation.
 
-## Detectors
+### Detectors
 
 By default, all the detectors are run.
 
@@ -115,7 +116,7 @@ Num | Detector | What it Detects | Impact | Confidence
 35 | `unused-state` | [Unused state variables](https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variables) | Informational | High
 36 | `too-many-digits` | [Conformance to numeric notation best practices](https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits) | Informational | Medium
 
-### Printers
+#### Printers
 
 To run a printer, use `--print` and a comma-separated list of printers.
 
@@ -139,7 +140,7 @@ Num | Printer | Description
 
 
 
-## Next Steps
+### Next Steps
 
 Feel free to stop by our [Slack channel](https://empireslacking.herokuapp.com) (#ethereum) for help using or extending Slither.
 

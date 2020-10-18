@@ -9,6 +9,7 @@ some_url:
 
 # Create Your Own Security Token Offering (STO) with Polymath
 
+
 This tutorial will take you through the process of building your first Security Token Offering (STO) — if you don’t know what an STO is please read this first: 
 [https://blog.polymath.network/what-is-a-security-token-offering-sto-4e5a92bf6bca](https://blog.polymath.network/what-is-a-security-token-offering-sto-4e5a92bf6bca)
  .
@@ -31,12 +32,12 @@ In this walkthrough we will be covering:
 
  *  **Whitelisting Your Investors To Participate In Your STO** 
 
-## Background / Introductory Video of Polymath
+### Background / Introductory Video of Polymath
  
 [https://www.youtube.com/watch?v=pOYcro53SOI](https://www.youtube.com/watch?v=pOYcro53SOI)
  
 
-## 1. What You Will Need For This Tutorial
+### 1. What You Will Need For This Tutorial
 In this tutorial you will need a Metamask account (to download the chrome extension click here: 
 [https://metamask.io/](https://metamask.io/)
  ). You will then need to fund your account. Go to this site and choose the easiest option for you: 
@@ -74,7 +75,7 @@ After getting that set up you will now see the following page when clicking “I
 
 Which brings us to the start of the Polymath decentralized application (dApp) walkthrough!
 
-## 2. Creating Your Account
+### 2. Creating Your Account
  
 **2.1**
  Let’s get started! Go ahead and set up your account with Polymath. Enter your name, preferred email and take a look at the privacy policy/terms of use page before you accept it. Now, click “Create Account”.
@@ -88,7 +89,7 @@ Which brings us to the start of the Polymath decentralized application (dApp) wa
 ![](https://api.beta.kauri.io:443/ipfs/QmUji2hfF8o4K5zcG8F4mfGsTFWyH9tGufqTNvfVXNZEpx)
 
 
-## 3. Registering Your Token Symbol
+### 3. Registering Your Token Symbol
  
 **3.1**
  Let’s start with picking our Token Name and Token Symbol. As you can see I chose to call my token “Proof of Concept“ and chose the symbol to be “POC”. You can also see that the page displays the Token Issuer’s Ethereum Address (it should match your current MetaMask address). Click “RESERVE TOKEN SYMBOL” to move forward.
@@ -123,7 +124,7 @@ It should appear in your mailbox right away. Click the activate link to move to 
 
 Congratulations, you have successfully reserved your token name and symbol!
 
-## 4. Choosing Your Providers (Advisors, Legal, KYC/AML, Marketing)
+### 4. Choosing Your Providers (Advisors, Legal, KYC/AML, Marketing)
  
 **4.1**
  We now get the chance to set the details of your very own Security Token Offering! Exciting, I know.
@@ -142,7 +143,7 @@ Once you’re done with that, go ahead and click “Create Your Token Now”! Yo
 **4.2**
  You are one step closer to officially creating your own security token!
 
-## 5. Creating Your Own Token (details)
+### 5. Creating Your Own Token (details)
  
 **5.1**
  You now have the option to add any additional information for your Token in the blank space, such as a legend or a link to a website, etc.
@@ -157,7 +158,7 @@ Once you’re done with that, go ahead and click “Create Your Token Now”! Yo
 
 Your token has now been issued Successfully. Great job! You should also have a copy of the transaction details in your inbox. Feel free to check out the Ethereum transaction you just created by following the Etherscan link.
 
-## 6. Setting Up Your Offering Details
+### 6. Setting Up Your Offering Details
  
 **6.1**
  Now we move on to the final step of the remaining details of your offering. Click “SET UP OFFERING DETAILS”. You’ll see the following:
@@ -183,7 +184,7 @@ Once you set all the details for your Security Token Offering configuration, cli
 ![](https://api.beta.kauri.io:443/ipfs/Qme1fyiP23bxcyXupsZvDUsmpUd96qY2cK3NU2uqg2BRXD)
 
 
-## 7. Whitelisting Your Investors
+### 7. Whitelisting Your Investors
 We are finally on the last step! Let’s create your whitelist for your future investors so that they can purchase tokens in your STO. In case you are wondering why you need to “whitelist your investors”, securities are all about suitability, regulations, etc… and knowing who holds these securities is necessary. Whitelisting allows investors to participate in your STO, and the whitelist can be updated before/during/after the STO.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmYvDkC4Eg8DvvR6BLW4UE67uG2APLUcZmdNHCDXFQHCP4)
@@ -218,7 +219,7 @@ Column 1 — Ethereum Addresses, Column 2 — Sell Restriction Date (mm/dd/yyyy)
  
 If you have any questions or feedback, please don’t hesitate to comment below, or email me at: charles@polymath.network
 
-### Joining Polymath
+#### Joining Polymath
 Are you interested in joining the security token revolution? We are always looking for high quality talent. 
 **Check out our careers page at**
   
@@ -227,7 +228,7 @@ Are you interested in joining the security token revolution? We are always looki
 **to apply!**
  
 
-### Follow us
+#### Follow us
 Reddit: 
 [https://www.reddit.com/r/PolymathNetwork/](https://www.reddit.com/r/PolymathNetwork/)
    
@@ -244,7 +245,7 @@ Reddit:
 [https://www.youtube.com/c/polymathnetwork](https://www.youtube.com/c/polymathnetwork)
  
 
-### About Polymath
+#### About Polymath
  
 _Polymath Network (Polymath) is a decentralized platform that makes it easy to create security tokens. The Polymath ST-20 standard embeds regulatory requirements into the tokens themselves, restricting trading to verified participants only. The platform simplifies the complex technical challenges of creating a security token and aims to bring the multi-trillion dollar financial securities market to the blockchain._
  

@@ -9,14 +9,15 @@ some_url:
 
 # Kauri news - Writers, writers, writers
 
-## Audio version of newsletter
+
+### Audio version of newsletter
 
 <audio controls>
         <source src="https://ipfs.infura.io/ipfs/QmXx9sBjGruX64BxakGoGxmuvHcZLK5cy6WesobpTznyyQ">
         Your browser does not support the audio element.
       </audio>
 
-## Newsletter
+### Newsletter
 
 Behind the scenes the Kauri team is
   working on a large new release
@@ -42,7 +43,7 @@ Behind the scenes the Kauri team is
 
 ![](https://gallery.mailchimp.com/e46233ccfd6bb938ab7cbb5a3/images/09248804-bb68-41cc-b210-cc2e9644b0fe.jpg)
 
-## Blockwhat?
+### Blockwhat?
 
 An older post crossed our path in the past couple of weeks from Preethi
 Kasireddy called "[how does Ethereum work anyway](https://getpocket.com/redirect?url=https%3A%2F%2Fmedium.com%2F%40preethikasireddy%2Fhow-does-ethereum-work-anyway-22d1df506369)".
@@ -58,7 +59,7 @@ can be helpful to understand what's going on under the surface.
 
 ![](https://gallery.mailchimp.com/e46233ccfd6bb938ab7cbb5a3/images/78c383cc-de94-4efc-b1ee-bd4a918cc038.jpg)
 
-## Solid Solidity
+### Solid Solidity
 
 Solidity-based smart contracts underpin a large amount of dapps, but how
 well do you really know the language and it's features?
@@ -69,7 +70,7 @@ well do you really know the language and it's features?
 
 ![](https://gallery.mailchimp.com/e46233ccfd6bb938ab7cbb5a3/images/a4cd1aa6-8c37-46f0-b507-fc7e49a923ac.jpg)
 
-## A documentation crash course
+### A documentation crash course
 
 Perhaps a bit meta, but we started a community for those wanting to
 learn tips and techniques for improving documentation and technical
@@ -82,7 +83,7 @@ the community, let us know**.
 
 ![](https://gallery.mailchimp.com/e46233ccfd6bb938ab7cbb5a3/images/c636ffdc-ac6c-46d6-b0f2-d94663097706.png)
 
-## And Finally…
+### And Finally…
 
 We have mostly focussed on written content on our journey so far, but have discussed hosting other media, including video tutorials. Another increasingly popular media format is live coding, [something Austin Griffith has tried](https://www.youtube.com/watch?v=qlIcqsuSh10) with success in the Ethereum community.
 

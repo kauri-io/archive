@@ -10,6 +10,7 @@ some_url:
 # Blockchain & Gaming  Revolution in present & future games
 
 
+
 In this article, we are going to discuss how two giant industries (based on market potential) can come together to disrupt the market and to enhance their revenue together.
 
 The blockchain itself is already seen as a potentially valuable tool in today’s gaming world as it can provide a decentralized asset exchange, verifiable scarcity of virtual objects and collectibles, fast and secure payment networks, and an ability for developers to monetize their creations properly, because gaming assets are almost as important and valuable as tangible assets, the blockchain offers discernible proof of provenance of specific virtual items. Moreover, the digital tokens from blockchains add huge payment benefits, especially useful for e-sports, creating native in-game tokens and driving seamless transactions on decentralized exchanges.

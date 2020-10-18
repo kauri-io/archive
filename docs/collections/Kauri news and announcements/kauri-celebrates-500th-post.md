@@ -9,6 +9,7 @@ some_url:
 
 # Kauri celebrates 500th post
 
+
 Ten days ago [Kevin Small](https://kauri.io/public-profile/043f19855cc8b31941f72d4728a4d32c0476a70d) posted [Visualizing Bitcoin Transactions in 3D and Virtual Reality](https://kauri.io/article/ef32ddae59094e8b99c92131b9148200), making it the 500th post submitted to Kauri. We thought this was a great time to recap and recount some of our and your favorite posts from the past year since Kauri began.
 
 Unsurprisingly [our collections for the ETHDenver hackathon](https://kauri.io/search-results?q=ethdenver) attracted a lot of views, so we removed those from this wrap-up, but if you haven't seen them yet, take a look, there were some great submissions.

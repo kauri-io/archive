@@ -9,7 +9,8 @@ some_url:
 
 # Nightfall - Private Token and NFT Transfers on Ethereum
 
-# Nightfall
+
+## Nightfall
 
 Nightfall integrates a set of smart contracts and microservices, and the ZoKrates zk-snark toolkit,
 to enable standard ERC-20 and ERC-721 tokens to be transacted on the Ethereum blockchain with
@@ -35,13 +36,13 @@ As well as this file, please be sure to check out:
 - [UI.md](https://github.com/EYBlockchain/nightfall/blob/master/UI.md) to learn how to drive the demonstration UI and make transactions.
 - [SECURITY.md](https://github.com/EYBlockchain/nightfall/blob/master/SECURITY.md) to learn about how we handle security issues.
 
-## Getting started
+### Getting started
 
 These instructions give the most direct path to a working Nightfall setup. The application is
 compute-intensive and so a high-end processor is preferred. Depending on your machine, setup can
 take one to several hours.
 
-### Supported hardware & prerequisites
+#### Supported hardware & prerequisites
 
 Mac and Linux machines with at least 16GB of memory and 10GB of disk space are supported.
 
@@ -56,7 +57,7 @@ The Nightfall demonstration requires the following software to run:
 - docker-proxy
   - <https://github.com/aj-may/docker-proxy/>
 
-### Starting servers
+#### Starting servers
 
 Start Docker:
 
@@ -66,7 +67,7 @@ Start docker-proxy:
 
 - `docker-proxy start`
 
-### Installing Nightfall
+#### Installing Nightfall
 
 Clone the Nightfall repository and use a terminal to enter the directory.
 
@@ -109,7 +110,7 @@ rm -rf node_modules
 npm ci
 ```
 
-### Starting Nightfall
+#### Starting Nightfall
 
 If you have pulled new changes from the repo, then first run
 
@@ -150,7 +151,7 @@ volumes, and images created by up, using
 docker-compose down -v
 ```
 
-### To run tests (or if UI is not preferred)
+#### To run tests (or if UI is not preferred)
 
 After following the steps from 'Installing Nightfall' section,
 
@@ -181,7 +182,7 @@ directories.
 
 Note that, the zkp service tests take a while to run (approx. 2 hours)
 
-## Using other ERC-20 and ERC-721 contracts
+### Using other ERC-20 and ERC-721 contracts
 
 Nightfall will operate with any ERC-20 and ERC-721 compliant contract. The contracts' addresses are
 fed into FTokenShield.sol and NFTokenShield.sol respectively during the Truffle migration and cannot
@@ -194,7 +195,7 @@ address that has been deployed separately can be provided here. This new contrac
 replacement for NFTokenShield.sol or FTokenShield.sol. Each of these contracts currently shields the
 tokens of an ER721 or ERC20 contract instance respectively.
 
-## Using other networks
+### Using other networks
 
 The demo mode uses Ganache-cli as a blockchain emulator. This is easier than using a true blockchain
 client but has the disadvantage that Ganache-cli doesn't currently support the Whisper protocol,
@@ -205,7 +206,7 @@ of the words `whisper-controller-stub` with `whisper-controller` in the code —
 use Geth rather than Ganache-cli and construct an appropriate Docker container to replace the
 Ganache one we provide
 
-## Acknowledgements
+### Acknowledgements
 
 Team Nightfall thanks those who have indirectly contributed to it, with the ideas and tools that
 they have shared with the community:  

@@ -9,6 +9,7 @@ some_url:
 
 # Fuzzing Smart Contracts Using Input Prediction
 
+
 In the 
 [previous post](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
  , we discussed several approaches for automatically finding vulnerabilities in smart contracts and we introduced Harvey: a fuzzer for Ethereum smart contracts being developed by 
@@ -20,7 +21,7 @@ In the
  .
 Grey-box fuzzers are able to achieve high code coverage even for complex code without using more expensive techniques, such as automated SMT solvers, to reason about the program. However, for many programs it can still pay off to perform some lightweight reasoning about the code to increase code coverage more quickly. In this post, we will present a novel input prediction technique for grey-box fuzzers.
 
-## Motivating Example
+### Motivating Example
 Let’s go back to the smart contract from the previous post (written in the Solidity programming language) to illustrate a limitation in state-of-the-art grey-box fuzzers.
 
 ```solidity
@@ -53,7 +54,7 @@ Most grey-box fuzzers will take a long time to detect the assertion violation si
 [AFL](http://lcamtuf.coredump.cx/afl)
  , a state-of-the-art grey-box fuzzer, was not able to generate a test that violates the assertion within 12 hours. While there are a number of heuristics that fuzzers can employ (e.g., picking new inputs from the constants in the program), Harvey also integrates a more systematic approach that we will present below.
 
-## Predicting New Inputs
+### Predicting New Inputs
 Let’s assume that Harvey generated an input 
 `I`
  with 

@@ -9,7 +9,8 @@ some_url:
 
 # jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan
 
-## How to Compile, Deploy and Verify Contracts Using "import" with Remix, node.js and Etherscan
+
+### How to Compile, Deploy and Verify Contracts Using "import" with Remix, node.js and Etherscan
 
 When working with contracts that use one or more libraries, it would be preferable to have tools to only deploy the libraries once and deploy the contracts that use them separately. This property is not activated by default in Remix and the verification of such contracts in Etherscan is not so intuitive. Here are the steps to correctly perform the deployment and verification of these types of contracts:
 
@@ -227,7 +228,7 @@ As you can see, the "memory" element has been ignored, which corresponds to the 
 
 **N° 13** Once all the arguments are loaded, we mark the "reCaptcha" of the Etherscan page and then "Verify and Publish", in a few seconds, the result should be shown with our fully verified contract.
 
-#### If you found this usefull
+##### If you found this usefull
 
 Please consider send some support
 

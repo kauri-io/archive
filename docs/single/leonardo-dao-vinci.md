@@ -9,20 +9,21 @@ some_url:
 
 # Leonardo dao Vinci
 
-# Project Name
+
+## Project Name
 Leonardo dao Vinci
 
-# Project Tagline/Description
+## Project Tagline/Description
 Our DAO generates digital art, users rate the pieces, with the top rated being sold as NFTs. Profits are shared with our community.
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 
 - Ed Harrod
 - Piers Powlesland
 - Rachel Black
 - Stephen Jackson
 
-# Status.im ID for Each Team Member
+## Status.im ID for Each Team Member
 
 - Ed:
 https://get.status.im/user/0x044ba94f32b1f95f0e5883259dec1cceaf1301d0ee83b9cdb422ea518fbcd5dd19a5ba8e2bd2b53cd72a65917f3d5156d945a700f57b9955a8be4b8f115689a3d8
@@ -32,26 +33,26 @@ https://get.status.im/user/0x0471fe9d25ea27d46bf80f18eb29f65c54d545be08ba0b40336
 - Stephen: 
 https://get.status.im/user/0x043773c4f21475c9035b6604b7b51abeddf5986cada82be3661036c038f712419484dcaae96d36ef63e962e1d6c119d07ca339d561b24905b06573e708cec1a162
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 Excited by the prospect of computationally generated art, we saw the opportunity for a project which combines this with the decentralisation potential which blockchain technology brings. Running our project as a DAO offers opportunities to reward our users and community. This is done with profit-sharing in the sales of the artwork on [OpenSea](https://opensea.io/), without middlemen being involved.
 We wanted to build a project that would be engaging for new users to the blockchain space, and would allow them to enter the world of crypto without having to go through an exchange. 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 - **UI**: ReactJS, Rimble, web3.js
 - **Middleware**: Go, NodeJs
 - **Art Generators**: NodeJs, Python
 - **Ethereum**: Zeppelin's ZepKit, Go Ethereum, Solidity, Truffle, OpenZeppelin, Infura, OpenSea
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 1. Zeppelin: "Best usage of Zeppelin tools (OpenZeppelin & ZeppelinOS)"
 2. The Graph: "Best new subgraph on Graph Explorer"
 3. Ideas by Nature: “Most User-Friendly Onboarding Process”
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/casinocats/leonardo-dao-vinci
 
 ![](https://api.kauri.io:443/ipfs/QmNnGHrFmV3R8aK86s5aeVYa5i3sNTj7qSzCbJ7MvtBjbo)

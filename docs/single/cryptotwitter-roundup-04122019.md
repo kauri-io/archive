@@ -10,6 +10,7 @@ some_url:
 # CryptoTwitter Roundup 04/12/2019
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmX6CCsCB7oSCQZmNAZ6NPBwYEocYdL1jZuj7hA7hULuF9)
 
  

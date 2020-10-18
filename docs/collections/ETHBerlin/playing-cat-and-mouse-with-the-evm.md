@@ -9,6 +9,7 @@ some_url:
 
 # Playing Cat and Mouse with the EVM
 
+
 By Brett Sun (Aragon)
 
 [PDF](https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/cat-and-mouse/pdf.pdf)

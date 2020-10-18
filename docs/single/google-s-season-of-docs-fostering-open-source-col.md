@@ -9,6 +9,7 @@ some_url:
 
 # Google's Season of Docs - Fostering open source collaboration with technical writers
 
+
 Kauri is passionate about improving developer documentation and experience. At the moment we are working to do this in the Ethereum and Web3 space, in the longer term future we hope to do the same with other open source technologies. We do this with our content platform and helping fund and mentor project documentation improvements. For example, until April 30th we are helping fund documentation improvements to ENS and Plasma Group (components) [as part of the Ethereal hackathon](https://gitcoin.co/profile/kauri-io).
 
 Google recently announced the "[Season of Docs](https://developers.google.com/season-of-docs)" program where they hope to bring organisations looking to improve their documentation together with writers, and provide a framework to help facilitate this relationship.

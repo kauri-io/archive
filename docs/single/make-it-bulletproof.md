@@ -9,7 +9,8 @@ some_url:
 
 # Make it Bulletproof
 
-## An-depth breakdown of Zero-Knowledge Proofs and Benedikt Bünz’s brainchild.
+
+### An-depth breakdown of Zero-Knowledge Proofs and Benedikt Bünz’s brainchild.
 
 Let’s say it’s 2030 and every single institution now uses distributed ledgers as a database. Everything’s working as it should; auditing is quick and easy because it’s so easy to trace back mistakes, there’s no more central point of failure, important private information is less vulnerable to attack, and there’s real-time transparent updates of the network’s state.
 
@@ -26,7 +27,7 @@ This isn’t the only case where the complete transparency of blockchain becomes
 
 So how do we fix this?
 
-# Humble Beginnings
+## Humble Beginnings
 
 One of the first steps to better confidentiality was taken by Gregory Maxwell’s 
 [Confidential Transaction](https://www.mycryptopedia.com/what-are-confidential-transactions/)
@@ -70,7 +71,7 @@ This is a big problem; because of this setup, each person needs to _trust_ that 
 
 So with Confidential Transactions we got computationally heavy privacy, with zkSNARKs we get short zero-knowledge proofs that require a little too much trust to be completely secure. What now?
 
-# Bang Bang, Bulletproof
+## Bang Bang, Bulletproof
 
 Before we throw ourselves into the details of how these work, let’s talk about why exactly Bulletproofs are so exciting. Bulletproofs combine the best of both worlds of zkSNARKs and Confidential Transactions; they’re smaller than CTs, don’t need trusted setups, and allow for zero-knowledge verification of transactions. In fact, they’re so good that Monero actually released an upgrade with Bulletproofs implementation just this October 18th. Not to mention, because Bulletproofs are a lot smaller than nearly anything we’ve seen before, Monero’s 
 [fees have fallen by 96%](https://www.coindesk.com/monero-fees-fall-to-almost-zero-after-bulletproofs-upgrade/) as a result. This is awesome news!
@@ -80,7 +81,7 @@ At a very base level, just like zkSNARKs, Bulletproofs are zero-knowledge proofs
 Digging deeper, Bulletproofs operate under the discrete logarithm assumption (which means you assume the difficulty of cracking discrete logarithm problems is near impossible), vastly reducing their size.
 They also leverage the Fiat-Shamir heuristic, which is a method that essentially collapses multi-round challenge/response zero-knowledge protocols into one single non-interactive proof, which is what we need to keep things light. As compared to the Trusted Setup that zkSNARKs use, this is a more trustless method. Let’s take a closer look at how this elegant solution works!
 
-# Non-Interactive Proofs and the Fiat-Shamir Heuristic
+## Non-Interactive Proofs and the Fiat-Shamir Heuristic
 
 I’m gonna bring in Peggy and Victor again to make this a little more digestible.
 
@@ -105,7 +106,7 @@ How does this one single operation prove that Peggy’s proof was valid? It’s 
 
 So as a general rule, these kinds of proofs based on the Fiat-Shamir heuristic will take the longest time to prove, but are really fast when it comes to verification. The process might seem complex, but in reality we’ve essentially condensed the original zero-knowledge proof process of three separate back-and-forths between Peggy and Victor to just one single interaction.
 
-# How it Sizes Up
+## How it Sizes Up
 
 So Bulletproofs seem great and all, but how do they really compare to all the other zero-knowledge protocols out there today? And there _has_ to be a catch somewhere, right?
 Right. So before we take a look into Bulletproofs’ downsides, let’s throw out some quick numbers:
@@ -121,7 +122,7 @@ So essentially, Bulletproofs are great for a wider variety of proofs; they’re 
 Unfortunately, for full-privacy systems like Zcash, Bulletproofs aren’t as efficient as zkSNARKs. While zkSNARKs start out by taking up a lot more memory for each proof despite how fast they are, that initial memory threshold remains constant no matter how many outputs there are. On the other hand, that memory requirement does increase for Bulletproofs, so for completely private large-scale systems, zkSNARKs will eventually end up with the upper hand in terms of scalability.
 Lastly, an interesting thing to note that is that Bulletproofs are still very much vulnerable against any kind of quantum attack by because they fundamentally operate under the discrete logarithm assumption. To be fair, this assumption is as good as true for classical computers, but becomes pretty much invalid in the face of quantum computing because it all ultimately boils down to a guessing game (a really long one, that’d normally take thousands of years for classical computers, but only a couple minutes or even seconds for a couple of qubits).
 
-# Final Takeaways
+## Final Takeaways
 
 
 

@@ -9,6 +9,7 @@ some_url:
 
 # Deploying a full-stack dApp to Google Cloud
 
+
 In the previous [tutorials in this series](https://kauri.io/collection/5b8e401ee727370001c942e3), we saw how to develop a full-stack ethereum-based blockchain dApp.
 
 In this tutorial, we learn how to deploy the dApp to two of Google's Cloud offerings, Firebase, and Cloud storage.
@@ -31,7 +32,7 @@ If you would rather have a barebones static hosting solution, then Google Cloud 
 
 For more information on the Google Cloud products and options, see the official [Serving Websites](https://cloud.google.com/solutions/web-serving-overview) documentation.
 
-## Prerequisites
+### Prerequisites
 
 We assume that you have followed and completed the previous tutorials in this series, and now have:
 
@@ -41,9 +42,9 @@ We assume that you have followed and completed the previous tutorials in this se
 -   You have deployed your smart contract code to [Rinkeby using Infura](https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box#deploy), and
 -   Your React frontend (on localhost) is communicating with your smart contracts on Rinkeby.
 
-## Firebase
+### Firebase
 
-### Sign up
+#### Sign up
 
 1.  [Sign up for Firebase](https://console.firebase.google.com/) using your Google account.
 2.  Follow the instructions to create a new Firebase project.
@@ -51,7 +52,7 @@ We assume that you have followed and completed the previous tutorials in this se
 4.  Name your web app and check the box for _Also setup Firebase Hosting for this app_.
 5.  You don't need to add the Firebase SDK, so skip the step if asked.
 
-### Local setup
+#### Local setup
 
 1.  In terminal, install the Firebase CLI:
 
@@ -72,7 +73,7 @@ We assume that you have followed and completed the previous tutorials in this se
     -   When asked _What do you want to use as your public directory?_,  press enter. We will change this manually later.
     -   When asked _Configure as a single-page app (rewrite all URLs to /index.html)?_, select _y_.
 
-### Making deployment easy
+#### Making deployment easy
 
 1.  In your editor, open the newly created `firebase.json` file.
     -   Replace
@@ -93,14 +94,14 @@ We assume that you have followed and completed the previous tutorials in this se
     firebase deploy
     ```
 
-### Accessing your dApp
+#### Accessing your dApp
 
 1.  Congratulations, your dApp is now live, hosted on Google's scalable infrastructure thanks to Firebase. You can access your dApp by going to the provided `Hosting URL` shown in the terminal.
 2.  Whenever you update your React frontend code, repeat step 2 in [Making deployment easy](#making-deployment-easy) to update your live dApp frontend code.
 
-## Google Cloud Storage
+### Google Cloud Storage
 
-### Initial setup
+#### Initial setup
 
 1.  Select or create a GCP project on the [project selector page](https://console.cloud.google.com/projectselector2/home/dashboard?_ga=2.107617601.-277740605.1569517720)
     -   If you are creating a new project, select the _Create_ in the top right, name your project, and add it to an organization if you would like to keep things organized.
@@ -111,7 +112,7 @@ We assume that you have followed and completed the previous tutorials in this se
     -   To verify that you own the domain and can use it with Cloud Storage, you need to follow the steps to [verify that you own or manage the domain](https://cloud.google.com/storage/docs/domain-name-verification#verification).
     -   If you purchased your domain name via Google Domains, then verification is automatic.
 
-### Create a CNAME record
+#### Create a CNAME record
 
 -   Once you have completed the above, you need to add a CNAME record to your domain. Consult the support documentation of your domain provider to find out how to add one.
 
@@ -122,16 +123,16 @@ We assume that you have followed and completed the previous tutorials in this se
         www.example.com     CNAME   c.storage.googleapis.com
         ```
 
-### Create a Google Storage bucket
+#### Create a Google Storage bucket
 
 -   Go to the [Cloud Storage browser](https://console.cloud.google.com/storage/browser?_ga=2.40579681.-277740605.1569517720) and create a bucket whose name matches the CNAME you created.
     -   Enter the bucket information and choose the _default_ settings for each step.
 
-### Install the `gsutil` tool
+#### Install the `gsutil` tool
 
 The `gsutil` utility helps you use the Google Cloud platform from the terminal. Follow the instructions to [Install the Cloud SDK](https://cloud.google.com/sdk/docs/). When prompted, choose the project that you created initially.
 
-### Upload the dApp's static files
+#### Upload the dApp's static files
 
 1.  From the terminal, navigate to the fullstack dApp root directory using the `cd` command (e.g. `cd truffle-react-box-frontend/`).
 2.  As you would for any React.js based app, create an optimized production build of your frontend:
@@ -144,7 +145,7 @@ The `gsutil` utility helps you use the Google Cloud platform from the terminal. 
 
     -   This uploads all the contents of your `client/build/` directory to the Storage bucket you created
 
-### Make all files in your bucket publicly accessible
+#### Make all files in your bucket publicly accessible
 
 1.  Since we are only hosting a static website in the bucket, we want all the files to be publicly readable.
     -   In the [Cloud Storage browser](https://console.cloud.google.com/storage/browser?_ga=2.40579681.-277740605.1569517720), select the dApp's website bucket you created.

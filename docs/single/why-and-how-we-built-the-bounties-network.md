@@ -9,6 +9,7 @@ some_url:
 
 # Why and How We Built the Bounties Network
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx)
 
 We began building the Bounties Network in early 2017, and quickly realized that whether it was social media, bugs, or code, across different platforms, there was a very good reason for a standard to exist across all variations.
@@ -31,16 +32,16 @@ To solve all these issues, we’ve decided to transition to an architecture whic
 
 For our [caching API](https://github.com/Bounties-Network/BountiesAPI), we had a few priorities in place. We wanted to achieve the following:
 
-### Openness and ease of use for other open source developers and users of the StandardBounties contract
+#### Openness and ease of use for other open source developers and users of the StandardBounties contract
 We found our users faced roadblocks as they tested integration with the Rinkeby contract. They would have to repeat a lot of code just to parse through the IPFS stores, contract transactions, etc. to confirm they used the StandardBounties contract correctly and confirm the integrity of the data.
 
 As a result, we wanted to have an easily accessible [API](https://api.bounties.network) with a good interface (using 
 [swagger](https://swagger.io)), so anyone integrating with the contract could just load the API in real time and confirm all the data integrated correctly.
 
-### A realtime, fail-proof mechanism to cache the contract data
+#### A realtime, fail-proof mechanism to cache the contract data
 We also wanted to make it easy to filter, parse, and explore the data. As a result, the API we built returns a combination of everything written in IPFS and the on-chain contract, in addition to providing stats, profile data, searching, and more. It also provides all the endpoints necessary to build a reliable, fast, and stable bounties site (think bounties around stack overflow questions, translations, design, etc.).
 
-### Structured data to build open analytics tools for the community to participate in
+#### Structured data to build open analytics tools for the community to participate in
 We found it crucial to build the API to work in realtime and be as fail proof as possible. In order to accomplish this, we had to put a stable, solid architecture together.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu)

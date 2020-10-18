@@ -9,19 +9,20 @@ some_url:
 
 # xDai
 
-# The xDai Chain
+
+## The xDai Chain
 
 xDai is a blockchain based on Ethereum that uses Dai as its currency. It features 5-second block speed, a gas price fixed at 1 GWei, free capacity for blocks, and a fixed platform usage price. Using a proof of autonomy consensus, it's a fast and cost-efficient chain.
 
 **Fun Fact**: The Burner Wallet featured at EthDenver 2019 ran on the xDai network! The wallet allows the user to exchange currencies through a QR code scanner. To learn more about its success follow the [link.](https://medium.com/gitcoin/burner-wallet-at-ethdenver-was-faa3851ea833)
 
-## What is Dai?
+### What is Dai?
 
 Dai is an ERC20 token that has a stable value. It's pegged to always be equal to 1 USD no matter how many Dai are in circulation.
 
 Even though Dai is its own currency, it still relies on Ether to pay for transactions and gas fees, and the Ethereum Blockchain. These prices are constantly changing, and as a result, the rate is different from day to day.
 
-## The Solution
+### The Solution
 
 xDai is a chain that allows users to only deal with Dai. On this chain, the tokens remain a 1:1 ratio with the USD, allowing it to stay stable.
 
@@ -29,7 +30,7 @@ xDai tokens are not mintable; they're created by moving Dai over the xDai bridge
 
 Dai is the only token that is convertible to xDai; POA tokens and Ether are not compatible. You must own Dai to cross the bridge.
 
-## Chain Resources
+### Chain Resources
 
 -   **Network ID**: 100
 -   **RPC Endpoint**: <https://dai.poa.network>
@@ -102,7 +103,7 @@ Use the block explorer to check the status of your transactions.
 
 Use the network status link to check the status of the chain nodes.
 
-## Next Steps
+### Next Steps
 
 -   [More resources](https://forum.poa.network/t/xdai-chain-resources/1769)
 -   <https://poa.network/xdai>

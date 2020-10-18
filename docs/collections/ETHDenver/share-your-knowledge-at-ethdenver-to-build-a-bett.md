@@ -9,6 +9,7 @@ some_url:
 
 # Share your knowledge at ETHDenver to build a better ecosystem
 
+
 2019 is Kauri’s second attendance at [ETHDenver](https://www.ethdenver.com) and we couldn’t be more excited. The level of knowledge sharing, collaboration, and community involvement we experienced at last year’s event was phenomenal. New and experienced, young and old, everyone was involved and welcome. The tools, libraries, and best practices in development in the years prior were on display, and everyone came away with a better understanding of how to use them to their advantage.
 
 > Kauri is knowledge sharing, collaboration, and community involvement.
@@ -21,7 +22,7 @@ We’d like to see those with specific domain knowledge share previous work, [im
 
 If you’re looking for inspiration, have you ever spent a hackathon debugging why your DApp wasn’t working to find out of date dependencies, a rogue semicolon, or network issues? Then write something up and post it for others to share.
 
-## Using Kauri at ETHDenver
+### Using Kauri at ETHDenver
 
 ETHDenver and other ETHGlobal events are fun, exciting, and educational, yet we should remain cognizant that not everyone is able to attend. So, let’s push the community forward by leaving our emerging ecosystem in a better state than it was before ETHDenver.
 

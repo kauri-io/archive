@@ -5,7 +5,6 @@
 
     //TODO
     // ipfs image, upload to infura
-    //article with multiple h1
 
     // ####### IMPORT
     const { community, collection, articles } = require('./gql_queries')
@@ -30,6 +29,8 @@
       const desc = (article.description) ? article.description.replace(/[\:\#]/g,'-') : ""
       const redirect = slugify(article.title, {lower: true}).replace(/[\']/g,'-').substring(0, 49) + "/" + article.id + "/a"
 
+      const content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##') : ""
+
       const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-').substring(0, 49) + ".md"
       const text = "---\n" +
                    "title: " + title+ "\n" +
@@ -40,7 +41,7 @@
                    "some_url: \n" +
                    "---\n\n" +
                    "# " + title + "\n\n" +
-                   JSON.parse(article.content).markdown;
+                   content;
 
           return {file, text, title, redirect}
     }

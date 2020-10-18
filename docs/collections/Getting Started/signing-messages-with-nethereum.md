@@ -11,13 +11,14 @@ some_url:
 
 
 
+
 The purpose of this article is to help .NET developers leverage  [Nethereum](https://nethereum.com/), An open source .NET integration library for blockchain.
 
 This document also exists as a [ Workbook ](https://github.com/Nethereum/Nethereum.Workbooks/blob/master/docs/nethereum-signing-messages.workbook), find more about workbooks installation requirements  [here](https://docs.microsoft.com/en-us/xamarin/tools/workbooks/install)
 
 Nethereum provides methods to sign messages in an Ethereum compatible format. The following is a quick guide to signing a string with Nethereum and verifying a signature using various methods.
 
-## Ethereum signing basics
+### Ethereum signing basics
 
 In the Ethereum context, signing a message allows us to verify that a piece of data was signed by a specific account, in other terms, it's a way to prove to a smart contract/human that an account approved a message.
 
@@ -26,16 +27,16 @@ Signing a message with a private key does not require interacting with the Ether
 Nethereum provides with a class that can be used to sign or verify messages: `EthereumMessageSigner`.
 Let's now explore how to use `EthereumMessageSigner` with two very common scenarios in the Ethereum context.
 
-## Signing messages and verifying signatures with Nethereum
+### Signing messages and verifying signatures with Nethereum
 
 Let's first reference our assemblies and namespaces:
 
 ```csharp
-#r "Nethereum.Web3"
+##r "Nethereum.Web3"
 ```
 
 ```csharp
-#r "Nethereum.ABI"
+##r "Nethereum.ABI"
 ```
 
 ```csharp
@@ -74,7 +75,7 @@ var privateKey = "0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf15
 var signer1 = new EthereumMessageSigner();
 ```
 
-### 1-Encoding and signing a message using EncodeUTF8AndSign:
+#### 1-Encoding and signing a message using EncodeUTF8AndSign:
 
 The most common scenario when signing a message goes as follows:
 
@@ -90,7 +91,7 @@ A message needs to be signed, it's most likely a string and hence can be encoded
 var signature1 = signer1.EncodeUTF8AndSign(msg1, new EthECKey(privateKey));
 ```
 
-### 2- Verifying a signed message encoded in UTF8 using EncodeUTF8AndEcRecover:
+#### 2- Verifying a signed message encoded in UTF8 using EncodeUTF8AndEcRecover:
 
 The Ethereum signature verification process is a bit different from classical digital signatures, here the output of a signature verification is not the message (or the message hash) but the signer's address, since the address is a part of the public key hash.
 Verification is successful if the recovered address is equal to the provided address, which can only happen if the signer is the owner of the account's private key.
@@ -103,7 +104,7 @@ In this case the **EncodeUTF8AndEcRecover** method is used to verify the signer'
 var addressRec1 = signer1.EncodeUTF8AndEcRecover(msg1, signature1);
 ```
 
-### 3-Hashing and signing a message using **HashAndSign**:
+#### 3-Hashing and signing a message using **HashAndSign**:
 
 In some cases, hashing data and then signing it might be more relevant, i.e. when dealing with a large file.
 
@@ -116,7 +117,7 @@ var signature2 = signer2.HashAndSign(msg2,
                 "0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7");
 ```
 
-### 4-Verifying a hashed message using **HashAndEcRecover**:
+#### 4-Verifying a hashed message using **HashAndEcRecover**:
 
 When receiving a signature that has been made with a hashed file it's necessary to start by hashing the file we want to verify and then recover the address that signed it.
 

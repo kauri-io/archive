@@ -9,6 +9,7 @@ some_url:
 
 # Vyper.fun  Learn Vyper by building a Pokemon Game
 
+
 Last month, I started exploring DeFi.
 
 There was a lot of fuss going around in my twitter feed, so I wanted to see what was going on under the hood.

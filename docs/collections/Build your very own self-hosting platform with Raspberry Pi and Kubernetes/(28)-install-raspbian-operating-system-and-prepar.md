@@ -9,9 +9,10 @@ some_url:
 
 # (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. **Install Raspbian Operating-System and prepare the system for Kubernetes**
@@ -25,7 +26,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 Fist of all, we need to install and configure **Raspbian Linux Operating System** on each node of the future Kubernetes cluster.
 
@@ -53,7 +54,7 @@ We are using a Portable SSD connected to the master node and exposed to the work
 
 <br />
 <br />
-## Flash the OS on the Micro SD card
+### Flash the OS on the Micro SD card
 
 **1. Download the latest version of the Raspbian Linux OS for RaspberryPi**
 
@@ -91,7 +92,7 @@ $ touch ssh
 
 <br />
 <br />
-## Power up and connect via SSH
+### Power up and connect via SSH
 
 After you power up each device, we will attempt to connect from our local machine to the node via SSH. If you are under Linux or MacOS, toy only need to open a new terminal. For Microsoft Windows users, you can download and use [Putty](https://www.putty.org) as SSH client.
 
@@ -138,12 +139,12 @@ Well done, you are now connected remotely to the machine. Do the same for the ot
 
 <br />
 <br />
-## Configure the OS
+### Configure the OS
 
 Before starting installing the Kubernetes cluster, we need to run a few common steps and security checks.
 
 <br />
-### Change password
+#### Change password
 
 The default password configured by Raspbian is well known, so it is highly recommended to change it to something else only you know:
 
@@ -159,7 +160,7 @@ passwd: password updated successfully
 
 
 <br />
-### Change hostname
+#### Change hostname
 
 As we saw on the router, the default machine hostname is `raspberrypi`, keeping this could be quite confusing when we'd have two more machines with the same name. To change the hostname, two files needs to be edited:
 
@@ -189,7 +190,7 @@ ff02::2         ip6-allrouters
 ```
 
 <br />
-### Upgrade the system
+#### Upgrade the system
 
 To make sure, the system is up-to-date, run the following command to download the latest update and security patches. This step might take a few minutes.
 
@@ -209,7 +210,7 @@ Processing triggers for libc-bin (2.28-10+rpi1) ...
 ```
 
 <br />
-### Configure a static IP
+#### Configure a static IP
 
 By default, the router assigns a arbitrary IP address to the device which means it is highly possible that the router will assign a new different IP address after a reboot. To avoid to recheck our router, it is possible to assign a static IP to the machine.  
 
@@ -228,7 +229,7 @@ PS: This could be also done at the network level via the router admin (DHCP).
 
 
 <br />
-### Enable container features
+#### Enable container features
 
 We need to enable _container features_ in the kernel in order to run containers.
 
@@ -245,7 +246,7 @@ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
 ```
 
 <br />
-### Firewall
+#### Firewall
 
 Switch Debian firewall to legacy config:
 
@@ -255,7 +256,7 @@ $ update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
 
 <br />
-### Restart and connect to the static IP with the new password and check the hostname.
+#### Restart and connect to the static IP with the new password and check the hostname.
 
 ```
 pi@raspberrypi:~ $ sudo reboot
@@ -281,7 +282,7 @@ kube-master
 
 <br />
 <br />
-## Configure the SSD disk share
+### Configure the SSD disk share
 
 As explained during the introduction, I made the choice to connect a portable SSD to the Master node and gave access via NFS to each worker.
 
@@ -470,7 +471,7 @@ pi@kube-worker1:~ $ sudo reboot
 
 <br />
 <br />
-## Conclusion
+### Conclusion
 
 To conclude, we now have three secured, up-to-date and operational machines to build a Kubernetes cluster and easily self-host and maintain applications at home!
 

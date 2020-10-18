@@ -9,6 +9,7 @@ some_url:
 
 # Getting Started With Machine Learning (Non practitioner guide)
 
+
 In the recent years, machine learning has made a comeback into everybody's conversations. From the classrooms in Stanford or MIT, to movies like HER or Ex-Machina, AI is not just permeating all our lives but also our imagination.
 
 But as a developer, how can you start dipping your toes in AI, understand it and possibly change the world with it?
@@ -19,7 +20,7 @@ We'll install the basic tools required, download some datasets from Kaggle and h
 
 Here's a breakdown of the different articles:
 
-## Supervised Learning
+### Supervised Learning
 
 - [Installing Anaconda, Python3 and Tensorflow](https://kauri.io/article/5bf3a311af45420781dfbb3963b253b1/v1/installing-anaconda-python3-and-tensorflow)
 - [Regression with Python, Keras and Tensorflow](https://kauri.io/article/d035bc33cd37467db92e5b428a7565fd/v1/regression-with-python-keras-and-tensorflow)

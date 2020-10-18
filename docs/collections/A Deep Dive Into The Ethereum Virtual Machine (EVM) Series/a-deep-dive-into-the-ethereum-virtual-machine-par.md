@@ -9,13 +9,14 @@ some_url:
 
 # A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages
 
-# The EVM and High-Level Smart Contract Programming Languages
 
-## Introduction
+## The EVM and High-Level Smart Contract Programming Languages
+
+### Introduction
 
 The Ethereum platform offers the power of a peer to peer, secured, decentralized virtual computer that can execute smart contracts to perform a vast array of tasks.  A smart contract is the same as a program that runs on any standard PC instance.  The use cases for which smart contracts have been created range from very simple to extremely complex.  Underneath those cute crypto-kitties or that defi lending platform is a symphony of digital logic, instructions, data manipulation, and interaction between other smart contracts or users.  This article explores the different programming languages that are used to create smart contracts on the Ethereum Virtual Machine.  An analysis of the machine code mechanism in the EVM as it relates to higher-level languages is explored.  The current limitations of these languages in terms of usability, functionality, and security are assessed.  Finally, the potential road map of expanding the functionality and user-friendliness of EVM programming languages will wrap up the four article series: A Deep Dive into the EVM.
 
-## Ethereum Virtual Machine Logical Features
+### Ethereum Virtual Machine Logical Features
 
 The Ethereum Virtual Machine is a powerful and isolated computing environment that keeps records eternally for all to see. Smart contracts are the "app", ".exe", "executable", ".dmg" equivalent in the Ethereum Virtual Machine (EVM).  Before introducing the languages themselves, it is important to look at the logical features that can be built or accessed in the EVM.  These complex digital characteristics elevate the computing power of the EVM to a "high-level":
 
@@ -41,7 +42,7 @@ There are, however, fundamental flaws in the implementation of these features.  
 
 The demand put on smart contract developers to build these crucial high-level components into a contract versus a library creates a security risk.  Re-duplicated effort and additional modules expose the smart contract to the possibility of security vulnerabilities and bugs.
 
-## Solidity
+### Solidity
 
 Created in 2014, this language features human-readable nomenclature for easier code writing.  An example smart contract in Solidity looks like this:
 
@@ -88,7 +89,7 @@ Solidity is an object-oriented programming language.  There have been some serio
 
 Solidity, when compiled, is turned into bytecode.  This long chain of hexadecimal digits becomes the machine code of the EVM.  The way it compiles from high-level language directly to machine code without any kind of application wrapper presents security risks and exposes the smart contract at the deepest possible level.  This removes the abstraction layer that exists between the language and the hardware.  In so doing, it exposes an attack vector for manipulating a smart contract in a nefarious way.
 
-## Vyper
+### Vyper
 
 Vyper is essentially the "only other" choice in high-level programming language library of smart contracts.  Vyper is a language that is based on Python, therefore, easier for experienced developers to use.  Another advantage of being derived from Python is the lower amount of development time and the inclusion of better features and more security.  The additional security does come at a cost.  There are logic functionalities that are prohibited in Vyper, due to the exploitation experienced in Solidity.  This is an example of a smart contract written with Vyper:
 
@@ -181,7 +182,7 @@ def endAuction():
 
 A control loop cannot iterate infinitely, as this was the method for exhausting GAS in transactions.  Infinite looping will throw a compiler exception.  Messages cannot be accessed inside of private functions, and so on.  This link leads to the full Vyper documentation stack, including [Compiler Exceptions](https://vyper.readthedocs.io/en/latest/compiler-exceptions.html).
 
-## K Framework, KEVM, and Semantics
+### K Framework, KEVM, and Semantics
 
 Smart contract implementation creates a unique combination of security concerns.  Consider these factors about the decentralized nature of smart contracts:
 
@@ -211,7 +212,7 @@ For further technical details, the academic research article on KEVM and EVM Sem
 
 The challenge that KEVM tries to overcome is turning bytecode into usable language for developers in the structure of a programming language.  Bytecode is not intuitive in any way of making a vocabulary for building functions, data structures, and control mechanisms.  KEVM via the K Framework lays out a vernacular that is consistent, human-readable, and intuitive for writing smart contracts.  Furthermore, this particular vernacular is how smart contract performance is analyzed.  This includes security and efficient use of resources.
 
-## IELE
+### IELE
 
 IELE is a smart contract programming language, developed in the wake of KEVM creation.  Building KEVM exposed many limitations of the current smart contract language schema.  IELE has various high-level features, such as
 function calls/returns, static jumps, arbitrary-precision integer arithmetic among others, that both
@@ -230,14 +231,14 @@ and Implemented Using Formal Semantics; listed in the reference section.
 
 IELE was officially introduced in scholarly journal articles mid-2018, it is relatively new.  Efforts in creating and implementing IELE as a mainstream blockchain smart contract language are not known at this time.
 
-## Conclusion
+### Conclusion
 
 The Ethereum Virtual Machine is an extraordinary and practical creation that brings about solutions to a wide variety of use cases.  In so doing, a unique set of characteristics has laid out a rigorous set of obstacles for ensuring security, efficiency, and usability.  While a good portion of the learning curve in the language development of the EVM happened after a serious loss or incident occurred, progress is getting ahead of the cybercriminals.  Tools are being developed for smart contract QA and analysis.  Languages are being evaluated and scrutinize like never before.  New ways of closing security gaps and including data abstraction are being tested and implemented.
 
 The nature of the EVM and how it is built on a blockchain present a host of benefits and an equal amount of new security considerations that have not been native to software development until now.  It will be exciting to see where technology takes a creation like the EVM and builds upon the design flaws to create efficient, powerful, secure virtual computing environments.  
 
 
-## Resources
+### Resources
 
 * [What is the Ethereum Virtual Machine?](https://techcoins.net/ethereum-virtual-machine/)
 

@@ -10,12 +10,13 @@ some_url:
 # Increasing Action On Your Gitcoin Bounty
 
 
+
 We see a lot of software development ‘first dates’ between contributors and maintainers here at Gitcoin. We’ve seen a lot of things go right, but we’ve also seen a lot of things that could be improved.
 This post is designed to help bounty funders who would like to see uptick in their bounty success rate.
 
-## Before The Bounty
+### Before The Bounty
 
-### 1. Get the repo maintainer onboard
+#### 1. Get the repo maintainer onboard
  _(If you are the maintainer and the funder, skip this section)_ 
 It’s important to achieve consensus between the funder and maintainer that what you want to post a bounty on is actually a priority, is architecturally feasible, and is on the roadmap.
 Here’s an excerpt from a recent bounty that was funded without consultation by the project maintainer.
@@ -27,7 +28,7 @@ Here’s an excerpt from a recent bounty that was funded without consultation by
 
 It’s always good to have consensus between funder and maintainer before a bounty is posted.
 
-### 2. Articulate what you want to see (& leave room for error)
+#### 2. Articulate what you want to see (& leave room for error)
 Having done 100s of bounties myself, I’ve picked up some tricks for making sure the bounties are successful.
 
  * Describe your expected result, and parameters for success for your bounty clearly as possible.
@@ -45,17 +46,17 @@ Having done 100s of bounties myself, I’ve picked up some tricks for making sur
  * If someone has started my bounty, and it’s not working out, tell them professionally as soon as possible. Most contributors will understand, and will off-board amicably. I like to tip them out for their time, but this is not explicitly required.
 Want more detail here? We have examples for design, code, and bug bounties here — courtesy of a Gitcoin bounty completed by Anish Agnihotri!
 
-## After Posting The Bounty
+### After Posting The Bounty
 Ok, so let’s presume that you’ve gotten the bounty posted and it’s not getting any action. First, it’s worth noting that while this is uncommon, it’s not a **huge** deal. Software development is abstract, and it might mean you just have a to tune a few things on your bounty! ⚙️
 The median time it takes to attract a [bounty hunter is 6.6 hours](https://gitcoin.co/results) , so you should start thinking about this if a few days have passed and no one has expressed interest.
 Usually, there’s a couple buckets bounties fall into.
 
-### 1. The scope is not clear.
+#### 1. The scope is not clear.
 We’ve seen a few bounties that haven’t gotten any contributors on them because the scope is not clear.
 In that case, we recommend taking another pass at the issue scope to make sure its been clarified that someone new to your repo could effectively work on it.
  [See examples of what good design, feature, and bug bounties look like.](https://github.com/Anish-Agnihotri/Gitcoin-Exemplars) 
 
-### 2. Repo documentation needs improvement
+#### 2. Repo documentation needs improvement
 If you want to have an active community of contributors for your Open Source Repo, it’s helpful to make the repo as self explanatory as possible to prevent unnecessary communication problems or barriers to entry for newcomers. In this post, the Gitcoin team has aggregated our experience working on open source to provide you with a few ‘best practice’ tips.
 
  * Have a good readme.md
@@ -66,7 +67,7 @@ If you want to have an active community of contributors for your Open Source Rep
 
  * Marketing
 
-### 3. The Bounty is not priced effectively
+#### 3. The Bounty is not priced effectively
 One of the core reason your bounty might not have any action is that it’s underpriced.
 We’ve been crunching the numbers, and we’ve found that
 
@@ -82,7 +83,7 @@ It’s important to offer a respectable hourly rate to get potential contributor
 
 Note that Gitcoin provides a convenient ‘Increase Payout’ button so that you can always re-up the amount of coins on your bounty!
 
-### 4. Sell your project’s mission
+#### 4. Sell your project’s mission
 
 ![](https://cdn-images-1.medium.com/max/1200/1*-scllqUfohEaVRc9xF_G9A.png)
 
@@ -102,7 +103,7 @@ This can manifest in many ways, but the easiest place to start is a **README. Th
 
 If you want to go a step further, a mission page somewhere on your project never hurts. Here’s an example of what drives us at Gitcoin!
 
-### 5. The Bounty Needs Marketing
+#### 5. The Bounty Needs Marketing
 
 ![](https://cdn-images-1.medium.com/max/1200/1*QaEwhI8sOkhc2M8932iLHw.png)
 
@@ -117,7 +118,7 @@ Gitcoin provides a convenient way to publish your bounty to the major social pla
 
 If you do not have an existing audience of contributors, that’s fine too! Get in touch with us on the [Gitcoin Slack](https://gitcoin.co/slack) or email founders@gitcoin.co and we’ll get it in front of our audience of 10,000 Open Source Contributors!
 
-### 6. The Bounty Hunter is MIA
+#### 6. The Bounty Hunter is MIA
 It’s an unfortunately consequence of contributors on Gitcoin not being face to face with each other that sometimes a contributor that has signaled they will work on something, has instead dropped off the face of the earth.
 
 At any time after a bounty hunter has started work, you may remove them by clicking ‘stop work’ on their profile on the bounty details page.
@@ -134,7 +135,7 @@ In particularly egregious situations (a bounty hunter claims multiple issues, th
 
 Needless to say, it’s helpful if you, as a maintainer, are on top of your repo and are removing bounty hunters who aren’t fitting the needs of your project. If this happens too often, let us know — we’re likely already looking at ways to remedy the solution.
 
-### We hope this article helps!
+#### We hope this article helps!
 If you have anything you’ve tried that’s really help, please [get in touch on Twitter](https://twitter.com/getgitcoin) . I’d love to hear from you!
  **— @owocki** 
 

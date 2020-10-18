@@ -9,6 +9,7 @@ some_url:
 
 # Los 8 mejores wallets para tus criptomonedas
 
+
 ![](https://api.kauri.io:443/ipfs/QmQgHccGppRYU9wQkKBPDXek656a254j2gWwA8okmTbxpa)
 Esta es una lista de los 8 mejores wallets que hay para criptomonedas, la idea es que usando esta lista rápidamente conozcas todos ellos y las características que importan detrás de cada uno, para así saber más o para poder elegir el más adecuado para ti.
 

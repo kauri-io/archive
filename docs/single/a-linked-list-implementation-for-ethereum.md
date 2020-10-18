@@ -9,6 +9,7 @@ some_url:
 
 # A Linked List Implementation for Ethereum
 
+
 Coding data structures in Solidity is weird and beautiful.
 ----------------------------------------------------------
 
@@ -33,7 +34,7 @@ In this article I’ll introduce an implementation for Singly and Doubly Linked 
 \*Disclaimer: While writing this article, and after having coded the contracts, I found this [earlier implementation](https://github.com/ethereum/dapp-bin/blob/master/library/linkedList.sol) from [chriseth](https://github.com/chriseth). Like him, I also considered using an array. Compared to using a mapping, it simplifies the creation of new items but also makes deletion more difficult.
 
 
-##Implementation
+###Implementation
 
 For this article I’m going to ignore that [Solidity is an Object Oriented Programming Language](https://medium.com/coinmonks/solidity-and-object-oriented-programming-oop-191f8deb8316) and code the lists in a single contract. Doing that will allow me to focus on the basics such as data usage. An [OOP implementation is possible](https://github.com/HQ20/contracts/blob/new/lists/oop/contracts/drafts/lists/LinkedListOOP.sol), but the trade offs deserve an article of its own.
 
@@ -78,7 +79,7 @@ Unlike in previous articles, this time I’m not going to paste the whole code h
 
 In this case I think it is more important to discuss the trade offs between a Singly Linked List and Doubly Linked List, in particular given that the Ethereum blockchain is quite limited in the algorithms that you can [execute safely](https://hackernoon.com/how-much-can-i-do-in-a-block-163q3xp2).
 
-##Usage
+###Usage
 
 When I started the implementation of linked lists, I thought that doing a Doubly Linked List would be more complex than a Singly Linked List. Interestingly enough, it is slightly easier to implement the former. Adding in each item a link for the previous one allows you to remove this inefficient method:
 
@@ -120,7 +121,7 @@ And as I said before, it’s interesting that for the same functionality, Double
 
 As with anything, your mileage will vary. Maybe you can do with a Singly Linked List, maybe you need a Doubly Linked List. Maybe you should use an array. At least now you know them all.
 
-##Other Implementations
+###Other Implementations
 
 The implementations discussed above are not the only ones, I just thought they would be easy to understand. There are other interesting implementations that might fit your use case better:
 
@@ -130,7 +131,7 @@ The implementations discussed above are not the only ones, I just thought they w
 *   If all the items in your list are unique, then you can use [OrderedSet.sol](https://github.com/HQ20/contracts/blob/master/contracts/drafts/lists/OrderedSet.sol). I like the compactness and elegance of it.
 *   If all the items in your list are unique, but you don’t care about the order, then you are after a canonical [Set](https://en.wikipedia.org/wiki/Set_(abstract_data_type)), get it from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/EnumerableSet.sol).
 
-##Conclusion
+###Conclusion
 
 [Linked Lists](https://en.wikipedia.org/wiki/Linked_list) are the first complex data structure that is considered in smart contracts. Given the constraints in smart contracts that force us to code as simply as possible it is necessary to know the trade offs between different linked list implementations.
 

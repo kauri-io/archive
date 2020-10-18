@@ -10,6 +10,7 @@ some_url:
 # Witnet Must-Reads Digest
 
 
+
 ----
 
 
@@ -32,28 +33,28 @@ However, in addition to
 > This list will be updated on an ongoing basis 📆
 
 
-## Data Oracle Basics
+### Data Oracle Basics
 It is necessary to understand the 
 **core concepts of what oracles are and why we use them.**
  Especially in relation to smart contracts, the way that data is accessed and ensured is critically important to how entire business models and mission critical operations will function.
 
-## The Why’s
+### The Why’s
 Those building towards this future are all well aware of the 
 **limitations that all smart contract platforms currently experience — they are cut off from the real world in terms of accessing data in a decentralized way**
  .
 These articles dig into what truth really means in society, technology and business:
 
-## Initial Usecases
+### Initial Usecases
 Nothing inspires the imagination more than concrete use-cases of how a technology can be applied in the real world. The following articles are just a few 
 **examples of how we envision Witnet affecting the real world:**
  
 
-## Technology
+### Technology
 Witnet is a highly technical project, and the development team likes to share 
 **releases and insights**
  with anyone who is eager to get involved with our code and products. If you’re a developer who wants to connect smart contracts to real world data, be sure to check these out:
 
-## Exploration
+### Exploration
 We like 
 **diving deep into interesting topics related to the functionality of a decentralized oracle network**
  . If you are into detailed explanations about how complex systems work, you will enjoy reading through these posts.
@@ -61,14 +62,14 @@ We like
 ----
 
 
-## Coming Up…
+### Coming Up…
 Witnet is an open source project and we will rely on the community to continue to give us the feedback necessary to create the best decentralized oracle network that the world has seen.
 We will continue to create content regarding our own research, emerging use cases, where we will be in terms of events and meetups, as well as what we see happening generally in the oracle space. If there are any special topics you would like us to cover, please let us know!
 
 ----
 
 
-### Thank you for dropping by!
+#### Thank you for dropping by!
 Please let us know if you have any questions or comments below. You can 
 [follow Witnet on Twitter](http://twitter.com/witnet_io)
  and stay up to date on 
@@ -78,7 +79,7 @@ Please let us know if you have any questions or comments below. You can
 ----
 
 
-### You can also:
+#### You can also:
 
 
 

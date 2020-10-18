@@ -10,6 +10,7 @@ some_url:
 # My Big Break Into Ethereum
 
 
+
 ----
 
 
@@ -26,7 +27,7 @@ some_url:
 ----
 
 
-## I love to #BUIDL.
+### I love to #BUIDL.
 In November of 2017, almost one year ago, I started building products on Ethereum. My first project was a decentralized oracle exploration called 
 [Concurrence.io](http://concurrence.io)
  . To be honest, I didn’t have the chops to put together a sound cryptoeconmic system. It worked in ideal cases, but 
@@ -94,7 +95,7 @@ _and you never get that back. Life lessons learned._
 ----
 
 
-### I kept working nights and weekends hoping to find my way into the Ethereum ecosystem. I just wanted to provide value and create something useful or at least something fun to play.
+#### I kept working nights and weekends hoping to find my way into the Ethereum ecosystem. I just wanted to provide value and create something useful or at least something fun to play.
 
 ----
 
@@ -220,7 +221,7 @@ I dug in deep. I learned as much as I could about signed transactions and ecreco
 ----
 
 
-### I didn’t invent anything new. My big break was putting a bunch of preexisting pieces together and making it as approachable as possible. Then, not just making it open source, but providing as much education around the idea as possible.
+#### I didn’t invent anything new. My big break was putting a bunch of preexisting pieces together and making it as approachable as possible. Then, not just making it open source, but providing as much education around the idea as possible.
 
 ----
 
@@ -266,7 +267,7 @@ Proving meta transactions could work was one thing, but building them into a sea
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/cNcSXovVPdg" width="512"></iframe>
 
 
-## Conclusion
+### Conclusion
 We still have a long way to go and I have a list a mile long that I can’t wait to tackle tomorrow. But, I’ll be doing it full time and that feels so amazing!
 It can take years of nights and weekends to find that big break. Keep learning and keep building. Follow people that know more than you and try to provide them with value. You don’t know what you don’t know so be humble and listen!
 Finally, don’t get caught up in the hustle so much that you lose sight of your health and wellbeing. You will be spread thin and there will be sleepless nights. But, in the long run, family is the most important thing there is. Nothing’s better than hanging out with my 

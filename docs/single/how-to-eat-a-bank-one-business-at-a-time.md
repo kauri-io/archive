@@ -9,11 +9,12 @@ some_url:
 
 # How to Eat a Bank — One Business at a Time ?
 
+
 Over the past few weeks something interesting has been going on in the Banking world — several executives came out speaking on the impact of FinTechs on the traditional Banking business. In his recent letter to the shareholders, Jamie Dimon, CEO of JP Morgan warns “ 
 [Silicon Valley is coming](http://files.shareholder.com/downloads/ONE/15660259x0x820077/8af78e45-1d81-4363-931c-439d04312ebc/JPMC-AR2014-LetterToShareholders.pdf)
  .” He talks in detail about the growing competition for Wall Street from the FinTech companies and startups focussed on varied technologies such as bitcoins, mobile payments, peer to peer lending etc.
 
-## What’s going on & Why are the Banks scared?
+### What’s going on & Why are the Banks scared?
  
 [“Banks are under attack](http://tomloverro.com/post/102797126721/banking-is-under-attack-heres-a-screenshot-of)
  ” wrote RRE Ventures Tom Loverro recently. Banks like Citi and Wells Fargo are getting unbundled by the FinTech startups. The traditional business models of Banks has been threatened. Their monopoly on the way customers conduct business is being questioned.
@@ -47,7 +48,7 @@ Global remittance business is around USD 500+ Billion.
 [India](http://timesofindia.indiatimes.com/tech/tech-news/Ex-Infy-executives-Wipro-CFO-plan-virtual-bank/articleshow/46139423.cms)
  , CFOs of the system integration companies like Wipro and Infosys have applied for the Bank licenses. Two former CFOs and board members of Infosys — V Balakrishnan and T V Mohandas Pai — and the recently retired CFO of Wipro, Suresh Senapaty, have come together to try and establish a virtual bank in India.
 
-## What are the Banks doing now?
+### What are the Banks doing now?
 Not to be left behind, as Jamie Dimond articulated to his shareholders, Banks are keeping a close watch on these disruptive competitors. Their responses to the situation has been very varied and diverse based on the appetite of their Boards.
 
 
@@ -63,7 +64,7 @@ Not to be left behind, as Jamie Dimond articulated to his shareholders, Banks ar
 
  *  **Partner and Progress** . Citi has been trying to innovate through its Citi Mobile Challenge initiative. BBVA partnered with Dwolla to integrate its realtime payment capabilities into its services. Banks have also been running and sponsoring both internal and external hackathalons to identify and incubate early stage startups. Innovation labs and skunkworks groups are other means for identifying internal and partner talent for the Banks. [Wells Fargo](http://www.americanbanker.com/issues/179_205/inside-wells-fargos-digital-innovation-lab-1070800-1.html) , Capital One and [Bank of America](http://www.americanbanker.com/issues/179_207/b-of-a-gives-startups-a-wish-list-at-tech-innovation-summit-1070857-1.html) seem to be pioneers in this approach. [Wells Fargo recently adopted three participants from its accelerator program for startups](http://www.americanbanker.com/news/bank-technology/wells-fargo-adopts-three-tech-startups-from-outside-finance-1073945-1.html) : Context360, MotionSavvy and Bracket Computing. They were selected from a batch of 360 applicants. Analysts groups like [Gartner](https://www.gartner.com/doc/3013822/digital-disrupters-customer-demand-force) has been advising the Banks to procure customer engagement design talent through external channels.
 
-## Looking into the future — What Banks should be doing?
+### Looking into the future — What Banks should be doing?
 
 
 

@@ -9,6 +9,7 @@ some_url:
 
 # Building Blocks  What makes a good EVM package?
 
+
 A mental shortcut for thinking about [EVM packages](https://blog.zeppelinos.org/open-source-collaboration-in-the-blockchain-era-evm-packages/?utm_campaign=zos-technical-evmpackages&utm_medium=blog&utm_source=wordpress)
 is to compare them to a package manager such as NPM. Package managers
 serve as convenient repositories for code that you can reuse and

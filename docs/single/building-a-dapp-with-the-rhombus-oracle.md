@@ -9,7 +9,8 @@ some_url:
 
 # Building a dapp with the Rhombus Oracle
 
-## Introduction
+
+### Introduction
 
 This in depth tutorial is designed to walk you through the process of building your first dapp using a Rhombus oracle. It will guide you step by step on how to incorporate real world data into your smart contracts with the Rhombus Lighthouse Delivery method. You will learn how to interact with existing Lighthouses on Rinkeby in your smart contracts, and how to perform local testing of Lighthouses using Truffle and a local Ganache chain.
 
@@ -24,19 +25,19 @@ In this tutorial, we cover:
 3.  Deploying your project
 4.  Performing local testing
 
-## The Gambling Game Scenario
+### The Gambling Game Scenario
 
 Alice wants to start a casino where players can bet Ether on the outcome of a dice roll. Unfortunately, it is hard to generate truly random numbers on the Ethereum blockchain. She has asked you to help integrate an oracle into her project which periodically obtains a random number generated off-chain. You know that Rhombus provides a random number oracle service, and must figure out how to incorporate it into the project.
 
 Alice already has the casino functionality completed, and is waiting on you to provide the random number
 
-## Project Setup
+### Project Setup
 
 Create a directory where you would like to keep this project, and move inside it with your terminal. Run the truffle command `truffle unbox RhombusNetwork/tutorial`. Truffle should automatically unbox and the project and download it into your folder.
 
 Alternatively, visit the project's [github link](https://github.com/RhombusNetwork/tutorial) and download or clone the project files.
 
-## Using a lighthouse oracle in the project
+### Using a lighthouse oracle in the project
 
 What you have just downloaded is a skeleton project with pieces missing. This tutorial will give you code and explanations on how you can fill out the missing sections to complete the project
 
@@ -87,7 +88,7 @@ bool ok;
 
 Here, your smart contract will go to the address represented by `myLighthouse`, which is the address you passed into the constructor during deployment (and also the address of the random number lighthouse) and call the `peekData()` function at that address. The random number lighthouse will then return a pair of values to you, a bool and an int. The bool `ok` contains whether or not the data is the latest updated value, and the int `winningNumber` contains what you have been after this whole time -- the random number (from 1 to 6) you need in integer format.
 
-## Deploying your project
+### Deploying your project
 
 Now that you've helped Alice complete her gambling project, its time to deploy it and showcase it to the world. Go into the `migrations` folder. You should see two files
 
@@ -145,7 +146,7 @@ These are the deployment settings you need to get your project onto Rinkeby. The
 
 With this all set up, go to your terminal and run `truffle migrate --network rinkeby` to complete deployment. Congratulations, your project is now available for anyone to use!
 
-## What's next?
+### What's next?
 
 Now that you have completed this tutorial, you are ready to start using Rhombus lighthouse oracles and creating your own projects! We provide lighthouses that contain all kinds of information that may be useful to you, such as crypto prices, temperature, and random number generators like the one you used today. Check out all our oracles here (insert link)
 
@@ -153,7 +154,7 @@ If you create an amazing project using one of our oracles and would like to shar
 
 Additionally, there are a few more things that could help you in your oracle development, listed below
 
-## Performing local testing
+### Performing local testing
 
 Everything is great if your project works, but what if you are running into errors reading data from a lighthouse? It's a pain to deploy your entire project to Rinkeby each time you change your code, and performing tests on Rinkeby is difficult as well. That is why you may want to learn about the local testing feature to save time when you are developing your own projects that use lighthouse oracles. We have integrated lighthouse testing with regular Truffle test suites for a smooth experience. Here's how it works.
 

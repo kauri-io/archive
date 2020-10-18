@@ -9,6 +9,7 @@ some_url:
 
 # Kauri Users, your input requested!
 
+
 Dear Kauri users, 
 
 TL;DR We're working on some new features and need your help! Please fill in the following 5 minute [survey](https://forms.gle/fP31aR29ab9Qgnvx6) and come speak with us on [discord](https://discord.gg/9mF8qnB).

@@ -10,6 +10,7 @@ some_url:
 # Ethereum in Emerging Economies
 
 
+
 ----
 
 
@@ -43,11 +44,11 @@ These emerging markets are where we should focus our onboarding efforts. This is
 ----
 
 
-## 🔥👛 Burner Wallet
+### 🔥👛 Burner Wallet
 There are places in the world today where it’s hard to find important goods with the traditional currency or the currency may fluctuate immensely in value due to inflation. Luckily, exchange of value is one of our most powerful assets in the Ethereum space.
 Unfortunately, it is especially difficult to onboard new users because our ecosystem has such a steep learning curve. Traditional wallets put a huge burden on the user to understand a new currency and deal with seed phrases.
 
-### What we need is a way to exchange an intuitive currency like DAI using a simple and ubiquitous platform like the mobile web browser.
+#### What we need is a way to exchange an intuitive currency like DAI using a simple and ubiquitous platform like the mobile web browser.
 Here are two phones exchanging value in a matter of seconds using burners:
 
 ![](https://api.beta.kauri.io:443/ipfs/Qme8fjarQYZG5KXpNkfZJ4dYomtsUyu9AWX5RFNHwjcVjF)

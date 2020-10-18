@@ -9,6 +9,7 @@ some_url:
 
 # A Single EOS Blockchain Contributor Controls Six Block
 
+
 EOS Block Producer, EOS New York, recently brought to light evidence that shows that a single entity manages six registered producers on the EOS blockchain.
 
 This isn’t the first time that EOS has faced similar accusations in the past. It was said that the Delegated Proof of Stake protocol is favoring centralization on the network.

@@ -9,6 +9,7 @@ some_url:
 
 # Compound  Money markets on Ethereum
 
+
 > Compound gives you the ability to borrow and lend tokens. In Compound, users contribute to a shared pool of tokens, from which lenders can receive a debt. Lenders can repay the debt at any time, as long as they maintain enough collateral. In case their debt becomes under collateralized, users of the protocol can default the lender’s debt by selling his assets in an auction. - Description from [ethhub.io](https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview)
 
 _This article originally appeared on the [Compound blog](https://medium.com/compound-finance/building-on-compound-d6ddcf869178)_
@@ -38,7 +39,7 @@ We’ve deployed QuickBorrow to
 [Discord](https://discord.gg/XuSKm5B)
  — to ask questions, request an API key, or show off what you’ve built.
 
-## QuickBorrow Contract Experience
+### QuickBorrow Contract Experience
 When the QuickBorrow contract receives Ether, the following steps occur in a single 
 [transaction](https://rinkeby.etherscan.io/tx/0xbaf8878f19d1530f4d2a04fc8b7b4c2f7cf45e04665fdf8ce14a965bb1fd288e)
  :
@@ -71,7 +72,7 @@ The user then calls
 ![](https://api.kauri.io:443/ipfs/QmeZiZNUYe9NaxKt8XAhgNY7JnaxJwbrGrVhdYp93BRrbD)
 
 
-## Building QuickBorrow
+### Building QuickBorrow
 The Compound Money Market has four primary functions: 
 `supply`
  , 
@@ -218,7 +219,7 @@ contract CDP {
 In less than 30 lines of code, we’ve demonstrated how to supply Ether and borrow BAT from the Compound Money Market. There’s more to it than that, though! This contract takes in Ether and borrows tokens, and sends them back to the user, just like 
 [QuickBorrow](https://github.com/compound-finance/QuickBorrow/blob/master/contracts/CDP.sol#L62)
  . We also need a way to repay our borrow.
-#Repay
+##Repay
 To get back our precious Ether posted as collateral, it is necessary to repay the borrowed tokens. The protocol follows the approve-transferFrom pattern to pull tokens into itself, so we’ll follow suit and assume the user of the CDP contract has approved it to transfer the borrowed tokens held by the user on their behalf. After that, it’s a simple matter of calling the protocol’s repayBorrow function. We’ll pass in uint(-1) to signify we want to repay everything we can.
 
 ```
@@ -240,7 +241,7 @@ require(repayStatus == 0, "repay failed");
 ```
 
 
-#Withdraw  
+##Withdraw  
  Okay! Having made productive use of our borrowed tokens elsewhere, we have repaid our debt to the protocol. Now, time to withdraw our original collateral and be on our way. First, read our balance from the protocol, we’ve probably accrued some interest if we’ve waited a few blocks before withdrawing. Then, we’ll pull it all out, unwrap the weth, and send the Ether back to the user.
 
 ```

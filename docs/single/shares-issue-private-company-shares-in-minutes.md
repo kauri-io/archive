@@ -9,38 +9,39 @@ some_url:
 
 # Shares - Issue Private Company Shares in Minutes
 
-# Project Name
+
+## Project Name
 Shares
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 
 Instantly create and distribute shares among company owners.
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 
 Mark Evans; Josh Robinson
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 - Bouncy Both Anemone (Josh)
 - Agonizing Puzzled Anole (Mark)
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 
 Shares seeks to demystify the stock issuance process for startups by facilitating the creation and issuance of uncertificated shares in the form of ERC-20 tokens.  You don't need paper certificates, a spreadsheet, or a lawyer.  Just 5 minutes and a wallet address!
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 We use IPFS for hosting the dApp portion of Shares, which is responsible for creating an ERC-721 token (one per company) that represents ownership of their domain on DwNS (Decentralized Web Naming System) and provides an easy to remember URL (ex. acme.shares.dwns.io).  Uncertificated shares are subsequently minted through an ERC-20 contract and are sent to a user designated Ethereum address.  The view layer for the dApp is was made using VueJS. For the web app portion, we used NodeJS + Express and connected to the Twilio and Meerkat APIs (Meerkat is *not* currently demoable, we are working off of local chain, currently).
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 Salt Bounty - Meerkat
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/dwns/shares (dApp)
 https://github.com/PositiveControl/shares-app (Web App - shares.dwns.io)

@@ -10,6 +10,7 @@ some_url:
 # SMART CONTRACTS 102  STARTUP BONUSES WEBINAR  4
 
 
+
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://player.vimeo.com/video/300517359" width="512"></iframe>
 
  
@@ -21,8 +22,8 @@ _on November 27th, 2018._
  
 Check out our fourth Startup Bonuses Webinar, featuring BlockTEST’s developer team.
 
-### Missed Smart Contracts 101? Check it out here.
+#### Missed Smart Contracts 101? Check it out here.
 
-## Stay tuned for the BlockTEST Education Series
+### Stay tuned for the BlockTEST Education Series
 
-### Our webinars will continue with a set of videos focused on educating the blockchain community. Keep up at academy.blocktest.com!
+#### Our webinars will continue with a set of videos focused on educating the blockchain community. Keep up at academy.blocktest.com!

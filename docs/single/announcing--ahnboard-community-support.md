@@ -10,6 +10,7 @@ some_url:
 # Announcing  Ahnboard Community Support
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmbQoDoVn34EaTzv9K38fx3Jx2p3RW9bmPpciq8TQZkk14)
 
 We started Ahnboard with a simple mission: to onboard every day users to a new way of thinking. This takes many obvious forms: onboarding flow within a dApp, in-app tooltips, incentivization & rewards programs, abstraction, and more (we’re actively developing these now, launching very soon 😉).
@@ -18,7 +19,7 @@ But, one often neglected yet important piece of the onboarding puzzle: customer 
 
 While optimizing onboarding flows and abstracting away as much of the technical interaction as possible reduces the likelihood of error, the crypto ecosystem is still an inherently complex one. Further, many dApps currently lack the infrastructure or financial backing to provide robust customer support.
 
-## Enter: The Ahnboard Community Support Program
+### Enter: The Ahnboard Community Support Program
 Today, we’re announcing the Ahnboard Community Support pilot program. It’s a community service and public good we’re offering for free to support the end users of Ethereum dApps.
  
 **Think of it like a helpful steward helping out a stranger on Reddit**

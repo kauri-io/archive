@@ -10,12 +10,13 @@ some_url:
 # A free manager for all ERC-721s — Mintable.app launches its Alpha on December 1st.
 
 
-## The Problem
+
+### The Problem
 There will be hundreds of new companies popping up in the next year all focused on ERC-721s. 
 _If you don’t know what an ERC-721 is, you can check out our previous posts._
  These ERC-721s are digital items that you can own in your Ethereum wallet. Since we have all these games/companies/items popping up, there needs to be an easy way to transfer, browse, interact with, and overall, manage your digital items. But there is no current solution to this! Where can you go to manage your assets? MyEtherWallet doesn’t support ERC-721s in depth, and if your a new person you don’t know how to use the ABI code to interact with a contract… So where do you manage your Etheremon/CryptoKitties/Gods Unchained cards?
 
-## Mintable.app
+### Mintable.app
 
 ![](https://api.beta.kauri.io:443/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt)
 
@@ -26,10 +27,10 @@ _If you don’t know what an ERC-721 is, you can check out our previous posts._
 _( ¹ Free during the alpha)._
  
 
-## What You Can do on Mintable
+### What You Can do on Mintable
 You can:
 
-### Manage any ERC-721 token
+#### Manage any ERC-721 token
 
 ![](https://api.beta.kauri.io:443/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
 
@@ -54,7 +55,7 @@ You can:
 
  * Sell or collect the tokens to your profile (coming with beta and full launch)
 
-### Create a new ERC-721 with any data you want
+#### Create a new ERC-721 with any data you want
 
 ![](https://api.beta.kauri.io:443/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
 
@@ -70,7 +71,7 @@ You can:
 ![](https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
 
 
-## Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
+### Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
 Mintable has some high hopes and dreams, we hope we will achieve them all and we want you to be apart of it!
 
 ![](https://api.beta.kauri.io:443/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)

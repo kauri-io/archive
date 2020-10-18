@@ -9,10 +9,11 @@ some_url:
 
 # Build on Aragon
 
-# Build on Aragon
+
+## Build on Aragon
 You can find all the information and tutorials on how to build on Aragon in the [Aragon Developer Portal](https://hack.aragon.org) and the community and team are available for helping out at the [Aragon Chat](https://aragon.chat) in the [#dev-help](https://aragon.chat/channel/dev-help) channel.
 
-## Resources
+### Resources
 - [Aragon Developer Portal](https://hack.aragon.org/)
 
 - [Your first Aragon app tutorial](https://hack.aragon.org/docs/tutorial.html) - This guide is a walk-through for creating your first Aragon app using [aragonOS](https://hack.aragon.org/docs/aragonos-intro.html), [aragon.js](https://hack.aragon.org/docs/aragonjs-ref.html), [Aragon UI](https://hack.aragon.org/docs/aragonui-intro.html) and [Aragon CLI](https://hack.aragon.org/docs/cli-usage.html).

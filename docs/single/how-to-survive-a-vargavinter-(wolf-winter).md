@@ -9,6 +9,7 @@ some_url:
 
 # How to survive a Vargavinter (Wolf Winter)
 
+
 ![](https://api.kauri.io:443/ipfs/QmSX3VPv9NM8PPaArTv12ud2hw1NkpAdsbbCvTcLeYrHmv)
 
 In my family we have a tradition of going skiing each January. It brightens up the darkness of the long and gruesome winters that we have in Sweden. Last year everyone was curious, impressed and maybe a little jealous, since they had all learned of “the Bitcoin” that had skyrocketed after the 

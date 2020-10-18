@@ -9,9 +9,10 @@ some_url:
 
 # Multi-Exchange Crypto Trading Platforms Features
 
+
 ![](https://api.kauri.io:443/ipfs/QmPtddYtmmobECL4itDSxwPYY2C1QKJ3N5jAApzszMtVop)Multi-exchange crypto trading platforms build for professional traders. In this article, we will discuss the features of a multi-exchange trading platform. 
 
-### **1\. Unified Interface** 
+#### **1\. Unified Interface** 
 
 Considering the volatility of the market, traders need to keep a constant check on multiple exchanges to take advantage of the price difference.
 
@@ -21,55 +22,55 @@ Therefore, a unified interface is the most significant advantage to carry out al
 
 > Check the complete list of [**multi-exchange crypto trading platforms**](https://coincodecap.com/category/multi-exchange-trading).
 
-### **2\. Arbitrage **
+#### **2\. Arbitrage **
 
 Arbitrage crypto-trading is nothing but buying cryptocurrency from one crypto platform at a lower price and selling it on another crypto platform for a higher price and earning through the difference.
 
 Multi-exchange crypto trading platforms analyze the market to help traders to find arbitrage opportunities.
 
-### **3\. Trading Bot **
+#### **3\. Trading Bot **
 
 A crypto [trading bot](https://blog.coincodecap.com/tag/trading-bots/) is a computer program that automatically executes trades on your behalf as per the settings you choose even when you are offline.
 
 Multi-exchange platforms offer [trading bots](https://blog.coincodecap.com/tag/trading-bots/), which is one of the most popular products among traders.
 
-### **4\. Smart Trade **
+#### **4\. Smart Trade **
 
 As the name suggests, Smart trade is an intelligent tool to ‘Stop Loss’ and ‘Take Profit’ orders at the same time.
 
 Therefore, this tool not only provides additional safety to your funds but ends an order on your behalf if the price of a coin begins to drop. It’s a great tool to master to gain profits and minimize loss.
 
-### **5\. Trailing **
+#### **5\. Trailing **
 
 Trailing in crypto-trading is nothing but a grid strategy that helps the bot to automatically buy or sell cryptocurrency within a pre-decided price range (or fix upper and lower limit), set by you.
 
 In addition, the algorithm is such that it turns a maximum profit on each transaction that’s significantly valuable in times of market fluctuations. 
 
-### **6\. Advanced Charts**
+#### **6\. Advanced Charts**
 
 Crypto charts help in assessing the future market fluctuations for a particular asset. A crypto-trading platform with an excellent charting interface can help indicate probable profit-making assets in the crypto market. 
 
-### **7\. Portfolio Management **
+#### **7\. Portfolio Management **
 
 The trading portfolio is perhaps the most significant advantage of using a multi-exchange crypto trading platform.
 
 It condenses and tracks your trading information at a single, handy interface so that you can browse through your trading history and performance in real-time. 
 
-### **8\. Crypto Trading Signals**
+#### **8\. Crypto Trading Signals**
 
 Generated either by traders or by bots, crypto trading signals help traders to identify when and at what price to buy or sell a particular cryptocurrency.
 
 A good trading platform continually monitors market activities and makes suggestions on the coin that’s most likely to bring higher profits. 
 
-### **9\. Backtesting **
+#### **9\. Backtesting **
 
 Backtesting is testing your trade strategy using historical market data. In other words, it’s like, instead of jumping straight into the waters, you first check its actual temperature by putting one foot inside the pool. Backtesting is an important feature provided by the multi-exchange platform.  
 
-### **10\. News and Research**
+#### **10\. News and Research**
 
 Multi-exchange crypto trading platforms aggregate research, news, and analytics, social indicators from various sources. It helps traders to be up to date with the ecosystem and avoid noise. 
 
-#### **Wrapping Up**
+##### **Wrapping Up**
 
 As we mentioned, Multi-exchange trading platforms built for professional trading. However, these platforms usually charge minimal fees, so if you trade cryptocurrencies frequently, you should try one of these platforms. 
 

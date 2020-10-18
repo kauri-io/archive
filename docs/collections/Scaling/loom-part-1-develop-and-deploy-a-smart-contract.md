@@ -9,13 +9,14 @@ some_url:
 
 # Loom - Part 1 - Develop and deploy a smart contract
 
+
 [Loom Network](https://loomx.io/) is a Layer 2 scaling solution for Ethereum focusing on social and gaming dApps that require a very high throughput. Loom SDK enables to generate a sidechain called dAppChain using a dPoS consensus optimised for high-scalability. Loom is contributing on Plasma which is a mechanism to securely transfer a digital asset (ERC20 or ERC721) to a mainchain.
 
 You can run your own DAppChain using the Loom software or connect to a public one (plasma-chain, social-chain or gaming-chain) running under a dPoS Ethereum blockchain to enable scalable dApps.
 
 For this tutorial, we will create and fund a Loom account, deploy a contract on the External Dev Plasma network called **extdev** and interact with it from a frontend application.
 
-## Step 1 - Install Loom on your machine and fund an account
+### Step 1 - Install Loom on your machine and fund an account
 
 In the first, we will install Loom software on your machine to generate a keypair and fund the account with the Loom faucet.
 
@@ -48,7 +49,7 @@ $ ls -l | grep key
 
 ![](https://api.beta.kauri.io:443/ipfs/QmVvPTJktFDRBxyzSmFJzPXaVgWtG83JvUTLdsWKU5uadK)
 
-## Step 2: Deploy a contract on the Loom extdev network
+### Step 2: Deploy a contract on the Loom extdev network
 
 The second step consists in writing a very simple Smart Contract in Solidity and deploy it on the Loom extdev network using Truffle framework.
 
@@ -178,7 +179,7 @@ Saving successful migration to network...
 Saving artifacts...
 ```
 
-## Step 3: Interact with the contract from the web app
+### Step 3: Interact with the contract from the web app
 
 In the next step, we will develop a simplistic dApp using React, Web3 and Loom-js to interact with the Smart Contract previously deployed on the Loom extdev network
 
@@ -295,7 +296,7 @@ After copy-pasting our private key in the input field, the application is able t
 
 ![](https://i.imgur.com/gMKzcX0.gif)
 
-## Notes
+### Notes
 
 **Key Management**: There is currently no wallet (such as Metamask) with Loom network, the enduser has to handle the private key manually (browser storage) and the dAppChain provider must most likely provide a way to recover a private key.
 
@@ -314,7 +315,7 @@ const address = LocalAddress.fromPublicKey(publicKey).toString();
 
 **karma** : is a ERC20 token, sybil resistant, that can be used to prevent spam attack via a reputation-based transaction limiting system.
 
-##  Links and resources
+###  Links and resources
 **extdev**
 * Network ID: extdev-plasma-us1
 * Faucet: https://faucet.dappchains.com/

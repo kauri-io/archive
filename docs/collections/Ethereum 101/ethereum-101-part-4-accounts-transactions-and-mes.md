@@ -9,13 +9,14 @@ some_url:
 
 # Ethereum 101 - Part 4 - Accounts, Transactions, and Messages
 
-# Accounts, Transactions, and Messages
+
+## Accounts, Transactions, and Messages
 
 The Ethereum state is made up of accounts, and the transactions among those accounts propel the network forward, ensuring network validators receive appropriate compensation for their Proof of Work computations securing the blockchain.
 
 The blockchain is a state transition system. The “state” is the ledger of all existing Ethereum accounts, smart contracts, and ether ownership. In a “state transition function” that state is used to execute a transaction and the output of that transaction becomes the new state. As transactions are submitted to the network by externally owned accounts, they move the Ethereum blockchain to its newest state. 
 
-# Quick Overview
+## Quick Overview
 
 There are two different types of accounts: 
 
@@ -24,31 +25,31 @@ There are two different types of accounts:
 
 Externally owned accounts are controlled by their private keys, while contract accounts are controlled by their contract EVM bytecode, a topic that will be discussed in another section. 
 
-#### Address (do not send money to this address, it may be lost):
+##### Address (do not send money to this address, it may be lost):
 ```
 0xab6291d3B3290e7F2287dE751Fb5FDDA4B91ebB6
 ```
 
 The address is your public facing element of your account. If you are to receive Ether, you will direct that transaction to this address. The address is simply the Keccak-256 hash of the public key, which is not listed in this section. 
 
-#### Private Key (with this key, you have control over the above address):
+##### Private Key (with this key, you have control over the above address):
 ```
 aa50f1a46ecb19a2464cfdd43f0d31ad32f4bb598df3ed5a448a43ab5d02f0ef
 ```
 
 
 
-# Supplemental Technical Information
+## Supplemental Technical Information
 
-### Mnemonic Seed Phrases & BIP39 
+#### Mnemonic Seed Phrases & BIP39 
 Some decentralized apps and wallets use mnemonic phrases or JSON files for account recovery (e.g. MetaMask uses a 12 word seed phrase for account restoration). Similar as you would with private keys, mnemonic phrases and keystore files (typically a JSON file) should be duly protected. 
 
-## Resources:
+### Resources:
 * https://iancoleman.io/bip39/ & https://github.com/iancoleman/bip39
 
 Should someone learn your mnemonic phrase or obtain your JSON keystore file, they may be able to recover your account and gain access to your funds. For more information, please reference the knowledge bases of MetaMask ([https://support.metamask.io/](https://support.metamask.io/)) and MyEtherWallet ([https://myetherwallet.github.io/knowledge-base/](https://myetherwallet.github.io/knowledge-base/)). 
 
-# Primer on Asymmetric Cryptography
+## Primer on Asymmetric Cryptography
 
 Accounts are derived through complex and inherently secure asymmetric cryptography. The creation of an Ethereum account is a three step process:
 
@@ -64,7 +65,7 @@ In the event we are conducting a raw transaction between two external accounts, 
 - **gasLimit (STARTGAS):** an upfront value paid by the externally owned account setting the maximum price paid to execute the transaction; if all gas is exhausted the transaction is reverted back to its previous state. Any unused gas is typically returned to the transaction sender. 
 - **gasPrice (GASPRICE):** the value of each computation step (an EVM opcode) paid by the externally owned account to execute the transaction. 
 
-# Sending a transaction with ethereumjs-tx
+## Sending a transaction with ethereumjs-tx
 
 For the purposes of this document, we will be using ethereumjs-tx to execute this transaction. Installation is simple, please use the command below: 
 
@@ -127,25 +128,25 @@ Contract messages are different, they do not have a gas limit, as the gas costs 
 
 Since we sent the above transaction on the Rinkeby testnet, you could simply use Etherscan to view your address, the transactions you’re sending and receiving at that address, as well as the externally owned accounts and contracts that received your test ether. Many decentralized apps reference Etherscan to obtain a quick glimpse of your activity on the blockchain. Take a moment to review: [https://etherscan.io](https://etherscan.io)
 
-# Additional Web3 Libraries
+## Additional Web3 Libraries
 
 
-## Web3js - JavaScript
+### Web3js - JavaScript
 * Github: https://github.com/ethereum/web3.js/
 * Docs: https://web3js.readthedocs.io/en/1.0/
 
 
-## Web3py - Python
+### Web3py - Python
 * Github: https://github.com/ethereum/web3.py
 * Docs: https://web3py.readthedocs.io/en/stable/
 
 
-## Web3j - Java
+### Web3j - Java
 * Github: https://github.com/web3j/web3j
 * Docs: https://docs.web3j.io/
 
 
-## Additional reading:
+### Additional reading:
 - Ethereum White Paper: https://github.com/ethereum/wiki/wiki/White-Paper#messages-and-transactions
 - Ethereum Yellow Paper: 
 https://ethereum.github.io/yellowpaper/paper.pdf

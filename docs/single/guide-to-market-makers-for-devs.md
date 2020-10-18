@@ -9,33 +9,34 @@ some_url:
 
 # Guide to Market Makers for Devs 
 
-# **Github: [https://github.com/makerdao/developerguides/tree/master/market-makers](https://github.com/makerdao/developerguides/tree/master/market-makers)**
+
+## **Github: [https://github.com/makerdao/developerguides/tree/master/market-makers](https://github.com/makerdao/developerguides/tree/master/market-makers)**
 
 
-# **Market Makers**
+## **Market Makers**
 
 This document contains the necessary resources for partners to implement Keepers for Market Making.
 
 
-## **Prerequisites**
+### **Prerequisites**
 
 This document assumes familiarity with Ethereum, and in-depth knowledge of the Maker platform.
 
 
-## **Exchange Markets**
+### **Exchange Markets**
 
 An updated list of exchange markets where Dai is traded can be found [here](https://coinmarketcap.com/currencies/dai/#markets).
 
 
-## **Market Maker Keeper repos**
+### **Market Maker Keeper repos**
 
 
-### **[Market Maker Keeper](https://github.com/makerdao/market-maker-keeper)**
+#### **[Market Maker Keeper](https://github.com/makerdao/market-maker-keeper)**
 
 This repository contains a set of Keepers that have been implemented to facilitate market making on a specific set of decentralized exchanges. While implemented specifically to work on specific exchanges, all Keepers in the repo share logic and operate similarly, as they all rely on creating a series of orders in preconfigured "bands".
 
 
-### **[Market Maker Stats](https://github.com/makerdao/market-maker-stats)**
+#### **[Market Maker Stats](https://github.com/makerdao/market-maker-stats)**
 
 Market Maker Stats provides a set of tools for visualizing market making data for a set of decentralized exchanges. These tools include:
 
@@ -46,12 +47,12 @@ Market Maker Stats provides a set of tools for visualizing market making data fo
 *   Trade history dumping tools for exporting lists of recent trades.
 
 
-### **[Pymaker](https://github.com/makerdao/pymaker)**
+#### **[Pymaker](https://github.com/makerdao/pymaker)**
 
 Pymaker is a Python API which provides endpoints to interact with the Maker smart contracts. It exposes most of the functionality of the Maker platform, but most importantly for this guide it can be used to create Keepers. This library can be used to create custom market making Keepers.
 
 
-## **Additional source code and developer docs**
+### **Additional source code and developer docs**
 
 **More resources on Keepers**
 
@@ -95,6 +96,6 @@ Pymaker is a Python API which provides endpoints to interact with the Maker smar
 *   [Whitepaper](https://makerdao.com/whitepaper/)
 
 
-## **Need help?**
+### **Need help?**
 
 Contact integrate@makerdao.com or #dev channel on chat.makerdao.com

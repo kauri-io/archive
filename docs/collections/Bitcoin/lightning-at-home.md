@@ -9,6 +9,7 @@ some_url:
 
 # Lightning at Home
 
+
 _This article originally appeared on [radar.tech](https://wiki.ion.radar.tech/tutorials/nodes/lighting-at-home)_
 
 This guide will explain how to set up a working Lightning Network node at home, consisting of Bitcoin Core \(mainnet) and [Lightning Network Daemon](https://wiki.ion.radar.tech/tutorials/nodes/lnd) (LND). Running a Lightning Network node (such as LND) requires a [backend blockchain watcher](https://wiki.ion.radar.tech/tutorials/nodes/lnd#chainwatcher-backends) (such as Bitcoin Core) in order to see what on-chain transactions are occurring. The second half of this guide shows how to connect the two, as well as add the [Zap Desktop](https://wiki.ion.radar.tech/tutorials/wallets/zap-desktop) graphical user interface to your node.
@@ -17,7 +18,7 @@ We've included specific details for each step, with the assumption that users ar
 
 The Bitcoin blockchain is large and continues to grow, so we recommend at least 250 GB of free disk space. If you want to sync either Bitcoin Testnet or Litecoin you'll need [significantly less space](https://wiki.ion.radar.tech/tutorials/nodes/lnd#chainwatcher-backends). Downloading the blockchain is the longest part of the entire process (anywhere from a few hours to a number of days), while installing and connecting LND and Zap Desktop should take 10-20 minutes.
 
-## Set up Bitcoin Core
+### Set up Bitcoin Core
 
 When you [download Bitcoin Core](https://bitcoin.org/en/download), you'll be prompted to review space requirements and specify a data directory \(where the blockchain is saved\). In this example we'll use the default directory.
 
@@ -34,24 +35,24 @@ Start! You'll see this screen on startup below, and it can take some time to mig
 Wait... Depending on your computer, internet connection, or external hard drive, this can take anywhere from a few hours to a week.
 
 ![](https://api.kauri.io:443/ipfs/QmNUqgePHZCvx1jMwAdnWupKZwDycyX2GRP9FJf7aqxXdN)
-## Configure Bitcoin to work with LND
+### Configure Bitcoin to work with LND
 
 Running Bitcoin Core does not open certain connections for LND by default. Bitcoin Core uses a file called `bitcoin.conf` that contains settings that allow the software to talk with LND. For those familiar with editing `bitcoin.conf`here is what's needed:
 
 ```text
-# server=1 tells bitcoind to accept JSON-RPC commands
+## server=1 tells bitcoind to accept JSON-RPC commands
 server=1
 
-# Enable publish raw block in <address>
+## Enable publish raw block in <address>
 zmqpubrawblock=tcp://127.0.0.1:28332
 
-# Enable publish raw transaction in <address>
+## Enable publish raw transaction in <address>
 zmqpubrawtx=tcp://127.0.0.1:28333
 
-# On client-side, you add the normal user/password pair to send commands:
+## On client-side, you add the normal user/password pair to send commands:
 rpcuser=rpcuser_here_844585
 
-# change this password
+## change this password
 rpcpassword=rpcpassword_here_12574
 ```
 
@@ -69,7 +70,7 @@ Add `bitcoin.conf` to that directory.
 ![](https://api.kauri.io:443/ipfs/QmY2JeKPe4MYrXfY7ySa4YeFbXbW7WUfa7edr88vwiUy8o)
 Restart Bitcoin Core. It should now be able to connect to LND once we have both running.
 
-## Download LND
+### Download LND
 
 [LND](https://wiki.ion.radar.tech/tutorials/nodes/lnd), or the Lightning Network Daemon, is the software that interacts with other users on the Lightning Network. There are a few ways to install LND:
 
@@ -85,7 +86,7 @@ The download directory should include both `lnd` and `lncli`
 * `lncli`: Interacts with the daemon
 
 ![](https://api.kauri.io:443/ipfs/QmcDYhS2nAXdBnwVPcEsFzbpWH5BGrXKpuNihCCzP3mGEt)
-## Start LND
+### Start LND
 
 For those familiar with editing `lnd.conf`here is what's needed:
 
@@ -121,7 +122,7 @@ Here is a summary of what each of those flags mean:
 
 There should be a prompt that says:`Waiting for wallet encryption password. Use lncli create to create a wallet, lncli unlock to unlock an existing wallet, or lncli changepassword to change the password of an existing wallet and unlock it.`
 
-## Create a Lightning Network wallet
+### Create a Lightning Network wallet
 
 Now you have LND up and running, it's time to set up a wallet.
 
@@ -133,7 +134,7 @@ Now you have LND up and running, it's time to set up a wallet.
 * Save your seed phrase! This is necessary for recovering your on-chain wallet if LND is lost or uninstalled.
 
 ![](https://api.kauri.io:443/ipfs/QmTauds5mudLToAJs2Fh121PbUiKPWBhwDZBbCt5hzJNhR)
-## Verify LND's connection
+### Verify LND's connection
 
 Once you've created your wallet we need to check that everything is working. We'll use a command called `getinfo` to see our node's information.
 
@@ -146,7 +147,7 @@ Run your first command!
 
 And you're off!
 
-## Connect to Zap Desktop (optional)
+### Connect to Zap Desktop (optional)
 
 If interacting through the command line interface is not your thing, then let's connect to [Zap Desktop ](https://wiki.ion.radar.tech/tutorials/wallets/zap-desktop). This will give you a functional GUI to check your on and off-chain balance, as well as your channels.
 
@@ -162,7 +163,7 @@ Connect your own node.
 
 ![](https://api.kauri.io:443/ipfs/QmNcjnY5SMM5i1zMp5ws1JvoSYqQcahpZU1HmTywZG1TNa)
 
-### Connection details \(default\):
+#### Connection details \(default\):
 
 * Linux
   * Host: `localhost:10009`
@@ -183,7 +184,7 @@ You're connected!
 
 ![](https://api.kauri.io:443/ipfs/QmWXpcGW6N115ivR3xM9uuj767TFHY6RKCUE9D6R8xKFbx)
 
-## Post Setup
+### Post Setup
 
 Now you're wondering, "I ran through the installation process and got everything connected. What happens if I restart my computer?"
 

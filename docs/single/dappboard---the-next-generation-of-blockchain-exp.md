@@ -9,6 +9,7 @@ some_url:
 
 # Ðappboard   The next generation of blockchain explorer
 
+
 We have released Ðappboard a couple of weeks now. We hope you had a chance to explore and check your favorites 
 [DApps here on our explorer](http://dappboard.com/app)
  .
@@ -16,7 +17,7 @@ We have released Ðappboard a couple of weeks now. We hope you had a chance to e
 ![](https://api.beta.kauri.io:443/ipfs/QmU3Gvsy9bNUdQDmyjypq5doJTYrAGq8DsG19EnqmtaXbb)
 
 
-## We are here for the long run
+### We are here for the long run
 Our interest in blockchain started beginning 2017. As we didn’t want to put our money in speculation without understanding what was going on. We decided first to invest in educating ourself to better understand the technology. The amount of information is huge and everyday there are many new things to learn. From our reading, we started to 
 [share our knowledge on smart contract programming on ethereumdev.io](http://ethereumdev.io)
  .
@@ -33,7 +34,7 @@ We started working on ETHlytics since November 2017 as a side project. We finall
 ![](https://api.beta.kauri.io:443/ipfs/QmXEfp5ng9YKDG2KcjfPsYkprk3QiW5wieHbXDY9aAAqoL)
 
 
-## What is Ðappboard?
+### What is Ðappboard?
 Ðappboard is 
 [a web analytics service designed to monitor, analyse smart contracts activities](http://dappboard.com)
  . Ðappboard has a public interface to display DApps statistics which help you to understand the performance of each DApp. We track all transactions, events, then process all the data to extract volume, balance, numbers of users of a decentralized application etc..  
@@ -43,14 +44,14 @@ We started working on ETHlytics since November 2017 as a side project. We finall
 
 In addition to the public interface, we also provide individual projects custom dashboards that help each project to understand how people interact with their application and who are the users.
 
-## What is next?
+### What is next?
 Since the release of our alpha, the feedback we’ve received has been phenomenal so far. We have a lot of ideas we would love to explore to bring you more value with Ðappboard. As always, 
 [we love hearing from our users and the creators of DApp](http://dappboard.com/contact)
  .
 
-## What is the feature would you like to see most on the Ðappboard?
+### What is the feature would you like to see most on the Ðappboard?
 
-## Welcome to the club
+### Welcome to the club
 Should you have any questions on how we could create custom dashboards that help for your Dapp to understand who are your users and how they interact with your application 
 _, contact us at_
   

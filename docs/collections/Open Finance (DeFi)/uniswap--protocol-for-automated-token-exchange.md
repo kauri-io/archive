@@ -9,11 +9,12 @@ some_url:
 
 # Uniswap  Protocol for automated token exchange
 
+
 > Uniswap is a decentralized token exchange protocol that utilizes a "constant product market maker" model. This model allows defining the asset price based on the available staked liquidity of traded assets. There is no token to facilitate the exchange as ether is used as an intermediary of each trade. - Description from [ethhub.io](https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview)
 
 _This article originally appeared on the [Uniswap page](https://docs.uniswap.io/)_
 
-# Getting Started
+## Getting Started
 
 These docs are still being worked on. Some parts may be unfinished
 
@@ -23,7 +24,7 @@ Uniswap is open source and functions as a public good. There is no central token
 
 This site will serve as a project overview for Uniswap - explaining how it works, how to use it, and how to build on top of it. These docs are actively being worked on and more information will be added soon.
 
-## V1 Features
+### V1 Features
 
 * Add support for any ERC20 token using the Uniswap [factory](https://github.com/Uniswap/contracts-vyper/blob/master/contracts/uniswap_exchange.vy)
 * [Join liquidity pools](https://docs.uniswap.io/frontend-integration/pool#add-liquidity) to collect fees on ETH-ERC20 pairs
@@ -38,7 +39,7 @@ This site will serve as a project overview for Uniswap - explaining how it works
 * Mobile optimized open source [frontend implementation](https://github.com/Uniswap/uniswap-frontend)  
 * Funded through an [Ethereum Foundation grant](https://blog.ethereum.org/2018/08/17/ethereum-foundation-grants-update-wave-3/)
 
-## Resources
+### Resources
 
 * [Website](https://uniswap.io/)
 * [Github](https://github.com/uniswap)
@@ -48,7 +49,7 @@ This site will serve as a project overview for Uniswap - explaining how it works
 * [Email](mailto:contact@uniswap.io?Subject=Contact%20Uniswap)
 * [Whitepaper](https://hackmd.io/s/HJ9jLsfTz)
 
-## How it works
+### How it works
 
 Uniswap is made up of a series of ETH-ERC20 exchange contracts. There is exactly one exchange contract per ERC20 token. If a token does not yet have an exchange it can be created by anyone using the Uniswap factory contract. The factory serves as a public registry and is used to look up all token and exchange addresses added to the system.
 
@@ -68,7 +69,7 @@ The reason only one exchange per token can be registered to the factory is to en
 
 Upgrading censorship resistant, decentralized smart contracts is difficult. If significant improvements are made to the system a new version will be released. Liquidity providers can choose between moving to the new system or staying in the old one. If possible, new versions will be backwards compatible and able to trade ERC20-to-ERC20 with the old versions similar to a custom pool. 
 
-## How to use it
+### How to use it
 
 [Uniswap.io](https://uniswap.io/) is the landing page for the Uniswap protocol. It describes the project and directs users where they need to go.  
 
@@ -76,10 +77,10 @@ The Uniswap smart contracts live on Ethereum. Anyone can interact with them dire
 
 The Uniswap frontend is an open source interface designed to improve user experience when interacting with the smart contracts. Anyone can use the source code to host an interface, or build their own. Hosted interfaces are independent of Uniswap, and should comply with their jurisdictional laws and regulations. 
 
-#### List of interfaces \(updated November 2, 2018\)
+##### List of interfaces \(updated November 2, 2018\)
 
 * [Uniswap.exchange](https://uniswap.exchange/swap)
 
-#### 
+##### 
 
 

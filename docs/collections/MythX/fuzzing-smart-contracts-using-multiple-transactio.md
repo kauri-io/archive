@@ -9,6 +9,7 @@ some_url:
 
 # Fuzzing Smart Contracts Using Multiple Transactions
 
+
 In previous posts, we 
 [introduced Harvey](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
  , a fuzzer for Ethereum smart contracts, and presented a 
@@ -34,7 +35,7 @@ _deep vulnerabilities_
  which only manifest themselves after executing a number of transactions first.
 In this article, we will look at how to detect such deep vulnerabilities in Ethereum smart contracts. More specifically, we will look at how fuzzers can generate sequences of transactions that ultimately exploit a vulnerability.
 
-## Motivating Example
+### Motivating Example
 Let’s look at the following smart contract (written in the Solidity programming language) to illustrate the challenges faced by fuzzers that want to make the assertion in function 
 `Bar`
  fail.
@@ -97,7 +98,7 @@ A simple fuzzer might instead perform additional fuzzing operations that modify 
  could be changed to only increment up to 16.
 In Harvey we want to avoid any such spurious errors.
 
-## Fuzzing Sequences of Transactions Exhaustively
+### Fuzzing Sequences of Transactions Exhaustively
 To avoid spurious errors, a fuzzer might instead try to explore all possible sequences of transactions. A grey-box fuzzer could easily achieve this by including all transactions when computing the path identifier (see the 
 [previous post](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
  for more details); essentially making the path span all transactions. However, the number of possible sequences grows exponentially in the number of transactions, let alone the number of paths. As a consequence, the test suite would likely grow very quickly and the fuzzer would find it challenging to decide which “promising” test inputs (i.e., sequences of transactions) to focus on for increasing coverage most effectively.
@@ -107,7 +108,7 @@ In our example, the only branch that cannot be covered with a single transaction
 `SetY`
  .
 
-## Demand-driven Sequence Fuzzing
+### Demand-driven Sequence Fuzzing
 Harvey uses a number of techniques to avoid these issues. First, Harvey only adds test inputs to the test suite if they increase path coverage for the 
 _final step_
  (i.e., transaction), which in our case is 
@@ -128,7 +129,7 @@ In our example, Harvey will only consider longer sequences of steps for finding 
 `Bar`
  .
 
-## Mutation Operations
+### Mutation Operations
 To actually come up with new sequences, Harvey uses several types of mutation operations that are applied to the selected input. For each of them it first picks an existing step 
 `S`
  . It then applies one of the following operations: (1) fuzzing step 

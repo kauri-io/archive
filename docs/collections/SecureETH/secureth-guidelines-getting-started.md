@@ -9,11 +9,12 @@ some_url:
 
 # SecurEth Guidelines - Getting Started
 
-## Planning a New Project
+
+### Planning a New Project
 
 Start with writing a [System Description Document](github.com/SecurEth/guidelines/blob/master/project-planning/system-description.md). The [Development Plan](github.com/SecurEth/guidelines/blob/master/project-planning/development-plan.md) and [Preliminary Audit](github.com/SecurEth/guidelines/blob/master/project-planning/preliminary-audit.md) are optional components but quite valuable for new development teams.
 
-## Auditing Existing Code
+### Auditing Existing Code
 
 If you already have code and your auditor sent you here. Create a [System Description](github.com/SecurEth/guidelines/blob/master/project-planning/system-description.md), then jump down to [Software Requirements](github.com/SecurEth/guidelines/blob/master/development/software-requirements/), and finish up with an [Audit Prep Report](github.com/SecurEth/guidelines/blob/master/security-audit/audit-prep-report.md).
 

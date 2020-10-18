@@ -9,21 +9,22 @@ some_url:
 
 # Lint your Solidity contracts with Solhint
 
+
 Solhint is an open source project for linting [Solidity](http://solidity.readthedocs.io/en/develop/) code. This project
 provides both **Security** and **Style Guide** validations.
 
-## Installation
+### Installation
 
 You can install Solhint using **npm**:
 
 ```sh
 npm install -g solhint
 
-# verify that it was installed correctly
+## verify that it was installed correctly
 solhint -V
 ```
 
-## Usage
+### Usage
 
 For linting Solidity files you need to run Solhint with one or more [Globs](https://en.wikipedia.org/wiki/Glob_(programming)) as arguments. For example, to lint all files inside `contracts` directory, you can do:
 
@@ -63,7 +64,7 @@ Commands:
   init-config             create sample solhint config in current folder
 ```
 
-## Configuration
+### Configuration
 
 You use a `.solhint.json` file to configure Solhint globally. This file has the following
 format:
@@ -88,7 +89,7 @@ node_modules/
 additional-tests.sol
 ```
 
-### Configure linter with comments
+#### Configure linter with comments
 
 You can use comments in the source code to configure solhint in a given line or file.
 
@@ -139,15 +140,15 @@ Or disable all validations for a group of lines:
   /* solhint-enable */
 ```
 
-## Rules
-### Security Rules
+### Rules
+#### Security Rules
 [Full list with all supported Security Rules](https://github.com/protofire/solhint/blob/master/docs/rules.md#security-rules)
-### Style Guide Rules
+#### Style Guide Rules
 [Full list with all supported Style Guide Rules](https://github.com/protofire/solhint/blob/master/docs/rules.md#style-guide-rules)
-### Best Practices Rules
+#### Best Practices Rules
 [Full list with all supported Best Practices Rules](https://github.com/protofire/solhint/blob/master/docs/rules.md#best-practise-rules)
 
-## More details
+### More details
 
 * Read the full [Solhint documentation](https://protofire.github.io/solhint/).
 * [Roadmap](https://github.com/protofire/solhint/blob/master/ROADMAP.md): The core project's roadmap - what the core team is looking to work on in the near future.
@@ -155,7 +156,7 @@ Or disable all validations for a group of lines:
 * [Shareable configs](https://github.com/protofire/solhint/blob/master/docs/shareable-configs.md): How to create and share your own configurations.
 * [Writing plugins](https://github.com/protofire/solhint/blob/master/docs/writing-plugins.md): How to extend Solhint with your own rules.
 
-## IDE Integrations
+### IDE Integrations
 
   - **[Sublime Text 3](https://packagecontrol.io/search/solhint)**
   - **[Atom](https://atom.io/packages/atom-solidity-linter)**

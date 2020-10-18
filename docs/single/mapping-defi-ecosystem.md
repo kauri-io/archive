@@ -9,6 +9,7 @@ some_url:
 
 # Mapping DeFi ecosystem
 
+
 ![](https://api.kauri.io:443/ipfs/QmYAhAZirg3hztyMbo1dTzbM6MX4Vu5DeMEREqNhPJS9Zy)
 
 Mapping [DeFi ecosystem](https://defiprime.com) 

@@ -9,6 +9,7 @@ some_url:
 
 # ICO — Is it Completely Over ?
 
+
 While many of us were busy with the Labor Day long weekend, strong winds of change was blowing across the world of crypto tokens, effect of which was far reaching and had 
 [wiped away billions of dollars from the crypto currency market](http://www.businessinsider.com/bitcoin-ethereum-price-fall-china-ico-crackdown-2017-9?r=UK&IR=T)
  by the time we came back to work.
@@ -31,7 +32,7 @@ According to
 ![](https://api.kauri.io:443/ipfs/QmR4heSpBzsLt2ueGar9h9fJjV6xymKAg1PvJqH46dE1sb)
 
 
-## Why are the governments and the regulators are freaking out?
+### Why are the governments and the regulators are freaking out?
 If you could remember the earlier days of crowd funding, there were similar concerns of common people loosing their hard earned money to the bad actors. It gave birth to the concept of accredited investor and 
 [JOBS act](http://www.finra.org/investors/alerts/crowdfunding-and-jobs-act-what-investors-should-know)
  which together provided a framework / guidance to the potential investors. Given the way and the pace with which ICOs were getting launched and the staggering amount of funds that was getting raised, many were worried about the bubble getting burst.
@@ -51,7 +52,7 @@ U.S.
  to satisfy its own needs.
 Regulators are recommending their respective governments to clamp down on this unregulated ICO activity. Crypto currency exchanges have also been warned that they would be subjected to a similar regulations that govern securities trading.
 
-## Is this the end of coins? Not really…
+### Is this the end of coins? Not really…
 Despite the SEC warning, there seems to be no slow down in new ICO news. Adding to the confusion is a school of thought which tries to differentiate or disassociate ICOs from SEC’s definition of a security. The premise being offered is that the token buyers are simply buying a service such as cloud storage by participating in the sale.
 > According to the New York Times, since July 25 — the day when SEC issued the warning, around 46 new ICOs have been announced and an additional 204 are moving forward.
 
@@ -63,7 +64,7 @@ Not to be left out of the fun, other celebrities like boxer
 [American rapper The Game and Jess VerSteeg](https://twitter.com/thegame/status/895757688927248384)
  — former Miss Iowa have either announced their support or have made investments in ICOs.
 
-## What’s the way out?
+### What’s the way out?
 It’s no doubt that despite the challenges, ICOs are an innovative means of fund raising but still falls short in many aspects in the eyes of the regulators and the governments.
 Few like the 
 [Lydian Coin](https://www.slideshare.net/gurbakshchahal/lydian-whitepaper-81517-draft)
@@ -73,7 +74,7 @@ Increasingly,
  is being sighted by the ICO fund raisers on classifying how their ICO may or may not be termed as securities. Many leading law firms have also been helping these players on defining and walking the tight rope as well.
 Though SEC seems to be not yet keen on stifling this innovation, what could possibly help is either a quick regulation or a governance framework that clearly classifies any ICOs. Yet another approach could be that of a self governance mechanism by the ICO players to articulate their market positioning in clear and uncertain terms in the interest of the investors. I feel that the second option seems to be an ambitious long shot.
 
-## ICO — 101
+### ICO — 101
 If you are curious to know about ICO or planning to come out with one of your own but don’t know where to start, check out the ones below to get a hang of it.
 
 
@@ -91,7 +92,7 @@ Another resource which could be of immense help is the
 [curated list of ICO / Token Sales / Crowdsales](https://www.smithandcrown.com/icos/)
  maintained by Smith + Crown.
 
-## Disclaimer
+### Disclaimer
 This post is not by any means a recommendation or a legal or an investment advice. Neither me (the author) nor my employer suggest or recommend any entities / individuals mentioned in this post. Please do your own research and apply your discretion before jumping into the ICO bandwagon as you’d do with any other high risk investments.
 Happy to hear your views, thoughts and feedback.
  

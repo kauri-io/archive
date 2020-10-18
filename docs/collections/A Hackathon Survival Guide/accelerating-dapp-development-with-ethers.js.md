@@ -9,18 +9,19 @@ some_url:
 
 # Accelerating DApp Development with Ethers.js
 
+
 Today's decentralized application stack often consists of a front end, smart contracts, and a framework to interact with the blockchain. Developers often use [Web3.js](https://github.com/ethereum/web3.js/) for interaction with the Ethereum blockchain; however, Web3.js is large, its documentation needs improvement, and is difficult to maintain. [Ethers.js](https://github.com/ethers-io/ethers.js/) is an alternative library that offers all the features of Web3.js in a smaller, well-tested package.
 
 In this tutorial, we use Angular 7.X and Ethers.js to create a simple wallet application and interact with a smart contract deployed on the Ethereum blockchain.
 
-## Prerequisites
+### Prerequisites
 
 First, install node.js and Angular. You can find the instructions below:
 
 -   [Nodejs](https://nodejs.org/en/)
 -   [Angular](https://angular.io/guide/quickstart)
 
-### Creating a Wallet Application
+#### Creating a Wallet Application
 
 To get started, download the following initial [Angular application](https://github.com/jacobcreech/Ethersjs-initial-example). Make sure you are on the `initial` branch. To start, run.
 
@@ -42,7 +43,7 @@ npm install --save ethers
 
 Now everything is set up to work with Ethers.js.
 
-## Creating a Wallet
+### Creating a Wallet
 
 We first use Ethers.js to create a new wallet. Change `/src/app/wallet/wallet.component.html` to the following html:
 
@@ -81,7 +82,7 @@ ngOnInit() {
 
 This code obtains the web3 connection provided by Metamask and makes it ready to use by Ethers.
 
-### Sending and Signing Transactions
+#### Sending and Signing Transactions
 
 Next, we create the ability to send a transaction with our application. Ethers.js provides the ability to edit any data within a transaction, such as gas limit and what address you are sending the transaction to. To send a transaction using the wallet, create a send transaction button that uses the `sendTransaction` method from Ethers.js, as well as some form fields for input on the transaction.
 
@@ -131,7 +132,7 @@ sendTransaction(form: any) {
 
 We first create the transaction object, giving where the transaction is going in the `to` field. `value` denotes how much ether, in the units Wei by default, is sent to the address mentioned. We use the `parseEther` util provided by Ethers.js to convert from Ether to Wei. After creating the transaction object, we use our wallet to send the transaction. In this implementation, the console logs the transaction receipt.
 
-## Interacting with Smart Contracts
+### Interacting with Smart Contracts
 
 One of the novelties of Ethereum is the creation and use of smart contracts on the blockchain. Dapp development relies on interaction with smart contracts, and Ethers.js has a solution. With Ethers.js, you can interact with a smart contract to exchange tokens with two parties or play one of the many Dapp games.
 
@@ -200,7 +201,7 @@ addToContract(form: any) {
 
 Rerun the application with `ng serve --open` and you should have a basic, but functioning wallet application.
 
-## Next steps
+### Next steps
 
 In this tutorial, we created a dapp that creates a wallet, sends a transaction, and interacts with a smart contract. Using Ethers.js, we can interact with the Ethereum blockchain with ease and expand to more complex use cases. Further improvements could be to create a better design, add more wallet integrations, and a separation of concerns between the wallet and contract component. With this demo app, you can now include a wallet app by just including the wallet web component in your dapp.
 

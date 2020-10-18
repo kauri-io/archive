@@ -10,6 +10,7 @@ some_url:
 # Monoplasma  A simple way to broadcast money
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmQSHbBgSFnF1FvNG3PUJw8Y51uCQbrEJN7Xfs7aSMdhyn)
 
 Monoplasma is a special-purpose off-chain scaling solution for one-to-many payments. It’s a good fit for any system where you repeatedly need to:
@@ -30,7 +31,7 @@ We built Monoplasma because we needed it for the upcoming
  , or a Tesla, to pool and sell data collectively. And when that conglomerated data product sells, the revenue will then be automatically distributed out to potentially hundreds of thousands of data contributors.
 The Monoplasma framework is reusable and un-opinionated, and as such, it’s a piece of software that might help others too. That’s why we wanted to make it standalone as a (hopefully useful) contribution to the Ethereum scaling space.
 
-## What problem does it solve?
+### What problem does it solve?
 Here are some possible use cases for Monoplasma, where this type of one-to-many payment pattern is repeated:
 
 
@@ -51,7 +52,7 @@ Here are some possible use cases for Monoplasma, where this type of one-to-many 
 To outline something more specific I’ll pick an example way outside of our own use case of data monetisation and smart devices.
 Imagine a decentralized Airbnb service where ownership shares in apartments are tokenised. An individual apartment could have hundreds, even thousands, of owners, each owning a fraction of it. When a guest stays in said apartment, the fee needs to be split among the owners. Ideally, this would happen on-chain within the payment transaction, but looping through each recipient, calculating their share, and sending tokens to them in a smart contract costs more and more gas as the number of recipients grows. This approach works fine for a handful of people, but it is simply not feasible beyond, say, 100 recipients — the transaction will simply become too large to even be included in a single block!
 
-## Design principles
+### Design principles
 We looked at the various scaling solutions out there for Ethereum, but none of them met our requirements, which were:
 
 
@@ -76,7 +77,7 @@ This is not a generic payment system where everyone can arbitrarily transact wit
 
 In other words, tokens can’t be spent on the side channel. But why is that a good thing? Since tokens can’t be spent there, there can be no double spending! And as you might know, preventing double spending is arguably the hardest problem in designing any distributed system that transfers value. Not having to deal with this simplifies things immensely, which is exactly what we wanted.
 
-## Positive balance off-chain, negative balance on-chain
+### Positive balance off-chain, negative balance on-chain
 Since there’s no side channel spending, balances on the side channel are your cumulative lifetime earnings. In other words, your account balance can only increase monotonically. Hence the name: Monoplasma.
 So what about withdrawals then? Withdrawals are tracked on-chain instead of off-chain. The side channel records your cumulative earnings (credits) and the smart contract keeps track of your cumulative withdrawals (debits).
 
@@ -91,7 +92,7 @@ Let’s look at an example. The Monoplasma smart contract holds all the non-with
 
 The smart contract updates its internal record keeping to reflect that we now have withdrawn 100. If we try to withdraw again with a proof of earnings of 100 (or less), it won’t give us any further tokens. In other words, Monoplasma relies on the secure consensus mechanism of Ethereum to prevent people from withdrawing more than their provable share.
 
-## Other similarities and differences
+### Other similarities and differences
 I’ll briefly highlight some other aspects of Monoplasma:
 
 
@@ -106,7 +107,7 @@ Although somewhat simplified, the below table summarizes some of the similaritie
 ![](https://api.kauri.io:443/ipfs/Qmc1CCQDpY3mgEEzeBSSWpEaC3LNswVgQk4SNz188wjSvU)
 
 
-## As a developer, how can I try it out?
+### As a developer, how can I try it out?
 Monoplasma lives in 
 [this repo](https://github.com/streamr-dev/monoplasma)
  within the 

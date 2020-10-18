@@ -9,7 +9,8 @@ some_url:
 
 # Listening to Ethereum Events with Eventeum
 
-## What is Eventeum?
+
+### What is Eventeum?
 Eventeum is an Ethereum event listener service that provides a bridge between your smart contracts and middleware layer.  Events subscriptions can be registered dynamically, and on emission, a message containing the details of the event are broadcast onto a message bus (currently either Kafka or RabbitMQ) which can then be consumed by your backend services.
 
 It was developed by the kauri.io team, and the source code is freely available under the Apache 2.0 license.  Click [here](https://github.com/ConsenSys/eventeum/) to view the github repository.
@@ -22,7 +23,7 @@ Eventeum is:
 
 - Fork Tolerant - Eventeum can be configured to wait a certain amount of blocks before an event is considered 'Confirmed'. If a fork occurs during this time, a message is broadcast to the network, allowing your services to react to the forked/removed event.
 
-## Prerequisites
+### Prerequisites
 
 To follow this example, you must have the following installed on your system:
 
@@ -30,7 +31,7 @@ To follow this example, you must have the following installed on your system:
 - Maven
 - Docker
 
-## Deploying Eventeum
+### Deploying Eventeum
 
 Out of the box, Eventeum has dependencies on a number of external services, namely Kafka/Zookepper and MongoDB.  The easiest way to get an Eventeum instance running locally right now is to clone the repo from github and run the docker-compose script from the server folder.  This will automatically fire up all the dependant services, including a Parity node running in dev mode.
 
@@ -46,7 +47,7 @@ Out of the box, Eventeum has dependencies on a number of external services, name
 
 `docker compose up`
 
-## The Smart Contract
+### The Smart Contract
 
 For this example, we will use a very basic name registry smart contract, where anyone can add a name to the registry by calling a function.  An event is emitted whenever a name is added, and this will be picked up by Eventeum and broadcast to the backend service.
 ```
@@ -71,7 +72,7 @@ contract NamesRegistry {
 }
 ```
 
-### Deploying
+#### Deploying
 We want to deploy our smart contract to the parity node that we started via docker, so open [remix](https://remix.ethereum.org) and select the 'Web3 Provider' environment from the Run panel.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmZtXWsmrcdznQ4xByD4dtV7Gv7VHVvcZaMs4XvbggdWVf)
@@ -80,13 +81,13 @@ When prompted, keep the default http://localhost:8545 endpoint address.  You sho
 
 Next, we need to deploy our NamesRegistry smart contract to our Ethereum node so paste the above smart contract code into remix, compile and deploy.  Take a note of the deployed contract address, as we will need this when configuring Eventeum in the next step.
 
-## Configuring Eventeum
+### Configuring Eventeum
 Now that our contract is deployed, we need to instruct Eventeum to listen for NameAdded events emitted from this contract.  There are currently 2 ways to do this:
 
 - Properties File - Events that Eventeum should listen for can be configured in the `application.yml` file of Eventeum.
 - REST API - Events can be registered dynamically by send http requests to a REST endpoint.  This is the approach that we will use in this tutorial.
 
-## Registering the NameAdded Event with Eventeum via REST
+### Registering the NameAdded Event with Eventeum via REST
 By default Eventeum listens on port 8060, and exposes a filter registration endpoint at `/api/rest/v1/event-filter`.  Paste the below curl request into a terminal, ensuring that the `CONTRACT_ADDRESS' is replaced by the address of the deployed NamesRegistry smart contract in the previous step.
 
 ```
@@ -130,7 +131,7 @@ broadcastContractEvent - Sending message: {"id":"0x2553-0xd5b2-0" ,"type":"CONTR
 
 Congratulations, if you see this message then this means that Eventeum has received notification of the event emission from our smart contract, and has pushed a corresponding CONTRACT_EVENT message onto our Kafka queue with all the details of the emitted event.  Pretty sweet!
 
-## Next Steps
+### Next Steps
 
 Now that Eventeum is configured correctly, you are ready to [build a service that consumes events from the Kafka topic, and perform some processing on these events.](https://kauri.io/article/fe81ee9612eb4e5a9ab72790ef24283d/using-eventeum-to-build-a-java-smart-contract-data-cache)
 

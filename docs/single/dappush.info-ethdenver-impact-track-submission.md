@@ -9,25 +9,26 @@ some_url:
 
 # Dappush.info ETHDenver Impact Track Submission
 
-# Project Name 
+
+## Project Name 
 Dappush
 
-# Project Tagline/Description
+## Project Tagline/Description
 WEA meets Ethereum. 
 - Censorship Resistant Emergency Alerts, Decentralized Push Notifications with Opt-in User Preferences on Smart Contract State Changes.
 
-# Team Members
+## Team Members
 Josh Han, Trevor Clarke, Waleed Elsakka
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 JoshGlobal 
 
 <a href="https://get.status.im/user/0x044b879651c122d8e1ef9d8f8eb1aba0d1e738cad1f2d530216ed529225bfe7805ec4a43f9d05fc846ae8297b7fd9b6facdf30cadf7f5d217388f6f455372befb9">0x044b879651c122d8e1ef9d8f8eb1aba0d1e738cad1f2d530216ed529225bfe7805ec4a43f9d05fc846ae8297b7fd9b6facdf30cadf7f5d217388f6f455372befb9</a>
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 Dappush.info - We are proposing Decentralized Automatic Push Notifications (DAPN) on state channels for smart contract state changes. Hackathon deliverables include Slack/GCM/Webhook push notifications that can be changed on user preferences - current CDN can be based on assets, registry, uptime and validation/checksums and use state channels. Immediate use cases include: fair Wireless Emergency Alert (WEA) systems, Dapp remittance support, micro-payments, IoT (slock.it) and shared savings accounts updates. Subscriptions implementation could also be made based on push + payments and time-based agreements. 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 
 State Channel Bootnodes
 - An economy driven application architecture
@@ -60,7 +61,7 @@ Research/Notes:
 - counterfactual instantiation, allows lots of up front work to take place, and closing the channel upon disagreements and final state change
 
 
-# Track for which you’re submitting (Impact Track - Increasing Emergency Preparedness)
+## Track for which you’re submitting (Impact Track - Increasing Emergency Preparedness)
 
 <a href="https://unstats.un.org/sdgs/indicators/Global%20Indicator%20Framework%20after%20refinement_Eng.pdf"> UN Global indicator framework for the Sustainable Development Goals & targets of the 2030 Agenda for Sustainable Development</a>
 
@@ -81,12 +82,12 @@ We believe Dappush will be impactful to these SDGs by generating a new value cla
 
 During 2012 the United States launched the Wireless Emergency Alert (WEA) system, and it has acted as an essential part of population preparedness for natural disasters, imminent threats, and presidential alerts.International adoption of emergency systems has been slow due to government censorship, lack of economic incentive and underlying technology. The current system is unblockable and sent through Federal Emergency Management Agency (FEMA) Integrated Public Alert and Warning System (IPAWS) to phone providers and wireless carriers. Past incidents regarding Edward Snowden raise privacy concerns about the misuse of this WEA system because of FCC's E911 System standard requirement that a mobile device is able to send its location. EFF has publicity stated that this was not the intended use of WEA and that location detection requires a warrant. 
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 Impact Track
 
 Important: You MUST add a tag (at the top, under Title) for each bounty you'd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click "ADD TAG", type  "bounty" and select the desired bounty from the list. If you'd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties you'd like to be considered for. These instructions can be deleted.
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/TrevorJTClarke/dappush
 
 

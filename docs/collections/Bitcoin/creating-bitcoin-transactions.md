@@ -9,10 +9,11 @@ some_url:
 
 # Creating Bitcoin Transactions
 
-_This article originally appeared on [bitcoin.org](https://bitcoin.org/en/developer-examples#transaction-tutorial)_
-## Transactions
 
-### Transaction Tutorial
+_This article originally appeared on [bitcoin.org](https://bitcoin.org/en/developer-examples#transaction-tutorial)_
+### Transactions
+
+#### Transaction Tutorial
 
 Creating transactions is something most Bitcoin applications do.
 This section describes how to use Bitcoin Core's RPC interface to
@@ -27,7 +28,7 @@ In order to use this tutorial, you will need to setup [Bitcoin Core][https://bit
 and create a regression test mode environment with 50 BTC in your test
 wallet.
 
-#### Simple Spending
+##### Simple Spending
 
 Bitcoin Core provides several RPCs which handle all the details of
 spending, including creating change outputs and paying appropriate fees.
@@ -125,7 +126,7 @@ second) and clear the shell variable.
 
 
 
-#### Simple Raw Transaction
+##### Simple Raw Transaction
 
 
 The raw transaction RPCs allow users to create custom transactions and
@@ -203,7 +204,7 @@ mz6KvC4aoUeo6wSxtiVQTo7FDwPnkp6URG
 Get a new address to use in the raw transaction.
 
 ```
-## Outputs - inputs = transaction fee, so always double-check your math!
+### Outputs - inputs = transaction fee, so always double-check your math!
 > bitcoin-cli -regtest createrawtransaction '''
     [
       {
@@ -347,7 +348,7 @@ variables.
 
 
 
-#### Complex Raw Transaction
+##### Complex Raw Transaction
 
 
 In this example, we'll create a transaction with two inputs and two
@@ -468,7 +469,7 @@ n4LWXU59yM5MzQev7Jx7VNeq1BqZ85ZbLj
 For our two outputs, get two new addresses.
 
 ```
-## Outputs - inputs = transaction fee, so always double-check your math!
+### Outputs - inputs = transaction fee, so always double-check your math!
 > bitcoin-cli -regtest createrawtransaction '''
     [
       {
@@ -598,7 +599,7 @@ the block chain or memory pool.
 
 
 
-#### Offline Signing
+##### Offline Signing
 
 
 We will now spend the transaction created in the Complex Raw Transaction
@@ -744,7 +745,7 @@ mfdCHEFL2tW9eEUpizk7XLZJcnFM4hrp78
 Get a new address to spend the satoshis to.
 
 ```
-## Outputs - inputs = transaction fee, so always double-check your math!
+### Outputs - inputs = transaction fee, so always double-check your math!
 > bitcoin-cli -regtest createrawtransaction '''
     [
       {
@@ -897,7 +898,7 @@ Remove old shell variables.
 
 
 
-#### P2SH Multisig
+##### P2SH Multisig
 
 
 In this subsection, we will create a P2SH multisig address, spend
@@ -1119,7 +1120,7 @@ We generate a new P2PKH address to use in the output we're about to
 create.
 
 ```
-## Outputs - inputs = transaction fee, so always double-check your math!
+### Outputs - inputs = transaction fee, so always double-check your math!
 > bitcoin-cli -regtest createrawtransaction '''
     [
       {

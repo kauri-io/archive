@@ -10,6 +10,7 @@ some_url:
 # POA - Part 2 - Bridge assets between a sidechain and a mainchain
 
 
+
 This article is part of a **POA tutorial series**:
 
 - [POA - Part 1 - Develop and deploy a smart contract]( https://kauri.io/article/549b50d2318741dbba209110bb9e350e)
@@ -18,7 +19,7 @@ This article is part of a **POA tutorial series**:
 
 -----------------------------------------------------
 
-## Introduction 
+### Introduction 
 
 [The POA Bridge](https://bridge.poa.net/) is a solution to transfer asset tokens (Native and ERC20/ERC677 tokens) between two Ethereum chains. 
 
@@ -43,7 +44,7 @@ In this tutorial, we will learn how to deploy a token on the two networks (Rinke
 
 -----------------------------------------------------
 
-## Requirements
+### Requirements
 
 In order to start, you will need the following programs installed on your machine:
 
@@ -66,7 +67,7 @@ Web3.js v1.0.0-beta.37
 
 
 <br />
-## Step 1: Deploy an ERC20 token called BRidge Token `BRT` on the mainchain (Rinkeby network)
+### Step 1: Deploy an ERC20 token called BRidge Token `BRT` on the mainchain (Rinkeby network)
 
 1. Let's first create a project folder for our ERC20 `BRT` and initialize a Truffle project.
 
@@ -307,7 +308,7 @@ As a result, we can identify our Smart Contract `BridgeToken` as been deployed a
 
 
 <br />
-## Step 2: Initialise the monorepo `tokenbridge`
+### Step 2: Initialise the monorepo `tokenbridge`
 
 In this second step, we will initialise the GitHub mono-repository in order to install each component in the following steps.
 
@@ -326,7 +327,7 @@ $ yarn install && yarn install:deploy
 ```
 
 <br />
-## Step 3: Configure and Deploy the bridge contracts 
+### Step 3: Configure and Deploy the bridge contracts 
 
 In this third step, we will deploy the necessary contracts to enable a ERC20 to ERC20 bridge.
 
@@ -362,13 +363,13 @@ $ npm run compile
 
 ```
 BRIDGE_MODE=ERC_TO_ERC
-#BRIDGE_MODE=NATIVE_TO_ERC
+##BRIDGE_MODE=NATIVE_TO_ERC
 
-# If Home network does not support byzantium fork, should use contracts compiled for spuriousDragon
-#HOME_EVM_VERSION=spuriousDragon
+## If Home network does not support byzantium fork, should use contracts compiled for spuriousDragon
+##HOME_EVM_VERSION=spuriousDragon
 
-# If Foreign network does not support byzantium fork, should use contracts compiled for spuriousDragon
-#FOREIGN_EVM_VERSION=spuriousDragon
+## If Foreign network does not support byzantium fork, should use contracts compiled for spuriousDragon
+##FOREIGN_EVM_VERSION=spuriousDragon
 
 DEPLOYMENT_ACCOUNT_PRIVATE_KEY=PRIVATE_KEY
 
@@ -402,31 +403,31 @@ FOREIGN_MAX_AMOUNT_PER_TX=750000000000000000000000
 FOREIGN_MIN_AMOUNT_PER_TX=500000000000000000
 FOREIGN_REQUIRED_BLOCK_CONFIRMATIONS=8
 FOREIGN_GAS_PRICE=10000000000
-#for bridge erc_to_erc and erc_to_native mode
+##for bridge erc_to_erc and erc_to_native mode
 ERC20_TOKEN_ADDRESS=ERC20_TOKEN_ADDRESS
-# Only for for erc_to_erc mode
+## Only for for erc_to_erc mode
 ERC20_EXTENDED_BY_ERC677=false
 
 REQUIRED_NUMBER_OF_VALIDATORS=1
-#If several validators are used, list them separated by space without quotes
-#E.g. VALIDATORS=0x 0x 0x
+##If several validators are used, list them separated by space without quotes
+##E.g. VALIDATORS=0x 0x 0x
 VALIDATORS=ACCOUNT_ADMIN
-#Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on home side, set to false otherwise
+##Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on home side, set to false otherwise
 HOME_REWARDABLE=false
-# Valid only for rewards on erc_to_native mode. Supported values are BRIDGE_VALIDATORS_REWARD and POSDAO_REWARD
+## Valid only for rewards on erc_to_native mode. Supported values are BRIDGE_VALIDATORS_REWARD and POSDAO_REWARD
 HOME_FEE_MANAGER_TYPE=
-#Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on foreign side, set to false otherwise
+##Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on foreign side, set to false otherwise
 FOREIGN_REWARDABLE=false
-#If HOME_REWARDABLE or FOREIGN_REWARDABLE set to true, list validators accounts were rewards should be transferred separated by space without quotes
-#E.g. VALIDATORS_REWARD_ACCOUNTS=0x 0x 0x
+##If HOME_REWARDABLE or FOREIGN_REWARDABLE set to true, list validators accounts were rewards should be transferred separated by space without quotes
+##E.g. VALIDATORS_REWARD_ACCOUNTS=0x 0x 0x
 VALIDATORS_REWARD_ACCOUNTS=0x
 
-# Fee to be taken for every transaction directed from the Home network to the Foreign network
-# E.g. 0.1% fee
+## Fee to be taken for every transaction directed from the Home network to the Foreign network
+## E.g. 0.1% fee
 HOME_TRANSACTIONS_FEE=0.001
-# Fee to be taken for every transaction directed from the Foreign network to the Home network
+## Fee to be taken for every transaction directed from the Foreign network to the Home network
 FOREIGN_TRANSACTIONS_FEE=0.001
-#for bridge native_to_erc, erc_to_erc mode
+##for bridge native_to_erc, erc_to_erc mode
 DEPLOY_REWARDABLE_TOKEN=false
 DPOS_STAKING_ADDRESS=0x0000000000000000000000000000000000000000
 ```
@@ -463,7 +464,7 @@ Contracts Deployment have been saved to `bridgeDeploymentResults.json`
 
 
 <br />
-## Step 4: Configure and deploy the Bridge Oracle
+### Step 4: Configure and deploy the Bridge Oracle
 
 1. Go to the `oracle folder
 
@@ -552,7 +553,7 @@ $ docker-compose up --build
 ![](https://imgur.com/Hgow8Fl.gif)
 
 <br />
-## Step 5: Configure and Deploy the bridge UI
+### Step 5: Configure and Deploy the bridge UI
 
 Last step consist in deploying a User Interface to transfer tokens between the sidechain and the mainchain.
 
@@ -616,7 +617,7 @@ You can now transfer BRT token between the mainchain and the sidechain:
 <br />
 -----------------------------------------------------
 
-## References:
+### References:
 
 - [poa-bridge-contracts GitHub](https://github.com/poanetwork/poa-bridge-contracts)
 - [token-bridge (monorepo) GitHub](https://github.com/poanetwork/tokenbridge)

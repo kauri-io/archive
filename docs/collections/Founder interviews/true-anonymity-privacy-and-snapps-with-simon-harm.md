@@ -9,13 +9,14 @@ some_url:
 
 # True anonymity, privacy, and SNApps with Simon Harman of Loki
 
+
 In this Blockwatch, I speak with Simon Harman, project lead at [Loki](https://loki.network), who provides a refreshing, honest, and realistic perspective on Blockchain and privacy.
 
 Hear the full interview in the audio version, but here are the highlights to whet your appetite.
 
 <iframe src="https://anchor.fm/theweeklysqueak/embed/episodes/Decentralised-Privacy-with-Loki-Network-e36f94" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
 
-## What is Loki?
+### What is Loki?
 
 Loki is an intertwined, decentralized privacy ecosystem that allows users to take advantage of a P2P network of service nodes to browse, transact, and communicate online as anonymously and securely as possible.
 
@@ -31,7 +32,7 @@ According to Simon's calculations, it would cost around $40,000-$50,000 a month 
 
 Loki hopes to create a network that a single entity cannot manipulate, and is effectively Sybil attack resistant. Something that places it ahead of Tor and other privacy mixnets.
 
-## Protecting the freedom of speech
+### Protecting the freedom of speech
 
 Loki stands for absolute privacy by default.
 
@@ -43,7 +44,7 @@ As Simon explains, while some of the things content creators say aren't always p
 
 The Internet - something that was once free and beautiful - has become controlled by large organizations, and it's a case of following their ideals or be silenced, Simon says.
 
-## Why Loki Messenger will (probably) never be a mainstream app
+### Why Loki Messenger will (probably) never be a mainstream app
 
 Loki Messenger is in active development, but as Simon points out, one of the difficulties when developing a messaging app is that users want it fully-featured from the offset.
 
@@ -51,7 +52,7 @@ Adoption of a bespoke privacy messaging app is a slower process than mainstream 
 
 As Simon says, instant messaging users expect to fully control their messages, with their conversations synced across multiple devices and emoji support as a minimum. That's why the Loki team is reluctant to release Loki Messenger until this functionality is in place.
 
-## Add your application to Loki with SNApps
+### Add your application to Loki with SNApps
 
 You can host any web application on Lokinet as a SNApp, enabling users to host a suite of private hidden web applications. Find out how to get started with the process in [the SNApp documentation](https://lokidocs.com/Lokinet/Guides/HostingSNApps/).
 

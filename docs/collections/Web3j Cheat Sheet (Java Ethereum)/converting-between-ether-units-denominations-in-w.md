@@ -9,11 +9,12 @@ some_url:
 
 # Converting Between Ether Units / Denominations in Web3j
 
+
 The smallest denomination of ether is called `wei`, and you will often find yourself needing to convert to and from wei when interacting with Ethereum smart contracts.  Luckily, web3j provides a `Convert` library class that simplifies this task.
 
 Here are some examples:
 
-## From Wei to Ether
+### From Wei to Ether
 
 ``` java
 BigInteger valueInWei = ...;
@@ -21,7 +22,7 @@ BigInteger valueInWei = ...;
 BigInteger convertedToEther = Convert.fromWei(valueInWei, Unit.ETHER);
 ```
 
-## From Ether to Wei
+### From Ether to Wei
 
 ``` java
 BigInteger valueInEther = ...;
@@ -29,7 +30,7 @@ BigInteger valueInEther = ...;
 BigInteger convertedToWei = Convert.toWei(valueInEther, Unit.ETHER);
 ```
 
-## From Wei to Gwei
+### From Wei to Gwei
 
 ``` java
 BigInteger valueInWei = ...;
@@ -37,7 +38,7 @@ BigInteger valueInWei = ...;
 BigInteger convertedToGwei = Convert.fromWei(valueInWei, Unit.GWEI);
 ```
 
-## From Gwei to Wei
+### From Gwei to Wei
 
 ``` java
 BigInteger valueInGwei = ...;

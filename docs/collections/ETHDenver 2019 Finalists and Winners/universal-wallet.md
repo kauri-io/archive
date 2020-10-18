@@ -9,26 +9,27 @@ some_url:
 
 # Universal Wallet
 
-# Project Name
+
+## Project Name
 Universal Wallet
 
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 A Universal Login Wallet, that on boards users in just couple of steps using counterfactual deployment, universal logins and ability to buy dai with debit/credit card through Wyre.
 
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Kyle Bryant
 Marek Kirejczyk
 Makoto Inoue
 
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 Kyle Bryant | Telegram ID: @kyrrui  (Status: Moccasin Intent Bernesemountaindog)
 Makoto Inoue | Telegram ID: @inouemak  (Status: Crafty Brown Wolf /  0x0480f5fa69d65f81c347b930bd1f301ac168c682cd9835cbb030d6db0fdc91e753963c350094d617b36009906e3fe56aa0183a5a7e98e1728cf72cc1f583339579)
 Marek Kirejczyk | Telegram ID: @marekkirejczyk
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 We are solving the on-boarding problem, by radically reducing amount of steps a new user needs to follow in order to start interacting with the Ethereum network. All a user needs to do is:
 - pick a name
 - enter card information
@@ -42,14 +43,14 @@ We utilize a number of technologies to make this possible:
 
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 dai, counterfactual deployment, create2, multisig, metaransactions 
 Also React, Solidity, ethers.js, waffle
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 We implemented Wyre, Ideas by Nature onboarding
 
 https://github.com/UniversalLogin/UniversalLoginSDK/tree/hackathon

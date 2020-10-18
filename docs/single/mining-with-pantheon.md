@@ -9,14 +9,15 @@ some_url:
 
 # Mining with Pantheon
 
+
 In this post, I continue my series on Pantheon, the new Java-based Ethereum Client and today I will cover how to mine with Pantheon. I am a big fan of Java so I am super excited to write more about this new Java-based tool and explore all the enterprise ready features in future posts. To learn how to get started using Pantheon see my previous post: 
 [Introduction to Pantheon — The Java Ethereum Client](https://web3developer.com/introduction-to-pantheon-the-java-ethereum-client/)
  
 In order to mine ether using Pantheon you will first need to create a wallet to store the funds which will be earned by our miner node. Pantheon doesn’t support key management inside the client so you will need to use a third party tool such as MetaMask, to create and manage your ethereum accounts. MetaMask is a Ethereum wallet that runs as a browser extension which makes the whole process of managing your Ethereum accounts super easy. Let’s start by using MetaMask to create an account.
 
-### Creating a Wallet Using MetaMask
+#### Creating a Wallet Using MetaMask
 
-### 1. Install the MetaMask plugin using Chrome
+#### 1. Install the MetaMask plugin using Chrome
 Navigate to 
 [https://metamask.io](https://metamask.io/)
  in your browser. On the home page, click on ‘Get chrome extension’ (or if you are using another browser click on the relevant link).
@@ -25,7 +26,7 @@ Navigate to
 
 Click on ‘Add to Chrome’ and follow the rest of the prompts to complete the installation.
 
-### 2. Create a new MetaMask wallet
+#### 2. Create a new MetaMask wallet
 After the MetaMask installation completes, click on the ‘Get Started’ button and then you will see this page. Click on ‘Create a Wallet’ to start the process of creating your first wallet.
 
 ![](https://api.kauri.io:443/ipfs/QmeXGCHiXLkuHM5wUKmrmpfDSShRdRp3hw7HNyqcEX6yHe)
@@ -36,7 +37,7 @@ Start by entering a new password for your MetaMask wallet, accept the terms and 
 
 Follow the rest of the prompts to confirm your secret backup phrase and then you should see the MetaMask home screen.
 
-### 3. Create a new ethereum account in MetaMask
+#### 3. Create a new ethereum account in MetaMask
 On the MetaMask home screen, click on the circle icon in the top right and then click on ‘Create Account’.
 
 ![](https://api.kauri.io:443/ipfs/QmPb4euGEJsEsxrrpvgmXqjZUv3b1KKjn8uQW2HmcysvfA)
@@ -54,7 +55,7 @@ We can now see our new account in the MetaMask home screen and it shows that we 
 
 Next click on the address of the Pantheon Miner account (just below the ‘Details’ button) to copy the value to the clip board. We will be using this account address in the rest of the tutorial.
 
-### Mining on a Local Dev Network
+#### Mining on a Local Dev Network
 Lets start by running a dev miner locally, earning some ether and then viewing our current balance in MetaMask. To start the miner run this command:
 
 ```
@@ -102,13 +103,13 @@ Now that our Pantheon miner is running, we can now see that the ether in our acc
 ![](https://api.kauri.io:443/ipfs/QmXF65LyVRHZrNA1qtZQLErHjCnChN51AkWi3ZE8Ekwdry)
 
 
-### Mining on a Testnet
+#### Mining on a Testnet
 MetaMask supports connecting to any Ethereum network over JSON-RPC. In the ‘Networks’ tab, you can select from five different public Ethereum networks which include Mainnet, Robsten, Kovan, Rinkeby and Goerli. Note that in MetaMask, you can also connect to any other Ethereum network which is not in the ‘Networks’ dropdown list, by using the ‘Custom RPC’ option.
 Mainnet is of course the real public Ethereum network which uses real ether, allows anyone to be a miner and uses the proof of work consensus protocol (similar to Bitcoin).
 Ropsten is the test network which is the most similar to mainnet and also allows anyone to be a miner and uses the proof of work consensus protocol.
 Kovan, Rinkeby and Goerli are test networks which use a consensus protocol called proof of authority which does not support mining. You can have ether sent to you from a faucet which requires you to prove your existence by posting a link on social media.
 
-### Running the Pantheon miner on the Ropsten network
+#### Running the Pantheon miner on the Ropsten network
 Now lets setup Pantheon to mine ether on the Ropsten public testnet. To do so, run this command:
 
 ```
@@ -150,7 +151,7 @@ $ pantheon --network=ropsten  --rpc-http-cors-origins="all" --rpc-http-enabled -
 
 We can see the node start running and start syncing the blockchain data from the network, it won’t start mining until the syncing has completed. At the time of writing, the Ropsten network has about 5700000 blocks which will take a long time to fully sync so I won’t be waiting around for this to complete.
 
-### Monitor the Pantheon syncing status
+#### Monitor the Pantheon syncing status
 We can monitor the status of the sync by hitting the RPC eth_syncing method using curl:
 
 ```
@@ -168,7 +169,7 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","paras":[],"id":1
 
 After the node finishes syncing the blockchain data we will see it start mining blocks and the ether in our account on the Ropsten network will start to grow.
 
-### Mining on Mainnet
+#### Mining on Mainnet
 Finally to start Pantheon mining on Mainnet run the following command:
 
 ```
@@ -210,10 +211,10 @@ $ pantheon  --rpc-http-cors-origins="all" --rpc-http-enabled --miner-enabled --m
 
 
 
-### Monitor and Configure Pantheon Mining using JSON-RPC
+#### Monitor and Configure Pantheon Mining using JSON-RPC
 You can use the following JSON-RPC API methods to monitor and configure the Pantheon miner. To use these methods you will need to set ‘rpc-http-apis’ Pantheon parameter to include the value ‘miner’ and ‘eth’. If you forget to do this you will get an ‘Method not enabled’ error message returned.
 
-### 1. miner_start
+#### 1. miner_start
 Use miner_start to start mining on a Pantheon node. This allows us to start the miner on a Pantheon node which is already running but not mining:
 
 ```
@@ -227,7 +228,7 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_start","params":[],"id":
 
 
 
-### 2. minor_stop
+#### 2. minor_stop
 Use miner_stop to stop mining on a Pantheon node. This allows us to stop the miner on a Pantheon node which is already running a miner:
 
 ```
@@ -241,7 +242,7 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"miner_stop","params":[],"id":1
 
 
 
-### 3. eth_mining
+#### 3. eth_mining
 Use eth_mining to determine if Pantheon is actively mining new blocks:
 
 ```
@@ -255,7 +256,7 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_mining","params":[],"id":1
 
 
 
-### 4. eth_hashrate
+#### 4. eth_hashrate
 Use eth_hashrate to get the number of hashes per second the node is mining:
 
 ```
@@ -269,6 +270,6 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","parms":[],"id":
 
 
 
-### Summary
+#### Summary
 So that gives you a brief overview of how to mine using Pantheon. We successfully created an Ethereum account using MetaMask, and started a dev Pantheon node with mining and RPC enabled. After that we watched the ether in our account grow using MetaMask, as our dev miner added new blocks. We then we ran the command to start the miner and watched the data start to sync on both Ropsten and Mainnet. I also covered some of the JSON-RPC methods you can use to configure and monitor the Pantheon miner.
 I hope you find this information helpful. Feel free to send me your comments or questions and don’t forget to subscribe if you want to follow my future posts here at Web3 Developer.

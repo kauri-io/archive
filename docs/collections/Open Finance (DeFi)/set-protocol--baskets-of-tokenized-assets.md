@@ -9,6 +9,7 @@ some_url:
 
 # Set Protocol  Baskets of tokenized assets
 
+
 > Set Protocol allows grouping multiple tokens into one asset. Each set is a deployed smart contract with each set being fully-collateralized. Anyone can deposit a token to the set contract and withdraw them back, which makes the sets permissionless. Sets comply with the ERC20 standard, so they can be transferred and traded on exchanges. This also means that sets can be grouped into other sets.
 
 _This article originally appeared on the [Set Protocol Docs Portal](https://docs.setprotocol.com/#/getting-started)_
@@ -19,13 +20,13 @@ Welcome Settler of Tokan 👋 setprotocol.js is a Javascript library for interac
 
 Now that we got that out of the way, let’s get started 🚀
 
-# Concepts
-### Typescript
+## Concepts
+#### Typescript
 [setprotocol.js](https://www.npmjs.com/package/setprotocol.js) and [set-protocol-contracts](https://www.npmjs.com/package/set-protocol-contracts) utilize Typescript to enforce strong static typing throughout our code bases. This makes typing checking and schema validation seamless which is particularly useful when working with financial products where there are many conversions and abstractions used.
 
 You can find more about Typescript [here](https://www.typescriptlang.org/).
 
-### Async / Await
+#### Async / Await
 `setprotocol.js` is a promised-based library and makes heavy use of asynchronous calls. We recommend using the latest async / await syntax for clean asynchronous code without having to use a third party coroutine implementation. It looks something like this:
 ```
 const getUserBalance = async function(userAddress) {
@@ -34,21 +35,21 @@ const getUserBalance = async function(userAddress) {
 ```
 You can learn more about async / await [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
 
-### BigNumber
+#### BigNumber
 Our libraries utilize the `bignumber.js` library for representations of large numbers in Javascript. This is due to Javascript’s inability to handle large numbers properly (more on this later). When passing numerical figures into `setprotocol.js` functions, we require that they be instances of BigNumber:
 ```
 const quantityToIssue = new BigNumber(1000000);
 ```
 If you’re having issues with BigNumber, it may be that you are using the wrong version. Try using BigNumber `v5.0.0` vs the latest.
 
-# Installation
-### setprotocol.js
+## Installation
+#### setprotocol.js
 The Javascript SDK can be installed via `yarn` or `npm`.
 
-### BigNumber.js @ ^5.0.0
+#### BigNumber.js @ ^5.0.0
 `setprotocol.js` uses BigNumber to represent large numbers. The latest stable version we use is `BigNumber@^5.0.0`.
 
-### Web3 1.0
+#### Web3 1.0
 This newest 1.1.0 release candidate of `setprotocol.js` uses Web3 1.0. If you want to use the older versions of web3, you will need to use an older version of setprotocol.js (i.e. v1.2.0-rc12).
 
 ```
@@ -63,12 +64,12 @@ npm install --save bignumber.js@^5.0.0
 npm install --save web3@1.0.0-beta.36
 ```
 
-# Usage
+## Usage
 Let’s initialize our `setProtocol` instance. We need to first import our library like this:
 ```
 import SetProtocol from 'setprotocol.js';
 ```
-### Config
+#### Config
 When instantiating an instance of `setProtocol`, the constructor requires a provider and config object.
 
 The configuration object requires inputs of the suite of Set smart contract addresses: Core, Transfer Proxy, Vault, RebalanceAuctionModule, Set Token Factory, Rebalancing Set Token Factory, Exchange Issue Module, Issuance Order Module, Rebalancing Token Issuance Module, and Payable Exchange Issue. The following external contract addresses are also required: Kyber Network Wrapper and Wrapped Ether.
@@ -123,7 +124,7 @@ The rest of the contracts can be found in the Smart Contract section [here](http
 |         | TransferProxy                  | 0x2ebb94cc79d7d0f1195300aaf191d118f53292a8 | 
 |         | RebalancingSetTokenFactory     | 0xc1be2c0bb387aa13d5019a9c518e8bc93cb53360 | 
 
-# Blockchain Setup
+## Blockchain Setup
 **We recommend using the TestNet smart contracts**, but we support developing on TestRPC here as well.
 
 **If you’re going to run on TestNet, you can go ahead and skip this section.**
@@ -143,10 +144,10 @@ yarn set-chain
 ```
 This runs a blockchain locally using [Ganache-cli](https://github.com/trufflesuite/ganache-cli) with the snapshots at `http://localhost:8545`.
 
-# Web3
+## Web3
 Next, we need to instantiate the web3 `provider` to pass into the `SetProtocol` constructor. If you’re developing using a local node or TestRPC, the chain can be found at port 8545. If no instance is passed in (for instance when Metamask is injected into the global scope), we’ll attempt to use the Metamask Web3 object.
 
-### TestNet Method
+#### TestNet Method
 When trying to connect to TestNet, use the web3 `provider` injected by MetaMask or Mist.
 ```
 import * as Web3 from 'web3';
@@ -161,7 +162,7 @@ try {
   throw new Error(`No injected web3 found when initializing setProtocol: ${err}`);
 }
 ```
-### Local TestRPC Method
+#### Local TestRPC Method
 ```
 import * as Web3 from 'web3';
 ​
@@ -169,7 +170,7 @@ const web3 = new Web3();
 ​
 const provider = new Web3.providers.HttpProvider('http://localhost:8545');
 ```
-### Typescript
+#### Typescript
 If you’re using Typescript, you’ll need to declare your `web3` module. To do this, we’ll borrow from 0x who have generously exported Web3 typings for our use. Run:
 ```
 yarn add @0xproject/typescript-typings
@@ -202,12 +203,12 @@ declare global {
   interface Window { web3: any; }
 }
 ```
-### Instantiation
+#### Instantiation
 Finally, we can instantiate our setProtocol instance by passing in the provider and configuration.
 ```
 const setProtocol = new SetProtocol(provider, config);
 ```
-# Summary
+## Summary
 With our packages imported, config set up, web3 initialized, and `setProtocol` instantiated, it should look like this:
 ```
 import SetProtocol from 'setprotocol.js';
@@ -246,7 +247,7 @@ We can now start calling functions on the `setProtocol` instance like this:
 // Example of calling createSetAsync method
 const txHash = await setProtocol.createSetAsync(/* args */);
 ```
-# 🎉 Congrats!
+## 🎉 Congrats!
 Now you’re ready to start building! Try your hand at some of our tutorials:
 
 * [Create a Set](https://docs.setprotocol.com/#/tutorials#create-a-stable-set)

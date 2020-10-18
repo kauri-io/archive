@@ -9,6 +9,7 @@ some_url:
 
 # ETHDenver 2020 Blockchain Gaming Part 1  CelerX
 
+
 [![Zachary Wolff](https://miro.medium.com/fit/c/96/96/2*5K6-LoPcku-MKm1kbh8PqA.png)](https://medium.com/@zacharywolff?source=post_page-----96adfa2e137d----------------------)
 
 I visited two talks related to blockchain gaming at ETHDenver 2020, and I wanted to provide a quick rundown of what I found to be some of the more exciting concepts, ideas, and games.

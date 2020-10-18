@@ -10,13 +10,14 @@ some_url:
 # Ethereum Meta Transactions
 
 
+
 ----
 
 
 ![](https://api.beta.kauri.io:443/ipfs/QmRdqBJda6fGg3C4dCrpjWZ6ki52T33xviV3qRGWjtN61V)
 
 
-## Introduction
+### Introduction
  
 **Dapps require way too much onboarding.**
  The Ethereum ecosystem needs to push toward mass adoption by allowing new users immediate access to functionality and interactivity without all the hoops to jump through.
@@ -34,15 +35,15 @@ _desktop miners_
 ----
 
 
-## Basics
+### Basics
 I want to cover a few underlying concepts to lay the groundwork for explaining meta transactions on Ethereum. Scroll away cryptography gurus…
 
-### Hashes
+#### Hashes
 Hash functions take in information of varying size and map it to a predictable (deterministic) result of an arbitrary size. It’s a great way to take a bunch of information and get a small, digestible “fingerprint” of the data. The resulting “fingerprint” for a given input is always the same. 
 **If any little thing in your original data changes, the resulting hash will change drastically.**
  
 
-### Key Pairs
+#### Key Pairs
 Public/Private key pairs employ some heady math but the concept is simple; A message can be signed with a private key and anyone can use the public key to prove it was signed correctly. To reiterate, 
 **I can give you a message along with a signature and using only my public information you can mathematically prove that I signed the specific message**
  . A private key is very sensitive and should never be moved around. A public key can be shared far and wide. Your Ethereum address is your public key and it 
@@ -65,7 +66,7 @@ Public/Private key pairs employ some heady math but the concept is simple; A mes
 ----
 
 
-### Transactions
+#### Transactions
 In order to interact with the blockchain, you need to send a transaction. A transaction consists of a few parts and I like to use the snail mail analogy:
 
 
@@ -86,7 +87,7 @@ In order to interact with the blockchain, you need to send a transaction. A tran
 > This is a very loose analogy and I have many more. Let’s have a beer and discuss it at length. Find me at Devcon.
 
 
-### Smart Contracts
+#### Smart Contracts
 My grandfather told me a story about his brother who used to grow tomatoes in his backyard in Kansas. He would put the last night’s harvest in a box on the front step with a scale with an asking price. Every night he would go out and collect the money from a cigar box. This system relied heavily on trust. A smart contract is like this, but it’s backed by math, not trust.
 I like to think of a smart contract like a set of rules with storage. There are 25 tomatoes in the box and the rule is 15 cents for a pound of tomatoes. If you send an envelope with 30 cents in it to the cigar box, two pounds of tomatoes will be transferred to your address. This will continue until there are no more tomatoes left. At the end of the day, the contract owner can empty the cigar box because he proves who he is with is private key.
 Contracts can also talk to other contracts. They can even do the trick we talked about earlier where they prove a specific message was signed by a particular account. This concept is the heart of the trick…
@@ -94,7 +95,7 @@ Contracts can also talk to other contracts. They can even do the trick we talked
 ----
 
 
-## Meta Transactions
+### Meta Transactions
 First, I craft a transaction similar to the structure of a traditional Ethereum transaction, but I also add in some extra information:
 
 
@@ -107,7 +108,7 @@ First, I craft a transaction similar to the structure of a traditional Ethereum 
 Next, instead of sending my transaction directly to a smart contract, I’ll send it to a secondary network. The network can parse my request and make sure my signature is valid. They then choose what transactions are worth submitting and interface directly with the blockchain.
 Finally, when my proxy contract receives my transaction sent from a third party, it will parse the instructions, pay the third party, and execute my commands. These instructions could be sending tokens, calling functions, or anything a normal blockchain transaction can do.
 
-## Demo Screencast of Ethereum Meta Transactions
+### Demo Screencast of Ethereum Meta Transactions
 
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/6r3SqCcEVU4" width="512"></iframe>
 
@@ -115,12 +116,12 @@ Finally, when my proxy contract receives my transaction sent from a third party,
 ----
 
 
-## Conclusion
+### Conclusion
 Using this method we are able to interact with the blockchain from accounts that don’t hold any Ether. This is may be necessary to drive mass adoption of Ethereum. 
 **Users don’t care about decentralization or private keys; they care about using your Dapp to do something important to them.**
  
 
-### Universal Logins
+#### Universal Logins
 Another great use case for this technology is ‘ 
 [Universal Logins](https://youtu.be/qF2lhJzngto)
  ’. You should store your Ether in a “cold” wallet and use that to charge up a proxy contract. This contract will hold funds and tokens on your behalf and act as your on-chain identity. Then, as new devices come in and out of your life, you can tell your identity proxy to trust them. These devices never hold funds and their private key is never moved. At the same time, they are able to interact with the blockchain using meta transactions.
@@ -131,7 +132,7 @@ Thanks for checking out meta transactions on Ethereum. Hit me up on Twitter:
 [https://twitter.com/austingriffith](https://twitter.com/austingriffith)
  or learn more about me here:
 
-## Credits and Inspiration:
+### Credits and Inspiration:
 @avsa — 
 [https://www.youtube.com/watch?v=qF2lhJzngto](https://www.youtube.com/watch?v=qF2lhJzngto)
  

@@ -10,6 +10,7 @@ some_url:
 # Witnet Monthly Report — June 2018
 
 
+
 ----
 
 
@@ -19,7 +20,7 @@ Today we want to share what we have been up to over the last month, the challeng
 **the progress we have made towards our first milestone: the Witnet prototype**
  .
 
-## 💰 Fundraising
+### 💰 Fundraising
 We’ve now 
 **finalized the accounting of the WIT token pre-sale**
  . These are the figures:
@@ -44,7 +45,7 @@ Also, during our sale we have agreed on
 **partnership with amazing teams**
  : Reflective Ventures, the RChain VC arm, who contributed $3M; Aragon and district0x.
 
-## 💜 Team
+### 💜 Team
 During June 
 [we’ve introduced you to Mario](https://medium.com/witnet/team-insights-mario-full-stack-engineer-and-scrum-master-e0d6f9e7c70c)
  , 
@@ -59,9 +60,9 @@ We’ve also been lucky to have a
 **We still have** [open positions](https://angel.co/witnet-foundation-1/jobs)
  , so if you are aware of the impact a decentralized oracle network will have on the crypto landscape, be sure to check them out!
 
-## 🔧 Product
+### 🔧 Product
 
-### Sheikah prototype (Witnet desktop wallet app + smart contracts IDE)
+#### Sheikah prototype (Witnet desktop wallet app + smart contracts IDE)
 
 
 
@@ -73,7 +74,7 @@ We’ve also been lucky to have a
 
  * Modesty aside, **code quality this far is top notch** . Every minute we spent improving our automated testing and QA setup is truly paying off!
 
-### witnet-rust (Witnet full node implementation)
+#### witnet-rust (Witnet full node implementation)
 
 
 

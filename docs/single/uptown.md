@@ -10,14 +10,15 @@ some_url:
 # UpTown 
 
 
-# Project Name: UpTown
+
+## Project Name: UpTown
 
 
-# Project Tagline/Description: 
+## Project Tagline/Description: 
 Empowering residents affected by rapidly rising living costs through community voting and efficient deployment of affordable housing funds.
 
 
-# Team Members. 
+## Team Members. 
 
 - Alan Wang: IoT Frontend Engineer
 - Darren Coulter: Strategic Designer
@@ -27,7 +28,7 @@ Empowering residents affected by rapidly rising living costs through community v
 
 
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 @alan, @dtcoulter, @kb, @sally
 
 https://get.status.im/user/0x047615f8b4993723acf8ba3a3cb4afcc7f00cf3212f1ac19db9c36f01db7527efa0aee491aada15ff91c31392b1df6fdd88ad4801137f88893260308ce399c5f18
@@ -38,7 +39,7 @@ https://get.status.im/user/0x0404ea4269c6877b99cc0a9321f76f7458be6da3a20a60e2de4
 
 https://get.status.im/user/0x044c6e10af104e473777cd88861d227cfe1e8e7e884569e6fb14ed5800ee8b933a58872337161b07d27c528926936ad464c20eba03d0347b8d33d5249c9392aa8f
 
-# Detailed Project Description 
+## Detailed Project Description 
 In the face of rapid economic and real estate development, the city of Denver has identified 92,000 cost burdened households (31%) and 42,000 that earn less than 30% of average median income, the most in need of affordable housing funds. However current affordable housing fund deployments only stand to benefit just under 8,000 of those in need. Powered by blockchain enabled digital identity, Uptown allows city residents to register and vote on real estate issues most affecting their circumstance as well as assessing registries’ qualification for affordable housing based on criteria such as verified household income and residency tenure. Using smart contracts on Ethereum and sovereign digital I.D. Uptown will provide the infrastructure to efficiently deploy affordable housing funds through weighted subsidies in the form of UPT (ERC 223 tokens) with the potential to reach a far greater number of those in need than the current 8,000 in the case of Denver.
 
 ![](https://api.kauri.io:443/ipfs/QmYEQsscm8ghfTWe8FXKasUmSXAdyHVbrLNckL3CfwMfQY)
@@ -48,13 +49,13 @@ In the face of rapid economic and real estate development, the city of Denver ha
 
 <div align="center"><iframe width="560" height="315" src="https://player.vimeo.com/video/317770034" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 Solidity, React, JavaScript, UPort, Web3, TheGraph, Truffle, ZeppelinOS
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Impact
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 
 - Impact 
 - Aave Bounty 3 Microstaking
@@ -66,7 +67,7 @@ Impact
 
 
 
-# A link to all your source code on a public repo (i.e. Github):
+## A link to all your source code on a public repo (i.e. Github):
 https://github.com/oasisethdenver2019/UpTown
 
 

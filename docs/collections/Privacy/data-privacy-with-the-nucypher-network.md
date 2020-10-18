@@ -9,11 +9,12 @@ some_url:
 
 # Data Privacy with the NuCypher Network
 
+
 > The NuCypher network uses the Umbral threshold proxy re-encryption scheme to provide cryptographic access controls for distributed apps and protocols.
 
 This article is adapted from the [NuCypher documentation](https://docs.nucypher.com/en/latest/)
 
-##Overview
+###Overview
 
 1. Alice, the data owner, grants access to her encrypted data to anyone she wants by creating a policy and uploading it to the NuCypher network.
 
@@ -29,27 +30,27 @@ More detailed information about the NuCypher network can be found here:
 
 [nucypher.com](https://www.nucypher.com/)
 
-##Read the NuCypher whitepapers
+###Read the NuCypher whitepapers
 
-### Network
+#### Network
 
 https://github.com/nucypher/whitepaper/blob/master/whitepaper.pdf
 
 “NuCypher - A proxy re-encryption network to empower privacy in decentralized systems” by Michael Egorov, David Nuñez, and MacLane Wilkison - NuCypher
 
-###Economics
+####Economics
 
 https://github.com/nucypher/mining-paper/blob/master/mining-paper.pdf
 
 “NuCypher - Mining & Staking Economics” by Michael Egorov, MacLane Wilkison - NuCypher
 
-###Cryptography
+####Cryptography
 
 https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf
 
 “Umbral A Threshold Proxy Re-Encryption Scheme” by David Nuñez - NuCypher
 
-##Guides
+###Guides
 
 - [Nucypher Quickstart](https://docs.nucypher.com/en/latest/guides/quickstart.html)
 - [NuCypher Federated Testnet (NuFT) Setup Guide](https://docs.nucypher.com/en/latest/guides/federated_testnet_guide.html)
@@ -60,7 +61,7 @@ https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf
 - [NuCypher Staking Guide](https://docs.nucypher.com/en/latest/guides/staking_guide.html)
 - [Deployment Guide](https://docs.nucypher.com/en/latest/guides/deployment_guide.html)
 
-##Demos
+###Demos
 
 - [Local Development Fleet Testing](https://docs.nucypher.com/en/latest/demos/local_fleet_demo.html)
 - [Finnegan’s Wake Demo](https://docs.nucypher.com/en/latest/demos/finnegans_wake_demo.html)

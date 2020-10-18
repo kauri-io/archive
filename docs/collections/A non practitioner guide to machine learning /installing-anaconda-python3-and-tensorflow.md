@@ -9,6 +9,7 @@ some_url:
 
 # Installing Anaconda, Python3 and Tensorflow
 
+
 First thing first, here's a list of the things we need to start playing around with some data:
 - Python
 - Anaconda

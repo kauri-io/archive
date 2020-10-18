@@ -10,6 +10,7 @@ some_url:
 # (5/5) Collect traces with Elastic APM for monitoring Kubernetes 
 
 
+
 **Elastic APM** is an application performance monitoring system built on the Elastic Stack. It allows you to monitor software services and applications in real time — collect detailed performance information on response time for incoming requests, database queries, calls to caches, external HTTP requests, and more. This makes it easy to pinpoint and fix performance problems quickly.
 
 Elastic APM is [OpenTracing](https://opentracing.io/) compliant which means you can take advantages of the large range of libraries already available to trace components within your application (e.g MongoDB instrumentation).
@@ -27,13 +28,13 @@ Elastic APM is composed of a component called APM-Server used to collect and shi
 
 <br />
 
-## Install APM-Server
+### Install APM-Server
 
 We first need to install APM-Server on k8s to collect the traces for the agents and forward them to ElasticSeach.
 It's composed of a `ConfigMap` to configure the settings:
 
 ```yaml
-# apm.configmap.yml
+## apm.configmap.yml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -60,7 +61,7 @@ data:
 APM-Server needs to expose the port `8200` to allow the agent to forward their traces. The following `Service` exposes this port to the environment:
 
 ```yaml
-# apm.service.yml
+## apm.service.yml
 ---
 apiVersion: v1
 kind: Service
@@ -81,7 +82,7 @@ spec:
 The last bit is the `Deployment` describing the container to be deployed:
 
 ```yaml
-# apm.deployment.yml
+## apm.deployment.yml
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -169,7 +170,7 @@ We now can install an agent on our Spring-Boot app.
 <br />
 <br />
 
-## Configure a Java agent on the application
+### Configure a Java agent on the application
 
 In the last part of this article, we will configure a [Elastic APM Java agent](https://www.elastic.co/guide/en/apm/agent/java/current/intro.html) on the sample application `spring-boot-simple`.
 
@@ -219,7 +220,7 @@ Secondly add the following dependencies to your application, so your will be abl
 Then we will change the `Deployment` to start the Spring-Boot application with the Java agent enabled and connected to the APM-server.
 
 ```yaml
-# spring-boot-simple.deployment.yml
+## spring-boot-simple.deployment.yml
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -312,7 +313,7 @@ Visualize applications metrics (e.g. HeapSize, GC)
 <br />
 <br />
 
-## Summary
+### Summary
 
 Hopefully, this series of articles helped you understand how to deploy a monitoring on your Kubernetes environment with a minimal impact and a lots of perspectives to observe, track, prevent, alert and speed up the resolution of production issues.
 

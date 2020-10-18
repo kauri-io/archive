@@ -10,6 +10,7 @@ some_url:
 # Embark  Testing Your Smart Contract
 
 
+
 Earlier in the series, we took a look at how to setup Embark and use it to compile, deploy and interact with our Bounties.sol smart contract.
 
 This article will walk through the steps required to write tests for our smart contract within the Embark framework. 
@@ -19,7 +20,7 @@ Embark uses the [Mocha] (https://mochajs.org/) testing framework to provide an e
 
 [Source code for this tutorial can be found here] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/embark-writing-tests)
 
-## Prerequisites
+### Prerequisites
 
 **NODEJS 7.6+**
 
@@ -84,7 +85,7 @@ In order to deploy our smart contract, we’re going to need an Ethereum environ
 $ npm install -g ganache-cli
 ```
 
-## Setting up a test file
+### Setting up a test file
 
 Now that we have our project setup we'll create our first test:
 
@@ -154,7 +155,7 @@ Running embark test executes all tests in your truffle projects **/test** folder
 2. Deploys the contracts to the network
 3. Runs tests against the contracts deployed on the network
 
-## Writing a Test
+### Writing a Test
 
 Let's take a look at the issueBounty function:
 ```
@@ -247,7 +248,7 @@ const dayInSeconds = 86400;
 ```
 We also added a **dayInSeconds** constant, to help us add days.
 
-### Happy Path
+#### Happy Path
 
 The test for our first happy path looks like this:
 ```
@@ -295,7 +296,7 @@ it("Should return an integer when calling issueBounty", async () => {
 ```
 Above we add `.call` to `issueBounty` to make a call to the function rather than issuing a transaction. This returns the return value of the function rather than a transaction receipt.
 
-## Error Path
+### Error Path
 
 Our error path tests will involve us sending a transaction with invalid inputs as an argument to our `assertRevert` helper function
 
@@ -370,7 +371,7 @@ Compiling contracts
  > All tests passed
 ```
 
-### Time travel
+#### Time travel
 
 One of the main tests is to check that a fulfilment should not be accepted if the deadline has passed. In order to test this, we will need to add a helper function which advances the timestamp of the EVM:
 
@@ -417,7 +418,7 @@ it("Should not allow a user to fulfil an existing bounty where the deadline has 
 });
 ```
 
-## Try it yourself
+### Try it yourself
 
 Now that you have seen how to test the issueBounty function, try adding tests for the following functions:
 

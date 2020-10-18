@@ -9,11 +9,12 @@ some_url:
 
 # Gamifying Crypto Assets with the ERC998 Composables Token Standard
 
+
 Assets can be complex. Take a house, for example; you're not just selling the ownership of the land it sits on, but also the physical attributes of the building - the foundation, the wood, the interior walls, the roof, the stairs. Sometimes, if you're selling a fully furnished house, that asset will also include expensive furniture pieces such as couches, dining tables, bed frames and more. When it comes to crypto,  attributing an ERC721 token to any non-fungible asset doesn't give you the space to interact with the asset in all the ways you possibly can. You'd be compressing all the pieces of the item into a single representation, and that representation often isn't accurate, nor helpful to you if you want to later pull them apart to sell them individually.
 
 Crypto Composables, or the ERC998 standard, is a solution to this problem. It can be applied to many non-trivial real-life industry problems: property ownership, supply chain (for example, attributing a given field of harvested coffee beans to an overarching ERC998 token, under which you'd have bags of differently roasted beans as ERC721 tokens and the beans themselves as "bean tokens" in ERC20 standard, etc.), gaming, and more.
 
-## Basic architecture
+### Basic architecture
 
 Think of all the token standards as one big family: ERC998 is the "parent" token contract, and ERC721 and ERC20 the "child" token contracts, depending on which standard you choose (or both, if you wish). ERC998 is mapped to these child contracts in such a way that they are now "adopted" by the parent ERC998 contract and "belong" to the overarching composable.
 
@@ -21,7 +22,7 @@ Think of all the token standards as one big family: ERC998 is the "parent" token
 
 ERC998's `tokenId` is mapped to each child's contract address. For ERC721 child tokens, its contract address is mapped to the token's own `tokenId`, whereas, for ERC20 child tokens, the contract address is mapped to the balance of ERC20 tokens. In this way, you re only allowed to transfer child tokens if you also own the parent ERC998 token.
 
-## Top-Down vs Bottom-Up
+### Top-Down vs Bottom-Up
 
 No, you're not suddenly reading an article on subatomic physics, we're still in cryptoland. There's two different ways you can structure a composable: the top-down approach, or the bottom-up approach.
 
@@ -37,7 +38,7 @@ For example, if you have a new CryptoKitty ERC721, you can attach bottom-up ERC9
 
 In the case of bottom-up composables, it's a lot harder to retrieve information on all the child tokens, but conversely, you can call methods that require owner authentication directly from the "child" ERC998 contracts. The biggest disadvantage of bottom-up composables is that you can't have just any ERC721 be a part of the composable; it can strictly only be a composable ERC721 because the "parent" contract is just a regular non-composable.
 
-## The Implementation
+### The Implementation
 
 In terms of implementation, there are four kinds of composable tokens:
 
@@ -100,9 +101,9 @@ The same format applies for the function `safeTransferChild(uint256 _fromTokenId
 
 OK, so now we've got all the pieces in place. Let's dig into the actual implementation!
 
-## ERC998ERC721 Top-Down Implementation
+### ERC998ERC721 Top-Down Implementation
 
-### For transferring tokens
+#### For transferring tokens
 
 For ERC721 contracts that have a `safeTransferFrom` function, you can use that function to transfer the token to a top-down composable. The `bytes data` argument is where you put the token ID of the top-down composable token that you're transferring the ERC721 to.
 
@@ -112,7 +113,7 @@ For ERC721 contracts that don't have this function, instead call the `approve` f
 
 Another interesting method to note is `transferChildToParent`. It authenticates the caller and then transfers a bottom-up composable ERC998 token from a top-down composable token to another parent ERC721, basically shifting it from a basket and then hooking it onto a cube.
 
-### For `rootOwnerOf` and magic values
+#### For `rootOwnerOf` and magic values
 
 The first 4 bytes returned by `rootOwnerOf` is a "magic value", which is essentially something that gives contracts a way to show each other what interfaces they support. In this case, it's the magic value `0xcd740db5`, which denotes an ERC998 interface. The last 20 bytes of the returned value is the actual `rootOwner` address. The magic value ensures that even if you call `rootOwnerOf` on a contract that doesn't have that function, you'll still receive a valid returned value. The same goes for `rootOwnerOfChild` and `ownerOfChild` functions.
 
@@ -268,9 +269,9 @@ interface ERC998ERC721TopDown {
 }
 ```
 
-## ERC998ERC20 Top-Down Implementation
+### ERC998ERC20 Top-Down Implementation
 
-### For transferring tokens
+#### For transferring tokens
 
 Use the `transfer(address _to, uint256 _value, bytes _data)` function on the ERC223 contract, where the `bytes _data` argument contains the integer value of the top-down composable receiver's token ID.
 If the ERC20 contract doesn't support the ERC223 standard, then similar to ERC998ERC20, call the `approve` function in the ERC20 contract to approve the top-down composable as an owner, then call `getERC20(address _from, uint256 _tokenId, address _erc20Contract, uint256 _value)` on the top-down composable contract so the tokens may be transferred.
@@ -370,11 +371,11 @@ interface ERC998ERC20TopDown {
 }
 ```
 
-## ERC998ERC721 Bottom-Up Implementation
+### ERC998ERC721 Bottom-Up Implementation
 
 These contracts store the address of their parent contract and their parent `tokenId`.
 
-### On `tokenOwnerOf`
+#### On `tokenOwnerOf`
 
 You use this function to get the address and `tokenId` of the token's parent if it exists. If the boolean `isParent` (which is one of the outputs of the `tokenOwnerOf` function) returns true, then the `tokenOwner` is the parent ERC721's address. If it returns false, then the address returned is a user address.
 
@@ -479,13 +480,13 @@ interface ERC998ERC721BottomUp {
 }
 ```
 
-## ERC998ERC20 Bottom-Up Implementation
+### ERC998ERC20 Bottom-Up Implementation
 
 Like ERC998ERC721 bottom-up contracts, ERC998ERC20 bottom-ups store their parent contract's address and `tokenId`. The main differences with the ERC223 standard are that ERC998ERC20 bottom-ups allow you to call for the parent token's balance, as well as transfer the bottom-ups between parent tokens. You track ownership by mapping the parent address, to the parent `tokenId`, and to the balance - all this in a nested mapping. This is in addition to the standard ERC223 address-to-balance mapping.
 
 The simple function `balanceOfToken` allows you to check the parent ERC721 token's balance of ERC998ERC20 bottom-up composable tokens, in contrast to the usual ERC223 functionality that would return a user address' balance instead.
 
-### On transferring tokens
+#### On transferring tokens
 
 The `transferToParent` function allows you to move ownership of bottom-up tokens from an actual user to a parent ERC721 token.
 
@@ -598,7 +599,7 @@ interface ERC998ERC20BottomUp {
 }
 ```
 
-## Now… So What?
+### Now… So What?
 
 Why should we actually care about crypto composables? We know what they do, but what is their potential for the future, and how are people and projects using them today?
 

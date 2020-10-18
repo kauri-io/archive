@@ -9,11 +9,12 @@ some_url:
 
 # Exchange types explained  CLOB, RFQ, and Automated
 
+
 Since [**Hummingbot**](https://www.hummingbot.io) is an open source bot platform that connects many different exchanges, we have developed a deep understanding of the nuances between various exchange types. 
 
 In this post, we discuss the three main methodologies that digital asset exchanges use to facilitate asset transactions. We hope that this post helps crypto traders and developers choose the right exchange for their needs.
 
-# TL;DR
+## TL;DR
 
 Exchanges perform the fundamental role in free markets of bringing together and coordinating buyers and sellers. Exchanges provide a venue for these parties to discover one another, negotiate and agree terms, and ultimately transact. Exchanges have adopted multiple methodologies to achieve this:
 
@@ -27,23 +28,23 @@ We also discuss the degrees of decentralization of each methodology.  CLOB excha
 
 ---
 
-# Central Limit Order Book (CLOB) Exchanges
+## Central Limit Order Book (CLOB) Exchanges
 ![](https://api.kauri.io:443/ipfs/QmRgVYQAcgFgurn6h2p7Qoa3JnDK5Ji1xeFdYXQZoiweUy)
 
 Central limit order books are the most widely used exchange methodology.  If you have transacted on Coinbase, Binance, Kraken, or any centralized exchange, you have transacted on a CLOB.  Not limited to digital asset exchanges, this methodology is also used by traditional exchanges such as the New York Stock Exchange (NYSE) and Chicago Board of Trade (CBOT), which trades commodity futures. This method of exchange is rooted in the “trading pits” associated with the early days of Wall Street and commodities markets: chaotic, crowded venues with people yelling and shouting orders.
 ![](https://api.kauri.io:443/ipfs/QmeUK7hWknMNN6hqxDSeABd4d4r3sokB7YhqQCx5YdCUhj)
 
-## Coordinating buyers and sellers on a CLOB exchange
+### Coordinating buyers and sellers on a CLOB exchange
 
 1. Market makers submit their intent to transact assets to the exchange, specifying basic information such as prices, quantities, and direction of their intent (buy or sell)[<sup>[1]</sup>](#footnotes). 
 2. The exchange collects all of these intents (**orders**) into a database (the **order book**).  
 3. The exchange then organizes and publishes the order book to all of its users.  
 4. In order to consummate a transaction, another party (a **taker**) must accept the prices and quantities available on the order book. The exchange operator matches the taker's acceptance (its **market order**) with the corresponding orders in the order book that fulfill the taker’s order at the currently available best prices.
 
-## CLOB explained in pictures
+### CLOB explained in pictures
 ![](https://api.kauri.io:443/ipfs/QmWoXRkWTViBg4hLVxKLjbGD3BEW9DkEkduXdmCQ4L5GCZ)
 
-## Order matching on a CLOB exchange
+### Order matching on a CLOB exchange
 
 When it comes to **order-matching**, most CLOB exchanges take an active approach and match orders whenever buyers' and sellers' orders overlap.  In the case where there are multiple orders entered at the same price, CLOB exchanges also implement algorithms aimed to prioritize orders in a fair and objective way.  Most centralized exchanges and some DEXs (e.g. DDEX, IDEX, and Paradex) use **[Price/Time priority](https://en.wikipedia.org/wiki/Order_matching_system)** (or **first in, first out "FIFO"**), where fllling orders is prioritized based on 1) the best price, and then 2) the time in which those orders were submitted (for discussion and examples, check out this [stack overflow post](https://stackoverflow.com/questions/13112062/which-are-the-order-matching-algorithms-most-commonly-used-by-electronic-financi)), while to a lesser degree, some exchanges can use a [**pro-rata**](https://en.wikipedia.org/wiki/Order_matching_system) algorithm.
 
@@ -51,7 +52,7 @@ On the other hand, some other DEXs (e.g. 0x relayers) take a less involved appro
 
 > Another distinguishing feature of CLOB exchanges is their ability to administer order matching, though some relayers take more hands-off approach (e.g. open orderbook) to allow users to match orders themselves.
 
-## Is a CLOB exchange centralized or decentralized?
+### Is a CLOB exchange centralized or decentralized?
 
 CLOB exchanges are generally **centralized**, in that there is a central authority, the exchange operator, who (1) controls the flow of information, (2) controls who can use and access the exchange, and (3) maintains ownership or custody of users' assets.
 
@@ -63,7 +64,7 @@ CLOB exchanges are generally **centralized**, in that there is a central authori
 
 >For anyone who has had to deal with Binance support to re-enable withdrawals, or anyone unlucky enough to have had accounts on [Mt Gox](https://www.coinbureau.com/news/mt-gox-redux-controversy-continues/), [Coincheck](http://fortune.com/2018/01/31/coincheck-hack-how/), [QuadrigaCX](https://hacked.com/the-sad-story-of-quadrigacx-what-it-means-for-crypto/)... you know full well what it means to have to deal with a centralized exchange!
 
-## But what about decentralized exchanges? 🤔
+### But what about decentralized exchanges? 🤔
 
 Most DEXs operate CLOB exchanges, such as EtherDelta, 0x Relayers, and DDEX. These exchanges achieve some level of decentralization, but only when it comes to asset custody; they enable users to self custody or retain control of their assets using escrow contracts. 0x Relayers and DDEX allow users to maintain ownership of their assets, but use signed transactions and asset exchange protocols to facilitate direct settlement of assets between a taker and maker's wallets.  Meanwhile, EtherDelta uses escrow smart contracts to temporarily hold assets to be traded. Both **achieve decentralization in that they do not relinquish control of assets to the exchange operator**.
 
@@ -71,7 +72,7 @@ However, these exchanges still control the information of the order book, mainta
 
 ---
 
-# Request for Quotation (RFQ) Exchanges
+## Request for Quotation (RFQ) Exchanges
 ![](https://api.kauri.io:443/ipfs/QmUJNGF9bnh94Nb7YD8MDZsCTbJAcZrVSqZ5rtSzZNP4pd)
 
 Request for quotation is a common practice used in daily life and business and can simply be thought of as price comparison shopping or pricing on demand. Some activities involving RFQs include:
@@ -90,10 +91,10 @@ One distinction of an RFQ type of business process is that you will typically kn
 
 In RFQs, the role of the exchange operator (or smart contract) is to organize and keep track of quotation providers for a taker, assist in the coordination of requesting and receiving quotes, and finally provide a method for effecting (settling) the transaction once agreed.
 
-## RFQ explained in pictures
+### RFQ explained in pictures
 ![](https://api.kauri.io:443/ipfs/QmbcHSSxhJXykLVXf3ipYNKpCLcKWpKE8guX3v2YL9oW1e)
 
-## RFQ and decentralization
+### RFQ and decentralization
 
 RFQ exchanges clearly offer a higher degree of decentralization and enable true "peer-to-peer" transactions.  Once established, the direct access between takers and makers eliminates the control and influence of a central exchange operator.
 
@@ -103,19 +104,19 @@ In practice, technical complexities must be overcome to fully enable more widesp
 
 ---
 
-# Automated Exchange
+## Automated Exchange
 ![](https://api.kauri.io:443/ipfs/QmZHAahUARyucBM2gxUzmx3CLCSXY9eQfBNpLL9HTDr5MV)
 
 A relatively new form of exchange that has emerged in the cryptocurrency markets is the automated exchange such as Bancor and Uniswap. These exchanges do away with order books altogether and instead use a smart contract and its inventory to determine prices for exchange. We discuss how Uniswap works in a previous [blog post](/blog/2019-04-hummingbot-vs-uniswap/).
 
-## Automated exchange explained in pictures
+### Automated exchange explained in pictures
 ![](https://api.kauri.io:443/ipfs/QmY1Fpt9PY872n94NixMMe9LYR4WmvUDsKciPxsWBfLhsZ)
 
 To understand numerically how automated market maker pricing works, this <a href="http://bit.ly/2VhceZT" target="_blank">spreadsheet</a> may be helpful.
 
 ![](https://api.kauri.io:443/ipfs/QmYMJ2keSw7zrWqwTqWm4UQMfeqHrwkcNVGGazYzkfbFKs)
 
-## Automated exchanges and decentralization
+### Automated exchanges and decentralization
 
 The elegance of the Automated Exchange is its simplicity: a simple contract, using basic arithmetic, that is free of control from any party.  Automated exchanges rely on natural market forces to establish pricing.
 
@@ -125,7 +126,7 @@ Since it's simply a smart contract, once deployed, the exchange can be accessed 
 
 ---
 
-### Footnotes
+#### Footnotes
 
 1. Exchanges may also allow for the specification of additional parameters for additional complexity and customization, such as order duration/expiration or other conditions (stop, limit).
 2. Unlike other market places, when applied to digital assets, the counterparty in an RFQ transaction facilitated by an RFQ protocol may only be *known* by their wallet address.

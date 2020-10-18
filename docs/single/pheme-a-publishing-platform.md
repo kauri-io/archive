@@ -9,6 +9,7 @@ some_url:
 
 # Pheme, a publishing platform
 
+
 [Pheme](https://aloha.pheme.app)
 
 When invented, the internet was the perfect medium for humans to express themselves freely. But in time, this free flow of information has drawn attention of regulatory bodies. Built on thin protocols, the internet did not have tools strong enough for self-regulation and private companies took over the role of regulating the content. Shortly after, these companies started managing the content according to commercial codes of consumer demand rather than the principles inherent in the rights of expressions, such as the right of every minority to voice her opinion.

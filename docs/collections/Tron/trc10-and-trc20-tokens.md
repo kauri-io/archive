@@ -9,7 +9,8 @@ some_url:
 
 # TRC10 & TRC20 Tokens
 
-# Token Issuance
+
+## Token Issuance
 
 In the TRON network, every account is capable of issuing tokens at the expense of 1024 TRX. Users can lock their tokens in separately. To issue tokens, the issuer needs to specify a token name, total capitalization, the exchange rate to TRX, circulation duration, description, website, maximum bandwidth points consumption per account, total bandwidth points consumption, and token freeze.
 
@@ -21,7 +22,7 @@ Tokens named abc are issued with the above command, with a capitalization totali
 
 A maximum of 1000 bandwidth points can be charged from the issuer’s account per day. A maximum of 1,000,000 bandwidth points can be charged from the issuer’s account for all token holders’ transactions each day. In total capitalization, 200,000 tokens are locked for 180 days and 300,000 tokens are locked for 365 days.
 
-# TRC10 & TRC20 Comparison
+## TRC10 & TRC20 Comparison
 
 TRC-10 is a technical token standard supported by the TRON blockchain natively. TRC‌-20 is a technical standard used for smart contracts on the TRON blockchain for implementing tokens with the TRON Virtual Machine (TVM). It is <a href="https://theethereum.wiki/w/index.php/ERC20_Token_Standard" target="_blank">fully compatible to ERC‌-20</a>. Below is the interface:
 
@@ -41,7 +42,7 @@ contract TRC20Interface {
 
 The following are some comparisons between TRC-10 and TRC-20, and how these differences might be significant for each of the communities. The highlights are that TRC-10 has about 1000 times lower transaction fee than TRC-20 and can be accessed via API.  
 
-## Developers
+### Developers
 
 <div></div>
 <style>
@@ -136,7 +137,7 @@ td, th {
 &ast;&ast; _**For example, Create Token API**_
 &ast;&ast;&ast; _**These operators are intended to be verified contracts, such as an exchange, a check processor, or an automatic charging system.**_
 <p>
-## Investors
+### Investors
 
 <div></div>
 
@@ -175,7 +176,7 @@ td, th {
 </table>
 
 <p>
-## Exchanges/Wallets
+### Exchanges/Wallets
 
 <div></div>
 
@@ -214,7 +215,7 @@ td, th {
 </table>
 
 <p>
-## Platform
+### Platform
 
 <div></div>
 
@@ -277,7 +278,7 @@ td, th {
 </table>
 
 <p>
-## Bugs/Security
+### Bugs/Security
 
 <div></div>
 
@@ -316,7 +317,7 @@ td, th {
 </table>
 
 <p>
-## Cost
+### Cost
 
 <div></div>
 
@@ -367,7 +368,7 @@ td, th {
 </table>
 
 <p>
-## Community
+### Community
 
 <div></div>
 
@@ -406,7 +407,7 @@ td, th {
 </table>
 
 <p>
-## Links
+### Links
 
 <div></div>
 

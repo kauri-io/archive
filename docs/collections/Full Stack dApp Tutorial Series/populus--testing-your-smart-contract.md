@@ -9,7 +9,8 @@ some_url:
 
 # Populus  Testing your smart contract
 
-# Populus, the tester chain, and web3.py: Testing your smart contract
+
+## Populus, the tester chain, and web3.py: Testing your smart contract
 
 This article breaks from the other DappSeries articles, and instead incorporates a set of Python tooling for your smart contract testing needs. 
 

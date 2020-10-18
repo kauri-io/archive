@@ -9,11 +9,12 @@ some_url:
 
 # OpenZeppelin Part 5  There's More!
 
-# There's More!
+
+## There's More!
 
 OpenZeppelin has a wide range of utilities to help add more complexity to your contracts.
 
-## Cryptography
+### Cryptography
 
 Within the cryptography folder are two contracts to help with security:
 
@@ -40,7 +41,7 @@ contract ECDSAMock {
 
 Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ECDSAMock.sol).
 
-## Drafts
+### Drafts
 
 The drafts folder contains contracts which are in their development stage.
 
@@ -50,7 +51,7 @@ The drafts folder contains contracts which are in their development stage.
 - _SignedSafeMath.sol_ : Performs math with a safety check that reverts if there is an error.
 - _TokenVesting.sol_ : A token holder contract that gradually releases its token balance.
 
-## Introspection
+### Introspection
 
 Introspection is a set of contracts that perform interface detection. They allow you to determine if your contract will support the interface you want to use.
 
@@ -76,11 +77,11 @@ Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-so
 
 **Note**: When we refer to the interface, we are talking about what the contracts Application Binary Interface (ABI) can represent. The ABI is the interface by which the application program gains access to the operating system and other services.
 
-## Lifecycle
+### Lifecycle
 
 Lifecycle contains a single contract called _Pausable.sol_ which allows child contracts to have an emergency stop feature.
 
-## Math
+### Math
 
 - _Math.sol_ : Assorted math operations.
 - _SafeMath.sol_ : Math operations that protect your contract from overflow errors.
@@ -115,7 +116,7 @@ contract SafeMathMock {
 
 Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/SafeMathMock.sol).
 
-## Payment
+### Payment
 
 Payment allows you to set different properties in regards to payment options.
 
@@ -142,7 +143,7 @@ contract PullPaymentMock is PullPayment {
 
 Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/PullPaymentMock.sol).
 
-## Utilities
+### Utilities
 
 Utilities contains contracts that don't fall under the other categories.
 
@@ -164,7 +165,7 @@ contract AddressImpl {
 
 Read more in the [documentation](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/AddressImpl.sol).
 
-## Next Steps
+### Next Steps
 
 OpenZeppelin provides the user with a multitude of contracts to support the creation of complex contracts.
 

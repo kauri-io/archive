@@ -9,7 +9,8 @@ some_url:
 
 # ReasonReact and Web3
 
-## What is this series about
+
+### What is this series about
 
 This will be a two part series about frontend development in the Web3 world, illustrated through examples using ReasonReact.
 
@@ -27,7 +28,7 @@ We want to be encouraging and handholding your dApp users along the way!
 
 At the end of this series, the aim is for you to have enough knowledge to architect your own frontend technology stack (whether you use ReasonReact or React.js does not actually matter!), understanding when and how to use these previously unknown technologies.
 
-## Web3 as just another technology in the stack
+### Web3 as just another technology in the stack
 
 Web3 is really an assortment of tools that have decentralised and p2p implementations underlying them.
 But without each tool, there cannot be the whole Web3 Suisse army knife-like toolset!
@@ -41,7 +42,7 @@ The implications of that is that you can delegate Web3 interactions to being in 
 This gets a bit confusing as you can decide to have specific parts of the data coming from the same origin but layered behind your dApp's backend GraphQL api (REST is so 20th century...) or have a fat client implementation. 
 *The choice is really up to you!*
 
-## Thinking about Onchain and Offchain data
+### Thinking about Onchain and Offchain data
 
 You know when I said this can be confusing architecture wise?
 Yeahhh..., gonna explain that right now so hold onto your seat.
@@ -60,7 +61,7 @@ Onchain benefits are due to the implementation of the blockchain technology but 
 
 In this series, we utilise a commonly used pattern of linking Offchain and Onchain data as many (if not all) resources and files in the Web3 world have unique, immutable, timestamped IDs.
 
-## Where does ReasonReact piece into this?
+### Where does ReasonReact piece into this?
 
 There are many React patterns that are possible in React.js but in ReasonReact we're given a limited set of ideal practices due to the ML language implementation.
 Rebuilding React in ML has surfaced them!
@@ -70,8 +71,8 @@ Enums called variant types, render props and labelled prop arguments all have fa
 To illustrate what's relevant to the frontend world of Web3, we start with the types first and let the code flow all the way down.
 The takeaway of this series are the concepts, not the code.
 
-# dApp component domains
-## The Web3-enabled browser
+## dApp component domains
+### The Web3-enabled browser
 
 Tl;dr some storage, cryptography, p2p and networking protocol apis required by Web3.js are not bundled directly with the mainstream browsers out of the box but are accessible via their extensions/plugin frameworks.
 
@@ -88,7 +89,7 @@ This means that you can log into any dApp with your single private key. It is co
 
 Didn't say the Web3 world was straight forward or easy... Well now you're reading this series then you can contribute now to the UX! Hopefully in ReasonML!
 
-## BrowserWeb3Capabilities
+### BrowserWeb3Capabilities
 
 ```<BrowserWeb3Capabilities />```
 
@@ -112,7 +113,7 @@ Here I am going to outline a component API in ReasonML to connect your dApp's bu
 > ReasonReact has the redux reducer model built into its components but is based on the ReasonML/OCaml based pattern type matching.
 > Those above actions are types right... you can wrap the action payload in a type and switch case over it, that's it! **OMG**.
 
-## web3.eth.accounts: array(string)
+### web3.eth.accounts: array(string)
 
 Easy right?
 
@@ -144,13 +145,13 @@ Sigh. This means we can't orchestrate Offchain and Onchain data properly.
 `web3.eth.accounts === ["0xABC..."]` means an account is unlocked and `hasWeb3 === true`. WOOHOO! We can go wild and play around with our dApp! 
 Well still not quite until the next part of the series :(.
 
-# NEXT
+## NEXT
 
 Next part of the series will include contracts and transaction lifecycles!
 
 We'll talk about truffle-contract calling Solidity compiled ABI JSON files, checking your dApp's network capability
 
-## dApp network compatibility
+### dApp network compatibility
 
 There is a mapping of well known network ids to their network names:
 
@@ -168,14 +169,14 @@ There is a mapping of well known network ids to their network names:
 - Invalid network
 - Network not found
 - Fetching/Loading network status
-## Co-ordinating offchain and onchain state and what to render
-## Thinking about what parts of your dApp are Web2 and Web3
-### What really we should show to users who don't have Web3 enabled browsers
-## How to guide users pre, intra and post transactions
+### Co-ordinating offchain and onchain state and what to render
+### Thinking about what parts of your dApp are Web2 and Web3
+#### What really we should show to users who don't have Web3 enabled browsers
+### How to guide users pre, intra and post transactions
 
 ---
 
-# BrowserWeb3Capabilities.make()
+## BrowserWeb3Capabilities.make()
 
 Here's the ReasonReact component implementation code btw!
 

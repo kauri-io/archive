@@ -9,6 +9,7 @@ some_url:
 
 # Sandcastle, our Latest R&D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts
 
+
   
 ![Sandcastle R&D](https://pegasys.tech/wp-content/uploads/2019/05/Sandcastle.jpg)
 
@@ -70,7 +71,7 @@ Sandcastle operates by translating each table into a smart contract that contain
   
   
   
-#### 
+##### 
 
   
   

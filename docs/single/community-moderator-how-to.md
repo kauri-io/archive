@@ -9,17 +9,18 @@ some_url:
 
 # Community Moderator How-To
 
+
 Moderators are the backbone of Kauri Communities! As a moderator, you can write articles and publish them to the Community pages, curate collections for the Community, and make edits and updates to existing Community articles and collections.
 
 If you've received an invitation to join a Community, follow the instructions below. If not, get started by suggesting some edits to a Community's current articles, and get recognized by the admins!
 
-# Accepting an Invitation
+## Accepting an Invitation
 
 If you’ve received an email invitation to join a Community, first, click on the link in the email. You’ll be redirected to Kauri, and will see the option to “Accept” or “Reject” the invitation.
 
 ![](https://api.kauri.io:443/ipfs/QmeU2NGstmQ6iG6Fh8AaLJrPDLfocXVYiz3tW4DJc6iv4Z)
 
-# Adding Articles
+## Adding Articles
 
 There are two main ways to add articles to a community:
 
@@ -33,11 +34,11 @@ New articles can be published directly to a Community. To do this, simply start 
 
 ![](https://api.kauri.io:443/ipfs/QmWghLXfgNVpAbRqp6yknGZUdptUmK5hLEECT14gb9cbKM)
 
-# Adding Collections
+## Adding Collections
 
 At launch, only new collections can be added to a Community. The process is similar to publishing new articles to a Community, in that you can choose to add the collection directly to a Community after selecting “Publish Collection”.
 
-# Editing Articles and Collections
+## Editing Articles and Collections
 
 Editing your Community’s articles and collections works exactly like editing your own articles and collections. 
 

@@ -9,25 +9,26 @@ some_url:
 
 # Utilisez votre nœud Ethereum distant en utilisant un tunnel SSH et MetaMask
 
+
 > **Warning**: We found this translation of [Daniel Ellison's post](https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v5/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask) and thought we'd cross-post it, but we have no idea as to the quality of the translation.
 
 ---
 
 dans le [première partie](https://medium.com/@zigguratt/how-to-install-and-synchronize-your-own-remote-ethereum-node-5d875c684504) de cette série, nous avons appris comment installer et synchroniser une `geth` noeud avec la chaîne de blocs Ethereum sur un serveur virtuel privé (VPS). Dans cette seconde partie, nous explorons _garantir_ accès à distance à ce nœud Ethereum via MetaMask.We explique également comment faire en sorte que tout continue à survivre aux crashs et aux arrêts.
 
-## Mise en place d'un tunnel SSH
+### Mise en place d'un tunnel SSH
 
 Mise en place d'un _quoi?_ C'est le processus déroutant que j'ai mentionné plus tôt. Je n'entrerai pas dans les détails ici, mais en réalité, cela permet aux demandes adressées à votre ordinateur local d'être automatiquement transférées à un autre ordinateur. Dans ce cas, le VPS exécutant votre `geth` nœud. Nous comprendrons pourquoi nous en avons besoin lors de la création ultérieure de MetaMask.
 
-## Obtention de l'adresse IP de votre VPS
+### Obtention de l'adresse IP de votre VPS
 
 Afin de transférer les demandes à votre SMV, vous devez connaître son adresse IP. Ceci est déterminé en retournant à votre tableau de bord Linode et en allant à la _Linodes_ onglet à gauche. L'adresse IP de votre nœud devrait apparaître à droite, juste en dessous de l'emplacement géographique de votre VPS. Cela ressemble à quelque chose comme ça: `172.16.389.54`. Prenez note de cette adresse IP; nous allons l'utiliser bientôt.
 
-## SSH sous Windows
+### SSH sous Windows
 
 Depuis la mise à jour d'avril 2018, OpenSSH est installé par défaut sur Windows 10. Cela fournit `ssh.exe` ainsi que plusieurs autres utilitaires SSH. Pour vérifier l'état de SSH sous Windows au moment de la rédaction, j'ai téléchargé le dernier ISO de Windows 10 et je l'ai installé sur une machine virtuelle. OpenSSH était déjà installé et disponible à partir de `cmd.exe`. Si vous avez Windows 10 mais que OpenSSH n'est pas installé, suivez les instructions de cette [Article de Microsoft](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview). Si vous possédez une version plus ancienne de Windows, plusieurs utilitaires disponibles fourniront des fonctionnalités SSH.
 
-## Initier le tunnel
+### Initier le tunnel
 
 Nous partons de là en supposant que vous avez un accès en ligne de commande à un `ssh` client. La commande suivante configure le tunnel SSH. Cette commande est identique sur les trois plates-formes.
 
@@ -67,11 +68,11 @@ votre tunnel SSH. Vous devriez voir les lignes ressembler à ceci:
 
 MetaMask devrait maintenant avoir _Localhost 8545_ au sommet et vous devriez voir _Dépôt_ et _Envoyer_ boutons au milieu. Si oui, vous avez maintenant connecté votre télécommande `geth` noeud vers MetaMask, bien que MetaMask pense s'être connecté à votre ordinateur local.
 
-## Faire du permanent impermanent
+### Faire du permanent impermanent
 
 Vous avez maintenant un pleinement fonctionnel `geth` noeud et sont capables de se connecter à distance _et en toute sécurité_ à travers MetaMask et un tunnel SSH. Toutes nos félicitations! Bien sûr, les ordinateurs tombent en panne ou sont arrêtés délibérément. Afin de ne pas avoir à tout configurer à nouveau lors d'un redémarrage, nous devons faire deux choses: premièrement, configurer notre `geth` nœud pour démarrer automatiquement sur le SMV et deux, en quelque sorte faire la même chose pour le tunnel SSH sur notre machine locale.
 
-## Permanence à distance
+### Permanence à distance
 
 En termes relatifs, c'est la partie la plus facile du processus de permanence. Nous n'avons affaire qu'à un seul système d'exploitation, Linux, et il existe un moyen bien établi de démarrer des tâches automatiquement: `systemd`. La politique Linux mise à part, commençons.
 
@@ -132,7 +133,7 @@ A partir de maintenant, lorsque votre VPS redémarre pour une raison
 quelconque `geth` redémarre
 automatiquement.
 
-## Permanence locale
+### Permanence locale
 
 Vous avez démarré avec succès un tunnel SSH sur votre machine, mais dès
 que vous fermez le terminal ou mettez votre ordinateur portable en
@@ -143,7 +144,7 @@ principaux systèmes d'exploitation disposent de trois manières
 différentes pour configurer des services permanents tels que notre
 tunnel SSH.
 
-### Paires de clés SSH
+#### Paires de clés SSH
 
 Pour que l'un des éléments suivants fonctionne automatiquement, vous
 devez disposer de clés privées et publiques SSH. Si vous régulièrement
@@ -163,7 +164,7 @@ pouvez taper:
 
 fournir votre propre nom d'utilisateur et l'adresse IP de votre télécommande `geth` Si vous êtes connecté sans avoir à fournir de mot de passe, vous êtes prêt à partir. Si ce n'est pas le cas, aucune des solutions suivantes ne fonctionnera.
 
-### Linux
+#### Linux
 
 Le processus de création d'un tunnel SSH permanent est similaire à celui utilisé sur notre système VPS. Nous installons un `persistent.ssh.tunnel.service` archivez et configurez les éléments pour que le service démarre avec le système. La seule différence majeure, mis à part la nécessité nécessairement différente `ExecStart` line, c'est que nous devons faire précéder cette ligne d'une ligne spécifiant un léger délai de démarrage pour nous assurer que le réseau est prêt avant le démarrage du service. Rappelez-vous, bien sûr, pour remplacer `utilisateur` dans `Utilisateur = utilisateur` avec votre propre nom d'utilisateur et `utilisateur@172.16.389.54` avec votre nom d'utilisateur sur le système distant et son adresse IP.
 
@@ -195,7 +196,7 @@ Pour vérifier que le service a démarré avec succès, tapez ce qui suit:
 
     $ sudo systemctl status persistent.ssh.tunnel.service
 
-### macOS
+#### macOS
 
 MacOS d'Apple a sa propre façon de configurer des services persistants en utilisant `launchctl`. Semblable à `systemd` sous Linux, vous fournissez un fichier de configuration – cette fois sous la forme d'un [Document XML](https://en.wikipedia.org/wiki/XML) au lieu d'un [Fichier INI](https://en.wikipedia.org/wiki/INI_file) – puis installez et activez le service à l'aide de ce document XML. Tout d'abord, nous créons ce fichier, en fournissant comme d'habitude le nom d'utilisateur et l'adresse IP de notre VPS pour Windows. `utilisateur@172.16.389.54`. De plus, indiquez votre nom d'utilisateur macOS sous `Nom d'utilisateur`.
 
@@ -241,7 +242,7 @@ $ sudo launchctl load /Library/LaunchDaemons/com.persistent.ssh.tunnel.plist
 
 Installer le `.pliste` déposer dans `/ Bibliothèque / LaunchDaemons /` le met à la disposition de tout utilisateur du système; cela ne dépend pas de votre connexion pour que le tunnel soit actif.
 
-### Windows
+#### Windows
 
 Pour configurer un service persistant dans Windows, vous devez télécharger un utilitaire offrant cette fonctionnalité. Celui que j'ai utilisé est le libre, l'open source et le domaine public [NSSM](https://nssm.cc/) alors vous devez [installez ça](https://nssm.cc/release/nssm-2.24.zip) avant de procéder.
 
@@ -264,11 +265,11 @@ C:\Windows\system32>nssm start persistent-ssh-tunnel
 persistent-ssh-tunnel: START: The operation completed successfully.
 ```
 
-### Test du tunnel SSH persistant
+#### Test du tunnel SSH persistant
 
 En supposant que tout se passe bien, vous disposez maintenant d'un service système sous Windows, Linux ou macOS qui s'exécute en arrière-plan et démarre à chaque redémarrage de votre ordinateur local. Pour le tester, ouvrez un navigateur sur lequel MetaMask est installé et suivez les instructions ci-dessus. _Configuration du méta-masque_. MetaMask devrait à nouveau se connecter à _Localhost 8545_, mais cette fois-ci, le service d'arrière-plan utilise les tunnels qui demandent `geth` VPS. Vous n'avez plus besoin de penser à établir une connexion avec votre nœud Ethereum distant.
 
-## Conclusion
+### Conclusion
 
 Par souci d'opportunité, j'ai fait des choix spécifiques dans ces articles. Par exemple, j'ai choisi d'utiliser un VPS, et même un fournisseur de VPS particulier, pour notre nœud Ethereum. Comme expliqué ci-dessus, cela coûte de l'argent. Les développeurs dapp qui perçoivent des revenus de leur projet doivent absolument envisager cet itinéraire. D'autre part, quelqu'un qui est simplement curieux et qui souhaite suivre les étapes décrites peut configurer un VPS, suivre le tutoriel, et après l'avoir testé et avoir appris tout ce qu'il y a à apprendre, éteignez et supprimez le VPS. Cela ne coûterait que quelques centimes: si cela vous prenait deux heures pour terminer ce tutoriel, vous perdriez 24 ¢ US, en supposant un _Linode 16 Go_ VPS.
 

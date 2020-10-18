@@ -9,9 +9,10 @@ some_url:
 
 # Consuming Ethereum Events To Kotlin Service Using Eventeum
 
+
 It might be hard to roll your own implementation of a resilient web3 event consumer! You should if you have the time for it, but if you want something reliable and open source take a look at [Eventeum](https://github.com/ConsenSys/eventeum)
 
-#### Getting Eventeum Up And Running With Our Events
+##### Getting Eventeum Up And Running With Our Events
 First we need to clone the project: `git clone https://github.com/ConsenSys/eventeum.git`
 
 Then we need to edit the project's `application.yml` located in `server/src/main/resources/application.yml` -- For this we're going to use a real life example from my project that's in stealth mode for now. But here's the event: `event TournamentFinalized(uint _tournamentId, address payable[] _winners, uint[] payouts);`

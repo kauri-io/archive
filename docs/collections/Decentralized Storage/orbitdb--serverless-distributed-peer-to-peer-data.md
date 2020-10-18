@@ -9,17 +9,18 @@ some_url:
 
 # OrbitDB  Serverless, Distributed, Peer-to-Peer Database
 
+
 > OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS as its data storage and IPFS Pubsub to automatically sync databases with peers.
 
 _This guide originally appeared in the [OrbitDB repository on GitHub](https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md)_
 
-# Getting Started with OrbitDB
+## Getting Started with OrbitDB
 
 This guide will get you familiar with using OrbitDB in your JavaScript application. OrbitDB and IPFS both work in Node.js applications as well as in browser applications. (Windows is not supported yet though).
 
 This guide is still being worked on and we would love to get [feedback and suggestions](https://github.com/orbitdb/orbit-db/issues) on how to improve it!
 
-## Table of Contents
+### Table of Contents
 
 <!-- toc -->
 
@@ -41,7 +42,7 @@ This guide is still being worked on and we would love to get [feedback and sugge
 
 <!-- tocstop -->
 
-## Background
+### Background
 
 OrbitDB is a peer-to-peer database meaning that each peer has its own instance of a specific database. A database is replicated between the peers automatically resulting in an up-to-date view of the database upon updates from any peer. That is to say, the database gets pulled to the clients.
 
@@ -51,7 +52,7 @@ OrbitDB supports multiple data models (see more details below) and as such the d
 
 This may not be intuitive or you might not be sure what the best approach would be and we'd be happy to help you decide on your data modeling and application needs, [feel free to reach out](https://github.com/orbitdb/orbit-db/issues)!
 
-## Install
+### Install
 
 Install [orbit-db](https://github.com/orbitdb/orbit-db) and [ipfs](https://www.npmjs.com/package/ipfs) from npm:
 
@@ -59,7 +60,7 @@ Install [orbit-db](https://github.com/orbitdb/orbit-db) and [ipfs](https://www.n
 npm install orbit-db ipfs
 ```
 
-## Setup
+### Setup
 
 Require OrbitDB and IPFS in your program and create the instances:
 
@@ -88,7 +89,7 @@ ipfs.on('ready', () => {
 
 `orbitdb` is now the OrbitDB instance we can use to interact with the databases.
 
-## Create a database
+### Create a database
 
 First, choose the data model you want to use. The available data models are:
 - [Key-Value](https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbkeyvaluenameaddress)
@@ -107,7 +108,7 @@ ipfs.on('ready', async () => {
 })
 ```
 
-### Address
+#### Address
 
 When a database is created, it will be assigned an address by OrbitDB. The address consists of three parts:
 ```
@@ -135,7 +136,7 @@ ipfs.on('ready', async () => {
 })
 ```
 
-#### Manifest
+##### Manifest
 
 The second part of the address, the IPFS multihash `Qmdgwt7w4uBsw8LXduzCd18zfGXeTmBsiR8edQ1hSfzcJC`, is the manifest of a database. It's an IPFS object that contains information about the database.
 
@@ -150,7 +151,7 @@ The database manifest can be fetched from IPFS and it looks like this:
 }
 ```
 
-### Identity
+#### Identity
 
 Each entry in a database is signed by who created that entry. The identity, which includes the public key used to sign entries, can be accessed via the identity member variable of the database instance:
 
@@ -170,7 +171,7 @@ console.log(identity.toJSON())
 ```
 
 
-#### Creating an identity
+##### Creating an identity
 ```javascript
 const Identities = require('orbit-db-identity-provider')
 const options = { id: 'local-id' }
@@ -190,7 +191,7 @@ console.log(db.identity.publicKey)
 
 If you want to give access to other peers to write to a database, you need to get their public key in hex and add it to the access controller upon creating the database. If you want others to give you the access to write, you'll need to give them your public key (output of `orbitdb.identity.publicKey`). For more information, see: [Access Control](https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md#access-control).
 
-### Access Control
+#### Access Control
 
 You can specify the peers that have write-access to a database. You can define a set of peers that can write to a database or allow anyone write to a database. **By default and if not specified otherwise, only the creator of the database will be given write-access**.
 
@@ -247,7 +248,7 @@ ipfs.on('ready', async () => {
 })
 ```
 
-#### Public databases
+##### Public databases
 
 The access control mechanism also support "public" databases to which anyone can write to.
 
@@ -272,7 +273,7 @@ ipfs.on('ready', async () => {
 
 Note how the access controller hash is different compared to the previous example!
 
-#### Granting access after database creation
+##### Granting access after database creation
 
 To give access to another peer after the database has been created, you must set the access-controller `type` to an `AccessController` which supports dynamically adding write-access such as `OrbitDBAccessController`.
 
@@ -287,7 +288,7 @@ db = await orbitdb1.feed('AABB', {
 await db.access.grant('write', identity2.publicKey) // grant access to identity2
 ```
 
-#### Custom Access Controller
+##### Custom Access Controller
 
 You can create a custom access controller by implementing the `AccessController` [interface](https://github.com/orbitdb/orbit-db-access-controllers/blob/master/src/access-controller-interface.js) and adding it to the AccessControllers object before passing it to OrbitDB.
 
@@ -322,7 +323,7 @@ const db = await orbitdb.keyvalue('first-database', {
 })
 ```
 
-## Add an entry
+### Add an entry
 
 To add an entry to the database, we simply call `db.put(key, value)`.
 
@@ -362,7 +363,7 @@ Promise.all([
 ])
 ```
 
-## Get an entry
+### Get an entry
 
 To get a value or entry from the database, we call the appropriate query function which is different per database type.
 
@@ -384,7 +385,7 @@ Other databases, see:
 - [docs.query()](https://github.com/orbitdb/orbit-db/blob/master/API.md#querymapper)
 - [counter.value](https://github.com/orbitdb/orbit-db/blob/master/API.md#value)
 
-## Persistency
+### Persistency
 
 OrbitDB saves the state of the database automatically on disk. This means that upon opening a database, the developer can choose to load locally the persisted before using the database. **Loading the database locally before using it is highly recommended!**
 
@@ -406,7 +407,7 @@ ipfs.on('ready', async () => {
 
 If the developer doesn't call `load()`, the database will be operational but will not have the persisted data available immediately. Instead, OrbitDB will load the data on the background as new updates come in from peers.
 
-## Replicating a database
+### Replicating a database
 
 In order to have the same data, ie. a query returns the same result for all peers, an OrbitDB database must be replicated between the peers. This happens automatically in OrbitDB in a way that a peer only needs to open an OrbitDB from an address and it'll start replicating the database.
 
@@ -444,7 +445,7 @@ ipfs1.on('ready', async () => {
 })
 ```
 
-## Custom Stores
+### Custom Stores
 
 Use a custom store to implement case specific functionality that is not supported by the default OrbitDB database stores. Then, you can easily add and use your custom store with OrbitDB:
 
@@ -469,6 +470,6 @@ let orbitdb = await OrbitDB.createInstance(ipfs, { directory: dbPath })
 let store = orbitdb.create(name, CustomStore.type)
 ```
 
-## More information
+### More information
 
 Is this guide missing something you'd like to understand or found an error? Please [open an issue](https://github.com/orbitdb/orbit-db/issues) and let us know what's missing!

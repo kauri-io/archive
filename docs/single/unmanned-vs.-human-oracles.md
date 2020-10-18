@@ -10,6 +10,7 @@ some_url:
 # Unmanned vs. Human Oracles
 
 
+
 ----
 
 
@@ -29,7 +30,7 @@ Oracles are key for the future of the decentralized systems we’re building. A 
 **not restrictive, but actually complementary.**
  
 
-## Human Oracles
+### Human Oracles
 Human oracles basically rely on people voting on the truth. The truth can refer to the outcome of an event, like in 
 [Augur’s oracle](http://docs.augur.net/)
  , which works to provide Augur’s prediction market with the outcome of all the markets opened in the platform.
@@ -46,7 +47,7 @@ Either way,
 **human oracles feed smart contracts data (decisions, outcomes…) through the actions of people working for a network**
  . Now that we’ve looked at why and how they are useful, let’s look at why and how unmanned oracles are needed.
 
-## Unmanned Oracles
+### Unmanned Oracles
  **Unmanned oracles provide a way to feed smart contracts data without the need for human intervention**. [Witnet is an example of a Decentralized Oracle Network](https://medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4) that connects smart contracts to data points available outside the contracts’ own blockchain.
 
 > “The core functionality of Witnet as a DON provides an efficient way to retrieve, attest and deliver verified web contents. This alone is enough to enable the creation of countless novel applications capable of reacting to the outer world without human intervention or relying on single, centralized — thus corruptible or hackable — sources of information.” — Witnet whitepaper
@@ -60,7 +61,7 @@ One of the great advantages of unmanned oracles is the speed at which they provi
 
 Scalability is another challenge unmanned oracles can take on swiftly. The more requests per second that have to be assessed, the more computing power the network will be provided from its nodes, as they are incentivized to do so. Human oracle networks’ input is people’s time, which might prove not so scalable in the long term.
 
-## There Is No Battle
+### There Is No Battle
 Contradicting the title of this post, 
 **there really is no fight between unmanned an human oracles**
  . An unmanned oracle is a necessary base layer for other kinds of oracles to be able to work in the long term. As we’ve seen, human oracles’ very much needed activity can itself be optimized with the use of an unmanned oracle.
@@ -76,7 +77,7 @@ Unmanned oracles like
 Smart contracts are key to not only the future of Ethereum, but that of the crypto ecosystem as a whole. They are driving developers and entrepreneurs all over the world to think about the possibilities of decentralization. To make smart contracts achieve their full potential, we must connect them to information coming from outside their blockchain. We must open their eyes to the real world. Oracles do just that. Solving this challenging problem will take smart contracts’ possibilities to a whole new level.
 
 ----
-###Thanks a lot for reading! You can also:
+####Thanks a lot for reading! You can also:
 
 
 

@@ -11,7 +11,8 @@ some_url:
 
 
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -25,7 +26,7 @@ some_url:
 
 
 
-## Introduction
+### Introduction
 
 [Bitwarden](https://bitwarden.com/) is a free, open-source and audited Password Manager, it provides a large range of clients (desktop, web, browser extension and mobiles) to access your password easily and safely from anywhere. While Bitwarden offers a SaaS solutions (they host your passwords in an encrypted way), because Bitwarden is open-source, you can decide to host yourself your password and this is what we are going to learn in this tutorial.
 
@@ -39,7 +40,7 @@ For information, we will deploy [Bitwarden-rs](https://github.com/dani-garcia/bi
 
 
 
-## Prerequisite
+### Prerequisite
 
 In order to run entirely the tutorial, we will need:
 
@@ -51,7 +52,7 @@ In order to run entirely the tutorial, we will need:
 
  
 
-## Namespace
+### Namespace
 
 We are going to isolate all the Kubernetes objects related to Bitwarden in the namespace `bitwarden`.
 
@@ -64,7 +65,7 @@ $ kubectl create namespace bitwarden
 
 
 
-## Persistence
+### Persistence
 
 The first step consists in setting up a volume to store Bitwarden config files and data. If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on `/mnt/ssd`.
 
@@ -80,7 +81,7 @@ The Persistent Volume specify the name, the size, the location and the access mo
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# bitwarden.persistentvolume.yml
+## bitwarden.persistentvolume.yml
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -121,7 +122,7 @@ The Persistent Volume Claim is used to map a Persistent Volume to a deployment o
 Create the following file and apply it to the k8 cluster.
 
 ```yaml
-# bitwarden.persistentvolumeclaim.yml
+## bitwarden.persistentvolumeclaim.yml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -155,7 +156,7 @@ bitwarden-ssd   Bound    bitwarden-ssd   500Mi      RWO            manual       
 
 
 
-## Outside access
+### Outside access
 
 
 The next part consist to enable the connections to Bitwarden from outside so you can access your passwords from anywhere.
@@ -191,7 +192,7 @@ _GoDaddy_
 
 
 
-## Deployment
+### Deployment
 
 
 **1. Clone the repo `bitwarden-k8s`**
@@ -223,7 +224,7 @@ We now need to update a few properties before installing the Helm chart. Open th
 First we need to change to an ARM compatible image
 
 ```yaml
-# bitwarden.values.yml
+## bitwarden.values.yml
 
 image:
   repository: bitwardenrs/server # Change here
@@ -238,7 +239,7 @@ Then we configure the environment variables.
 Replace `[ADMIN_TOKEN]` by the result of the command `$ openssl rand -base64 48`. This token will be used to connect to the Bitwarden administration interface.
 
 ```yaml
-# bitwarden.values.yml
+## bitwarden.values.yml
 
 env:
   SIGNUPS_ALLOWED: false  # Disable Sign Up form (invitation only)
@@ -261,7 +262,7 @@ In the next step, we configure an ingress to access Bitwarden and issue a certif
 Replace `<domain.com>` by your domain (same as the section "Internet access")
 
 ```yaml
-# bitwarden.values.yml
+## bitwarden.values.yml
 
 ingress:
   enabled: true # Generate an Ingress while deploying
@@ -283,9 +284,9 @@ ingress:
 Finally, we want to plug Bitwarden to the persistent volume created at the beginning of the article pointing to `/mnt/ssd/bitwarden`.
 
 ```yaml
-# bitwarden.values.yml
+## bitwarden.values.yml
 
-## Persist data to a persistent volume
+### Persist data to a persistent volume
 persistence:
   enabled: true # Change here
   existingClaim: "bitwarden-ssd" # Change here
@@ -314,7 +315,7 @@ bitwarden-bitwarden-k8s-58db5c445-7w7wq   1/1     Running   0          4m53s   1
 
 
 
-## Configuration
+### Configuration
 
 Once Bitwarden is up and running, we can start configuring our first user.
 
@@ -354,7 +355,7 @@ Finally, log into with the newly created user using the couple email, master pas
 
 
 
-## Conclusion
+### Conclusion
 
 You now have a fully self-hosted password manager accessible via your own domain from anywhere.
 

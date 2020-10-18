@@ -10,12 +10,13 @@ some_url:
 # The Kauri Stack
 
 
+
 The Kauri team has been heads down in research and development, exploring how we can launch and scale a knowledge network that is curated not by a central moderator, but by the community itself. This article, while technical in nature, is intended to provide the community with an overview of how Kauri was designed, how it was built, how the application and protocol layers interact, and how the smart contracts function. We believe that making this information open to the larger Ethereum ecosystem is vital to Kauri’s success, as we pursue the long-term goal of a community-curated body of knowledge.
 
-## Kauri Architecture Overview
+### Kauri Architecture Overview
 We don’t want Kauri to own or store your content. Instead, we aim to provide a decentralized, trustless, and community-based network to share and curate knowledge. To do this, we separated the network into two layers: the protocol layer and the application layer. The protocol layer is a collection of decentralized technologies that guarantee openness and transparency, while the application layer is a traditional application that serves primarily to improve user experience.
 
-### Kauri Protocol Layer
+#### Kauri Protocol Layer
  _Core Decentralized Technologies_ 
 The protocol layer contains the core decentralized functions, and was built using the Ethereum blockchain, Solidity smart contracts for all trustless interaction and payments, and IPFS as distributed storage for content, images, and other materials used on the network.
 
@@ -29,7 +30,7 @@ With Kauri’s open by default API, anyone can access the IPFS data, as well as 
 
 Kauri tracks content ownership and moderation via signature. Essentially, users will sign a string with their private key, this string consisting of the IPFS_hash + article_id, and in return this signature is stored in the IPFS reference document. This IPFS reference document contains the proof of ownership of the content. To validate the content owner, the address received from recovering the signature is compared with the address of the author for a match.
 
-### Kauri Application Layer
+#### Kauri Application Layer
 
 ![](https://cdn-images-1.medium.com/max/1600/0*4DyqUyEAYrh3bltx.)
 
@@ -56,7 +57,7 @@ Kauri’s Application Layer stack is straightforward, and is all deployed using 
  _Advantages Provided by Application Layer_ 
 Due to the nascent nature of blockchain development, we feel that although Kauri’s application layer introduces minor points of centralization at this point in time, it does provide a practical and cost-effective user experience while also introducing key application features, namely notifications, votes, comments, search capabilities, and monitoring.
 
-## Kauri Smart Contracts Overview
+### Kauri Smart Contracts Overview
 
 ![](https://cdn-images-1.medium.com/max/1600/0*jrQoFj25elMLoUCl.)
 
@@ -74,7 +75,7 @@ There are four key domain entities within the Kauri smart contract system:
 
 The smart contracts were designed with four distinct actors in mind: regular users, article submitters, topic moderators, and the Kauri Team. Topic Moderators and the Kauri Team are points of centralization in the MVP that we hope to disintermediate as we continue to develop the network. At the outset of the Kauri MVP launch, **Topic Moderators** will currently retain control over deciding which articles should be accepted or rejected, while the **Kauri Team** will retain control over upgrading of contracts, changing of contract configuration parameters, and adding new topic moderators.
 
-### Kauri’s Smart Contract Architecture
+#### Kauri’s Smart Contract Architecture
 There are four separate but cohesive deployable contracts within the Kauri smart contract system, with distinct bounded contexts. Interaction between these contracts is achieved via function calls at the interface level, with no dependency on the actual implementation details.
 
 
@@ -87,7 +88,7 @@ There are four separate but cohesive deployable contracts within the Kauri smart
 
  *  **Storage:** focused purely on storing key value pair data, used by the TopicModerator and KauriCore contracts in order to provide a highly flexible data model whilst also enabling the system logic to be upgraded without losing valuable data.
 
-## Kauri’s Data Storage Mechanism
+### Kauri’s Data Storage Mechanism
 Logic and storage within Kauri smart contracts are separated to ensure that there is a clear path to upgrading, in the event that a flaw is found in the logic of the code. In traditional smart contract design, the data is tightly coupled to the logic, and an upgrade could mean a potentially expensive — and because of gas constraints — sometimes impossible data migration.
 
 Both the KauriCore and TopicModerator contracts hold a reference to the address of the storage contract, meaning that a new version of KauriCore or TopicModerator can be deployed that still points to the existing storage contract and thus preserving the data.
@@ -96,10 +97,10 @@ It should be noted that the Wallet contract does not use external Storage. This 
 
 More information on our smart contracts will be made available on Kauri following our May 3rd Rinkeby launch!
 
-### IPFS Store
+#### IPFS Store
 The IPFS Store mechanism provides an API to link an IPFS node with ElasticSearch and allows advanced search capabilities, including full text search and pagination. Being part of the application layer, it allows network users faster access to search results instead of sending requests to the blockchain. These off-chain caching solutions are the current industry standard, and are also used for similar purposes by the Bounties Network.
 
-### Password-less Authentication Module
+#### Password-less Authentication Module
 The Kauri authentication and authorization module generates a JSON Web Token for a user, which serves to authenticate and authorize the caller to an API resource server. The authentication is proven without a password using cryptographic signature, and depends on a decentralized policy smart contract deployed on the Ethereum blockchain. The API access control mechanism isn’t based on any central authority or storage, though it is possible to attach some information (e.g. username, email) to the User ID (ethereum account address).
 
 The passwordless authentication module process is as follows: first a user will obtain a piece of data to share, the user will then sign that data (currently using MetaMask, though future methods may use uPort or other mechanisms), the user will then call the API (using “POST /auth”) with their account address, signature, and personal information. The server will check the signature against the address via ecrecover, generate a JSON Web Token, and then store the personal information. At this point, the user can access the resource by passing an X-Auth-Token HTTP header.

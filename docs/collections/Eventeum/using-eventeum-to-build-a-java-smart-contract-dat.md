@@ -9,15 +9,16 @@ some_url:
 
 # Using Eventeum to Build a Java Smart Contract Data Cache
 
+
 In this tutorial, I am going to walk you through how to build a service that caches data emitted via smart contract events, so that this data can be consumed by other services in your system.
 
-# Why would I want to do this?
+## Why would I want to do this?
 It all boils down to usability of your dApp.  Web3 applications with no middleware layer at all generally do not provide the kind of user experience that end users are familiar with in the traditional web2 world.  Operations such as complex searches across data stored within smart contract state are difficult to implement if your application relies on calls directly into smart contract functions.  Even if this is possible, the performance of obtaining this data via a database will be much higher than making smart contract calls to an Ethereum node.
 
-# Isn't that Centralization?
+## Isn't that Centralization?
 Its true that by adding a middleware layer into your dApp architecture, you are also adding a centralized point of failure into your application.  However, if you design your protocol layer in a way that does not inherently depend on these middleware services, then this may be a compromise that you're comfortable with.  Essentially, you're saying that "ok, my application frontend will not be usable if these services owned and managed by me go down, but all the information is freely available for anyone else to build their own frontend on top of the protocol, regardless of the middleware".  Even better, open source all your code so that other parties can run mirror deployments!
 
-# Prerequisites
+## Prerequisites
 
 To follow this guide, you should have some java experienced, along with having java, maven and docker installed on your machine.
 
@@ -48,13 +49,13 @@ contract NamesRegistry {
 
 As the Eventeum docker-compose file already contains an instance of MongoDB, we will use that for our data storage.
 
-# The Java Service
+## The Java Service
 
 Eventeum has been configured to push smart contract event messages to a Kafka topic (other broadcast mechanisms are also supported), so we are going to build a service in Java that consumes messages from this topic, and store the name registry entries in a MongoDB database.  A simple REST endpoint will also be implemented that provides some basic search operations on this data.
 
 We will utilise Spring Boot libraries to write the minimum amount of code possible to achieve this task.  Not every single line of code will be described here (such as interfaces, domain objects and the pom.xml file), so it may be a good idea to take a look at the example project [github repo](https://github.com/craigwilliams84/eventeum_caching_example).
 
-## Eventeum Dependency
+### Eventeum Dependency
 
 Will will reuse the message and domain objects from the Eventeum library, so we need to pull in the eventeum-core library from maven.  In your pom.xml, add:
 
@@ -75,7 +76,7 @@ You must also add the Kauri bintray repository:
 </repository>
 ```
 
-## Consuming from the Kafka Topic
+### Consuming from the Kafka Topic
 ```
 @Component
 public class KafkaEventeumConsumer {
@@ -163,7 +164,7 @@ For reference, an example Eventeum JSON message looks like this:
 }
 ```
 
-## The NamesRegistryService
+### The NamesRegistryService
 
 The `NameRegistryService` is the bridge between the Kafka consumer and the MongoDB repository, along with providing methods to search the data stored in the database.  It is quite a simple class, and delegates most tasks to the `NamesRepository` (which is itself a simple `MongoRepository` interface).
 
@@ -219,7 +220,7 @@ private String networkName;
 
 There are a number of fields that provide information on the transaction and block that an event belongs to, but the values that we are most interested in are the `indexedParameters` and `nonIndexedParameters`.  These are the parameter values of the emitted event.  
 
-## NameConverter
+### NameConverter
 
 ```
 @Component
@@ -242,7 +243,7 @@ public class ContractEventToNamedAccountConverter implements NameConverter<Contr
 
 Parameters are included within the `ContractEventDetails` object in the order that they are declared in the smart contract code.  In our example, for the `NameAdded` event, id will be at index 0, firstName at index 1 and surname at index 2.  The converter calls the `getValueAsString` method of the EventParameter's,  setting the values on the `Name` object.  Note that in the case of the id field, the `String` is converted to a `BigInteger`.
 
-## REST Endpoint
+### REST Endpoint
 
 In order to search the cached name registry data stored in mongoDB, and to test that everything is working correctly, a REST endpoint is included within the service.  This endpoint takes either a `firstNameStartsWith`or `surname` url parameter as input, to define the type of search that is to be performed. Spring makes it very simple to create a REST endpoint by adding a `@RestController` annotation to the class, along with a `@RequestMapping` annotation to methods that are to be triggered by the http request.  The `searchNames` method delegates to one of two `NameRegistryService` methods, depending on the arguments passed in.
 
@@ -276,7 +277,7 @@ public class RestEndpoint {
 
 Thats pretty much it!  We should now have a working service that consumes events emitted from an Ethereum smart contract via a Kafka queue, and stores this event data in a database that can then be searched over more efficiently than via the smart contract directly...pretty sweet!!
 
-# Testing the Service
+## Testing the Service
 
 First, ensure that you have followed the [getting started guide](https://beta.kauri.io/article/90dc8d911f1c43008c7d0dfa20bde298) to the end.
 
@@ -294,6 +295,6 @@ Now add a bunch of sample users in remix (again, described in the getting starte
 ![](https://api.beta.kauri.io:443/ipfs/QmSrkLxGJBNRMF1DQhYSum9D29HghmEZXtfXfGmuFQhTXm)
 ![](https://api.beta.kauri.io:443/ipfs/QmbZZFY5y9TGzBtAVTZ5ynxum4pPjiWqqNm3krwEWLZJWA)
 
-# Summary
+## Summary
 
 Congratulations!  You have just implemented a caching service that listens to events emitted from a smart contract (via Eventeum), and stores this data into a MongoDB database for easier querying in your dApp.  By depending on Eventeum for the Ethereum side of things, you did not have to actually write that much code, and have resiliency and failover resistance out of the box!

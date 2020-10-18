@@ -9,6 +9,7 @@ some_url:
 
 # random cryptocurrency / cryptoeconomics thoughts  10
 
+
  
 **random cryptocurrency / cryptoeconomics thoughts #10**
  
@@ -146,30 +147,30 @@ crypto OG’s: “In crypto, we verify”
 _Disclaimers: YMMV. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here._
  
 previous releases:
-#9 
+##9 
 [https://kauri.io/article/8bc57926af17404a9a853cdf9dbff858/v1/random-cryptocurrency-cryptoeconomics-thoughts-9](https://kauri.io/article/8bc57926af17404a9a853cdf9dbff858/v1/random-cryptocurrency-cryptoeconomics-thoughts-9)
  
-#8 
+##8 
 [https://kauri.io/article/739f29e6e0a143c2b5b90be1c03cb7ec/v1/random-cryptocurrency-cryptoeconomics-thoughts-8](https://kauri.io/article/739f29e6e0a143c2b5b90be1c03cb7ec/v1/random-cryptocurrency-cryptoeconomics-thoughts-8)
  
-#7 
+##7 
 [https://kauri.io/article/aa55c22a8b9c43fbbc00587e6359c66f/v1/random-cryptocurrency-cryptoeconomics-thoughts-7](https://kauri.io/article/aa55c22a8b9c43fbbc00587e6359c66f/v1/random-cryptocurrency-cryptoeconomics-thoughts-7)
  
-#6 
+##6 
 [https://kauri.io/article/a7f709a168a54c5d80073a59f4d98233/v1/random-cryptocurrency-cryptoeconomics-thoughts-6](https://kauri.io/article/a7f709a168a54c5d80073a59f4d98233/v1/random-cryptocurrency-cryptoeconomics-thoughts-6)
  
-#5 
+##5 
 [https://kauri.io/article/38277d1f858f43f4b2a82da6157b8809/v1/random-cryptocurrency-cryptoeconomics-thoughts-5](https://kauri.io/article/38277d1f858f43f4b2a82da6157b8809/v1/random-cryptocurrency-cryptoeconomics-thoughts-5)
  
-#4 
+##4 
 [https://kauri.io/article/9c3d9c0df6f2454094c60b9e138507f3/v1/random-cryptocurrency-cryptoeconomics-thoughts-4](https://kauri.io/article/9c3d9c0df6f2454094c60b9e138507f3/v1/random-cryptocurrency-cryptoeconomics-thoughts-4)
  
-#3 
+##3 
 [https://kauri.io/article/ecf61bedf5cf472681b609a8a564205e/v1/random-cryptocurrency-cryptoeconomics-thoughts-3](https://kauri.io/article/ecf61bedf5cf472681b609a8a564205e/v1/random-cryptocurrency-cryptoeconomics-thoughts-3)
  
-#2 
+##2 
 [https://kauri.io/article/d77ee9f2a76b4642889e5ffc98a5a00d/v1/random-cryptocurrency-cryptoeconomics-thoughts-2](https://kauri.io/article/d77ee9f2a76b4642889e5ffc98a5a00d/v1/random-cryptocurrency-cryptoeconomics-thoughts-2)
  
-#1 
+##1 
 [https://kauri.io/article/f20af020db864fffb5439f6e9870c143/v1/random-cryptocurrency-cryptoeconomics-thoughts-1](https://kauri.io/article/f20af020db864fffb5439f6e9870c143/v1/random-cryptocurrency-cryptoeconomics-thoughts-1)
  

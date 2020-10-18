@@ -9,6 +9,7 @@ some_url:
 
 # Will the Opera web3 wallet drive adoption?
 
+
 A year or so ago I wanted to replace Google Chrome as my main browser. Why? First I was unsure and uncomfortable with the potential amount of data shared with Google. Second Chrome now reminds me too much of Internet Explorer in the 90s and early 2000s, where certain websites and features would only work in one browser, going against the entire concept of an "open internet".
 
 I embarked on testing all of the alternative browsers to find one that suited me:
@@ -21,7 +22,7 @@ Then I hit upon Opera, which ticked all boxes for me, apart from its iOS version
 
 Recent versions of Opera for Android bundled a crypto wallet, but I waited for desktop support before trying it properly and with the release of [version 60](https://blogs.opera.com/desktop/2019/04/opera-60-reborn-3-web-3-0-vpn-ad-blocker/) that arrived.
 
-## Testing the Opera Crypto Wallet
+### Testing the Opera Crypto Wallet
 
 First, disable Metamask, depending on the dapp you want to use, there may not be conflicts, but it reduces the chance there will be while you're testing things.
 
@@ -45,7 +46,7 @@ There are a handful of settings for the wallet, all of which you find in the mob
 
 ![Wallet settings](https://api.kauri.io:443/ipfs/QmcGZEv8YT4dyfyF263zyhR4Q2pETETZHzAj5TwjJentK9)
 
-## Using the wallet
+### Using the wallet
 
 The wallet generally notifies you when you visit a web3 enabled website and triggers a notification on your phone if you are using the desktop version. Not all dapps work. For example, Kauri doesn't work with the Opera wallet (yet).
 
@@ -53,6 +54,6 @@ Here's an example of creating an account with CryptoKitties:
 
 ![Using the wallet](https://api.kauri.io:443/ipfs/QmRnQMBE8YVT1znfcqZof8JTZTiwZrE3RufH2Ei3RZXobs)
 
-## What's next
+### What's next
 
 The Opera wallet is limited but easy to use. It's [coming to iOS soon](https://blogs.opera.com/mobile/2019/03/opera-touch-ios-crypto-wallet/), and I hope for multiple account support. [Opera isn't the most popular browser with 3% of internet users](https://en.wikipedia.org/wiki/Usage_share_of_web_browsers), but that's still a lot of people, and maybe it's enough (combined with Brave users) to attract more mainstream users to web3 and dapps. What do you think?

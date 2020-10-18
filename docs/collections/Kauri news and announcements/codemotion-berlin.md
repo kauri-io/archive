@@ -9,6 +9,7 @@ some_url:
 
 # Codemotion Berlin
 
+
 - **20th - 21st November, 2018**
 - *Kulturbrauerei, Schönhauser Allee 36, Berlin, 10435*
 - [berlin2018.codemotionworld.com](http://berlin2018.codemotionworld.coml)

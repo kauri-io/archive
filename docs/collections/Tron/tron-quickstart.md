@@ -9,12 +9,13 @@ some_url:
 
 # Tron Quickstart
 
-# Introduction
+
+## Introduction
 
 This guide walks the user through the TRON Quickstart (v2.0.0) image setup. The image exposes a Full Node, Solidity Node, and Event Server. Through TRON Quickstart, the user can deploy DApps, smart contracts, and interact via the TronWeb library.   
 
 <span id="dependency">
-# Dependencies
+## Dependencies
 </span>
 
 **Docker**
@@ -34,9 +35,9 @@ This will be used to interact with the Full and Solidity Nodes via Tron-Web.
 git clone https://github.com/tronprotocol/docker-tron-quickstart.git
 ```
 
-# Setup TRON Quickstart
+## Setup TRON Quickstart
 
-## TRON Quickstart Build
+### TRON Quickstart Build
 
 Navigate into the cloned `docker-tron-quickstart` directory and perform the build. 
 
@@ -46,7 +47,7 @@ cd docker-tron-quickstart
 docker build -t tron .
 ```
 
-## TRON Quickstart Run
+### TRON Quickstart Run
 
 Run the `docker run` command to launch TRON Quickstart. TRON Quickstart exposes port 9090 for Full Node, Solidity Node, and Event Server. 
 
@@ -168,7 +169,7 @@ Base HD Path:  m/44'/60'/0'/0/{account_index}
 GET 200  - 41874.921 ms
 ```
 
-# MetaCoin DApp 
+## MetaCoin DApp 
 
 The cloned TRON Quickstart repository contains a MetaCoin DApp located in the folders `test` -> `metacoin-box`. After setting up the TRON Quickstart private network, you can deploy the MetaCoin DApp. Open another terminal, and execute the commands below:
 
@@ -181,7 +182,7 @@ tronbox migrate         // Deploys the DApp
 tronbox test --reset    // Performs 5 Javascript tests 
 ```
 
-# TronBox 2.1+ Configuration
+## TronBox 2.1+ Configuration
 
 The MetaCoin DApp bundled with TRON Quickstart has a pre-configured `tronbox.js` file. However, in creating your own DApps for TRON Quickstart testing, you will need to configure the `tronbox.js` file for connecting to the 9090 port:
 
@@ -199,7 +200,7 @@ module.exports = {
 };
 ```
 
-# TronWeb Interaction
+## TronWeb Interaction
 
 TronWeb is the best way for your DApp to interact with the TRON Quickstart private network. To use TronWeb, instantiate it as follows:
 
@@ -214,13 +215,13 @@ const tronWeb = new TronWeb(
 )
 ```
 
-# Known Issues
+## Known Issues
 
 **The "SERVER_BUSY" error**
 
 Running TronBox can heavily stress the local network. If the FullNode is busy, it returns the "SERVER_BUSY" error. If the error is returned, just repeat the command.
 
-# Docker Commands
+## Docker Commands
 
 A few Docker commands are useful for managing the TRON Quickstart Docker container on your machine. 
 

@@ -10,10 +10,11 @@ some_url:
 # Decentralized Artist and Creator Patronage (FundEm)
 
 
-# FundEm
+
+## FundEm
 > Decentralized Artist and Creator Patronage on Ethereum and IPFS
 
-## Team Members
+### Team Members
 - Daniel Mowchan
 ```
 STATUS:
@@ -25,21 +26,21 @@ STATUS:
 0x04c9b0b45f3c54255ad5e22fb13ae3f42307b3e5bd73a8f92f07c767ef8537d31be9535c445e418536888147f8b4652ded4ca9d817f52e3caadf2e1e0bbf18a809
 ```
 
-## Project Description
+### Project Description
 We set out to create a censorship-free platform for artists and creators of all types to connect with their fanbase and generate income. Creators can sign up for an account and offer subscription-based access to their fans. Fans with active subscriptions can see exclusive posts and media while supporting their favorite creators. With the recent increase in bans on   Patreon creators deserve a platform for expression without censorship.
 
-## Tech Stack
+### Tech Stack
 * JavaScript, React, web3.js (ZepKit)
 * Solidity, IPFS
 * ZeppelinOS, Truffle
 
-## Track: Open
+### Track: Open
 
-## Bounties
+### Bounties
 * Skale S-Chain deployment
 * ZeppelinOS + ZepKit incorporation
 
-## Links
+### Links
 * https://fundem.github.io/fundem/
 * https://github.com/fundem/fundem/
 

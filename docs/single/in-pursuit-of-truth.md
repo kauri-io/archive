@@ -10,6 +10,7 @@ some_url:
 # In Pursuit of Truth
 
 
+
 ----
 
 
@@ -19,7 +20,7 @@ some_url:
 
 Searching for truth is a human trait. It transcends gender, race, generations and nationality. It plays a role in science, politics, law… and most importantly, in our everyday life.
 
-### What is truth?
+#### What is truth?
 When Wikipedia starts defining a concept by saying 
 _“Truth is most often used to mean…”_
  you know it must be hard to do so. Some philosophers say truth is 
@@ -29,10 +30,10 @@ We won’t dive into so much detail on the definition, as it could take hundreds
 **how we interact with what is thought to be true.**
  
 
-## Our Relationship with Truth
+### Our Relationship with Truth
 Let’s take a look at this from two different perspectives: the analog world and the digital world.
 
-### Truth in the analog world
+#### Truth in the analog world
 The simplest way we as humans have been in contact with truth is by associating what we see to facts. “ 
 **Seeing is believing**
  ” they say. This hasn’t changed much throughout centuries; a caveman instinctively believed what he saw to be true the same way a hispter in Los Angeles would do today.
@@ -61,7 +62,7 @@ _“Nobody has the intention of building a wall.”_
 
 It’s not so hard to find an incentive, in a given system, for some party to lie. This brings us to digital world truth and, more precisely, to The Oracle Problem.
 
-### Truth in the digital world
+#### Truth in the digital world
 Computer systems have historically relied on trusted sources to feed them data. The code would not analyze if this data is true or false; the concept of truth relies on the developer or software feeding this data into the system. This means that until now, the mechanisms for doing so relied on trusted sources. Trusted sources are corruptible, censorable, and can simply fail.
 This is known as The Oracle Problem, a topic that has been hot in the crypto community for some years now 
 _(in this case, Oracle doesn’t relate to the future prediction meaning it also bears)_

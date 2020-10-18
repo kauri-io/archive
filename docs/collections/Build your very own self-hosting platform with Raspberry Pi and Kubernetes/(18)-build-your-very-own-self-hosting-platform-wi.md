@@ -10,7 +10,8 @@ some_url:
 # (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction
 
 
-## Preface
+
+### Preface
 
 **Self-hosting** is a new trend which attracts more people every day, whether you are looking for more privacy, or disapprove big [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) companies methods to monetize your data or simply because you enjoy hacking things at home and challenge yourself. This series is for you!
 
@@ -31,7 +32,7 @@ Here is a metaphor I really like about self-hosting:
 <br />
 <br />
 
-## Introduction
+### Introduction
 
 As I mentioned, self-hosting can be quite complicated and require knowledge. So in this series of articles, we will learn how to setup a Kubernetes cluster of Raspberry Pi computers to ensure the following properties for our containerized applications:
 
@@ -45,7 +46,7 @@ Before starting, let me explain a few important concepts here.
 
 <br />
 
-### Container
+#### Container
 
 As most modern software engineers can attest, containers have offered a dramatically more flexible way to run applications on virtual and physical environments. A container is a unit of software that packages up code and all its dependencies, it is portable from one environment to another, lightweight and secure (isolation by default).
 
@@ -53,7 +54,7 @@ As most modern software engineers can attest, containers have offered a dramatic
 
 <br />
 
-### Why Kubernetes?
+#### Why Kubernetes?
 
 Now we know, it is easy to run containerized applications, we need an orchestrator to manage our applications across multiple hosts (machines), this will help automating most of the maintenance tasks (reboot after application or host crash, scaling, load balancing, configuration management, etc.).   
 
@@ -73,7 +74,7 @@ Kubernetes comes with a lot of tools that aren't necessarily needed or optimized
 
 <br />
 
-### Why Raspberry Pi
+#### Why Raspberry Pi
 
 A [Raspberry Pi (RPI)](https://www.raspberrypi.org) is Single-Board Computer (SBC) initially launched in 2012 as an educational tool to learn programming but it actually quickly became very popular in the hardware and hacking communities and people now use RPI for hardware projects, home automation, robotics and much more...
 
@@ -113,7 +114,7 @@ The main benefits of using Raspberry Pi are:
 
 <br />
 
-### Keep Control and Enjoy!
+#### Keep Control and Enjoy!
 
 I have been hosting stuff by myself for a while now and I've always struggled with maintenance in the long run (service not working correctly on ARM, machine freeze, configuration management mess). So when I recently decided to migrate everything on Kubernetes, it has been quite challenging but finally got it working and I haven't touched it since, every single services are running like a charm, they may have crashed a couple of times but Kubernetes recovered everything without me noticing the downtime.
 
@@ -122,7 +123,7 @@ I have been hosting stuff by myself for a while now and I've always struggled wi
 <br />
 <br />
 
-## Hardware requirement
+### Hardware requirement
 
 In order to build our self-hosting platform, we need the following hardware materials:
 
@@ -159,7 +160,7 @@ The result looks like this on my side for a total cost around $250 approximately
 <br />
 <br />
 
-## Table of content
+### Table of content
 
 Alright, now we defined what we gonna do and why, let's get started!
 
@@ -178,7 +179,7 @@ _If you'd like to see an article in this series: please contact me on Twitter [@
 <br />
 <br />
 <br />
-## References
+### References
 
 - [The Step-by-Step Guide to Starting Your Own Self-Hosted Website From Scratch](https://medium.com/swlh/the-step-by-step-guide-to-starting-your-own-self-hosted-website-from-scratch-d10a8e6ccf0c)
 - [Wikipedia - SaaS](https://en.wikipedia.org/wiki/Software_as_a_service)

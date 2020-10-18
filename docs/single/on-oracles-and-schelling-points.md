@@ -10,6 +10,7 @@ some_url:
 # On Oracles and Schelling Points
 
 
+
 ----
 
 
@@ -26,7 +27,7 @@ _What was the weather in Helsinki yesterday at 4 p.m.? Who won the World Cup sem
  
 Nodes in an oracle network must agree upon the answer to these kinds of questions. Therein lies the challenge.
 
-## Schelling Points
+### Schelling Points
 In 1960, 
 [Thomas Schelling](https://en.wikipedia.org/wiki/Thomas_Schelling)
  introduced in his 
@@ -47,7 +48,7 @@ Why would this happen in an experiment where anyone was able to choose any time 
 **focal point**
  for a number of students.
 
-## Consensus
+### Consensus
 To understand how Schelling schemes provide a way for oracles to achieve consensus, we’re going to take a look at three different oracle formulations.
 In chronological order, 
 [Truthcoin](https://www.truthcoin.info/papers/truthcoin-whitepaper.pdf)
@@ -57,7 +58,7 @@ In chronological order,
 [Witnet](https://witnet.io/static/witnet-whitepaper.pdf)
  provide us with different approaches of mechanism designs for nodes of an oracle to agree upon a certain result, solution or answer.
 
-## Truthcoin
+### Truthcoin
  
 [Truthcoin](https://www.truthcoin.info/papers/truthcoin-whitepaper.pdf)
  presents a peer to peer oracle and a prediction market that is fed information from an oracle in order to resolve markets. As Sztorc put it:
@@ -73,7 +74,7 @@ Salience is the psychological perception of uniqueness which Schelling pointed o
 _minimizes shared mental costs_
  ” and provides an incentive for people to not deviate from the profitable-truth-seeking majority. Effort-wise, the cheapest thing a voter can do is copy the ballot of true answers.
 
-### Attacks
+#### Attacks
 Malicious actors 
 [will always try to coordinate](https://twitter.com/lopp/status/1009401562089783296)
  in ways that are harmful for the network if they can get a profit from it. In order for the incentive scheme built into the network to be effective in spite of these attacks, malicious actors must not be able to communicate with each other in advance and conspire.. Truthcoin keeps votes anonymous and introduces the concept of the “ 
@@ -84,7 +85,7 @@ The double-agent incentive explains that voters have an incentive to falsely cla
 
 A coalition of attackers will never be truly sure of how many voters they control, so any voter has an incentive to let minority groups lie (and make them think she will lie too) and earn a higher reward for telling the truth.
 
-## SchellingCoin
+### SchellingCoin
 Vitalik Buterin presents 
 [SchellingCoin](https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed/)
  as a “ 
@@ -105,7 +106,7 @@ Basically, in the example users provide their price for the given exchange, thei
  are rewarded by the network.
 Buterin, like Sztorc, states that the truth is the most powerful Schelling point. That’s the reason the protocol incentivizes everyone to provide the same answer as the rest of participants in the network. But unlike Truthcoin, which defined final answers by simple majority, SchellingCoin applies statistical percentiles to leave out answers that deviate too much from the median.
 
-### Attacks
+#### Attacks
 Regarding collusion attacks, the first one that Vitalik explains is the already mentioned possibility of an entity controlling more than 50% of all votes. This attack is disincentivized in the same way the attack on Truthcoin was (double agent incentive).
 Discussions around SchellingCoin gave birth to an attack that gathered a lot of attention in the Ethereum and cryptoeconomics community: 
 [the P + epsilon Attack](https://blog.ethereum.org/2015/01/28/p-epsilon-attack/)
@@ -136,7 +137,7 @@ In practice, Buterin points out:
 > “Proof of work has survived despite this flaw, and indeed it may continue to survive for a long time still; it may just be the case that there’s a high enough degree of altruism that attackers are not actually 100% convinced that they will succeed — but then, if we are allowed to rely on altruism, naive proof of stake works fine too. Hence, Schelling schemes too may well simply end up working in practice, even if they are not perfectly sound in theory.”
 
 
-## Witnet
+### Witnet
  
 [Witnet](https://witnet.io/static/witnet-whitepaper.pdf)
  is a decentralized oracle network. 
@@ -152,7 +153,7 @@ This protocol is called Truth-By-Consensus. Truth-By-Consensus sets incentives f
 
 Although an oracle of a different nature, many parts of Witnet’s concept derive from Truthcoin’s design. The double-agent incentive is also present in Witnet’s design, incentivizing witnesses to keep claims secret and even lie to a potential briber. As also seen before with Truthcoin, once >50% of the witnesses are honest, witnesses have an incentive to minimize the number of fellow honest voters and maximize rewards.
 
-### Attacks
+#### Attacks
 Witnet intends to detect and penalize collusion by focusing on economic incentives within the protocol. The fact that witness nodes accumulate 
 _non-tradeable reputation_
  acts a long term incentive to avoid lying. This way, they not only have the risk of losing short and mid term rewards but also of being deprived of the revenues involved in future tasks that are assigned based on reputation distribution. The introduction of reputation punishment changes the game’s payoffs for witnesses.
@@ -166,18 +167,18 @@ This also fights possible P+epsilon attacks. The Witnet protocol doesn’t give 
 ----
 
 
-## Schelling’s Edges
+### Schelling’s Edges
 Schelling coordination schemes have been the subject of research since first introduced some decades ago, most generally validating the efficacy of focal points in coordination games.
 Let’s take a look at three different studies that introduce payoff asymmetry, payoff-irrelevant signals and changes in stake size to experiment how focal points can vary, and some ways these concepts are meaningful for decentralized oracle networks.
 
-### Payoff Asymmetry
+#### Payoff Asymmetry
  
 [Crawford et al.](http://econweb.ucsd.edu/~vcrawfor/CrawfordGneezyRottenstreichAER08.pdf)
  expose how under symmetric payoff conditions (subjects earned $100 when simply coordinating) 90% of the subjects coordinated on the focal point. The percentage would be significantly reduced if an asymmetric payoff was introduced (subjects would win $100 when coordinating on the focal point and >$100 when coordinating on the non-salient option).
 
 This study proves that some bribes could have an effect on oracle coordination, which means it’s useful to understand attacks regarding bribers or entities that want to have control over the vote outcome and will do so by introducing different payoffs to the network, as they can alter the conditions of the coordination game designed. The P+epsilon attack is an example of what this type of asymmetry could mean (voters’ Schelling point changes from the truth to the briber’s desired outcome).
 
-### Payoff-Irrelevant Signals
+#### Payoff-Irrelevant Signals
  
 [Isoni et al.](https://www.sciencedirect.com/science/article/pii/S0014292112001602)
  point to the power payoff-irrelevant signals (that is, signals that don’t involve a higher financial reward for the players) can have in Schelling coordination games that model tacit bargaining — independent actors perceive a conflict and anticipate others’ behavior without communication.
@@ -185,7 +186,7 @@ This study proves that some bribes could have an effect on oracle coordination, 
 In their work, based on a game where players allocate an object to one place or another, the non-monetary properties that influence players’ decisions are closeness (distance) to an option, and accession (shared properties between items).
 We can relate this data to the double agent incentive we mentioned before. If all voters trying to be convinced to lie perceive, without communication, that the rest of voters will lie too, we need to provide an incentive for them not to if we want to ensure the efficiency of the network.
 
-### Stake Size
+#### Stake Size
  
 [Parravano et al.](https://www.sciencedirect.com/science/article/pii/S0899825615000688)
  introduce stake size changes in order to experiment how these changes affect coordination on focal points. How does the size of the payoff vary players’ coordination rates?
@@ -198,7 +199,7 @@ These results could lead us to believe that in asymmetric games (those where a b
 ----
 
 
-## Closing Thoughts
+### Closing Thoughts
 We started by challenging ourselves to think if Schelling coordination schemes were the right approach to seek consensus in decentralized oracle networks. Throughout the examples, we have seen that Schelling points provide a strong, low-effort, high-reward incentive for voters to agree upon a given solution.
 
 It’s important to consider that concepts like focal points, introduced well before computers gained mass adoption, are now a key foundation for the design and implementation of crypto-economic networks like oracles.
@@ -208,7 +209,7 @@ These networks must be built to survive in hostile environments. As we have seen
 ----
 
 
-### References
+#### References
 
 
 

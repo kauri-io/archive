@@ -9,9 +9,10 @@ some_url:
 
 # Building on Bulletproofs - Short Proofs for Confidential Transactions
 
+
 This article was original published by [Cathie Yun](https://medium.com/@cathieyun) on [Medium](https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8) special thanks to Cathie for allowing us to import to Kauri
 
-## Preface
+### Preface
 In this post, I will explain how the Bulletproofs zero knowledge proof protocol works, as well as talk about the confidential asset protocol and confidential smart contract language we are building using Bulletproofs.
 This post is a condensed version of previous 
 [talks and blog posts](https://interstellar.com/protocol)
@@ -21,13 +22,13 @@ This post is a condensed version of previous
 [Digital Currency Review](https://mitcryptocurrencyresearch.substack.com/p/mit-dcis-cryptocurrency-research-350)
  .
 
-## Background
+### Background
 Zero-knowledge range proofs are a key building block for confidential transaction systems, such as Confidential Transactions for Bitcoin, Chain’s Confidential Assets, and many other protocols. Range proofs allow a verifier to ensure that secret values, such as asset amounts, are nonnegative. This prevents a user from forging value by secretly using a negative amount. Since every transaction involves one or more range proofs, their efficiency, both in terms of proof size and verification time, is key to transaction performance.
 In 2017, Bünz, Bootle, Boneh, Poelstra, Wuille, and Maxwell published 
 [Bulletproofs](https://crypto.stanford.edu/bulletproofs/)
  , which dramatically improves proof performance both in terms of proof size and verification time. In addition, it allows for proving a much wider class of statements than just range proofs.
 
-## Definitions
+### Definitions
 Commitment — a commitment 
 `Com(m)`
  to message 
@@ -74,7 +75,7 @@ Notation: vectors are written in bold, such as
 `c`
  is a scalar.
 
-## Range Proof
+### Range Proof
 
 ![](https://api.kauri.io:443/ipfs/QmY2aD3SW4GP4tj9Cyiokpbu5U266eVCuK9Swk68gGgFi9)
 
@@ -147,7 +148,7 @@ Next, we combine these two statements using challenge scalars, and add blinding 
 [range proof notes](https://doc-internal.dalek.rs/bulletproofs/notes/index.html#range-proofs-from-inner-products)
  .
 
-## Inner Product Proof
+### Inner Product Proof
 In the range proof section, I mentioned that our goal was to create a statement in the form of an inner product, for efficiency reasons. Let’s go into more detail on what an inner product is, and how we can prove an inner product efficiently!
 An inner product proof is a proof that 
 `c`
@@ -296,7 +297,7 @@ To see the full math behind the inner product proof, read our
 [inner product proof protocol notes](https://doc-internal.dalek.rs/bulletproofs/inner_product_proof/index.html)
  .
 
-## Aggregated Range Proof
+### Aggregated Range Proof
 Aggregated range proofs are great for performance, because they allow 
 `m`
  parties to produce an aggregated proof of their individual statements ( 
@@ -316,7 +317,7 @@ To see the math behind the aggregated proof, see our
 [blog post](https://blog.chain.com/bulletproof-multi-party-computation-in-rust-with-session-types-b3da6e928d5d)
  .
 
-## Constraint System Proof
+### Constraint System Proof
 A constraint system is a collection of two kinds of constraints:
 
 ![](https://api.kauri.io:443/ipfs/QmYPXwC8Yp2kTdQx6zytZxCD1K7zvEc7hhDx2TZtTvM118)
@@ -362,7 +363,7 @@ For the full sample code of the 2-shuffle gadget, including tests, see our
 [R1CS proof notes](https://doc-internal.dalek.rs/develop/bulletproofs/notes/r1cs_proof/index.html)
  .
 
-## Cloak
+### Cloak
 The goal of a Confidential Assets scheme is to make transactions in which the asset value and asset type are kept hidden, thereby allowing for multi-asset transactions in which external observers cannot deduce what is being transacted but can verify that the transactions are correct. Cloak is a Confidential Assets scheme built using Bulletproofs.
 Cloak is focused on one thing: proving that some number of values with different asset types is correctly transferred from inputs to outputs. Cloak ensures that values are balanced per asset type (so that one type is not transmuted to any other), that quantities do not overflow the group order (in other words, negative quantities are forbidden) and that both quantities and asset types are kept secret. Cloak does not specify how the transfers are authenticated or what kind of ledger represents those transfers: these are left to be defined in a protocol built around Cloak.
 Cloak builds a constraint system using a collection of gadgets like “shuffle”, “merge”, “split” and “range proof” all combined together under a single gadget called a “cloaked transaction”. The layout of all the gadgets is determined only by the number of inputs and outputs and not affected by actual values of the assets. This way, all transactions of the same size are indistinguishable. For example, this is what a 3 input 3 output cloak transaction looks like to a verifier or a viewer of the blockchain:
@@ -383,19 +384,19 @@ To learn more about Cloak, check out
 [Cloak GitHub repo](https://github.com/interstellar/slingshot/tree/main/spacesuit)
  .
 
-## ZkVM
+### ZkVM
 The goal of ZkVM is to make a smart contract language that allows for confidentiality. It builds upon previous smart contract language work, aiming for an expressive language that runs in a safe environment and outputs a deterministic log. It uses Cloak to validate that encrypted asset flows are correct, and uses Bulletproofs constraint system proofs to add constraints that values are being operated on and contracts are being executed correctly.
 ZkVM is still being developed, and you can follow along with progress in the open-source 
 [ZkVM GitHub repo](https://github.com/interstellar/slingshot/tree/main/zkvm)
  .
 
-## Summary
+### Summary
 
 ![](https://api.kauri.io:443/ipfs/QmWbfc3pPFfLCTwxEmJcLxVfe4oNrtwXtrgSs7FFPSjk3R)
 
 Hopefully this post has helped you understand how the Bulletproofs zero knowledge proof protocol works, as well as what we’ve been building over that protocol. This just scratches the surface; I encourage you to read more in our notes and dive into our repo if you have more interest!
 
-## Acknowledgements
+### Acknowledgements
 I worked with Henry de Valence and Oleg Andreev to understand and implement the Bulletproofs paper, as well as design and implement the Cloak protocol. The 
 [protocol research team](https://interstellar.com/protocol)
  at Interstellar is currently designing and implementing ZkVM.

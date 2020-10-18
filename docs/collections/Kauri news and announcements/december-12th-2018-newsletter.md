@@ -9,6 +9,7 @@ some_url:
 
 # December 12th 2018 Newsletter
 
+
 [Kauri](https://beta.kauri.io) aims to make building with Ethereum as straightforward as existing web 2.0 developer tools and frameworks. To help reach that goal, we are building a content platform for experts in the ecosystem to share their knowledge with those looking to grow theirs.
 
 We're pleased to have heard from so many of you posting articles, interacting with us on Twitter (<https://twitter.com/kauri_io>) , and letting us know how much you enjoyed the last newsletter, so let's keep the momentum going with some more great content for you to read!
@@ -17,7 +18,7 @@ PS. Our friends at [Cellarius](https://cellarius.network) released a book of [bl
 
 -The Kauri Team
 
-## New Articles
+### New Articles
 
 Here's a selection of [the latest articles](https://beta.kauri.io/articles) that caught our eye.
 
@@ -26,7 +27,7 @@ Here's a selection of [the latest articles](https://beta.kauri.io/articles) that
 - [A Blockchain Glossary](https://beta.kauri.io/article/1f5da0c171cd4eecb68d23be9acce25d/)
 - [A Quorum How To](https://beta.kauri.io/article/97e916abb4b5431bbb297f42d0ce8b88/v1/quorum-how-to)
 
-## Collection Highlights
+### Collection Highlights
 
 Collections group together articles around themes, [create your own here](https://beta.kauri.io/login?r=create-collection).
 
@@ -34,11 +35,11 @@ Collections group together articles around themes, [create your own here](https:
 - [Quick Start web3](https://beta.kauri.io/collection/5bef33b16b97660001fe6392/quick-start-web3.0-series)
 - [Ethereum Star Trek](https://beta.kauri.io/collection/5c06df52a24677000166f603/ethereum-startrek) 🖖
 
-## Meet Us
+### Meet Us
 
 Our lead developer, Joshua Cassidy is delivering a workshop in London as part of The Next Web's Hard Fork event based on his popular dApp series. If you're in town and want a chance to learn from an expert [grab yourself a free spot](https://next.thenextweb.com/hardfork-decentralized/events/how-to-build-your-first-d-app-on-ethereum-by-consen-sys) .
 
-## Kauri Tips
+### Kauri Tips
 
 If you're interested in creating content on Kauri, below are some places to get started.
 

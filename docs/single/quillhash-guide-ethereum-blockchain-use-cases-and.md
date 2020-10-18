@@ -9,6 +9,7 @@ some_url:
 
 # QuillHash Guide - Ethereum Blockchain Use Cases and Applications
 
+
 Ethereum is a public blockchain which keep records of digital transaction. It is based on  the principle of blockchain, where blockchain is only used for the safe transaction of cryptocurrency Ethereum can be used for any kind of transaction made online. It is public, decentralized i.e doesn’t require any central authority. It’s immutable i.e it is hard to break in, it can only be accessed by a key. The transactions made in Ethereum is verified by a miner. Every-time a block is proved by a miner an ether is  generated and awarded. Ethereum uses an intrinsic digital token called ‘ether’. 
 
 **How is it being used**?

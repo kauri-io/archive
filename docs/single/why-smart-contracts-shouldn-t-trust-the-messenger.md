@@ -10,6 +10,7 @@ some_url:
 # Why Smart Contracts Shouldn’t Trust the Messenger
 
 
+
 ----
 
 Blockchains are 
@@ -29,7 +30,7 @@ _witnesses_, run a headless browser to retrieve the desired data point(s), which
 
 While some projects are exploring on-chain data oracle solutions, let’s take a look into the reasons why Witnet has taken a different approach to making truly trustless oracles from a fundamental level.
 
-### Trusting the Messenger
+#### Trusting the Messenger
 In earlier times, before the advent of the printing press and telecommunications, the flow of information relied on word of mouth. Some 
 [people](https://en.wikipedia.org/wiki/Marathon#Origin)
  were even tasked to fulfill the task of transmitting information from one person to another, or from one place to another.
@@ -43,7 +44,7 @@ Nowadays we’re seeing problems associated with trusting the messenger more tha
 In all cases where smart contracts are limited by the “oracle problem,” the messenger, or the transmitter of information, is a trusted third party. Whether a person or smart contract are executing a decision based off of their judgment (programming), 
 **if the data they are processing to make an ultimate outcome is bad or corrupt, the entire process is corrupt**.
 
-### Smart Contracts
+#### Smart Contracts
 The purpose of smart contract code is to execute the terms agreed between parties 
 **without the need of oversight from a trusted third party**. If we look more deeply at 
 [their definition in Wikipedia](https://en.wikipedia.org/wiki/Smart_contract)
@@ -61,7 +62,7 @@ Looking at
 For smart contracts to achieve their 
 [reason of being](https://en.wikipedia.org/wiki/Raison_d%27%C3%AAtre), they must be able to execute desired actions without trusting a third party. Yet, as of today, when smart contracts need to access data from outside their native blockchain, they must rely on a trusted third party to deliver that data.
 
-### The Last Mile In Peer to Peer Networks
+#### The Last Mile In Peer to Peer Networks
 Looking at definition of smart contracts we can understand why trusting a third party to access information potentially defeats their whole purpose. Let’s look at a use-case to illustrate this.
 
 A simple example of this would be home or disaster insurance. Let’s imagine a person in Thailand is having trouble finding a company to cover her home insurance. She is told about a p2p insurance Dapp that connects her with other peers willing to provide that insurance in a fully decentralized, peer to peer way. The smart contract is set up and she’s now part of an insurance agreement with other peers willing to take that insurance risk (peers she might not even know or identify).
@@ -85,7 +86,7 @@ Smart contract platforms grant us much power to create entirely new ways of doin
 ----
 
 
-### Thank you for your time! You can also:
+#### Thank you for your time! You can also:
 
 
 

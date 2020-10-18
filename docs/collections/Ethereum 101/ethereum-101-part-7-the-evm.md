@@ -9,7 +9,8 @@ some_url:
 
 # Ethereum 101 - Part 7 - The EVM
 
-# Quick Overview
+
+## Quick Overview
 
 > The EVM is the part of Ethereum that handles smart contract deployment and execution. Simple value transfer transactions from one EOA to another don’t need to involve it, practically speaking, but everything else will involve a state update computed by the EVM. At a high level, the EVM running on the Ethereum blockchain can be thought of as a global decentralized computer containing millions of executable objects, each with its own permanent data store. 
 
@@ -17,7 +18,7 @@ Citation: "Mastering Ethereum, Section 13 - The Ethereum Virtual Machine" author
 
 The EVM's been mentioned throughout this documentation, but we haven't gone into much detail. The EVM is the Ethereum Virtual Machine, it is the Turing complete virtual machine that handles all of the transaction processing on the Ethereum network. It is a complete 256 bit virtual machine that serves to execute arbitrary EVM bytecode. 
 
-# EVM bytecode
+## EVM bytecode
 
 Bytecode is the machine code that the high-level smart contract languages are compiled into. It looks like this: 
 
@@ -26,10 +27,10 @@ Bytecode is the machine code that the high-level smart contract languages are co
 ```
 This is not human readable code. If you had some free time, it could be reverse engineered, but that's not always a value-adding task. Further, you shouldn't be interacting with contracts on the blockchain unless you also have their high-level source code and application binary interface (ABI). 
 
-# Deployment vs runtime bytecode
+## Deployment vs runtime bytecode
 The above is the _deployment bytecode_ of the HelloWorld.sol Solidity smart contract we deployed earlier in the Smart Contract section. Deployment bytecode is the _runtime bytecode_ wrapped in auxiliary code to foster successful deployment of the contract. After successful contract deployment, the runtime bytecode resides alone at its new contract address. 
 
-# EVM Assembly 
+## EVM Assembly 
 
 The solidity compiler can print out the EVM assembly of our HelloWorld.sol contract in human readable format:
 ```
@@ -177,7 +178,7 @@ tag_5:
 ```
 This EVM assembly has been truncated. It's actually quite long. This is a little easier to interpret than the raw bytecode. 
 
-# Quick primer on the EVM instruction set
+## Quick primer on the EVM instruction set
 
 The instruction set consists of many operations called opcodes. Each opcode is a computational step with an explicit gas cost. Some examples:
 
@@ -193,13 +194,13 @@ The instruction set consists of many operations called opcodes. Each opcode is a
 Some opcodes cost 0 gas. For example, opcodes that halt execution are gas-less opcodes. For example, the 0x00 STOP opcode halting execution costs 0 gas. Opcodes that terminate a transaction generally use no gas. Some other exceptions that will force the EVM to terminate a transaction are invalid opcodes, invalid jump destinations (the EVM is able to jump to arbitrary positions only if lands on a valid jump-destination), and stack underflows. 
 
 
-# Notes on EVM performance 
+## Notes on EVM performance 
 
 On mainnet, the EVM generally executes bytecode slower than one would expect of other virtual machines. The salient reason for this is that each operation must be executed by every full node in the network in order to achieve a trust-less environment. This is by design. The EVM was designed to achieve decentralized consensus across the whole network, and as a result, computation speeds are slower and costs are higher than those of a centralized network. The upside is that Ethereum network experiences near immutability, significantly improved fault tolerance, and zero downtime. 
 
 Additionally, the EVM's gas metering mechanism ensures that miners receive compensation for including the transaction in a block. This also prevents programs from looping eternally. Eventually the transaction will exceed its gas limit, the transaction will immediately halt and rollback all sandboxed state changes. The only state changes resulting from the transaction is the sender's nonce incremented by one and the gas costs up until transaction failure are paid to the miner for their computational effort. 
 
-# Learning more
+## Learning more
 The EVM is a subject that should be discussed at length. We won't go into any more detail, as the purpose of this section is to simply introduce users to the internal mechanisms of the EVM. If this topic is interesting to you, then we recommend the Ethereum Virtual Machine (EVM) Awesome List as a good starting point: 
 - https://github.com/ethereum/wiki/wiki/Ethereum-Virtual-Machine-(EVM)-Awesome-List
 

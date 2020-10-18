@@ -9,8 +9,9 @@ some_url:
 
 # Publishing to the Decentralized Web with Android, Ethereum, and IPFS
 
+
 ![](https://api.kauri.io:443/ipfs/QmR33xfXcZ49mqZwHt1XY5SNC32BhzSdHEMDN7sGVoSwRi)
-##What happens when you combine Android, the world's most popular mobile operating system, with the newest, user-empowering, decentralized web technologies?
+###What happens when you combine Android, the world's most popular mobile operating system, with the newest, user-empowering, decentralized web technologies?
 Perhaps the above question is a bit premature. After all, the decentralized web, or 
 [Web 3.0](https://medium.com/r/?url=http%3A%2F%2Fgavwood.com%2Fweb3lt.html)
  , is hardly more than a buzz term touted by public blockchain projects that have 
@@ -30,14 +31,14 @@ So I created
 [poor man’s copyright](https://medium.com/r/?url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPoor_man%2527s_copyright)
  ” functionality. Thirdly and most importantly (and controversially), publications are created in a permissionless manner, stored on peer to peer infrastructure that can not be taken down by anyone. The android app’s unique usage of an in-app Ethereum Light Client and IPFS node makes these claims even stronger.
 
-### ARTICLE ORGANIZATION
+#### ARTICLE ORGANIZATION
 First I’d like to describe the 
 **TECHNICAL CHALLENGES**
  of building the decentralized app (or dapp), so that other developers can learn from my process. For non developers, I recommend skipping down to the 
 **CONCLUSIONS**
  section, where I’ll describe what this dapp building process reveals about the trajectory of blockchain technology and the future potential of the decentralized web.
 
-### TECHNICAL CHALLENGES
+#### TECHNICAL CHALLENGES
 The most interesting advantage to creating a dapp on Android is that it is possible to include in the native Android app an Ethereum Light Client node, and an IPFS node. With those pieces in place, the strong guarantees of Ethereum, “ 
 [applications that run exactly as programmed without any possibility of downtime, censorship, fraud, or third-party interference](https://medium.com/r/?url=https%3A%2F%2Fethereum.org%2F)
  ,” get extended all the way up through the user interface, in an application that can be accessed by anyone with an Android phone and an internet connection. This can be contrasted with building static web pages for dapps that rely on browsers to glue the interface to a remote trusted Ethereum node, or desktop apps that typically do not reach as wide an audience as Web or Native mobile apps. In the next three sections I’ll walk through three key technical challenges and the short, medium, and long term strategies for addressing them.
@@ -217,7 +218,7 @@ Before I jump to conclusions (see what I did there), let me state my key takeawa
 **Even as the wider development community iterates on long term solutions to dapp account management and scaling, there are other key problems like Light Client connectivity and decentralized data availability that can benefit from a wide breadth of perspectives, so that a fully decentralized, Web 3.0 stack can be achieved as soon as possible.**
  
 
-### CONCLUSIONS
+#### CONCLUSIONS
 The power of the Android platform allows us to take another step closer to a fully decentralized application stack. Trade-offs between decentralization, and near term viability can be made, but these trade-offs quickly make our dapps’ advantages over centralized architectures disappear.
  
 **So what really are dapps’ advantages over their centralized alternatives, and why are these advantages worth so much trouble?**

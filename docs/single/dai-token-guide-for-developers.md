@@ -9,7 +9,8 @@ some_url:
 
 # Dai Token Guide for Developers 
 
-# Dai Token
+
+## Dai Token
 
 Ver. 20190117
 
@@ -18,12 +19,12 @@ Ver. 20190117
 **Estimated Time**: 30 - 60 minutes
 
 
-# Overview
+## Overview
 
 Dai is a decentralized stablecoin currently live on the Ethereum network. The Dai Credit System incentivizes users to increase or decrease the token supply based on supply and demand for Dai and also ensures its value stays pegged to 1 USD. The token contract conforms to the ERC20 token standard which allows wallets, exchanges, and other applications to easily integrate with minimal effort. This guide will be useful to developers integrating Dai in applications like wallets, exchanges, and smart contracts to get a better understanding of the token contract and its functionality. 
 
 
-# Learning Objectives
+## Learning Objectives
 
 
 
@@ -33,7 +34,7 @@ Dai is a decentralized stablecoin currently live on the Ethereum network. The Da
 *   Integrate the Dai token effectively with your application.
 
 
-# Pre-requisites
+## Pre-requisites
 
 
 
@@ -41,7 +42,7 @@ Dai is a decentralized stablecoin currently live on the Ethereum network. The Da
 *   Ability to send ethereum transactions from your preferred dev environment.
 
 
-# Sections
+## Sections
 
 
 
@@ -51,7 +52,7 @@ Dai is a decentralized stablecoin currently live on the Ethereum network. The Da
 *   Deploy a DSToken
 
 
-## Token Info
+### Token Info
 
 **Addresses**
 
@@ -72,10 +73,10 @@ The system internally uses 1 USD as the target price of Dai when it issues new d
 Care should be taken before using the price of Dai directly reported by sources like [CoinMarketCap](https://coinmarketcap.com/currencies/dai/), because exchange bugs may produce unreasonable price data. In many scenarios, such as displaying the value of Dai in a wallet, it is perfectly fine to hard code the price of a token to 1 USD.
 
 
-## 
+### 
 
 
-## Getting Dai
+### Getting Dai
 
 **Mainnet**
 
@@ -88,7 +89,7 @@ You can also create your own Dai by opening a CDP with [https://cdp.makerdao.com
 The best method to get Kovan Dai is to open a testnet CDP using Kovan ETH and create your required amount of Dai from it. The lowest collateralization ratio will give you the most bang for the buck!  Another option is to buy Kovan Dai using Kovan ETH on Eth2Dai.io if there is sufficient liquidity available.
 
 
-## Token Contract
+### Token Contract
 
 **DSToken**
 
@@ -133,7 +134,7 @@ After emergency shutdown, all DAI holders are allowed to claim collateral for ea
 The transferFrom function has a few aliases available: push, pull, and move, both mint and burn functions also have aliases that automatically create or remove Dai of the msg.sender.
 
 
-## Deploy a DSToken
+### Deploy a DSToken
 
 You will need to install dapptools to finish this section. Installation instructions can be found here, [https://dapp.tools/](https://dapp.tools/) Your ``.sethrc`` file should be initialized with the right values for the env variables SETH_CHAIN and ETH_FROM as mentioned [here](https://github.com/dapphub/dapptools/tree/master/src/seth#example-sethrc-file). Seth will automatically search the default folder paths for Geth and Parity keystores, or your Ledger hardware wallet, for the address.
 
@@ -154,15 +155,15 @@ seth send 0xAddressOfDeployedFactory 'make(bytes32,bytes32)' 0x44414900000000000
 This will deploy a new DSToken and set the address that deployed it as the owner.
 
 
-# Summary
+## Summary
 
 In this guide, we briefly discussed the technical details of the Dai token contract as well as a quick summary of its role in the Dai Credit System. Please refer to the links embedded in the document as well as the additional resources section for more information. The Dai token itself is a small part of a rich set of tools and services built by a large group of partners around it and we urge you to explore this broader ecosystem too.
 
 
-# Troubleshooting
+## Troubleshooting
 
 
-# Next steps
+## Next steps
 
 
 
@@ -170,7 +171,7 @@ In this guide, we briefly discussed the technical details of the Dai token contr
 *   CDP Integration guide
 
 
-# Additional resources
+## Additional resources
 
 
 
@@ -179,7 +180,7 @@ In this guide, we briefly discussed the technical details of the Dai token contr
 1.  [https://hackernoon.com/how-one-hacker-stole-thousands-of-dollars-worth-of-cryptocurrency-with-a-classic-code-injection-a3aba5d2bff0](https://hackernoon.com/how-one-hacker-stole-thousands-of-dollars-worth-of-cryptocurrency-with-a-classic-code-injection-a3aba5d2bff0)
 
 
-# Help
+## Help
 
 
 

@@ -10,6 +10,7 @@ some_url:
 # (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes 
 
 
+
 [**Metricbeat**](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html) is a lightweight shipper installed on a server to periodically collect metrics from the host and services running. This represents the first pillar of observability to monitor our stack.
 
 Metricbeat captures by default system metrics but also includes a large list of modules to capture specific metrics about services such as proxy (NGINX), message bus (RabbitMQ, Kafka), Databases (MongoDB, MySQL, Redis) and many others (find the full list [here](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-modules.html))
@@ -17,7 +18,7 @@ Metricbeat captures by default system metrics but also includes a large list of 
 
 <br />
 
-## Prerequisite - kube-state-metrics
+### Prerequisite - kube-state-metrics
 
 First, we need to install `kube-state-metrics` which is a service listening the Kubernetes API to exposes a set of useful metrics about the state of each Object.
 
@@ -36,7 +37,7 @@ service/kube-state-metrics created
 
 <br />
 
-## Configuration
+### Configuration
 
 In order to install Metricbeat on our Kubernetes environment, we need to install a `DaemonSet` (agent installed on every nodes) and configure the settings.
 
@@ -46,7 +47,7 @@ This file contains our metricbeat [settings](https://www.elastic.co/guide/en/bea
 
 
 ``` yaml
-# metricbeat.settings.configmap.yml
+## metricbeat.settings.configmap.yml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -131,7 +132,7 @@ Monitoring can generate a large amount of data, perhaps more than 10GB a day, so
 In the file below, we configure to rollover the indice every day or every time it exceeds 5GB and delete all indice files older than 30 days. **We only keep 30 days of monitoring data**
 
 ```yaml
-# metricbeat.indice-lifecycle.configmap.yml
+## metricbeat.indice-lifecycle.configmap.yml
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -168,7 +169,7 @@ data:
 The next part is the `DaemonSet` describing a Metricbeat agent deployed on each node of the k8s cluster. We can especially noticed the environment variables and the volumes to access the `ConfigMap`
 
 ```yaml
-# metricbeat.daemonset.yml
+## metricbeat.daemonset.yml
 ---
 apiVersion: extensions/v1beta1
 kind: DaemonSet
@@ -270,7 +271,7 @@ spec:
 The last part is a more generic part that grant access of k8s resources to the metricbeat agents.
 
 ```yaml
-# metricbeat.permissions.yml
+## metricbeat.permissions.yml
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -330,7 +331,7 @@ metadata:
 
 <br />
 
-## Installation and result
+### Installation and result
 
 We can now deploy Metricbeat:
 
@@ -383,7 +384,7 @@ We also enabled the module `mongodb`, have a look now on the dashboard **[Metric
 <br />
 <br />
 
-## Next steps
+### Next steps
 
 In the following article, we will learn how to install and configure Filebeat:
 [Collect logs with Elastic Filebeat for monitoring Kubernetes](https://kauri.io/article/28b4930506794915be2559dc5ee4b0b1)

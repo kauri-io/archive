@@ -10,6 +10,7 @@ some_url:
 # Ethereum ❤ Witnet
 
 
+
 ----
 
 
@@ -24,7 +25,7 @@ That’s exactly why we started building [Witnet](https://witnet.io) : a **decen
 Those rewards are paid by the requesting parties using the Witnet blockchain’s native token: **Wit** .
 Now you’ll be wondering: **“If this Witnet thing has its own blockchain, how on Earth will Ethereum contracts interact with it?”** 
 
-## Ethereum bridges, a quick overview
+### Ethereum bridges, a quick overview
 
 The [Witnet whitepaper](https://witnet.io/static/witnet-whitepaper.pdf) explains that Ethereum bridges are:
 > “Witnet nodes which also run an Ethereum node, have full access to the Ethereum blockchain and have the capability to operate with ether and make contract calls”.
@@ -40,9 +41,9 @@ In the Witnet ecosystem, Ethereum bridges are in charge of two missions:
 ![](https://cdn-images-1.medium.com/max/1600/1*-Kua2raeFSgSfkMrfGgJ3w.png)
 
 
-## Ethereum bridges, in practice
+### Ethereum bridges, in practice
 
-### An example use case
+#### An example use case
 Let’s say Alice and Bob want to create a smart contract **paying one or the other** depending on how’s the weather like tomorrow at noon in London, UK.
 
 
@@ -56,7 +57,7 @@ All that Alice and Bob will need to do is writing an Ethereum smart contract tha
 For convenience, there’ll be a library that will allow Ethereum contract developers to **build Witnet requests using Solidity** inside their own projects and include them into their existing workflows thanks to [Truffle](http://truffleframework.com/) .
 Then, when the Ethereum contract is deployed and funded, the “weather contract” will post the request and register itself to the **Witnet Bridge Interface contract** .
 
-### The Witnet Bridge Interface contract
+#### The Witnet Bridge Interface contract
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Q5aHXJBGzibUo3f-wyt62g.png)
 
@@ -77,13 +78,13 @@ Using the same _“miner selection algorithm”_ explained in [the Witnet whitep
 Now you’re surely wondering: _“_  **How can an Ethereum smart contract verify transactions from other blockchains?**  _Is that even possible?”._ 
 Sure it is! All thanks to block header relaying.
 
-### Block header relaying
+#### Block header relaying
 In order for the WBI contract to verify Witnet _Proofs of Inclusion_ and _Proofs of Leadership_ , **it needs to be aware of all the Witnet blocks to date** .
 That’s possible also thanks to bridge nodes. For every Witnet epoch, one bridge node **wins the right to act as a block header relayer** .
 Block header relayers are in charge of **disclosing new Witnet blocks to the WBI** contract. In doing so, **they’ll get a percentage of the ether fees attached to all the eth-to-wit requests** that ended up being published in that block.
 This scheme is expected to consume a significant amount of gas, as proof verification will likely require quite a bunch of hashing rounds. But it completely succeeds achieving its purpose of **allowing the WBI contract to trustlessly verify that the request was published to Witnet** by the contract caller.
 
-### Reporting the results
+#### Reporting the results
 
 ![](https://cdn-images-1.medium.com/max/1600/1*l1HxRVdvKmpVq6uYGm2Y4Q.png)
 
@@ -113,7 +114,7 @@ Don’t panic — the WBI contract will provide an `upgradeReward` function for 
 ----
 
 
-## Want to know more about the use cases of Witnet?
+### Want to know more about the use cases of Witnet?
 Don’t miss the next article in the series:
 You can also:
 

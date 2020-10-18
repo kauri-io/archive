@@ -9,21 +9,22 @@ some_url:
 
 # Building a Decentralized Comment Section with 3Box
 
+
 User comments are an important part of any content-driven application. Traditional web applications usually pair commenting systems with a corresponding user profile system. When we create commenting systems for the decentralized web we also need decentralized user profiles. Luckily, the [3Box Comments Plugin](https://docs.3box.io/build/plugins/comments) has us covered.
 
 The 3Box Comments Plugin is an easy to use [React](https://reactjs.org/) component that adds a decentralized commenting system to your app. It connects directly to your users' Ethereum wallets, so there's no need to implement yet another profile system. It also integrates with [3Box](https://3box.io/) to upload comments to a database that your users have control over. If you're looking for the ultimate decentralized commenting system, look no further.
 
 In this tutorial, we build a small React app that implements the 3Box Comments Plugin. We cover all the steps you need to take in order to get a decentralized commenting system running. If you're feeling adventurous, you're more than welcome to follow along while adding the plugin to an existing project.
 
-## About 3Box
+### About 3Box
 
 [3Box](https://3box.io/) is a framework for managing user data in a secure and decentralized way. The [3Box Comments Plugin](https://docs.3box.io/build/plugins/comments) is only one of [the many free and open source tools](https://3box.io/products) in the 3Box ecosystem. 3Box can help you easily integrate various decentralized components, like user profiles or chat systems, into your application. Check out [their website](https://3box.io/) and [documentation page](https://docs.3box.io/why-3box) if you'd like to learn more!
 
-## Setup
+### Setup
 
 The [3Box Comments Plugin](https://docs.3box.io/build/plugins/comments) is a [React](https://reactjs.org/) component. We need to create a React project base first. We use React's [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html#create-react-app) tool to set everything up, so make sure you've got [Node.js](https://nodejs.org/en/) and [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your machine.
 
-### Creating the Project Base
+#### Creating the Project Base
 
 Once you're ready, open up your terminal and run the following to create the base:
 
@@ -44,7 +45,7 @@ You should see a placeholder page with some basic information about React:
 
 **Note**: You'll have an easier time with this demo if you keep the development server running in one terminal window and edit your code in another.
 
-### Installing 3Box
+#### Installing 3Box
 
 Next, we install the 3Box Comments Plugin and the [3Box.js SDK](https://github.com/3box/3box-js). 3Box.js connects our plugin to the 3Box data storage system that gives users control over their comments. In your terminal:
 
@@ -52,7 +53,7 @@ Next, we install the 3Box Comments Plugin and the [3Box.js SDK](https://github.c
 npm install 3box 3box-comments-react --save
 ```
 
-#### Bug Fix: `multicodec`
+##### Bug Fix: `multicodec`
 
 3Box makes use of the `ipfs` Node.js package, which itself imports a library called `multicodec`. Due to a breaking change in the current version of `multicodec`, it's necessary at the moment to downgrade the library to version `0.5.6`. Install this library in your terminal via:
 
@@ -60,13 +61,13 @@ npm install 3box 3box-comments-react --save
 npm install multicodec@0.5.6 --save
 ```
 
-### Installing an Ethereum Wallet
+#### Installing an Ethereum Wallet
 
 Finally, make sure you've got an Ethereum wallet (like [MetaMask](https://metamask.io/)) installed in your browser. You need this in order to get an instance of [`ethereum`](https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider) injected into your webpage. You can also easily use a tool like [Web3](https://github.com/ethereum/web3.js) to create an `ethereum` instance, but we'll use a browser wallet to keep things focused.
 
 Once you've installed everything, you're all set to start experimenting with decentralized comments!
 
-## Behind the Scenes
+### Behind the Scenes
 
 Before we continue, let's take a quick look at how the 3Box Comments Plugin actually works. 
 
@@ -74,11 +75,11 @@ The plugin handles two key features, user profile generation and comment storage
 
 The Comments Plugin can be created in [a few different ways](https://docs.3box.io/build/plugins/comments#2-choose-your-authentication-pattern), depending on when and how your instances of `ethereum` and `3box` are initialized. For the best possible user experience, `ethereum` and `3box` should both be initialized either before or after the Comments component is [mounted](https://docs.3box.io/build/plugins/comments#2-choose-your-authentication-pattern). It's possible to use the component without initializing an instance of `3box`, but users have to re-authenticate on each page using the plugin. More information about the different initialization and authentication flows is available on the [documentation page](https://docs.3box.io/build/plugins/comments) for the plugin.
 
-## Let's Get Down to Business
+### Let's Get Down to Business
 
 Now that we've covered the internals, let's get started with our demo application. We start by modifying `src/App.js`. We don't need of React's demo code in `src/App.js`, so go ahead and delete the file's contents.
 
-### Creating an App Component
+#### Creating an App Component
 
 First, we create a basic [React component](https://reactjs.org/docs/react-component.html) to hold the contents of our app. There's nothing special here, we're just setting things up:
 
@@ -109,7 +110,7 @@ Your development server should automatically compile the app again once you've m
 
 ![React app setup screenshot](https://api.kauri.io:443/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs)
 
-### Importing 3Box
+#### Importing 3Box
 
 Now we start setting up our `3box` instance. We import `3box` and `3box-comments-react` at the top of `src/App.js` file:
 
@@ -122,7 +123,7 @@ import BoxComments from '3box-comments-react';
 ...
 ```
 
-### Adding Component State
+#### Adding Component State
 
 Our `App` component needs to [store some state](https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class) for later. Particularly, we need to store a `3box` instance, the user's Ethereum address, the user's 3Box profile (if any), and a readiness flag:
 
@@ -148,7 +149,7 @@ class App extends React.Component {
 ...
 ```
 
-### Initializing 3Box
+#### Initializing 3Box
 
 We're ready to initialize 3Box. We create our `3box` instance after the component is mounted by listening for the [`componentDidMount`](https://reactjs.org/docs/react-component.html#componentdidmount) lifecycle hook. We need to create a function `login()` that handles the `3box` initialization logic.
 
@@ -202,7 +203,7 @@ class App extends React.Component {
 ...
 ```
 
-### Creating the Component
+#### Creating the Component
 
 We're finally ready to create our component. We update our [`render()`](https://reactjs.org/docs/react-component.html#render) function so that it renders the component we imported from `3box-comments-react`. Once we're finished with this step, we have have a working comment section!
 
@@ -265,7 +266,7 @@ Once you've accepted these requests, you should be able to leave a comment:
 
 And we're off!
 
-## Optional Settings
+### Optional Settings
 
 We managed to get the basic comments component running, but `3box-comments-react` also provides [a few additional customization options](https://docs.3box.io/build/plugins/comments#3-configure-application-settings). Here's a full list:
 
@@ -326,7 +327,7 @@ Wait for your app to compile again and head over to the webpage. You should see 
 
 ![3Box comments with more features screenshot](https://api.kauri.io:443/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW)
 
-## Making It Your Own
+### Making It Your Own
 
 Now that you've played around with `3box-comments-react`, you're ready to integrate it into your own app. You can easily customize the visual style of the component by adding some CSS rules. Let's try making our comment text red. Open up `src/index.css` and add the following:
 
@@ -343,7 +344,7 @@ And here's what that looks like:
 
 ![3Box comments with red text screenshot](https://api.kauri.io:443/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue)
 
-## Conclusion
+### Conclusion
 
 We did it! We managed to get the 3Box Comments Plugin added to a simple React app in just a short period of time. The decentralized future awaits. 
 

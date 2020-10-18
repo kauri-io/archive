@@ -9,8 +9,9 @@ some_url:
 
 # Bitcoin Contract Scripts
 
+
 _This post originally appeared on [bitcoin.org](https://bitcoin.org/en/contracts-guide#introduction)_
-## Introduction
+### Introduction
 
 The following subsections will describe a variety of Bitcoin contracts
 already in use. Because contracts deal with real people, not just
@@ -21,7 +22,7 @@ have been proposed. Several of them are collected on the [Contracts
 page](https://en.bitcoin.it/wiki/Contracts) of the Bitcoin Wiki.
 
 
-## Escrow And Arbitration
+### Escrow And Arbitration
 
 Charlie-the-customer wants to buy a product from Bob-the-businessman,
 but neither of them trusts the other person, so they use a contract to
@@ -110,7 +111,7 @@ need to worry about their arbitrator stealing their money.
 service interface using HTML/JavaScript on a GNU AGPL-licensed website.
 
 
-## Micropayment Channel
+### Micropayment Channel
 
 <!-- SOMEDAY: try to rewrite using a more likely real-world example without
 making the text or illustration more complicated -->
@@ -183,7 +184,7 @@ implementation, and [a
 tutorial](https://bitcoinj.github.io/working-with-micropayments)
 all under an Apache license.
 
-## CoinJoin
+### CoinJoin
 
 Alice is concerned about her privacy. She knows every transaction gets
 added to the public block chain, so when Bob and Charlie pay her, they

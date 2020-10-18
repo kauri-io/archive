@@ -9,6 +9,7 @@ some_url:
 
 #  Monero and Zcash are no longer privacy coins?
 
+
 ![](https://api.kauri.io:443/ipfs/QmQJK6tDtyYyXhX54wSUsdb9ZRYJTkZJ2RhzaegjfExfuB)
 
 The company Chainalysis said that they can make traceable some cryptocurrencies that are famous for be focused into user privacy throught no traceable transactions, obviously we are talking about Monero, Zcash and Dash too.

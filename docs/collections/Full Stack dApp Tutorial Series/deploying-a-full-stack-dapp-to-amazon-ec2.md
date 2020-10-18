@@ -9,13 +9,14 @@ some_url:
 
 # Deploying a full-stack dApp to Amazon EC2
 
-# Deploying a full-stack dApp to Amazon Elastic Cloud Computing (AWS-EC2)
+
+## Deploying a full-stack dApp to Amazon Elastic Cloud Computing (AWS-EC2)
 
 In the previous [tutorials in this series](https://kauri.io/collection/5b8e401ee727370001c942e3), we saw how to develop a full-stack ethereum-based blockchain dApp.
 
 In this tutorial, we learn how to deploy the dApp to an Amazon web services (AWS) elastic cloud computing (EC2) instance. We also create a private ethereum blockchain node using [kaleido](https://kaleido.io/) and configure the dApp to work with this blockchain node.
 
-## Prerequisites
+### Prerequisites
 
 To complete this tutorial, you need a good understanding of the following concepts:
 
@@ -23,7 +24,7 @@ To complete this tutorial, you need a good understanding of the following concep
 -   Basic Linux Command Line Interface (CLI) knowledge.
 -   A good understanding of how the blockchain works is recommended, but not necessary for completing this tutorial.
 
-## Launch and Connect to an EC2 Instance
+### Launch and Connect to an EC2 Instance
 
 <!-- TODO: Replace -->
 
@@ -41,7 +42,7 @@ sudo service httpd start
 sudo chkconfig httpd on
 ```
 
-## Create a Private Ethereum Blockchain Node using [Kaleido](https://kaleido.io/)
+### Create a Private Ethereum Blockchain Node using [Kaleido](https://kaleido.io/)
 
 To create a private ethereum blockchain node in kaleido, do the following:
 
@@ -77,7 +78,7 @@ To connect to the newly created node, you need to add new app credentials in Kal
 
 4.  Click _DONE_ to save the app credentials.
 
-## Create a Kaleido IPFS Node
+### Create a Kaleido IPFS Node
 
 Because the dApp needs to connect to an IPFS node, you need to create a new node by doing the following:
 
@@ -94,11 +95,11 @@ Save the IPFS URL created in a safe place because you need it later in the tutor
 -   Copy the URL under _MY COMPANY ORGANIZATION - IPFS GATEWAY ENDPOINT_ and append the _APPLICATION CREDENTIALS_ displayed to this URL. i.e., if the url is `https://u0b2fvaghe-u0kzkqcb5x-ipfs.us0-aws.kaleido.io/ipfs` and the credentials are `u0hnyi99nm:8abPcEHO1ioxo7pckJKcxw3VzKl8D19TsFp5o7pE-cj4` the new url is `u0hnyi99nm:8abPcEHO1ioxo7pckJKcxw3VzKl8D19TsFp5o7pE-cj4@u0b2fvaghe-u0kzkqcb5x-ipfs.us0-aws.kaleido.io`.
 -   Save this url in a secure place.
 
-## Deploy the dApp to AWS
+### Deploy the dApp to AWS
 
 For this tutorial, we use the [react project](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend) from previous steps. Fork the repo to make the changes described below and deploy the dApp to the AWS EC2 instance.
 
-### Generate a new Ethereum Wallet and Mnemonic
+#### Generate a new Ethereum Wallet and Mnemonic
 
 This step is optional if you already have an existing Ethereum wallet and are comfortable using it's mnemonic from the above dApp.
 
@@ -111,7 +112,7 @@ To generate a new wallet go to <https://iancoleman.io/bip39> and in the BIP39 Mn
 
 You can also get the address of the wallet in the table under _Derived Addresses_ in the first row under the column Address. i.e. `0x06c6b9bfF7281e97DE8455df05f0EC62528f4DEC`
 
-### Setup Truffle
+#### Setup Truffle
 
 In the repo forked above, create a `secrets.json` file in the root path of the `truffle-react-box-frontend` folder.
 
@@ -151,7 +152,7 @@ with the lines:
     }
 ```
 
-### Setup Metamask
+#### Setup Metamask
 
 You also need to install and setup [metamask](https://metamask.io/) which is a web3 provider for browsers.
 
@@ -170,7 +171,7 @@ Configure metamask to connect to the above kaleido node by doing the following:
 -   In the _networks_ dropdown, select the _Custom RPC_ option.
 -   Enter "Kaleido" under _network name_ in the new page and enter the kaleido connection url from above i.e., "username:password@kaleidonodeurl" as the network _New RPC URL_ and click _Save_. You can leave the rest of the fields blank for now.
 
-### Fund the Ethereum Wallet
+#### Fund the Ethereum Wallet
 
 To fund the Ethereum wallet created above do the following:
 
@@ -180,7 +181,7 @@ To fund the Ethereum wallet created above do the following:
 
 This now adds the funds to the address associated with the wallet and metamask reflects this if you select the _kaleido_ network created above. Note that these funds are **not real** and can't be used for transactions in the main Ethereum network, but can be used for blockchain transactions in the private kaleido network.
 
-### Setup the dApp in AWS
+#### Setup the dApp in AWS
 
 After connecting to the kaleido node created above via metamask and funding the account, its time to deploy the dApp to AWS by taking the following steps:
 

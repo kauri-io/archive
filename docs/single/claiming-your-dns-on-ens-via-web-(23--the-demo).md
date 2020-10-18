@@ -10,6 +10,7 @@ some_url:
 # Claiming your DNS on ENS via Web (2/3  The Demo)
 
 
+
 ----
 
 
@@ -30,14 +31,14 @@ I have been working for the past few months making it easier to retrieve the pro
 
 Let’s dissect the demo video screenshot by screenshot.
 
-### Step 1: Type domain name and press “Lookup”.
+#### Step 1: Type domain name and press “Lookup”.
 This will show you the ETH address set under `_ens.domain.xyz` 
 At this moment, no data is set on DNSSEC Oracle nor ENS so they all show `0x0` .
 
 ![](https://cdn-images-1.medium.com/max/1600/1*LIA_3Yv2dIMIXBOKHvkmyQ.png)
 
 
-### Step 2: Submit the proof
+#### Step 2: Submit the proof
 Clicking the button will prompt to send two transactions, one to claim the proofs for each record on DNSSEC Oracle smart contract, and another one to set ownership of the domain on the ENS contract.
 
 ![](https://cdn-images-1.medium.com/max/1600/1*U-egIBGBF0xGSDb9omj-Lg.png)
@@ -45,7 +46,7 @@ Clicking the button will prompt to send two transactions, one to claim the proof
 If you look at the transactions, you can see that the first transaction is over 1.2 million gas which is quite expensive. But hold your horses! It’s likely you’ll pay a lot less in practice.
 
 ```
-## claim()
+### claim()
 Transaction: 0x554a91b048ee837d000b88cc73dbacccbad0bc27ee555b4e29a1af9422478a32
 Gas usage: 1252768 <= *1.2 M !
 ```
@@ -53,14 +54,14 @@ Gas usage: 1252768 <= *1.2 M !
 
 
 ```
-## setSubNodeOwner()
+### setSubNodeOwner()
 Transaction: 0xc08125d6ea9c11f866458eac335defee436f4ac72fdc3d07f59197017d2f14ad
 Gas usage: 83849
 ```
 
 
 
-### Step 3: Setting another domain record
+#### Step 3: Setting another domain record
 Now let’s try to set another record, ethlab.xyz.
 What you notice is that the first half of the proofs are already set because the proof of `.xyz` is already set in a previous transaction.
 
@@ -69,7 +70,7 @@ What you notice is that the first half of the proofs are already set because the
 So if you press “Submit the proof”, this time the cost of the first transaction to put the proof in DNSSEC Oracle is a lot lower.
 
 ```
-## claim()
+### claim()
 Transaction: 0xfd091eeb5bd81ddf01ef62b784f9ed651b333ef22938438a93f189b307ee404a
 Gas usage: 373156 <= *373K !
 ```
@@ -77,7 +78,7 @@ Gas usage: 373156 <= *373K !
 
 
 ```
-## setSubNodeOwner()
+### setSubNodeOwner()
 Transaction: 0x003d32cd1c2a57ca2f1252735d4e2e25d565fb56249c8fc5e8ac9a1a4793819a
 Gas usage: 84822
 ```

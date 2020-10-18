@@ -9,7 +9,8 @@ some_url:
 
 # Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error
 
-## The Error
+
+### The Error
 
 My travis CI pipeline builds randomly starting failing recently, with the following exception:
 
@@ -24,7 +25,7 @@ The command "sudo apt update" failed and exited with 100 during
 
 The mongoDB certificates had expired!  
 
-## The Solution
+### The Solution
 
 Luckily, I stumbled upon a simple, one-line command that updates all the expired keys from the ubuntu keyserver:
 

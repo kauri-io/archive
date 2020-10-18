@@ -9,6 +9,7 @@ some_url:
 
 # ¿Cual es la diferencia entre un token y una moneda? ¿Tipos de tokens?
 
+
 ![](https://api.kauri.io:443/ipfs/Qmeu5J2rTkbfb5YFN71jGpa9DX8Nj36bEsFDCEAW9KSbZa)
 
 Las monedas o criptomonedas son el resultado marginal de la blolckchain, por ejemplo Rippple, Bitcoin o Ether son monedas, en el caso de Bitcoin la moneda se llama igual que la blockchain, pero sin embargo por ejemplo en el caso de Ethereum la blockchain se llama así y la moneda que surje de ello se llama Ether.

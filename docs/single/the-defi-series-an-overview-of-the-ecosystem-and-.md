@@ -10,10 +10,11 @@ some_url:
 # The DeFi Series — An overview of the ecosystem and major protocols
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmYVcgHuRug4Coz9GF91iMU3roRTAVYzfoS98b5oKt3CVG)
 
 
-## TL; DR
+### TL; DR
 As the first piece of our DeFi series, this article aims to introduce the overview landscape and share knowledge collected around the several most major protocols. In this piece we touched the overlap on user base of Maker and Compound, and will continue research on user base and systematic risks in the coming DeFi pieces. Keep an eye out for our continually refreshed 
 [dashboard](https://public.tableau.com/profile/alethio#!/vizhome/DeFi_15529865481350)
  and 
@@ -22,7 +23,7 @@ As the first piece of our DeFi series, this article aims to introduce the overvi
 [website](https://aleth.io/)
  !
 
-## Introduction
+### Introduction
 For the past few months, various projects have blossomed in decentralized finance space on Ethereum. Quoted from 
 [the block](https://www.theblockcrypto.com/2019/03/14/mapping-out-ethereums-defi/)
  , below is the landscape picturing the DeFi ecosystem. The most trending protocols fall into exchanges & liquidity, derivatives, prediction markets, stablecoins and credit & lending categories. We will dive into examples for each of them later in this article.
@@ -34,12 +35,12 @@ As a concern raised from the community, a considerable amount of ETH are sent to
 ![](https://api.kauri.io:443/ipfs/QmUkchbCjDi18LMaYKZhJDk6GU63ifvrocqj6yWxVJJBUF)
 
 
-## Maker DAO & DAI
+### Maker DAO & DAI
 
-### What is DAI?
+#### What is DAI?
 DAI is a collateral backed cryptocurrency that lives completely on the blockchain and does not rely on any mediator to insure its stability and peg relative to the US Dollar. DAI is backed by collateral which is locked into audited and publicly available smart contracts.
 
-### How is DAI generated?
+#### How is DAI generated?
 Maker uses a series of smart contracts deployed on the mainnet to back the value of the DAI stablecoin through a system of Collateralized Debt Positions (CDPs), feedback mechanisms and trusted third parties. It allows anyone to leverage ETH holdings to generate DAI stablecoins.
 Users that want to create DAI first open a CDP and then deposit ETH in the Maker CDP smart contract.
 Technically it’s not ETH that is deposited, but PETH, or Pooled Ether. First of all, ETH is turned into WETH, or Wrapped Ether, which is essentially an ERC20 token that is minted 1:1 for ETH. Afterwards PETH basically acts as a share of a ‘pool of ETH’ — you deposit ETH, and get a share that you can redeem for the amount of ETH received. It’s worth noting that unlike ETH to WETH, ETH to PETH conversion rates are not 1:1. Currently 1 PETH = 1.04 ETH — the reason behind this will be made clear a bit later.
@@ -74,7 +75,7 @@ A CDPs lifecycle is defined in 6 stages (
 
 Above is showing by March 12, how the user community around Maker Collateral Pool look like. Green nodes are all the external accounts created CDPs and deposited into the liquidity pool. Some of them communicated through proxy contracts (blue nodes) and exchanged ETH for WETH first, and then deposited WETH into Maker SaiTub, while some of them sent WETH directly towards the Maker (green nodes around it). The total WETH volume makes up the total amount of ETH once locked up in Maker, which is ~2 million ETH by then. (*2% of total ETH supply and ~89% out of 6 major defi projects*)
 
-## Compound
+### Compound
 Compound is a protocol on the Ethereum blockchain that uses a process of algorithmically determining interest rates for pools of tokens (called money markets) based on the supply and demand for each token. The money markets are unique to every ERC20 token and transparently record transactions and historical interest rates.
 Users supply tokens to the platform directly, and earn a floating interest rate, without negotiating anything with their counterparties (conversely borrowers take loans of tokens from the platforms and pay the interest rates).
 Insead of having suppliers and borrowers negotiate on terms and rates, the interest rates in the Compound protocol are computed using a model that follows the theoretical notion that increased demand should increase interest rates. Each money market undergoes this calculation, and thus each token has its own interest rate model — a function of that specific token’s utilization. Of course, the interest earned by suppliers is less than that paid by borrowers — to ensure the protocol’s economic stability and sustainability.
@@ -85,13 +86,13 @@ Why be a supplier? Or a borrower?
 Money markets accrue interest in real time, and offer complete liquidity — so users can view their balances (including interest) and withdraw them at any time. Long term holders can leverage their positions and use the money markets as an additional source of income.
 Similarly, borrowers can instantly borrow tokens (they collateralize these loans — and similarly to Maker’s approach — users have to maintain a balance that covers the borrowed amount, and then some, to ensure solvency). Borrowers don’t have to wait for orders to fill, and they can easily leverage their existing portfolios to borrow tokens that they can instantly use somewhere else in the Ethereum ecosystem.
 
-### Platform usage
+#### Platform usage
 
 ![](https://api.kauri.io:443/ipfs/QmacuJuWeAPZLRv5txaLvpsNEBcPSW1CXRPouSZCQb5tCC)
 
 The table above summarizes the usage in the Compound platform so far. The simplest way to determine supply and demand forces and their influence on the interest is to look at the number of loans, lenders and borrowers. Another interesting metric that could explain the higher interest rates, is the percent lent, which shows how much of the total supply was borrowed at one point — by the most borrowed tokens are DAI and WETH.
 
-## Token Exchange: Uniswap
+### Token Exchange: Uniswap
 Uniswap is a protocol that automates token exchanges on Ethereum. Inspired by 
 [a reddit post](https://www.reddit.com/r/ethereum/comments/55m04x/lets_run_onchain_decentralized_exchanges_the_way/)
  from Vitalik, it is a set of smart contracts deployed to the mainnet. It doesn’t have a token (it actually has more than one, but more on that later), no centralized order books and no amount of fees goes to the platform or its creator (but rather to the liquidity providers — so the users). At just under 30k ETH locked — this would be enough to put it in the top 5 DeFi platforms. This figure doesn’t take into account all the tokens locked though — tokens included, Uniswap is currently the 3rd largest DeFi platform (after Maker and Compound) in terms of value locked.
@@ -100,12 +101,12 @@ Traditionally, on centralized exchanges, users choose to make markets by providi
 **always**
  get completed.
 
-### What’s in it for the liquidity providers?
+#### What’s in it for the liquidity providers?
 When providing liquidity to an exchange, this cannot happen on just one side of the pair — this would shift the ratio that essentially gives the token price (x token / y ETH = price) and with this change the provider will lose money through arbitrage.
 After adding equally valued amounts of both ETH and token to the exchange contract for said token, the provider is issued what are called liquidity tokens. These tokens essentially represent shares in the liquidity pool (provide 10% of the total liquidity of that pool — receive tokens that entitle you to 10% of the pool). These are simply records that tell how much liquidity providers are owed. Adding or removing liquidity, mints or burns liquidity tokens such that the relative share of the pool stays constant for everyone.
 These were the hows, now onto the whys. The incentive to provide liquidity comes from the fact that for all trades, fees are paid. These fees go back into the liquidity pool so that even though providers are always entitled to the same percent of the liquidity pool, that percent is now worth more. There are no platform fees, only these swapping fees.
 
-### Fee Structure
+#### Fee Structure
 
 
 
@@ -137,25 +138,25 @@ These were the hows, now onto the whys. The incentive to provide liquidity comes
 
 This chart shows liquidity providers for each token. The Each color represents a token, each rectangle — a provider. The size of each rectangle is proportional to the amount of liquidity provided. The 2 biggest tokens on the left (green and gold) are DAI and MKR — apparently the most popular pairs.
 
-## Prediction Market: Augur
+### Prediction Market: Augur
 Augur is a protocol that allows users to create prediction markets. These allow speculators to essentially bet on the outcomes of future events. These markets aggregate the predictions of participants and incentivize them to contribute to the 
 [pool of wisdom](https://en.wikipedia.org/wiki/Wisdom_of_the_crowd)
  by rewarding those who are eventually proven to be right.
 The markets follow a four stage process: creation, trading, reporting and settlement. Trading begins immediately after creation, and once the event occurs and its outcome is determined, users can close their positions and withdraw their payouts.
 
-### Market Creation
+#### Market Creation
 Anyone can create a market regarding a future event. The creator sets event end times and designates the reporter that will report the outcome of the event (Anyone reported outcome can be disputed by the community, in case the report is considered to be wrong). The creator also chooses a resolution source — this should be used to determine the outcome (can be almost any source). The fees that will be paid by those who settle the market to the creator are also decided.
 Lastly the creator posts 2 bonds: the validity (paid for in ETH and refunded if the market doesn’t settle as invalid — it’s set based on the amount of recent invalid results and acts as an incentive for creators to only open unambiguous markets) and the no-show bond (paid in REP — it is returned to the creator only if the designated reporter submits the report during a 3 day period — it incentivizes the choosing of reliable reporters so that markets are resolved quickly).
 
-### Trading
+#### Trading
 The outcomes of events are traded by means of shares in that outcome. When users buy shares for a possible outcome for a market, they essentially bet ETH on one outcome or the other, after which Augur’s matching engine creates a complete set of shares that consists of one share of each possible outcome.
 An order book is maintained for all of the markets created, and orders can be created or filled at any time and for any market. This may involve trading with other users, or the creation of new sets of shares. Traders set a minimum price for their orders and if it cannot be filled in full, it is at least partially filled, with the rest placed again as a new order.
 All the assets mentioned — Augur markets, shares in outcomes, participation tokens, shares in dispute bonds — are tradable and transferable at any time.
 
-### Reporting
+#### Reporting
 Once the event that the market was created to predict occurs — it’s outcome determines the market to finalize and for settlement to begin. Oracles that are motivated by profit act as reporters and relate the real world outcome of the events. REP holders may participate in the reporting and eventual disputing of outcomes.
 
-### Market Settlement
+#### Market Settlement
 Traders exit their positions by either selling their shares to others or by settling with the market.
 
 ![](https://api.kauri.io:443/ipfs/QmNrrZQrTjTVUwK5RDvWbAKv87SsujgGycS2AcszPWDKGA)
@@ -164,7 +165,7 @@ When creating a market, users can specify a description, and also some tags to h
 _(They were extracted and decoded from the data field of the topics that the Augur smart contract generated when the create market event is fired)_
  .
 
-## User overlap analysis — Maker & Compound
+### User overlap analysis — Maker & Compound
 From what we’ve shown so far, the only 2 protocols that share a market (check the first chart, bottom right corner — Credit & Lending) are Maker and Compound. They also happen to be the 2 biggest protocols to date (granted, Maker is an order of magnitude larger). Thus, it would make sense to take a look at their user bases.
 For Maker, this would be made up of those who opened CDPs, and for Compound by both the suppliers and borrowers, as these 2 categories are equally important to the platform. Whereas in Maker, those who lock ETH (CDP openers) usually also borrow DAI, in Compound, you can either be a supplier, a borrower, or both.
  

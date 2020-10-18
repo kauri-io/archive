@@ -9,6 +9,7 @@ some_url:
 
 # Introducing Plasma Group
 
+
  
 _TLDR: We’ve created a simple way to deploy your own plasma chains._
  
@@ -23,15 +24,15 @@ You can
 [connect to a plasma chain that we’ve deployed](https://github.com/plasma-group/plasma-node)
  and send transactions via a command line wallet. This implementation is written in Javascript and Vyper, and includes a library of plasma utilities for those who want to build on top of it.
 
-## About us
+### About us
 Plasma Group is dedicated to the creation of an open plasma implementation for the greater Ethereum community. It’s our mission to push layer 2 scaling forward by exploring the full potential of the plasma framework. Together, we’ll build towards realizing the vision of a more decentralized future.
 
-## Contributors
+### Contributors
 No matter who you are, you can be a part of this community. Anyone can contribute, and we need your expertise to make this a success. Find a list of our repositories 
 [here](http://github.com/plasma-group)
  . Click through to each one to discover contributable issues.
 
-## Donors
+### Donors
 We would like to give resounding thanks to our donors: 
 [OmiseGO](https://omisego.network/)
  and independent individuals within the OMG community, LinkTime, 
@@ -42,7 +43,7 @@ We would like to give resounding thanks to our donors:
 [Gitcoin](https://gitcoin.co/)
  . Thank you all so much for your contributions — we are so incredibly grateful.
 
-## Relevant Links
+### Relevant Links
  
 [Plasma Group Plasma spec](https://medium.com/@plasma_group/plasma-spec-9d98d0f2fccf)
    

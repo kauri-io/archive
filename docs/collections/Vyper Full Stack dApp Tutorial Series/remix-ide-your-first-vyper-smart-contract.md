@@ -9,7 +9,8 @@ some_url:
 
 # Remix IDE - Your first Vyper smart contract
 
-# Remix IDE - Your first Vyper smart contract
+
+## Remix IDE - Your first Vyper smart contract
 
 The easiest place to start writing smart contracts in Vyper in with the online [Remix IDE](https://remix.ethereum.org/).
 
@@ -62,11 +63,11 @@ If there is an error, you should see an error message when you open any of the t
 
 ![](https://api.kauri.io:443/ipfs/QmcTdx9ifH6nipE2KeaWjkz6EtDMgk3m3ib4zGCX1vyipM)
 
-## Issuing a Bounty
+### Issuing a Bounty
 
 Now that we have the basic skeleton of our smart contract, we can start adding functions. First we tackle allowing a user to issue a bounty.
 
-### Declare state variables
+#### Declare state variables
 
 Just like in Solidity, Vyper has state variables. State variables are values which are permanently stored in a contract storage.
 
@@ -116,7 +117,7 @@ nextBountyIndex: int128
 nextFulfillmentIndex: int128
 ```
 
-### Issue Bounty Function
+#### Issue Bounty Function
 
 Now that we have declared our state variables we can add functions to allow users to interact with our smart contract
 
@@ -171,7 +172,7 @@ log.BountyIssued(bIndex, msg.sender, msg.value, _data)
 
 Finally, we log the event `BountyIssued` for the user to subscribe to.
 
-### Try it yourself
+#### Try it yourself
 
 Now that you have seen how to add a function to issue a bounty, try adding the following functions to the Bounties contract:
 
@@ -181,7 +182,7 @@ Now that you have seen how to add a function to issue a bounty, try adding the f
 
 You can find the [complete Bounties.vy file here for reference](https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy).
 
-## Next Steps
+### Next Steps
 
 <!-- TODO: Update -->
 

@@ -10,12 +10,13 @@ some_url:
 # Witnet Monthly Report — August 2018
 
 
+
 Greetings, Witnet community! As planned, every month we update you on our work towards the milestones 
 [set in our project roadmap](https://republic.co/witnet)
  . We share with you this monthly update a bit later than expected because we wanted to include 
 **a recap of our first milestone: the Witnet prototype, Sheikah**.
 
-## 💜 Team
+### 💜 Team
 Over the course of August 
 [we’ve introduced you to James](https://medium.com/witnet/team-insights-james-witnets-community-lead-3e86df746073), 
 **our new Community Lead.**
@@ -25,9 +26,9 @@ Over the course of August
  
 **The Witnet Foundation still has** [open positions](https://angel.co/witnet-foundation-1/jobs), so if you are aware of the impact a decentralized oracle network will have on the crypto landscape and want to get involved, be sure to check them out!
 
-## 🔧 Product
+### 🔧 Product
 
-### Sheikah prototype
+#### Sheikah prototype
 Last week we announced the Sheikah prototype! Sheikah is a lightweight Electron app which 
 **will eventually serve as a full interface**
  for the Witnet wallet, data requests, smart contracts, block explorer, and more.
@@ -52,7 +53,7 @@ That’s a quick update on what we’ve been working on over the last weeks! Ple
 ----
 
 
-### You can also:
+#### You can also:
 
 
 

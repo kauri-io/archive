@@ -10,6 +10,7 @@ some_url:
 # Ethereum Linked Data
 
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmPeSAtp7B3VVbZg6VWeyzSZXKzTa3pAx7AyqoJw7JHaTa)
 
  
@@ -24,12 +25,12 @@ Our hope is that you will explore the graph, play with it and extend it with met
 [DBPedia](https://wiki.dbpedia.org/)
  .
 
-## What data is available?
+### What data is available?
 We are constantly updating the graph with new blocks from the Ethereum Foundation mainnet chain 
 _in real time_
  . At the same time we’re backfilling the database with historical data (1M blocks to go).
 
-## Where should I start?
+### Where should I start?
 You can just try out the Example queries, read more about 
 [EthOn](https://media.consensys.net/ethon-introducing-semantic-ethereum-15f1f0696986)
  or start exploring the ontology with the tools below.
@@ -42,7 +43,7 @@ You can just try out the Example queries, read more about
 
  *  [Download Ethereum as LinkedData](https://linkeddata.aleth.io/download) 
 
-## How can I contribute?
+### How can I contribute?
 Your contribution is always welcome!
 First and foremost: 
 **Tell us what you are doing with the data set**

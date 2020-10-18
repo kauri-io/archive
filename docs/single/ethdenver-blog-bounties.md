@@ -9,6 +9,7 @@ some_url:
 
 # ETHDenver Blog bounties
 
+
 Looking for small issues to work on and earn a 0.1 ETH bounty at ETHDenver 2020? Here's some of our articles we would like an extra pair of eyes to review and update.
 
 

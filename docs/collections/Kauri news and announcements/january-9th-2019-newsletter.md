@@ -9,13 +9,14 @@ some_url:
 
 # January 9th 2019 Newsletter
 
+
 _[Subscribe the Kauri newsletter](http://eepurl.com/dszB7r)_.
 
 Welcome to 2019, and what promises to be an interesting year in the Crypto and Blockchain space. Last year [we announced our $25,000 grant program](https://beta.kauri.io/article/b5c15961f13d4112bc82f6edb6fd3a75) for funding technical content thanks to the Ethereum Foundation. In the spirit of reflection and looking forward, we produced a round up of what we've done with the grant so far, and how you can be involved, [read that post](https://beta.kauri.io/article/56de1edb7c4746568c608f0de24f75fb/v1/january-2019-ethereum-grant-update) and contact us if you're interested in sharing your knowledge.
 
 - The Kauri Team
 
-## New Articles
+### New Articles
 
 Here's a selection of the latest [articles](https://beta.kauri.io/articles) that caught our eye.
 
@@ -24,7 +25,7 @@ Here's a selection of the latest [articles](https://beta.kauri.io/articles) that
 - [Storing files in a distributed file system using blockchain technology](https://beta.kauri.io/article/7d8b71b6976b4a26aa6865873f75dc4c/v1/storing-files-in-a-distributed-file-system-using-blockchain-technology)
 - [Using Eventeum to Build a Java Smart Contract Data Cache](https://beta.kauri.io/article/fe81ee9612eb4e5a9ab72790ef24283d/v2/using-eventeum-to-build-a-java-smart-contract-data-cache)
 
-## Collection Highlights
+### Collection Highlights
 
 Collections group together articles around themes, [create your own here](https://beta.kauri.io/login?r=create-collection).
 

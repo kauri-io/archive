@@ -9,6 +9,7 @@ some_url:
 
 # Kauri Communities are Live!
 
+
 We're excited to announce that [Kauri Communities](https://kauri.io/article/33d197077e5440d195a8ab76a7ba46d9) are officially live!
 
 ![](https://api.kauri.io:443/ipfs/QmSuWDfzqu4GkN4AQ9bJ9xTDTHVqPhQBGKgXH3hccvT3BZ)

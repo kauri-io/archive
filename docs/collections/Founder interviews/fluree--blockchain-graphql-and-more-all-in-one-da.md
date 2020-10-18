@@ -9,6 +9,7 @@ some_url:
 
 # Fluree  Blockchain, GraphQL, and more all in one database
 
+
 > "FlureeDB is a database purpose-built to fit the requirements of modern enterprise applications while providing blockchain capabilities for data security, workflow efficiency, and industry interoperability."
 
 Sound intriguing? I thought the same, and _if_ the team behind Fluree delivers everything it's promising, the results could be staggering.
@@ -35,7 +36,7 @@ Brian also mentions that the biggest beacon on the 6-month Fluree roadmap is tha
 
 All in all, there's no question that Fluree is jam-packed with features and heaps of potential, let's take it for a test drive.
 
-## Hands-On
+### Hands-On
 
 You can [download and unpack a hosted zip file](https://s3.amazonaws.com/fluree-releases-public/flureeDB-latest.zip).
 
@@ -85,7 +86,7 @@ You might have noticed that Fluree is not a NoSQL or schemaless database, which 
 
 Next, you add sample data, again with the four methods available to you. As Fluree is a somewhat relational database, you can add "relations" using what Fluree calls ["predicates"](https://docs.flur.ee/docs/getting-started/basic-schema#adding-predicates). Fluree also bundles a set of [predicate types](https://docs.flur.ee/docs/infrastructure/system-collections#_predicate-types) to define what data type the relationship is, or you can use functions to define the predicate, which is where Fluree gets interesting. For instance, with the Cryptocurrency example from the docs, you can define predicates that are somewhat like Solidity (the Ethereum smart contract language) functions, for checking balances or protecting against double spends.
 
-## Final thoughts
+### Final thoughts
 
 Fluree is fascinating, but the multitude of bundled features overwhelming, sometimes too much choice can be a little daunting and confusing. It's kind of like a database engine, plus a semblance of an application layer bundle into one. I know that many older, relational databases have packed these sorts of features in the past, but it's been a while since I have used a relational database, and have got used to the simplicity of NoSQL offerings. The different interface options are welcome, but I wonder if maybe picking and sticking to one might have been a better engineering decision, especially FlureeQL, which is unique to Fluree. Adding "blockchain" to the tech stack is a choice I am unsure about. [I covered BigchainDB before](https://www.sitepoint.com/bigchaindb-blockchain-data-storage/), which attempted to do the same, albeit in a different way. I'm unsure if Fluree's blockchain features comprise and actual blockchain, or just blockchain-like features, but that's fine, if you have a use case for them, it doesn't matter what you call them.
 

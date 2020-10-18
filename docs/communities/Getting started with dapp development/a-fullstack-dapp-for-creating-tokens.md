@@ -9,11 +9,12 @@ some_url:
 
 # A fullstack dapp for creating tokens
 
+
 > This dapp implements the simplest form of a cryptocurrency that uses the ERC-20 standard to define a token you can create and send to others. This tutorial is intended to be followed using the online IDE available at [studio.ethereum.org](https://studio.ethereum.org), and selecting the "Coin" template.
 
 ![Select Coin template](https://api.kauri.io:443/ipfs/QmWUTMmZAbbLYUhZv9ZzR9R1Ey2R4xgcxQQoFRoNdBPW85)
 
-## The smart contract
+### The smart contract
 
 The contract allows only its creator to create new coins (different issuance scheme are possible). Anyone can send coins to each other without a need for registering with a username and password, and all you need is an Ethereum keypair.
 
@@ -51,7 +52,7 @@ The `mint` function sends an amount of newly created coins to another address. T
 
 Anyone can use the `send` (who already has some of these coins) to send coins to anyone else. If the sender does not have enough coins to send, the `require` call fails and provides the sender with an appropriate error message string.
 
-## The Web app
+### The Web app
 
 This tutorial doesn't cover the HTML or CSS as it's not web3 specific, aside from the element IDs that the JavaScript manipulates. A lot of the JavaScript code follows standard patterns for object-oriented JavaScript, so this tutorial focuses on the web3js specific parts.
 

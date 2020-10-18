@@ -10,6 +10,7 @@ some_url:
 # Kauri  The Knowledge Network for the Ethereum Ecosystem
 
 
+
 As new developers and technical enthusiasts enter the Ethereum space, they are met with an incredibly friendly community but a disorienting vacuum of technical documentation. The lack of documentation stems from the fast-paced and rapidly changing business models being driven by the Ethereum ecosystem, which is ripe — and sometimes saturated — with new protocols, crypto-mechanisms, and software on a seemingly weekly basis.
 
 Though the Ethereum community is deeply collaborative and open sourced, a support structure isn’t in place yet for community members to efficiently curate essential resources and help one another answer technical questions. Project teams trying to bring products into the ecosystem know all too well the current state of affairs: time offering support to others is often time away from shipping new features or from actually improving the core technology. Most offer support for free, and those that do monetize their services are disproportionately larger companies with brand name recognition and strong balance sheets. Small to medium sized startups lack access to pay-as-you-need support models, and a viable open source support network is yet to emerge.
@@ -19,16 +20,16 @@ If the products, platforms, protocols, and software of the Ethereum ecosystem ar
 ![](https://cdn-images-1.medium.com/max/1600/0*OOXE6y6nBaZRMG5f.)
 
 
-### Learn: Search, Engage, Bounty
+#### Learn: Search, Engage, Bounty
 Users will be able to search the Kauri network for tutorials, examples, and documentation on libraries, developer tools, blockchain clients, application protocols, and any Ethereum content in general. If a user can’t find the knowledge they are looking for, they can make a request and choose to attach an ether based bounty to incentivize community members to lend their expertise and knowledge. Community members also have the opportunity to tip existing articles that they’ve found helpful. For both seasoned developers migrating from Web2 and newcomers touching the command line for the first time in Web3, Kauri will serve as a reputable and ever-growing body of knowledge that builders can leverage to bring themselves up to speed and build faster.
 
-### Contribute: Incentives for Experts
+#### Contribute: Incentives for Experts
 Kauri aims to accelerate the growth of the Ethereum ecosystem through community-based knowledge and provide innovative ways for those building decentralized tech to make available and, if they want, monetize their expertise. Through Kauri, community members can monetize their expertise by fulfilling requests and contributing articles, tutorials, and rigorous examples to projects’ knowledge bases. Contributors can also be recognized by the community and specific projects for the content they create. In the future, we plan to introduce reputation mechanisms that will be interoperable with other decentralized and reputation-based marketplaces so users can build reputations across different networks.
 
-### Support: Submit and Answer Requests
+#### Support: Submit and Answer Requests
 On the Kauri network, anyone can submit a request, and anyone with the requisite knowledge can answer any public request. Kauri’s UI functionality allows users to ask follow-up questions should they need more requestor input. Additionally, users are not confined to any one role, and are actually encouraged to contribute in any way they feel can add value to the network.
 
-### Beta Launch, Competition, and Roadmap Preview
+#### Beta Launch, Competition, and Roadmap Preview
 The Kauri MVP public beta will launch on Rinkeby in May 2018 with a limited subset of ecosystem projects. To celebrate the launch of the Kauri beta, we’ll be kicking off a four-week knowledge content competition in parallel. Beta users and content creators in our competition will be rewarded with real Ether and prizes. We’ll follow up with competition details and initial projects soon, so stay tuned!
 Over the course of 2018 and 2019, we plan to build out Kauri’s application and protocol layers so the Ethereum community can better self-organize and build the technical knowledge base together.
  **Extended Roadmap Preview** (subject to change)

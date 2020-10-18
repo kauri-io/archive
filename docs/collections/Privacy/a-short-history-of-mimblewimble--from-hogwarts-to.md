@@ -9,6 +9,7 @@ some_url:
 
 # A Short History of Mimblewimble  From Hogwarts to Mobile Wallets
 
+
 > “Mimblewimble, which prevents your opponent from accurately casting their next spell.”
 
 > — Gilderoy Lockhart
@@ -23,7 +24,7 @@ imblewimble. Mim-bull-wim-bull. Pretty crazy that such a silly word is the basis
 ![](https://api.kauri.io:443/ipfs/Qme7WwsbjXgYhRum2FgqtfKK6aV6yTaFEsWZbJ4DQ6Md7x)
 
 
-## Mimblewimble in Action — From Harry Potter to IRC
+### Mimblewimble in Action — From Harry Potter to IRC
 
 ![](https://api.kauri.io:443/ipfs/QmT2rs4ettu4q299FMES3Dn1hrdLqjVVjoT1tAJzMrwYxR)
 
@@ -50,7 +51,7 @@ The rest is history. “History became legend. Legend became myth” according t
 ![](https://api.kauri.io:443/ipfs/QmWPRJjraDJqXvwzd7KVFwFQTGWSkkWEFKE14dom2i8TAn)
 
 
-## Mimblewimble — From IRC to RL
+### Mimblewimble — From IRC to RL
 
 ![](https://api.kauri.io:443/ipfs/QmNUP5PDJYNLJgwFkFWjjqcSWHYzPvKP7JWNoTY5KT8TJX)
 
@@ -91,7 +92,7 @@ In March 2017, Peverell posted a
 [technical introduction](https://github.com/mimblewimble/grin/blob/master/doc/intro.md)
  to Mimblewimble and Grin on Github.
 
-## Mimblewimble and its implementations
+### Mimblewimble and its implementations
 
 ![](https://api.kauri.io:443/ipfs/QmZVhG1JP1DXVhTXxPQNNRfXhZGHnhD9oVaC5Az69bFGjn)
 
@@ -123,7 +124,7 @@ In the same time,
 [wallet](https://www.beam-mw.com/downloads)
  desktop application.
 
-## Mimblewimble — To infinity… and beyond!
+### Mimblewimble — To infinity… and beyond!
 
 ![](https://api.kauri.io:443/ipfs/QmdKWLziptLL5qb53HHQ7WL92LZtJ7gL7KS3h1At821Hmb)
 

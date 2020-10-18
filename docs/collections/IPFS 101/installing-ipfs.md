@@ -9,13 +9,14 @@ some_url:
 
 # Installing IPFS
 
+
 In this tutorial, we install IPFS and learn its basic commands.
 
-## Prerequisites
+### Prerequisites
 
 Familiar with the command line and IPFS concepts.
 
-## Downloading
+### Downloading
 
 There are 3 ways to install IPFS:
 
@@ -37,7 +38,7 @@ ipfs help
 
 That's It! You now have the IPFS installation on your machine.
 
-## Initializing
+### Initializing
 
 Before we can use IPFS, we must initialize a local repository. This repository contains the settings and internal data for your user account. It also generates a peer identity key to sign any content you create cryptographically.
 
@@ -86,11 +87,11 @@ You can try the other files suggested by replacing _readme_ in the last command.
 
 It's important to know where your IPFS repository is located because this is where all your content is stored. The default location is a _.ipfs_ folder in your home folder.
 
-## Basic Commands
+### Basic Commands
 
 **Note**: The quick start guide from the readme gives a list of all commands to assist with getting started.
 
-### Creating & Adding a File to IPFS
+#### Creating & Adding a File to IPFS
 
 Navigate to a directory where you would like to create a file and try the following:
 
@@ -119,7 +120,7 @@ added QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8 helloworld.txt
 
 The combination of letters and numbers is the hash that's associated with this text file. The hash is created based on the contents of the file. If you change the contents of the file, the hash changes, save this hash to access the file later on.
 
-### Reading content
+#### Reading content
 
 Without using IPFS, we can read the contents of the _helloworld.txt_ file with the following command:
 
@@ -133,7 +134,7 @@ We can read it through IPFS as well. Using the hash generated earlier, enter the
 ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
 ```
 
-### Changing the Content
+#### Changing the Content
 
 Let's see what happens if we change the text inside our _helloworld.txt_ file.
 
@@ -169,7 +170,7 @@ $ cat helloworld.txt
 > hello world 1
 ```
 
-### Pinning
+#### Pinning
 
 As mentioned earlier, content on your node stays there for a short period. Pinning allows you to tell IPFS what you want to keep for an extended period.
 
@@ -189,7 +190,7 @@ $ ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
 
 We couldn't collect the file couldn't because we pinned to our node.
 
-### Remove a Pin
+#### Remove a Pin
 
 ```shell
 ipfs pin rm QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
@@ -199,7 +200,7 @@ ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
 
 The first command removes the pin. When we garbage collect, it's removed from our node. The file is still available in our local directory stored on our computer, but we are no longer hosting it on the node.
 
-### Connecting to the Web
+#### Connecting to the Web
 
 So far we've worked with IPFS locally. Now we're ready to try things online. Open another terminal and run the daemon command.
 
@@ -229,7 +230,7 @@ We can also view a file directly in our browser using the path _<http://127.0.0.
 
 You should see a picture of a dog. If you know the hash of another file, just replace the hash!
 
-### Web Console
+#### Web Console
 
 Now that we've connected our node to the network we can use the IPFS Web Console.
 
@@ -245,7 +246,7 @@ In the console, we can:
 
 The web console is the best tool for managing IPFS node.
 
-### Command Summary
+#### Command Summary
 
 We've covered the basics of working with IPFS. Here is a summary of all the commands covered, and a handful of other useful ones:
 
@@ -263,7 +264,7 @@ We've covered the basics of working with IPFS. Here is a summary of all the comm
 
 **Note**: Try any command in the following format: `ipfs base-command` , and the terminal displays the usage of that command.
 
-## Next Steps
+### Next Steps
 
 - <https://medium.freecodecamp.org/ipfs-101-understand-by-doing-it-9f5622c4d4ed>
 - <https://docs.ipfs.io/introduction/usage/>

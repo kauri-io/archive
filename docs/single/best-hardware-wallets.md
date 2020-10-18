@@ -9,13 +9,14 @@ some_url:
 
 # Best Hardware Wallets
 
+
 In this article, we are going to focus on hardware wallets. These wallets have a long history of being unhackable and by far the most secure [crypto wallet](https://blog.coincodecap.com/tag/crypto-wallet/).
 
 Hardware wallets come with different features and flavors of cryptocurrency compatibility.  They provide better security than any other wallet out there. 
 
 Serious crypto users should own a hardware wallet. Before diving deep into features of a hardware wallet, let’s have a look at how these wallets work.
 
-### How does a hardware wallet work?
+#### How does a hardware wallet work?
 
 Usual hardware looks like a box with a small screen and some buttons.
 
@@ -23,7 +24,7 @@ You provide information related to your wallet (your private key) in the device.
 
 Now, whenever you make a transaction, you have to plug in the device and enter the PIN. That completes your transaction without any risk.
 
-### Hardware wallets features
+#### Hardware wallets features
 
 Let’s have a look at the features of hardware wallets-
 
@@ -51,7 +52,7 @@ U2F lets you store the private key of cryptocurrencies that are not supported by
 
 That being said, let’s have a look at the pioneers in the field of the hardware wallet-
 
-#### 1\. [Ledger](https://www.ledger.com/?utm_source=coincodecap)
+##### 1\. [Ledger](https://www.ledger.com/?utm_source=coincodecap)
 
 Ledger has established itself as the most secure wallet now. It is a hardware wallet which comes in different model and price range. Their products integrate a certified secure chip and a custom OS (BOLOS) that assure maximum security. Genuine Check is an authentication ensuring that the Ledger device has not tampered.
 
@@ -61,7 +62,7 @@ It supports more than 1250 crypto assets. Ledger Live lets you check balance, se
 
 ![Ledger Hardware Wallet ](https://cdn-images-1.medium.com/max/880/1*Q4FPE5PYQCkWBkejBXTGAA.png)
 
-#### 2\. [Trezor](https://trezor.io/?utm_source=coincodecap)
+##### 2\. [Trezor](https://trezor.io/?utm_source=coincodecap)
 
 Trezor is the world’s first and most secure cryptocurrency hardware wallet. It enables you to make secure payments and manage cryptocurrencies. It is compatible with both desktop and smartphones.
 

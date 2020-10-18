@@ -10,6 +10,7 @@ some_url:
 # How to create a Bitcoin wallet address from a private key
 
 
+
 ----
 
 
@@ -25,7 +26,7 @@ In
 We’ll use this private key throughout the article to derive both a public key and the address for the Bitcoin wallet.
 What we want to do is to apply a series of conversions to the private key to get a public key and then a wallet address. Most of these conversions are called hash functions. These hash functions are one-way conversions that can’t be reversed. We won’t go to the mechanics of the functions themselves — there are plenty of great articles that cover that. Instead, we will look at how using these functions in the correct order can lead you to the Bitcoin wallet address that you can use.
 
-## Elliptic Curve Cryptography
+### Elliptic Curve Cryptography
 The first thing we need to do is to apply the ECDSA or Elliptic Curve Digital Signature Algorithm to our private key. An elliptic curve is a curve defined by the equation 
 `y² = x³ + ax + b`
  with a chosen 
@@ -47,7 +48,7 @@ In Python, it would look like this:
 
 ```
 private_key_bytes = codecs.decode(private_key, ‘hex’)
-# Get ECDSA public key
+## Get ECDSA public key
 key = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
 key_bytes = key.to_string()
 key_hex = codecs.encode(key_bytes, ‘hex’)
@@ -70,14 +71,14 @@ Now, there’s a little catch: a string, say,
 `codecs.decode`
  method does: it converts a string into a byte array. That will be the same for all cryptographic manipulations that we’ll do in this article.
 
-## Public key
+### Public key
 Once we’re done with the ECDSA, all we need to do is to add the bytes 
 `0x04`
  at the start of our public key. The result is a Bitcoin full public key, which is equal to: 
 `041e7bcc70c72770dbb72fea022e8a6d07f814d2ebe4de9ae3f7af75bf706902a7b73ff919898c836396a6b0c96812c3213b99372050853bd1678da0ead14487d7`
  for us.
 
-## Compressed public key
+### Compressed public key
 But we can do better. As you might remember, the public key is some point (X, Y) on the curve. We know the curve, and for each X there are only two Ys that define the point which lies on that curve. So why keep Y? Instead, let’s keep X and the sign of Y. Later, we can derive Y from that if needed.
 The specifics are as follows: we take X from the ECDSA public key. Now, we add the 
 `0x02`
@@ -91,7 +92,7 @@ In our case, the last byte is odd, so we add
  . This key contains the same information, but it’s almost twice as short as the uncompressed key. Cool!
 Previously, wallet software used long, full versions of public keys, but now most of it has switched to compressed keys.
 
-## Encrypting the public key
+### Encrypting the public key
 From now on, we need to make a wallet address. Whatever method of getting the public key you choose, it goes through the same procedure. Obviously, the addresses will differ. In this article, we will go with the compressed version.
 What we need to do here is to apply SHA-256 to the public key, and then apply RIPEMD-160 to the result. The order is important.
 SHA-256 and RIPEMD-160 are two hash functions, and again, we won’t go into the details of how they work. What matters is that now we have 160-bit integer, which will be used for further modifications. Let’s call that an encrypted public key. For our example, the encrypted public key is 
@@ -104,10 +105,10 @@ Here’s how we encrypt the public key in Python:
 
 ```
 public_key_bytes = codecs.decode(public_key, ‘hex’)
-# Run SHA-256 for the public key
+## Run SHA-256 for the public key
 sha256_bpk = hashlib.sha256(public_key_bytes)
 sha256_bpk_digest = sha256_bpk.digest()
-# Run RIPEMD-160 for the SHA-256
+## Run RIPEMD-160 for the SHA-256
 ripemd160_bpk = hashlib.new(‘ripemd160’)
 ripemd160_bpk.update(sha256_bpk_digest)
 ripemd160_bpk_digest = ripemd160_bpk.digest()
@@ -116,7 +117,7 @@ ripemd160_bpk_hex = codecs.encode(ripemd160_bpk_digest, ‘hex’)
 
 
 
-## Adding the network byte
+### Adding the network byte
 The Bitcoin has two networks, main and test. The main network is the network that all people use to transfer the coins. The test network was created — you guessed it — to test new features and software.
 We want to generate an address to use it on the mainnet, so we need to add 
 `0x00`
@@ -126,7 +127,7 @@ We want to generate an address to use it on the mainnet, so we need to add
 `0x6f`
  bytes.
 
-## Checksum
+### Checksum
 Now we need to calculate the checksum of our mainnet key. The idea of checksum is to make sure that the data (in our case, the key) wasn’t corrupted during transmission. The wallet software should look at the checksum and mark the address as invalid if the checksum mismatches.
 To calculate the checksum of the key, we need to apply SHA-256 twice and then take first 4 bytes of the result. For our example, the double SHA-256 is 
 `512f43c48517a75e58a7ec4c554ecd1a8f9603c891b46325006abf39c5c6b995`
@@ -139,7 +140,7 @@ To calculate the checksum of the key, we need to apply SHA-256 twice and then ta
 The code to calculate an address checksum is the following:
 
 ```
-# Double SHA256 to get checksum
+## Double SHA256 to get checksum
 sha256_nbpk = hashlib.sha256(network_bitcoin_public_key_bytes)
 sha256_nbpk_digest = sha256_nbpk.digest()
 sha256_2_nbpk = hashlib.sha256(sha256_nbpk_digest)
@@ -150,7 +151,7 @@ checksum = sha256_2_hex[:8]
 
 
 
-## Getting the address
+### Getting the address
 Finally, to make an address, we just concatenate the mainnet key and the checksum. That makes it 
 `00453233600a96384bb8d73d400984117ac84d7e8b512f43c4`
  for our example.
@@ -190,7 +191,7 @@ What we get is
 ![](https://api.beta.kauri.io:443/ipfs/QmfSVZwHq9DKyaA2aCre37seyd4qiV4D9SUzo8rVimmzsq)
 
 
-## Conclusion
+### Conclusion
 The wallet key generation process can be split into four steps:
 
 

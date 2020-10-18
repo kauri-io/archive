@@ -10,6 +10,7 @@ some_url:
 # A Proposal For a ‘Fair’ ICO Model Using P3D
 
 
+
 ---
 Regardless of your opinion of P3D ( 
 [Proof of Weak Hands 3D](https://powh.io/)
@@ -30,11 +31,11 @@ Considering this, it’s theoretically possible to create a ‘Fair’ ICO model
 ----
 
 
-## The Current ICO Model and Its Problems
+### The Current ICO Model and Its Problems
 Most, if not all, of those reading are aware of the current ICO model. An ICO begins, investors send ETH to a contract until a time or investment goal has been reached, then tokens are distributed among the investors — often with the owners of the ICO keeping a sizeable percentage for themselves.
 It has, of course, been made apparent that this model brings its fair share of problems to investors.
 
-### No protection for investors
+#### No protection for investors
  
 [A study](https://research.bloomberg.com/pub/res/d28giW28tf6G7T_Wr77aU0gDgFQ)
  from ICO advisory firm Statis Group revealed that more than 80 percent of all ICOs conducted in 2017 were scams. 4 percent failed, and 3 percent have since ‘gone dead’.
@@ -43,7 +44,7 @@ In fact, from a total of $11.9 billion invested in ICOs in 2017, $1.34 billion (
 
 It’s little wonder the SEC are cracking down on ICO funding with figures like these, but interference from a centralized body cripples one of the key advantages of blockchain technology. Could there be a decentralized solution?
 
-### Increased sell pressure on ETH
+#### Increased sell pressure on ETH
 
 ![](https://api.beta.kauri.io:443/ipfs/QmajdCYjgp1shv2aq6EdrxsV7JVbeh2ZPLhJ2LgnipWbuw)
 
@@ -51,14 +52,14 @@ It’s undeniable that ICO projects are selling the ETH they raised in their res
 
 All of these ETH sales contribute to an awful lot of sell pressure, and it stands to reason this results in a significant suppression of the price of ETH, especially when considered in conjunction with the next point.
 
-### Funds raised aren’t just in the form of ETH
+#### Funds raised aren’t just in the form of ETH
 ICOs are primarily token sales. Investors receive tokens in exchange for the ETH they send to the project, at a typical ratio of around 1 ETH = 1000 tokens.
 
 The project responsible for the ICO tends to then keep a healthy percentage of the tokens being sold. In EOS’ case: in addition to the 7.12 million ETH ($4.1 billion at the time the ICO closed) raised throughout the lengthy ICO, Block.One retained 10% of all EOS tokens. That’s a further 326,000 ETH ($187 million) worth of newly minted tokens simply going by the ICO price, arguably plenty of funding for a project with no more than a whitepaper at the time.
 
 This contributes to further sell pressure on ETH. Often the only trading pair this new token has is ETH, so investors who simply want a quick profit will trade into ETH, increasing the ratio against the token, then sell to a fiat currency (USD, EUR, GBP…), decreasing ETH’s value against the dollar. On its own this isn’t a huge problem, but combined with ICO selling of ETH for funding it amounts to substantial price suppression.
 
-### Heavy impact from exit scams
+#### Heavy impact from exit scams
 As discussed above, if an ICO results in an exit scam by the owners, investors are left out in the cold. They’ve lost 100% of their invested ETH, and have (in most cases) a valueless token in return.
 
 Is there a way to alleviate some of these problems that doesn’t involve interference from the SEC? Without introducing some sort of governance system to monitor potential scam ICOs, it’s difficult to remove the ability for owners to walk away with investors’ ETH, but there might be a way to lessen the impact.
@@ -66,7 +67,7 @@ Is there a way to alleviate some of these problems that doesn’t involve interf
 ----
 
 
-## A Fairer ICO Model Using P3D
+### A Fairer ICO Model Using P3D
 
 ![](https://api.beta.kauri.io:443/ipfs/QmQJNy2qGcz3fiVHubMqyJEvCjR3biVRNtG6GeYPomDWLp)
 
@@ -84,15 +85,15 @@ Consider the Refund Line feature mentioned above. If ICO investors were ultimate
 
 Of course, this doesn’t completely eliminate all of the problems with the current ICO model, but it does lessen the impact.
 
-### Investor protection
+#### Investor protection
 With investors guaranteed to get their ETH back (eventually), the proposed model can be considered more of a ‘staking’ model. Investors have protection from scams since the contract exists on the Ethereum blockchain, meaning it can always be accessed — and pending dividends can always be checked and claimed — in such an event.
 
-### Reduced sell pressure on ETH
+#### Reduced sell pressure on ETH
 With raised funds coming initially in the form of retained tokens and masternode earnings, the sell pressure on ETH is greatly reduced. Not to mention, if we consider option (2) above, a substantial amount of ETH’s supply will remain locked away forever. With token burning simply being ‘something to consider’ for a future implementation in Ethereum, this could be seen as a solution to lower inflation.
 
 If ICO owners are relying on some of their retained tokens for funding, then that gives them a higher incentive to deliver a product, and thus drive the token price.
 
-### Greatly reduced impact from exit scams
+#### Greatly reduced impact from exit scams
 In the event of an exit scam, the worst case scenario is that investors are refunded their ETH, and simply own a worthless token; having merely had their time wasted as they wait for pending refunds to clear.
 
 ----

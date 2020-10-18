@@ -9,6 +9,7 @@ some_url:
 
 # How to setup ENS address
 
+
 Step 1: Press "Set" button at resolver
 
 ![press set resolver](https://api.kauri.io:443/ipfs/QmW8GsJsybFaFi3t9YBBB1L78TiXKCQrXv6qpJdzSPvbNL)

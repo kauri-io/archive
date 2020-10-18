@@ -9,13 +9,14 @@ some_url:
 
 # An Introduction to Solidity for Experienced Developers
 
+
 **This post applies to Solidity 0.5.x, I am working on an update for 0.6.x**.
 
 You're an experienced JavaScript/Java/Python/Go/Ruby/Rust/COBOL/somethingelse developer and have heard about this Ethereum thing. You took a quick look at Solidity, and it looked familiar, but you saw some terms that were new and confusing. Maybe you even tried running an Ethereum node or two locally, and it looked a bit like some other distributed systems you tried before, but all that accounts and addresses stuff was new.
 
 This post tries to explain some of these concepts in terms that are hopefully more familiar to you and compare them to similar concepts in other programming languages.
 
-## Addresses, accounts, and balances
+### Addresses, accounts, and balances
 
 Pretty much everything on the Ethereum network has an address. For many interactions with the network, you need an account, and that account has an address. If you create a smart contract and set it run on the Ethereum network, it also has an address that is different from your personal address.
 
@@ -23,11 +24,11 @@ All accounts on Ethereum networks have a balance of the ETH cryptocurrency. This
 
 Just when you thought it was all starting to make sense, it's worth pointing out that there are different Ethereum networks, and you have different accounts and balances on each of them. Practically speaking, this means that if you are testing your smart contracts on a test network, or a private or local network, the ETH you add to your account doesn't cost you anything.
 
-## Functions and variables
+### Functions and variables
 
 Like Java function methods, Solidity function modifiers change the way that code interacts with them, and how the compiler deals with them.
 
-### Visibility
+#### Visibility
 
 A function or variable declared as `private` is only visible to the contract that defines it.
 
@@ -121,7 +122,7 @@ contract Caller {
 
 Like other languages, Solidity doesn't provide any special functionality for setter functions, and it is up to you to implement them based on your needs.
 
-### Protecting state with `view` and `pure`
+#### Protecting state with `view` and `pure`
 
 A function declared `view` promises not to modify state. A function declared `pure` promises not to modify or read from state. When compiling the contract, the compiler throws an error if a function marked `view` or `pure` does not meet this promise. For example:
 
@@ -145,7 +146,7 @@ TypeError: Function declared as view, but this expression (potentially) modifies
         ^
 ```
 
-## Interfaces and abstract contracts
+### Interfaces and abstract contracts
 
 Similar to classes in C++ or Java, interfaces, and abstract contracts in Solidity are a way of implementing inheritance.
 
@@ -159,11 +160,11 @@ Similar to classes in C++ or Java, interfaces, and abstract contracts in Solidit
 -   They cannot declare a constructor.
 -   They cannot declare state variables.
 
-## Error handling
+### Error handling
 
 Solidity does not have the concept of `try/catch` common in other programming languages. Instead, it provides 3 convenience functions to check if conditions are met before performing an operation. If the conditions are not met, all changes made to state in the current function call (and sub-calls) are reverted, and an error message generated. The three functions work in slightly different ways, and to serve different potential error flows. Read more about the details and how to use them [in the documentation](https://solidity.readthedocs.io/v0.5.15/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions).
 
-## Subscribing to events
+### Subscribing to events
 
 A blockchain is essentially an immutable ledger of events, and this isn't too dissimilar from other "traditional" systems such as event stores, write-ahead logs, or immutable data streams. Typically when your application uses such a tool, you have applications that publish and subscribe (pubsub) to them. With Ethereum, the smart contract is always the publisher, but the subscriber can be any other application you want that listens to the event emitting from the blockchain.
 
@@ -187,7 +188,7 @@ contract ClientReceipt {
 
 _Read the documentation for more details on [events](https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#events)._
 
-## Storage locations
+### Storage locations
 
 Some C-style languages allow you to specify if a variable should be stored in a register instead of RAM, but Solidity adds other location options that reflect the nature of the EVM Solidity code runs within.
 
@@ -199,7 +200,7 @@ These are:
 
 Find more details [in the documentation](https://solidity.readthedocs.io/v0.5.15/latest/introduction-to-smart-contracts.html#storage-memory-and-the-stack).
 
-## Modularity
+### Modularity
 
 You can think of [libraries](https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#libraries) as something like an `include`, `import` or `require` statement for using any public functions and variables from other contracts. The `[using A for B](https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#using-for)` statement lets you take this a step further, by attaching library `A` to type `B`. This means that the functions in the library receive the object they are called on as their first parameter. This effectively lets you override or replace functions with library functions, and there are common patterns in Solidity for doing this, such as using the `[SafeMath](https://docs.openzeppelin.com/contracts/2.x/api/math#SafeMath)` library to improve arithmetic operations.
 

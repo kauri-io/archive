@@ -9,6 +9,7 @@ some_url:
 
 # Chat, browse and transact securely with Status
 
+
 Status is a mobile first, secure and private messaging client that has chat, browser and wallet functionality. Status aims to create an Ethereum App ecosystem that enables users and developers to interact with DApps as smoothly as possible. Efforts began with mobile apps for iOS and Android, but they recently released a desktop app.
 
 In addition to the apps designed for end users, Status has Embark, a fast, simple and powerful framework to help you develop and deploy Decentralized Applications. It includes features for:
@@ -30,20 +31,20 @@ npm install -g embark
 
 Then follow the [quick start guide](https://embark.status.im/docs/quick_start.html), which walks you through creating an interactive demo application.
 
-## What's new at ETHDenver
+### What's new at ETHDenver
 
 [Status extensions](https://dev.status.im/extensions/index.html) are on the bleeding edge of development, and Status is adding new functionality daily.
 
-## Prizes and Bounties at ETHDenver
+### Prizes and Bounties at ETHDenver
 
 Status is offering up to \$5K for the best extensions built during the hackathon.
 
-## Where to find more
+### Where to find more
 
 - [The latest documentation for extensions](https://status.im/extensions/)
 - [Build instructions](https://status.im/build_status/)
 - [Open repositories](https://github.com/status-im/)
 
-## Team members attending
+### Team members attending
 
 Chris Hutchinson, Nabil Naghdy, Michael Bradley & Ben Morris

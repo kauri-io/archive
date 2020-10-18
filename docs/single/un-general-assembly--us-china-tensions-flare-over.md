@@ -9,6 +9,7 @@ some_url:
 
 # UN General Assembly  US-China tensions flare over coronavirus
 
+
 **Tensions between the US and China came to the fore of the annual UN General Assembly in New York, with US President Donald Trump blaming China for the spread of coronavirus.**
 
 He called for China to be held "accountable" for the pandemic.

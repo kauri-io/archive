@@ -10,6 +10,7 @@ some_url:
 # WHAT IS A CONSENSUS ALGORITHM?
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmQfoFA8ZjmBGA2p5rzEJfoWWdCNeZXcdVYAkokw7m4jrX)
 
  

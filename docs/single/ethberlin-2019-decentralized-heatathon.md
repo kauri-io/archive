@@ -9,9 +9,10 @@ some_url:
 
 # ETHBerlin 2019 - Decentralized Heatathon 
 
+
 I wasn't at Berlin Blockchain week in 2018, so can't directly compare the two events, but this year seemed busy to me, others mentioned they thought it was quieter. However, the venues used for the events were large and sprawling, so it was hard to get a complete picture of how many attendees there were, but the crowd felt enthusiastic to me. Especially considering the sweltering heat for most of the week.
 
-## Compared to other events
+### Compared to other events
 
 One thought before covering our highlights that has occurred to me at several Web3 and Blockchain related events. Maybe it's due to the talks or events I've attended, it's hard to say. While many tech events aimed at developers have talks that follow the "Here's how we built a project and the challenges we faced" approach, web3 events talks tend to follow the "we built this, please use it" format.
 
@@ -19,7 +20,7 @@ This may say more about the state of the ecosystem than anything else. Other dev
 
 There's a lot caveats there, and it's a personal observation, **so let me know your thoughts in the comments below**.
 
-## Our Highlights
+### Our Highlights
 
 Myself and the rest of the Kauri team take more of an interest in developer-related hacks, or hacks that help with Ethereum usability, so here were some of our highlights from the ETHBerlin hackathon:
 
@@ -29,7 +30,7 @@ Myself and the rest of the Kauri team take more of an interest in developer-rela
 -   [Insulin](https://devpost.com/software/insulin): A smart contract testing framework.
 -   [badgable](https://devpost.com/software/badgable): Version Control for educational certificates.
 
-## Personal favorites
+### Personal favorites
 
 And a handful of projects that appealed to us purely for being a cool idea:
 
@@ -39,7 +40,7 @@ And a handful of projects that appealed to us purely for being a cool idea:
 
 ![](https://api.kauri.io:443/ipfs/QmTFWWEboNpDm3ijRBaM21djhyB7JqkD1TC6ZSwSAJqtHt)
 
-## Documentation bounties
+### Documentation bounties
 
 As part of several of the bounties funded by ConsenSys grants, Kauri helped choose and review issues across two projects (Solhint and a relaunched Ethereum Wiki) for improving documentation. Here they are:
 
@@ -55,7 +56,7 @@ As part of several of the bounties funded by ConsenSys grants, Kauri helped choo
 
 The quality of the submissions impressed us, and are looking forward to the next batch at ETHBoston. If you're also passionate about documentation and are anywhere near Boston, keep an eye out for those.
 
-## Side events
+### Side events
 
 Berlin Blockchain week isn't just about the main event, but also the innumerable side events and parties. We attended a handful, and again, here are our highlights.
 

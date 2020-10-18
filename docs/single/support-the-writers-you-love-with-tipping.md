@@ -9,6 +9,7 @@ some_url:
 
 # Support the writers you love with tipping
 
+
 Kauri has always had a mission to help writers create and curate quality technical content. As part of this missions we also had other sub goals, one of which was to find ways to support writers directly for the work they do.
 
 We aren't interested in pay walls, advertising, or selling your data to 3rd parties.
@@ -20,7 +21,7 @@ As a web application built on top of the Ethereum blockchain, we have a unique o
 
 But that's it.
 
-## How to tip a writer
+### How to tip a writer
 
 Create a Kauri account, and sign in.
 
@@ -34,7 +35,7 @@ To see a summary of tips you sent to writers, open your profile page from the av
 
 ![History of tips sent](https://api.kauri.io:443/ipfs/QmcTEeGhxNWvzRXyRZJzV2r4wq2EBnPzhy4iD86zugjVuK)
 
-## Collecting your tips as a writer
+### Collecting your tips as a writer
 
 As a writer, you should receive tips to the Ethereum address you registered to Kauri with. To see a summary of all the tips you have received, open your profile page from the avatar in the top right, then _Manage_, _Tip History_ and _Tips Received_.
 

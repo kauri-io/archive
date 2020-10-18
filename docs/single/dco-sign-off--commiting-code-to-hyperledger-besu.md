@@ -9,10 +9,11 @@ some_url:
 
 # DCO Sign-Off  Commiting code to Hyperledger Besu
 
-# DCO Sign-Off
+
+## DCO Sign-Off
 ![DCO signoff](https://i.imgur.com/4ZBslvZ.png)
 
-## What is the DCO sign off?
+### What is the DCO sign off?
 
 This stack overflow answer does a good job of explaining it:
 
@@ -27,13 +28,13 @@ If you want to read the contents of the Developer Certificate of Origin, see her
 
 ---
 
-## How to sign off?
+### How to sign off?
 
 This should be done after following the [instructions on how to commit](https://wiki.hyperledger.org/display/BESU/How+to+Contribute#ContributingCodeorDocumentation).
 
 There are several ways to add the line "Signed-off-by: Your Legal Name <your-email@address>" to each of your commits.
 
-### 1. Manually adding it.
+#### 1. Manually adding it.
 You can add this line of text manually to your commit body on each commit. 
 Although cumbersome, it possible and simple.
 
@@ -48,7 +49,7 @@ or
 git commit -m "Fix typo in documentation" -m "Signed-off-by: Legal Name <email@domain>"
 ```
 
-### 2. Automating this boring step
+#### 2. Automating this boring step
 
 Computers can do things for us, so lets configure that.
 
@@ -71,7 +72,7 @@ If you forgot to add the sign-off, you can also amend your commit with the sign-
 git commit --amend -s
 ```
 
-### 3. Adding alias
+#### 3. Adding alias
 
 If you're already added your name and email to the config, you can add an alias to your local setup in order to automatically add that `-s` t every commit command.
 
@@ -113,6 +114,6 @@ source ~/.zshrc
 
 If you've already pushed your changes to Github, you will have to `force push` your branch after this with `git push -f`.
 
-## DCO Errors
+### DCO Errors
 
 for more information on DCO sign-off, including how to deal with DCO errors flagged by our bot, check out our wiki: https://wiki.hyperledger.org/display/BESU/How+to+Contribute#HowtoContribute-HowtoworkwithDCO

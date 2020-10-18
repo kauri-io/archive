@@ -9,15 +9,16 @@ some_url:
 
 # Documentation structure
 
+
 Documentation structure applies to your documentation as a whole, and to each page. Let's start at the top and work down.
 
 There are different types of documentation your project might need. The
 terms I use to describe them below are just the terms I use, and others use different terms. The explanation of what they are is more important than what you decide to call
 them is up to you.
 
-## Documentation types
+### Documentation types
 
-### Getting started
+#### Getting started
 
 A Getting started guide is often a starting point with your
 project. It should take people from knowing next to nothing about your
@@ -27,12 +28,12 @@ somewhat depends on your project, but it should be simple enough for
 anyone to complete, but complicated enough that it shows a semi-realistic
 use case that highlights the potential of your project.
 
-### Guides
+#### Guides
 
 Guides are a collection of documentation pages that take a user from getting
 started to the next steps. These are typically more in-depth around a particular topic or common use case.
 
-### Reference
+#### Reference
 
 If your project has an API, error codes, or other particular components
 that need a reference, this is the place. If the rest of your
@@ -42,13 +43,13 @@ autogenerate these docs from code or other sources, and that's fine.
 Anyone digging into this section knows what they are looking for and is
 looking for specifics on how to use it.
 
-### Explanation
+#### Explanation
 
 Perhaps most relevant to the Web3 world is a section for the theoretical
 underpinnings of the project. This is where you explain your consensus
 algorithm and encryption methods in depth. Again, not everyone wants or needs to know this information, but certain people will.
 
-## Documentation structure
+### Documentation structure
 
 Creating good structure (or information architecture) for documentation can be a complex process,
 depending on how much documentation you have, the most important
@@ -76,7 +77,7 @@ Finally, if possible, add multiple ways for people to find their way
 around your documentation, for example, a search box, related content,
 next steps etc.
 
-## Page structure
+### Page structure
 
 Good page structure helps readers read. If a page is a wall of text,
 it's hard to process, and for people to find the details they are looking for. Good structure helps break up the reading experience, and
@@ -88,7 +89,7 @@ that it doesn't just improve readability for humans, but also for machines. Craw
 aggregators and more all have their work assisted by good, predictable
 page structure that follows best practices.
 
-### Correct and helpful headings
+#### Correct and helpful headings
 
 Headings help readers identify what a particular section covers. Use
 correct heading hierarchy to indicate topics and sub-topics, but also to
@@ -101,7 +102,7 @@ typically a level one heading unless you are using a generator tool that adds to
 Subtitles should be level 2 headings, and any subtopics for those subtitles, level 3, 4 etc. You can use as many of these you need in a
 document, but be as consistent as possible.
 
-### Images and code examples
+#### Images and code examples
 
 As people scroll through a web page, their eyes are drawn to page
 elements that break up the wall of text. We are especially drawn to
@@ -114,13 +115,13 @@ surrounding text and (hopefully) read it.
 
 We cover what makes good images and code examples in other sections.
 
-### Paragraphs
+#### Paragraphs
 
 White space is your friend in breaking up a wall of text, don't fear
 it. Every major concept, or half a dozen lines or so, start a new
 paragraph. Even better, if appropriate, add a sub-heading before it.
 
-### Highlighting and Formatting
+#### Highlighting and Formatting
 
 Make use of ways to highlight certain important pieces of information
 with formatting. I have my personal preferences which are:

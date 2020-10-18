@@ -10,11 +10,12 @@ some_url:
 # The Importance of Women in the Cryptocurrency Industry
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmY4ikbtqvnYVUsTRbJNtAWdko19HggHgr16r5QBazcP1y)
 
 he era of the cryptocurrency industry has clearly demonstrated an expeditious advancement. The implementation of this innovative form of financial interaction entails a completely transformed method of business transaction.
 
-## Women in Tech
+### Women in Tech
 
 ![](https://api.kauri.io:443/ipfs/QmPxXx5WxtPwqtqrR8P5t2q33FvXgoqTdpnHGZZi1Ncugc)
 
@@ -42,7 +43,7 @@ _crypto-industry_
 **In contrast, when viewing the percentage of male community engagement in the crypto field, 95% is dominated by men**
  . This brings us to highlight the true state of exigency to change this current social standing.
 
-## The Virtues of Women in Crypto
+### The Virtues of Women in Crypto
 
 ![](https://api.kauri.io:443/ipfs/QmNN9wp4PhMP8jXCwbbia5SkGm1YW9NgS9awrcZ2km9fYr)
 
@@ -65,7 +66,7 @@ _needed_
 **Included in this article are ten such women who exemplify the true appreciable roles they have been playing into further progressing the scope of the blockchain sector.**
  
 
-## Top 10 Influential Women Leaders Within the Crypto Industry
+### Top 10 Influential Women Leaders Within the Crypto Industry
 
 ![](https://api.kauri.io:443/ipfs/QmRtM29YseukhswqcZp3kZPThB2ZQ3LeteqPewuKaWSBb4)
 

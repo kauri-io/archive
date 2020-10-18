@@ -9,12 +9,13 @@ some_url:
 
 # Witnet Monthly Report — March 2018
 
-#Development update from the Witnet team
+
+##Development update from the Witnet team
 
 
 Hi there, Witnet community! From now on, every month we will update you on our work towards the milestones set in our project roadmap. Today we want to share what we have been up to over the last month, the challenges we have met and the progress we have done towards our first milestone: the Witnet prototype. Let’s get started!
 
-##**💰 Fundraising**
+###**💰 Fundraising**
 
 We are happy to announce Witnet successfully reached the $1.07M cap on Republic Crypto.
 
@@ -22,7 +23,7 @@ The goal was achieved thanks to 979 contributors who participated in the campaig
 
 After the Republic campaign, the team has been laser-focused on raising further capital to fund future development and operations. Everything is looking very good — more news on this matter to come out soon!
 
-##**💜 Team**
+###**💜 Team**
 
 We have [interviewed Adan](https://beta.kauri.io/public-profile/6e324914518ed1d4df5a72b405cbb9a64d815d57), our Tech Lead, to know a bit more about who he is, his vision for Witnet and his thoughts on the current crypto landscape. A must read for anyone interested in how this technology is shaping our future.
 
@@ -30,7 +31,7 @@ The team has grown by two members over the past weeks. César will be in working
 
 We’re looking to further grow the team, so if you’re a talented Javascript Developer or Rust Developer, check out the job openings linked. You can also take a look at the following post by Johann, our Rust Developer, on how Witnet will make the most out of the language.
 
-##🔧 Product
+###🔧 Product
 
 The prototype to be launched will focus on showing the main features of the two different functionalities of Sheikah: wallet and IDE. Its deadline is set for September 2018, but everything is going very well and we expect to launch it much sooner. We have now defined the features that will make up the prototype, which are as follows.
 

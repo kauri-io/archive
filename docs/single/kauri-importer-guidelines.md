@@ -9,10 +9,11 @@ some_url:
 
 # Kauri Importer Guidelines
 
-# Kauri importer
+
+## Kauri importer
 Guidelines on importing to markdown in Kauri. The imported article will not be set as the canonical URL.
 
-### Importing your documentation to Kauri
+#### Importing your documentation to Kauri
 Link to the tool: [https://import.beta.kauri.io](https://import.beta.kauri.io)  
 Link to the beta: [https://beta.kauri.io](https://beta.kauri.io)  
 Link to website: [https://kauri.io](https://kauri.io) 
@@ -31,7 +32,7 @@ Link to website: [https://kauri.io](https://kauri.io)
 
 * __To publish__, once you've previewed your content and ensured the formatting is correct, simply click 'PUBLISH ARTICLE' located in the top right of the page
 
-### Things to be aware of
+#### Things to be aware of
 
 * The tool will import tweets and embedded youtube videos; if you use another video hosting service, such as vimeo, please update the links to your embedded videos in the Kauri editor when the article is in draft stage
 * Importing a large amount of articles can take up to 15-20 minutes

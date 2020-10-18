@@ -9,7 +9,8 @@ some_url:
 
 # Retrieving an Ethereum Account Balance in Web3j
 
-## Balance at Current Block
+
+### Balance at Current Block
 
 To obtain the balance of an account in java with web3j at the current block, the following code snippet can be used:
 
@@ -28,7 +29,7 @@ EthGetBalance balanceResult = web3.ethGetBalance("0xF0f15Cedc719B5A55470877B0710
 BigInteger balanceInWei = balanceResult.getBalance();
 ```
 
-## Balance at a Specific Block
+### Balance at a Specific Block
 
 The below code snippet will obtain the account balance at block 300000:
 

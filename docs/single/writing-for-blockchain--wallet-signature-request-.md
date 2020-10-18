@@ -10,6 +10,7 @@ some_url:
 # Writing for blockchain  wallet signature request messages
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib)
 
  
@@ -30,7 +31,7 @@ It’s quite possible that my advice will be out of date by the time I publish t
 _Note: if you’re already familiar with content design and the basics of blockchain or Ethereum. Feel free to skip the next few sections until you see the Bufficorn. Don’t know what one of those is? You’ll know it when you see it._
  
 
-## Before we begin, what is Content design?
+### Before we begin, what is Content design?
 Before I begin, a content designer is a role on a multidisciplinary product team. Our mission is to ensure that the product has the content it needs to help users complete their tasks. At the most basic level, it’s putting the right content in the right place at the right time.
 While a product designer is expected to design an experience as well as create beautiful user interfaces, a content designer is expected to design an experience through a content lens. After working out the content needed, they need to make sure it’s communicated eloquently and accessibly.
 This involves partnering closely with research to understand what you need to say, then partnering closely with product design to ensure flows and screens support the content needed.
@@ -40,7 +41,7 @@ That was a bit of a whirlwind explanation, but if you’re curious I’ve writte
 The thing about blockchain is that there are very few designers in the space and even fewer content designers or writers on product teams. So I’m hoping this series proves a good resource for improving the content and usability of all the products out there being built — especially if you don’t have a professional writer.
 And first up, I want to talk about something completely unique to blockchain… wallet signature request messages.
 
-## But first, blockchain
+### But first, blockchain
 Before we actually get in to the nitty gritty of wallet signature requests, I just need to lay out some blockchain basics and some terminology.
 Blockchain applications are commonly referred to as dApps, which stands for decentralized applications.
 They’re decentralized because they use things called smart contracts to reduce or remove the need for middle-people or central authorities. Smart contracts are essentially coded agreements: “ 
@@ -57,7 +58,7 @@ This article isn’t about explaining blockchain — and just as well because I�
 ![](https://api.kauri.io:443/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF)
 
 
-## Wallet signature request messages
+### Wallet signature request messages
 > Caveat #1: I’ll be talking about signature request messages in the context of logging in or accessing a dApp on the Ethereum blockchain, not when they’re used for verifying a smart contract transaction (that’ll come later).
 
 Wallet signature requests are some of the first things you come across when starting out with dApps. They are a crucial part of the decentralized “logging in” process.
@@ -79,7 +80,7 @@ Whether or not you agree with the metaphor, the importance of this verification 
 
 This is often the last step (hurdle?) in logging in, so it’s crucial. I think it’s time we started caring more about what it says.
 
-## Content for signature request messages
+### Content for signature request messages
 > Caveat #1: technically speaking, this article focuses just on MetaMask for now. MetaMask is an extension that allows you to have a wallet in your Chrome, Firefox, Brave or Opera browser. I can’t guarantee that the advice I provide is compatible with other technologies.
 
 > Caveat #2: some dApps are more decentralized than others. Where some allow you access via your wallet alone, other dApps ask you to link a wallet to a centralized account. Although my primary focus is on the former, my advice applies more broadly to the latter too.
@@ -87,7 +88,7 @@ This is often the last step (hurdle?) in logging in, so it’s crucial. I think 
 In my first month working in blockchain, I’ve spent a lot of time logging in to dApps using my wallet.
 In theory, you only have to install MetaMask and create your wallet once. From there you can use your wallet to log into lots of dApps. This is actually a good opportunity for a quick login experience. All you need to do is sign a piece of data to gain access via your wallet. Yet even after a month in, this still feels problematic. I’ve never “signed data” before. I need some context and I desperately need some “why” or at least “what for?”. The good news is, there’s no reason you can’t supply that context.
 
-### The technical bit
+#### The technical bit
 Under the hood a signature request is a dApp sending a small piece of data to the wallet and asking the user to go into the wallet and sign to say that they’ve received it.
 This data might look like: 
 `d458fa15-dcab-4d85-a477-004d6febca12`
@@ -129,7 +130,7 @@ _I’ve made it bold to show where you customise the message._
 This will convert the random combination of letters and numbers into something a human can read.
 Now you’ve just got to work out what to say.
 
-### The content bit
+#### The content bit
 I believe getting this message right can really improve the log in experience for both new and return users — all in a really cheap way.
 Here’s my content design advice…
  
@@ -174,7 +175,7 @@ __
 ![](https://api.kauri.io:443/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh)
 
 
-## What does this advice look like?
+### What does this advice look like?
 A good, but generic, message might look something like:
 > Hi there from {dApp name}! Sign this message to prove you have access to this wallet and we’ll log you in. This won’t cost you any Ether.To stop hackers using your wallet, here’s a unique message ID they can’t guess: d458fa15-dcab-4d85-a477–004d6febca12
 
@@ -208,7 +209,7 @@ I hope you give this a go — I’d love to see more informative, helpful and hu
  
 _Huge thanks to @danfinlay over at MetaMask for answering all my questions. And to my Rimble and ConsenSys team mates for providing feedback on earlier drafts of this article_
 
-### A quick edit
+#### A quick edit
 After more user testing, I found that this message must make it clear that the user doesn’t have to remember the nonce or write it down. It might also be worth removing any mention of hackers if your audience isn’t as tech-savvy.
  
 Blockchain is complicated and making it simple is even more complicated. So please let me know if you found this useful or if you spot any mistakes.

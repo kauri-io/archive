@@ -11,17 +11,18 @@ some_url:
 
 
 
-# DAIno
 
-## Project Tagline/Description
+## DAIno
+
+### Project Tagline/Description
 DAIno allows you to gift xDAI on social networks to anyone instantly, with a simple chrome extension. 
 
 
-## Team Members.
+### Team Members.
 Beatrice Leung, Cavan Flynn, Leon Do, Randy Daniel
 
 
-## Status.im ID 
+### Status.im ID 
 
 - BL
 0x045a9be6f9afd8fbc99439067e9ab4f4fb2962d541266bfcf0f89bb8755da8853b5258b34385d9a20ccec1b8efc7c52a5448925d063a4089308b23a7d16ab711da
@@ -35,10 +36,10 @@ Beatrice Leung, Cavan Flynn, Leon Do, Randy Daniel
 - RD  0x040509b267bffd7751318a3f9af4c66f3e44dc232c112b41e7a319fe30204bde859b91035d72f9bbc14a1012add19d008f449cc50a8d9f8946fed179dfe213fcfe
 
 
-## Detailed Project Description 
+### Detailed Project Description 
 DAIno is a chrome extension that adds a button to your social feed, allowing you to gift anyone xDAI. After selecting the DAIno button the sender deposits fund into their one time use DAIno address and we’ll send the receiver a notification to let them know they got paid! The receiver can then claim the funds in using their social authentication on the DAIno page.
  
-## Tech stack 
+### Tech stack 
 
 - FrontEnd: Typescript, Vue.js, Vuex
 
@@ -48,13 +49,13 @@ DAIno is a chrome extension that adds a button to your social feed, allowing you
 
 - Libraries: Ethers.js
 
-## Open Track
+### Open Track
 
 - ## POA Network Bounty 1: Deploy on POA or xDai 
 
 - ## Ideas by Nature Bounty 1:Most User-Friendly Onboarding Process
 
-##Repo
+###Repo
 
 - https://github.com/cavanmflynn/daino-chrome-extension
 

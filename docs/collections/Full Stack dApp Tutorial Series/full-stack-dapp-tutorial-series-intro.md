@@ -10,7 +10,8 @@ some_url:
 # Full Stack dApp Tutorial Series - Intro
 
 
-## Intro
+
+### Intro
 
 In this series, we'll build a simple dApp (decentralised application).
  
@@ -24,18 +25,18 @@ The dApp will simply allow any user to issue a bounty in ETH
 
 - The bounty issuer can accept a fulfilment which would result in the fulfiller being paid out
 
-## Prerequisites
+### Prerequisites
 
 1. You're a software engineer, hacker, etc. You understand systems and architecture and the fundamentals of software programming
 
 2. You understand the concepts of blockchain and have a basic knowledge of Ethereum. If not, watch the "Ethereum in 25 minutes" video below, read the [Ethereum whitepaper] (https://github.com/ethereum/wiki/wiki/White-Paper), and read the [ETH 101 Series] (https://beta.kauri.io/collection/5bb65f0f4f34080001731dc2/ethereum-101) 
 
-## Resources:
+### Resources:
 
 All tutorials within this series are accompanied by code examples which can be found in the following github repository:
 
 [kauri-io/kauri-fullstack-dapp-tutorial-series] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series)
 
-## Ethereum in 25 minutes
+### Ethereum in 25 minutes
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/66SaEDzlmP4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>

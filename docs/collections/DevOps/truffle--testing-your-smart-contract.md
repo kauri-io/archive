@@ -10,6 +10,7 @@ some_url:
 # Truffle  Testing your smart contract
 
 
+
 Earlier in the series, we took a look at how to setup Truffle and use it to compile, deploy and interact with our Bounties.sol smart contract.
 
 This article will walk through the steps required to write tests for our smart contract within the Truffle framework. Tests in Truffle projects can be written in [Javascript] (http://truffleframework.com/docs/getting_started/javascript-tests) or [Solidity] (http://truffleframework.com/docs/getting_started/solidity-tests), however, this article will focus on the Javascript tests.
@@ -18,7 +19,7 @@ Truffle uses the [Mocha] (https://mochajs.org/) testing framework to provide an 
 
 [Source code for this tutorial can be found here.] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-writing-tests)
 
-## Prerequisites
+### Prerequisites
 
 **NODEJS 7.6+**
 
@@ -64,7 +65,7 @@ You should install promise and bindings to ensure there are no errors later on.
 
 `npm install bindings`
 
-## Setting up a test file
+### Setting up a test file
 
 Now that we have our project setup we'll create our first test:
 
@@ -111,7 +112,7 @@ Running truffle test executes all tests in your truffle projects **/test** folde
 2. Runs migrations to deploy the contracts to the network
 3. Runs tests against the contracts deployed on the network
 
-## Writing a Test
+### Writing a Test
 
 Let's take a look at the issueBounty function:
 ```
@@ -205,7 +206,7 @@ const dayInSeconds = 86400;
 ```
 We also added a **dayInSeconds** constant, to help us add days.
 
-### Happy Path
+#### Happy Path
 
 **Note: all the following tests should be placed in the bounties.js file**
 
@@ -258,7 +259,7 @@ Above we add `.call` to issueBounty to make a call to the function rather than i
 
 **NOTE: Because our result is a BigNumber, we need to call .toNumber() in our assert function.**
 
-### Error Path
+#### Error Path
 
 Our error path tests will involve us sending a transaction with invalid inputs as an argument to our `assertRevert` helper function
 
@@ -324,7 +325,7 @@ Compiling ./contracts/Migrations.sol...
   6 passing (1s)
 ```
  
-### Time travel
+#### Time travel
 
 One of the main tests is to check that a fulfilment should not be accepted if the deadline has passed. In order to test this, we will need to add a helper function which advances the timestamp of the EVM:
 
@@ -371,7 +372,7 @@ We can then use this in our test as follows:
  });
 ```
 
-## Try it yourself
+### Try it yourself
 
 Now that you have seen how to test the issueBounty function, try adding tests for the following functions:
 
@@ -381,7 +382,7 @@ Now that you have seen how to test the issueBounty function, try adding tests fo
 
 You can find the [complete bounties.js test file here for reference]  (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-writing-tests/test/bounties.complete.js)
 
-## Next Steps
+### Next Steps
 - Read the next guide: [Truffle: Adding a Frontend with React Box](https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/truffle:-adding-a-frontend-with-react-box)
 - Learn more about the Truffle suite of tools from the [website](https://truffleframework.com/)
 

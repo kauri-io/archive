@@ -9,6 +9,7 @@ some_url:
 
 # Blockchain for Trekkies🖖
 
+
 Hey Trekkies! I’m hoping to help bridge the gaps between Star Trek and Blockchain once and for all. Before I continue with this guide, I will need to do a quick refresher of an old episode and also outline an assumption so I can make an accurate Trekkie analogy for Blockchains.
 
 Refresher: In Season 1 Episode 5 “The Enemy Within” the crew found a Unicorn Dog dog that was able to duplicate (the duplicate was an opposite to the original but that’s not so relevant to helping me explain blockchain so let’s ignore that).

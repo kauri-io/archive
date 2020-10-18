@@ -9,11 +9,12 @@ some_url:
 
 # Best Monero Wallets (XMR Wallet)
 
+
 Monero(XMR) is one of the top cryptocurrency focused on privacy and censorship-resistance. There are a lot of [crypto wallets](https://blog.coincodecap.com/tag/crypto-wallet/) support Monero, but we have picked the best Monero wallets for you. 
 
 > Check out the complete list of [crypto wallets on CoinCodeCap](https://coincodecap.com/category/wallets).
 
-### [Cake Wallet](https://cakewallet.com/?utm_source=coincodecap.com)
+#### [Cake Wallet](https://cakewallet.com/?utm_source=coincodecap.com)
 
 Cake Wallet is a Monero-only wallet with easy onboarding and multiple exciting features. It allows you to create multiple wallets with the same app, and you will control all your keys. 
 
@@ -38,7 +39,7 @@ Above all, it also integrated [ChangeNow](https://coincodecap.com/product/change
 
 ![cake wallet](https://blog.coincodecap.com/wp-content/uploads/2020/01/cake.png)
 
-### [Monerujo wallet](https://www.monerujo.io/?utm_source=coincodecap.com)
+#### [Monerujo wallet](https://www.monerujo.io/?utm_source=coincodecap.com)
 
 Monerujo is a monero-only wallet for advance users with tons of features. It is entirely open-source and supports multiple wallet and account creation. 
 
@@ -60,7 +61,7 @@ The wallet offers the password and fingerprint feature for security. However, Mo
 
 ![](https://blog.coincodecap.com/wp-content/uploads/2020/01/Screenshot-from-2020-01-31-20-41-30.png)
 
-### [MyMonero](https://mymonero.com/?utm_source=coincodecap.com)
+#### [MyMonero](https://mymonero.com/?utm_source=coincodecap.com)
 
 Mymonero is an open-source Monero-only wallet. It has a simple design and beginner-friendly. 
 
@@ -79,7 +80,7 @@ It’s a lightweight, minimalist wallet with a good user experience. 
 
 ![](https://blog.coincodecap.com/wp-content/uploads/2020/01/mymonero-1024x1024.png)
 
-### [Edge Wallet](https://edge.app/?utm_resource=coincodecap.com)
+#### [Edge Wallet](https://edge.app/?utm_resource=coincodecap.com)
 
 Edge is a multicurrency wallet with Monero support. It is open-source and provides basic privacy features. However, the Edge wallet doesn’t allow you to add your custom monero node.
 
@@ -98,7 +99,7 @@ Edge wallet also allows you to buy and sell Monero using fiat and swap XMR with 
 
 ![edge wallet](https://blog.coincodecap.com/wp-content/uploads/2020/01/Screenshot-from-2020-01-31-20-44-40.png)
 
-### [Monero Official Wallet](https://web.getmonero.org/downloads/#gui)
+#### [Monero Official Wallet](https://web.getmonero.org/downloads/#gui)
 
 Monero’s official desktop wallet is an open-source Monero-only wallet. It has a simple design and supports different modes based on the user’s requirement. 
 
@@ -124,7 +125,7 @@ Official [crypto wallets](https://blog.coincodecap.com/tag/crypto-wallet/) are b
 
 ![Monero gui wallet](https://blog.coincodecap.com/wp-content/uploads/2020/01/gui.png)
 
-### Monero (XMR) Hardware Wallets
+#### Monero (XMR) Hardware Wallets
 
 Monero also funded a dedicated Monero hardware wallet project, [Kastelo](https://kastelo.org/). It’s an Open Source hardware wallet focus on private and censorship-resistant transactions. 
 

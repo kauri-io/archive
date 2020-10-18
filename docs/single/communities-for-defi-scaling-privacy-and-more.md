@@ -9,13 +9,14 @@ some_url:
 
 # Communities for DeFi, Scaling, Privacy and More
 
+
 The Ethereum community is moving rapidly, with new tools, projects, protocols, and libraries launching every day. While this speed of development is exciting, it can be overwhelming for both new and experienced Ethereum developers to find up to date and accurate information. 
 
 Kauri helps our community curate resources for developers to build with Ethereum and related web3 technologies. This combination of contribution, curation, and discovery requires help from our community contributors, technical, non-technical, and everyone in- between.
 
 We want to make that easier and provide better recognition for community members.
 
-# Introducing, Communities! 
+## Introducing, Communities! 
 
 ___
 

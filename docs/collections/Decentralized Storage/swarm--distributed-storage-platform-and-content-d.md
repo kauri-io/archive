@@ -9,14 +9,15 @@ some_url:
 
 # Swarm  Distributed Storage Platform and Content Distribution Service
 
+
 > Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum web3 stack
 
 _This article originally appears in the Swarm [repository](https://github.com/ethersphere/swarm-guide/blob/master/contents/introduction.rst)_
-## Introduction
+### Introduction
 
 This guide walks you through understanding, installing, and using Swarm. It also explains how to contribute or ask for help. Swarm is in active development and it is untested in the wild, so use it at your own risk. To interact with Swarm, you will need to use the command line. If you are not comfortable using it, it might be worth to familiarise yourself [here](http://linuxcommand.org/lc3_lts0010.php) first.
 
-## What is Swarm?
+### What is Swarm?
 ![](https://api.kauri.io:443/ipfs/QmV2kyWHnJagmEsemH7ZzAg9YCVYE6vvgsHgMmqaUkttbX)
 
 Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum `web3` stack. The primary objective of Swarm is to provide a sufficiently decentralized and redundant store of Ethereum's public record, in particular to store and distribute dapp code and data as well as blockchain data. From an economic point of view, it allows participants to efficiently pool their storage and bandwidth resources in order to provide these services to all participants of the network, all while being incentivised by Ethereum.
@@ -24,7 +25,7 @@ Swarm is a distributed storage platform and content distribution service, a nati
   <iframe width="560" height="315" src="https://www.youtube.com/embed/VgTZV471WFM" style="margin-bottom: 30px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-## Objective
+### Objective
 
 Swarm's broader objective is to provide infrastructure services for developers of decentralised web applications (dapps), notably: messaging, data streaming, peer to peer accounting, mutable resource updates, storage insurance, proof of custody scan and repair, payment channels and database services.
 
@@ -32,7 +33,7 @@ From the end user's perspective, Swarm is not that different from the world wide
 
 Please refer to our [development roadmap](https://github.com/ethersphere/swarm/wiki/roadmap) to stay informed with our progress.
 
-## Overview
+### Overview
 
 Swarm is set out to provide base layer infrastructure for a new decentralised internet.
 Swarm is a peer-to-peer network of nodes providing distributed digital services by contributing resources (storage, message forwarding, payment processing) to each other. These contributions are accurately accounted for on a peer to peer basis, allowing nodes to trade resource for resource, but offering monetary compensation to nodes consuming less than they serve.
@@ -61,7 +62,7 @@ Swarm is a [Persistent Data Structure](https://en.wikipedia.org/wiki/Persistent_
 
 **Important:** It is not possible to **delete or remove** content uploaded to Swarm. **Always encrypt** sensitive content using the integrated Swarm encryption.
 
-## Available APIs
+### Available APIs
 
 Swarm offers several APIs:
  * CLI
@@ -70,17 +71,17 @@ Swarm offers several APIs:
  * Javascript - available through the [erebos](https://erebos.js.org), [swarm-js](https://github.com/MaiaVictor/swarm-js) or [swarmgw](https://www.npmjs.com/package/swarmgw) packages
 
 
-## Code
+### Code
 
 Source code is located at https://github.com/ethereum/go-ethereum/.
 
-## Roadmap
+### Roadmap
 
 Roadmap is located at https://github.com/ethersphere/Swarm/wiki/roadmap
 
 **Important:** Swarm is experimental code and untested in the wild. Use with extreme care. We encourage developers to connect to the testnet with their permanent nodes and give us feedback.
 
-## Public gateways
+### Public gateways
 
 Swarm offers a local HTTP proxy API that Dapps can use to interact with Swarm. The Ethereum Foundation is hosting a public gateway, which allows free access so that people can try Swarm without running their own node.
 
@@ -88,12 +89,12 @@ The Swarm public gateway can be found at https://swarm-gateways.net and is alway
 
 **Important:** Swarm public gateways are temporary and users should not rely on their existence for production services.
 
-## Example Dapps
+### Example Dapps
 
 * https://swarm-gateways.net/bzz://swarmapps.eth
 * source code: https://github.com/ethersphere/Swarm-dapps
 
-## Reporting a bug and contributing
+### Reporting a bug and contributing
 
 Issues are tracked on github and github only. Swarm related issues and PRs have labels prefixed with *swarm*:
 
@@ -106,7 +107,7 @@ Pull requests should by default commit on the `master` branch.
 
 Prospective contributors please read the [Developers' Guide](https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide)
 
-## Credits
+### Credits
 
 Swarm is funded by the Ethereum Foundation and industry sponsors.
 

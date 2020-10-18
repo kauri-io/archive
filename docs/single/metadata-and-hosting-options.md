@@ -9,6 +9,7 @@ some_url:
 
 # Metadata and Hosting Options
 
+
 As awesome as NFTs are, without metadata they are just numbers! Fortunately, a metadata standard was included in EIP721, along with some additions (background color, stats) to improve the rendering on markets like OpenSea. 
 
 **Note:**

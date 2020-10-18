@@ -9,11 +9,12 @@ some_url:
 
 # Plasma Group’s Plasma Spec
 
+
  
 _TLDR: We created a spec for a Plasma Cash variant and implemented it in Node.js and Vyper. This document covers the design specification, providing references to the implementation along the way. Our code supports deploying a new chain to testnet, an on-chain registry of other plasma chains and their block explorers, and transacting via a command-line wallet._
  
 
-## Introduction
+### Introduction
 The vision of a network of blockchains as a scalability solution has been spreading rapidly. A multi-chain approach for parallelizing transactions is a promising way to increasing throughput… unfortunately, it also imposes significant challenges:
 
 
@@ -36,7 +37,7 @@ We envision a future with many Plasma chains, giving users choice over where the
 _even if its operator is malicious_
  .
 
-## Properties of our Plasma Chain Implementation
+### Properties of our Plasma Chain Implementation
 This post specifies Plasma Group’s current protocol and implementation, which draws from recent developments within the research community.
  
 **Our specification has the following properties:**
@@ -92,7 +93,7 @@ If you’re interested in checking out the protocol and the code implementation,
  * Though our safety mechanisms and exit games are both implemented and tested, we have not yet built an automated guard service, meaning challenges and responses must be manually constructed.
 With that out of the way, let’s jump in! The rest of this post will take comprehensive dive into our spec, where the code lives, and what it does.
 
-## Table of Contents
+### Table of Contents
 
 
 
@@ -108,7 +109,7 @@ With that out of the way, let’s jump in! The rest of this post will take compr
 
  *  [The Future](https://medium.com/p/9d98d0f2fccf#2078) a. [Missing pieces in implementation](https://medium.com/p/9d98d0f2fccf#487d) b. [Missing pieces in the spec](https://medium.com/p/9d98d0f2fccf#c7f3) 
 
-## Repos & Architecture
+### Repos & Architecture
  
 [Our Github](https://github.com/plasma-group/)
  offers all of our implementations under the MIT License:
@@ -143,7 +144,7 @@ Here’s the architecture that
 ![](https://api.kauri.io:443/ipfs/QmWsoXsxmebL4DvM9q5vWq4bG4fyMpUzpdoEjSXza6nZQJ)
 
 
-## 1. General Definitions and Data Structures
+### 1. General Definitions and Data Structures
 This section will cover terminology and intuitions for the protocol’s components. These data structures are encoded and decoded by 
 `plasma-utils`
  ’ library 
@@ -152,7 +153,7 @@ This section will cover terminology and intuitions for the protocol’s componen
 [schemas](https://github.com/plasma-group/plasma-utils/tree/master/src/serialization/schemas)
  .
 
-### Coin ID Assignment
+#### Coin ID Assignment
 The base unit of any plasma asset is represented as a coin. Like in standard Plasma Cash, these coins are non-fungible, and we call the index of a coin its 
 `coinID`
  , which is 16 bytes. They are assigned in order of deposit on a per-asset (ERC 20/ETH) basis. Notably, all assets in the chain share the same ID-space, even if they are different ERC20s or ETH. This means that transactions across all asset classes (which we refer to as the 
@@ -198,7 +199,7 @@ For example: let’s say that
 ![](https://api.kauri.io:443/ipfs/QmZFEWnCuXykXdbyqSE1zcjuDAhXa74Dh96k7DyQzZho5h)
 
 
-### Denominations
+#### Denominations
 In practice, denominations will be much lower than 
 `0.1`
  . Instead of storing denominations directly in the contract, it stores a 
@@ -226,9 +227,9 @@ _//Note:_
 _s are hardcoded to 0 for this release, as we lack support in the client/operator code._
  
 
-## 2. Transactions over ranges of coins
+### 2. Transactions over ranges of coins
 
-### Transfers
+#### Transfers
 A transaction consists of a specified 
 `block`
  number and an array of 
@@ -291,7 +292,7 @@ We can see that each
 `recipient`
  .
 
-### Typed and Untyped Bounds
+#### Typed and Untyped Bounds
 One thing to note above is that the 
 `start`
  and 
@@ -343,7 +344,7 @@ Another note: in any transfer the corresponding
 `transfer.end = 200`
  .
 
-### Multisends and Transfer/Transaction Atomicity
+#### Multisends and Transfer/Transaction Atomicity
 The 
 `Transaction`
  schema consists of a 4-byte 
@@ -358,7 +359,7 @@ _entire transaction’s_
 [defragmentation](https://ethresear.ch/t/plasma-cash-defragmentation-take-3/3737)
  in later releases.
 
-### Serialization
+#### Serialization
 As exemplified above, 
 `plasma-utils`
  implements a custom serialization library for data structures. Both the JSON RPC and the smart contract use the byte arrays as encoded by the serializer.
@@ -386,7 +387,7 @@ Currently, we have schemas for the following objects:
 
  *  `TransactionProof` 
 
-## 3. Block Structure Specification
+### 3. Block Structure Specification
 One of the most important improvements Plasma Cash introduced was “light proofs.” Previously, plasma constructions required that users download the entire plasma chain to ensure safety of their funds. With Plasma Cash, they only have to download the branches of a Merkle tree relevant to their own funds.
 This was accomplished by introducing a 
 _new transaction validity condition_
@@ -439,7 +440,7 @@ We have written two implementations of the plasma Merkle sum tree: one done in a
 `plasma-utils`
  .
 
-### Sum Tree Node Specification
+#### Sum Tree Node Specification
 Each node in the Merkle sum tree is 48 bytes, as follows:  
   
 `[32 byte hash][16 byte sum]`
@@ -462,7 +463,7 @@ We have two helper properties,
 `node.sum == 0xffffffffffffffffffffffffffffffff`
  .
 
-### Parent Calculation
+#### Parent Calculation
 In a regular Merkle tree, we construct a binary tree of hash nodes, up to a single root node. Specifying the sum tree format is a simple matter of defining the 
 `parent(left, right)`
  calculation function which accepts the two siblings as arguments. For example, a regular Merkle sum tree has:  
@@ -503,7 +504,7 @@ Note that the
 `sibling.sum`
  as well as the hashes: we hash the full 96 bytes of both.
 
-### Calculating a Branch’s Range
+#### Calculating a Branch’s Range
 The reason we use a Merkle sum tree is because it allows us to calculate a specific range which a branch describes, and be 100% confident that no other valid, overlapping branches exist.
 We calculate this range by adding up a 
 `leftSum`
@@ -623,7 +624,7 @@ Note that the ranges are
 _typed_
  starts and ends, the full 16 bytes.
 
-### Parsing Transfers as Leaves
+#### Parsing Transfers as Leaves
 In a regular Merkle tree, we construct the bottom layer of nodes by hashing the “leaves”:
 
 ![](https://api.kauri.io:443/ipfs/QmSrhxrYuhvGHX3yqgVxTKWTA8pB152XtVLAVBDCWFxLeK)
@@ -656,7 +657,7 @@ We call the bottommost
 `.parsedSum`
  value which is used to reconstruct the bottom node.
 
-### Branch Validity and Implicit NoTx
+#### Branch Validity and Implicit NoTx
 Thus, the validity condition for a branch as checked by the smart contract is as follows: 
 `implicitStart <= transfer.typedStart < transfer.typedEnd <= implicitEnd`
  . Note that, in the original design of the sum tree in “Plasma Cashflow,” some leaves were filled with a special “NoTx” transaction to represent that ranges were not transacted. With this format, the coins which are not transacted are simply those in the ranges 
@@ -665,7 +666,7 @@ Thus, the validity condition for a branch as checked by the smart contract is as
 `[transfer.typedEnd, implicitEnd)`
  . The smart contract guarantees that no coins in these ranges can be used in any challenge or response to an exit.
 
-### Atomic Multisends
+#### Atomic Multisends
 Often (to support transaction fees and exchange) transactions require multiple transfers to occur or not, atomically, to be valid. The effect is that a valid transaction needs to be included once for each of its 
 `.transfers`
  — each with a valid sum in relation to that particular 
@@ -680,7 +681,7 @@ Often (to support transaction fees and exchange) transactions require multiple t
 `.hash`
  .
 
-## 5. Proof Structure and Checking
+### 5. Proof Structure and Checking
 Unlike traditional blockchain systems, full plasma nodes don’t store every single transaction, they only ever need to store information relevant to assets they own. This means that the 
 `sender`
  has to 
@@ -693,7 +694,7 @@ Proofs primarily consist of the inclusion and non-inclusion of transactions, whi
 `plasma-core`
  follows a relatively simple methodology for verifying incoming transaction proofs. This section describes that methodology.
 
-### Proof Format
+#### Proof Format
 History proofs consist of a set of 
 _deposit records_
  and long list of relevant 
@@ -715,7 +716,7 @@ _deposit records_
 `ProofService`
  .
 
-### Transaction Proofs
+#### Transaction Proofs
 A 
 `TransactionProof`
  object contains all the necessary information to check the validity of a given 
@@ -730,7 +731,7 @@ A
 `TransferProofs`
  are valid.
 
-### Transfer Proofs
+#### Transfer Proofs
  
 `TransferProofs`
  contain all the necessary information required to recover the inclusion of a valid branch corresponding to the given 
@@ -783,11 +784,11 @@ Note that the
 `inclusionProof`
  is a variable-length array whose size depends on the depth of the tree.
 
-### Proof Steps
+#### Proof Steps
 The core of the verification process involves applying each proof element to the current “verified” state, starting with the deposit. If any proof element doesn’t result in a valid state transition, we must reject the proof.
 The process for applying each proof element is intuitive; we simply apply the transactions at each block as the contract’s custody rules dictate.
 
-### Snapshot Objects
+#### Snapshot Objects
 The way in which we keep track of historically owned ranges is called a 
 `snapshot`
  .  
@@ -804,7 +805,7 @@ The way in which we keep track of historically owned ranges is called a
 
 
 
-### Deposit records
+#### Deposit records
 Every received range has to come from a corresponding deposit.  
  A deposit record consists of its 
 `token`
@@ -855,7 +856,7 @@ Once this operation has been recursively applied for all
 `owner`
  equalling her address.
 
-### TransactionProof Validity
+#### TransactionProof Validity
 The transaction validity check in step 1. above is equivalent to checking the smart contract’s validity condition. The basic validity check, based on the sum tree specification above, is as follows:
 1. Check that the transaction encoding is well-formed.  
  2. For each 
@@ -881,7 +882,7 @@ The transaction validity check in step 1. above is equivalent to checking the sm
 `implicitStart <= transfer.start < transfer.end <= implicitEnd`
  
 
-## 4. Contract and Exit Games
+### 4. Contract and Exit Games
 Of course, the proof for a chain of custody isn’t useful unless it can also be passed to the main chain to keep funds secure. The mechanism which accepts proofs on-chain is the core of plasma’s security model, and it is called the “exit game.”
 When a user wants to move their money off a plasma chain, they make an “exit”, which opens a dispute period. At the end of the dispute period, if there are no outstanding disputes, the money is sent from the plasma contract on the main chain to the exiter. During the dispute period, users may submit “challenges” which claim the money being exited isn’t rightfully owned by the person exiting. The proofs described above guarantee that a “response” to these challenges is always calculable.
 The goal of the exit game is to keep money secured, even in the case of a maximally adversarial operator. Particularly, there are three main attacks which we must mitigate:
@@ -895,7 +896,7 @@ The goal of the exit game is to keep money secured, even in the case of a maxima
  *  **Censorship:** after someone deposits their money, the operator may refuse to publish any transactions sending the money.
 In all of these cases, the challenge/response protocol of the exit game makes sure these behaviors do not allow theft, in at most 1 challenge followed by 1 response.
 
-### Keeping track of deposits and exits
+#### Keeping track of deposits and exits
  
 **Deposits mapping**
    
@@ -967,7 +968,7 @@ The contract’s
 [here](https://github.com/plasma-group/plasma-contracts/blob/068954a8584e4168daf38ebeaa3257ec08caa5aa/contracts/PlasmaChain.vy#L380)
  .
 
-### Exit games’ relationship to vanilla Plasma Cash
+#### Exit games’ relationship to vanilla Plasma Cash
 At heart, the exit games in our spec are very similar to the original Plasma Cash design. Exits are initiated with calls to the function
 
 ```
@@ -988,7 +989,7 @@ Both exits and the two types of respondable challenges are given an
 `exitNonce`
  .
 
-### Blocknumber-specified transactions
+#### Blocknumber-specified transactions
 In the original Plasma Cash spec, the exiter is required to specify both the exited transaction and its previous “parent” transaction to prevent the “in-flight” attack where the operator delays including a valid transaction and inserts an invalid one in the block between.
 This poses a problem for our range-based schemes, because a transaction may have multiple parents. For example, if Alice sends 
 `(0, 50]`
@@ -1005,7 +1006,7 @@ Though specifying multiple parents is definitely doable, this specification woul
 [this great post](https://ethresear.ch/t/plasma-cash-with-smaller-exit-procedure-and-a-general-approach-to-safety-proofs/1942)
  a look.
 
-### Per-coin transaction validity
+#### Per-coin transaction validity
 An unintuitive property of our exit games worth noting up front is that a certain transaction might be “valid” for some of the coins in its range, but not on others.
 For example, imagine that Alice sends 
 `(0, 100]`
@@ -1036,7 +1037,7 @@ From the standpoint of the smart contract, this property is a direct consequence
 `coinID`
  within the exit.
 
-### How the contract handles transaction checking
+#### How the contract handles transaction checking
 Note that, to be used in exit games at all, 
 `Transaction`
  s must pass the 
@@ -1098,7 +1099,7 @@ Once all
  .
 With that out of the way, we can specify the full set of challenge/response games for exits.
 
-### Challenges which immediately cancel exits
+#### Challenges which immediately cancel exits
 Two kinds of challenges immediately cancel exits: those on spent coins and those on exits before the deposit occurred.
  
 **Spent coin challenge**
@@ -1152,7 +1153,7 @@ The contract looks up
 `self.deposits[self.exits[exitID].tokenType][depositUntypedEnd].precedingPlasmaBlockNumber`
  and checks that it is later than the exit’s block number. If so, it cancels.
 
-### Optimistic exits and inclusion challenges
+#### Optimistic exits and inclusion challenges
 Our contract allows an exit to occur without doing any inclusion checks at all in the optimistic case. To allow this, any exit may be challenged directly via
 
 ```
@@ -1201,7 +1202,7 @@ Both responses cancel the challenge if:
 
  * The start and end of the exit were within the deposit or transfer’s start and end
 
-### Invalid History Challenges
+#### Invalid History Challenges
 The most complex challenge-response game, for both vanilla Plasma Cash and this spec, is the case of history invalidity. This part of the protocol mitigates the attack in which the operator includes an forged “invalid” transaction whose sender is not the previous recipient. The solution is called an invalid history challenge: because the rightful owner has not yet spent their coins, they attest to this and challenge: “oh yeah, that coin is yours? Well it was mine earlier, and you can’t prove I ever spent it.”
 Both invalid history challenges and responses can be either deposits or transactions.
  
@@ -1302,10 +1303,10 @@ In this case, there is no check on the sender being the challenge recipient, sin
 If so, the exit is cancelled.
 This concludes the complete exit game specification. With these building blocks, funds can be kept safe even in the case of a maximally malicious plasma chain.
 
-## 6. The Future
+### 6. The Future
 Plasma Group is dedicated to the creation of an open plasma implementation for the greater Ethereum community. It’s our mission to push layer 2 scaling forward by exploring the full potential of the plasma framework. There’s certinaly much more to push forward! Here are some of the things we hope to work on next.
 
-### Missing pieces in implementation
+#### Missing pieces in implementation
  
 **Automated Guarding**
    
@@ -1342,7 +1343,7 @@ Currently, when a user recieves a transaction, they ask the operator and re-down
 **very likely**
  that all of the client, contract, and operator implementations have critical bugs at this time. We’re hoping that part of this public launch will be an opportunity for external contributors to help point out many mistakes!
 
-### Missing pieces in the spec
+#### Missing pieces in the spec
  
 **Succinct Proof Schemes**
    

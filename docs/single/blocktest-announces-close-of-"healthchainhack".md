@@ -10,6 +10,7 @@ some_url:
 # BLOCKTEST ANNOUNCES CLOSE OF “HEALTHCHAINHACK”
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmQc8dGwjvEmEd8r886qwJ3beshKtgJSNg5kqtrV2NTbkC)
 
  
@@ -20,7 +21,7 @@ _This article was originally published on_
 _on December 14th, 2018._
  
 
-## Startup’s Inaugural Competition Promotes Blockchain Adoption through Co-Innovation
+### Startup’s Inaugural Competition Promotes Blockchain Adoption through Co-Innovation
 After 60 days of friendly virtual competition, BlockTEST announced the close of 
 **HealthChainHack**
  , their inaugural competition which saw a crossover between the healthcare industry and blockchain technologies. Judges deliberated over the competition’s submissions, some of which were developed across borders in this online global challenge. The competition saw 240 total participants from 28 countries across the world.

@@ -9,9 +9,10 @@ some_url:
 
 # Ethereum community and its ecosystem  Networks Visualisation Analysis
 
+
 <FONT size="2pt">_Ethereum community and ecosystem: Networks visualisation analysis_</FONT>
 
-#<FONT size="5pt">**<u>Visualisation of the Ethereum Ecosystem: interactions and relationships between subcommunities.</u>**</FONT>
+##<FONT size="5pt">**<u>Visualisation of the Ethereum Ecosystem: interactions and relationships between subcommunities.</u>**</FONT>
 
 In the previous reflexions we have analysed the conditions for a crowd to become a community, we have determined that the open and distributed protocol behind Ethereum is acting as a foundation for a vibrant ecosystem that is shaped by hundreds of active groups of individuals scattered around the world. It has allowed the creation of a structured systems of communities governed by a general set of rules; we have also observed that this communities is subdivided in specialised groups.<br/>
  If we had to describe the shape of its community, Ethereum looks like a polymorph system, organised around a decentralised network of sub-communities.<br/>

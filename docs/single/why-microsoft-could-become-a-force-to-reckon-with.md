@@ -9,6 +9,7 @@ some_url:
 
 # Why Microsoft could become a force to reckon with in Machine Learning
 
+
 Microsoft has gotten into a great course correction since Satya Nadella took over as the CEO. In its effort to transform itself into a platform company per the vision of the new CEO, Microsoft has been truly taking some critical steps in the Big Data analytics space. Since the launch of its 
 [Azure Machine Learning](http://azure.microsoft.com/en-us/services/machine-learning/)
  platform, Microsoft has been quietly focussing on building the foundational blocks and consolidating the Azure MLs adoption. It’s easy drag, drop and predict approach on a cloud based Machine Learning platform has won a solid following. It has also been helping developers to jump start Machine Learning through its Microsoft Virtual Academy led courses such as :

@@ -9,6 +9,7 @@ some_url:
 
 # Privacy with Pantheon Ethereum Java Client
 
+
 This article is taken from the [pantheon documentation](https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Privacy-Overview.md)
 
 > Privacy in Pantheon refers to the ability to keep transactions private between the involved parties. 
@@ -16,11 +17,11 @@ Other parties cannot access the transaction content, sending party, or list of p
 
 For production systems requiring private transactions, we recommend using a network  with a consensus mechanism supporting transaction finality. For example, [IBFT 2.0](https://github.com/PegaSysEng/pantheon/blob/master/docs/Consensus-Protocols/IBFT.md). 
 
-## Privacy in Pantheon: How PegaSys Has Redefined Blockchain for Enterprises
+### Privacy in Pantheon: How PegaSys Has Redefined Blockchain for Enterprises
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/8l7SSZLyFL8" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div></br>
 
-## Private Transaction Manager
+### Private Transaction Manager
 
 Pantheon uses a Private Transaction Manager to implement privacy. For example, [Orion](http://docs.orion.pegasys.tech).  
 Each Pantheon node that sends or receives private transactions requires an associated Orion node. 
@@ -31,7 +32,7 @@ Private transactions are passed from the Pantheon node to the associated Orion n
 encrypts and directly distributes (that is, point to point) the private transaction to Orion nodes 
 participating in the transaction. Private Transaction Managers are also known as Enclaves.  
 
-## Private Transaction Attributes
+### Private Transaction Attributes
 
 Private transactions have additional attributes to public Ethereum transactions: 
 
@@ -47,7 +48,7 @@ Private transactions have additional attributes to public Ethereum transactions:
 
 Pantheon implements `restricted` private transactions only.
 
-## Pantheon and Orion Keys
+### Pantheon and Orion Keys
 
 Pantheon and Orion nodes both have public/private key pairs identifying them. The private transaction 
 submitted from the Pantheon node to the Orion node is signed with the Pantheon node private key. The 
@@ -58,7 +59,7 @@ of the Orion nodes sending and receiving the transaction.
 The mapping of Pantheon node addresses to Orion node public keys is off-chain.  That is, the 
     sender of a private transaction must know the Orion node public key of the recipient.  
  
-## Privacy Groups 
+### Privacy Groups 
 
 The group of nodes specified by `privateFrom` and  `privateFor` form a privacy group and 
 are given a unique privacy group ID by Orion. The private transaction is stored in Orion with the privacy group ID. 
@@ -89,7 +90,7 @@ The above illustrates two privacy groups enabling:
     A, C, and D must be included on transactions (as either `privateFrom` or `privateFor`) even if they are 
     between two of the three parties.
 
-## Next Steps
+### Next Steps
 
 - [Getting started with Pantheon](https://github.com/PegaSysEng/pantheon/blob/master/docs/Getting-Started/Getting-Started.md)
 - [Configuring a network for private transactions](https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Configuring-Privacy.md)

@@ -10,6 +10,7 @@ some_url:
 # SMART CONTRACTS 101  STARTUP BONUSES WEBINAR  3
 
 
+
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://player.vimeo.com/video/298257920" width="512"></iframe>
 
  
@@ -26,6 +27,6 @@ Blockchain, by contrast, has no single point of failure or central authority and
 To continue, BlockTEST developer Hoyin Chu explained the concept of block and how blocks were added through mining. Chu further introduced smart contracts — digital agreements enforced by codes which can be added to a blockchain. Chu highlighted the advantages of smart contracts as being transparent, efficient, secure and cost-effective.
 Finally, BlockTEST blockchain engineer Prateek Adhikaree guided the audience through the process of building a simple smart contract. Adhikaree introduced a set of tools for developers including Remix, Truffle and MetaMask, and illustrated the building process through a brief demo.
 
-## Stay tuned for the BlockTEST Education Series
+### Stay tuned for the BlockTEST Education Series
 
-### Our webinars will continue with a set of videos focused on educating the blockchain community. Keep up at academy.blocktest.com!
+#### Our webinars will continue with a set of videos focused on educating the blockchain community. Keep up at academy.blocktest.com!

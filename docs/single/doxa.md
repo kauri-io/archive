@@ -9,37 +9,38 @@ some_url:
 
 # DOXA
 
-# Project Name
+
+## Project Name
 DOXA
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 A Blockchain-Based Lottery System with Savings and Staking in Mind.
 
-# Team Members
+## Team Members
 Brennan Fife
 Elise Schedler
 Parth Shah 
 Nima Cheraghi 
 
-# Status.im ID for Each Team Member
+## Status.im ID for Each Team Member
 @brennan, @easched, @nima
 
-# Detailed Project Description (no more than 3-4 sentences)
+## Detailed Project Description (no more than 3-4 sentences)
 DUXO is a blockchain-based lottery system, looking to take advantage of the technology's transparent and secure nature. Currently, we are incorporating two types of lottery systems: lotto-based (similar to a Powerball / Mega Millions) and Prize-Linked Saving Accounts, where users are allowed to play based off of the interest within the pot (thus, losing no initial funds). The lotto use case is not only under-represented within the blockchain ecosystem, but the PLSA's would offer potential benefits that would entice various forms of legislation to see potential benefits with a more efficient system.
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 We used Rhombus for our RNG, ShapeShift for our currency conversion, Bloom for identity. We programmed our website (and dashboard) with JS/HTML/CSS, Sketch, & React + Redux.
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 ShapeShift
 Rhombus
 Bloom
 Mainframe
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/brennanfife/DOXA
 
 

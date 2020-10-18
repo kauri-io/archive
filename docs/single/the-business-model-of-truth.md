@@ -9,7 +9,8 @@ some_url:
 
 # The Business Model of Truth
 
-# How Decentralized Oracle Networks like Witnet can be a crucial use case of blockchain technology in the so-called post-truth era
+
+## How Decentralized Oracle Networks like Witnet can be a crucial use case of blockchain technology in the so-called post-truth era
 
 ![](https://api.beta.kauri.io:443/ipfs/QmdEy51vweSW7NWCMGDSuD3ECL5qhFtmsuLZqvjpaLiiiT)
 

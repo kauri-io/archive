@@ -9,12 +9,13 @@ some_url:
 
 # Nethereum - An open source .NET integration library for blockchain
 
+
 Nethereum is the .Net integration library for Ethereum, simplifying the
 access and smart contract interaction with Ethereum nodes both public or
 permissioned like Geth, [Parity](https://www.parity.io/)
 or [Quorum](https://www.jpmorgan.com/global/Quorum).
 
-## Features
+### Features
 
 Nethereum provides:
 
@@ -34,14 +35,14 @@ Nethereum provides:
 - Low level Interception of RPC calls.
 - Code generation of smart contracts services.
 
-## Getting started
+### Getting started
 
-### Install .Net
+#### Install .Net
 
 Nethereum works with .Net Core or .Net Framework (from 4.5.1 upwards).You need to have the .Net SDK installed. For new starters or Mac and Linux users we
 recommend .Net core.
 
-### Create your app
+#### Create your app
 
 Create a project using the .Net CLI or create a project in Visual Studio.
 
@@ -50,13 +51,13 @@ dotnet new console -o NethereumSample
 cd NethereumSample
 ```
 
-### Add package reference to Nethereum.Web3
+#### Add package reference to Nethereum.Web3
 
 ```shell
 dotnet add package Nethereum.Web3
 ```
 
-### Open your IDE
+#### Open your IDE
 
 Visual Studio Code or Visual Studio are both good choices for .Net
 development. Other good IDEs are also available (Jet Brains Rider
@@ -64,7 +65,7 @@ etc).
 
 Open the _Program.cs_ file in the IDE or editor.
 
-## Code First Steps
+### Code First Steps
 
 First, the code adds required namespaces for Nethereum:
 
@@ -81,7 +82,7 @@ var web3 = new Web3("https://mainnet.infura.io");
 
 And then you can use the Ethereum API via Nethereum to interact with accounts and transactions.
 
-## Next Steps
+### Next Steps
 
 - [Read the Nethereum Getting Started guide](https://nethereum.readthedocs.io/en/latest/getting-started/)
 - [The full Nethereum documentation](https://nethereum.readthedocs.io/en/latest/)

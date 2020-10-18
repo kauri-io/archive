@@ -9,9 +9,10 @@ some_url:
 
 # Lint your Solidity contracts with Ethlint
 
+
 Ethlint (Formerly Solium) analyzes your Solidity code for style & security issues and fixes them.
 
-## Install
+### Install
 
 ```bash
 npm install -g ethlint
@@ -22,7 +23,7 @@ For backward-compatibility, you can still use `npm install -g solium`.
 
 If you're currently using the `solium` package for `npm install`, it is highly recommended that you move to `ethlint`. The `solium` package will not receive updates after December, 2019. There are no differences between the updates pushed to `ethlint` and `solium` packages.
 
-## Usage
+### Usage
 
 In the root directory of your DApp:
 
@@ -57,14 +58,14 @@ Solium does **not** strictly adhere to the Solidity [Style Guide](http://solidit
 
 ---
 
-### Lint
+#### Lint
 
 ```bash
 solium -f foobar.sol
 solium -d contracts/
 ```
 
-### Configure with comments
+#### Configure with comments
 
 **Comment Directives** can be used to configure Solium to ignore specific pieces of code.
 They follow the pattern `solium-disable<optional suffix>`.
@@ -95,7 +96,7 @@ contract Foo {
 }
 ```
 
-### Fix
+#### Fix
 
 Solium automatically fixes your code to resolve whatever issues it can.
 
@@ -103,7 +104,7 @@ Solium automatically fixes your code to resolve whatever issues it can.
 solium -d contracts/ --fix
 ```
 
-## Next steps
+### Next steps
 
 - Read the [Documentation](https://ethlint.readthedocs.io/).
 - [IDE and Editor Integrations](http://solium.readthedocs.io/en/latest/user-guide.html#index-9)

@@ -9,6 +9,7 @@ some_url:
 
 # Supported hardware to run an Ethereum node
 
+
 *This document is a draft, you can contribute to it using the button "Suggest Edit"*
 
 -------------
@@ -16,31 +17,31 @@ some_url:
 In the article, we have grouped a list of tested and worth considering supported hardware to synchronize an Ethereum full node:
 
 
-## Recommended hardware to run a node
+### Recommended hardware to run a node
 
 It is not clear what are the minimum and recommended  hardware specification to run a node but here you can find  a few hints to know if you can or cannot.
 
 
-### Memory
+#### Memory
 
 Minimum 2GB DDR3
 Recommended 4GB DDR3
 
-### Disk
+#### Disk
 
 No HDD
 SSD
 Recommended M.2 PCIe 2.0 x4
 
-### CPU
+#### CPU
 TBD
 
 <br />
 -------------------
 
-## Hardware table
+### Hardware table
 
-### Boards
+#### Boards
 
 | Board | Cost | Tested | Review | Time to sync mainnet |
 | -------- | -------- | -------- | -------- | -------- | 
@@ -56,7 +57,7 @@ TBD
 
 <br />
 
-### Storage
+#### Storage
 
 - [Samsung SSD T5 (500GB)](https://www.amazon.com/Samsung-T5-Portable-SSD-MU-PA500B/dp/B073GZBT36)
 

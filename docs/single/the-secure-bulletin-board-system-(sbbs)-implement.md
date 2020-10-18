@@ -9,6 +9,7 @@ some_url:
 
 # The Secure Bulletin Board System (SBBS) implementation in Beam
 
+
 Beam is built on 
 [Mimblewimble](https://docs.beam.mw/Mimblewimble.pdf)
  protocol¹, a wonderful piece of technology that achieves confidentiality while significantly improving blockchain scalability. However, this comes with a significant caveat. In Mimblewimble there are no addresses, and transactions need to be built interactively by the participating parties.
@@ -20,7 +21,7 @@ That poses a challenge: if Alice wants to send money to Bob, both their wallets 
  ’s Secure Bulletin Board (SBBS) system solves this problem and makes Beam user experience exactly the same as we are used to on Bitcoin and other currencies.
 With SBBS client wallets can exchange messages even if they are currently offline by store-and-forward Beam nodes. The system is cryptographically secure with public key cryptography, encrypted over state-of-the-art elliptic curve cryptography (ECC). It leverages the existing public key infrastructure of Beam to implement a bulletin board system, relayed by Beam’s nodes and received by client wallets. This will usher in messaging in crypto with the same privacy, security, and decentralization, as expected from the highest standards of cryptography, and with no central point of failure.
 
-## Computerized Bulletin Board Systems — A Dinosaur from the eighties?
+### Computerized Bulletin Board Systems — A Dinosaur from the eighties?
 A bulletin board system is a computer server running a software that allows users to connect with a client. Once logged, the user can upload or download messages through public message boards or private email, as well as file downloads (often text files), and if the client allowed, direct chatting and even text-based multiplayer games.
 
 ![](https://api.kauri.io:443/ipfs/QmPg5VmNbbwGkLpWD1LyaUgY8jqvtB6LNZFJrezP9Ws7oL)
@@ -46,7 +47,7 @@ When logged into a BBS, users would see a list of messages and a list of files f
 _echoes_
  ”). It was far from instantaneous, a message from across the world could take several days to be relayed across nodes.
 
-## Beam’s Secure BBS
+### Beam’s Secure BBS
 
 ![](https://api.kauri.io:443/ipfs/QmSkCy4EF2v46YxRr69si3Hkkvmvu53ibTwR4h65Rn1ywW)
 
@@ -57,7 +58,7 @@ Users will be able to communicate with each other in a secure asynchronous way. 
 The full nodes form a store-and-forward network, which receives messages and stores them in a database, relaying them with a distributed hash table (DHT). Clients (wallets, in out case) subscribe to notifications from the nodes for new messages. They select a channel to listen and timestamp the call to avoid receiving old messages. If a message is addressed to him, he will be able to decrypt it.
 The public key infrastructure is already in place. The cryptographic primitives are those from libsecp256k1, which are both modern and battle-tested in Bitcoin, as well as other cryptocurrencies. The recipient’s public key is his Beam cryptocurrency address. The only work left to do is establish a messaging protocol based on computerized BBSes.
 
-## Alice and Bob connect
+### Alice and Bob connect
 
 
 
@@ -67,7 +68,7 @@ The public key infrastructure is already in place. The cryptographic primitives 
 
  * They subscribe to the channel if needed.
 
-## Alice sends a message
+### Alice sends a message
 
 
 
@@ -79,7 +80,7 @@ The public key infrastructure is already in place. The cryptographic primitives 
 
  * She sends to the BBS server (the node).
 
-## Bob receives the message
+### Bob receives the message
 
 
 
@@ -94,7 +95,7 @@ The public key infrastructure is already in place. The cryptographic primitives 
 ![](https://api.kauri.io:443/ipfs/QmTLtNBbpqwoD6dhrHwdhZ6iFxZmq7SKdsgmmUJh3TmUw6)
 
 
-## Conclusion
+### Conclusion
 > “Privacy is necessary for an open society in the electronic age. Privacy is not secrecy.” “Privacy is the power to selectively reveal oneself to the world.” “Since we desire privacy, we must ensure that each party to a transaction have knowledge only of that which is directly necessary for that transaction.”
 
 These are snippets from the 
@@ -106,7 +107,7 @@ As the cryptocurrency networks mature, so must communications on the networks, a
 Beam pays a lot of attention to user experience, and SBBS comes in to hide the complexities of Mimblewimble from the end user and the experience easy. I believe that if a cryptocurrency hopes for mass adoption, it must be necessarily be decentralized, permissionless, have great privacy and great user experience.
 Beam is offering these properties and more. Hopefully other cryptocurrencies will follow suit.
 
-## References
+### References
 
 
 

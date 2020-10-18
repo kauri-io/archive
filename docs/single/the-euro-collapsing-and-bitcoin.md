@@ -9,6 +9,7 @@ some_url:
 
 # The Euro Collapsing and Bitcoin
 
+
 ![](https://api.kauri.io:443/ipfs/QmYriFmSnes5qAgPbi8Qn4jwfbFG5B3twG3d271pJX4wXe)
 What if the euro breaks? Can we imagine the consequences? It's possible? I will answer all those questions in this article.
 

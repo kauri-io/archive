@@ -10,6 +10,7 @@ some_url:
 # Welcome To Sheikah
 
 
+
 ----
 
 
@@ -27,7 +28,7 @@ The protocol works thanks to a distributed network of nodes — called witnesses
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZBYjc4SaDzw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-## Sheikah
+### Sheikah
 Sheikah is a lightweight Electron app which will eventually serve as a full interface for the Witnet wallet, data requests, smart contracts, block explorer, and more. While the full Witnet testnet and subsequent main-net are yet-to-come on our development roadmap, 
 **we wanted to give our community a good idea of what interacting with the Witnet decentralized oracle network**
  would feel like.
@@ -38,7 +39,7 @@ Anyone can use the Sheikah technology preview. Having yarn and git installed are
 > Please note there are several views within Sheikah which are not fully developed and are not yet clickable.
 
 
-### 1. Wallet
+#### 1. Wallet
 
 ![](https://cdn-images-1.medium.com/max/2000/1*O2ZPvFKDdJE8HoH54Xesug.png)
 
@@ -61,7 +62,7 @@ With the receive tab section of the wallet, you are able to generate specific ad
 
 The send view is straightforward and standard as you’d expect. We allow you to label outgoing transactions as well to more easily keep track of them. You will be able to adjust your transaction fees as well from within this view.
 
-### 2. Data Requests
+#### 2. Data Requests
 
 ![](https://cdn-images-1.medium.com/max/2000/1*qsRZc-Ngelkzg2gj4_N91w.png)
 
@@ -74,7 +75,7 @@ Our code editor view here gives you an idea of what data requests would look lik
 The attestation logic allows you to verify across a single source or multiple sources. The number of sources being pulled from is entirely up to the users discretion.
 Delivery clauses allow you to specify how the data will be consumed. You will be able to send the data to an Ethereum smart contract, POST it to a URL, among many other options.
 
-### 3. Smart Contracts
+#### 3. Smart Contracts
 Witnet smart contracts are significantly simpler in terms of their capability compared to more popular smart contract platforms. They can receive tokens, and their programs determine the ability to spend those. For example, a group of people can lock tokens into a virtual safe (the smart contract) from which no one can spend until the outcome of some future real world event is known.
 
 ![](https://cdn-images-1.medium.com/max/2000/1*OlufkemyNz-Wmy3SZ6PXdg.png)
@@ -88,7 +89,7 @@ In addition to this, you will see a GUI which enables intuitive build out of sma
 
 ----
 
-## Looking Ahead
+### Looking Ahead
 We are very excited to share our technical preview with you and we hope you will play with it and give us your feedback. You can stay engaged with our development process by dropping into any of our social channels including Twitter, Telegram or on our Github.
 As stated in our public roadmap, we intend to have a 
 **testnet ready for public use in Q1 2019**
@@ -96,7 +97,7 @@ As stated in our public roadmap, we intend to have a
 **main-net launch in late 2019**
  as well.
 
-### Thank you for dropping by!
+#### Thank you for dropping by!
 Please let us know if you have any questions or comments below. You can 
 [follow Witnet on Twitter](http://twitter.com/witnet_io)
  and stay up to date on 
@@ -105,7 +106,7 @@ Please let us know if you have any questions or comments below. You can
 ----
 
 
-### You can also:
+#### You can also:
 
 
 

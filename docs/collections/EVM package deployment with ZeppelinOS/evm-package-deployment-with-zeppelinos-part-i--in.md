@@ -9,7 +9,8 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract
 
-## Introduction to ZeppelinOS and Package Managers
+
+### Introduction to ZeppelinOS and Package Managers
 
 If you're familiar with Node.js, then you will be familiar with NPM
 (_Node Package Manager)_. You will also know that the ability
@@ -55,13 +56,13 @@ contracts (where the upgrading process can be controlled by any number
 of governance techniques), you can also create EVM packages to allow
 others to reuse, remix, and develop on an open ecosystem.
 
-## What you will learn
+### What you will learn
 
 In this series, we're going to go over the complete process for
 creating, deploying, and linking on-chain bytecode using NPM and the
 ZeppelinOS system.
 
-### Topics
+#### Topics
 
 - What EVM packages are and what they're good for.
 - The complete setup process for ZeppelinOS. How to create a basic EVM
@@ -71,7 +72,7 @@ ZeppelinOS system.
 - Creating a new project and linking to your published EVM package.
 - Interacting with your newly deployed on-chain library.
 
-## Who this tutorial is meant for
+### Who this tutorial is meant for
 
 This tutorial aims to be as detailed as possible to cater to Solidity
 developers at all levels of experience. For beginners, it's best to
@@ -79,7 +80,7 @@ follow the entire document, as I will build on steps from previous
 sections. For more advanced Solidity developers, feel free to skip
 ahead.
 
-## What are EVM packages?
+### What are EVM packages?
 
 [EVM packages](https://blog.zeppelinos.org/open-source-collaboration-in-the-blockchain-era-evm-packages/?utm_campaign=zos-tutorial-evmpackages&utm_medium=blog&utm_source=wordpress)
 are collections of deployed on-chain code that you can
@@ -88,7 +89,7 @@ NPM. This makes it easy to build upon open source libraries created and
 verified by others in the ecosystem. ZeppelinOS makes the process of
 creating and using EVM packages simple.
 
-## What are we going to build?
+### What are we going to build?
 
 For this tutorial, we're going to create our own EVM package for a
 Solidity Linked List implementation: custom code that tackles a real use
@@ -96,13 +97,13 @@ case. Our linked list will give your Solidity projects an easy-to-use
 data structure that we will deploy on-chain and that you can reuse over
 and over for any project you might like. No `Hello World` here!
 
-## What do I need to get started?
+### What do I need to get started?
 
 If you are an existing Solidity developer familiar with tools such as
 Truffle, Ganache, Node.js, and Remix, you're probably already set up. If
 not, don't worry, we'll cover the steps necessary to get you started.
 
-### Software
+#### Software
 
 - Code editor (VSCode, Atom, or Sublime)
 - Node.js, [Truffle](#), [Ganache](#) (we'll be using the command line interface version)
@@ -113,7 +114,7 @@ While this guide will be oriented toward Unix-based operating systems
 such as Ubuntu or macOS, as long as you can get the core requirements
 running, you should be able to follow along with this guide.
 
-#### Ganache
+##### Ganache
 
 Ganache is a development blockchain that runs locally on your computer
 and is used for testing. Previously called TestRPC, Ganache runs a full
@@ -125,7 +126,7 @@ our contracts.
 npm install -g ganache-cli
 ```
 
-#### ZeppelinOS
+##### ZeppelinOS
 
 ZeppelinOS is the development platform that will allow us to not only
 create and deploy our EVM package but also to upgrade smart contracts
@@ -146,7 +147,7 @@ zos --help
 
 To learn more, check out [the API reference docs](https://docs.zeppelinos.org/docs/apis.html?utm_campaign=zos-tutorial-evmpackages&utm_medium=blog&utm_source=wordpress).
 
-#### Truffle
+##### Truffle
 
 Go ahead and get [Truffle](https://truffleframework.com/truffle).
 Truffle is one of several development frameworks for Ethereum that can
@@ -158,7 +159,7 @@ If you have Truffle v4, be sure to upgrade.
 npm install truffle@5.0.1
 ```
 
-### Project Setup
+#### Project Setup
 
 First, create a new directory and navigate into it.
 
@@ -240,7 +241,7 @@ The files and folders so far are _package.json_ (created by
 (created by `zos` for Truffle), and a _zos.json_ file (created by
 `zos` for ZeppelinOS).
 
-## Creating the LinkedList contract
+### Creating the LinkedList contract
 
 The goal of the _LinkedList.sol_ contract is to create a data
 structure that will allow us to add and remove nodes from the head of a
@@ -365,7 +366,7 @@ Solidity, undeclared values are by default zero, making this initializer
 redundant. I am including it as a reminder that in the ZeppelinOS
 system, we do not use constructor functions.
 
-## Deploying to our development network
+### Deploying to our development network
 
 To get started with testing the contract (to be sure it works!), first
 deploy it to Ganache, our development blockchain environment.
@@ -487,7 +488,7 @@ file _.zos.session_ in your main project. Here you will see the
 information regarding your current session; the **network** you're
 using, the **from** address, and when the session expires.
 
-## Adding our contract
+### Adding our contract
 
 Now that you have set up your ZeppelinOS session, created your contract,
 and have your development blockchain running, you need to add your
@@ -548,7 +549,7 @@ Here's more
 [information](https://docs.zeppelinos.org/docs/configuration.html?utm_campaign=zos-tutorial-evmpackages&utm_medium=blog&utm_source=wordpress#zos-network-json)
 regarding networks.
 
-#### Creating an instance of our contract
+##### Creating an instance of our contract
 
 Now that we have deployed our project, we need to make an instance of
 our contract to interact with it.

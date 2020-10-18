@@ -9,13 +9,14 @@ some_url:
 
 # Quorum how-to
 
+
 > The original article may be consulted at https://github.com/ConsenSys/qbc/blob/master/docs/HOWTO.md
 
-# Setting up your own Quorum network
+## Setting up your own Quorum network
 
-## Set up the Quorum node network
+### Set up the Quorum node network
 
-### Generate Enode and nodekey
+#### Generate Enode and nodekey
 
 Each node in the network is identified by a unique id assigned to it called the enode.  This enode is the public key corresponding to a private nodekey.
 
@@ -62,7 +63,7 @@ $ cat $WORKDIR/q1/dd/static-nodes.json
 
 ```
 
-### Create an initial account
+#### Create an initial account
 
 Run:
 `/opt/geth --datadir=$WORKDIR/dd account new`
@@ -71,7 +72,7 @@ You will be prompted for a password.
 
 Keep a copy of the address returned by the program. You can also see the private key has been stored as a file under `$WORKDIR/dd/keystore`.
 
-### Create a genesis file
+#### Create a genesis file
 
 All nodes should have in common the first block (the genesis block) and a set of common parameters to operate the network.
 
@@ -84,7 +85,7 @@ The JSON file is ingested by the geth init command to initialize the first block
 `docker run -it -v <PATH TO DATA FOLDER>:/var/qdata/ -v <PATH TO JSON FILE>:/tmp/genesis.json \
     consensys/quorum:latest /opt/geth --datadir /var/qdata/dd init /tmp/genesis.json`
 
-### Create a list of static and permissioned nodes
+#### Create a list of static and permissioned nodes
 
 As you create the Quorum network, you will need to organize your nodes so they can connect to each other.
 
@@ -102,7 +103,7 @@ Both files have the same format. Here is an example.
 
 Each enode URI is built with the public key of the node, associated with its host name and RPC port. The discport parameter is set to zero as no discovery is performed on the network.
 
-### Quorum. data folder structure
+#### Quorum. data folder structure
 
 Create the folders as follows:
 
@@ -122,9 +123,9 @@ Copy the files created earlier so it conforms to the structure below:
 └── passwords.txt
 ```
 
-## Set up Tessera or Crux nodes
+### Set up Tessera or Crux nodes
 
-### Generate Constellation keys
+#### Generate Constellation keys
 
 For each Constellation instance, you will need a unique keypair.
 
@@ -132,7 +133,7 @@ This command generates a keypair under /tmp/out.key and /tmp/out.pub.
 
 `docker run -v /tmp:/tmp -it consensys/crux:latest /opt/crux --generate-keys /tmp/out`
 
-### Constellation data folder structure
+#### Constellation data folder structure
 
 Create the logs folder: `mkdir -p logs`
 
@@ -145,9 +146,9 @@ Copy the files created earlier so it conforms to the structure below. Make sure 
 └── tm.pub
 ```
 
-# Running the Quorum network
+## Running the Quorum network
 
-## Running Docker
+### Running Docker
 
 On each node participating in the network, you will need to run Quorum and Constellation (either Crux or Tessera).
 
@@ -190,7 +191,7 @@ services:
 
 ```
 
-## Check the network is up and running.
+### Check the network is up and running.
 
 On the node, perform the following to check Constellation is up and running:
 
@@ -200,7 +201,7 @@ Check the quorum logs to check the node came up without issues.
 
 `less <path to quorum data>/logs/node.log`
 
-## Private Transactions
+### Private Transactions
 
 Example of how to send a private transaction:
 
@@ -236,7 +237,7 @@ $ curl -X POST --data '{"jsonrpc":"2.0", "method":"eth_getQuorumPayload", "param
 For all other nodes, 0x should be the result:
 > 0x means that the privateFor public key doesn't match any nodes in the network
 
-## Troubleshooting
+### Troubleshooting
 
 Open a shell to a container:
 

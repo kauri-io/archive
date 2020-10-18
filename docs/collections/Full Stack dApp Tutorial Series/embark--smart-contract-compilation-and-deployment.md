@@ -10,6 +10,7 @@ some_url:
 # Embark  Smart Contract Compilation & Deployment
 
 
+
 Earlier in the series, we took a look at how to manually deploy and interact with our Bounties.sol smart contract on a local development blockchain.
 
 We also briefly touched on development frameworks which hide the complexity of these repetitive tasks and allow us to focus on developing dApps.
@@ -18,7 +19,7 @@ This article will walk through the steps required to setup Embark and use it to 
 
 [The source code for this tutorial can be found here.] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/embark-writing-tests)
 
-## What is Embark?
+### What is Embark?
 
 Embark is a Node based framework which can be used to develop and deploy dApps.
 
@@ -26,7 +27,7 @@ Embark is a Node based framework which can be used to develop and deploy dApps.
 
 [Documentation] https://embark.status.im/docs/index.html
 
-## Installing Embark
+### Installing Embark
 
 You can install Embark using NPM, you will need to have NodeJS 6.9.5+ installed
 ```
@@ -69,7 +70,7 @@ $ embark --version
 3.1.9
 ```
 
-## Creating an Embark Project
+### Creating an Embark Project
 
 To use embark commands you need to run them against an existing project. So the first step is to create an embark project:
 ```
@@ -100,7 +101,7 @@ Now let's create a Bounties.sol file in the contracts folder and copy the conten
 
 ![](https://api.beta.kauri.io:443/ipfs/QmXxac4JwMSQRXF1JtJF1xM1NmYeQ3FRDUN8URUv2hxBw9)
 
-## Deployment
+### Deployment
 
 **Development Blockchain: Ganache-CLI**
 
@@ -220,7 +221,7 @@ As mentioned earlier, embark keeps a `chains.json` configuration file which trac
 
 ![](https://api.beta.kauri.io:443/ipfs/QmXMBM1mYnkqUUuJQgGxiHc5mkaqEJGnWw57iMWq9peZHs)
 
-## Interacting with our contract
+### Interacting with our contract
 
 When running embark we’re provided with a console loaded with web3.js
 
@@ -239,7 +240,7 @@ The image above shows the output of the `issueBounty` function in the embark con
 
 Read more about [web3.js transaction receipt here] (https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt).
 
-## Test Network: Rinkeby
+### Test Network: Rinkeby
 
 We can also configure Embark to deploy to one of the public test Ethereum networks rather than a local development environment. Earlier in the series, we introduced the following public Ethereum test networks:
 
@@ -249,7 +250,7 @@ We can also configure Embark to deploy to one of the public test Ethereum networ
 
 This part of the article will discuss deployment to the **Rinkeby** environment, however, the instructions can be used to deploy to either **Kovan** or **Ropsten** also.
 
-### Infura
+#### Infura
 
 In order to send transactions to a public network, you need access to a network node. Infura is a public hosted Ethereum node cluster, which provides access to its nodes via an API
 
@@ -339,7 +340,7 @@ Here we define a new environment **rinkeby** which:
 
 ![](https://api.beta.kauri.io:443/ipfs/QmYbBD7eqMbWWW6CCuQeRS9XboWPWR1EMEdkjgZpYhB8vY)
 
-### Fund Your Account
+#### Fund Your Account
 
 We’re almost ready to deploy! However we need to make sure we have enough funds in our account to complete the transaction. We can fund our **Rinkeby** test account using the [**Rinkeby** ETH faucet] (https://faucet.rinkeby.io/):
 

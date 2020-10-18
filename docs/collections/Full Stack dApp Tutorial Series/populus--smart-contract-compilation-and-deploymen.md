@@ -9,7 +9,8 @@ some_url:
 
 # Populus  Smart contract compilation and deployment
 
-# Populus: Smart contract compilation and deployment 
+
+## Populus: Smart contract compilation and deployment 
 
 Note: this guide outlines Populus as it stands right now and is a work in progress. As this guide was being written, support for Web3.py 4 has been introduced, and eth-tester support was added while ethtestrpc was removed (as of PR#474). 
 
@@ -17,23 +18,23 @@ Shortly after this, Piper Merriam (via 'ethereum/populus' gitter) indicated that
 
 There are many tools available to developers looking to simplify the process of compiling and deploying contracts to the testnets and mainnet. Populus is a development framework for Ethereum smart contracts written in Python. 
 
-## What is Populus?
+### What is Populus?
 
 Populus is a Python based development framework for Ethereum smart contracts. Populus is in a more rudimentary development state than the other prominent development frameworks discussed in this DappSeries (e.g. Truffle, Embark). 
 
 Those using this tool should be aware that as of writing this article Populus does not receive a constant stream of updates. 
 
-## General Information 
+### General Information 
 
 * Populus 2.2.0 documentation: 
     https://populus.readthedocs.io/en/latest/
 * The steps below were written in the context of an Ubuntu 18.04 environment + python3.6 virtual environment, though the article has been crafted to be applicable to any of the major operating systems. 
 
-## Installing Populus 
+### Installing Populus 
 
 Much of the content in this section is copied verbatim from Populus' ReadtheDocs page linked above in the General Information section.
 
-### Populus has the following system dependencies: 
+#### Populus has the following system dependencies: 
 
 Debian, Ubuntu, Mint 
 
@@ -88,7 +89,7 @@ To install latest dev branch, clone the repo and install via requirements-dev.tx
 $ pip install -e . -r requirements-dev.txt
 ```
 
-## Initializing a new project 
+### Initializing a new project 
 
 Initialize a new project using the command line:
 
@@ -104,7 +105,7 @@ $ populus -p /path/to/my/project
 
 
 
-## Compiling your contracts
+### Compiling your contracts
 
 The init command we used in the previous section generates a sample contract for us called 'Greeter.sol'. This contract is located in the contracts/ folder. This is just a basic contract used in the Populus ReadtheDocs to demonstrate generic functionality. 
 
@@ -199,7 +200,7 @@ $ populus compile --watch
 
 Lastly, any build output is serialized as JSON and is written to the build/contract.json folder of your initialized project. 
 
-## Creating a local test blockchain using Populus (to be deprecated)
+### Creating a local test blockchain using Populus (to be deprecated)
 
 A feature of Populus that will soon be deprecated is the ability to quickly create local chains using your machine's local geth instance. You can both deploy and test your smart contracts using these local chains. 
 
@@ -263,7 +264,7 @@ Lastly, we need to add our newly created local chain information to our 'project
   }
 ```
 
-## Deploying smart contracts to our newly created local chain (to be deprecated)
+### Deploying smart contracts to our newly created local chain (to be deprecated)
 
 We've both compiled our smart contracts and brought our local chain online. It's now time to deploy our smart contracts to our local chain. 
 
@@ -278,7 +279,7 @@ We use the deploy argument along with a few additional optional arguments that s
 Your expected output should be similar to the below: 
 ![](https://api.beta.kauri.io:443/ipfs/QmSDtESrzDSKDajQ5mSfqcL1GNE5DRELtDSndMZdm398ZJ)
 
-## Testing your smart contracts 
+### Testing your smart contracts 
 
 The command to test the smart contracts is different from the general populus command syntax: 
 

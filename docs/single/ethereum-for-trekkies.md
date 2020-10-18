@@ -10,6 +10,7 @@ some_url:
 # Ethereum for Trekkies
 
 
+
 ----
 
  _“_  [The economies of the future are different](https://www.quora.com/What-is-the-economic-system-of-the-Star-Trek-Federation-Does-the-Federation-have-money-How-does-their-social-safety-net-work-What-motivates-careers-and-personal-productivity-How-are-things-owned-and-exchanged) ,” explains Captain Jean-Luc Picard. And indeed, us, the Aliens of the Cryptocurrency Universe, are building these. It’s only natural to find parallelisms to Star Trek. With his wise words in mind, we will explain some basic terms and notions on Ethereum.
@@ -43,7 +44,7 @@ Ethereum can also be a platform for DAOs — [Decentralized Autonomous Organizat
 ![](https://cdn-images-1.medium.com/max/1600/1*21ahWNPxZLBhuiMpFi_xdw.jpeg)
 
 
-### Still not convinced?
+#### Still not convinced?
 In Ethereum, [we have ERC-721](http://erc721.org/) , a token standard which is tied to digital scarcity. Star Trek’s economy is about a post-scarcity system called the “New World Economy”. Goods are created where and when needed. Well, I am no economist, not even a fortune teller. So I am not sure if we will have a post-scarcity economy, however, it is an interesting thought that we can tinker with. **Maybe this is what awaits us, who knows, we’re, after all, boldly going where no one has gone before!** 
 
 ----

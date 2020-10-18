@@ -9,10 +9,11 @@ some_url:
 
 # Understand Brave Browser and BAT
 
+
 [**Brave Browser**](https://www.brave.com/) is a new generation of web browser focusing on speed, privacy and peer2p economy for digital content creation. It is a free and open-source web browser based on [Chromium](https://www.chromium.org/Home) and available on Windows, MacOS, Linux, Android and iOS. The company was co-founded by [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich), the creator of JavaScript and a co-founder of Mozilla.
 
 
-## Browse the web safer and faster
+### Browse the web safer and faster
 
 Brave is different from other browsers as it provides a built-in ads and tracker blockers which removes all those small components (ads trackers, third-party cookies, malwares, etc.) injected in web page to capture and understand your habits and behaviour on the web and serve you what you want. On one side, it is a good thing as large advertisers like Google or Facebook can surface the best content for you but on the other hand, the tracking provides to advertisers a priceless gold mine of personal and private information and often considered as integral part of the global surveillance as we know today.
 
@@ -31,7 +32,7 @@ This feature is called **Brave shields** and can be configured globally (in _Set
 
 
 <br />
-##  Brave Rewards System for Content Creators and Users
+###  Brave Rewards System for Content Creators and Users
 
 Brave Rewards is an optional and anonymous donation system integrated directly into the Brave desktop and mobile browser in order to support content creator in different ways. It uses a ERC20 crypto-currency called BAT (Basic Attention Token) to enable tipping (one-time or recurrent) between the user and a verified publisher (content creator).
 
@@ -44,7 +45,7 @@ _**On the user side**_, Brave Rewards can be enabled going in _Settings / Brave 
 
 Once enabled, this setting page allows to customise and configure Brave Rewards (enable Ads, Auto-contribute, etc.), see the User's tipping history and manage a BAT wallet.
 
-### Tipping
+#### Tipping
 
 ![](https://api.kauri.io:443/ipfs/QmRPnVHpgHtRFT7cqnDtQYf7aULhEWAsJ1t9txDKPsp17H)
 <center>_Brave Rewards and tipping banner_</center>
@@ -54,7 +55,7 @@ At any time, the user can simply click on the BAT icon next to the Shield icon t
 By clicking on _Send a Tip..._, it is possible then to send the tip in BAT tokens (1.0, 5.0 or 10.0 BAT). It is even possible to setup a recurring monthly payment.
 
 
-### Wallet
+#### Wallet
 
 Brave Browser embeds a crypto-wallet which is centrally managed by [Uphold](https://uphold.com/), a Digital money exchange which is used (I believe) for regulatory compliance and ease funding via Bitcoin, Litcoin, Ethereum or BAT transfer. However, it is an anonymous Uphold account which in theory can be controlled via the wallet recovery key.
 
@@ -64,7 +65,7 @@ Brave has now included the ability to withdraw BAT in addition to depositing.  T
 <center>_Brave Wallet_</center>
 
 
-### Auto-Contribute
+#### Auto-Contribute
 
 Based on your local browsing history only (number of visits and time spent on sites), Brave proposes to automatically distribute your BAT tokens to content creators with an Auto-Contribute feature. 
 
@@ -87,7 +88,7 @@ Finally, in terms of payment, the publisher is required to set up an [Uphold](ht
 
 
 <br />
-## Brave Ads
+### Brave Ads
 
 As explained, Brave removes trackers used by advertisers to targets users. In order to replace this, they are trying to revolutionise the advertising space with a new model focused on relevance and privacy.
 
@@ -102,7 +103,7 @@ Ads matching happens locally on the user device via a browsing history learning 
 
 
 <br />
-## Conclusion
+### Conclusion
 
 To conclude, Brave Browser provides a privacy-first solution to build a sustainable ecosystem for the web by enabling peer2p value sharing.
 
@@ -111,7 +112,7 @@ To conclude, Brave Browser provides a privacy-first solution to build a sustaina
 
 <br />
 <br />
-## Useful links
+### Useful links
 - [Brave](https://brave.com/): Discover and download Brave browser
 - [Brave Blog](https://brave.com/blog/): Find the latest news about Brave
 - [Brave Help Center](https://support.brave.com/hc/en-us): Support and Knowledge base 

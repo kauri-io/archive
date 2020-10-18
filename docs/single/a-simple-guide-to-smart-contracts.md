@@ -10,6 +10,7 @@ some_url:
 # A SIMPLE GUIDE TO SMART CONTRACTS
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmQUzcJANwhA1HDjKQU6mTysb4o8NcBpRNAgHSxfuCzHbD)
 
  

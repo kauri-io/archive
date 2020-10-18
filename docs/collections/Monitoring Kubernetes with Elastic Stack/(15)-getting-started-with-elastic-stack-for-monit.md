@@ -9,7 +9,8 @@ some_url:
 
 # (1/5) Getting started with Elastic Stack for monitoring on Kubernetes
 
-## Introduction
+
+### Introduction
 
 In this article, we will learn how to set up a monitoring stack for your Kubernetes environment (*k8s* in short). This kind of solution allows your team to gain visibility on your infrastructure and each application with a minimal impact on the existing.
 
@@ -31,7 +32,7 @@ In this article, we will use the **Elastic stack** (version **7.3.0**) composed 
 
 <br />
 
-## Prerequisite
+### Prerequisite
 
 This tutorial is using **minikube** to create a local k8s environment and deploy a simple application composed of a Spring-Boot service and a MongoDB database that will be used as example to monitor and track system and application behaviours.
 
@@ -49,7 +50,7 @@ $ sudo sysctl -w vm.max_map_count=262144
 
 <br />
 
-### 1. Configure minikube memory size
+#### 1. Configure minikube memory size
 
 First on all, we will increase the default memory size (2GB) allocated to a minikube host to 8GB. Run in a terminal the command:
 
@@ -60,7 +61,7 @@ $ minikube config set memory 8192
 
 <br />
 
-### 2. Start minikube
+#### 2. Start minikube
 
 Now let's start minikube using the following command. It might take a few minutes...
 
@@ -94,7 +95,7 @@ $ minikube start
 
 <br />
 
-### 3. Check that everything is up and running
+#### 3. Check that everything is up and running
 
 Finally, we check that everything works correctly
 
@@ -116,16 +117,16 @@ Bravo, we have now a running k8s local environment, you can run the command `$ k
 <br />
 
 
-### 4. Deploy a sample application
+#### 4. Deploy a sample application
 
 We now are going to deploy a simple application (Spring-Boot) and its database (MongoDB).
 
-#### MongoDB
+##### MongoDB
 
 We first deploy MongoDB on the k8s environment and expose the port `27017`.
 
 ```yaml
-# mongo.yml
+## mongo.yml
 ---
 apiVersion: v1
 kind: Service
@@ -200,12 +201,12 @@ NAME                     READY   AGE
 statefulset.apps/mongo   1/1     3h35m
 ```
 
-#### spring-boot-simple
+##### spring-boot-simple
 
 Let's now deploy our Spring-Boot API. It deploys the API internally on the port `8080` but `type=NodePort` also make accessible on another port from the node static IP.
 
 ```yaml
-# spring-boot-simple.yml
+## spring-boot-simple.yml
 ---
 apiVersion: v1
 kind: Service
@@ -303,7 +304,7 @@ $ curl -X GET http://10.154.0.2:30049/message
 
 <br />
 
-### 5. Create a `monitoring` namespace
+#### 5. Create a `monitoring` namespace
 
 Finally, in order to logically separate the monitoring stack from the application (namespace `default`), we will deploy everything under a namespace called `monitoring`.
 
@@ -316,7 +317,7 @@ $ kubectl create namespace monitoring
 or apply the file `monitoring.namespace.yml`:
 
 ```yaml
-# monitoring.namespace.yml
+## monitoring.namespace.yml
 ---
 apiVersion: v1
 kind: Namespace
@@ -335,7 +336,7 @@ $ kubectl apply -f monitoring.namespace.yml
 <br />
 <br />
 
-## Next steps
+### Next steps
 
 In the following article, we will get started with the installation of ElasticSearch and Kibana:
 [Install ElasticSearch and Kibana to store and visualize monitoring data](https://kauri.io/article/e5b86351f38940b8a071267062f052cb)

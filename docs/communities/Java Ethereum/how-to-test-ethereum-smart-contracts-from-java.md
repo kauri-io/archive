@@ -9,6 +9,7 @@ some_url:
 
 # How to test Ethereum smart contracts from Java
 
+
 As a developer, I’m sure you strive to test what you develop, and in most established programming languages you have a box full of tools to pick from. In the world of blockchain, the box is still being built however, and the maturity of the available tools reflects this.
 
 Here at Web3 Labs, we do our best to help accelerate the quality of these tools. In this blog post I’ll dive into what we can offer you as a Java developer writing Ethereum smart contracts. 
@@ -19,7 +20,7 @@ The Ethereum blockchain is the world computer on to which you’d like to deploy
 
 That’s great, but there’s still a lot of moving parts. Firstly you need to be able to connect to an Ethereum node. Of course, you don’t need to do this against the Ethereum mainnet, but even a testnet brings with it external configuration and setup that needs managing. 
 
-## There’s a library for that
+### There’s a library for that
 
 All these moving parts scream out for a bit of tooling, so we wrapped it all up into a nice library called [web3j-unit](https://github.com/web3j/web3j-unit). It allows you to write tests in Java, and automatically start and interact with a local Ethereum node. This node is started by the web3j-unit library and managed behind the scenes. 
 
@@ -33,7 +34,7 @@ With these injected you have a preconfigured and good to go connection to the Et
 
 ![EVM + JVM = true](https://api.kauri.io:443/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU)
 
-## Running EVM code in the JVM
+### Running EVM code in the JVM
 
 Wouldn’t it be nice if you could deploy and interact with Solidity smart contracts within the Java process you’re already running? Instead of dockerized nodes, just a library you can directly interact with? 
 
@@ -47,7 +48,7 @@ Secondly, because we now run the Solidity bytecode within an EVM running inside 
 
 The above gif is showing an early demo of this in action, where we’re stepping through the individual EVM opcodes that are executed as part of normal contract deployment and interaction. While this might be a bit low level, it does show the potential for higher-level tools. We’ll be sharing more details on this as it becomes available.
 
-## Testing against testnets
+### Testing against testnets
 
 While the @EVMTest annotation lets you get up and running with local Ethereum nodes from a single annotation, we also want you to just as easily get going on a testnet. There are times when testing your contracts on a testnet makes more sense than simply within an isolated local node, especially when doing integration testing. 
 

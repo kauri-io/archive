@@ -9,6 +9,7 @@ some_url:
 
 # Minimum Viable Plasma - The Kyokan Implementation
 
+
 The issues around scaling Ethereum to high-throughput production use cases are well known. There are many solutions to this problem in progress, from state channels to side chains, but an additional complexity is safely transferring transactions between the Ethereum mainchain and these other locations.
 
 [Plasma](https://plasma.io) is a framework proposed by Joseph Poon and Vitalik Buterin to address this, and a handful of projects rapidly emerged to try and implement this proposal.

@@ -9,6 +9,7 @@ some_url:
 
 # Regression with Python, Keras and Tensorflow
 
+
 In this tutorial we are going to do a quick and dirty estimation of house prices based on a dataset from a Kaggle competition. Kaggle is the leading data science competition platform and provides a lot of datasets you can use to improve your skills.
 
 For simplicity's sake, we will build a simple model to get us started and we will explore how to improve it in later articles. Before we start, download the following file, which contains the training dataset, the test dataset and a sample submission (in case you want to see how your model fares in comparison to others by submitting it to the competition on Kaggle)
@@ -95,14 +96,14 @@ train_data['MoSold'] = train_data['MoSold'].apply(str)
 train_data['YrSold'] = train_data['YrSold'].apply(str)
 train_data['OverallCond'] = train_data['OverallCond'].apply(str)
 train_data['OverallQual'] = train_data['OverallQual'].apply(str)
-# train_data['YearBuilt'].apply(str)
-# train_data['GarageCars'].apply(str)
+## train_data['YearBuilt'].apply(str)
+## train_data['GarageCars'].apply(str)
 test_data['MoSold'] = test_data['MoSold'].apply(str)
 test_data['YrSold'] = test_data['YrSold'].apply(str)
 test_data['OverallCond'] = test_data['OverallCond'].apply(str)
 test_data['OverallQual'] = test_data['OverallQual'].apply(str)
-# test_data['YearBuilt'].apply(str)
-# test_data['GarageCars'].apply(str)
+## test_data['YearBuilt'].apply(str)
+## test_data['GarageCars'].apply(str)
 train_data.dtypes
 ```
 

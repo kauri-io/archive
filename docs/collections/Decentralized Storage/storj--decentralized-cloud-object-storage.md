@@ -9,11 +9,12 @@ some_url:
 
 # Storj  Decentralized Cloud Object Storage
 
+
 > Storj is an open-source protocol and network for decentralized cloud object storage with client-side encryption
 
 _This article originally appeared in the [Storj wiki](https://github.com/storj/storj/wiki)_
 
-# Storj Test Network
+## Storj Test Network
 
 The `storj-sim` tool enables you to run all the components of the Storj network (Satellite, Storage Nodes, Console and Gateway) and test them on your local machine.
 
@@ -23,7 +24,7 @@ In every day Storj usage, the Satellite, Storage Node, and Uplink are run
 on separate servers and computers, but for the purposes of the test network,
 all of the components are run locally.
 
-# Installation and configuration
+## Installation and configuration
 
 First, you'll need at least [Go 1.11](https://www.golang.org/). Once Go is
 installed run:
@@ -55,7 +56,7 @@ For insight into what is happening under the hood you can use `-x` or `--print-c
 
 The next step is to run it!
 
-# Running the test network
+## Running the test network
 
 Now that the configuration has been completed, we can fire up the test network with:
 
@@ -83,7 +84,7 @@ You can access a storage node dashboard using the storage command. For example f
 storagenode dashboard --config-dir ~/.local/share/storj/local-network/storagenode/4/ --identity-dir ~/.local/share/storj/local-network/storagenode/4 --address :13004 --color
 ```
 
-### Running Tests
+#### Running Tests
 
 `storj-sim network test <command>` can be used to run tests.
 
@@ -102,7 +103,7 @@ storj-sim network env
 
 For a real-world example you can take a look in [test-sim.sh](https://github.com/storj/storj/blob/master/scripts/test-sim.sh) and [test-sim-aws.sh](https://github.com/storj/storj/blob/master/scripts/test-sim-aws.sh).
 
-### Wiping the Testnet
+#### Wiping the Testnet
 
 `storj-sim network destroy` can be used to wipe the network easily.
 
@@ -114,7 +115,7 @@ For convenience, you may run the command in a single line, like so:
 
 ***
 
-## Next Steps
+### Next Steps
 Please see the [Uplink CLI](https://github.com/storj/docs/blob/master/Uplink-CLI.md) or [S3 Gateway](https://github.com/storj/docs/blob/master/S3-Gateway.md)
 tutorial for how to upload and download data to the test network.
 

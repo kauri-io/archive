@@ -10,11 +10,12 @@ some_url:
 # A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3  Execution Model of the EVM 
 
 
+
 This is a high-level overview of the execution model of the Ethereum Virtual Machine (EVM).  It outlines the state(s) of the machine that changes between the execution steps of an executing smart contract in the EVM.  This consists of the configurations that are held and rewritten before and after each execution step which collectively could be referred to the "state" of the EVM.
 
 Machine state can be thought of as a snapshot of all data held in the EVM at a given moment in time.  Think "state of being."  This includes the aggregate data within the EVM such as account balances and smart contract instances running.  The illustration below depicts the execution state as it changes after a transaction is completed.
 
-## EVM Execution State (Overview)
+### EVM Execution State (Overview)
 
 The execution model of the EVM includes the machine state and the network state. This overview omits the external account (wallet) and associated state as it exists outside of the EVM.  With that, two transaction types exist in the EVM that cause a state change in the execution model:
 
@@ -22,7 +23,7 @@ The execution model of the EVM includes the machine state and the network state.
 
 * Execute a function within a deployed contract on the Ethereum Network
 
-## Execution Event: Smart Contract Deployment
+### Execution Event: Smart Contract Deployment
 
 When a smart contract has been written and compiled, it is then ready for deployment on the Ethereum blockchain.  This is done by the holder of an externally owned account (i.e. wallet or API) submitting a transaction containing specific information.  The result creates a contract account which will be ready to accept function inputs as well as generate computed and meaningful outputs.
 
@@ -56,7 +57,7 @@ Here we see:
 
 * It turns out the transaction processing only takes 112,213 gas. The remainder is returned to the transaction sender.
 
-## Execution Event:  Execute Smart Contract Function on a Deployed Contract
+### Execution Event:  Execute Smart Contract Function on a Deployed Contract
 
 The second execution event in the EVM is the call to a smart contract already deployed to do some analysis or "work" to some data that is passed into the smart contract by the EOA.
 
@@ -72,13 +73,13 @@ The difference is the data/input is the function and necessary arguments to init
 
 The response is contained by examining the block transaction, again, using the transaction ID hash.  A bytecode response in the `logsBloom` portion of the block data is the machine code response to be constructed and interpreted.  
 
-## Network State Execution of the EVM
+### Network State Execution of the EVM
 
 The EVM is based on blockchain technology.  With each new set of transactions processed, a new block is added to the top of the existing data structure detailing the new state of the EVM and other protocol-oriented state data existing outside the EVM.
 
 The newly generated block, a unique identifier, and the encapsulated and encrypted data represent the state execution of the network aspect of the EVM.
 
-## Resources
+### Resources
 
 * [KEVM:  A Complete Semantics of the Ethereum Virtual Machine](https://www.ideals.illinois.edu/bitstream/handle/2142/97207/hildenbrandt-saxena-zhu-rodrigues-guth-daian-rosu-2017-tr_0818.pdf?sequence=3&isAllowed=y)
 

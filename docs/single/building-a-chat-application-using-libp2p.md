@@ -9,6 +9,7 @@ some_url:
 
 # Building a Chat Application using Libp2p
 
+
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/chat-using-libp2p). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
 ---
@@ -35,7 +36,7 @@ the bank of human operators which are highly centralized and fragile(well, we
 aren’t in a constant threat of a nuclear war today, but any technical or natural
 disaster can cause great damage).
 
-#### **But, Why do we need to rethink about networking in 2019?**
+##### **But, Why do we need to rethink about networking in 2019?**
 
 Today, we are dependent on the internet more than ever. We are dependent on it
 for life and death situations. But the current internet, as we see it today is
@@ -62,7 +63,7 @@ general Web 3.0.
 This is the first in a series of tutorials on working with libp2p’s javascript
 implementation, [js-libp2p](https://github.com/libp2p/js-libp2p).
 
-### Building Chat Application using Libp2p
+#### Building Chat Application using Libp2p
 
 ![](https://cdn-images-1.medium.com/max/800/1*AvrV3t_DNoV8p3fX_rpcPw.jpeg)
 
@@ -81,7 +82,7 @@ peer.](https://simpleaswater.com/chat-using-libp2p/#let-s-go-interplanetary-)
 peers.](https://simpleaswater.com/chat-using-libp2p/#let-s-talk-to-the-moon)
 
 
-### Install node.js
+#### Install node.js
 
 Working with js-libp2p requires [node.js](https://nodejs.org/) for development.
 If you haven’t already, install node using whatever package manager you prefer
@@ -92,21 +93,21 @@ should work fine. If you want to see how low you can go, the current version
 requirements can always be found at the [js-libp2p project
 page](https://github.com/libp2p/js-libp2p).
 
-### Create an empty project
+#### Create an empty project
 
 We need a place to put our work, so open a terminal to make a new directory for
 your project somewhere and set it up as an `npm` project:
 
 ```sh
-# create a directory for the project and `cd` into it
+## create a directory for the project and `cd` into it
 $ mkdir -p hello-libp2p/src
 $ cd hello-libp2p
 
-# make it a git repository
+## make it a git repository
 $ git init .
 Initialized empty Git repository in /home/vasa/Desktop/simpleaswater/libp2p/.git/
 
-# make it an npm project
+## make it an npm project
 $ npm init -y
 ```
 
@@ -114,7 +115,7 @@ Side note: throughout this tutorial, we use the **$** character to indicate your
 terminal’s shell prompt. When following along, don’t type the **$** character,
 or you’ll get some weird errors.
 
-### **Build a libp2p bundle**
+#### **Build a libp2p bundle**
 
 As we learned in [what is Libp2p](https://simpleaswater.com/what-is-libp2p)
 post, libp2p is a very modular framework, which allows javascript devs to target
@@ -198,7 +199,7 @@ Right now our class just adds the `libp2p-tcp` transport module to the default
 constructor options of the base class. As we go, we'll extend our bundle to
 include more transports and configure other aspects of the libp2p stack.
 
-### **Create an instance of a libp2p node**
+#### **Create an instance of a libp2p node**
 
 As we know, libp2p was born while working InterPlanetary File System project, it
 makes sense to make our libp2p nodes InterPlanetary. Let’s make our first node,
@@ -269,7 +270,7 @@ listen to that address when the node starts.
 Next, we create our peer, passing in the `peerInfo` constructor option. That's
 it for setting up our moon node.
 
-### **Start the node and listen for connections**
+#### **Start the node and listen for connections**
 
 Before starting our nodes, let’s add some colors and emojis to our command line
 using `chalk` and `node-emoji`.
@@ -323,7 +324,7 @@ final thing to make our moon node work.
 
 In case you are stuck somewhere, let us know [here](https://discord.gg/x2kmUXW).
 
-### **Add multiplexing and encryption**
+#### **Add multiplexing and encryption**
 
 We can now start a node and listen for connections, but we can’t really do
 anything yet. This is because we’re missing a key libp2p component called a
@@ -331,7 +332,7 @@ anything yet. This is because we’re missing a key libp2p component called a
 which lets us interleave multiple independent streams of communication across
 one network connection.
 
-#### **But, what is multiplexing?**
+##### **But, what is multiplexing?**
 
 To understand multiplexing, let’s take an example of your TV cable or WiFi
 router. You can see multiple channels, which all comes through a single cable
@@ -386,7 +387,7 @@ That’s it! Now we can open multiple independent streams over our single TCP
 connection, and our connection will be upgraded to a securely encrypted channel
 using the [secio module](https://github.com/libp2p/js-libp2p-secio).
 
-### **Let’s go interplanetary!**
+#### **Let’s go interplanetary!**
 
 As we have now added all the necessary components for our communication, let’s
 build our earth node.
@@ -556,7 +557,7 @@ If everything went right, then you would see something like below:
 
 In case you are stuck somewhere, let us know [here](https://discord.gg/x2kmUXW).
 
-### **Let’s Talk to the Moon**
+#### **Let’s Talk to the Moon**
 
 Till now we have managed to connect moon peer and earth peer. Another
 interesting thing that we can do here to allow these 2 peers to communicate with

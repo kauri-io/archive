@@ -9,7 +9,8 @@ some_url:
 
 # Understanding smart contract compilation and deployment
 
-# Understanding smart contract compilation and deployment
+
+## Understanding smart contract compilation and deployment
 
 As discussed earlier in the series, when developing dapp and writing smart contracts, there are many repetitive tasks you will undertake. These include compiling source code, generating ABIs, testing, and deployment.
 
@@ -19,7 +20,7 @@ Before we take a look at frameworks such as [truffle](https://truffleframework.c
 
 This article walks you through how to manually compile and deploy your _Bounties.vy_ smart contract from the command line, to a local development blockchain.
 
-## Steps
+### Steps
 
 Before deployment, we need to encode a smart contract needs into EVM friendly binary called bytecode, much like a compiled Java class. The following steps typically need to take place before deploying a contract:
 
@@ -29,19 +30,19 @@ Before deployment, we need to encode a smart contract needs into EVM friendly bi
 4.  The transaction is signed by the account deploying the contract
 5.  The signed transaction is sent to the blockchain and mined
 
-## Vyper Compiler
+### Vyper Compiler
 
 To compile Vyper we need to use the Vyper compiler. Typically frameworks such as [truffle](https://truffleframework.com/), [embark](https://embark.status.im/) and [populous](https://github.com/ethereum/populus) come with a version of Vyper preconfigured, since we are compiling without a framework, we need to install Vyper manually.
 
-### Installing Vyper
+#### Installing Vyper
 
-#### Using pip
+##### Using pip
 
 ```shell
 pip install Vyper
 ```
 
-#### Installing JQ
+##### Installing JQ
 
 To help with processing json content during compilation and deployment, install JQ
 Using homebrew:
@@ -58,7 +59,7 @@ sudo apt-get install jq
 
 [Read more about installing jq](https://stedolan.github.io/jq/download/)
 
-### Compiling Vyper
+#### Compiling Vyper
 
 Once we've installed Vyper we can now compile our smart contract. Here we want to generate
 
@@ -123,13 +124,13 @@ $ cat Bounties.json| jq
   },...]
 ```
 
-## Deployment
+### Deployment
 
 Now its time to deploy our smart contract!
 
 The command `vyper Bounties.vy` returns the contract's bytecode which you can use to deploy through mist, geth or with myetherwallet.
 
-## Next Steps
+### Next Steps
 
 <!-- TODO: Update -->
 

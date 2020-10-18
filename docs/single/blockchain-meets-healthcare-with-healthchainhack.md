@@ -10,10 +10,11 @@ some_url:
 # Blockchain Meets Healthcare with HealthChainHack
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmTau6j3o1nPQyKbTmMgpzpMsNzLEmKwUbdMPXkoTNEFwD)
 
 
-### BlockTEST Announces Hackathon, Collaboration Across Blockchain and Healthcare Industries
+#### BlockTEST Announces Hackathon, Collaboration Across Blockchain and Healthcare Industries
 Beginning this Saturday, September 22nd, BlockTEST will be hosting 
 [HealthChainHack](http://hackathon.blocktest.com/)
  , a virtual blockchain hackathon aiming to translate academic research into pharmaceutical advancement by bringing together coders and healthcare players worldwide for a two-month coding camp.

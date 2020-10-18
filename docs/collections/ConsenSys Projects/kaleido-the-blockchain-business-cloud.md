@@ -9,6 +9,7 @@ some_url:
 
 # Kaleido - the Blockchain Business Cloud
 
+
 Gartner's 2018 CIO Survey revealed that
 
 > "only 1% of surveyed respondents indicated any kind of blockchain adoption within their organizations."
@@ -21,7 +22,7 @@ collaboration with AWS, Kaleido is the first Software-as-a-Service
 featuring Ethereum packages Geth and Quorum. Kaleido allows enterprises
 to build out consortia bootstrap the private blockchain network.
 
-## Features
+### Features
 
 Kaleido provides:
 
@@ -37,9 +38,9 @@ cost and/or time for transactions, improve product and system security,
 increase transparency, incentivize certain behaviors, increase customer
 loyalty, and create new revenue streams.
 
-## Getting started
+### Getting started
 
-### Prerequisites
+#### Prerequisites
 
 Install the following to interact with the backend microservices and
 make use of the python abstraction script:
@@ -56,23 +57,23 @@ For applications and CLI:
 - [Go](https://golang.org/dl/)
 - [Geth](https://geth.ethereum.org/downloads/)
 
-## Build your Network
+### Build your Network
 
-### Option 1
+#### Option 1
 
 Create an account on the [Kaleido Dashboard](https://console.kaleido.io/splash). Follow the
 step-by-step user interface instructions to build your consortium and
 provision nodes provided in the [Create your network](https://docs.kaleido.io/getting-started/environment-creation/create-your-network/)
 section.
 
-### Option 2
+#### Option 2
 
 Utilize the Kaleido REST API to administratively build out
 your network. Use the comprehensive [API 101 tutorial](https://docs.kaleido.io/developer-materials/api-101/)
 to create your environment, provision nodes and generate application
 credentials.
 
-### Get your API key
+#### Get your API key
 
 Navigate to the [KaleidoConsole](https://console.kaleido.io/settings/apikeys).
 Click the _API_ tab at the top of the screen and then select _+ New API Key_ to generate your key.
@@ -100,7 +101,7 @@ export APIURL=\"https://console-ap.kaleido.io/api/v1\"\
 export APIURL=\"https://console-ko.kaleido.io/api/v1\"
 ```
 
-## Next Steps
+### Next Steps
 
 - [Kaleido tutorial](https://docs.kaleido.io/developer-materials/api-101/)
 - [Kaleido Knowledge base](https://docs.kaleido.io/)

@@ -9,4 +9,5 @@ some_url:
 
 # Adding images to your Kauri article
 
+
 undefined

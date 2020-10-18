@@ -11,21 +11,22 @@ some_url:
 
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmX7voJ7MzfVm1HXkzh8LN4VwxE1MdjmFBFfDUgYbFB2Rg)
 
-# Project Name -
+## Project Name -
 
 `indure
 https://indure.net
 
 
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)- 
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)- 
 
 Creating insurance identities that last
 
 
-# Team Members. First and Last Name
+## Team Members. First and Last Name
 
 * Daniel Wanja
 * William Sterlin
@@ -33,7 +34,7 @@ Creating insurance identities that last
 * Alexandra Gardner
 
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 * DanielWanja  0x04dfb6eb7fe15070ba346eea55882a924d2a8757553ddd125cf1d47284565644e017e6a13b5bd92671cd3ca425b59bd75d2ac6508a26dea323294f49ba20b418b4
 
@@ -44,12 +45,12 @@ Creating insurance identities that last
 * Alexandra Gardner - 0x045732a0bbdbc0ea6d88055f18d14371234226bc7cde1cd618dc235056049d7c8d00e33bb3785b72dd4e7ed8541cdda2b429d0b75b1f335b58e08b88edd0e23505
 
 
-# Detailed Project Description (no more than 3-4 sentences)- ). 
+## Detailed Project Description (no more than 3-4 sentences)- ). 
 
 Indure is a blockchain insurance identity platform using Uport as the infrastructure to support identities for employees (injured workers), their employers (policyholders) and insurance carriers (injured worker compensation) to share and verify credentials and allow for injured workers to get treated and served immediately without the hassle of having to cover costs up front. 
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.) - 
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.) - 
 
 * Angular
 * Ionic
@@ -57,17 +58,17 @@ Indure is a blockchain insurance identity platform using Uport as the infrastruc
 * Firebase
 
 
-# Track for which you’re submitting (Open or Impact) - 
+## Track for which you’re submitting (Open or Impact) - 
  
 Open
 
 
-# All Bounties Completed/Incorporated - 
+## All Bounties Completed/Incorporated - 
 
 Ideas By Nature
 
 
-# A link to all your source code on a public repo (i.e. Github)- 
+## A link to all your source code on a public repo (i.e. Github)- 
 
 https://github.com/angularityio/indure
 

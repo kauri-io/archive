@@ -10,6 +10,7 @@ some_url:
 # BUIDLing a Mesh of Humans
 
 
+
 My background is in data science and product analytics, with an increasing interest towards data-driven product growth. Before joining Gitcoin, I worked as a data scientist in the health and wellness space, playing a variety of hats at companies both large and small.
 
 ![](https://cdn-images-1.medium.com/max/1200/1*Qzv8TOyU1QRUT4zqxVcrJg.jpeg)

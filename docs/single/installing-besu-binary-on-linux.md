@@ -9,6 +9,7 @@ some_url:
 
 # Installing Besu binary on Linux
 
+
 Ever gotten a "`besu command not found`" on your terminal? Well, read on...
 
 [Although there are many ways to install software](https://askubuntu.com/questions/6897/where-to-install-programs) on a Linux machine, an accepted startard practice is to install on your [Linux user's `home/bin` folder](https://unix.stackexchange.com/questions/36871/where-should-a-local-executable-be-placed).

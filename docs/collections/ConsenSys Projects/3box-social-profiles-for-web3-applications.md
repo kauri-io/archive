@@ -9,21 +9,22 @@ some_url:
 
 # 3Box - Social profiles for  web3 applications
 
+
 3Box provides social infrastructure to power decentralized applications and networks. [Ethereum Profiles](http://3box.io) allow users to create a rich social presence that unites and gives them control over their data and experiences on the decentralized web. These built on our [distributed social databases](https://github.com/uport-project/3box) that let developers store and access information in users' profiles, making distributed data infrastructure and sharing information between dapps much simpler. 
 
-## What is 3Box
+### What is 3Box
 
 Head to [3Box.io](http://3box.io) and create your own profile to see how users can view, edit and control their 3Box data and profile. All functionality in the 3Box dapp can also be accessed from our APIs. 
 
 Next, integrate [3Box-JS](https://github.com/uport-project/3box-js) into your application to ease user onboarding and deliver a richer user experience via profiles and social connections. `3box-js` will enable you to Get, Set and Remove data associated with an Ethereum account. 
 
-## Integration
+### Integration
 
-### Install 3Box
+#### Install 3Box
 
     $ npm install 3Box
 
-### Import 3Box into your project
+#### Import 3Box into your project
 
 Import the 3box module
 
@@ -33,9 +34,9 @@ or use the dist build in your html code
 
     <script type="text/javascript" src="../dist/3box.js"></script>
 
-## Usage
+### Usage
 
-### Get public user data using getProfile
+#### Get public user data using getProfile
 
 You can retrieve publicly saved data (e.g., name, photo) about ethereum addresses using the `getProfile` static method directly from the Box message, with no user signing.
 
@@ -50,7 +51,7 @@ or using `.then`
       console.log(profile)
     })
 
-### Interacting with private data
+#### Interacting with private data
 
 To get data in a user's 3Box or read private data, you must call the openBox method. This will prompt the user to authenticate your dapp. 
 
@@ -89,15 +90,15 @@ Using `async/await`
 
 You can see the 3Box [API documentation](https://github.com/uport-project/3box-js#-api-documentation) for further information. 
 
-## Make your data accessible
+### Make your data accessible
 
 We encourage you to use or add to our [key conventions](https://github.com/uport-project/3box-js/blob/master/KEY-CONVENTIONS.md) to build strong cross-dapp experiences and sharing. 
 
-## Use our other functionality
+### Use our other functionality
 
 You can also use our [3box-activity](https://github.com/uport-project/3box-activity) to get a users Ethereum activity feed, our verified fields to get a more trusted view of who a user is, and more coming soon. Follow the latest [here](https://discord.gg/3fzMe8x). 
 
-# Use 3Box profiles & data to make great user experiences
+## Use 3Box profiles & data to make great user experiences
 
 Our mission is to enable anyone to create trust and connection online, and we do that by helping you create great communities and experiences. Here are some of the things are partners are using 3Box for - let us know how you use it. 
 
@@ -107,6 +108,6 @@ Our mission is to enable anyone to create trust and connection online, and we do
 - Sharing data across dapps and devices, so preferences saved in one wallet can be synced to others, or contacts created in one social dapp can be carried over to others
 - Saving posts, messages or threads on a social platform in a way that gives users the power to control and delete their own content
 
-## Chat with us
+### Chat with us
 
 Stop by our [Discord Community](https://discord.gg/3fzMe8x) for support, the latest news, or good conversation about our latest `#book-club` reading.

@@ -10,9 +10,10 @@ some_url:
 # Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU)
 
-## Overview & Motivation
+### Overview & Motivation
 This is a walkthrough of the 26 pages 
 [technical whitepaper of Move](https://developers.libra.org/docs/assets/papers/libra-move-a-language-with-programmable-resources.pdf)
  , Facebook Libra’s new programming language. As an Ethereum developer and a blockchain community enthusiast, I hope to provide a quick overview and highlights of the paper for everyone curious about this new language :)
@@ -20,7 +21,7 @@ Hope that you will like it, happy learning!
 
 The original article on Medium: http://bit.ly/2ISy4uA
 
-## Abstract
+### Abstract
 > Move is an executable bytecode language used to implement custom transactions and smart contracts.
 
 There’re two things to take note:
@@ -42,7 +43,7 @@ For example, the following code snippet will output the error:
 ![](https://api.kauri.io:443/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz)
 
 
-## 2.2 Encoding Digital Assets in an Open System
+### 2.2 Encoding Digital Assets in an Open System
 > There are two properties of physical assets that are difficult to encode in digital assets:• Scarcity. The supply of assets in the system should be controlled. Duplicating existing assets should be prohibited, and creating new assets should be a privileged operation.• Access control. A participant in the system should be able to protect her assets with access control policies.
 
 It points out two major characteristics that digital assets need to achieve, which are considered natural for physical assets. For example, rare metal is naturally 
@@ -88,7 +89,7 @@ We address the problem by using digital signature mechanism
 `verify_sig`
  before the scarcity checking, which means Alice uses her private key to sign the transaction and prove that she is the owner of her coin.
 
-## 2.3. Existing Blockchain Languages
+### 2.3. Existing Blockchain Languages
 Existing blockchain languages are facing the following problems (all of them have been solved in 
 _Move_
  ):
@@ -114,9 +115,9 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 [re-entrancy vulnerabilities](https://consensys.github.io/smart-contract-best-practices/known_attacks/#reentrancy)
  (contract A accidentally executes contract B’s function to withdraw money before actually deducting balances from the account).
 
-## 3. Move Design Goals
+### 3. Move Design Goals
 
-### 3.1. First-Class Resources
+#### 3.1. First-Class Resources
 > At a high level, the relationship between modules/resources/procedures in Move is similar to the relationship between classes/objects/methods in object-oriented programming.Move modules are similar to smart contracts in other blockchain languages. A module declares resource types and procedures that encode the rules for creating, destroying, and updating its declared resources.
 
 The 
@@ -125,7 +126,7 @@ The
 _Move._
  We will have an example to illustrate these later in this article;)
 
-### 3.2. Flexibility
+#### 3.2. Flexibility
 > Move adds flexibility to Libra via transaction scripts. Each Libra transaction includes a transaction script that is effectively the main procedure of the transaction.
 
 > The scripts can perform either expressive one-off behaviors (such as paying a specific set of recipients) or reusable behaviors (by invoking a single procedure that encapsulates the reusable logic)
@@ -142,14 +143,14 @@ _Move_
 _reusable_
  ” is that smart contract functions can be executed multiple times.
 
-### 3.3. Safety
+#### 3.3. Safety
 > The executable format of Move is a typed bytecode that is higher-level than assembly yet lower-level than a source language. The bytecode is checked on-chain for resource, type, and memory safety by a bytecode verifier and then executed directly by a bytecode interpreter. This choice allows Move to provide safety guarantees typically associated with a source language, but without adding the source compiler to the trusted computing base or the cost of compilation to the critical path for transaction execution.
 
 This is indeed a very neat design for 
 _Move_
  to be a bytecode language. Since it doesn’t need to be compiled from the source to bytecode like Solidity, it doesn’t have to worry about the possible failures or attacks in compilers.
 
-### 3.4. Verifiability
+#### 3.4. Verifiability
 > Our approach is to perform as much lightweight on-chain verification of key safety properties as possible, but design the Move language to support advanced off-chain static verification tools.
 
 From here we can see that Move prefers performing static verification instead of doing on-chain verification work. Nonetheless, as stated at the end of their paper, the verification tool is left for future work.
@@ -160,14 +161,14 @@ This is also a very well thought data abstraction design! which means that the d
 ![](https://api.kauri.io:443/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o)
 
 
-## 4. Move Overview
+### 4. Move Overview
 > The example transaction script demonstrates that a malicious or careless programmer outside the module cannot violate the key safety invariants of the module’s resources.
 
 This section walks you through an example about what 
 **modules, resources, and procedures**
  actually is when writing the programming language.
 
-### 4.1. Peer-to-Peer Payment Transaction Script
+#### 4.1. Peer-to-Peer Payment Transaction Script
 
 ![](https://api.kauri.io:443/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb)
 
@@ -187,13 +188,13 @@ There are several new symbols here (The small red text is my own notes XD):
 
  *  `copy()` : the value can be used later
 
-### Code breakdown:
+#### Code breakdown:
 > In the first step, the sender invokes a procedure named withdraw_from_sender from the module stored at 0x0.Currency.
 
 > In the second step, the sender transfers the funds to payee by moving the coin resource value into the 0x0.Currency module’s deposit procedure.
 
 
-### Here are 3 types of code examples that will be rejected:
+#### Here are 3 types of code examples that will be rejected:
  
 **1. Duplicating currency by changing**
   
@@ -227,9 +228,9 @@ _resource_
 > Failing to move a resource (e.g., by deleting the line that contains move(coin) in the example above) will trigger a bytecode verification error. This protects Move programmers from accidentally — or intentionally — losing track of the resource.
 
 
-### 4.2. Currency Module
+#### 4.2. Currency Module
 
-### 4.2.1 Primer: Move execution model
+#### 4.2.1 Primer: Move execution model
 
 ![](https://api.kauri.io:443/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS)
 
@@ -260,7 +261,7 @@ _resource_
 
  * The rule is it is ok as long as you can still reference the resource by its name without having conflicts, for example, you can reference the two resources using `TwoCoins.c1` and `TwoCoins.c2` .
 
-### 4.2.2 Declaring the Coin Resource
+#### 4.2.2 Declaring the Coin Resource
 
 ![](https://api.kauri.io:443/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3)
 
@@ -276,7 +277,7 @@ _resource_
 
  * Other _modules_ and _transaction scripts_ can only write or reference the value field via the public _procedures_ exposed by the _module_ 
 
-### 4.2.3 Implementing Deposit
+#### 4.2.3 Implementing Deposit
 
 ![](https://api.kauri.io:443/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2)
 
@@ -296,7 +297,7 @@ _resource_
 
  *  `&mut Coin` is a mutable reference to a `Coin`  _resource_ , not `Coin` 
 
-### 4.2.4 Implementing withdraw_from_sender
+#### 4.2.4 Implementing withdraw_from_sender
 
 ![](https://api.kauri.io:443/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD)
 
@@ -320,7 +321,7 @@ _resource_
 
  * Like `Unpack<T>` , `Pack<T>` can only be invoked inside the declaring module of resource T
 
-## Wrap up
+### Wrap up
 Now that you have an overview of what is the main characteristics of 
 _Wave,_
  how it compares to Ethereum, and also familiar with its basic syntax.

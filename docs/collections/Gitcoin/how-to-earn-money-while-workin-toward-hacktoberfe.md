@@ -10,12 +10,13 @@ some_url:
 # How to earn money while workin toward Hacktoberfest
 
 
+
  [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is upon us! For all of October you can earn a GitHub T-shirt (and prestige) by submitting at least 5 pull requests after signing up. To celebrate all the amazing contributions being made to Open Source this month, Gitcoin is posting bounties on issues for our favorite projects. We are still taking more [Requests](https://gitcoin.co/requests) , so don’t forget to submit issues from your favorite projects.
 
 We are in the final stretch of Hacktoberfest so Gitcoin are publishing our first batch of bounties. **Making a pull request which solves an issue will pay out the bounty to the contributor, and also count toward their Hacktoberfest PRs.** 
 Here’s some of the bounties we’ve put up:
 
-### Ruby For Good
+#### Ruby For Good
 
 
 
@@ -27,7 +28,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/rubyforgood/partner/issues/7](https://github.com/rubyforgood/partner/issues/7) 
 
-### Core Ethereum projects
+#### Core Ethereum projects
 
 
 
@@ -41,9 +42,9 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/ethereum/solc-js/issues/211](https://github.com/ethereum/solc-js/issues/211) 
 
-### EthWorks
+#### EthWorks
 
-### Giveth
+#### Giveth
 
 
 
@@ -67,7 +68,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/Giveth/giveth-dapp/issues/67](https://github.com/Giveth/giveth-dapp/issues/67) 
 
-### Ethsnarks
+#### Ethsnarks
 
 
 
@@ -75,15 +76,15 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/HarryR/ethsnarks/issues/28](https://github.com/HarryR/ethsnarks/issues/28) 
 
-### Etherlime
+#### Etherlime
 
-### SWC Registry
+#### SWC Registry
 
 
 
  *  [https://github.com/SmartContractSecurity/SWC-registry/issues/35](https://github.com/SmartContractSecurity/SWC-registry/issues/35) 
 
-### Ethereum-etl
+#### Ethereum-etl
 
 
 
@@ -93,7 +94,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/blockchain-etl/ethereum-etl/issues/94](https://github.com/blockchain-etl/ethereum-etl/issues/94) 
 
-### Type Chain
+#### Type Chain
 
 
 
@@ -101,7 +102,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/ethereum-ts/TypeChain/issues/94](https://github.com/ethereum-ts/TypeChain/issues/94) 
 
-### ewasm
+#### ewasm
 
 
 
@@ -109,7 +110,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/ewasm/hera/issues/380](https://github.com/ewasm/hera/issues/380) 
 
-### Web3 Swift Implementation
+#### Web3 Swift Implementation
 
 
 
@@ -117,19 +118,19 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/matterinc/web3swift/issues/12](https://github.com/matterinc/web3swift/issues/12) 
 
-### Blockscout
+#### Blockscout
 
 
 
  *  [https://github.com/poanetwork/blockscout/issues/873](https://github.com/poanetwork/blockscout/issues/873) 
 
-### Prysmatic Labs
+#### Prysmatic Labs
 
 
 
  *  [https://github.com/prysmaticlabs/website/issues/24](https://github.com/prysmaticlabs/website/issues/24) 
 
-### Nethermind
+#### Nethermind
 
 
 
@@ -137,7 +138,7 @@ Here’s some of the bounties we’ve put up:
 
  *  [https://github.com/tkstanczak/nethermind/issues/86](https://github.com/tkstanczak/nethermind/issues/86) 
 
-### Trail of Bits
+#### Trail of Bits
 
 
 

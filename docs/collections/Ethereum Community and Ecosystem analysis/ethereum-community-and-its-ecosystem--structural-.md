@@ -9,9 +9,10 @@ some_url:
 
 # Ethereum community and its ecosystem  structural analysis
 
+
  <FONT size="2pt">_Ethereum community and ecosystem: structural analysis_ </FONT>
 
-#<FONT size="5pt">**Subdivisions inside a decentralised socio-technical protocol.</u>**</FONT><br/>
+##<FONT size="5pt">**Subdivisions inside a decentralised socio-technical protocol.</u>**</FONT><br/>
 
 The different groups of participant and stakeholders from de Ethereum ecosystem doesn’t have the tools to understand the governance issue, they dont have the tools to signal their interest on blockchain governance, and are not even aware they are part of a group that have a power over governance decision.<br/>
 One of the conditions for a crowd of peoples to become collectively intelligent and self-organized is when there is a clear distinction between members' activities and a specialization of activities.<br/> Participants and stakeholder should indeed self-organised in order to signal their interest in blockchain governance but before a lot of work need to be done on the definition and categorization of the differents activities and specialties inside the Ethereum Ecosystem.<br/><br/>

@@ -9,6 +9,7 @@ some_url:
 
 # Updating the Besu client binary on Linux
 
+
 If you've read the [previous article on how to add the Besu Binary to your PATH](https://kauri.io/installing-besu-binary-on-linux/e00df6efcb644e07ab44df169d9375e9/a), then updating the client is very easy.
 
 

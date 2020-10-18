@@ -9,13 +9,14 @@ some_url:
 
 # SKALE Labs - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **SKALE Labs** 
 
 SKALE provides an easy to use layer 2 scaling solution for Ethereum Dapps. In less than 60 seconds you can access and connect a SKALE Chain to a web 3 environment.
 
-# Bounty 1 Overview: Rockies SKALER
+## Bounty 1 Overview: Rockies SKALER
 
 **Description:** The most impressive scaling submission based on judgment criteria detailed below
 
@@ -23,15 +24,15 @@ SKALE provides an easy to use layer 2 scaling solution for Ethereum Dapps. In le
 - **Honorable Mention:** $1,000 each to up to three teams
 
 
-# Resources/Links:
+## Resources/Links:
 - https://github.com/skalenetwork/hackathon
 
-# Requirements (e.g., link to open source code)
+## Requirements (e.g., link to open source code)
 - Brief 3-5 minute presentation describing scaling issue and how SKALE was used to solve the issue
 - Use of a SKALE Chain in solution
 - Link to open source code
 
-# Judging Criteria
+## Judging Criteria
 
 Show the world what is possible when we aren’t encumbered with scaling issues. Run smart contracts and transactions at high speeds. Prizes will be awarded to teams based on the following criteria:
 
@@ -43,7 +44,7 @@ Show the world what is possible when we aren’t encumbered with scaling issues.
 
 Advancements in both smart contract complexity and computation power vastly increase the types of dApps that are feasible with solidity. While we aren’t expecting someone to be running ADMM Optimization over the weekend, we do hope that people no longer have a fear of running out of gas or using loops in their code.
 
-# Contact Information
+## Contact Information
 
 - Hacker Support Squad - support@skalelabs.com 
 - SKALE Discord - https://discord.gg/J6XfZB9

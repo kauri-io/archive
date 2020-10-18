@@ -9,6 +9,7 @@ some_url:
 
 # An Introduction to Smart Contracts with Vyper
 
+
 Vyper is a smart contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM).
 
 It aims to follow the similar simplicity, security and readability principles of Python and provides the following features:
@@ -31,44 +32,44 @@ And to follow similar principles, Vyper does not support:
 -   **Infinite-length loops**
 -   **Binary fixed point**
 
-## Introductory Open Auction Example
+### Introductory Open Auction Example
 
 As an introductory example of a smart contract written in Vyper, we begin with an open auction contract. All Vyper syntax is valid Python3 syntax, however not all Python3 functionality is available in Vyper.
 
 In this contract, participants can submit bids during a limited time period. When the auction period ends, a predetermined beneficiary receives the amount of the highest bid.
 
 ```python
-# Open Auction
+## Open Auction
 
-# Auction params
-# Beneficiary receives money from the highest bidder
+## Auction params
+## Beneficiary receives money from the highest bidder
 beneficiary: public(address)
 auctionStart: public(timestamp)
 auctionEnd: public(timestamp)
 
-# Current state of auction
+## Current state of auction
 highestBidder: public(address)
 highestBid: public(wei_value)
 
-# Set to true at the end, disallows any change
+## Set to true at the end, disallows any change
 ended: public(bool)
 
-# Keep track of refunded bids so we can follow the withdraw pattern
+## Keep track of refunded bids so we can follow the withdraw pattern
 pendingReturns: public(map(address, wei_value))
 
-# Create a simple auction with `_bidding_time`
-# seconds bidding time on behalf of the
-# beneficiary address `_beneficiary`.
+## Create a simple auction with `_bidding_time`
+## seconds bidding time on behalf of the
+## beneficiary address `_beneficiary`.
 @public
 def __init__(_beneficiary: address, _bidding_time: timedelta):
     self.beneficiary = _beneficiary
     self.auctionStart = block.timestamp
     self.auctionEnd = self.auctionStart + _bidding_time
 
-# Bid on the auction with the value sent
-# together with this transaction.
-# The value will only be refunded if the
-# auction is not won.
+## Bid on the auction with the value sent
+## together with this transaction.
+## The value will only be refunded if the
+## auction is not won.
 @public
 @payable
 def bid():
@@ -82,18 +83,18 @@ def bid():
     self.highestBidder = msg.sender
     self.highestBid = msg.value
 
-# Withdraw a previously refunded bid. The withdraw pattern is
-# used here to avoid a security issue. If refunds were directly
-# sent as part of bid(), a malicious bidding contract could block
-# those refunds and thus block new higher bids from coming in.
+## Withdraw a previously refunded bid. The withdraw pattern is
+## used here to avoid a security issue. If refunds were directly
+## sent as part of bid(), a malicious bidding contract could block
+## those refunds and thus block new higher bids from coming in.
 @public
 def withdraw():
     pending_amount: wei_value = self.pendingReturns[msg.sender]
     self.pendingReturns[msg.sender] = 0
     send(msg.sender, pending_amount)
 
-# End the auction and send the highest bid
-# to the beneficiary.
+## End the auction and send the highest bid
+## to the beneficiary.
 @public
 def endAuction():
     # It is a good guideline to structure functions that interact
@@ -127,17 +128,17 @@ This example only has a constructor, two methods to call, and variables to manag
 Let’s get started!
 
 ```python
-# Auction params
-# Beneficiary receives money from the highest bidder
+## Auction params
+## Beneficiary receives money from the highest bidder
 beneficiary: public(address)
 auctionStart: public(timestamp)
 auctionEnd: public(timestamp)
 
-# Current state of auction
+## Current state of auction
 highestBidder: public(address)
 highestBid: public(wei_value)
 
-# Set to true at the end, disallows any change
+## Set to true at the end, disallows any change
 ended: public(bool)
 ```
 
@@ -157,7 +158,7 @@ We first check whether the current time is before the auction’s end time using
 
 With the `endAuction()` method, we check whether our current time is past the `auctionEnd` time we set upon initialization of the contract. We also check that `self.ended` had not previously been set to `True`. We do this to prevent any calls to the method if the auction had already ended, which could potentially be malicious if the check had not been made. We then officially end the auction by setting `self.ended` to `True` and sending the highest bid amount to the beneficiary.
 
-## Next Steps
+### Next Steps
 
 This introduction and example was taken from [the official Vyper documentation](https://vyper.readthedocs.io/), which is your best resource. Recommended next steps are:
 

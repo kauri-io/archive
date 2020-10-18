@@ -9,6 +9,7 @@ some_url:
 
 # POA Network Hackers Guide for ETHDenver 
 
+
   POA is proud to announce that we will be sponsoring
 [ETHDenver](https://ethdenver.com) for a second consecutive year! Last
 year we witnessed the developer community [rally together and focus on

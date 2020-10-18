@@ -9,7 +9,8 @@ some_url:
 
 # Truffle  Smart Contract Compilation & Deployment
 
-##Intro
+
+###Intro
 
 Earlier in the series, we took a look at how to manually deploy and interact with our Bounties.sol smart contract on a local development blockchain.
 
@@ -19,7 +20,7 @@ This article will walk through the steps required to setup Truffle and use it to
 
 [The source code used in this tutorial can be found here] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-compilation-and-deploy)
 
-## What is Truffle?
+### What is Truffle?
 
 Just to recap, Truffle is a Node based development framework which is currently the most used and actively maintained in the space.
 
@@ -35,7 +36,7 @@ npm install -g truffle
 ```
 Read more on [installing truffle here] (https://truffleframework.com/docs/truffle/getting-started/installation)
 
-## Solc Compiler
+### Solc Compiler
 
 When compiling our smart contracts truffle uses the solc compiler, earlier in the series we learnt have to install the solc compiler and compile our smart contract manually. However, Truffle already comes prepackaged with a version of the solc compiler:
 ```
@@ -46,7 +47,7 @@ Node v11.4.0
 ```
 Above we see truffle version v5.0.0-beta.2 comes packaged with solc compiler v0.5.0.
 
-## Creating a Truffle Project
+### Creating a Truffle Project
 
 To use most Truffle commands, you need to run them against an existing Truffle project. So the first step is to create a Truffle project:
 ```
@@ -80,7 +81,7 @@ Now let's create a Bounties.sol file in the contracts folder and copy the conten
 
 ![](https://api.beta.kauri.io:443/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB)
 
-## Compile
+### Compile
 
 We’re now ready to compile our smart contract.
 ```
@@ -100,7 +101,7 @@ We’re both compiled and the artifacts were written to *./build/contracts*
 
 If you review the **Bounties.json** file, you will find it is similar to the output we got when we manually compiled our Bounties.sol smart contract the previous article. It stores the ABI and also the bytecode for deployment and linking, however, this truffle artifact contains additional features that make interacting with and deploying smart contracts using truffle a smoother experience. You can read more about the [truffle-artifactor here.](https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-artifactor)
 
-## Deployment
+### Deployment
 
 **Development Blockchain: Ganache-CLI**
 
@@ -299,7 +300,7 @@ truffle(development)> web3.eth.getTransactionReceipt("0x1cfa32323e31aa262ea61580
   logsBloom:
    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000' }
 ```
-## Interacting With Our Contract
+### Interacting With Our Contract
 
 We can use the truffle console to interact with our deployed smart contract.
 
@@ -393,7 +394,7 @@ truffle(development)> Result {
      red: null } }
 ```
 
-## Test Network: Rinkeby
+### Test Network: Rinkeby
 
 We can also configure truffle to deploy to one of the public test Ethereum networks rather than a local development environment. Earlier in the series, we introduced the following public Ethereum test networks:
 
@@ -403,7 +404,7 @@ We can also configure truffle to deploy to one of the public test Ethereum netwo
 
 This part of the article will discuss deployment to the **Rinkeby** environment, however, the instructions can be used to deploy to either **Kovan** or **Ropsten** also.
 
-### Infura
+#### Infura
 
 In order to send transactions to a public network, you need access to a network node. Infura is a public hosted Ethereum node cluster, which provides access to its nodes via an API
 
@@ -462,7 +463,7 @@ In the BIP39 Mnemonic code form:
 
 Above the address we’ll be using is: **0x56fB94c8C667D7F612C0eC19616C39F3A50C3435**
 
-### Configure Truffle For Rinkeby
+#### Configure Truffle For Rinkeby
 
 Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the **Rinkeby** environment. To do this we will need to edit the `truffle.js` configuration file.
 
@@ -497,7 +498,7 @@ We also set the network ID of the environment, in this case we set it to 4 which
 
 ![](https://api.beta.kauri.io:443/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct)
 
-### Fund Your Account
+#### Fund Your Account
 
 We’re almost ready to deploy! However we need to make sure we have enough funds in our account to complete the transaction. We can fund our **Rinkeby** test account using the [**Rinkeby** ETH faucet] (https://faucet.rinkeby.io/):
 
@@ -586,7 +587,7 @@ And that's it! We have now finally deployed our Bounties.sol contract to the pub
 
 Later in the series, we’ll discuss how to write tests within the Truffle framework, and how we can also add a frontend to our dApp so users can interact with our smart contract on the public network!
 
-## Next Steps
+### Next Steps
 - Read the next guide: [Truffle: Testing Your Smart Contract](https://kauri.io/article/f95f956261494090be1aaa8227464773/truffle:-testing-your-smart-contract)
 - Learn more about the Truffle suite of tools from the [website](https://truffleframework.com/)
 

@@ -9,6 +9,7 @@ some_url:
 
 # January 2019 Ethereum Grant Update
 
+
 Welcome to 2019, and what promises to be an interesting year in the Crypto and Blockchain space. Last year [we announced our $25,000 grant program](https://beta.kauri.io/article/b5c15961f13d4112bc82f6edb6fd3a75) for funding technical content thanks to the Ethereum Foundation.
 
 We're still looking for writers to contribute content on the following topics:

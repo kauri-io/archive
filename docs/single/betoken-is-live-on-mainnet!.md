@@ -9,7 +9,8 @@ some_url:
 
 # Betoken is Live on Mainnet!
 
-## [Get started](https://betoken.fund/start.html) with the first crowd-powered crypto asset management protocol. Powered by [Kyber](https://kyber.network/), [Fulcrum](https://fulcrum.trade/), [Compound](https://compound.finance/), [DAI](https://makerdao.com/en/dai), and [Ethereum](https://www.ethereum.org/).
+
+### [Get started](https://betoken.fund/start.html) with the first crowd-powered crypto asset management protocol. Powered by [Kyber](https://kyber.network/), [Fulcrum](https://fulcrum.trade/), [Compound](https://compound.finance/), [DAI](https://makerdao.com/en/dai), and [Ethereum](https://www.ethereum.org/).
 
 Today, we are beyond excited to announce the launch of
 [Betoken](https://betoken.fund/), a fund management protocol that will not only
@@ -35,9 +36,9 @@ believe this will **make magic happen**.
 ![](https://api.kauri.io:443/ipfs/QmdYkjbbeUo8sQPCaEaddr8DfTQ5aLGNzRXYmSDb8Z7XsL)
 <span class="figcaption_hack">Betoken assets management workflow.</span>
 
-### **Get started now!**
+#### **Get started now!**
 
-#### Connect your capital:
+##### Connect your capital:
 
 If you want to [connect your capital](https://betoken.fund/portal/#/start)
 **this month**, you will **only have 72 hours** to do so, **from July 1st to
@@ -48,7 +49,7 @@ and
 [redemption](https://betoken.gitbook.io/docs/connect-your-capital/what-is-the-lockup-liquidity-of-the-fund)
 **every 27 days**. [Stay tuned](http://eepurl.com/dg6XRD).
 
-#### Manage Betoken’s fund:
+##### Manage Betoken’s fund:
 
 If you want to [join Betoken as a fund
 manager](https://betoken.fund/portal/#/start), sign up now and [start earning
@@ -76,14 +77,14 @@ more in our [Help Center](https://betoken.gitbook.io/docs/) and our
 To celebrate our launch, we want to highlight some of the cool stuff you can do
 on Betoken.
 
-### Betoken is a child of the DeFi ecosystem
+#### Betoken is a child of the DeFi ecosystem
 
 Betoken is an open-source, community-owned, permissionless, and
 censorship-resistant protocol that embraces the Decentralized Finance (DeFi)
 movement. It is deeply integrated with many other DeFi protocols. Find out about
 the details below!
 
-#### **Instant liquidity and quick user onboarding with Kyber Network**
+##### **Instant liquidity and quick user onboarding with Kyber Network**
 
 Kyber Network is a liquidity protocol that aggregates liquidity from a wide
 range of reserves, allowing Betoken managers to trade instantly.
@@ -99,7 +100,7 @@ here to make the conversion.
 ![](https://cdn-images-1.medium.com/max/1600/1*RGeLpc0rJbGL5XnyW-A6vw.png)
 <span class="figcaption_hack">Betoken uses Kyber Network to onboard new users without frictions.</span>
 
-#### Decentralized margin positions with up to 4x leverage
+##### Decentralized margin positions with up to 4x leverage
 
 Betoken makes it easy for the fund managers to create leveraged long or short
 positions in [WBTC](https://www.wbtc.network/), ETH, KNC, BAT, REP, and ZRX. We
@@ -117,7 +118,7 @@ to 1.5x leverage long and up to 0.5x leverage short.
 Bitcoin. It’s completely transparent, 100% verifiable, and supported by leading
 projects. [More here](https://www.wbtc.network/).
 
-#### Bringing stability and accountability with DAI stablecoin
+##### Bringing stability and accountability with DAI stablecoin
 
 Betoken use MakerDAO’s DAI stablecoin to store value, handle its transparent
 bookkeeping, and distribute profits and commissions to its users.
@@ -125,7 +126,7 @@ bookkeeping, and distribute profits and commissions to its users.
 (DAO) comprised of a decentralized stablecoin (Dai), collateral loans, and
 community governance.
 
-#### The Graph Protocol integration
+##### The Graph Protocol integration
 
 We’ve seen the challenges in getting data off Ethereum and the issue in terms of
 user experience. For this reason, we’ve focused our time on the integration of
@@ -133,7 +134,7 @@ user experience. For this reason, we’ve focused our time on the integration of
 with a powerful API that will load Betoken lightning fast. We’ll release it on
 Tuesday, July 30, 2019. #NoMoreSpinner.
 
-### **Betoken trading contest 🏆 with 1,000 USD in prizes**
+#### **Betoken trading contest 🏆 with 1,000 USD in prizes**
 
 We’re introducing our fund managers trading contest in partnership with Kyber
 Network. We aim to reward our best fund managers during the first month, with
@@ -153,7 +154,7 @@ result will be announced right after the [management
 phase](https://betoken.gitbook.io/docs/betoken-investment-cycle) ends and the
 prizes will be distributed in **\$KNC **immediately.
 
-#### Show off your trading performance
+##### Show off your trading performance
 
 One of our favorite features on Betoken is [the
 leaderboard](https://betoken.fund/portal/#/rankings). It tracks managers’
@@ -161,7 +162,7 @@ performance and ranks them. Managers’ performance is a form of reputation that
 is used heavily in our [Incentivized
 Meritocracy](https://github.com/Betoken/Whitepaper/blob/master/BetokenWhitepaper.md#introduction).
 
-### Conclusion
+#### Conclusion
 
 As we mentioned in many posts during the last 18 months, **Betoken’s goal is to
 create more access to better, cheaper, and more open financial services — no
@@ -171,7 +172,7 @@ thrilled to finally launch Betoken and bring that future just a little closer.
 
 ---
 
-### Disclaimer
+#### Disclaimer
 
 Nothing herein constitutes an offer to sell, or the solicitation of an offer to
 buy, any securities or tokens.
@@ -187,13 +188,13 @@ ecosystem.
 
 ---
 
-#### Find out more about Betoken
+##### Find out more about Betoken
 
 [Get started](https://betoken.fund/start.html) |
 [Website](https://betoken.fund/) | [Help
 Center](https://betoken.gitbook.io/docs/)
 
-#### Stay tuned, follow us on
+##### Stay tuned, follow us on
 
 [Telegram](https://t.me/betokenfund) |
 [Twitter](https://twitter.com/betokenfund) |
@@ -205,13 +206,13 @@ Center](https://betoken.gitbook.io/docs/)
 - [Defi](https://medium.com/tag/defi?source=post)
 - [Dapps](https://medium.com/tag/dapps?source=post)
 
-### [guillaume palayer](https://medium.com/@guillaumpalayer)
+#### [guillaume palayer](https://medium.com/@guillaumpalayer)
 
 Co-founder [@betokenfund](http://twitter.com/betokenfund). Product, design, and
 coding. Token economy & foodtech explorer. Cofounding team nutrita.app &
 shiftly.finance. Play w/ [@MagDuWebdesign](http://twitter.com/MagDuWebdesign).
 
-### [Betoken](https://medium.com/betoken?source=footer_card)
+#### [Betoken](https://medium.com/betoken?source=footer_card)
 
 Crowd-powered crypto assets management protocol connecting capital 💰 w/ talent
 🧙‍♂️🧠🤓 & vice versa. 🇺🇸 [http://t.me/betokenfund](http://t.me/betokenfund)

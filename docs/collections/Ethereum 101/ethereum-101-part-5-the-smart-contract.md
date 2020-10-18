@@ -9,18 +9,19 @@ some_url:
 
 # Ethereum 101 - Part 5 - The Smart Contract
 
-# Quick Overview 
+
+## Quick Overview 
 The term smart contract is an ubiquitous term with varying definitions across the greater blockchain ecosystem. 
 
 Smart contracts are just computer programs. In the context of Ethereum, smart contracts refer to the source code of EVM-specific, special-purpose programming languages: Solidity, Vyper, LLL, Bamboo, and Serpent. 
 
 There are good reasons for using built-for-purpose languages to write smart contracts, but they will not be discussed in this documentation. To make an attempt at summarizing, due to the minimalistic and constrained nature of the EVM, it's easier to build a special-purpose language from the ground up than it is to bend a general-purpose language to the intricate needs of the EVM. 
 
-# The High-Level Languages
+## The High-Level Languages
 
 Smart contract developers have multiple high level language options at their disposal. In an earlier section, we highlighted the diverse range of Ethereum clients, yet explained that two clients, Geth and Parity, remain the most salient and widely used. The state of Ethereum high-level languages is slightly similar. Solidity is the de facto and most widely used language, while Vyper is emerging as a competitive alternative. 
 
-# Table Comparison of the High-Level Languages
+## Table Comparison of the High-Level Languages
 
 
 
@@ -33,7 +34,7 @@ Smart contract developers have multiple high level language options at their dis
 | Serpent, outdated    | Python     |  https://github.com/ethereum/serpent   |
 
 
-# Solidity Quick Example
+## Solidity Quick Example
 
 Solidity is the de facto language of Ethereum smart contracts, so for the next few paragraphs we'll work solely with Solidity source code.
 
@@ -82,7 +83,7 @@ Reproduce the contract, deploy it to a JavaScript test blockchain (Javascript VM
 
 We just used Remix to write, deploy, and interact with our 'HelloWorld' smart contract. Remix is a powerful tool for smart contract development. 
 
-# Vyper Quick Example
+## Vyper Quick Example
 
 ```
 greeting: public(bytes[32]) # defining greeting state variable, just like Solidity
@@ -116,61 +117,61 @@ We're going to use MyEtherWallet for the Vyper contract:
     * https://www.rapidtables.com/convert/number/hex-to-ascii.html or something similar from Google
 
 
-# Tooling to get started
+## Tooling to get started
 
-## General Solidity tutorials on Kauri: 
+### General Solidity tutorials on Kauri: 
 *Up-to-date tutorials, using real code, written by active web3 developers.* 
 * [Tools for Working With Solidity](https://beta.kauri.io/article/7a27a1c1fbdc428b8058f14db1a227aa/v1/tools-for-working-with-solidity)
 
 
-# Remix Solidity 
+## Remix Solidity 
 
 From the [Remix documentation](https://remix.readthedocs.io/en/latest/), verbatim: 
 
 > Remix is a powerful, open source tool that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser and locally. <br /><br />Remix also supports testing, debugging and deploying of smart contracts and much more. 
 
-## Remix tutorials on Kauri: 
+### Remix tutorials on Kauri: 
 *Up-to-date tutorials, using real code, written by active web3 developers.* 
 * [Remix IDE - Your first smart contract](https://beta.kauri.io/article/124b7db1d0cf4f47b414f8b13c9d66e2)
 
-## Links & additional information
+### Links & additional information
 * Website: [https://remix.ethereum.org/](https://remix.ethereum.org/)
 * Documentation: [https://remix.readthedocs.io/en/latest/](https://remix.readthedocs.io/en/latest/)
 
 
-# Truffle Development Framework
+## Truffle Development Framework
 
 From the [Truffle documentation](https://truffleframework.com/docs/truffle/overview), verbatim: 
 
 > A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a developer easier. 
 
-## Truffle tutorials on Kauri:
+### Truffle tutorials on Kauri:
 *Up-to-date tutorials, using real code, written by active web3 developers.* 
 
 * [Truffle: Smart Contract Compilation & Deployment](https://beta.kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/v5/truffle:-smart-contract-compilation-and-deployment)
 * [Truffle: Testing your smart contract](https://beta.kauri.io/article/f95f956261494090be1aaa8227464773/v7/truffle:-testing-your-smart-contract) 
 * [Truffle: Adding a frontend with react box](https://beta.kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box)
 
-## Links & additional information
+### Links & additional information
 * Website: [https://truffleframework.com/](https://truffleframework.com/)
 * Documentation: [https://truffleframework.com/docs](https://truffleframework.com/docs)
 * Community: [https://truffleframework.com/community](https://truffleframework.com/community)
 
 
-# Embark Framework
+## Embark Framework
 
 From the [Embark documentation](https://embark.status.im/docs/), verbatim: 
 
 > Embark is a fast, easy to use, and powerful developer environment to build and deploy decentralized applications, also known as “DApps”. It integrates with Ethereum blockchains, decentralized storages like IPFS and Swarm, and decentralized communication platforms like Whisper. <br /><br />Embark’s goal is to make building decentralized applications as easy as possible, by providing all the tools needed and staying extensible at the same time. 
 
 
-## Embark tutorials on Kauri:
+### Embark tutorials on Kauri:
 *Up-to-date tutorials, using real code, written by active web3 developers.* 
 
 * [Embark: Smart Contract Compilation & Deployment](https://beta.kauri.io/article/13758d60f21648a1897fad1fa5b78237/v1/embark:-smart-contract-compilation-and-deployment)
 * [Embark: Testing your Smart Contract](https://beta.kauri.io/article/e8f18d0643c14756b43d698122bba9d9/v1/embark:-testing-your-smart-contract)
 
-## Links & additional information
+### Links & additional information
 * Website: https://embark.status.im/
 * Documentation: https://embark.status.im/docs/
 

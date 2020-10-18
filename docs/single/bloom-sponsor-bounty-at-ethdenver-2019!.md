@@ -9,34 +9,35 @@ some_url:
 
 # Bloom - Sponsor Bounty at ETHDenver 2019!
 
-# Company/Project Name and Description
+
+## Company/Project Name and Description
 
 **Bloom Protocol** is an end-to-end protocol for decentralized login, identity, and credit scoring. With Bloom Protocol, you can verify a user’s identity, reduce the risk of fraud, and build compliant financial applications, all without sacrificing user privacy or risking data breaches. You can do this without taking custody of a user’s personal data, and without relying on centralized systems.
 
-# Bounty 1 Overview: Best application integrating decentralized identity
+## Bounty 1 Overview: Best application integrating decentralized identity
 
 **Prize Amount:** $2,500
 
-# Bounty 2 Overview: Best lending application
+## Bounty 2 Overview: Best lending application
 
 **Prize Amount:** $1,500
 
-# Bounty 3 Overview: Most creative submission
+## Bounty 3 Overview: Most creative submission
 
 **Prize Amount:** $1,500
 
-# Resources/Links:
+## Resources/Links:
 - bloom.co/docs
 
-# Requirements (e.g., link to open source code)
+## Requirements (e.g., link to open source code)
 
 1. Public github
 
-# Judging Criteria
+## Judging Criteria
 
 User Experience, Integration of Bloom API / Bloom Share Kit
 
-# Contact Information
+## Contact Information
 
 Jesse Leimgruber - jesse@bloom.co
 

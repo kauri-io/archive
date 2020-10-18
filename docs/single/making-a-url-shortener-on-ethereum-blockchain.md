@@ -10,18 +10,19 @@ some_url:
 # Making a URL shortener on Ethereum Blockchain ⛓
 
 
+
 ----
 
 > 
 
 > 
 
-### The Product
+#### The Product
 
 <blockquote class="twitter-tweet" data-align="center" data-conversation="none" data-dnt="true"><p>🔗 <a href="https://t.co/Rte4yKrN1q" rel="nofollow">https://t.co/Rte4yKrN1q</a> shutting down is old news. But have you found a replacement? Well, we did! A link shortener that will keep your link stored for a lifetime ... because it's on the blockchain. Check out <a href="http://twitter.com/sauravtom" target="_blank" title="Twitter profile for @sauravtom">@sauravtom</a>'s Ethereum URL shortener at <a href="https://t.co/QhsWph5eOi" rel="nofollow">https://t.co/QhsWph5eOi</a>!</p><p> — <a href="https://twitter.com/makersup/status/1069165144150704130">@makersup</a></p></blockquote>
 
 
-## How it works
+### How it works
 
 ![](https://api.beta.kauri.io:443/ipfs/QmasWnFCo1WTEu58JV8Sv6LhAzfgXGJvWPLu6xy2wdAdWZ)
 
@@ -39,7 +40,7 @@ Ethereum Ropsten testnet
 > 
 free ethers here
 
-### The Process
+#### The Process
 
 
 
@@ -61,7 +62,7 @@ https://0x.now.sh/s?id=23
 
  * Since this transaction is not changing the state of the blockchain, we do not need to pay any ETH this time, the user is seamlessly redirected to the long URL.
 
-### The SmartContract 📃
+#### The SmartContract 📃
 
 ```
 pragma solidity ^0.4.24;
@@ -168,9 +169,9 @@ event LinkAdded(uint linkId, string url);
 ----
 
 
-## Technical Challenges
+### Technical Challenges
 
-### Making the shortened URLs accessible in all Browsers
+#### Making the shortened URLs accessible in all Browsers
 This was quite tricky because interacting with blockchain required the browser to be web3 enabled, and have some wallet installed (metamask or similar). Currently web3 and wallet support is only for Chrome and Firefox on Desktop only.
 To solve this, I had to create a wallet on the fly as follows
 
@@ -187,7 +188,7 @@ Shout out to
 > 
 ethersJS library
 
-### Counting URL visits
+#### Counting URL visits
 The flexibility for using this one all browsers comes at a cost. Each time user clicks on the shortened URL no change is made to the blockchain state, hence it is not possible to determine how many times each link was clicked.
 This issues remains unsolved.
 The complete source code for this project is on 

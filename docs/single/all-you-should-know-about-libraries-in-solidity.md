@@ -10,6 +10,7 @@ some_url:
 # All you should know about libraries in solidity
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmSdjNhBNvSRGsvmGFQXDeAnjzR64QPDcokdiGeLqYxeDN)
 
 It’s very important to know about the libraries in solidity while writing Dapps. In simple words, a library is the reusable piece of code which is deployed once and shared many times.

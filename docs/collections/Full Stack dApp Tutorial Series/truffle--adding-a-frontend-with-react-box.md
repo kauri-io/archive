@@ -10,13 +10,14 @@ some_url:
 # Truffle  Adding a frontend with react box
 
 
+
 Earlier in the series, we took a look at how to setup Truffle and use it to compile, deploy and interact with our Bounties.sol smart contract.
 
 This article will walk through the steps required to add a simple react.js front end to our Bounties dApp so that users can interact with our smart contract using their web browser.
 
 [Source code for this tutorial can be found here.](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend)
 
-## Truffle Box
+### Truffle Box
 
 Truffle boxes are helpful boilerplate code, pre-configured to help you get up and running quickly developing your dApp.
 
@@ -29,7 +30,7 @@ There are also other truffle boxes with boilerplate for other front-end framewor
 
 You can [read more about truffle boxes here.](https://truffleframework.com/boxes)
 
-## Prerequisites
+### Prerequisites
 
 **NODEJS 11.0+**
 
@@ -57,7 +58,7 @@ $ npm install -g ganache-cli
 
 Chrome or Firefox
 
-## Unboxing Truffle React
+### Unboxing Truffle React
 
 To use a truffle box, we simply run the truffle unbox command in an empty directory:
 ```
@@ -238,7 +239,7 @@ You should see the following when you visit **http://localhost:3000** in your br
 
  Note: Right now this tutorial is assuming that you do not have Metamask installed. Thus if the stored value is 0 do not be alarmed. If you have Metamask installed: switch to the localhost network. You will see a transaction message pop up on the screen. If you reject the transaction you will see a 0 and if you accept it you will see a 5. Either way we will just continue on from this step. 
 
-## Setup Project For Our Bounties dApp
+### Setup Project For Our Bounties dApp
 
 Now that we have the example project up and running, we can now start adapting it for our bounties dApp, we'll need to complete the following steps:
 
@@ -342,7 +343,7 @@ The above extract returns a promise which when the window loads will check if a 
 
 **NOTE: Usually if we were to use our local development environment, our node would be running on port 8545 and not 9545. However, in this tutorial, we'll be running our app in the browser, and rely on the browser to supply us with our web3 object so no need to update this, thus please change 9545 to 8545.**
 
-### Web3 Provider
+#### Web3 Provider
 
 A Web3 Provider tells our web3.js instance which ethereum node to send our RPC instructions too.
 
@@ -448,7 +449,7 @@ constructor(props) {
 
 **Note: Remove the runExample function underneath componentDidMount. We will not be using it.**
 
-## Issuing a Bounty
+### Issuing a Bounty
 
 Great, now we have everything setup so when the application renders we will have a `web3` instance using the `metamask` provider to sign transactions and send them to an ethereum network. We also have a `bountiesInstance` web3 object which is configured to interact with our deployed Bounties.sol smart contract on the same ethereum network.
 
@@ -656,7 +657,7 @@ Also add the bootstrap css to the `client/public/index.html` file
 
 Our `App.js` file should now [look like this] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-react-box-frontend/client/src/App-noEvents.js).
 
-## Deploy
+### Deploy
 
 We'll be deploying our bounties dApp to a public test network using Infura so lets ensure we have that setup first:
 
@@ -763,7 +764,7 @@ module.exports = {
 
 The above as we [discussed earlier in the series] (https://beta.kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/v2/truffle:-smart-contract-compilation-and-deployment#configuretruffleforrinkeby), configures truffle to deploy to an environment, rinkeby, using our mnemonic to derive the deployment private key and Infura as the deployment node.
 
-### Fund Your Account
+#### Fund Your Account
 
 Note: Using the faucet to fund your account; you have to wait the required amount of time before you can receive more test ether.
 
@@ -862,7 +863,7 @@ Summary
 
 
 
-## Metamask
+### Metamask
 
 Before we can launch our dApp, we need to ensure we have Metamask enabled in our browser.
 
@@ -949,7 +950,7 @@ When you hit the “issue Bounty” button you should expect to see a Metamask p
 
 Awesome, we're now able to issue a bounty in the frontend, however, once the transaction is confirmed, our UI has absolutely no idea. The saving grace is that Metamask will inform the user. However, we still need to show the user the details of the bounty was correctly added. Similarly, other users need to be able to see which bounties are currently available to fulfil!
 
-## Subscribing to events
+### Subscribing to events
 
 To keep users updated, we're going to add a table which will display all the bounties which have been created.
 
@@ -1048,7 +1049,7 @@ We're now ready to relaunch our app, actually since its hot loading we shouldn't
 
 Awesome, that's it! Now when you issue a bounty, the details of the bounty will be available in the table once the transaction has been processed. 
 
-### Data Storage With IPFS
+#### Data Storage With IPFS
 
 **IPFS**
 
@@ -1216,7 +1217,7 @@ Once the transaction is confirmed and processed, our app should look like this:
 
 That's all folk! You have successfully built and deployed a bounty dApp to the rinkeby development environment. The dApp which uses ipfs to store bounty requirements, and we've developed a front end to allow a user to issue a bounty!
 
-## Try it yourself
+### Try it yourself
 
 You'll have noticed that our front end does not currently support:
 

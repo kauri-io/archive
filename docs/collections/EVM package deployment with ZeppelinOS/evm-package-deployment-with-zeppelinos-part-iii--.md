@@ -9,7 +9,8 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part III  Linking to mainnet
 
-## Pulling it all together
+
+### Pulling it all together
 
 Now that you've created your first EVM package, let's go through the
 steps you would take to link it to your project as if you were linking
@@ -44,7 +45,7 @@ don't want to deploy your own, you can use:
 zos link zos-linkedlist
 ```
 
-## Testing
+### Testing
 
 Return to your _myproject2_ top level, and create a new contract to test
 the linked `LinkedList` contract. In your _contracts_ folder, make a new
@@ -192,7 +193,7 @@ truffle(local)> quickContract.getHead()
 
 It works!
 
-## Recap
+### Recap
 
 That brings us to the end of the tutorial. Just to recap, in this
 tutorial you:

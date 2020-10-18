@@ -9,6 +9,7 @@ some_url:
 
 # Decoding Community - What Drake Can Teach You
 
+
 By Brittany Laughlin
 
 [Blog post with slides](https://medium.com/@br_ttany/decoding-blockchain-community-c5938d112349)

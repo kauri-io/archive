@@ -9,7 +9,8 @@ some_url:
 
 # bytecode only analysis of evm smart contracts
 
-# Bytecode only analysis of EVM smart contracts
+
+## Bytecode only analysis of EVM smart contracts
 
 Let's assume we've located a smart contract on the blockchain. We have the contract address where we retrieve its runtime bytecode. We also easily find the transaction receipt data of the contract's deployment, further giving us the init and runtime bytecode. What we're lacking is the source code, what compiler was used (though contract prologue instructions were amended starting in Solidity version 0.4.22, so by inference we know this bytecode is at least v0.4.22 or greater). 
 
@@ -26,9 +27,9 @@ Using a basic script, we can quickly get some useful output:
 ```
 from manticore.ethereum import evm, ManticoreEVM
 from binascii import unhexlify, hexlify
-################ Script #######################
-# Bytecode only based analysis
-# No solidity, no compiler
+################# Script #######################
+## Bytecode only based analysis
+## No solidity, no compiler
 
 m = ManticoreEVM()
 
@@ -55,7 +56,7 @@ m.transaction(caller=user_account,
                 data=symbolic_data,
                 value=symbolic_value )
 
-#Let seth know we are not sending more transactions 
+##Let seth know we are not sending more transactions 
 m.finalize()
 print(f"[+] Look for results in {m.workspace}")
 ```
@@ -191,12 +192,12 @@ And the Manticore python script: *minbytecodereentrancyproxy.py*
 from manticore.ethereum import evm, ManticoreEVM, ABI 
 from binascii import unhexlify, hexlify
 
-# bytecode only based analysis: no solidity, no compiler
+## bytecode only based analysis: no solidity, no compiler
 
 m = ManticoreEVM()
 m.verbosity(1)
 
-# function selectors retrieved from initial manticore output
+## function selectors retrieved from initial manticore output
 selector_one    = b"c0e317fb"  # addToBalance()
 selector_two    = b"f8b2cb4f" # getBalance(address)
 selector_three  = b"5fd8c710" # withdrawBalance()
@@ -225,16 +226,16 @@ vuln_contract = m.create_contract(owner=user_account, init=contract_bytecode)
 print("[5] reentrancy contract account created:", vuln_contract)
 
 print("[6] EVM init assembler:")
-#for instr in evm.EVMAsm.disassemble_all(contract_bytecode):
-#    print(hex(instr.pc), instr)
+##for instr in evm.EVMAsm.disassemble_all(contract_bytecode):
+##    print(hex(instr.pc), instr)
 
 exploit_contract    = m.solidity_create_contract(exploit_source, owner=adversary_account)
 
-#symbolic_data   = m.make_symbolic_buffer(4)
-#symbolic_value  = m.make_symbolic_value()
+##symbolic_data   = m.make_symbolic_buffer(4)
+##symbolic_value  = m.make_symbolic_value()
 print("[7] symbolic values and symbolic data created.")
 
-# recreate smart contract state; vulnerable contract given balance of 1000 
+## recreate smart contract state; vulnerable contract given balance of 1000 
 m.transaction(
     caller  = user_account,
     address = vuln_contract,

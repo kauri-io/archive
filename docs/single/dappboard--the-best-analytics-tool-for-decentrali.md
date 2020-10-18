@@ -9,6 +9,7 @@ some_url:
 
 # DAppBoard  The Best Analytics Tool for Decentralized applications and protocols.
 
+
 One year ago we published, 
 [DAppBoard](https://medium.com/@dappboardTeam)
  , the first decentralized applications leader board that provided data metrics that used throughout the community today: daily active users, number of transactions and Ether volume. Since our initial launch, several other dapp ranking application have followed our lead and we are happy to have inspired so many developers.
@@ -18,7 +19,7 @@ However, analytics and metrics need to adapt as the ecosystem grows and as new d
 ![](https://api.beta.kauri.io:443/ipfs/QmevPaCywxB4xgvcB31eoNApb9jJABww6xgrc4XZMxsRwr)
 
 
-## The New DAppboard
+### The New DAppboard
  
 **Today, we**
  released 
@@ -45,7 +46,7 @@ All our code is open source and available on
 > Finding the metrics that matter to each specific dapp category
 
 
-## New Features and Metrics
+### New Features and Metrics
 For the new iteration of DAppBoard, we are releasing a lot of content.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmUgQa3tRfvs68hCwzLjGoTrsdB6Xyv4MdYJ69eQ6dc6Mw)
@@ -69,7 +70,7 @@ Our team has also created dashboards which are in depth views into popular decen
 
  * The last dashboard we released is focusing on the [bounties network](https://dappboard.com/dapp/bounties) : a protocol enabling anyone to incentivize user to complete tasks by creating escrow using any token.
 
-## The Future of DAppBoard
+### The Future of DAppBoard
 The decentralized finance ecosystem is rapidly developing and DAppBoard provides meaningful data to analyze dapps, protocols, and tokens. We are building the BI tool for your project. You can generate and learn from custom KPI dashboards without having to reinvent the wheel internally..
 Are you using a decentralized application or building one? 
 [Contact us](https://dappboard.com/contact)
@@ -82,7 +83,7 @@ At
 [contact us](https://dappboard.com/contact)
  .
 
-## More resources to learn about DappBoard:
+### More resources to learn about DappBoard:
 
 
 

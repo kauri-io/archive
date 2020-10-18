@@ -10,6 +10,7 @@ some_url:
 # Towards A General Purpose Plasma
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmaU2gy4bgn1EuA1TdK7GMpzbKJWHUwe9XdnsSQj9qVa9a)
 
  
@@ -27,7 +28,7 @@ What we really needed was a way for people to build applications
 _on top_
  of a general-purpose plasma chain in the same way you build dapps on a general-purpose blockchain like Ethereum.
 
-## Clap for the Plapps
+### Clap for the Plapps
 We’ve devised a new architecture for building 
 **plapps**
  (plasma apps) on one generalized plasma chain. It establishes a clean separation between the plasma layer and the application layer.
@@ -42,7 +43,7 @@ _on the plasma chain —_
 Of course, these applications still live in the plasma design space. Plapps need to implement a standard predicate contract interface, and individual transactions must still fit within the ethereum gas limit.
 In other words, plasma isn’t magical infinite Ethereum. However, most existing dapps (bounties, games, decentralized finance…) easily fulfill the above requirements. And, as a plapp, they get the benefits of plasma: low cost scalability, and frictionless onboarding — new users can join without ever touching Ethereum.
 
-## Where We‘re At
+### Where We‘re At
 At ETH Denver, we used this new framework to create 
 _bitcoin lightning contracts_
  in a predicate contract on our plasma chain:
@@ -58,7 +59,7 @@ We then
 [allows clients to run predicate contracts](https://github.com/plasma-group/plasma-verifier)
  .
 
-## Where We’re Going
+### Where We’re Going
 
 ![](https://api.kauri.io:443/ipfs/QmexiWUkjWdzTbA4smdACuyVnMRibJVG8T5aQcMSEHzKa5)
 

@@ -10,6 +10,7 @@ some_url:
 # Tokenize All the Things and What Happens Next?
 
 
+
 I am standing in a small hall of hastily assembled booths all flaunting tokens of some description and function. Somewhere over the past months, what I thought of as a unified community forked into the blockchain-crowd (using the technology to replace or supplement existing technology) and the crypto-crowd who seek to create value, be that with speculation, or token-based ecosystems. This split in the community isn't inherently bad, it's a natural process as a community grows, but it happened somewhat swiftly and took a lot of the broader community by surprise.
 
 As much as the blockchain-powered technology interests me more, this article isn't about explaining how these tokens work (pay a visit to your search engine of choice to find plenty), but more about what this increasing tokenization could mean for the future.

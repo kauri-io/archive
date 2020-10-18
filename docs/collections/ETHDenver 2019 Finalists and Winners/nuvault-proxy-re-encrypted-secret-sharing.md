@@ -9,21 +9,22 @@ some_url:
 
 # NuVault - Proxy Re-Encrypted Secret Sharing
 
-# Project Name
+
+## Project Name
 NuVault
 
 
-# Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
+## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 Secret Sharing Via Threshold Proxy Re-Encryption
 
-# Team Members. First and Last Names
+## Team Members. First and Last Names
 Josh Hudson
 Mathew Gardner
 Travis Haley
 Mike Danko
 
 
-# Status.im ID for Each Team Member (we will use this to contact you and your team)
+## Status.im ID for Each Team Member (we will use this to contact you and your team)
 
 Josh: 0x04fabbab6433f2a8da39a6a7a91daca63d22ec486a11d4f7859f47c497f676fae31804689e8666bd402af2d91c57898a8485db71bc853f56493fad4f10a812a56a
 Mathew:
@@ -33,22 +34,22 @@ Travis:
 Mike:
 0x040b81e497813442b3496613967a318d52d231e5a8a33cf86f637a70efa16ab9a898dc0cba641b714c0044a83ac1aa42d98dae8d8b635034ce1b559d63a6451877
 
-# Detailed Project Description (no more than 3-4 sentences):
+## Detailed Project Description (no more than 3-4 sentences):
 A VueJS frontend to allow a user to encrypt secrets they can share with other agents without decrypting or exposing either parties private secret keys. Encrypted data views are stored in IPFS for later decrypted consumption.
 
 
-# Describe your tech stack (e.g., protocols, languages, API’s, etc.)
+## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 - Vue JS frontend/ NuCypher / IPFS / Solidity / MetaMask / Docker / Python / Web3
 
 
-# Track for which you’re submitting (Open or Impact)
+## Track for which you’re submitting (Open or Impact)
 Open
 
 
-# All Bounties Completed/Incorporated
+## All Bounties Completed/Incorporated
 BOUNTY-NUCYPHER-2019 / BOUNTY-AAVE-2019
 
-# A link to all your source code on a public repo (i.e. Github)
+## A link to all your source code on a public repo (i.e. Github)
 https://github.com/MichaelDanko/NuVault/
 
 

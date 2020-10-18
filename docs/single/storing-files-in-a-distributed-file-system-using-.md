@@ -9,7 +9,8 @@ some_url:
 
 # Storing files in a distributed file system using blockchain technology
 
-# Principles of limited trust, which change general approach to everyday life, force parts of a business to introduce new additional actions and procedures, which should ensure that considered subject is exactly what they expect, and has not been modified without the knowledge of the other parties. Especially It affects cases in which there is a reasonable suspicion or doubt to the correctness of the delivered data that is the matter of exchange. Examples can be seen as downloaded files, sent documents agreements or regulations.
+
+## Principles of limited trust, which change general approach to everyday life, force parts of a business to introduce new additional actions and procedures, which should ensure that considered subject is exactly what they expect, and has not been modified without the knowledge of the other parties. Especially It affects cases in which there is a reasonable suspicion or doubt to the correctness of the delivered data that is the matter of exchange. Examples can be seen as downloaded files, sent documents agreements or regulations.
 
 Who's affected: 
 
@@ -33,19 +34,19 @@ Recently a similar solution was introduced, deployed and implemented as service 
 * Privacy policy
 
 
-# **Proposed Solution:**
+## **Proposed Solution:**
 
 Applying blockchain technology, which guarantees immutability of saved data, has its pros and cons, and should be carefully considered against business needs. Sometimes it is good to stop and think twice before jumping in at the deep end. Taking blockchain into consideration as a durable medium, it will be beneficial to store only some basic info, not files themselves. As a basic info we can understand name, date added, extension, author or any other properties which are stored by a file system or will help us identify the file among others. And here we find our point, the best way to distinguish the file not only among files but also among other versions of the same file, is knowing its hash. It is another level of security which hides content of the file behind fixed size sequence of letters and digits. Any modification to this file, regardless of intentions or meaning or size, causes a complete change of hash. Giving a proof that there is or there is no consistency between requested file and the file which is stored as an argument supporting the case.
 
 Having answered what, we should store in the blockchain, there is another question. Where should we physically keep these files? So, as part of increasing the degree of decentralisation, it is tempting to use one of the distributed file systems. They are designed to consolidate information and facilitate file sharing while providing remote access at a local-like level. The main characteristics of such systems is high availability, reliability, data integrity, scalability or heterogeneity (looks the same for every device which can be a part of such system). An example of a distributed file system that has been functioning for some time, is InterPlanetary File System known as IPFS. It is a system which synthesizes successful ideas from previous peer-to-peer systems including BitTorrent or Git. It also provides a high throughput content-addressed block storage model, with content addressed hyperlinks. Its structure, built upon DAG (Directed Acyclic Graph), lets us create a versioned file system or even permanent web. IPFS consists of hashing tables, incentivized blocks exchange and self-certified filesystem. As every system component it also has some demerits or just things that require some additional consideration i.e. do we need additional data backup, how we are going to ensure file replication in the network? Especially second question might be worth asking, because IPFS itself doesn’t have any automatic replication. Nodes only store and/or distribute content they explicitly want to store and/or distribute. Simply saying, devices that run IPFS nodes do not have to host files that they were not asked for. But with first query they can refer to the requested file and from now on have its local copy. For more details and explanations please visit IPFS home page and read their [whitepaper](https://raw.githubusercontent.com/ipfs/papers/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf). With requirements defined in this way, we can now go straight to the solution technical details which will accomplish the set goals.
 
 
-# **Technical Aspects:**
+## **Technical Aspects:**
 
 In this section we present our simple implementation of storing file hash (SHA-256) in the private blockchain built upon ETH protocol with preserving file in distributed file system – IPFS.
 
 
-## **Technology stack:**
+### **Technology stack:**
 
 * Truffle (Development framework for dapps based on Ethereum blockchain) https://truffleframework.com/ 
 * Ganache (One click, in-memory blockchain) https://truffleframework.com/ganache
@@ -53,7 +54,7 @@ In this section we present our simple implementation of storing file hash (SHA-2
 * NodeJS (JavaScript run-time environment) https://nodejs.org/en/ 
 * React (JavaScript library for building user interfaces) https://reactjs.org/
 
-## **Environment preparation and tools installation:**
+### **Environment preparation and tools installation:**
 
 _Disclaimer: Instruction is based on Windows OS, some of the instructions may require OS specific approach, like using sudo in linux based OSes._
 
@@ -159,7 +160,7 @@ After a while you should see a message in CLI “Compiled successfully!” and t
 ![](https://api.beta.kauri.io:443/ipfs/QmXiMKADkEFcXFYMp4U7jx2TMD6zDhfXGduB9opMC7ad4z)
 
 
-## **Detailed description of some major elements:**
+### **Detailed description of some major elements:**
 > ---------------------------
 Smart contract HashStorage.sol in Solidity
 
@@ -241,20 +242,20 @@ Truffle-config.js
 
 this file defines network with which we are going to work. It can have many networks defined, but every needs to have its unique name. Simple definition requires a host, where we put our local node 127.0.0.1, a port, where we put rpc port, and a network_id. When a network_id is defined as asterisk, it means that it will connect to any network available under specified address and port.
 
-##Sample Web Service Responses
+###Sample Web Service Responses
 
 1. AddFile 
 ![](https://api.beta.kauri.io:443/ipfs/QmSx73LkUUcvDGYtmEhvgQwk2XTjxDvpHCoqg2Trhpdp1a)
 2. GetFile 
 ![](https://api.beta.kauri.io:443/ipfs/QmWQhzYh8a9cWbEe55FkGPwwTaTRPw8rTA5VY3ZuszmUkQ)
 
-## **Design Structure**
+### **Design Structure**
 
 ![](https://api.beta.kauri.io:443/ipfs/QmZ7YMeK3fqGp8BZTvuY5qbgZeQu8mHUibCifbnSTP4EzA)
 
 Quick explanation on how it has been structured. At the top there is a browser with two components. The first one – Web App – allows us to send a request to the hosted Web Service in a simple and clear way. This request received by the web service is processed and as a result data is pushed further to the blockchain and IPFS network. It handles two types of requests – the first which writes and the second which only reads and doesn’t make any changes. Second component in a browser area is the IPFS File Viewer which is helpful with exploring files stored in a distributed file system. It comes with our IPFS node configuration and can display a file or even play a movie if its extension is recognized by the system. IPFS File Viewer checks for file without any intermediaries but there is one requirement that has to be fulfilled by user. He or she has to know the path or hash generated by the system (these two terms can be used interchangeably) of the file supposed to be viewed. The hash from IPFS is completely different from this generated by? the file content, therefore we store both in the smart contract.
 
-## **User Interface**
+### **User Interface**
 
 The Upload view is visible by default.
 1. By using drag & drop mechanism applied to the first tab of our sample application, a user is able to upload file.
@@ -271,7 +272,7 @@ The user can switch to the Search view by clicking on Search with a magnifier ic
 ![](https://api.beta.kauri.io:443/ipfs/QmcVQuWYkdQbLSfnPD4akmzjKsPhHs43yALK7hXXTcxtHj)
 
 
-## **Summary:**
+### **Summary:**
 
 Proposed solution is not a comprehensive example. In order to deepen the issue, we should consider adding more nodes to a distributed file system, migrating application to public network, file encryption before sending and, finally, we should try to answer the question about trust towards the server or who should pay the network fees. There is probably much more than that and it gives great food for thought, but this article shows in a way possibilities and strengths of applying a blockchain technology to the described problem. If you have any questions or you just want to broaden this solution, feel free to participate or ask questions. The code is available on github:  [https://github.com/FutureProcessing/DocuHash](https://github.com/FutureProcessing/DocuHash)
 

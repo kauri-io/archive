@@ -9,6 +9,7 @@ some_url:
 
 # Here’s The Deal on Sharding
 
+
 Blockchains **suck**.
 
 They’re really slow, the fees are high, and right now nearly nothing built on them can scale, as evidenced by Cryptokitties and every single Ethereum stress test since then.
@@ -20,7 +21,7 @@ For example: if your blockchain is truly decentralized like Bitcoin, then it’l
 Some of the general scalability solutions that have been presented so far are increasing 
 [block size](https://en.bitcoin.it/wiki/Block_size_limit_controversy), creating more individual _altcoins_ to deal with separate tasks, and [merged mining](https://www.cryptocompare.com/mining/guides/what-is-merged-mining-bitcoin-namecoin-litecoin-dogecoin/). However, they all have their own pitfalls; block size (or the block gas limit in ETH’s case) cannot be increased indefinitely (increased block size will cause a network to [become centralized](https://www.newsbtc.com/2017/11/12/61408/) around a handful of miners), altcoins will spread out hashing power across multiple blockchains which sharply decreases security, and merged mining increases miners’ computational burden.
 
-### ELI5 on Sharding… Kinda
+#### ELI5 on Sharding… Kinda
 
 Sharding is one of the in-protocol solutions that have been proposed to help Ethereum scale. Sharding splits up the **state** of the network into multiple _shards_ or pieces, where each piece has its own transaction history and portion of the network’s state. (The state is composed of all the information on what the network looks like at one specific moment, for example the amount of transactions that have been processed, the balances at each address, etc.)
 
@@ -48,7 +49,7 @@ Instead of storing full blocks of transaction, now the main chain — the Proof 
 
 So in the diagram above, we can see sort of the “top level” of the protocol, where in each block we store two roots; one that describes the state of the network, which is divided into shards, and one that contains the information about all the verified collation headers. This means that the “longest chain” of each shard is the longest chain that contains every single collation that has been put onto the main chain.
 
-### Cross-Shard Communication
+#### Cross-Shard Communication
 
 One of the most important aspects of sharding would be to implement some method of cross-shard communication. What good would it be if you couldn’t send a transaction from address X in shard 1 to address Y in shard 3?
 
@@ -64,7 +65,7 @@ If you’re a more visual learner, here’s a diagram describing the same proces
 
 ![](https://api.kauri.io:443/ipfs/QmbSbpfAGBDBcaL41K1FRSZe92zfxw8i69muzhJztcEtvL)
 
-### Vulnerabilities
+#### Vulnerabilities
 So sharding sounds amazing and all, but you must be thinking that there _has_ to be a catch somewhere. Well, you’re right. 
 
 The biggest issue the sharding solution might have to face is the single-shard takeover attack. A blockchain insures security through the validation of each transaction by every single node in the network. However, when the state of the network is sharded, each node will only process a certain portion of each transaction. This will make it more difficult to keep the information secure. It will be comparatively easy to take over all the proposers, collators and notaries in a shard in order to submit false collations.
@@ -83,7 +84,7 @@ The total area under each dotted line represents the total number of nodes in th
 For this reason, if we go along with statistic probability and assume that the majority of the nodes, around 67%, will be honest, that means the “hump” of our binomial distribution will skew more towards the right. Because of this, if we take a smaller sample (say 150 nodes) representing 1 shard out of the total number of nodes, we will see that there’s [practically a 100% probability](https://github.com/ethereum/wiki/wiki/Sharding-FAQs#how-can-we-solve-the-single-shard-takeover-attack-in-an-uncoordinated-majority-model) that the shard will have a majority of honest nodes.
 In this way, attackers will have to actually control 100% - 67% = 33% of the network to actually present a real threat if the sharding solution were implemented.
 
-### Putting It All Together
+#### Putting It All Together
 
 So now we have all of these excellent capabilities that present a solid attempt to patch up some of the biggest challenges sharding presents. We can actually implement and connect all of them through two things; the **Proof of Stake beacon chain**, and the **Validator Manager Contract**.
 
@@ -92,7 +93,7 @@ Furthermore, instead of storing transaction group roots, the beacon chain will b
 
 Currently, in order to become a validator on the Proof of Stake chain, you must submit a stake of 32 ethers onto the Validator Manager Contract (VMC), which essentially keeps track of which validator is doing what. If you do not validate the appropriate collations, your stake will not be returned by the VMC. It’s kinda like a security deposit. The VMC’s role is essentially to do the random sampling of validators, verify collation header hashes, and facilitate cross-shard communication via receipts.
 
-### It’s Not Perfect
+#### It’s Not Perfect
 
 It may seem like a super comprehensive solution, and in most ways it is, but the sharding proposal still has a lot that needs to be figured out. First of all, we actually have no idea how well this will be pulled off and what issues we haven’t taken into account because [Casper hasn’t been fully implemented yet](https://www.infoq.com/news/2018/06/Ethereum-Casper-First-Release). A lot of rough knots also need to be worked out in the cross-communication scheme, because 
 [atomic operations](https://github.com/ethereum/wiki/wiki/Sharding-FAQs#what-is-the-train-and-hotel-problem) (where if one transaction fails, then all of the rest must be cancelled as well) still haven’t been figured out. There’s also a lot of other problems in terms of the logistics of verification, and how to carry out certain security mechanisms.

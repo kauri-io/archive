@@ -9,17 +9,18 @@ some_url:
 
 # Deploying Your dApp Frontend to Heroku
 
-# Deploying Your App to Heroku
+
+## Deploying Your App to Heroku
 
 Earlier in the series, we deployed our _Bounties.sol_ smart contract using Truffle, and added a react.js front end to interact with the contract through a web browser. In this tutorial we deploy our front-end application to [Heroku](https://www.heroku.com).
 
 This tutorial uses the source code from the tutorial, [Truffle: Adding a frontend with react box](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend). You have to add a _Procfile_ to the project, but no other changes are required.
 
-## Heroku
+### Heroku
 
 Heroku is a Platform-as-a-Service (PaaS) that enables developers to quickly build, deploy, and scale web applications. We use Heroku to deploy our application and make it publicly accessible.
 
-## Prerequisites
+### Prerequisites
 
 You need to configure the application, as defined in an earlier tutorial, [Truffle: Adding a frontend with react box](https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box).
 
@@ -39,7 +40,7 @@ sudo snap install --classic heroku
 
 Heroku provides a graphical installer for Windows and Mac as well as ways of installing for various operating systems which you can find in the [Heroku Dev Center](https://devcenter.heroku.com/articles/heroku-cli).
 
-## Setup Heroku
+### Setup Heroku
 
 Navigate to the project directory in your terminal as you need to need to run some `git` commands from the top level of the working tree. For the purposes of this tutorial, let's assume that you have an independent copy of the [react project from the previous tutorial](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend).
 
@@ -69,7 +70,7 @@ If you don't see a remote named 'remote', you can add it manually.
 git remote add heroku [your heroku git remote url here]
 ```
 
-## Create a Procfile (Optional)
+### Create a Procfile (Optional)
 
 When using the create-react-app buildpack, you don't need to include a _Procfile_, but you can if you want to customize the app's processes. The implicit _Procfile_ from the buildpack contains the following:
 
@@ -77,13 +78,13 @@ When using the create-react-app buildpack, you don't need to include a _Procfile
 
 You can read more about Procfiles [in the documentation](https://devcenter.heroku.com/articles/procfile).
 
-## Configure and Deploy the Smart Contract
+### Configure and Deploy the Smart Contract
 
 Just like when configuring the web application to deploy locally, you need to deploy your smart contract. However, since the web application is now on a remote server, you won't be able to use a locally deployed smart contract.
 
 You can follow any of the previous guides, for example the deployment as shown in [Truffle: Adding a frontend with react box](https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box#deploy) using Infura. You can use any public Ethereum blockchain, as long as you update the contract address _in client/src/contracts/Bounties.json_.
 
-## Deploy Your Application
+### Deploy Your Application
 
 You are now ready to deploy your front-end application. Heroku needs to ingest the contents of the _/client_ directory. The current repository also includes source code for your smart contract, which Heroku does not know how to handle. Additionally, Heroku requires that your _package.json_ file be in the root of the directory stored on the server.
 
@@ -116,7 +117,7 @@ Note, if you are working out of the root directory of this series' code (if your
 `git push heroku `git subtree split --prefix kauri-fullstack-dapp-tutorial-series/client [branch (optional)]`:master --force`
 ```
 
-## Run the App
+### Run the App
 
 You should now see a URL to access your application. It should look like "your-app-name.herokuapp.com". You can also run `heroku open` from the command line to open a browser to the appropriate url.
 

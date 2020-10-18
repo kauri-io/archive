@@ -9,6 +9,7 @@ some_url:
 
 # Introduction to Mythril Classic and Symbolic Execution
 
+
  
 [Mythril Classic](https://github.com/ConsenSys/mythril-classic)
  is a cool symbolic execution tool that comes pre-loaded with several detection modules that check for bugs like integer overflows and reentrancy vulnerabilities. I’m one of the core team members of the MythX platform team; maintaining, improving, and buidling Mythril Classic.
@@ -19,7 +20,7 @@ One of the main design goals in Mythril Classic is to make the interaction with 
  showing how you can use Mythril Classic to up your security game.
 This specific post aims to reveal some of the magic happening behind the scenes, later articles will go more in-depth on the detection module system of Mythril Classic, ultimately providing enough information to start rolling your own custom analysis modules.
 
-## Symbolic execution
+### Symbolic execution
 
 To explain how Mythril works we will need to start with symbolic execution, the core technique used in Mythril Classic. If you are already comfortable with the general idea of symbolic execution, then this post will recap already familiar concepts.
 I think the easiest way to explain symbolic execution is by applying it and graphically showing what happens during execution. To help with that, we’ll be using the following solidity function as a target of our analysis.
@@ -36,7 +37,7 @@ function execute(uint256 input) public (uint256){
 
 Our goal will be to see if we can use symbolic analysis to show that it is possible to get the result of the function to be 10.
 
-### Concrete Example
+#### Concrete Example
 
 Before we start with actual symbolic execution let’s first look at concrete execution. We can execute the function 
 `execute(uint256)`
@@ -73,7 +74,7 @@ We can keep trying different inputs until we find an input that makes the functi
 [an awesome writeup](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
  of how Harvey, a state-of-the-art fuzzer, works and is used in the MythX-platform. In this case, however, we are looking at how symbolic execution can be used to solve the problem.
 
-### Symbolic Example
+#### Symbolic Example
 Finally, we’re at the part where we’ll be executing the program symbolically. This means that instead of executing the program with the input 4 we’ll execute the program with a symbol, let's call that symbol 
 `x`
  . The symbol 
@@ -155,7 +156,7 @@ As a conclusion to the analysis of the function
 
  * To get the output of the program to be 10, you could use the input 11
 
-## What next?
+### What next?
 In this post, we saw how we can apply symbolic execution to a small example function and saw how to write a trivial analysis module.
 While this is already cool, in further posts we’ll look at more interesting properties and bugs. For example, we can search for states where we can force the value of a send call to be 10 ether. Something you might not want your contract to allow.
 Thanks to 

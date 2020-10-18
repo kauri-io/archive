@@ -9,6 +9,7 @@ some_url:
 
 # Why do people write?
 
+
 > Why do people write content online?
 
 I feel the main reasons someone might start committing words to a topic are one or more of the following:
@@ -32,7 +33,7 @@ Every writer's motivation is different, but probably a mixture of those above. H
 
 _Let's set aside discussions on why someone would set up their own self-hosted site for another time. There are valid reasons, but kauri is not a self-hosted platform, and in this post, I am more interested in digging into why people choose to write on those. Kauri has a "protocol" feature on our roadmap that may allow for some degree of self-hosting, and when that's ready, maybe it will be time for part two of this post._
 
-## How do people choose where to write?
+### How do people choose where to write?
 
 We know why someone might spend their spare time writing, but now they're motivated, what makes them choose the platform they do?
 
@@ -46,15 +47,15 @@ Medium also annoyed many people with its poorly executed, kind-of-paywall. A wri
 
 Hackernoon moved from Medium, and I think it continues to do well, but their submission process has become more complex than it used to be. And we now also have sites like dev.to that is doing well, but I wonder and worry a little about its business model, and if it will hit similar issues to Medium in the future. We shall see.
 
-## Why write on kauri?
+### Why write on kauri?
 
 Which after a long preamble brings us to kauri, and why we feel it's time you were posting content with us too, and yes, any technical content, not just Blockchain related. Let's look at the main motivations for why people want to post again, and how we help.
 
-### To make money
+#### To make money
 
 We're winding down paying directly for content but are working on community-funded tipping and direct bounties for content people love or want to be written.
 
-### To reach an audience
+#### To reach an audience
 
 In recent months, Kauri has consistently experienced the best traffic ever, it's small in the grand scheme of things, but for niche technical content, we're proud. Here's some highlights.
 
@@ -64,7 +65,7 @@ In recent months, Kauri has consistently experienced the best traffic ever, it's
 
 (It's also worth noting that users in our ecosystem often use blockers, this data is likely **under represented**)
 
-### To express, explain, evoke, and describe
+#### To express, explain, evoke, and describe
 
 We have added features to help make a writers life better, and have more to come. These include:
 
@@ -77,7 +78,7 @@ We have added features to help make a writers life better, and have more to come
 -   Language and structure linters for writing improvement recommendations (_coming soon_)
 -   The Kauri protocol for sharing your content elsewhere (_coming soon_)
 
-## Go forth and write!
+### Go forth and write!
 
 Hopefully we have you convinced to try Kauri. You can start quickly by [adding an external link](https://kauri.io/create-link) to existing content, helping bring useful resources into one place. Or you can [curate a collection](https://kauri.io/create-collection), grouping together existing content into themes.
 

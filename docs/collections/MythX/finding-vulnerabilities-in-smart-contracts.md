@@ -9,6 +9,7 @@ some_url:
 
 # Finding Vulnerabilities in Smart Contracts
 
+
 Smart contracts are increasingly complex programs that often hold and manage large amounts of assets. Getting their business logic right is challenging and developers should use tools to analyze their smart contracts before deploying them.
 Starting with the mother of all smart contract hacks — the infamous DAO attack — we have seen a number of high-profile hacks over the last years that resulted in tens of millions of dollars in damages. The majority of these hacks were pulled off by locating holes in smart contracts that left them vulnerable to exploitation.
 This mini-series will cover various techniques for efficiently finding vulnerabilities in smart contracts. It also introduces 
@@ -21,7 +22,7 @@ _Harvey_
 [MythX analysis platform](https://mythx.io)
 .
 
-## What’s a Fuzzer?
+### What’s a Fuzzer?
 Conceptually, fuzzers are easy to understand: they take a set of program inputs (also known as seed inputs) and generate new ones automatically. However, not all fuzzers are created equal and, thus, have different strengths and weaknesses (just one reason why the MythX platform relies on several different security analysis techniques). Typically, we distinguish fuzzers based on how much information they collect about a program.
 On one end of the spectrum, we find 
 _black-box fuzzers_
@@ -33,7 +34,7 @@ Over the last few years, a third type of fuzzer has emerged: so-called
 _grey-box fuzzers_
  . They use a light-weight program instrumentation to record the execution path for each tested input and compute its path identifier. This short identifier allows the fuzzer to determine inputs that cover new paths and, for instance, avoid fuzzing the same path over and over. Many state-of-the-art tools use sophisticated evolutionary algorithms to select which inputs to fuzz. Unlike black-box fuzzers they are able to achieve high code coverage even for complex code without using more expensive techniques, such as automated solvers, to reason about the program.
 
-## Introducing Harvey
+### Introducing Harvey
 Harvey is a new fuzzer for Ethereum smart contracts being developed by the ConsenSys Diligence team in collaboration with Maria Christakis from MPI-SWS.
 Harvey started out as a grey-box fuzzer, but over time we added new techniques to turn it into a lighter shade of grey in order to more efficiently explore complex programs. We will cover some of these techniques in subsequent posts.
 At their core, all grey-box fuzzers rely on the following basic algorithm to build up a test suite 
@@ -73,7 +74,7 @@ The fuzzer can be interrupted at any point (e.g., after exceeding a user-provide
  from the existing one. After running the new input, the fuzzer will know its PID and can determine if it found a new path. If so, the input is added to the test suite.
 This basic algorithm can be improved easily by developing new techniques for selecting inputs to fuzz and for assigning energy to them. Harvey implements several such improvements.
 
-## Harvey in Practice
+### Harvey in Practice
 To illustrate how this works in practice let’s look at the following simple smart contract written in the Solidity programming language:
 
 

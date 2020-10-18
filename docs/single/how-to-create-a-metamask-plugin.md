@@ -9,14 +9,15 @@ some_url:
 
 # How to create a Metamask Plugin
 
-# How to create a Metamask Plugin
+
+## How to create a Metamask Plugin
 
 
-## What is It?
+### What is It?
 
 A Metamask plugin is a script that allows developers to customize the browser extension and introduce extra features with the help of powerful APIs. By default, the plugin system has zero privilege though, there are several methods in the snaps which enable a permission system a developer can offer to users according to the needs of a Dapp.
 
-## Why Snaps?
+### Why Snaps?
 
 Everyday new protocols are introduced in the ecosystem, and their associated Dapp may require interacting with user accounts, or running a persistent script on the user’s behalf, either to monitor state, pre-process transactions, or serve up a new peer to peer file transport to different sites with a shared cache.
 
@@ -24,39 +25,39 @@ Dapp to Dapp, these requirements vary but with the current implementation of the
 
 After realizing that adding functionality is a powerful pattern, arguably the hallmark of open computing, Metamask introduced Snaps: The Metamask Plugin System.
 
-## How it works
+### How it works
 
 A plugin script is able to add different functionalities by making API calls. Metamask introduced the [`wallet` API](https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#the-snaps-wallet-api), which is an extension of [`web3.currentProvider` API](https://web3js.readthedocs.io/en/v1.2.1/web3.html#currentprovider) and allows developers to build better permission systems. 
 
 For example, a file-sharing plugin doesn’t need to know what page you’re on, just what hash you want to load or set. 
 
-## Different Plugin Ideas
+### Different Plugin Ideas
 
 Every plugin has the ability to provide its own API to the sites that a user visits, as well as to other plugins, allowing plugins to build upon each other, in a sort of decentralized dependency graph. For example, a state channel plugin might rely on a whisper plugin. 
 
-### Smart Contract Security
+#### Smart Contract Security
 
 Smart Contract Security is a huge issue, both because you can never be secure enough, and no matter how many layers of checks you add, you always have to ask who watches the watchmen? Plugins could add warnings or endorsements of accounts wherever MetaMask displays them.
 
 [More information](https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#recipient-address-auditing)
 
-### ENS to resolve names
+#### ENS to resolve names
 
 Decentralized name systems are an exciting opportunity for loading content outside of the traditional certificate authority system, and we don’t want to dictate what name systems a user can subscribe to!
 
 [More information](https://docs.ens.domains/dapp-developer-guide/resolving-names)
 
-### Privacy protocols
+#### Privacy protocols
 
 Privacy-centric protocols require unique forms of cryptography, so rather than try to implement every kind of signing algorithm in existence and audit and merge them. 
 
 Developers can use the [wallet.getAppKey() API](https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#app-keys) to get a unique private key for their domain, generated from the user’s own seed phrase uniquely for the plugin’s origin, which is now treated as the authority for that key type. Developers can then use a JavaScript confirmation to get user consent for that type of signature.
 
-### Layer 2 Scaling
+#### Layer 2 Scaling
 
 Metamask introduced a suite of plugins APIs that open Dapp development to decentralized agreements off the main Ethereum chain. For instance, switching from mainchain to sidechain requires user to perform manual switching. Snap's permission with the [wallet.getAppKey() API](https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#app-keys) or the [wallet_manageAssets](https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#custom-asset-management) can help to automate this process.  
 
-### APIs currently provided
+#### APIs currently provided
 
 -   `.registerRpcMessageHandler(rpcMessageHandler)` - Used to extend the MetaMask API exposed to Dapps. Developers can create their own APIs making this extendible and powerful.
 
@@ -85,15 +86,15 @@ Metamask introduced a suite of plugins APIs that open Dapp development to decent
 
 _A list of all the methods is available in the [documentation](https://github.com/MetaMask/metamask-snaps-beta/blob/develop/app/scripts/controllers/permissions/restrictedMethods.js)._
 
-## Installation
+### Installation
 
 In this tutorial, we install Metamask Snaps Beta and do a basic setup.
 
-### Prerequisites
+#### Prerequisites
 
 A Chromium-based, and preferably a Linux or macOS operating system. Disable any existing metamask extension. 
 
-## Installing the MetaMask Snaps Beta
+### Installing the MetaMask Snaps Beta
 
 Follow the below commands to clone and build special fork of Metamask:
 
@@ -128,7 +129,7 @@ yarn start
 
 You now have the forked the Metamask running on your machine.
 
-### Running Snap Dapps
+#### Running Snap Dapps
 
 For building and running Snaps. Metamask provides the utility [snaps-cli](https://github.com/MetaMask/snaps-cli). 
 
@@ -142,7 +143,7 @@ npm i -g snaps-cli
 
 To check the tools provided by snap-cli, run `mm-snap --help`.
 
-## Initializing
+### Initializing
 
 Metamask provided some examples in this [folder](https://github.com/MetaMask/snaps-cli/tree/master/examples).
 
@@ -166,7 +167,7 @@ This should give you a message `Server listening on http://localhost:8081`. You 
 -   Approve the Snap's permissions request (which in this case is permission to show alerts to you, to send its message)
 -   Click the "Send Hello" button to receive a greeting from the Snap.
 
-### Project structure
+#### Project structure
 
 -   `dist` folder - minified/concatenated version of code used on production sites
 -   `bundle.js` - bundled js file of snap
@@ -176,7 +177,7 @@ This should give you a message `Server listening on http://localhost:8081`. You 
 -   `index.html` - Interacts with the Snap using two basic API calls. 
 -   `index.js` - Add API methods to connect to websites from within a Snap. Also contains the Snap Code.
 
-#### Snap Code `index.js`
+##### Snap Code `index.js`
 
 ```javascript
 wallet.registerRpcMessageHandler(async (originString, requestObject) => {
@@ -198,7 +199,7 @@ The code registers an RPC Handler i.e., creates a developer-defined API by the n
 
 `alert` is an inbuilt method that allows us to create an alert on the webpage. An alert is created when the hello method is called using the metamask API.
 
-#### Dapp Code `index.html`
+##### Dapp Code `index.html`
 
 ```javascript
 async function connect () {
@@ -232,7 +233,7 @@ When the `wallet_enable` method is sent, Metamask asks the user for the permissi
 
 `wallet_invokePlugin` is another method used to call an RPC method declared above, `hello` in our example. The `hello` case in our switch statement is called leading to an alert.
 
-## Debugging Your Snap :
+### Debugging Your Snap :
 
 1.  Right-click the MetaMask icon in the top right of your browser.
 

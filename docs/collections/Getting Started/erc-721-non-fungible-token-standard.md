@@ -9,11 +9,12 @@ some_url:
 
 # ERC-721 Non-Fungible Token Standard
 
-## Simple Summary
+
+### Simple Summary
 
 A standard interface for non-fungible tokens, also known as deeds.
 
-## Abstract
+### Abstract
 
 The following standard allows for the implementation of a standard API for NFTs within smart contracts. This standard provides basic functionality to track and transfer NFTs.
 
@@ -25,7 +26,7 @@ We considered use cases of NFTs being owned and transacted by individuals as wel
 
 In general, all houses are distinct and no two kittens are alike. NFTs are *distinguishable* and you must track the ownership of each one separately.
 
-## Motivation
+### Motivation
 
 A standard interface allows wallet/broker/auction applications to work with any NFT on Ethereum. We provide for simple ERC-721 smart contracts as well as contracts that track an *arbitrarily large* number of NFTs. Additional applications are discussed below.
 
@@ -33,7 +34,7 @@ This standard is inspired by the ERC-20 token standard and builds on two years o
 
 Differences between this standard and EIP-20 are examined below.
 
-## Specification
+### Specification
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
@@ -246,7 +247,7 @@ interface ERC721Enumerable /* is ERC721 */ {
 }
 ```
 
-### Caveats
+#### Caveats
 
 The 0.4.20 Solidity interface grammar is not expressive enough to document the ERC-721 standard. A contract which complies with ERC-721 MUST also abide by the following:
 
@@ -257,7 +258,7 @@ The 0.4.20 Solidity interface grammar is not expressive enough to document the E
 
 *If a newer version of Solidity allows the caveats to be expressed in code, then this EIP MAY be updated and the caveats removed, such will be equivalent to the original specification.*
 
-## Rationale
+### Rationale
 
 There are many proposed uses of Ethereum smart contracts that depend on tracking distinguishable assets. Examples of existing or planned NFTs are LAND in Decentraland, the eponymous punks in CryptoPunks, and in-game items using systems like DMarket or EnjinCoin. Future uses include tracking real-world assets, like real-estate (as envisioned by companies like Ubitquity or Propy. It is critical in each of these cases that these items are not "lumped together" as numbers in a ledger, but instead each asset must have its ownership individually and atomically tracked. Regardless of the nature of these assets, the ecosystem will be stronger if we have a standardized interface that allows for cross-functional asset management and sales platforms.
 
@@ -347,7 +348,7 @@ A second event was held at ETHDenver 2018 to discuss distinguishable asset stand
 
 We have been very inclusive in this process and invite anyone with questions or contributions into our discussion. However, this standard is written only to support the identified use cases which are listed herein.
 
-## Backwards Compatibility
+### Backwards Compatibility
 
 We have adopted `balanceOf`, `totalSupply`, `name` and `symbol` semantics from the ERC-20 specification. An implementation may also include a function `decimals` that returns `uint8(0)` if its goal is to be more compatible with ERC-20 while supporting this standard. However, we find it contrived to require all ERC-721 implementations to support the `decimals` function.
 
@@ -361,11 +362,11 @@ Note: "Limited edition, collectible tokens" like Curio Cards and Rare Pepe are *
 
 The `onERC721Received` function specifically works around old deployed contracts which may inadvertently return 1 (`true`) in certain circumstances even if they don't implement a function (see Solidity DelegateCallReturnValue bug). By returning and checking for a magic value, we are able to distinguish actual affirmative responses versus these vacuous `true`s.
 
-## Test Cases
+### Test Cases
 
 0xcert ERC-721 Token includes test cases written using Truffle.
 
-## Implementations
+### Implementations
 
 0xcert ERC721 -- a reference implementation
 
@@ -386,7 +387,7 @@ XXXXERC721, by William Entriken -- a scalable example implementation
 
 - Deployed on testnet with 1 billion assets and supporting all lookups with the metadata extension. This demonstrates that scaling is NOT a problem.
 
-## References
+### References
 
 **Standards**
 
@@ -441,6 +442,6 @@ XXXXERC721, by William Entriken -- a scalable example implementation
 1. Auctionhouse Asset Interface. https://github.com/dob/auctionhouse/blob/master/contracts/Asset.sol
 1. OpenZeppelin SafeERC20.sol Implementation. https://github.com/OpenZeppelin/zeppelin-solidity/blob/master/contracts/token/ERC20/SafeERC20.sol
 
-## Copyright
+### Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).

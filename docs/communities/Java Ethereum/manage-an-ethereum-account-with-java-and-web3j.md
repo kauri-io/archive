@@ -9,6 +9,7 @@ some_url:
 
 # Manage an Ethereum account with Java and Web3j
 
+
 **Other articles in this series:**
 
 - [Connecting to an Ethereum client with Java, Eclipse and Web3j](https://kauri.io/article/b9eb647c47a546bc95693acc0be72546)
@@ -35,11 +36,11 @@ There are two types of accounts:
 In this tutorial, we focus on externally owned accounts and how to retrieve information such as a balance, create or open an account and send transactions to another account using the Java library [Web3j](https://web3j.io/).
 
 <br /><br />
-## 1. Retrieve public information about an account
+### 1. Retrieve public information about an account
 
 The Ethereum blockchain is a public shared ledger which we can query to retrieve information about the state at a different time, or block number.
 
-### Get account's balance
+#### Get account's balance
 
 Every account has a balance of the Ethereum native cryptocurrency called **Ether**. Using our Web3j instance (see [article-1](#)), it is possible to retrieve the balance of an account at a given block using the function `web3.ethGetBalance(<accountAddress>, <blockNo>).send()`
 
@@ -71,7 +72,7 @@ BigDecimal balanceInEther = Convert.fromWei(balance.getBalance().toString(), Uni
 
 The balance at block #3,000,000 of the account `0xF0f15Cedc719B5A55470877B0710d5c7816916b1` is _8.12 ethers_.
 
-### Get account's nonce
+#### Get account's nonce
 
 Also included in the state of an account is the _nonce_, a sequence number symbolizing the number of transactions performed by an account.
 
@@ -87,7 +88,7 @@ BigInteger nonce =  ethGetTransactionCount.getTransactionCount();
 
 
 <br /><br />
-## 2. Open or create an account
+### 2. Open or create an account
 
 In order to control an externally owned account and the fund allocated on it, the 32 bytes **Private Key** associated to an account is needed. A private key is a confidential piece of information, so it usually doesn't come in clear text like `3a1076bf45ab87712ad64ccb3b10217737f7faacbf2872e88fdd9a537d8fe266` but is secured and encrypted in a wallet. There are many forms of wallets (more or less secured and practical):
 
@@ -99,9 +100,9 @@ In order to control an externally owned account and the fund allocated on it, th
 
 In this section, we learn how to load an existing wallet and create a new one with Web3j to instanciate a `Credentials` object which we can use to sign and send transactions securely on the Ethereum blockchain.
 
-### Load a wallet
+#### Load a wallet
 
-#### From a JSON encryted keystore
+##### From a JSON encryted keystore
 
 The first form of wallet is the JSON encryted keystore, which is a password-encrypted version of the private key. This is the most standard way used by clients such as [Pantheon](https://pegasys.tech/) or [Geth](https://geth.ethereum.org/), but also by online tools like [MyEtherWallet](https://www.myetherwallet.com/) to secure a private key from potential attackers.
 
@@ -124,7 +125,7 @@ String privateKey = credentials.getEcKeyPair().getPrivateKey().toString(16);
 
 ![](https://imgur.com/p92p616.png)
 
-#### From a Mnemonic phrase
+##### From a Mnemonic phrase
 
 Another common form of private key is the **Mnemonic sentence** (or seed phrase) which converts the 32 bytes key to a group of 12 easy to remember words. For example: `candy maple cake sugar pudding cream honey rich smooth crumble sweet treat`. This form was established by Bitcoin under the proposal [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki).
 
@@ -162,7 +163,7 @@ Credentials credentials = Credentials.create(derivedKeyPair);
 
 ![](https://imgur.com/eEgEdOY.png)
 
-#### From a Private key
+##### From a Private key
 
 As mentioned before, a private key is a 32 bytes long number. To parse a private key with Web3j, we need to pass the private key to the class `Credentials`.
 
@@ -174,7 +175,7 @@ Credentials credentials = Credentials.create(pk);
 
 ![](https://imgur.com/svlvLnF.png)
 
-### Create a wallet
+#### Create a wallet
 
 Finally, if we don't already have an account and want to create a new one from scratch. Web3j's `WalletUtils` offers a method to create a JSON encrypted keystore.
 
@@ -195,7 +196,7 @@ System.out.println("Account address: " + credentials.getAddress());
 ![](https://imgur.com/kbcemsH.png)
 
 <br /><br />
-## 3. Send a transaction
+### 3. Send a transaction
 
 Now we have learned how to retrieve public information (state), like the balance from an account and how to open an account using different methods, we can send a transaction to another account.
 
@@ -222,9 +223,9 @@ Once a transaction is broadcast to the network, a transaction hash is returned t
 
 ![](https://web3j.readthedocs.io/en/latest/_images/web3j_transaction.png)
 
-### Send funds from one account to another
+#### Send funds from one account to another
 
-#### 1. Load an account and get the nonce
+##### 1. Load an account and get the nonce
 
 As explained in the previous sections, we need to load an account from one the methods and retrieve the nonce value of this account:
 
@@ -240,7 +241,7 @@ EthGetTransactionCount ethGetTransactionCount = web3.ethGetTransactionCount(cred
 BigInteger nonce =  ethGetTransactionCount.getTransactionCount();
 ```
 
-#### 2. Configure recipient account and amount to send
+##### 2. Configure recipient account and amount to send
 
 In the next step, we configure the amount (in Wei) to send to a recipient account.
 
@@ -252,7 +253,7 @@ String recipientAddress = "0xDD6325C45aE6fAbD028D19fa1539663Df14813a8";
 BigInteger value = Convert.toWei("1", Unit.ETHER).toBigInteger();
 ```
 
-#### 3. Configure Gas parameters
+##### 3. Configure Gas parameters
 
 Gas represents the fees of the network which taken by the miner who mines the block which includes your transaction.
 
@@ -270,7 +271,7 @@ BigInteger gasLimit = BigInteger.valueOf(21000);
 BigInteger gasPrice = Convert.toWei("1", Unit.GWEI).toBigInteger();
 ```
 
-#### 4. Prepare the raw transaction
+##### 4. Prepare the raw transaction
 
 A raw transaction for a transfer of funds contains all the transaction data fields except:
 
@@ -287,7 +288,7 @@ RawTransaction rawTransaction  = RawTransaction.createEtherTransaction(
 	value);
 ```
 
-#### 5. Signature
+##### 5. Signature
 
 The signing part requires the `rawTransaction` as well as the `credentials` (keypair) used to cryptographically sign the transaction.
 
@@ -299,7 +300,7 @@ byte[] signedMessage = TransactionEncoder.signMessage(rawTransaction, credential
 String hexValue = Numeric.toHexString(signedMessage);
 ```
 
-#### 6. Send to the node via JSON-RPC
+##### 6. Send to the node via JSON-RPC
 
 The final step consists of sending the transaction signed to the node so it can be verified and broadcast to the network. In case of success, the method returns a response composed of the transaction hash.
 
@@ -311,7 +312,7 @@ EthSendTransaction ethSendTransaction = web3.ethSendRawTransaction(hexValue).sen
 String transactionHash = ethSendTransaction.getTransactionHash();
 ```
 
-#### 7. Wait for the transaction to be mined.
+##### 7. Wait for the transaction to be mined.
 
 As explained before, when the signed transaction is propagated to the network, depending on many factors (gas price, network congestion) it can take some time to see the transaction mined and added to the last block.
 
@@ -328,7 +329,7 @@ do {
 } while(!transactionReceipt.isPresent());
 ```
 
-#### Result
+##### Result
 
 Here is the full version of the code including everything explained in this article:
 
@@ -429,7 +430,7 @@ Now we understand the core principles behind sending transactions with Web3j, I 
 TransactionReceipt receipt = Transfer.sendFunds(web3, credentials, recipientAddress, BigDecimal.valueOf(1), Unit.ETHER).send();
 ```
 
-## Summary
+### Summary
 
 In this article, we learnt that the Ethereum Global State is composed of a mapping of all accounts states. We can query each account state can be queried to get information like the balance and the nonce.
 
@@ -439,7 +440,7 @@ To send a transaction between two accounts, Web3j can generate a transaction oje
 
 
 <br /><br />
-## Resources
+### Resources
 
 -   [Ethereum Unit converter (WEI, GWEI, ETHER, ....)](https://etherconverter.online/)
 -   [Web3j Transaction doc](https://web3j.readthedocs.io/en/latest/transactions.html#transaction-signing-via-an-ethereum-client)

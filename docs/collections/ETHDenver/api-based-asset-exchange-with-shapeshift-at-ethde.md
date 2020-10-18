@@ -9,9 +9,10 @@ some_url:
 
 # API-based asset exchange with ShapeShift at ETHDenver
 
+
 The ShapeShift platform gives you an API to quickly swap between assets in a seamless, safe, and secure environment.
 
-## Features
+### Features
 
 With the ShapeShift API you can:
 
@@ -22,14 +23,14 @@ With the ShapeShift API you can:
 - List transactions and their status
 - Transaction and order information
 
-## Prizes Offered
+### Prizes Offered
 
 No information at time of writing, keep an eye on [the ShapeShift blog](https://info.shapeshift.io/blog/) for updates.
 
-## Getting Started
+### Getting Started
 
 To use the ShapeShift API you need to create ann account first. You can find full instructions in [the API docs](https://docs.shapeshift.io).
 
-## Need Help
+### Need Help
 
 If you run into problems ShapeShift have an [FAQ section](https://info.shapeshift.io/faq/) and a [help center](https://shapeshift.zendesk.com/hc/en-us).

@@ -10,6 +10,7 @@ some_url:
 # DAppBoard BI-Weekly Recap 1
 
 
+
 ![](https://api.beta.kauri.io:443/ipfs/QmS1qe7r4Xm7LBWEUEMhjra1eP5VpvcwrGuzxqjeNeQk3h)
 
 The past 2 weeks were a fresh start for our organization. We have been working hard to set up the foundation of 
@@ -20,7 +21,7 @@ This recap is what we did from 12 to 24 November 2018.
 ![](https://api.beta.kauri.io:443/ipfs/QmU9i2oJi3CGouSFzGtMTsVaahCYiK7R3UTRwk9A11JG49)
 
 
-## 🛠 DAppBoard ETL
+### 🛠 DAppBoard ETL
 In 2 weeks we architectured, developped and released our 
 [Ethereum ETL](https://github.com/DAppBoard/ethereum-etl/)
  that is written in Javascript. The ETL’s goal (Extract, Load & Transform)and writes to SQL compatible database.
@@ -36,7 +37,7 @@ The elements that we currently focus on are:
 We deployed our pipeline and database live for testing and could easily extract more than 60M transactions from 700K blocks, 22K tokens.
 All the software we run in the background is and will stay open source. As we can’t rely on decentralized technologies to do what we want yet. We open our work so community can thrust us and grow with us.
 
-## 📊Firsts analysis
+### 📊Firsts analysis
 We set up 
 [the awesome Metabase to access and play with our data](https://www.metabase.com/)
  . Metabase is an open source piece of software that let anyone build queries and visualize and organize the results. The goal was to see if our data were correct and how easy the way they were stored let us play with it.

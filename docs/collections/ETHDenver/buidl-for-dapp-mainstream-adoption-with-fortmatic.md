@@ -9,6 +9,7 @@ some_url:
 
 #  BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019
 
+
 Hello, ETHDenver hackers! 👋 from all at
 [Fortmatic](https://fortmatic.com/)
 who are thrilled to meet you in a few days! This is a significant event and milestone for Fortmatic, as ETHDenver will be their first public debut.
@@ -17,11 +18,11 @@ who are thrilled to meet you in a few days! This is a significant event and mile
 
 After many months of hard-work, the team has built an amazing product that allows end-users to directly interact with dApps, without having to download any browser extensions or 3rd party mobile apps. All of this will be available for developers by adding a couple lines of code, without having to change any existing Web3 implementation!
 
-## How does it work?
+### How does it work?
 
 ![](https://api.kauri.io:443/ipfs/QmRQdYDB11umANbpvsXcBANxRS37SZXAMnNe4tcCcjjLbB)
 
-### For dApp users:
+#### For dApp users:
 
 - Users interact with the dApp by, for example, clicking on a “Buy” button
 - Fortmatic opens a modal for users to type in their phone number
@@ -29,19 +30,19 @@ After many months of hard-work, the team has built an amazing product that allow
 - An Ethereum account is created for new users, and existing users are logged in — users can now deposit Ether or any ERC20 tokens
 - After reviewing the information, users can now confirm the transaction!
 
-### For dApp developers:
+#### For dApp developers:
 
 - Sign up for the developer program on the [website](https://fortmatic.com)
 - Shortly after, Fortmatic will email you an API key
 - Follow the [getting started docs](https://developers.fortmatic.com/docs) to build a Hello World dApp! (More documentation is available for Web3 methods, such as _SignTypedData._ )
 
-## Our goals
+### Our goals
 
 Even though Fortmatic was recently founded in 2018, everyone at the company was already captivated by the vibrant, virtuous, and innovative Ethereum ecosystem. They assembled a team with expertise in design, security, distributed system, and developer experience who set out to tackle difficult challenges around getting Ethereum mainstream to users and developers.
 
 Fortmatic is honored to be accepted as one of the sponsors for ETHDenver this year and to contribute to fostering the incredible Ethereum developer ecosystem. What Fortmatic has built so far is a small yet sturdy step to mainstream Web 3.0 adoption, and there is so much more to do. We are humbled by the extraordinary talent and knowledge from the community and would love to work with all of you together on defining the exciting future that we’re determined to bring to the world.
 
-## Get in touch
+### Get in touch
 
 If you haven’t already,
 [APPLY](https://www.ethdenver.com/)

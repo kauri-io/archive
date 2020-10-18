@@ -10,7 +10,8 @@ some_url:
 # Forward ... to the Hall of the Ancient Martian Wormhole and/or Jim's Gallery
 
 
-### a magnanimous decision ...
+
+#### a magnanimous decision ...
 
 I stand here on the brink of what appears to be total destruction; at least of everything I had hoped and dreamed for ... for the last decade in my life which appears literally to span thousands of years if not more in the eyes of some other beholder.  I spent several months in Kentucky telling a story of a post apocalyptic and post-cataclysmic delusion; some world where I was walking around in a "fake plane" something like a holodeck built and constructed around me as I "took a walk around the world" to ... it did anything but ease my troubled mind.
 

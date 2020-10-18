@@ -9,11 +9,12 @@ some_url:
 
 # Creating a DApp in Go with Geth
 
+
 Go Ethereum (or Geth) is the official Go implementation of the Ethereum protocol. The [Go Ethereum GitHub repository](https://github.com/ethereum/go-ethereum) holds source code for the Geth Ethereum client and other tools and libraries for developing DApps (decentralized applications).
 
 This guide walks through writing a riddle application in Go, using the Go Ethereum SDK and the Rinkeby testnet. You can find the sample code for this guide [here](https://github.com/kauri-io/Content/tree/master/go-ethereum-guides/write-basic-quiz-dapp-in-go/quiz-dapp).
 
-## Why write DApps using Go?
+### Why write DApps using Go?
 
 Writing a DApp typically involves two steps:
 
@@ -30,7 +31,7 @@ Go allows us to write that application code with the same safety features that S
 - Tools to transpile Solidity contract code to Go, allowing direct interaction with the contract ABI (Application Binary Interface) in a Go application.
 - Allows us to write tests for contract code and application using Go's testing libraries and Go Ethereum's blockchain simulation library. Meaning unit tests that we can run without connecting to any Ethereum network, public or private.
 
-## Application structure
+### Application structure
 
 In this guide, we'll be writing a DApp that:
 
@@ -49,13 +50,13 @@ To do that, we need to:
     3.  Check if the answer sent is correct.
     4.  If the answer sent is correct, record the user's account address.
 
-## Set up a development environment
+### Set up a development environment
 
 To get started developing DApps with Go, first [install the Ethereum toolchain](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum).
 
 Next create a folder to contain the project, for this guide, we assume that the project location is `/go/geth-dapp-demo`.
 
-## Manage Go dependencies
+### Manage Go dependencies
 
 We use [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies for this project. To get starting using Go modules for this project:
 
@@ -78,7 +79,7 @@ require (
 
 When building an application, Go automatically fills the `go.mod` file with the other dependencies needed. We can let Go take care of those for now. With the `go.mod` file in place, Go makes sure that we use `v1.8.20` of the Go Ethereum SDK whenever we run the `go run` or `go build` command.
 
-### Set up Rinkeby testnet endpoint on Infura.io
+#### Set up Rinkeby testnet endpoint on Infura.io
 
 To keep this guide straightforward, we use the Ethereum API gateways provided by [Infura.io](https://infura.io) instead of running our own Ethereum node. To run a Geth node for development instead, read this [Ethereum 101 guide](https://beta.kauri.io/article/67a81d8746ee4b49ba19447e8e2a983e/v2).
 
@@ -108,7 +109,7 @@ Save the file. We'll use this into our Go application later.
 
 **NOTE:** Using a third-party provider to connect to the Ethereum network means that we're trusting it with all transactions and any Ether sent through it. If we don't use a third-party provider, we have to run and host our own Ethereum API gateway, or rely on users to connect to their own Ethereum nodes.
 
-### Set up an Ethereum account
+#### Set up an Ethereum account
 
 We need an Ethereum account to deploy our smart contract. To create a new Ethereum account, run the command below and follow the on-screen instructions:
 
@@ -128,7 +129,7 @@ KEYSTOREPASS="<keystore_passphrase>"
 
 To deploy a contract and make contract calls; we need our account to contain Rinkeby testnet Ether. Get testnet Ether for the account by going to <https://faucet.rinkeby.io> and following the instructions there.
 
-## Writing and compiling the smart contract
+### Writing and compiling the smart contract
 
 We're all set and ready to go! First, we write the smart contract:
 
@@ -203,9 +204,9 @@ abigen --abi="build/Quiz.abi" --bin="build/Quiz.bin" --pkg=quiz --out="quiz.go"
 
 This command generates a Go file that contains bindings for the smart contract which we can import into our Go code.
 
-## The Go Code
+### The Go Code
 
-### Connect to Rinkeby network and get account balance
+#### Connect to Rinkeby network and get account balance
 
 We'll start writing our Go DApp by initializing a connection to the Rinkeby network, using the Infura.io gateway endpoint that we [set up earlier](#set-up-rinkeby-testnet-endpoint-on-infuraio).
 
@@ -282,7 +283,7 @@ func main(){
 }
 ```
 
-### Create session
+#### Create session
 
 Sessions are wrappers that allow us to make contract calls without having to pass around authorization credentials and call parameters constantly. A session wraps:
 
@@ -408,7 +409,7 @@ func main(){
 
 We didn't specify a value for the `Contract` field in the session that we're returning from `NewSession()`. We'll do that on the returned `session` after we've obtained a contract instance which we when we deploy a new contract on the blockchain or when we load an existing contract.
 
-### Deploy and load the contract
+#### Deploy and load the contract
 
 Now that we've created a new session, we need to assign it a contract instance.
 
@@ -468,7 +469,7 @@ func updateEnvFile(k string, val string) {
 
 Both `NewContract()` and `LoadContract()` create a contract instance, which we then assign to the `Contract` in the session with `session.Contract = instance`. We then return the session.
 
-#### Deploy a new contract
+##### Deploy a new contract
 
 Our `NewContract()` function takes as parameters:
 
@@ -512,7 +513,7 @@ Finally, we need to save the address of the deployed contract. We save it to our
 1.  Adds a key `CONTRACTADDR` to our `myenv` map, and assigns the contract address hex to it.
 2.  Calls `godotenv.Write(myenv, envLoc)` to write the updated `myenv` map to our `.env` file.
 
-#### Load an existing contract
+##### Load an existing contract
 
 The `LoadContract()` function also takes a `session` and `client` instance as parameters. Then, it attempts to load an existing contract by looking for a `CONTRACTADDR` entry in the `.env` file.
 
@@ -520,7 +521,7 @@ If a `CONTRACTADDR` doesn't exist in the `.env` file, we won't know where to loc
 
 Otherwise, call `quiz.NewQuiz()` to create a new contract instance and assign it to `session.Contract`.
 
-#### Deploy if the contract doesn't exist
+##### Deploy if the contract doesn't exist
 
 We only want to call `NewContract()` if we don't already have an existing contract on the blockchain.
 
@@ -543,7 +544,7 @@ func main() {
 
 **NOTE:** Once we do this, the DApp attempts to load a contract from the value of `CONTRACTADDR` in the `.env` file as long as that value is not an empty string (`""`). To force the DApp to deploy a new contract, remove the `CONTRACTADDR` entry in the `.env` file, or set it to an empty string (`""`).
 
-### Interact with the contract
+#### Interact with the contract
 
 Now that we have a contract instance to work with, we can use it to make contract calls.
 
@@ -622,7 +623,7 @@ Here, we write three helper functions to wrap our contract calls:
 
 Now, we can call these functions in `main()` to interact with a deployed smart contract.
 
-### Write a simple CLI
+#### Write a simple CLI
 
 Next, we'll write a bare-bones command-line interface (CLI) to allow our user to:
 
@@ -691,7 +692,7 @@ We implement the CLI using an infinite `for` loop that does the following:
 2.  Enters a `switch` statement that reads from user input on the command line, and executes a given `case` for the appropriate `rune` it receives.
 3.  When the user selects an option, the code for that `case` runs and returns to the top of the `for` loop when `break` is called.
 
-## Running the application
+### Running the application
 
 Congrats! We've finished the quiz DApp!
 
@@ -718,7 +719,7 @@ go build main.go
 ./main
 ```
 
-## Limitations
+### Limitations
 
 Our DApp is a simple example of what we can do with smart contracts and a Go DApp. Because we tried to keep the example straightforward, our DApp has a few limitations:
 

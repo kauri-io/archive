@@ -9,9 +9,10 @@ some_url:
 
 # (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster
 
+
 <br />
 
-### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
+#### This article is part of the series [Build your very own self-hosting platform with Raspberry Pi and Kubernetes](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c)
 
 1. [Introduction](https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a)
 2. [Install Raspbian Operating-System and prepare the system for Kubernetes](https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a)
@@ -25,7 +26,7 @@ some_url:
 
 <br />
 <br />
-## Introduction
+### Introduction
 
 Monitoring is an important part of the maintenance of a Kubernetes cluster to gain visibility on the infrastructure and the running applications and consequently detect anomalies and undesirables behaviours (service downtime, errors, slow responses).
 
@@ -38,7 +39,7 @@ Specifically for Kubernetes, a great Open-Source project called [**cluster-monit
 
 <br />
 <br />
-## Prerequisite
+### Prerequisite
 
 In order to run entirely the tutorial, we will need:
 
@@ -54,7 +55,7 @@ $ export GOPATH=$(go env GOPATH)
 
 <br />
 <br />
-## Configuration
+### Configuration
 
 **1. Clone the repository** 
 
@@ -98,7 +99,7 @@ Enable the persistence to store the metrics (Prometheus) and dashboard settings 
 
 <br />
 <br />
-## Installation
+### Installation
 
 Once we've done the configuration part, we can now proceed to the installation.
 
@@ -163,7 +164,7 @@ prometheus-k8s-0                       3/3     Running   1          7m15s   10.4
 
 <br />
 <br />
-## Dashboard
+### Dashboard
 
 After configuring and deploying our Kubernetes Monitoring stack, you can now access the different components:
 

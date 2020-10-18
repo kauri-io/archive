@@ -9,13 +9,14 @@ some_url:
 
 # Thought piece of making the dark web3 universe light
 
-# Required component pieces to tie a global p2p marketplace together
+
+## Required component pieces to tie a global p2p marketplace together
 
 Here are some scattered thoughts as a summary of a #team-kauri-chat slack conversation thread.
 
 [Twitter thread by @Chris_Cal_ on @naval's latest podcast/transcript associated with this](https://twitter.com/Chris_Cal_/status/1101347984204288001)
 
-## Decentralised login portals and profiles
+### Decentralised login portals and profiles
 
 For a global marketplace to work, people need visible profiles tied with a verifiable action log, public or private sectioned data; it doesn't matter.
 
@@ -30,7 +31,7 @@ The login UX of this needs to be tight or relatable to what average users are al
 
 Multi device access.
 
-## Wallets, service/product marketplaces and interactions with DAOs you're a part of or your personal token one time trade or subscriptions
+### Wallets, service/product marketplaces and interactions with DAOs you're a part of or your personal token one time trade or subscriptions
 
 These 3 need to have unison. Maybe that's cross platform applications made out of Flutter or React native web code, again technical means don't matter in the end.
 
@@ -44,13 +45,13 @@ individuals or DAOs, subscribing or unsubscribing on your bills whose service pr
 A great example of this on a country level is [Coins.ph](https://coins.ph), recently acquired by Go-jek!
 We need a global one!
 
-## Funding DAOs
+### Funding DAOs
 
 Grants and EIP 1337 need to be a part of that application. 
 
 Individuals don't always have to be parts of DAOs to invest in them.
 
-## "Big businesses" need to become smaller
+### "Big businesses" need to become smaller
 
 Jack Ma states this repeatedly at every economic forum.
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Eukcgw1FlG0" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
@@ -61,7 +62,7 @@ On an operational level, voting proposals and being able to cash out your upfron
 
 Expecting the DAO to self heal in your exit.
 
-## DAOs and individuals offering services need to talk to each other
+### DAOs and individuals offering services need to talk to each other
 
 Pretty much p2p supply chain in this marketplace being verifiable. 
 
@@ -75,7 +76,7 @@ The underlying exchange of tokens needs to be liquid and could potentially trans
 
 Consumers, individuals with personal tokens and DAOs under one marketplace.
 
-## Supply chains
+### Supply chains
 
 There needs to be an attestation provider too, e.g. buying phone insurance off a DAO but having that DAO fail you allowing another DAO to see only the minimal amount of KYC'd/attested data required.
 Equal global marketplace but also fair data value exchange, not a Facebook or Google scenario where they track excess data making you the product.
@@ -83,7 +84,7 @@ Equal global marketplace but also fair data value exchange, not a Facebook or Go
 Attestations can be updated kind of like a transaction log and only reveal certain data fields of a consumer.
 An example of this is [0xcert](https://0xcert.org) with NFT ledgers and attestations.
 
-## Web2 interop
+### Web2 interop
 
 The entry point is always fiat whether that be cash or banks.
 OmiseGO, Coins.ph, SendWyre, LimePay etc. are great examples of this. 
@@ -92,7 +93,7 @@ We need more mainstream access to crypto.
 
 We also need to realise these gains to traditional fiat web2 based services.
 
-# Everything can work together
+## Everything can work together
 
 There just needs to be an even playing field for a service and goods marketplace but both web2 and web3 worlds can work in harmony.
 

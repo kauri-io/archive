@@ -9,17 +9,18 @@ some_url:
 
 # Truffle  Smart Contract Compilation & Deployment
 
-# Truffle: Smart Contract Compilation & Deployment
+
+## Truffle: Smart Contract Compilation & Deployment
 
 This article covers the steps required to setup Truffle and use it to compile, deploy and interact with our _Bounties.vy_ smart contract. You should see that this is a much easier process than the manual steps we learned in the previous article.
 __
 [You can find the source code used in this tutorial here](https://github.com/iamonuwa/bounties)
 
-## What is Truffle?
+### What is Truffle?
 
 To recap, [Truffle](https://truffleframework.com) is a Node based development framework which is currently the most used and actively maintained smart contract deployment tool.
 
-### Installing Truffle
+#### Installing Truffle
 
 You need to have NodeJS 11.0+ installed, and then run:
 
@@ -29,7 +30,7 @@ npm install -g truffle
 
 Read more on [installing truffle](https://truffleframework.com/docs/truffle/getting-started/installation).
 
-## Vyper Compiler
+### Vyper Compiler
 
 With Vyper smart contracts, truffle uses the vyper compiler. Earlier in the series we learnt how to install the vyper compiler and compile our smart contract manually. Truffle already comes prepackaged with a version of the vyper compiler:
 
@@ -42,7 +43,7 @@ Node v11.4.0
 
 Above we see truffle version v5.0.0-beta.2 comes packaged with vyper compiler v0.5.0.
 
-## Creating a Truffle Project
+### Creating a Truffle Project
 
 To use most Truffle commands, you need to run them against an existing Truffle project. First create a Truffle project:
 
@@ -78,7 +79,7 @@ Create a **Bounties.vy** file in the **contracts** folder and copy the contents 
 
 ![](https://api.beta.kauri.io:443/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB)
 
-## Compile
+### Compile
 
 We’re now ready to compile our smart contract.
 
@@ -97,13 +98,13 @@ That's it! The 2 smart contracts in the **contracts** folder were both compiled 
 
 The **Bounties.json** file stores the ABI and also the bytecode for deployment and linking, however, this truffle artifact contains additional features that make interacting with and deploying smart contracts using truffle a smoother experience. You can read more about the [truffle-artifactor here](https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-artifactor).
 
-## Deployment
+### Deployment
 
-### Development Blockchain: Ganache-CLI
+#### Development Blockchain: Ganache-CLI
 
 In order to deploy our smart contracts, we need an Ethereum environment to deploy to. For this, we use [Ganache-CLI](https://github.com/trufflesuite/ganache-cli) to run a local development environment.
 
-#### Installing Ganache-CLI
+##### Installing Ganache-CLI
 
 **NOTE**: If you have a windows machine you need to install the windows developer tools first:
 
@@ -167,7 +168,7 @@ Listening on localhost:8545
 
 The above output shows ganache-cli has started and is listening on `localhost:8545`.
 
-### Migrations
+#### Migrations
 
 In order to deploy to our local development environment, we need to configure truffle. If we take a look at the existing file **1_initial_migration.js**, it contains the following:
 
@@ -185,7 +186,7 @@ Migrations contract record the history of previous run migrations/deployments on
 
 You can read more about [truffle migrations here](https://truffleframework.com/docs/truffle/getting-started/running-migrations).
 
-### Configuring Truffle
+#### Configuring Truffle
 
 First, we need to create a file in the **migrations** folder with the name **2_deploy_contracts.js**
 
@@ -223,7 +224,7 @@ This tells truffle that the default development environment to deploy to is loca
 
 That's it, Truffle is now configured to deploy to your local ganache-cli development environment.
 
-### Deploy
+#### Deploy
 
 To deploy run the `truffle migrate` command:
 
@@ -317,7 +318,7 @@ truffle(development)> web3.eth.getTransactionReceipt('0xb2b29164f7f1595c7a6f726c
     '0x0e15df16152ceea4ff6af203eceae1d1bc69bbf545ed7fc1816a9dc208486afa' }
 ```
 
-## Interacting With the Contract
+### Interacting With the Contract
 
 We can use the truffle console to interact with our deployed smart contract.
 
@@ -367,7 +368,7 @@ We can then call the `issueBounty` function on the retrieved instance.
 instance.issueBounty("0x736f6d6520726571756972656d656e7473","1691452800",{ from: web3.eth.accounts[0], value: web3.utils.toWei('1', "ether"), gas: 3000000 }).then(function(tx) { console.log(tx) });
 ```
 
-## Test Network: Rinkeby
+### Test Network: Rinkeby
 
 We can also configure truffle to deploy to one of the public test Ethereum networks rather than a local development environment. Earlier in the series, we introduced the following public Ethereum test networks:
 
@@ -377,7 +378,7 @@ We can also configure truffle to deploy to one of the public test Ethereum netwo
 
 This part of the article covers deployment to the **Rinkeby** environment, however, you can use the instructions to deploy to either **Kovan** or **Ropsten**.
 
-### Infura
+#### Infura
 
 In order to send transactions to a public network, you need access to a network node. [Infura](https://infura.io) is a public hosted Ethereum node cluster, which provides access to its nodes via an API
 
@@ -393,7 +394,7 @@ Once your project is created, select the environment to deploy to, in this case 
 
 Make sure you save this token and keep it private!
 
-### HDWallet Provider
+#### HDWallet Provider
 
 Infura, for security reasons, does not manage your private keys. We need to add the [Truffle HDWallet Provider](https://github.com/trufflesuite/truffle-hdwallet-provider) so that Truffle can sign deployment transactions before sending them to an Infura node.
 
@@ -403,7 +404,7 @@ We can install the HDWallet provider via npm into our project directory:
 npm install truffle-hdwallet-provider@web3-one --save
 ```
 
-### Generate Mnemonic
+#### Generate Mnemonic
 
 To configure the HDWallet Provider we need to provide a mnemonic which generates the account used for deployment.
 
@@ -424,7 +425,7 @@ In the BIP39 Mnemonic code form:
 
 Above the address we are using is: **0x56fB94c8C667D7F612C0eC19616C39F3A50C3435**
 
-### Configure Truffle For Rinkeby
+#### Configure Truffle For Rinkeby
 
 Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the **Rinkeby** environment. To do this we will need to edit the **truffle.js** configuration file.
 
@@ -463,7 +464,7 @@ We also set the network ID of the environment, in this case we set it to 4 which
 
 ![](https://api.beta.kauri.io:443/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct)
 
-### Fund Your Account
+#### Fund Your Account
 
 We’re almost ready to deploy! We need to make sure we have enough funds in our account to complete the transaction. We can fund our **Rinkeby** test account using the [Rinkeby ETH faucet](https://faucet.rinkeby.io/).
 
@@ -484,7 +485,7 @@ To request ETH from the faucet we need to complete the following steps:
 
 ![](https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
 
-### Deploy
+#### Deploy
 
 To deploy run the `truffle migrate` command whilst specifying the network to deploy to. The networks are defined in the **truffle.js** configuration file we configured earlier :
 
@@ -552,7 +553,7 @@ And that's it! We have now finally deployed our _Bounties.vy_ contract to the pu
 
 Later in the series, we’ll cover how to write tests within the Truffle framework, and how we can also add a frontend to our dApp so users can interact with our smart contract on the public network!
 
-## Next Steps
+### Next Steps
 
 <!-- TODO: Update -->
 

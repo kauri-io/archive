@@ -9,6 +9,7 @@ some_url:
 
 # Imagine a free ERC-721 Manager for every item out there. Its coming! Mintable can do this
 
+
 > I’ve got cryptokitties, EtherCraft Items, Gods Unchained Cards, Fighting Robots, Collectible Dogs, Artwork, and digital avatars all on my Ethereum wallet…..but man are they tough to figure out how to transfer, sell, or move.
 
  
@@ -21,13 +22,13 @@ some_url:
 _If you don’t know what ERC-721s are, here is a brief explainer…otherwise if you know about them, feel free to skip it._
  
 
-## What are ERC-721s
+### What are ERC-721s
 
 ![](https://api.beta.kauri.io:443/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
 
 You can get these items, called ERC-721 Non-fungible Tokens, by interacting with different services/games on the blockchain. Every week multiple new games are released where items or objects are made as ERC-721 tokens for you to digitally own via your Ethereum address. Items like collectible cats, pokemon cards, baseball cards, trading card games, resource management games, etc.
 
-## An Example of NFTs
+### An Example of NFTs
 To help wrap your mind about ERC-721s and NFTs (non-fungible tokens), I like to give this example.
 We know tokens are these digital tokens you own, and we can see that you own these tokens by looking at your address, like you can see you own money in the bank. Since its the blockchain, you can see your balance of tokens, 
 _anywhere in the world._
@@ -71,7 +72,7 @@ That’s one example of an NFT. It could be anything. It could be…
 
  * so much more…
 
-## Mintable— How you can create, manage, and explore all the Non-Fungible Tokens on the blockchain
+### Mintable— How you can create, manage, and explore all the Non-Fungible Tokens on the blockchain
  
 [Mintable](https://mintable.app)
  is a dApp I’ve been building for the last 4 months. Its’ a resource for anyone who owns ERC-721s to use freely. You can manage 75%* of all ERC-721s out there. You can browse all the ERC-721s created on the blockchain. And its a free¹ generator that allows for you to create ANY ERC-721 you want, and have complete ownership and access to it, immediately.
@@ -79,10 +80,10 @@ That’s one example of an NFT. It could be anything. It could be…
 _(*This is the alpha, once the full launch happens, we hope to support 98%+ of all ERC-721s, ¹ Free during the alpha)._
  
 
-## What You Can do on Mintable
+### What You Can do on Mintable
 You can:
 
-### Manage any ERC-721 token
+#### Manage any ERC-721 token
 
 ![](https://api.beta.kauri.io:443/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
 
@@ -107,7 +108,7 @@ You can:
 
  * Sell or collect the tokens to your profile (coming with beta and full launch)
 
-### Create a new ERC-721 with any data you want
+#### Create a new ERC-721 with any data you want
 
 ![](https://api.beta.kauri.io:443/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
 
@@ -120,7 +121,7 @@ You can:
 
  * You have complete ownership and get an email of the information
 
-## Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
+### Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
 Mintable has some high hopes and dreams, we hope we will achieve them all and we want you to be apart of it!
 
 ![](https://api.beta.kauri.io:443/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)

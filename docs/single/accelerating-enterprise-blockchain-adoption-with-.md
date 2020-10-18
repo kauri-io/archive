@@ -10,6 +10,7 @@ some_url:
 # Accelerating Enterprise Blockchain Adoption With Greenhouse
 
 
+
 ![](https://api.kauri.io:443/ipfs/QmaSHWa8c31g7XQWNREgBY8mnMh6ppQ2kA4x8Q68yGwmHg)
 
 BlockTEST is proud to announce a new release of our Greenhouse smart contract development platform. With Greenhouse we aim to bridge the gap between enterprises looking for blockchain solutions and the developer community who can build those solutions.

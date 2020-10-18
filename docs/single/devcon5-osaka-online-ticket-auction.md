@@ -9,7 +9,8 @@ some_url:
 
 # Devcon5 Osaka online ticket Auction
 
-# The mechanics of the Devcon5 online auction
+
+## The mechanics of the Devcon5 online auction
 
 The auction mechanism takes its inspiration from Nick Johnson's ENS 1.0 auctions
 
@@ -21,7 +22,7 @@ There are three phases
 2. Reveal phase
 3. Withdrawal phase
 
-## Bidding
+### Bidding
 
 1. Decide how much you want to bid (bid amount)
 2. Select a _random_ mask phrase
@@ -30,19 +31,19 @@ There are three phases
 
 At this point, people can see your mask amount but not your bid amount.
 
-### **WARNING** : BE SURE TO SAVE YOUR PHRASE AND BID AMOUNT ##
+#### **WARNING** : BE SURE TO SAVE YOUR PHRASE AND BID AMOUNT ##
 
-## Revealing
+### Revealing
 
 1) You reveal your bid by sending a 0 eth transaction to the reveal method of the contract supplying the mask phrase and the bid amount.
 
 Now your bid can be seen by everybody but nobody can submit more bids
 
-### **WARNING**
+#### **WARNING**
 
-### IF YOU DO NOT REVEAL, or FORGET YOUR MASK DETAILS YOU WILL LOSE EVERYTHING ###
+#### IF YOU DO NOT REVEAL, or FORGET YOUR MASK DETAILS YOU WILL LOSE EVERYTHING ###
 
-## Withdrawal
+### Withdrawal
 
 Once the winning amount has been announced, people can withdraw excess ether
 
@@ -50,16 +51,16 @@ Once the winning amount has been announced, people can withdraw excess ether
 - If you revealed but were unsuccessful your entire mask amount can be withdrawn
 - If you wait too long (after the end of the withdrawal period) you will not be able to withdraw either of the above
 
-## What you pay if you win
+### What you pay if you win
 
 You pay what you bid.
 
-## If the winning amount is 10 ether and I bid 20 ether but Bob bid 15 ether?
+### If the winning amount is 10 ether and I bid 20 ether but Bob bid 15 ether?
 
 See above. You pay 20 ether, Bob pays 15.
 Thank you for your support.
 
-## If the winning amount is 10 ether and a load of people have the same bid
+### If the winning amount is 10 ether and a load of people have the same bid
 
 1. Everybody who bid > winning amount gets a ticket
 2. The remaining tickets are allocated on a first to reveal basis.
@@ -69,11 +70,11 @@ You can check the reveals by the `BidRevealed` event
    event BidRevealed(address bidder, uint256 bid);
 ```
 
-## Web based bidding process
+### Web based bidding process
 
 The entire process can be carried out at https://ethercards.devcon.org
 
-### Placing your bid
+#### Placing your bid
 
 During the bidding period, if you have not previously placed a bid, you will be given a mask-phrase and asked for your bid amount. 
 
@@ -85,7 +86,7 @@ If you have already bid from this address you will be shown a screen telling you
 
 
 
-### Revealing your bid
+#### Revealing your bid
 
 During the reveal phase, you will be shown a field for the bid and another for the mask phrase. These will be filled from local storage if available. Accepting this will send the 0 ether transaction to reveal the bid.
 
@@ -95,18 +96,18 @@ And, of course if it has already been revealed.
 
 
 
-### Withdrawing your bid / the excess
+#### Withdrawing your bid / the excess
 
 After the reveal phase, a visit to the page will show if you have won or not and how much you can withdraw and a button to do so. Simply click the button.
 
 
 
 
-## Accessing via alternative mechanism (e.g. MyCrypto / MEW / etherscan)
+### Accessing via alternative mechanism (e.g. MyCrypto / MEW / etherscan)
 
 Once we announce the contract address, you will be able to see the address and get the contract's ABI
 
-### Checking the stage of the auction
+#### Checking the stage of the auction
 
 The following events are generated to show the parameters
 
@@ -137,7 +138,7 @@ Did you win?
 The first parameter tells you if you won
 The second is true during the withdrawal period
 
-### Bidding
+#### Bidding
 
 The safest way to generate the hash is to call the `calculateHash` function.
 
@@ -155,13 +156,13 @@ function biddingTime(bytes32 _hash) public payable
 We cannot check that your bid is less than your mask amount.
 If `bid > mask amount` you will be unable to reveal, hence losing your ether
 
-### Revealing
+#### Revealing
 
 ```
 function reveal(uint256 _bid, bytes memory randString) public
 ```
 
-### Withdrawing
+#### Withdrawing
 
 ```
 function withdrawRefund() public

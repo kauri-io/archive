@@ -10,6 +10,7 @@ some_url:
 # What is Bitcoin, Ethereum and all other Cryptocurrencies all about?
 
 
+
 ----
 
 
@@ -21,7 +22,7 @@ You have heard about Bitcoin, Ethereum and other cryptocurrencies. But aside all
 ![](https://api.beta.kauri.io:443/ipfs/Qmdq2NLipVESCVuTV558NmTMs6pHUVGbNik9aB45rRasS7)
 
 
-## What is Web3?
+### What is Web3?
 Going back to when internet started, there was only simple static websites and communications were mostly done by email. It was only when interactive websites (also called web apps) appeared that we started to see the real potential with the Web 2.0 movement which brought the social media platforms and other thousands of apps that have now become part of our day-to-day like Facebook, Instagram, etc.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmQGYMyNVN8AjFRKFrzR27Av4Wu3qqP8p5WN7En7VvwTvv)
@@ -32,14 +33,14 @@ Web3 is the next generation of websites and applications developed on top of the
 ![](https://api.beta.kauri.io:443/ipfs/Qmb3uT7fPyQCjLPe2Jnu4G4nJ5NqcFoVqcvey7gVfEBvr4)
 
 
-## What is Blockchain?
+### What is Blockchain?
 Blockchain is the underlying technology that makes Web3 possible today. It’s a shared database that is updated on a network of computers which makes the data incorruptible or misused without requiring one single company to control it. This way we can trust this database to be always accessible, verified and only controlled by you as a user.
 Whenever you want to update your data like posting on social media or changing your profile or making a payment online, you submit a transaction to the blockchain to update it across the whole network. This is extremely useful for applications like social media, online identity, file storage, financial services, online payments, marketplaces and many other use-cases where you need share data between multiple people.
 
 ![](https://api.beta.kauri.io:443/ipfs/Qmamn1ioo2Fw9HjPm6STWTqLSfxtGqNqSCUWVhsTa1Nrin)
 
 
-## What is Ethereum?
+### What is Ethereum?
 The first blockchain network created was Bitcoin and it created for the first time digital money, allowing to transfer Bitcoins (the network’s currency) from one person to another just by connecting to the network’s blockchain. You can think of Bitcoin as blockchain that only has one application which is to transfer value between two people. However this is just one of the infinite use-cases where blockchain is useful and this is what makes Ethereum so unique, it allows you build ANY application on the blockchain
 Ethereum is a network for building Decentralized Applications commonly called DApps. It uses Smart Contracts which are programmes that are available on Ethereum’s blockchain that act as autonomous applications. This is the key feature that makes Web3 possible where you can for example submit a job posting or post on social media or create an auction for something you’re selling on top of a blockchain.
 Following the last example, imagine you submit a transaction that asks the DApp to create an auction just like on Ebay. Then other users can see your auction on the blockchain and bid on it and when the auction ends, the DApp will automatically pick the winner. You will get the money without any third parties involved.
@@ -47,7 +48,7 @@ Following the last example, imagine you submit a transaction that asks the DApp 
 ![](https://api.beta.kauri.io:443/ipfs/QmaeHCdmTi9u2Xvb5HHYfzRJ7pdGEfaJ4nxPgaSi5edCHu)
 
 
-## What are Transactions?
+### What are Transactions?
 Now you’ve heard the word transactions way too many times and now it looks like all of these articles were right, talking about cryptocurrencies just being internet money. The truth is these interactions with the blockchain act as transactions that you as user independently make with the whole network.
 As you sign these transactions with your private key (we will get to this soon), you are broadcasting to the network your intent that is incorruptible by any third-party. These transactions are verified by the network to be valid as you signed them and can now be updated on the blockchain. In Ethereum, you can also submit transactions that only transfer Ether (the network’s currency) similar to Bitcoin but more importantly can submit transactions that interact with a DApp to trigger actions just like our auction example before.
 Going back to our auction example, when you sign the transaction to start the auction, you choose when the auction ends, what’s the starting value and what are you selling. The rest of the network will get your signed transaction, verify that you were the one who signed it and update the blockchain so that others users can see that it available and they will submit their signed transactions with bids to buy what you are offering.
@@ -55,14 +56,14 @@ Going back to our auction example, when you sign the transaction to start the au
 ![](https://api.beta.kauri.io:443/ipfs/QmekkkQ1a85kMZ6wqGXZAZDQmN6TdrXX8q5tuXq5pwAHf7)
 
 
-## What are Private Keys?
+### What are Private Keys?
 Private keys are what makes it possible to verify that you were the one who signed the transactions. It’s what makes you in charge of your own data and it’s more unique that handwritten signatures. As a user you create a new account that has a public address which represents your account (like a username or email) and a private key which you use like a “password” to sign your transactions to interact with the blockchain’s smart contracts. You should NEVER share this private key with anyone because they will be able to sign transactions as if they are you, just like your normal signature when signing a new lease or opening a bank account BUT with the difference that these transactions on the blockchain can’t be changed once signed.
 This is what really makes Web3 different than today’s internet, by protecting this private key, no company can access, change or expose your data without having knowledge of your private key. Yet we can use millions of great DApps just like the Apps that we have today . In order to make it easier to interact with these DApps with your private key, you would need to download a wallet that will help you securely sign your transactions and protect your private key.
 
 ![](https://api.beta.kauri.io:443/ipfs/QmZ1k5i94YoHoMuvaK6DG8gNQQEVNYQRPjDL2yYYJU6KJs)
 
 
-## What is a Wallet?
+### What is a Wallet?
 A wallet is an application that allows you store and manage your private keys. It makes it easier than having to write down or remember them and it also provides with features to interact with DApps.
 There are many types of wallets from Mobile apps, Desktop apps, Browser extensions and even Hardware devices. Browser extensions allow you to use your wallet on your browser like Chrome or Firefox which is convenient when using on Desktop, then you have Mobile apps that allow you to use your private keys on your smartphone and Hardware devices which are very secure devices that are better suited for to you hold more valuable assets, data or money.
 They all have their own pros and cons. It’s up to you to choose your favorite wallet that you feel more comfortable for your use-case and always do your research first before choosing one.
@@ -70,7 +71,7 @@ They all have their own pros and cons. It’s up to you to choose your favorite 
 ![](https://api.beta.kauri.io:443/ipfs/QmVsFKVrEckURhVhzDVgkX5QifWmPhbrq891B9EPXUCB8h)
 
 
-## Where do I get started?
+### Where do I get started?
 The best way to get started is to try out a DApp that you like and see what it’s like to interact with Ethereum. Check out these websites where you can find thousands DApps that are available today:
 
 

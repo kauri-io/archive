@@ -10,6 +10,7 @@ some_url:
 # What could blockchains offer to freelancers?
 
 
+
 ----
 
 
@@ -19,7 +20,7 @@ Freelance marketplace is one of the exciting fields that blockchain technology c
 It would be a fundamental change in how people work together since it cut through the middleman and be more flexible for the working relationships.
 This post discusses how the blockchain technologies can be used in the freelancing marketplaces, followed by a simple Dapp to demonstrate a payment smart contract that can be independently managed by a freelancer and employer.
 
-## The trend of freelancing
+### The trend of freelancing
 Based on job market statistics, there is an increasing number of workers choose to escape the 9to5 jobs and work as a freelancer, desired for flexibly work contents they prefer, expand their business networks and grow their personal brands.
 They have the freedom to work with preferable partners and be more flexible in making decisions in which career direction they want to go pursuit.
 > One of the core principles of the free market is that central planning committees can never be as efficient or effective as the people doing the work.
@@ -35,7 +36,7 @@ They have the freedom to work with preferable partners and be more flexible in m
 
 In the era of blockchain technologies, the core value of which is decentralization, it is very likely the trend of freelancing will be accelerated.
 
-## Freelancing marketplaces
+### Freelancing marketplaces
 Most of the freelance works are landed via outsourcing platforms like upwork.com and freelancer.com. These platforms provide the facilities for the employer to post the jobs or the employee to apply for the jobs, serving as a job information center.
 The key reason of why these platforms are popular is they serve as the middleman for the working contracts and the funds. They have a set of rules to collect and calculate the ratings for both the employer and employee after completed the contracts.
 The main duty of these platforms is maintaining and securing the contract made between the employer and employee.
@@ -56,7 +57,7 @@ Having a middleman to execute this duty comes at prices:
 > 
 
 
-## What is a contract?
+### What is a contract?
 Let’s get back to the question of why we need an employment contract that these centralized platforms facilitate to create.
 Contract in the nutshell:
 > Agreement about the facts and when they change — that is, a consensus about what is in the ledger, and a trust that the ledger is accurate — is one of the fundamental bases of market capitalism.
@@ -89,7 +90,7 @@ So how do we create
 The decentralized consensus and immutability features of blockchain enable the contracts to be created with embedded rules that automatically govern the ledger data within the contract.
 With blockchain technologies, it is now possible to create secure contracts without 3rd party institutions.
 
-## A simple payment contract
+### A simple payment contract
 To demonstrate the concept, let’s try to implement a simple payroll contract that executes itself without any 3rd party institutions, using Ethereum solidity contract for the backend and React.js for the front end.
 The model of the contract is normally for one to one relationship, that is the rules between an employer and an employee. Also there are other contract models in the software outsourcing fields. The crowdsourcing platforms, such as 
 [TopCoder](http://topcoder.com/)
@@ -106,7 +107,7 @@ Suppose we want to create a very basic payment contract, which works on time bas
 3. Both the roles should have chances to evaluate if they are in a good fit within a trial period.
 If something doesn’t work well, a contract makes they eligible choose to terminate the contract, so as to avoid potential losses in either monetary or time.
 
-### Flows of contract rules
+#### Flows of contract rules
 
 
 
@@ -184,7 +185,7 @@ _A framework of UX rules for Blockchain based Distributed Applications (part 1)_
 > 
 
 
-## Summary
+### Summary
 The simple payment Dapp above demonstrated what revolutions the blockchain technologies can help achieve and how powerful it will position itself in the freelancing market.
 In fact, there are already some organizations working for this field from different perspectives, such as 
 [Arogan](https://aragon.one/)
@@ -215,11 +216,11 @@ We are still in the very early stage of the blockchain. There are a lot of possi
 > 
 
 
-### This story is published in The Startup, Medium’s largest entrepreneurship publication followed by 323,238+ people.
+#### This story is published in The Startup, Medium’s largest entrepreneurship publication followed by 323,238+ people.
 > 
 The Startup
 
-### Subscribe to receive our top stories here.
+#### Subscribe to receive our top stories here.
 > 
 our top stories here
 

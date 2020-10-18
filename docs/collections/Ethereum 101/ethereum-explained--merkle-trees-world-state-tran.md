@@ -9,6 +9,7 @@ some_url:
 
 # Ethereum Explained  Merkle Trees, World State, Transactions, and More
 
+
 ![Ethereum Architecture Diagram](https://api.beta.kauri.io:443/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK)
 
 _At PegaSys we understand that entering into the Ethereum world can be a daunting task. There are many new concepts and terms that one needs to learn to engage in the community. In Ethereum Explained our protocol engineer, Lucas Saldanha, provides an easy to digest summary of the Ethereum Yellow Paper for technical and non-technical people alike._
@@ -19,7 +20,7 @@ I hope that after reading this post, you'll know what Merkle trees are and the r
 
 (DISCLAIMER: this post is based on the Byzantium version of the [Yellow Paper](https://ethereum.github.io/yellowpaper/paper.pdf), version e94ebda from 5th June 2018)
 
-## Merkle Trees
+### Merkle Trees
 
 Before discussing the main data objects in Ethereum, I'd like to present a summary of what Merkle trees are and the properties that make them useful.
 
@@ -38,13 +39,13 @@ The first property is important because it makes it possible to store only a has
 
 Now that we have an idea of what a Merkle tree root hash represents, let's talk about Ethereum main objects.
 
-## World State
+### World State
 
 The world state is a mapping between addresses (accounts) and account states. The world state is not stored on the blockchain but the Yellow Paper states its expected implementations store this data in a trie (also referred as the state database or state trie). The world state can be seen as the global state that is constantly updated by transaction executions. The Ethereum network is like a decentralized computer and the world state is considered this computer's hard drive.
 
 All the information about Ethereum accounts live in the world state and is stored in the world state trie. If you want to know the balance of an account, or the current state of a smart contract, you query the world state trie to retrieve the account state of that account. I'll describe how this data is stored shortly.
 
-## Account State
+### Account State
 
 In Ethereum, there are [two types of accounts](http://ethdocs.org/en/latest/contracts-and-transactions/account-types-gas-and-transactions.html#externally-owned-accounts-eoas): Externally Owned Accounts (EOA) and Contract Accounts. An EOA account is the account that you and I would have, that we can use to send Ether to one another and deploy smart contracts. A contract account is the account that is created when a smart contract is deployed. Every smart contract has its own Ethereum account.
 
@@ -52,19 +53,19 @@ The account state contains information about an Ethereum account. For example, i
 
 Let's take a look into each one of the fields in the account state:
 
-### nonce
+#### nonce
 
 Number of transactions sent from this address (if this is an External Owned Account – EOA) or the number of contract-creations made by this account (don't worry about what contract-creations means for now).
 
-### balance
+#### balance
 
 Total Ether (in [Wei](http://ethdocs.org/en/latest/ether.html)) owned by this account.
 
-### storageRoot
+#### storageRoot
 
 Hash of the root node of the account storage trie (weâ€™ll see what the account storage is in a moment).
 
-### codeHash
+#### codeHash
 
 For contract accounts, hash of the EVM code of this account. For EOAs, this will be empty.
 
@@ -74,7 +75,7 @@ One of the consequences of the codeHash being immutable is that if you deploy a 
 
 The Account Storage trie is where the data associated with an account is stored. This is only relevant for Contract Accounts, ;in EOAs the storageRoot is empty and the codeHash is the hash of an empty string. All smart contract data is persisted in the account storage trie as a mapping between 32-bytes integers. We wonâ€™t discuss in details how the contract data is persisted in the account state trie. If you really want to learn about the internals, I suggest reading [this post](https://medium.com/coinmonks/a-practical-walkthrough-smart-contract-storage-d3383360ea1b). The hash of an account storage root node is persisted in the storageRoot field in the account state of the respective account.
 
-## Transaction
+### Transaction
 
 Transactions are what makes the state change from the current state to the next state. In Ethereum, we have three types of transactions:
 
@@ -86,41 +87,41 @@ Transactions are what makes the state change from the current state to the next 
 
 These are the fields of a transaction:
 
-### nonce
+#### nonce
 
 Number of transactions sent by the account that created the transaction.
 
-### gasPrice
+#### gasPrice
 
 Value (in Wei) that will be paid per unit of gas for the computation costs of executing this transaction.
 
-### gasLimit
+#### gasLimit
 
 Maximum amount of gas to be used while executing this transaction.
 
-### to
+#### to
 
 - If this transaction is transferring Ether, address of the EOA account that will receive a value transfer.
 - If this transaction is sending a message to a contract (e.g., calling a method in the smart contract), this is address of the contract.
 - If this transactions is creating a contract, this value is always empty.
 
-### value
+#### value
 
 - If this transaction is transferring Ether, amount in Wei that will be transferred to the recipient account.
 - If this transaction is sending a message to a contract, amount of Wei [payable](https://medium.com/@rsripathi781/6-payable-functions-in-solidity-smartcontract-ethereum-d2535e346dc1) by the smart contract receiving the message.
 - If this transaction is creating a contract, this is the amount of Wei that will be added to the balance of the created contract.\_
 
-### v, r, s
+#### v, r, s
 
 Values used in the cryptographic signature of the transaction used to determine the sender of the transaction.
 
-### data
+#### data
 
 (only for value transfer and sending a message call to a smart contract)
 
 Input data of the message call (e.g., imagine you are trying to execute a setter method in your smart contract, the data field would contain the identifier of the setter method and the value that should be passed as parameter).
 
-### init
+#### init
 
 (only for contract creation)
 
@@ -130,7 +131,7 @@ Don't try to grasp all of this at once... Some fields like the data field or the
 
 Not surprisingly, all transactions in a block are stored in a trie. And the root hash of this trie is stored in the...block header! Let's take a look into the anatomy of an Ethereum block.
 
-## Block
+### Block
 
 The block header is divided in two parts, the block header and the block body.
 
@@ -140,69 +141,69 @@ The block body contains a list of transactions that [have been included in this 
 
 Let's take a look at all fields in the block header:
 
-### parentHash
+#### parentHash
 
 Hash of the block header from the previous block. Each block contains a hash of the previous block, all the way to the first block in the chain. This is how all the data is protected against modifications (any modification in a previous block would change the hash of all blocks after the modified block).
 
-### ommersHash
+#### ommersHash
 
 Hash of the uncle blocks headers part of the block body.
 
-### beneficiary
+#### beneficiary
 
 _Ethereum account that will get fees for mining this block._
 
-### stateRoot
+#### stateRoot
 
 Hash of the root node of the world state trie (after all transactions are executed).
 
-### transactionsRoot
+#### transactionsRoot
 
 Hash of the root node of the transactions trie. This trie contains all transactions in the block body.
 
-### receiptsRoot
+#### receiptsRoot
 
 Every time a transaction is executed, Ethereum generates a transaction receipt that contains information about the transaction execution. This field is the hash of the root node of the transactions receipt trie.
 
-### logsBloom
+#### logsBloom
 
 _[Bloom filter](https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832) that can be used to find out if logs were generated on transactions in this block (if you want more details, [check this Stack Overflow answer](https://ethereum.stackexchange.com/questions/3418/how-does-ethereum-make-use-of-bloom-filters/3426#3426)). This avoids storing of logs in the block (saving a lot of space)._
 
-### difficult
+#### difficult
 
 Difficulty level of this block. This is a measure of how hard it was to mine this block (I'm not diving into the details of how this is calculated in this post).
 
-### number
+#### number
 
 _Number of ancestor blocks. This represents the height of the chain (how many blocks are in the chain). The genesis block has number zero._
 
-### gasLimit
+#### gasLimit
 
 Each transaction consumes gas. The gas limit specifies the maximum gas that can be used by the transactions included in the block. It is a way to limit the number of transactions in a block.
 
-### gasUsed
+#### gasUsed
 
 _Sum of the gas cost of each transaction in the block._
 
-### timestamp
+#### timestamp
 
 Unix timestamp when the block was created. Note that due to the decentralized nature of Ethereum, we can't trust in this value, especially when implementing smart contracts that have time related business logic.
 
-### extraData
+#### extraData
 
 _Arbitrary byte array that can contain anything. When a miner is creating the block, it can choose to add anything in this field._
 
-### mixHash
+#### mixHash
 
 Hash used to verify that a block has been mined properly (if you want to really understand this, read about the [Ethash proof-of-work function](https://github.com/ethereum/wiki/wiki/Ethash)).
 
-### nonce
+#### nonce
 
 Same as the mixHash, this value is used to verify that a block has been mined properly.
 
 Phew... This is a long list... Take your time to read it! Again, the point here is not to memorize each one of the fields and what they represent (you can always Google it later). What I intended was to describe each field in a simple way (at least simpler than the Yellow Paper) to help you to understand what they mean. Think of it as an Ethereum objects for dummies! ðŸ™‚
 
-## Conclusion
+### Conclusion
 
 Let's do a quick recap about what we just saw! Basically, Ethereum has 4 types of tries:
 
@@ -222,7 +223,7 @@ I tried to capture all the information contained in this post in the diagram at 
 
 In my experience, learning from the Yellow Paper is not easy and requires a lot of patience. As I said before, the main goal was to describe each one of the main Ethereum objects in words that someone relatively new to the blockchain and Ethereum ecosystem could understand. I hope that you have found this post useful!
 
-## References
+### References
 
 - [Merkle Trees](https://brilliant.org/wiki/merkle-tree/)
 - [Merkle Proofs](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5)

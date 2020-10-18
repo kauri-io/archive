@@ -9,6 +9,7 @@ some_url:
 
 # Defi and Opfi lending and borrowing platforms (Users perspective)
 
+
 Introduction
 This article discusses some of the defi and opfi lending and borrowing services that I have tested and evaluated. It is not intended to be an exhaustive list, since there are so many products and services in the defi space, and is rapidly growing. There are different degrees of decentralisation, and transparency, but all of them make good use of smart contracts. Most of the dapps are running on the etherium platform, since they are the most mature of the smart contract platforms. But there are new ones being developed on platforms like EOS, IOST and other blockchains. This list is summarised, and I will probably drill down into more detail in future articles, and cover other related topics. If you are holding onto your coins like I do, there is really no good reason not to invest them, by staking or lending them out. You can decide to use variable rates which are determined by the market and fluctuate, or lock them in with fixed rates if you prefer (ex. 30 days, 60 days etc.). Also stable coins are a good way to hedge your risk against volatility, and the rates are much better than the traditional banks and trust companies (ex. 10-14% vs. 2%)
 

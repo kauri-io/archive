@@ -9,6 +9,7 @@ some_url:
 
 # Blockchain   Separating the Hope from Hype
 
+
 Unless you had been completely locked out or had been living in the Himalayas or have unplugged yourself over the past year, it is possible that you would have missed out the din on Blockchain. Blockchain is the new kid in the block and the shiny new toy in the Financial Services world.
 > What is a Blockchain? Why Should I Even Bother?
 
