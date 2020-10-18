@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>WHAT IS A CONSENSUS ALGORITHM? &mdash; Kauri</title>
+    <title>WHAT IS A CONSENSUS ALGORITHM? &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1048,7 +1051,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1057,13 +1060,22 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="what-is-a-consensus-algorithm">WHAT IS A CONSENSUS ALGORITHM?</h1>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmQfoFA8ZjmBGA2p5rzEJfoWWdCNeZXcdVYAkokw7m4jrX" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQfoFA8ZjmBGA2p5rzEJfoWWdCNeZXcdVYAkokw7m4jrX" /></p>
 <p><em>This article was originally published on</em></p>
 <p><a href="https://blocktest.com/2018/08/28/what-is-a-consensus-algorithm/">BlockTEST.com</a></p>
 <p><em>on August 28th, 2018.</em></p>
 <p>Blockchain relies on consensus algorithms to reach an agreement among nodes (a computer connected to the network). In simple terms a blockchain is a decentralized database that is managed by distributed computers on a peer-to-peer (P2P) network. Each computer keeps a copy of the ledger to prevent a single point of failure (SPOF). Updates and authentications are reflected in all copies concurrently.
 For example, Bitcoin runs a proof of work (PoW) consensus algorithm to guarantee security in a trustless network, by using mechanisms that ensure that the effort of mining is represented within the block submitted by the miner. Software on the networked computers of miners accesses the computers’ processing power to solve transaction-related algorithms. The block is an encrypted hash (a function that converts one value to another) “proof of work” that is created in a computer-power-intensive process.
-Other commonly used consensus algorithms include the proof-of-stake consensus algorithm (PoS) and the delegated proof-of-stake consensus algorithm (DPoS).</p></div>
+Other commonly used consensus algorithms include the proof-of-stake consensus algorithm (PoS) and the delegated proof-of-stake consensus algorithm (DPoS).</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/what-is-a-consensus-algorithm/09a45da0c1304638b15831bde98a3d05/a</li>
+<li><strong>Kauri original author:</strong> BlockTEST, LLC. (@blocktest-llc)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-11</li>
+<li><strong>Kauri original tags:</strong> consensus, blockchain</li>
+<li><strong>Kauri original hash:</strong> QmRzckd1vgn47BmEis8HbhNxLyMvt7EnizxGbdwLyZ2x9x</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../best-monero-wallets-%28xmr-wallet%29/" title="Best Monero Wallets (XMR Wallet)"><span>Previous</span></a></div>

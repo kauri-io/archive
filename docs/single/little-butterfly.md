@@ -9,6 +9,8 @@ some_url:
 
 # Little Butterfly
 
+![](https://ipfs.infura.io/ipfs/QmRTsijRJpvcwo9Gn82Yrsaxx9hDfSt7s8UJYAzZbQfuvp)
+
 
 Project link: https://littlebutterfly.info
 
@@ -73,5 +75,19 @@ Open
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/someusername6/little-butterfly
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/little-butterfly/a2cd025bfb234c1f9f1442f95415b68d/a
+- **Kauri original author:** Telmo Correa (@telmo-correa)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-fortmatic-2019
+- **Kauri original hash:** QmSMUKdvqpGmvXcUHf6YZt8rwbDceU4AQrmHSRzxPv49Kp
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

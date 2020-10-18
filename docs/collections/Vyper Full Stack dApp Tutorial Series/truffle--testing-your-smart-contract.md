@@ -100,7 +100,7 @@ Your _bounties.js_ file should look as follows:
 
 <!-- TODO: Code better -->
 
-![](https://api.kauri.io:443/ipfs/QmbcpryjzGpp6pVT7J8iw8VxqNvKyQk3e4gwpUrDZHENQh)
+![](https://ipfs.infura.io/ipfs/QmbcpryjzGpp6pVT7J8iw8VxqNvKyQk3e4gwpUrDZHENQh)
 
 At this point, we have the basic skeleton of our test file and we can test everything is set up correctly by executing the following.
 
@@ -204,7 +204,7 @@ Object.assign(exports, {
 });
 ```
 
-![](https://api.kauri.io:443/ipfs/QmPCxstBZ9dsJVyhZUvUc1zbzSppJkAiQCfTUEGtfphTR3)
+![](https://ipfs.infura.io/ipfs/QmPCxstBZ9dsJVyhZUvUc1zbzSppJkAiQCfTUEGtfphTR3)
 
 The above extract takes a promise as its first argument, which would be a web3 transaction, and an assertion fail message as the next. It wraps the promise in a try and catches the error, if the promise fails it checks if the error message contains the string "revert”.
 
@@ -429,3 +429,17 @@ You can find the [complete bounties.js test file here for reference](https://git
 > If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.
 >
 > If you have found any errors, feel free to update this guide by selecting the **'Update Article'** option in the right hand menu, and/or [update the code](https://github.com/iamonuwa/Bounties)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/truffle:-testing-your-smart-contract/ebc4a29cc1c044fdba99631796ffbd93/a
+- **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
+- **Kauri original Publication date:** 2019-08-29
+- **Kauri original tags:** smart-contract, testing, vyper
+- **Kauri original hash:** QmX6Cjg1tiFC6RcCrXGodStwSP2t6CsjmYPA2FxvMRYBLo
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

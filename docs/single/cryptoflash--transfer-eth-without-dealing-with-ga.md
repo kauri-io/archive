@@ -48,3 +48,17 @@ https://github.com/levelkdev/crypto-flash
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cryptoflash:-transfer-eth-without-dealing-with-ga/e9ef0dea04824d70b6074282cc0f34ca/a
+- **Kauri original author:** Kendall Cole (@username)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmWMFKd73YU2mWscX5Q9pBupN4R4QEwVGKYCEWRWTHRGfA
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

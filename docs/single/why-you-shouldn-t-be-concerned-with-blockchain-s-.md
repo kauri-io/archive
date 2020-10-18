@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmbMKHV3cXaiPRGEUTC7Rv7uaBvosQVqFVBxsoimmwXxgn)
+![](https://ipfs.infura.io/ipfs/QmbMKHV3cXaiPRGEUTC7Rv7uaBvosQVqFVBxsoimmwXxgn)
 
 
 
@@ -85,3 +85,17 @@ This could involve much higher level of self-management, wholeness, and evolutio
  
 [Jennifer Jiang](https://linkedin.com/in/jenniferhjiang/)
  is co-founder of BlockTEST and MIT Sloan Fellow ’17. Prior, she was the Global Head of RMB Solutions of J.P.Morgan and was in a variety of executive positions at JPMorgan, Merrill Lynch and Citigroup. She currently serves ID2020 as an advisor on the Ecosystem And Advocacy Committee and a mentor of MIT Enterprise Forum.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-you-shouldn-t-be-concerned-with-blockchain-s-/595591b5f4e94288adf6239580a59a17/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** blockchain
+- **Kauri original hash:** QmcadSgbLNMriMsLdCr4WC2PxXKQ3wAekm9k8WAod5UNvH
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

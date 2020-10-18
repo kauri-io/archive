@@ -124,3 +124,17 @@ Ensuring that a certain data unit is never deleted from the decentralized storag
 The same clients that originally requested the retrieval of the information and the formalization of a storage contract can keep sending additional tokens to the storage contract to keep it in force. In addition, shall those indexes be publicly available, any other interested party could extend the storage contract by independently funding it.
 > In essence, as long as there are enough actors interested in maintaining humanity’s most relevant digital data preserved in the Ark, we can be certain that access to our cultural heritage and legacy will remain democratic forever.
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/powered-by-witnet:-the-"digital-knowledge-arks"/2b7dc6b605e240319a15ee303e1c6ec5/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmXVMMVjWmCj4xHhbw49gdAA51yyjBa4DPWvatUWTT5xNY
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -41,3 +41,17 @@ https://github.com/siromivel/lambdeth
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lambdeth/1b265a0a82bb48d1a4c7326f3a38a1b6/a
+- **Kauri original author:** Tara Regan (@squeakattack)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, zeppelin-best-usage-of-zeppelin-tools, zeppelin-best-evm-package, zeppelin
+- **Kauri original hash:** QmcZjng8JJ7gFzSdqBsBKKH9z9VieN8fjsf7dkY2XKpwuB
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

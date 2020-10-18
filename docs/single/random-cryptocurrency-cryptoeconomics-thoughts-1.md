@@ -63,3 +63,17 @@ So taking the above ideas into consideration: Four future scenarios:
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
 The above are formed in the framework of: the past is not necessarily a reliable basis from which to posit the future: the future is likely stochastic, different from the past and will probably confound the past’s lessons or at least disrespect the past’s contours. Given that, what are the scenarios and what factors might help us weight and handicap each possible future scenario? What posture/psychology should we have as market participants (trader, investor, analyst, commentator, actor) given that we’re in crypto Extremistan. I aim to consider/present/elucidate some ideas, YMMV.
 My ZenCash address = znk9GjfbzRHwDiMWmq2xeTi5FNkgnzQXthg
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-1/f20af020db864fffb5439f6e9870c143/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** Qma3yjVpUcr451okRkrFHTg1Ca5DJr7iFAeaPDbgJwDCPM
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

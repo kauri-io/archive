@@ -9,6 +9,8 @@ some_url:
 
 # How to set up a simple Linux firewall
 
+![](https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw)
+
 
 This is the third part of a two part series. In the [first part](https://kauri.io/article/c287fe53de9b4073a18065443253a86d/v1/how-to-install-and-synchronize-your-own-remote-ethereum-nodes) I described how to set up a remote Ethereum node. In the [second part](https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v1/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask) I went over setting up an SSH tunnel and using it to access your node with MetaMask. In this article I cover why a Linux firewall is important and describe how to set one up on your remote `geth` node.
 
@@ -94,3 +96,16 @@ That's it! Your computer is now sitting behind a firewall, only allowing the net
 The first version of this article was quite a bit longer and far more complicated. In discussions with peers (thanks, Evans!) I realized that using UFW instead of manually specifying firewall rules would make a more effective article.
 
 With your shiny new firewall, your remote Ethereum node is now much safer from malicious attack. Note: this is specific to running `geth`. If you have other services on the same machine you'll have to open the relevant ports or your services will cease to function after you activate this firewall. I hope this article helped you understand a little more clearly what a firewall is and how to set one up. If you have any questions please ask in the comments below.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a
+- **Kauri original author:** Daniel Ellison (@zigguratt)
+- **Kauri original Publication date:** 2019-07-16
+- **Kauri original tags:** iptables, ethereum, geth, firewall, linux
+- **Kauri original hash:** QmRauq9Yw7J7qfbkXKTbKJVvBgCx7vMCxdETwTZYyuz8PX
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -15,18 +15,18 @@ some_url:
 > — Gilderoy Lockhart
 
 
-![](https://api.kauri.io:443/ipfs/QmYdPkp7fgtjPvg2cpiekiXKGnJqfXedyEsfwT8ZnhihuP)
+![](https://ipfs.infura.io/ipfs/QmYdPkp7fgtjPvg2cpiekiXKGnJqfXedyEsfwT8ZnhihuP)
 
 imblewimble. Mim-bull-wim-bull. Pretty crazy that such a silly word is the basis of a growing revolution within the crypto world. Mimblewimble, for crypto enthusiasts, Bitcoin Maximalists, and privacy defenders, became, within less than two years, one of the best-kept secrets in crypto. But what’s the story behind it? What’s the connection with the Harry Potter universe and why, oh God why, is Mimblewimble the name of one of 
 **the most promising protocols in the crypto space**
  ? Let’s visit the fantasy world of Magic and the virtual universe of cryptography.
 
-![](https://api.kauri.io:443/ipfs/Qme7WwsbjXgYhRum2FgqtfKK6aV6yTaFEsWZbJ4DQ6Md7x)
+![](https://ipfs.infura.io/ipfs/Qme7WwsbjXgYhRum2FgqtfKK6aV6yTaFEsWZbJ4DQ6Md7x)
 
 
 ### Mimblewimble in Action — From Harry Potter to IRC
 
-![](https://api.kauri.io:443/ipfs/QmT2rs4ettu4q299FMES3Dn1hrdLqjVVjoT1tAJzMrwYxR)
+![](https://ipfs.infura.io/ipfs/QmT2rs4ettu4q299FMES3Dn1hrdLqjVVjoT1tAJzMrwYxR)
 
  
 **Appearance 1**
@@ -48,12 +48,12 @@ _par excellence_
  in August 2016. Some individual called Tom Elvis Jedusor (majorplayer was his IRC id) popped up. For the record, Jedusor is the anagram of Voldemort… in French. Yes in French! Just like Bitcoin, this person pseudonymously dropped a world-changing protocol. This time, though, the pseudonym referenced Harry Potter and the purpose of the protocol in a clever way. And this is how we came to know about the Mimblewimble Protocol.
 The rest is history. “History became legend. Legend became myth” according to Tolkien.
 
-![](https://api.kauri.io:443/ipfs/QmWPRJjraDJqXvwzd7KVFwFQTGWSkkWEFKE14dom2i8TAn)
+![](https://ipfs.infura.io/ipfs/QmWPRJjraDJqXvwzd7KVFwFQTGWSkkWEFKE14dom2i8TAn)
 
 
 ### Mimblewimble — From IRC to RL
 
-![](https://api.kauri.io:443/ipfs/QmNUP5PDJYNLJgwFkFWjjqcSWHYzPvKP7JWNoTY5KT8TJX)
+![](https://ipfs.infura.io/ipfs/QmNUP5PDJYNLJgwFkFWjjqcSWHYzPvKP7JWNoTY5KT8TJX)
 
 Jedusor just dropped a dot onion link, but 
 **Andrew Poelstra**
@@ -77,7 +77,7 @@ In the middle of November 2016, another character from the Harry Potter Universe
 [Github Link](https://github.com/ignopeverell/grin)
  on the channel.
 
-![](https://api.kauri.io:443/ipfs/QmQSZdLCWmFkZfJiRF8dUUeGTrpCEwUnWb9P321S3h3Eva)
+![](https://ipfs.infura.io/ipfs/QmQSZdLCWmFkZfJiRF8dUUeGTrpCEwUnWb9P321S3h3Eva)
 
 The story doesn’t end here.
 This is how 
@@ -94,7 +94,7 @@ In March 2017, Peverell posted a
 
 ### Mimblewimble and its implementations
 
-![](https://api.kauri.io:443/ipfs/QmZVhG1JP1DXVhTXxPQNNRfXhZGHnhD9oVaC5Az69bFGjn)
+![](https://ipfs.infura.io/ipfs/QmZVhG1JP1DXVhTXxPQNNRfXhZGHnhD9oVaC5Az69bFGjn)
 
  
 **Grin was the first to implement Mimblewimble**
@@ -126,7 +126,7 @@ In the same time,
 
 ### Mimblewimble — To infinity… and beyond!
 
-![](https://api.kauri.io:443/ipfs/QmdKWLziptLL5qb53HHQ7WL92LZtJ7gL7KS3h1At821Hmb)
+![](https://ipfs.infura.io/ipfs/QmdKWLziptLL5qb53HHQ7WL92LZtJ7gL7KS3h1At821Hmb)
 
 Within two short years (eternity in the crypto space, mind you, though ;P), Mimblewimble’s elegant and original approach captured some severe crypto hearts and territories via its cryptographically sleek approach to solving for privacy, scalability, and fungibility.
  
@@ -165,3 +165,17 @@ We feel this is just the beginning. As the pseudonymously-dropped Bitcoin has sp
  
 **Discord**:  [discord.gg/BHZvAhg](https://discord.gg/BHZvAhg)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-short-history-of-mimblewimble:-from-hogwarts-to/0302f63b51e04462bfb4ddfe9199b527/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** beam, mimblewimble
+- **Kauri original hash:** QmQC5oDMApnozEN5KQvmtnbv7GSNLT5dCoXYN4oLHhbroV
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

@@ -288,3 +288,17 @@ func main() {
 }
 
 ```
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/interacting-with-smart-contracts-from-geth-s-simu/350b689ea9cc43bdbeab18645d6d6a2a/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-09-14
+- **Kauri original tags:** ethereum, go-programming-language, geth, abigen, golang, testing, solidity
+- **Kauri original hash:** QmXR3Q88cuGFx2jKBuKEZR6Q1sebAjBfxPdHCkJRX2Yg8f
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Listening to Ethereum Events with Eventeum &mdash; Kauri</title>
+    <title>Listening to Ethereum Events with Eventeum &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1064,10 +1067,11 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="listening-to-ethereum-events-with-eventeum">Listening to Ethereum Events with Eventeum</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbU72Pp8ujDbJQS5yRyPZrLYEN7peQWBw3QwHZxU9ub41" /></p>
 <h3 id="what-is-eventeum">What is Eventeum?</h3>
 <p>Eventeum is an Ethereum event listener service that provides a bridge between your smart contracts and middleware layer.  Events subscriptions can be registered dynamically, and on emission, a message containing the details of the event are broadcast onto a message bus (currently either Kafka or RabbitMQ) which can then be consumed by your backend services.</p>
 <p>It was developed by the kauri.io team, and the source code is freely available under the Apache 2.0 license.  Click <a href="https://github.com/ConsenSys/eventeum/">here</a> to view the github repository.
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/QmXqLJc3qp8vkHqifRCjbZApg758kdgBrgZVibkMDDFCqZ" />
+<img alt="" src="https://ipfs.infura.io/ipfs/QmXqLJc3qp8vkHqifRCjbZApg758kdgBrgZVibkMDDFCqZ" />
 Eventeum is:</p>
 <ul>
 <li>
@@ -1119,7 +1123,7 @@ contract NamesRegistry {
 </code></pre>
 <h4 id="deploying">Deploying</h4>
 <p>We want to deploy our smart contract to the parity node that we started via docker, so open <a href="https://remix.ethereum.org">remix</a> and select the 'Web3 Provider' environment from the Run panel.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmZtXWsmrcdznQ4xByD4dtV7Gv7VHVvcZaMs4XvbggdWVf" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZtXWsmrcdznQ4xByD4dtV7Gv7VHVvcZaMs4XvbggdWVf" /></p>
 <p>When prompted, keep the default http://localhost:8545 endpoint address.  You should now be connected to your local parity dev node with plenty of test eth to play around with in the default, unlocked account.</p>
 <p>Next, we need to deploy our NamesRegistry smart contract to our Ethereum node so paste the above smart contract code into remix, compile and deploy.  Take a note of the deployed contract address, as we will need this when configuring Eventeum in the next step.</p>
 <h3 id="configuring-eventeum">Configuring Eventeum</h3>
@@ -1151,7 +1155,7 @@ http://localhost:8060/api/rest/v1/event-filter \
 <p>The body of the REST request defines the specification of the event that is to be registered.  Comparing to the smart contract definition of the event, we can see that it defines the event name, along with the type and order of each parameter.</p>
 </blockquote>
 <p>To test that Eventeum is correctly listening for events emitted from the deployed contract, try adding a name to the registry.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmeMarJvXRoGjY8EFa8xrPUDNSjecSYhb9GUq92NbE879g" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeMarJvXRoGjY8EFa8xrPUDNSjecSYhb9GUq92NbE879g" /></p>
 <p>If everything is configured correctly, you should see a <code>broadcastContractEvent</code> entry in the Eventeum logs that looks similar to this:</p>
 <pre><code>broadcastContractEvent - Sending message: {&quot;id&quot;:&quot;0x2553-0xd5b2-0&quot; ,&quot;type&quot;:&quot;CONTRACT_EVENT&quot;, &quot;details&quot;:
 {&quot;name&quot;:&quot;NameAdded&quot;, &quot;filterId&quot;:&quot;NameAddedEvent&quot;, &quot;indexedParameters&quot;:[], &quot;nonIndexedParameters&quot;:
@@ -1166,7 +1170,16 @@ http://localhost:8060/api/rest/v1/event-filter \
 <h3 id="next-steps">Next Steps</h3>
 <p>Now that Eventeum is configured correctly, you are ready to <a href="https://kauri.io/article/fe81ee9612eb4e5a9ab72790ef24283d/using-eventeum-to-build-a-java-smart-contract-data-cache">build a service that consumes events from the Kafka topic, and perform some processing on these events.</a></p>
 <p>To learn more about Eventeum API's, message specifications or advanced configuration, checkout the github page at: <a href="https://github.com/ConsenSys/eventeum/">https://github.com/ConsenSys/eventeum/</a>.</p>
-<p>Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs...just don't forget to create a pull request afterwards, to help improve the product!</p></div>
+<p>Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs...just don't forget to create a pull request afterwards, to help improve the product!</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-06</li>
+<li><strong>Kauri original tags:</strong> eventeum, ethereum, web3, event-listener</li>
+<li><strong>Kauri original hash:</strong> QmYWKGy1Cv41Ywf9TwzCy8f9fnSW5sSCLJne4rnxMkHVhX</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../truffle-101-development-tools-for-smart-contracts/" title="Truffle 101 - Development Tools for Smart Contracts"><span>Previous</span></a></div>

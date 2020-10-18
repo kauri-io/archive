@@ -9,6 +9,8 @@ some_url:
 
 # OrbitDB  Serverless, Distributed, Peer-to-Peer Database
 
+![](https://ipfs.infura.io/ipfs/QmeAZpe2m1dps6goHtAUPPn9npo6V4vB625rcCBzJ2jnx6)
+
 
 > OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS as its data storage and IPFS Pubsub to automatically sync databases with peers.
 
@@ -473,3 +475,16 @@ let store = orbitdb.create(name, CustomStore.type)
 ### More information
 
 Is this guide missing something you'd like to understand or found an error? Please [open an issue](https://github.com/orbitdb/orbit-db/issues) and let us know what's missing!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/orbitdb:-serverless-distributed-peer-to-peer-data/6ae5ffa612044a09be856ff390ce6990/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-16
+- **Kauri original tags:** database, storage
+- **Kauri original hash:** QmQxfqosaQFBvyp3eyfmkkKZCy4buDVMvLASvbo1wet6tq
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

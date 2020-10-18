@@ -40,3 +40,16 @@ All tutorials within this series are accompanied by code examples which can be f
 ### Ethereum in 25 minutes
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/66SaEDzlmP4" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/full-stack-dapp-tutorial-series-intro/3dad5bb77afc46d09666cc87b49c6729/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2018-10-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmR1ySKnwSPcPW3FcpAGtAvR7pBTVf3Ugxm5FpAfuLe52j
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

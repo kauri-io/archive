@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>A fullstack dapp for creating tokens &mdash; Kauri</title>
+    <title>A fullstack dapp for creating tokens &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -665,8 +668,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -765,10 +768,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1050,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1059,10 +1062,11 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="a-fullstack-dapp-for-creating-tokens">A fullstack dapp for creating tokens</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRoMYkdbHUAZP2WpUvAZzKv7D3u2FKg5U3NXRnLSGK3Uv" /></p>
 <blockquote>
 <p>This dapp implements the simplest form of a cryptocurrency that uses the ERC-20 standard to define a token you can create and send to others. This tutorial is intended to be followed using the online IDE available at <a href="https://studio.ethereum.org">studio.ethereum.org</a>, and selecting the "Coin" template.</p>
 </blockquote>
-<p><img alt="Select Coin template" src="https://api.kauri.io:443/ipfs/QmWUTMmZAbbLYUhZv9ZzR9R1Ey2R4xgcxQQoFRoNdBPW85" /></p>
+<p><img alt="Select Coin template" src="https://ipfs.infura.io/ipfs/QmWUTMmZAbbLYUhZv9ZzR9R1Ey2R4xgcxQQoFRoNdBPW85" /></p>
 <h3 id="the-smart-contract">The smart contract</h3>
 <p>The contract allows only its creator to create new coins (different issuance scheme are possible). Anyone can send coins to each other without a need for registering with a username and password, and all you need is an Ethereum keypair.</p>
 <p>The line <code>address public minter;</code> declares a state variable of an <a href="https://solidity.readthedocs.io/en/latest/types.html#address"><code>address</code> type</a>. The <code>address</code> type is a 160-bit value that does not allow any arithmetic operations. It is suitable for storing addresses of contracts, or a hash of the public half of a keypair belonging to <a href="https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#accounts">external accounts</a>.</p>
@@ -1224,7 +1228,16 @@ function isValidAmount(amount) {
     return amount &gt; 0 &amp;&amp; typeof Number(amount) == 'number';
 }
 </code></pre>
-<p>And that's all the code. To see the dapp in action, click <em>Compile</em>, then <em>Deploy</em> found under the disclosure triangle of the contract file, then open the <em>Preview</em> tab to see the frontend of the dapp.</p></div>
+<p>And that's all the code. To see the dapp in action, click <em>Compile</em>, then <em>Deploy</em> found under the disclosure triangle of the contract file, then open the <em>Preview</em> tab to see the frontend of the dapp.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-fullstack-dapp-for-creating-tokens/bdd65d6155a74b8aa52672b46b7230a8/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-06</li>
+<li><strong>Kauri original tags:</strong> smart-contract, getting-started, dapp, erc-20, token-standard, solidity</li>
+<li><strong>Kauri original hash:</strong> QmeLARWSKm5K65iUUBtjed3tUt7dRRVjt47N1xa14CxjS4</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../create-a-%22hello-world%22-fullstack-dapp/" title="Create a "Hello World" fullstack dapp"><span>Previous</span></a></div>

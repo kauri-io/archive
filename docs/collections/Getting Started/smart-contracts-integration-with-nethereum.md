@@ -368,3 +368,17 @@ Some of the extension methods are the following:
 
 For more support get in touch with our community:  https://gitter.im/Nethereum/Nethereum
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contracts-integration-with-nethereum/b54334b0695342c1bbe161c4c4467b50/a
+- **Kauri original author:** Gaël Blanchemain  (@anegg0)
+- **Kauri original Publication date:** 2019-04-24
+- **Kauri original tags:** smart-contract, dotnet, nethereum
+- **Kauri original hash:** QmSydezx29qnek9MTBk29bj4wXFyh3WqMbEq295UV996Zs
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

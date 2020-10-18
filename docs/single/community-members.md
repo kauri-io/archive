@@ -15,3 +15,16 @@ Attendance in the hackathon is limited to participants (hackers, mentors, etc.) 
 BUT, this doesn't mean we don't have anything planned for you. On the contrary, there's a whole week of events planned around ETHBerlin for which we encourage you to [apply](https://blockchainweek.berlin/).
 
 Moreover, on the 7. of September, in addition to the main venue, ETHBerlin is hosting a series of talks and workshops at Factory Mitte (Rheinsberger Straße 76/77) for which you can acquire tickets by making an announcement via [Peepeth](https://peepeth.com) to use the [BlockParty](http://www.noblockno.party) contracts.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/community-members/6a288e4d47754db783f5f47093a48f42/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYVe6Yf7bbZuNgjMb4FapCcAQXkmtt9F6Sjwb7xC7oyjK
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

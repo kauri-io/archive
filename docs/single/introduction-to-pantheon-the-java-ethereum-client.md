@@ -16,7 +16,7 @@ Pantheon is also mainnet-compatible, and includes features like consensus algori
  .
 This image shows the Pantheon roadmap. Pantheon v1.1 has been released and v1.2 is currently in active development. It appears that (at the time of writing) there is no set release date for v2.0.
 
-![](https://api.kauri.io:443/ipfs/Qma7HGqBFArbdy3Nnfqobgzv21ALPyFqTsgszsnmzrMuHA)
+![](https://ipfs.infura.io/ipfs/Qma7HGqBFArbdy3Nnfqobgzv21ALPyFqTsgszsnmzrMuHA)
 
 
 #### Installation
@@ -141,7 +141,7 @@ The eth_chainId method returns the network id of the running Pantheon node. The 
 #### High Level Architecture
 Here is a diagram of the Pantheon high level architecture from the official Pantheon documentation.
 
-![](https://api.kauri.io:443/ipfs/QmUfjkToZaXp17qwbvH5GKG5s9aTBdncBdpQSLXEN7WXJM)
+![](https://ipfs.infura.io/ipfs/QmUfjkToZaXp17qwbvH5GKG5s9aTBdncBdpQSLXEN7WXJM)
 
 
 #### Links and Resources
@@ -161,3 +161,17 @@ Gitter:
 Twitter: 
 [https://twitter.com/pegasyseng](https://twitter.com/pegasyseng)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introduction-to-pantheon-the-java-ethereum-client/28c03622682842c888f6106a60c4d323/a
+- **Kauri original author:** Web3 Developer (@web3developer)
+- **Kauri original Publication date:** 2019-06-02
+- **Kauri original tags:** ethereum, pantheon, mining
+- **Kauri original hash:** QmbA8qsfhoL8iCS8uyY6FkP7F5FFUvSqPkuZzByLAkcKyr
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

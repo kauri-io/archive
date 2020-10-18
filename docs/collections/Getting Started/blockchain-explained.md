@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmWRdtskZTBhm39uQjaphrQcc4sXdTeUVuZ2s3ZWfdZ42m)
+![](https://ipfs.infura.io/ipfs/QmWRdtskZTBhm39uQjaphrQcc4sXdTeUVuZ2s3ZWfdZ42m)
 
 What is blockchain anyway? In this article, I will try to provide an in-depth yet simple to understand explanation. I will tell you about what is a blockchain, what features it has, which groups of users exist in blockchain network, and how they interact with each other.
  
@@ -53,11 +53,11 @@ It is a question of whether a blockchain should be hugely scalable in the first 
 Each block is made of two parts: header and data.
 Block header is a metadata. Usually, it contains such information as block number, timestamp (the record of when the block was created), block hash, and nonce.
 
-![](https://api.beta.kauri.io:443/ipfs/QmcM7hwg6HU9kzB3LgCXzdSAMqZQKegksTfBqSkHRAgz9Y)
+![](https://ipfs.infura.io/ipfs/QmcM7hwg6HU9kzB3LgCXzdSAMqZQKegksTfBqSkHRAgz9Y)
 
 Block data is a payload. It is the useful information that we need to store. The data usually contains multiple pieces of information that share the same structure. In Bitcoin, each block contains about a hundred of such pieces. Each piece is a transaction. To simplify, each transaction is sender address, recipient address, amount of transaction, and fee. In Ethereum, each transaction also contains “input data” field, which is used to pass data to smart contracts.
 
-![](https://api.beta.kauri.io:443/ipfs/QmPLLGmY7T75rjGGHvbSEr71ZBE2xUqdDCGy3tnmdeLXtZ)
+![](https://ipfs.infura.io/ipfs/QmPLLGmY7T75rjGGHvbSEr71ZBE2xUqdDCGy3tnmdeLXtZ)
 
 
 ### Genesis block
@@ -66,7 +66,7 @@ Genesis block in Bitcoin:
 [Bitcoin Block #0](https://blockchain.info/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f)
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmVfrPPnqYxzJahKTtmrfrDBoHWgpFTWfdEkwYHP6EtLxp)
+![](https://ipfs.infura.io/ipfs/QmVfrPPnqYxzJahKTtmrfrDBoHWgpFTWfdEkwYHP6EtLxp)
 
 
 ### Block generation
@@ -110,7 +110,7 @@ Light nodes don’t store the whole blockchain. They usually store block headers
 ### Web “node”
 Web nodes are not nodes at all. They are wallets that connect to the centralized servers. They don’t store any parts of the blockchain. Web wallets can’t connect to other nodes, receive blocks, or send the transactions. They can only ask a server to do that and expect that the server will provide correct information. They trust entirely to the server that they are connected to. Mobile wallets that don’t store blockchain data also belong there.
 
-![](https://api.beta.kauri.io:443/ipfs/QmNMqRhHk3JyXgHvNtgrFwK8PAhL2yd2YQWhbfXEFmnTwW)
+![](https://ipfs.infura.io/ipfs/QmNMqRhHk3JyXgHvNtgrFwK8PAhL2yd2YQWhbfXEFmnTwW)
 
 
 ### Network
@@ -149,7 +149,7 @@ When these nodes receive the transaction, they will check it. If the transaction
 Of course, a node might already have the transaction when its peer is trying to send it. Because of that, the nodes first send the hash of the transaction. If the receiving node has the transaction with that hash, it will not download it again. If the receiving node doesn’t have the transaction, it will download it and send it further.
 Eventually, all connected nodes, including miners, will receive the transaction.
 
-![](https://api.beta.kauri.io:443/ipfs/QmR2vq4RYzdkDsgcdwFUob8XyT4DcFeHLSqpuMQoccMcXM)
+![](https://ipfs.infura.io/ipfs/QmR2vq4RYzdkDsgcdwFUob8XyT4DcFeHLSqpuMQoccMcXM)
 
 
 ### Block propagation
@@ -171,3 +171,17 @@ First, an attacker doesn’t have a majority. The majority is either in mining r
 Second, an attacker controls a majority. In that situation, he can pretty much control the network. However, even if some authority will control the network, it will likely to lose money. The beauty of cryptocurrencies is that they were built with game theory principles in mind. In cryptocurrencies, having power always means having something at stake. It can be GPUs, ASICs, staked coins, or something else. The attack will likely harm many network participants, and it will affect the price. Mining rigs and staked coins owned by the attacker will lose in value if will be valuable at all.
 It may be dangerous for someone to control the majority of power without even trying to make an attack. If the fact will become known, it will spread quickly and likely affect the price.
 Third, a majority of nodes behaves badly. In fact, the majority doesn’t even need to be coordinated by some person. Simply by behaving wrong, they would be unlikely to make a double spend, but they can stop the network. This is the very unlikely event, as the majority usually obey laws, though it is possible in theory. As in the second scenario, the misbehaving majority will likely be punished by market forces.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-explained/d55684513211466da7f8cc03987607d5/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2018-11-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWBJJJt641GFFPif6umEnYPSWgQR2qn24PnMNb2E4AjYt
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

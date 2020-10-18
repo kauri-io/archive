@@ -292,3 +292,17 @@ The first bit is used as the flag (TYPE_NF_BIT), the rest of the upper 128 bits 
 ```
 
 The functions that use these variables use the bitwise operator & to return the requested value, either 0 for fungible or 1 for nonfungible.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/crypto-items-and-erc1155/d94806ce6d194b698bb616569f53ceff/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmU2hUXW9CNwovcv2qVVu82Q1sUyYM5ZyTAD7RwjybVH1N
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -9,8 +9,10 @@ some_url:
 
 # Creating a Flexible NFT (Part 1)
 
+![](https://ipfs.infura.io/ipfs/QmQw83abtCE6d8eac7vhrU6ijJCKRbR6gTY1URTzoZWkeM)
 
-![](https://api.kauri.io:443/ipfs/QmQw83abtCE6d8eac7vhrU6ijJCKRbR6gTY1URTzoZWkeM)
+
+![](https://ipfs.infura.io/ipfs/QmQw83abtCE6d8eac7vhrU6ijJCKRbR6gTY1URTzoZWkeM)
 ## Creating a Flexible Non-fungible token
 
 The first part of this tutorial shows you how to deploy a [Non-fungible token (NFT)](https://en.wikipedia.org/wiki/Non-fungible_token) using a technique that makes it easy to update details about your token as infrastructure and your needs change.
@@ -991,3 +993,16 @@ Now via the "Write Contract" tab you can directly access the "mint" function, an
 You may notice it doesn't have a name yet, or is called ERC-20 even though it is ERC-721, this is because there hasn't been any transactions yet and etherscan isn't that smart.
 
 End of part 1, celebrate by minting a token or two.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/creating-a-flexible-nft-(part-1)/27640de6baba4aa99d57fd158af5c019/a
+- **Kauri original author:** Billy Rennekamp (@okwme)
+- **Kauri original Publication date:** 2019-06-25
+- **Kauri original tags:** netlify, metadata, lambda, upgradeable, serverless, truffle, nft
+- **Kauri original hash:** QmPTcBpLNQobhpqSNJ737dvtLo1hfDKLh3s8JdVfTL7h2t
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

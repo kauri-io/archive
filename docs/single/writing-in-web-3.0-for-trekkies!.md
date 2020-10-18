@@ -9,13 +9,15 @@ some_url:
 
 # Writing in web 3.0 for trekkies!
 
+![](https://ipfs.infura.io/ipfs/QmZZ1K4V8WYbrWzXHCHTAzyVq3wdvoe7wfHZSsLVWgH4Fx)
+
 
 ## Welcome to web 3.0! 
 It is a wonderful galaxy of open inclusive systems where we respect the consent of our citizens and always give them attribution for their own work!
 
 Captain kirk, you have sighted the world of kauri! What now?
 
-![](https://api.beta.kauri.io:443/ipfs/QmccK4jsB5wQQDdTWdwQfEWPe5BFfYGfrQmYXzJRnCZJcf)
+![](https://ipfs.infura.io/ipfs/QmccK4jsB5wQQDdTWdwQfEWPe5BFfYGfrQmYXzJRnCZJcf)
 
 ## Navigating kauri
 Now that you're here we'd like to show you some of our favorite sights! 
@@ -34,7 +36,7 @@ You can also explore Ethereum on mobile with web3 wallets like status, balance, 
 
 That's better, the Starship Enterprise is now equipped to fully explore and interact with Kauri and the rest of the Ethereum dapps.
 
-![](https://api.beta.kauri.io:443/ipfs/QmZZ1K4V8WYbrWzXHCHTAzyVq3wdvoe7wfHZSsLVWgH4Fx)
+![](https://ipfs.infura.io/ipfs/QmZZ1K4V8WYbrWzXHCHTAzyVq3wdvoe7wfHZSsLVWgH4Fx)
 
 ##Sign in to kauri 
 1. Log into MetaMask (or your wallet), get MetaMask up and running by logging in with your password
@@ -60,8 +62,22 @@ Kauri has built an **_experimental_** importer for the brave Web 3.0 pioneers wh
 4. Articles will be imported to your kauri profile, saved in draft format
 5. Go to your drafts, check the markdown is rendering as you would like and publish! 
 
-![](https://api.beta.kauri.io:443/ipfs/QmYv2GdbTsBUoShrPCmk7CC9DVq1VBshCPnBGWCPArcFwM)
+![](https://ipfs.infura.io/ipfs/QmYv2GdbTsBUoShrPCmk7CC9DVq1VBshCPnBGWCPArcFwM)
 
 Congratulations, you are a kauri pioneer... let us know [@kauri_io] (https://twitter.com/kauri_io) and we may have a token of appreciation for you!
   
   
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/writing-in-web-3.0-for-trekkies!/96cf28b0aaaf48479185b0a9310dd983/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYYMq4niz3Hi8Ujygtm3u7ydHtoJoZTS3wB6LimFsETJh
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

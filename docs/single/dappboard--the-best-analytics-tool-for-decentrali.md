@@ -16,7 +16,7 @@ One year ago we published,
 We have continuously searched for ways to further contribute to the crypto ecosystem and the community of dapp developers. We also observed and listen to the feedback from the builder and after lots of iterating DAppboard is back with a new approach!
 However, analytics and metrics need to adapt as the ecosystem grows and as new dapps are developed. Imagine ranking web 2.0 actors like Airbnb, Google, Booking.com, MailChimp or other web services by their number of page views per weeks? It would bring little additional value to further understanding those applications or how to help those companies.
 
-![](https://api.beta.kauri.io:443/ipfs/QmevPaCywxB4xgvcB31eoNApb9jJABww6xgrc4XZMxsRwr)
+![](https://ipfs.infura.io/ipfs/QmevPaCywxB4xgvcB31eoNApb9jJABww6xgrc4XZMxsRwr)
 
 
 ### The New DAppboard
@@ -49,7 +49,7 @@ All our code is open source and available on
 ### New Features and Metrics
 For the new iteration of DAppBoard, we are releasing a lot of content.
 
-![](https://api.beta.kauri.io:443/ipfs/QmUgQa3tRfvs68hCwzLjGoTrsdB6Xyv4MdYJ69eQ6dc6Mw)
+![](https://ipfs.infura.io/ipfs/QmUgQa3tRfvs68hCwzLjGoTrsdB6Xyv4MdYJ69eQ6dc6Mw)
 
 We are 
 [covering ERC20](https://dappboard.com/tokens)
@@ -92,3 +92,17 @@ At
  *  [Follow @DappBoardTeam on Twitter](https://twitter.com/dappboardteam) 
 
  *  [Browse our code on Github](https://github.com/DAppBoard) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dappboard:-the-best-analytics-tool-for-decentrali/7ecbf211f6ae4960873573f23e64ee82/a
+- **Kauri original author:** Aimable Dusingizimana (@aimable-dusingizimana)
+- **Kauri original Publication date:** 2019-02-01
+- **Kauri original tags:** Ethereum
+- **Kauri original hash:** QmWwPR7m6U9CnVdQFv1QEipEgKkctXcvtFS6fJRe5NU7eY
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

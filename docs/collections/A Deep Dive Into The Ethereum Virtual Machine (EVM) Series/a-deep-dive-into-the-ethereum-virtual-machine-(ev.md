@@ -9,6 +9,8 @@ some_url:
 
 # A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3  Execution Model of the EVM 
 
+![](https://ipfs.infura.io/ipfs/QmdNRJYzZuKoTP7cb35tD5yKs9L5b4kaXVt84Z6XqsJpUx)
+
 
 
 This is a high-level overview of the execution model of the Ethereum Virtual Machine (EVM).  It outlines the state(s) of the machine that changes between the execution steps of an executing smart contract in the EVM.  This consists of the configurations that are held and rewritten before and after each execution step which collectively could be referred to the "state" of the EVM.
@@ -84,3 +86,16 @@ The newly generated block, a unique identifier, and the encapsulated and encrypt
 * [KEVM:  A Complete Semantics of the Ethereum Virtual Machine](https://www.ideals.illinois.edu/bitstream/handle/2142/97207/hildenbrandt-saxena-zhu-rodrigues-guth-daian-rosu-2017-tr_0818.pdf?sequence=3&isAllowed=y)
 
 * [Transaction in Ethereum](https://medium.com/@kctheservant/transactions-in-ethereum-e85a73068f74)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-(ev/ded63988153147348d7c9617b09135af/a
+- **Kauri original author:** Adrian Hacker (@adrian-h)
+- **Kauri original Publication date:** 2020-02-17
+- **Kauri original tags:** ethereum, virtual-machine, execution-model, evm, ethereum-virtual-machine
+- **Kauri original hash:** QmaNZ6EDKqtw6r39u9tJsri4HWozPiRf5HsnPc3hXnxFiX
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

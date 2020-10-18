@@ -9,6 +9,8 @@ some_url:
 
 # Minimum Viable Plasma - The Kyokan Implementation
 
+![](https://ipfs.infura.io/ipfs/QmWBCKBgWdsphqVaix1sAZ5ZZeAqwEPMBqf8zjUDDQLSnd)
+
 
 The issues around scaling Ethereum to high-throughput production use cases are well known. There are many solutions to this problem in progress, from state channels to side chains, but an additional complexity is safely transferring transactions between the Ethereum mainchain and these other locations.
 
@@ -54,3 +56,17 @@ plasma --config ./local-config.yaml start
 A plasma chain also contains any number of validator nodes responsible for verifying blocks that the root node emits and passing transactions from Dapp users to the root node. You start these nodes with the `plasma validate` command as processes part of the Dapp, or by 3rd parties for ultimate decentralized governance. The two node types communicate by a standard gRPC API.
 
 Kyokan's Plasma MVP is planning to integrate the Plasma MVP smart contracts from [Fourth State](https://github.com/fourthstate/plasma-mvp-rootchain) once they have completed an audit by [Authio](https://authio.org). They also plan to start work on language SDKs in 2019, making it easier and more secure to integrate into your Dapps. Keep an eye on progress in the [Plasma MVP GitHub repository](https://github.com/kyokan/plasma).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/minimum-viable-plasma-the-kyokan-implementation/7f9e1c04f3964016806becc33003bdf3/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-01-14
+- **Kauri original tags:** Plasma, Level-2
+- **Kauri original hash:** QmU8LYz2tcJAcvLJVwWkH5hMZLfbvH1tSYBiwuQoz97ej1
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

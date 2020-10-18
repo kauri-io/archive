@@ -9,6 +9,8 @@ some_url:
 
 # DCO Sign-Off  Commiting code to Hyperledger Besu
 
+![](https://ipfs.infura.io/ipfs/QmVy1cEfY2PwWE6xAGRnYuVEpi6HPTab9eZneKsP3X5FZ7)
+
 
 ## DCO Sign-Off
 ![DCO signoff](https://i.imgur.com/4ZBslvZ.png)
@@ -117,3 +119,16 @@ If you've already pushed your changes to Github, you will have to `force push` y
 ### DCO Errors
 
 for more information on DCO sign-off, including how to deal with DCO errors flagged by our bot, check out our wiki: https://wiki.hyperledger.org/display/BESU/How+to+Contribute#HowtoContribute-HowtoworkwithDCO
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dco-sign-off:-commiting-code-to-hyperledger-besu/f58190e5e3bc4b1a9ed902bfccfe58b9/a
+- **Kauri original author:** Felipe Faraggi (@felipefaraggi)
+- **Kauri original Publication date:** 2019-11-27
+- **Kauri original tags:** dco, github, pegasys, git, besu
+- **Kauri original hash:** QmY7xVfd9RWmkNEX93S7xzv1kWHXL4AtPoH8moFtUtrBQM
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

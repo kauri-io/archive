@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Listening for Ethereum Transactions with Eventeum &mdash; Kauri</title>
+    <title>Listening for Ethereum Transactions with Eventeum &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1064,6 +1067,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="listening-for-ethereum-transactions-with-eventeum">Listening for Ethereum Transactions with Eventeum</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR3jU48TTKEqPuyjRrQWxpZfNnhD1BzMayHSsXPJH9Hcw" /></p>
 <p>In this tutorial we will walk through how to use Eventeum to be notified when certain transactions have been mined within the Ethereum network.</p>
 <h3 id="what-is-eventeum">What is Eventeum?</h3>
 <p>Eventeum is an Ethereum event listener service that provides a bridge between the Ethereum network and your middleware layer. Eventeum supports both smart contract event and transaction subscriptions.  These subscriptions can be registered dynamically, and when the subscribed event occurs, a message containing the details of the event are broadcast onto a message bus (currently either Kafka, RabbitMQ and Pulsar) which can then be consumed by your backend services.</p>
@@ -1119,15 +1123,15 @@
 <ol>
 <li>First ensure that metamask is connected to the Rinkeby network.  <strong>This is a very important step, as there is a risk that you may transfer real ETH if you're connected to the wrong network!!</strong></li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmdS4ckxBKfzCvHqUGzszJhQ7wNPs3LivBSNKC8CE5hivD" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdS4ckxBKfzCvHqUGzszJhQ7wNPs3LivBSNKC8CE5hivD" /></p>
 <ol>
 <li>Next, paste the <code>0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2</code> address into the 'Add Recipient' box.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYFzTiqAsorTpXeG233GTx3gYWaky6A7sp9tmG1qisEqQ" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYFzTiqAsorTpXeG233GTx3gYWaky6A7sp9tmG1qisEqQ" /></p>
 <ol>
 <li>Enter a small value in the <code>Amount</code> box, such as 0.001 ETH.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmf7m7QF1Da3XN5eqKGsX4bEDGqCjz2Y3wUomJVhrQNbFG" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf7m7QF1Da3XN5eqKGsX4bEDGqCjz2Y3wUomJVhrQNbFG" /></p>
 <ol>
 <li>
 <p>Click next.</p>
@@ -1136,11 +1140,11 @@
 <p>Keep the default values here, and click Confirm.</p>
 </li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmUN6t9SM98BUiNXizSdqPqHS3kjf2vzDnd1hH2XaCS7ja" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUN6t9SM98BUiNXizSdqPqHS3kjf2vzDnd1hH2XaCS7ja" /></p>
 <ol>
 <li>Your transaction has now been broadcast to the Rinkeby network.  Once the transaction has been mined (this could potentially take a few minutes), you will see a popup similar to this one:</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVdAozLhv8BjeJsYWwd2cXP4S8KfyWFCeGgLMBDwpjxQN" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVdAozLhv8BjeJsYWwd2cXP4S8KfyWFCeGgLMBDwpjxQN" /></p>
 <ol>
 <li>Now in the Eventeum terminal, check the log and you should soon see a 'Sending transaction event message' with details about the transaction that you just sent.  This means Eventeum has now broadcast the transaction onto a Kafka queue, that can be consumed by your backend services!</li>
 </ol>
@@ -1176,7 +1180,16 @@
 <li><a href="https://kauri.io/article/fe81ee9612eb4e5a9ab72790ef24283d/using-eventeum-to-build-a-java-smart-contract-data-cache">Using Eventeum to Build a Java Smart Contract Data Cache</a></li>
 </ul>
 <p>To learn more about Eventeum API's, message specifications or advanced configuration, checkout the github page at: https://github.com/ConsenSys/eventeum/.</p>
-<p>Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs…just don't forget to create a pull request afterwards, to help improve the product!</p></div>
+<p>Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs…just don't forget to create a pull request afterwards, to help improve the product!</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/listening-for-ethereum-transactions-with-eventeum/3e31587c96a74d24b5cdd17952d983e9/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-26</li>
+<li><strong>Kauri original tags:</strong> eventeum, ethereum, transaction</li>
+<li><strong>Kauri original hash:</strong> QmVNtSzauVjx9APfucuUJBom8J27YjmFMEPiDK1YQr8A1U</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../listening-to-ethereum-events-with-eventeum/" title="Listening to Ethereum Events with Eventeum"><span>Previous</span></a></div>

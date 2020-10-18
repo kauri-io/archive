@@ -45,3 +45,17 @@ https://github.com/psiva/Campaign
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kroudcoin/b622147d1bd0488ba23148afac5cfb27/a
+- **Kauri original author:** Siva (@siva)
+- **Kauri original Publication date:** 2019-02-18
+- **Kauri original tags:** ethdenver-2019-submission, bounty-rhombus-2019, bounty-blocknative-2019
+- **Kauri original hash:** QmczrV7NAHZdyiw4zk2FyhoNeUw7jz3C5H7kYi7rRAAT8g
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -453,3 +453,17 @@ get_money() -> SELFDESTRUCT
 There is a lot going on here, but it's rather simple. Our script cycled through symbolic data and values and worked through all possible states, eventually it called a function that allowed a user to withdraw their funds. Here our exploiting contract was prepared with a payable fallback function to receive the funds, and make a call back to the target contract to initiate another withdrawal before the balance in the target contract can be updated. 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bytecode-only-analysis-of-evm-smart-contracts/9ca9a32cc36340b19fd82de6df12e36c/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-28
+- **Kauri original tags:** ethereum, advanced, solidity
+- **Kauri original hash:** QmTz8ZUtthk6fpsGrbRyp44w5nfCX5xuMCxd3ALwycETjx
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

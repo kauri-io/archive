@@ -9,6 +9,8 @@ some_url:
 
 # Fluree  Blockchain, GraphQL, and more all in one database
 
+![](https://ipfs.infura.io/ipfs/QmdVbDwAn4b5DjkCupkUJFcbvNDfHqxBESiQXyEcS1VDax)
+
 
 > "FlureeDB is a database purpose-built to fit the requirements of modern enterprise applications while providing blockchain capabilities for data security, workflow efficiency, and industry interoperability."
 
@@ -91,3 +93,17 @@ Next, you add sample data, again with the four methods available to you. As Flur
 Fluree is fascinating, but the multitude of bundled features overwhelming, sometimes too much choice can be a little daunting and confusing. It's kind of like a database engine, plus a semblance of an application layer bundle into one. I know that many older, relational databases have packed these sorts of features in the past, but it's been a while since I have used a relational database, and have got used to the simplicity of NoSQL offerings. The different interface options are welcome, but I wonder if maybe picking and sticking to one might have been a better engineering decision, especially FlureeQL, which is unique to Fluree. Adding "blockchain" to the tech stack is a choice I am unsure about. [I covered BigchainDB before](https://www.sitepoint.com/bigchaindb-blockchain-data-storage/), which attempted to do the same, albeit in a different way. I'm unsure if Fluree's blockchain features comprise and actual blockchain, or just blockchain-like features, but that's fine, if you have a use case for them, it doesn't matter what you call them.
 
 I was also unable to test anything like performance or reliability metrics of Fluree thoroughly, so whether all the features add much overhead I'm unsure. All in all, I strongly suggest you test Fluree and see how it may work for your application use case.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/fluree:-blockchain-graphql-and-more-all-in-one-da/0dfaad0705ab49cfb97a7d3564dce236/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-09-11
+- **Kauri original tags:** database, graphql, scalability, sparkql
+- **Kauri original hash:** QmcXhwUL7aDtdBwym5UsjxkaYYVau89kjXRYdH5Jtj9QA1
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

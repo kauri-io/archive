@@ -9,6 +9,8 @@ some_url:
 
 # True anonymity, privacy, and SNApps with Simon Harman of Loki
 
+![](https://ipfs.infura.io/ipfs/QmYrrbRbKZ1V71tGphnoR6WEbk5frDMwjAdC1Dwz3RvmQZ)
+
 
 In this Blockwatch, I speak with Simon Harman, project lead at [Loki](https://loki.network), who provides a refreshing, honest, and realistic perspective on Blockchain and privacy.
 
@@ -59,3 +61,17 @@ You can host any web application on Lokinet as a SNApp, enabling users to host a
 Simon told me that Loki developers have come up with a challenge to find something that doesn't run as a SNApp. In contrast to other decentralized networks, this opens Loki to a world of existing applications that need little or no modification to run on their network.
 
 If you have an application that needs privacy and anonymity, then Loki is a new option for you to try and I'd welcome hearing your experiences in the comments below.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/true-anonymity-privacy-and-snapps-with-simon-harm/8726f589aba948c5a7ab1def1a13a264/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-09-16
+- **Kauri original tags:** privacy, anonymity
+- **Kauri original hash:** QmXHEWmPSAeQSm6LU4aTsNh3rh1CPKTvUchizZjbMikkGb
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

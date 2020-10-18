@@ -46,3 +46,17 @@ https://github.com/brennanfife/DOXA
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/doxa/deca1e67ba3b4016b6aebb5ac306185a/a
+- **Kauri original author:** Brennan Fife (@brennanfife)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, bounty-rhombus-2019, bounty-bloom-2019, bounty-mainframe-2019
+- **Kauri original hash:** QmXW6N1PCi8eF9QUBscMFSSFAHq6KJ9bGTfHhD5id8hwUr
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

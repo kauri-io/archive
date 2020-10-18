@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/aragon-apps:-group/d75f0cc82ca74a83abce18b034822bd7/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-05-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWbuiPaXhbV3q931wcsndX6Ni842fE6zrMExgzjPb1AEE
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

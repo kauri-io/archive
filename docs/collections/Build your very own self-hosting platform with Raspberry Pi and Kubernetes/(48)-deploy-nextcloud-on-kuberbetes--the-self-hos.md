@@ -9,6 +9,8 @@ some_url:
 
 # (4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox
 
+![](https://ipfs.infura.io/ipfs/QmWWVPyzfpSc2Pd1EcJ4RyqvQGB6iB7ytNTmVfawExJ3sr)
+
 
 <br />
 
@@ -32,7 +34,7 @@ Now we have prepared our RaspberryPi cluster to receive Kubernetes as a self-hos
 
 [NextCloud](https://nextcloud.com/) is an file hosting open-source software similar to Dropbox. Unlike Dropbox, NextCloud is not available as a SaaS but only on-premise which means anyone is allowed to install and operate it on their own private server. NextCloud offers individuals and organisations to gain control over their private data with a safe and secure solutions. NextCloud also provides a long list of add-ons working alongside the file sharing solution such as: Calendar & Contacts management, Audio/Video conferencing, Task Management, Photos albums and more.  
 
-![](https://api.kauri.io:443/ipfs/QmQ7zPeatKZ8PY3Y2Qh4USKg9DHEdTiKbKTFjsrPfqrt8T)
+![](https://ipfs.infura.io/ipfs/QmQ7zPeatKZ8PY3Y2Qh4USKg9DHEdTiKbKTFjsrPfqrt8T)
 
 In this article we will learn how to safely install NextCloud on a Kubernetes environment and configure both Desktop and Mobile access from anywhere.
 
@@ -347,4 +349,18 @@ You can also download the [Android](https://play.google.com/store/apps/details?i
 
 <br />
 <br />
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(48)-deploy-nextcloud-on-kuberbetes:-the-self-hos/f958350b22794419b09fc34c7284b02e/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-03-31
+- **Kauri original tags:** self-hosting, nextcloud, kubernetes, dropbox, open-source, file-hosting, helm
+- **Kauri original hash:** QmaKwvWjA1eTYcnE4o1gwTFvpWkegaYZZ8JRzJhzXjEyiK
+- **Kauri original checkpoint:** unknown
+
+
 

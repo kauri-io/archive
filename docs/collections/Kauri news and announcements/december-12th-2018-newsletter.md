@@ -47,3 +47,17 @@ If you're interested in creating content on Kauri, below are some places to get 
 - Want to import your content from Medium? [We have an importer that helps](https://beta.kauri.io/article/15673b4f86da49f5aed621696499c662/v2/kauri-importer-guidelines)
 
 P.S. If you're having trouble using Kauri, we recommend viewing the articles in the [Help section](https://rinkeby.kauri.io/help). And if you need more help, [submit a request](https://rinkeby.kauri.io/create-request).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/december-12th-2018-newsletter/8da33fca3f2d41fe9dde3c033794237f/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-01-10
+- **Kauri original tags:** Newsletter, News, KAURI
+- **Kauri original hash:** QmahjpXR9AquaGAKd9S7Ya3aDF9o1fnKSK26Ss5oAoBh8x
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

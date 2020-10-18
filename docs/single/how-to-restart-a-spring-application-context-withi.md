@@ -9,6 +9,8 @@ some_url:
 
 # How to Restart a Spring Application Context within a JUnit test
 
+![](https://ipfs.infura.io/ipfs/QmSfF92rBHgqKaCdiwSjY9H5HcDUYj67WiqWCeyNsMh5Qr)
+
 
 ### The Problem
 When attempting to write some failover tests to verify the resilience features in [Eventeum](https://github.com/ConsenSys/eventeum), there didn't seem to be an easy way to restart a Spring application in the middle of an integration test.  Spring provides the `@DirtiesContext` annotation in order to rebuild the context before or after a test run, but this is not of much use for service failure testing unless you write a suite of tests that depend on each other, which is generally regarded as a bad practice.
@@ -139,6 +141,20 @@ Simply run with the new `RestartingSpringBootRunner`, and force a context restar
 Having the ability to restart a Spring application context during an integration test is a very desirable feature, especially when testing the recovery behaviour of your application after it has rebooted.
 
 This feature can be implemented by making a few trivial extensions to a couple of Spring test classes along with implementing a relatively simple restarter singleton.  It is then very easy to integrate within your JUnit tests. 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-restart-a-spring-application-context-withi/3251991670674bcf846cc5792c95fc77/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-09-20
+- **Kauri original tags:** spring, junit4, junit, java, testing, spring-boot, springboot
+- **Kauri original hash:** QmcFyNF3HUmFN9Rc47BEYrYoKMWgjKTtZFZTXuMQLRbQDf
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

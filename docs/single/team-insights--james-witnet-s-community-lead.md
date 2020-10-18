@@ -108,3 +108,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/team-insights:-james-witnet-s-community-lead/006712c0472d4071851a0de5f15dc35e/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** Qme2BR5bDHkHQeVhjs7KmFWcYEFkNAATtBCVwqinDDdVdi
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

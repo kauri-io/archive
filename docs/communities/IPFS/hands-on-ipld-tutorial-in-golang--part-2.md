@@ -9,6 +9,8 @@ some_url:
 
 # Hands-on IPLD Tutorial in Golang  PART 2
 
+![](https://ipfs.infura.io/ipfs/QmVo6CzDQJc5KYz64yxTKcWqpofSTjRHme6pgqeRE8BUCk)
+
 
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/hands-on-ipld-tutorial-in-golang-2/?ref=kauri). If you are interested in IPFS, Libp2p, Ethereum, Zero-knowledge Proofs, DeFi, CryptoEconomics, IPLD, Multiformats, and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com?ref=kauri).
 
@@ -226,3 +228,16 @@ He is also the author of the [Hands-on Artificial Intelligence for Blockchain](h
 
 
 Vaibhav Saini is Co-founder of [TowardsBlockchain](https://signy.io?ref=kauri), [Dappkit](https://dappkit.io?ref=kauri) &amp; [SimpleAsWater](https://simpleaswater.com?ref=kauri). You can know more about him [here](https://www.linkedin.com/in/vasadev/). 
+
+
+---
+
+- **Kauri original link:** https://kauri.io/hands-on-ipld-tutorial-in-golang:-part-2/5fa2dc4be27b433d86d571ba857ab02d/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-01-16
+- **Kauri original tags:** merkle-trees, ipfs, simpleaswater, golang, dag, ipld
+- **Kauri original hash:** QmZCduoHvo99ASHkrdeajztZTavQb5rcR1rmp8GY9gxUHg
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

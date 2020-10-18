@@ -9,6 +9,8 @@ some_url:
 
 # Dappush.info ETHDenver Impact Track Submission
 
+![](https://ipfs.infura.io/ipfs/QmaiGkqEbzM6yMg1vppKMY4L42WWfToyUUQ79wUfcLocn8)
+
 
 ## Project Name 
 Dappush
@@ -90,6 +92,20 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/TrevorJTClarke/dappush
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dappush.info-ethdenver-impact-track-submission/ff1b7f1460974edebf369e512e0cc53e/a
+- **Kauri original author:** Josh Han (@joshglobal)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact
+- **Kauri original hash:** QmbuwUkyKd7Cru6vYyGA71wi44Kk7CU4EwbNyToio5Qr8r
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

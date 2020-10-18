@@ -42,3 +42,16 @@ You can make changes to your submission up until the Hackathon deadline, 8am Mou
 
 ### Problems?
 Any questions, come to the Kauri booth at the top of the stairs near the main stage. Or message us on [Status](https://get.status.im/chat/public/kauri)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/using-kauri-at-the-ethdenver-hackathon/c0a2014e14964677a8fc849d9d73bde0/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** help, ethglobal, kauri, ethdenver, hackathons
+- **Kauri original hash:** QmbS2nFw2xbeNcmMqM7dQ1czeVTCCjpDAZhmZ9Dmq1rn5X
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

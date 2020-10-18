@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Creating a DApp in Go with Geth &mdash; Kauri</title>
+    <title>Creating a DApp in Go with Geth &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -671,8 +674,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -771,10 +774,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1056,7 +1059,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1065,6 +1068,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="creating-a-dapp-in-go-with-geth">Creating a DApp in Go with Geth</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfCaFUvx94wo9BD1HvntsbxbiaLcDZCSHJpQt3dT7GCoU" /></p>
 <p>Go Ethereum (or Geth) is the official Go implementation of the Ethereum protocol. The <a href="https://github.com/ethereum/go-ethereum">Go Ethereum GitHub repository</a> holds source code for the Geth Ethereum client and other tools and libraries for developing DApps (decentralized applications).</p>
 <p>This guide walks through writing a riddle application in Go, using the Go Ethereum SDK and the Rinkeby testnet. You can find the sample code for this guide <a href="https://github.com/kauri-io/Content/tree/master/go-ethereum-guides/write-basic-quiz-dapp-in-go/quiz-dapp">here</a>.</p>
 <h3 id="why-write-dapps-using-go">Why write DApps using Go?</h3>
@@ -1126,7 +1130,7 @@ require (
 <li>Enter a name for the project, and click <strong>CREATE</strong> to set up a new project.</li>
 </ol>
 <p>The newly created project should look like this:</p>
-<p><img alt="New project on Infura.io" src="https://api.beta.kauri.io:443/ipfs/QmSXXdatWZMkp63Hu4BYtgmNHTp75TD3Mm2BGxauFBhkYT" /></p>
+<p><img alt="New project on Infura.io" src="https://ipfs.infura.io/ipfs/QmSXXdatWZMkp63Hu4BYtgmNHTp75TD3Mm2BGxauFBhkYT" /></p>
 <p>We'll come back to this later when we've deployed the smart contract.</p>
 <p>For now, we need the URL of our project's Ethereum API gateway endpoint. Select "RINKEBY" from the <strong>ENDPOINT</strong> dropdown menu, and take note of the URL that appears underneath it. It should look like this:</p>
 <pre><code>https://rinkeby.infura.io/v3/&lt;PROJECT_ID&gt;
@@ -1435,7 +1439,7 @@ func updateEnvFile(k string, val string) {
 <p>We have to find a way to pass strings to our contract as the <code>question</code> and <code>answer</code> parameters, but we don't want to hardcode our answer or commit a file containing the answer to VCS. If we do, a user looking at the contract source or our DApp source code would be able to find the expected value for <code>answer</code> stored as plain text.</p>
 <p>We also don't want to send the value of <code>answer</code> to the contract as plain text, because the contents of all transactions broadcasted to the network are logged as part of the transaction's payload. Any values sent as plain text would appear as-is when viewing the transaction's payload.</p>
 <p>See an example of this at <a href="https://rinkeby.etherscan.io/tx/0x445d51fc29741b261f392936970b3c842e922dec841023ca40e248b9d3a2ba19"><code>0x445d51fc29741b261f392936970b3c842e922dec841023ca40e248b9d3a2ba19</code></a> on the Rinkeby network.</p>
-<p><img alt="Answer stored as plain text" src="https://api.beta.kauri.io:443/ipfs/QmNZf2x1NDCWzSWvqus3dDeDmcUtp4U4GVpH6pKR9m8Z3z" /></p>
+<p><img alt="Answer stored as plain text" src="https://ipfs.infura.io/ipfs/QmNZf2x1NDCWzSWvqus3dDeDmcUtp4U4GVpH6pKR9m8Z3z" /></p>
 <p>To get around this, we do two things:</p>
 <p>We're already loading values from a <code>.env</code> file, so we can use that to store our <code>question</code> and <code>answer</code> values.</p>
 <p>Add a <code>QUESTION</code> and an <code>ANSWER</code> key-value pair. Make the following changes to the <code>.env</code>:</p>
@@ -1622,7 +1626,16 @@ ANSWER=&quot;this is the answer&quot;
 <p>Our DApp is a simple example of what we can do with smart contracts and a Go DApp. Because we tried to keep the example straightforward, our DApp has a few limitations:</p>
 <p>Our DApp doesn't know if a transaction is completed or not. That's why we need separate functions to send an answer to the blockchain, and another to check if the answer was correct. We can implement this by having a process listen to any events on the blockchain at our contract address, but this is outside the scope of this guide.</p>
 <p>Our user can't just run the DApp, and it works. They need to specify a keystore file, and make sure that they have a deployed contract ready to interact with. We can correct this by adding to our CLI options that allow the user to enter values that configure these parameters.</p>
-<p>Our DApp assumes that the user who runs it is the same person who (1) deploys the contract, and (2) answers the question. Ideally, the DApp that deploys the contract and the DApp that interacts with the contract should be separate.</p></div>
+<p>Our DApp assumes that the user who runs it is the same person who (1) deploys the contract, and (2) answers the question. Ideally, the DApp that deploys the contract and the DApp that interacts with the contract should be separate.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a</li>
+<li><strong>Kauri original author:</strong> Zed (@zed)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-03</li>
+<li><strong>Kauri original tags:</strong> Golang, Go-programming-language, DApp, Geth</li>
+<li><strong>Kauri original hash:</strong> QmNwRw3MevQE5zb8fPYiDgg4y2nSfUbkDmW4X8sGZQKxv8</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../erc-20-and-its-discontents--the-rise-of-comrades-/" title="ERC-20 and Its Discontents The Rise of Comrades ERC-777 & ERC-1820"><span>Previous</span></a></div>

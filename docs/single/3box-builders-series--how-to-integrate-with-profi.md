@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmVRP9wYpyZg52iYMDaFeJx8wdJ7rnUaaCi7WWnZLJGFjj)
+![](https://ipfs.infura.io/ipfs/QmVRP9wYpyZg52iYMDaFeJx8wdJ7rnUaaCi7WWnZLJGFjj)
 
  
 _The Builders Series is a collection of blog posts aimed at helping developers easily build better distributed apps using the 3Box _[suite of APIs](https://github.com/3box/3box-js/blob/develop/README.md)
@@ -193,7 +193,7 @@ _**Note: Steps 3–4 below are only relevant for new users who have no existing 
 
 #### 3. Configure default profile, if not done previously.
 
-![](https://api.kauri.io:443/ipfs/QmZEv5vhUz5gVsKSf3ngfX1p5Mp3WTFojt5JWW8wGhktoa)
+![](https://ipfs.infura.io/ipfs/QmZEv5vhUz5gVsKSf3ngfX1p5Mp3WTFojt5JWW8wGhktoa)
 
 Since the user has not previously set up or configured their profile for your app, they should see a blank profile, but you should offer them the option to set one up. After the user clicks “Set up my profile”, you should determine which options to present to the user for setting a default profile in your application: 1) using their existing 3Box profile (if one exists); or 2) setting up a new profile for your application.
  
@@ -209,7 +209,7 @@ If the user doesn’t have a pre-existing 3Box profile, you don’t need to prov
 `defaultProfile`
  (option 2 in the code block below), and proceed to Step 4b.
 
-![](https://api.kauri.io:443/ipfs/Qme6W2NiJKL3sPjxvPUC5LZoVac8NwsxBHyVto8NjBhvxP)
+![](https://ipfs.infura.io/ipfs/Qme6W2NiJKL3sPjxvPUC5LZoVac8NwsxBHyVto8NjBhvxP)
 
 This code snippet describes the data that should be saved to your app’s space, as a result of the user’s selection above:
 
@@ -238,7 +238,7 @@ livepeerSpace.public.set('defaultProfile', 'livepeer')
 `Box.getProfile(<eth-addres>)`
  .
 
-![](https://api.kauri.io:443/ipfs/QmW5oc97SP6AB2j4KNuMvjQ99hV4mNAp3jkXRKWR6aATK5)
+![](https://ipfs.infura.io/ipfs/QmW5oc97SP6AB2j4KNuMvjQ99hV4mNAp3jkXRKWR6aATK5)
 
  
 **Edit profile with 3Box as default:**
@@ -246,7 +246,7 @@ livepeerSpace.public.set('defaultProfile', 'livepeer')
 [3box.io](http://3box.io)
  to make the updates — since these changes will be reflected across every other application accessed with 3Box, and it might be hard or confusing to communicate that from within your app.
 
-![](https://api.kauri.io:443/ipfs/QmYmvDpPjp3YCScnFzTxXHQff8cCkYnryJhsmYu25aC8WX)
+![](https://ipfs.infura.io/ipfs/QmYmvDpPjp3YCScnFzTxXHQff8cCkYnryJhsmYu25aC8WX)
 
 
 #### 4b. Display profile information, if your app is chosen as default.
@@ -254,7 +254,7 @@ livepeerSpace.public.set('defaultProfile', 'livepeer')
 **Save new app profile data**
  : If users opt for creating a new profile in your app, then you should provide them with an interface to enter their new profile information.
 
-![](https://api.kauri.io:443/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY)
+![](https://ipfs.infura.io/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY)
 
 When the user clicks “SAVE”, write this information to their 3Box, in your app’s space:
 
@@ -294,19 +294,19 @@ livepeerSpace.private.set('email', 'youremail@gmail.com')
 **Display app profile:**
  When they’re done creating their profile, it should look something like this.
 
-![](https://api.kauri.io:443/ipfs/Qmaxike5BZq2yhrCDhMNrZRmm4QZgpqo4kwADJojVHTNWn)
+![](https://ipfs.infura.io/ipfs/Qmaxike5BZq2yhrCDhMNrZRmm4QZgpqo4kwADJojVHTNWn)
 
  
 **Edit app profile:**
  In this case, it would look the same as the save app profile data step above. You would just re-save the data to your app’s space with new values.
 
-![](https://api.kauri.io:443/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY)
+![](https://ipfs.infura.io/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY)
 
 
 ### 🌈 Display Profiles Throughout Your App
 Now that a user has configured their profile for your app, you will want to display it in your app’s UI, making it available to this user and other users on various pages. This section describes the application logic and code that should be implemented on other pages of your app where you wish to display user profiles.
 
-![](https://api.kauri.io:443/ipfs/QmXvJYxMayWGCcYrcxMvwCp3Paev2AZLsXydfXa32tSNiD)
+![](https://ipfs.infura.io/ipfs/QmXvJYxMayWGCcYrcxMvwCp3Paev2AZLsXydfXa32tSNiD)
 
 
 #### How to Display User Profiles
@@ -356,3 +356,17 @@ Subscribe to our
 [newsletter](http://eepurl.com/dFVXCj)
  
 Happy building! ⚒️
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/3box-builders-series:-how-to-integrate-with-profi/389cbed20fc8404ebf631634153dc76f/a
+- **Kauri original author:** Danny Zuckerman (@dazuck)
+- **Kauri original Publication date:** 2019-05-04
+- **Kauri original tags:** 3box, data, buidl
+- **Kauri original hash:** QmNXByYbx48aReDXJ5o3USGKuetAmGtdNrRmHNxp3gMv5w
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

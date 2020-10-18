@@ -96,3 +96,17 @@ A sample of decentralized apps that have surfaced over the past several years in
 
 A quick internet search will return a long list of ongoing, more theoretical work-in-progress decentralized applications, many of which are working to solve real-world problems. For a more curated list, please reference: https://www.stateofthedapps.com/ 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-1-what-is-ethereum/67a81d8746ee4b49ba19447e8e2a983e/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** ethereum, dapp, blockchain, tutorial
+- **Kauri original hash:** QmV3HLyXXnZVarZaxxyVZa74JyrsZvNegW5XYvUX8s77HG
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

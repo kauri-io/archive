@@ -9,6 +9,8 @@ some_url:
 
 # Exchange types explained  CLOB, RFQ, and Automated
 
+![](https://ipfs.infura.io/ipfs/QmfXrKWoT6r6vCRQfbbiocF5QkdfJee5hWtSxTX4PVqxTv)
+
 
 Since [**Hummingbot**](https://www.hummingbot.io) is an open source bot platform that connects many different exchanges, we have developed a deep understanding of the nuances between various exchange types. 
 
@@ -29,10 +31,10 @@ We also discuss the degrees of decentralization of each methodology.  CLOB excha
 ---
 
 ## Central Limit Order Book (CLOB) Exchanges
-![](https://api.kauri.io:443/ipfs/QmRgVYQAcgFgurn6h2p7Qoa3JnDK5Ji1xeFdYXQZoiweUy)
+![](https://ipfs.infura.io/ipfs/QmRgVYQAcgFgurn6h2p7Qoa3JnDK5Ji1xeFdYXQZoiweUy)
 
 Central limit order books are the most widely used exchange methodology.  If you have transacted on Coinbase, Binance, Kraken, or any centralized exchange, you have transacted on a CLOB.  Not limited to digital asset exchanges, this methodology is also used by traditional exchanges such as the New York Stock Exchange (NYSE) and Chicago Board of Trade (CBOT), which trades commodity futures. This method of exchange is rooted in the “trading pits” associated with the early days of Wall Street and commodities markets: chaotic, crowded venues with people yelling and shouting orders.
-![](https://api.kauri.io:443/ipfs/QmeUK7hWknMNN6hqxDSeABd4d4r3sokB7YhqQCx5YdCUhj)
+![](https://ipfs.infura.io/ipfs/QmeUK7hWknMNN6hqxDSeABd4d4r3sokB7YhqQCx5YdCUhj)
 
 ### Coordinating buyers and sellers on a CLOB exchange
 
@@ -42,7 +44,7 @@ Central limit order books are the most widely used exchange methodology.  If you
 4. In order to consummate a transaction, another party (a **taker**) must accept the prices and quantities available on the order book. The exchange operator matches the taker's acceptance (its **market order**) with the corresponding orders in the order book that fulfill the taker’s order at the currently available best prices.
 
 ### CLOB explained in pictures
-![](https://api.kauri.io:443/ipfs/QmWoXRkWTViBg4hLVxKLjbGD3BEW9DkEkduXdmCQ4L5GCZ)
+![](https://ipfs.infura.io/ipfs/QmWoXRkWTViBg4hLVxKLjbGD3BEW9DkEkduXdmCQ4L5GCZ)
 
 ### Order matching on a CLOB exchange
 
@@ -73,7 +75,7 @@ However, these exchanges still control the information of the order book, mainta
 ---
 
 ## Request for Quotation (RFQ) Exchanges
-![](https://api.kauri.io:443/ipfs/QmUJNGF9bnh94Nb7YD8MDZsCTbJAcZrVSqZ5rtSzZNP4pd)
+![](https://ipfs.infura.io/ipfs/QmUJNGF9bnh94Nb7YD8MDZsCTbJAcZrVSqZ5rtSzZNP4pd)
 
 Request for quotation is a common practice used in daily life and business and can simply be thought of as price comparison shopping or pricing on demand. Some activities involving RFQs include:
 
@@ -92,7 +94,7 @@ One distinction of an RFQ type of business process is that you will typically kn
 In RFQs, the role of the exchange operator (or smart contract) is to organize and keep track of quotation providers for a taker, assist in the coordination of requesting and receiving quotes, and finally provide a method for effecting (settling) the transaction once agreed.
 
 ### RFQ explained in pictures
-![](https://api.kauri.io:443/ipfs/QmbcHSSxhJXykLVXf3ipYNKpCLcKWpKE8guX3v2YL9oW1e)
+![](https://ipfs.infura.io/ipfs/QmbcHSSxhJXykLVXf3ipYNKpCLcKWpKE8guX3v2YL9oW1e)
 
 ### RFQ and decentralization
 
@@ -105,16 +107,16 @@ In practice, technical complexities must be overcome to fully enable more widesp
 ---
 
 ## Automated Exchange
-![](https://api.kauri.io:443/ipfs/QmZHAahUARyucBM2gxUzmx3CLCSXY9eQfBNpLL9HTDr5MV)
+![](https://ipfs.infura.io/ipfs/QmZHAahUARyucBM2gxUzmx3CLCSXY9eQfBNpLL9HTDr5MV)
 
 A relatively new form of exchange that has emerged in the cryptocurrency markets is the automated exchange such as Bancor and Uniswap. These exchanges do away with order books altogether and instead use a smart contract and its inventory to determine prices for exchange. We discuss how Uniswap works in a previous [blog post](/blog/2019-04-hummingbot-vs-uniswap/).
 
 ### Automated exchange explained in pictures
-![](https://api.kauri.io:443/ipfs/QmY1Fpt9PY872n94NixMMe9LYR4WmvUDsKciPxsWBfLhsZ)
+![](https://ipfs.infura.io/ipfs/QmY1Fpt9PY872n94NixMMe9LYR4WmvUDsKciPxsWBfLhsZ)
 
 To understand numerically how automated market maker pricing works, this <a href="http://bit.ly/2VhceZT" target="_blank">spreadsheet</a> may be helpful.
 
-![](https://api.kauri.io:443/ipfs/QmYMJ2keSw7zrWqwTqWm4UQMfeqHrwkcNVGGazYzkfbFKs)
+![](https://ipfs.infura.io/ipfs/QmYMJ2keSw7zrWqwTqWm4UQMfeqHrwkcNVGGazYzkfbFKs)
 
 ### Automated exchanges and decentralization
 
@@ -131,3 +133,17 @@ Since it's simply a smart contract, once deployed, the exchange can be accessed 
 1. Exchanges may also allow for the specification of additional parameters for additional complexity and customization, such as order duration/expiration or other conditions (stop, limit).
 2. Unlike other market places, when applied to digital assets, the counterparty in an RFQ transaction facilitated by an RFQ protocol may only be *known* by their wallet address.
 3. Note that for decentralized exchanges, the operator or platform may not know who the actual party is, however the operator and the taker will know the maker’s Ethereum wallet address.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/exchange-types-explained:-clob-rfq-and-automated/2e23af304e7f4d64b3302ed53e07788b/a
+- **Kauri original author:** Hummingbot (@hummingbot)
+- **Kauri original Publication date:** 2019-05-23
+- **Kauri original tags:** cryptocurrency, trading, dex, crypto-trading, exchange
+- **Kauri original hash:** QmNjxNQJ2SDhfNqMSBGxn11e9P9ULZuVkFagGc5BCHsyEx
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

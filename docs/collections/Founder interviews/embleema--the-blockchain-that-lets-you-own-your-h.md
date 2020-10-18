@@ -9,6 +9,8 @@ some_url:
 
 # Embleema  The Blockchain That Lets You Own Your Health Data
 
+![](https://ipfs.infura.io/ipfs/QmNwffrzWKdVhugqqP5XTgPNs7AC6jyAibqiekLAFkNBms)
+
 
 Robert Chu founded Embleema in November of 2017 to re-empower patients by applying blockchain to enable the patients to control and share the medical records.
 
@@ -109,3 +111,17 @@ The current version we are running in production is based on Ethereum, as a priv
 ### What is on Embleema's roadmap for the next six months?
 
 We will continue to work with more patient associations with different diseases, work with pharmas, and advance our work with the FDA to accelerate the evidence generation and sharing with the regulator. We have our work cut out for us!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/embleema:-the-blockchain-that-lets-you-own-your-h/1eb4b076c4ee4bd3beb652dd4d2f266c/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-09-23
+- **Kauri original tags:** data, privacy, data-sovereignty, healthcare
+- **Kauri original hash:** QmcXziZZQH377vGU89dtYQGj5U2V37LpStoca27364AkAX
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

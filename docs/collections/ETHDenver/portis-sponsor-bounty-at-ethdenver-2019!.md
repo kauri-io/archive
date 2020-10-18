@@ -9,6 +9,8 @@ some_url:
 
 # Portis - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmVhVXVyx5ZnD7Df5AoRg2ZnxVcCFGKr4tV95c1f8o7oL6)
+
 
 ## Company/Project Name and Description
 
@@ -46,5 +48,19 @@ Itay Radotzki - itay@portis.io
 Scott Gralnick - scott@portis.io
 
 [Telegram channel](https://t.me/PortisHQ)
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/portis-sponsor-bounty-at-ethdenver-2019!/9869c4b05df54c6c9ee84b58fa4b45a1/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** ethereum, ux, usability, web3js, sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmaGwJc5tYioiuVyhDX27ArpPCPc6vez7U7RPBPbnthSS5
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

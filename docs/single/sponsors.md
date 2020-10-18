@@ -30,3 +30,16 @@ If you want to host special prizes, you can create your own issue in the hackath
 and judging/acceptance criteria, and then fund it through Gitcoin. To get an idea how the issue will look like
 you can either have a look at the issue for the main prize pool, or [issues](https://github.com/JoinColony/colonyHackathon/issues/42) created for the colony hackathon
 after which ETHBerlin's funding is modeled.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sponsors/3650e7e5774c46dc9b945fb3b08ec9c0/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmNPmQvd7KyCtVN3myhUwcXc7FJPeKT4PEq14mDsxohkDm
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

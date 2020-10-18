@@ -9,6 +9,8 @@ some_url:
 
 # Dollar Cost Averaging using Wyre
 
+![](https://ipfs.infura.io/ipfs/QmdWgBPTPHM3K8tg52fKLBgiuCLDnJ2zkjpGdw56croiYg)
+
 
 
 ## Dollar Cost Averaging using Wyre
@@ -39,8 +41,21 @@ Open
 https://github.com/ubien/WyreCostAverage
 
 ## Flow
- * 1 ![](https://api.kauri.io:443/ipfs/QmTj4MffJswTn8PppQTgdKfQcdsJbgGXGS1oe6ZVC3251r)
-* 2 ![](https://api.kauri.io:443/ipfs/Qmdk5xqrXXsnkhEfgasNXQgpKyNcsJMGPrSWmM6krDoq46)
-* 3 ![](https://api.kauri.io:443/ipfs/QmNLvjLGGcQDriSoUa7eDebNwasR6EQhHgKk6vmk8ZXQpf)
-* 4 ![](https://api.kauri.io:443/ipfs/QmQFajT7DonrvGa91Jy4v5GdgSsteFsfsKU5ZtPZMVv6re)
-*5 ![](https://api.kauri.io:443/ipfs/QmVyW2NUVyKkX5yU5fQ64rD9CTvYiXyLGtPNPAXvaAzacL)
+ * 1 ![](https://ipfs.infura.io/ipfs/QmTj4MffJswTn8PppQTgdKfQcdsJbgGXGS1oe6ZVC3251r)
+* 2 ![](https://ipfs.infura.io/ipfs/Qmdk5xqrXXsnkhEfgasNXQgpKyNcsJMGPrSWmM6krDoq46)
+* 3 ![](https://ipfs.infura.io/ipfs/QmNLvjLGGcQDriSoUa7eDebNwasR6EQhHgKk6vmk8ZXQpf)
+* 4 ![](https://ipfs.infura.io/ipfs/QmQFajT7DonrvGa91Jy4v5GdgSsteFsfsKU5ZtPZMVv6re)
+*5 ![](https://ipfs.infura.io/ipfs/QmVyW2NUVyKkX5yU5fQ64rD9CTvYiXyLGtPNPAXvaAzacL)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dollar-cost-averaging-using-wyre/6cf6ec391af0484ab87e3eca720cc480/a
+- **Kauri original author:** Jacob Mortensen (@ubien)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, wyre
+- **Kauri original hash:** QmRdPvFMVJRGkvg8YRQtf7ct1SPycgvFoH2xYwz2sCWTzQ
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

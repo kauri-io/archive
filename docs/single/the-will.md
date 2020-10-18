@@ -62,3 +62,17 @@ For Project Goals and Summary, click "Learn more" on the demo homepage
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-will/77c3af763758464bb19e61aae06f0e6c/a
+- **Kauri original author:** Audrey Worsham (@audball)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, portis
+- **Kauri original hash:** QmcXPczRKSdKYYjWFtDAUKfZf98abPWCWzaajEjSiHFCmU
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

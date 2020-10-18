@@ -41,3 +41,17 @@ https://gitlab.com/mpcahn/ethgeocaching
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethocaching/d980ca8f058e4df78c1849932e0348dd/a
+- **Kauri original author:** Matthew Cahn (@mpcahn)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-graph-2019, bounty-grap
+- **Kauri original hash:** QmNqUQSHtroUFoh8Bavu6phKbsubhfhK1kNQvBsjxwXzT5
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

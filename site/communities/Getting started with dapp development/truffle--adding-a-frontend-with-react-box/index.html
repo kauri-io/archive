@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Truffle Adding a frontend with react box &mdash; Kauri</title>
+    <title>Truffle Adding a frontend with react box &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -672,8 +675,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -772,10 +775,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1057,7 +1060,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1112,7 +1115,7 @@ Commands:
   Build for production: cd client &amp;&amp; npm run build
 </code></pre>
 <p>This creates a new truffle project with an example SimpleStorage dApp example:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmTUZDeNyDqWXFCP6GZoi4jW1hSVaXmFVQ2rk5GVvKzyUb" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTUZDeNyDqWXFCP6GZoi4jW1hSVaXmFVQ2rk5GVvKzyUb" /></p>
 <ul>
 <li><strong>client/</strong>: Files for react app</li>
 <li><strong>client/public/</strong>: store static web files</li>
@@ -1135,7 +1138,7 @@ Commands:
 }
 </code></pre>
 <p>Your truffle.js file should look like this:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmNXLHM7cV4r7unU5CVKdKMVLFdExXiVHeSqi6nBMiS9H7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNXLHM7cV4r7unU5CVKdKMVLFdExXiVHeSqi6nBMiS9H7" /></p>
 <p>Note: Make sure you add the comma after <code>contracts_build_directory: path.join(_dirname, "client/src/contracts"),</code></p>
 <p>In a separate terminal start ganache-cli:</p>
 <pre><code>$ ganache-cli
@@ -1255,7 +1258,7 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 </code></pre>
 <p>You should see the following when you visit <strong>http://localhost:3000</strong> in your browser:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQ1ELwN6wTLte71W5h5Fkn374LXc5czNMpd7n9YkNiH4u" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ1ELwN6wTLte71W5h5Fkn374LXc5czNMpd7n9YkNiH4u" /></p>
 <p>Note: Right now this tutorial is assuming that you do not have Metamask installed. Thus if the stored value is 0 do not be alarmed. If you have Metamask installed: switch to the localhost network. You will see a transaction message pop up on the screen. If you reject the transaction you will see a 0 and if you accept it you will see a 5. Either way we will just continue on from this step. </p>
 <h3 id="setup-project-for-our-bounties-dapp">Setup Project For Our Bounties dApp</h3>
 <p>Now that we have the example project up and running, we can now start adapting it for our bounties dApp, we'll need to complete the following steps:</p>
@@ -1274,7 +1277,7 @@ $ npm install react-bootstrap-table --save
 <p>Note: You may have a warning of a vulnerability; just use <code>npm audit fix</code> as it suggests to fix the problem.</p>
 <p>Next, delete the contracts/SimpleStorage.sol file and replace it with the [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol) file we developed previously:</p>
 <p><strong>Note: You will also need to replace inside the Bounties.sol file anything that says SimpleStorage with Bounties.</strong></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSjNJpDkMq4MFX7ucWFoXy6D5wpNikMU3Mm2AWvQwtwnb" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSjNJpDkMq4MFX7ucWFoXy6D5wpNikMU3Mm2AWvQwtwnb" /></p>
 <p>Next, update the migration file <code>2_deploy_contracts.js</code> to deploy our <code>Bounties.sol</code> smart contract:</p>
 <pre><code>var Bounties = artifacts.require(&quot;./Bounties.sol&quot;);
 
@@ -1282,7 +1285,7 @@ module.exports = function(deployer) {
   deployer.deploy(Bounties);
 };
 </code></pre>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSSC3fraVm6ou7CpEZFSBPa6W5P1ujijz53p1W3bmocn9" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSSC3fraVm6ou7CpEZFSBPa6W5P1ujijz53p1W3bmocn9" /></p>
 <p>Now we have everything set up, we can now start updating our main application logic within the <code>src/App.js</code> file.</p>
 <p><strong>NOTE: Usually with react.js we would structure our app with components and use a state management library such as redux, however for the purpose of this tutorial we will just be focusing on the web3 components required for this dApp.</strong></p>
 <p>So in order to interact with our Bounties.sol smart contract, our App.js file will need to import the ABI (Application Binary Interface) which will be generated by Truffle during compilation. Currently <code>src/App.js</code> is configured to import the SimpleStorage.json file, let's update this:</p>
@@ -1601,9 +1604,9 @@ import Panel from 'react-bootstrap/lib/Panel';
 <p><a href="https://infura.io/">https://infura.io</a></p>
 <p>If you do not already have an Infura account, the first thing you need to do is [register for an account] (https://infura.io/register).</p>
 <p>Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
 <p>Once your project is created, select the environment we will be deploying to, in this case <strong>Rinkeby</strong>, from the <strong>Endpoint</strong> drop down and copy the endpoint URL for future reference:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
 <p>Make sure you save this token and keep it private!</p>
 <p><strong>HDWallet Provider</strong></p>
 <p>Infura, for security reasons, does not manage your private keys.We need to add the Truffle HDWallet Provider so that Truffle can sign deployment transactions before sending them to an Infura node.</p>
@@ -1624,18 +1627,18 @@ import Panel from 'react-bootstrap/lib/Panel';
 <li>Click the “Generate” button to generate the mnemonic</li>
 <li>Copy and save the mnemonic located in the field “BIP39”, <strong>remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts</strong></li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
 <ol>
 <li>Scroll down the page to the <em>Derived Addresses</em> section and copy and save the <em>Address</em> this will be your Ethereum deployment account.</li>
 </ol>
 <p><strong>NOTE: Your private key will be displayed here, please keep this private.</strong></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
 <p>Above the address we’ll be using is: <strong>0x56fB94c8C667D7F612C0eC19616C39F3A50C3435</strong></p>
 <p><strong>Configure Truffle</strong></p>
 <p>Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the <strong>Rinkeby</strong> environment. To do this we will need to edit the <code>truffle.js</code> configuration file.</p>
 <p>First let's create a <code>secrets.json</code> file, this file will store your mnemonic and Infura API key so that it can be loaded by the hdwallet provider.</p>
 <p><strong>NOTE: Remember not to check this file into any public repository!</strong></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
 <p>Next, copy the following extract to the <code>truffle.js</code> configuration file:</p>
 <pre><code>const path = require(&quot;path&quot;);
 const HDWalletProvider = require('truffle-hdwallet-provider');
@@ -1679,16 +1682,16 @@ module.exports = {
 <p>Copy the link to the social media post</p>
 </li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
 <ol>
 <li>Paste the link into the [<em>Rinkeby</em> ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
 <ol>
 <li>Check the Rinkeby etherscan for the status of the transaction</li>
 </ol>
 <p>[https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
 <p><strong>Deploy</strong></p>
 <p>To deploy simply run the <code>truffle migrate</code> command whilst specifying the network to deploy to. The networks are defined in the truffle.js configuration file we configured earlier in this article:</p>
 <pre><code>$ truffle migrate --network rinkeby
@@ -1766,19 +1769,19 @@ Summary
 <li>Visit <a href="https://metamask.io">https://metamask.io</a></li>
 <li>Select the option to install the extension in your browser, this should take you to the browser extension store</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmb9oQNLHRhX9VYhRxjWG2bJEHGFspCTcByFPtPf8E27PL" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb9oQNLHRhX9VYhRxjWG2bJEHGFspCTcByFPtPf8E27PL" /></p>
 <ul>
 <li>In the store, select the option to add the extension to the browser</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmeVJnN8xtTWha25crJSj95QwAsPaZdzJMdsQKTnjMAdC2" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeVJnN8xtTWha25crJSj95QwAsPaZdzJMdsQKTnjMAdC2" /></p>
 <ul>
 <li>Accept the permissions to install the Metamask extension</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmUZLuuVz9WbAe5YcrBA4cECQmqtDDXhswoYcpU3bZwDwJ" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUZLuuVz9WbAe5YcrBA4cECQmqtDDXhswoYcpU3bZwDwJ" /></p>
 <ul>
 <li>Once installed, open the extension in the browser extension tab and you will be prompted to create an account, if you already have an account you can import it here using your seed phrase</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmPCcMzmwZZ8oPZBJWef9hinUgaNR9zxj7VNqmFYCSNCKr" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPCcMzmwZZ8oPZBJWef9hinUgaNR9zxj7VNqmFYCSNCKr" /></p>
 <ul>
 <li>
 <p>Whilst creating your account, Metamask will take you through accepting terms and conditions and then will prompt you to save your seed phrase and force you to re-enter it to sure you remember it</p>
@@ -1790,12 +1793,12 @@ Summary
 <p>Once done you'll be logged into Metamask with Metamask point at the Ethereum mainnet, so let's ensure we switch the environment to rinkbey test net before we begin</p>
 </li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSx5Mgm1SbHSjdztdkFxVwmpk6CQ7pQqLYnwXJzHvcenf" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSx5Mgm1SbHSjdztdkFxVwmpk6CQ7pQqLYnwXJzHvcenf" /></p>
 <p><strong>Fund Account</strong></p>
 <p>Note: Using the faucet to fund your account; you have to wait the required amount of time before you can receive more test ether.</p>
 <p>So now we have a new account set up in Metamask we'll want to fund it! We can do this by using the [rinkeby faucet] (https://faucet.rinkeby.io/)we used earlier in the tutorial.</p>
 <p>We just need to copy our accounts address to send ETH to which we can find in Metamask here:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQGi7gxC5DMvekV3mzrrKcjcBH3mLVzmpHetYSK3FFsiz" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQGi7gxC5DMvekV3mzrrKcjcBH3mLVzmpHetYSK3FFsiz" /></p>
 <p><strong>Run the app!</strong></p>
 <p>Right we're now ready to run the app:</p>
 <pre><code>$ npm run start
@@ -1809,7 +1812,7 @@ The app is running at:
 <p>Note that the development build is not optimized.
 To create a production build, use npm run build.</p>
 <p>Our dApp will be available at <strong>http://localhost:3000</strong> and should look like this:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmeMTzTSgCMRFMjtBA36ZWZSZkQuzkK51HtsUAkdWny5cg" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeMTzTSgCMRFMjtBA36ZWZSZkQuzkK51HtsUAkdWny5cg" /></p>
 <p><strong>Issue a bounty</strong></p>
 <p>Right so if all is working we should be able to issue a bounty by filling out the details in this form and submitting via the <code>issue Bounty</code> button.</p>
 <p>Let's submit the following data:</p>
@@ -1818,7 +1821,7 @@ To create a production build, use npm run build.</p>
 <li>Bounty deadline: 1691452800 - (August 8th 2023)</li>
 <li>Bounty amount: 1 (Remember our app will covert this to weis before sending)</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmYS72i51Q9q7rzgvfo24VYaA1mpfwx5iaUqG7yaqi6eNm" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYS72i51Q9q7rzgvfo24VYaA1mpfwx5iaUqG7yaqi6eNm" /></p>
 <p>When you hit the “issue Bounty” button you should expect to see a Metamask popup similar to above. This is a transaction confirmation screen, you have the option to:</p>
 <ul>
 <li><strong>Cancel</strong> the transaction (you do not want to proceed with issuing the bounty)</li>
@@ -1902,7 +1905,7 @@ import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 </code></pre>
 <p>Your App.js file should now [look like this] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-react-box-frontend/client/src/App-withEvents.js).</p>
 <p>We're now ready to relaunch our app, actually since its hot loading we shouldn't have to. Your app should now look like this in the browser:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmacomLt3mKrJCg2LZHUncEoyhNnKjucdXk1hsVfagPbJv" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmacomLt3mKrJCg2LZHUncEoyhNnKjucdXk1hsVfagPbJv" /></p>
 <p>Awesome, that's it! Now when you issue a bounty, the details of the bounty will be available in the table once the transaction has been processed. </p>
 <h4 id="data-storage-with-ipfs">Data Storage With IPFS</h4>
 <p><strong>IPFS</strong></p>
@@ -2030,9 +2033,9 @@ export const getJSON = (hash) =&gt; {
 <li>Bounty deadline: 1691452800 - (August 8th 2023)</li>
 <li>Bounty amount: 1.5 (Remember our app will covert this to weis before sending)</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmYspPfPiXwnxeqaTUuGvXvZxZVgQVYqAbmojJLbFPAHmr" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYspPfPiXwnxeqaTUuGvXvZxZVgQVYqAbmojJLbFPAHmr" /></p>
 <p>Once the transaction is confirmed and processed, our app should look like this:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmcaKWkjWapYUKh9oR5sxrPAk3LMmGjaKWJrSUAGU5brXR" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcaKWkjWapYUKh9oR5sxrPAk3LMmGjaKWJrSUAGU5brXR" /></p>
 <p>That's all folk! You have successfully built and deployed a bounty dApp to the rinkeby development environment. The dApp which uses ipfs to store bounty requirements, and we've developed a front end to allow a user to issue a bounty!</p>
 <h3 id="try-it-yourself">Try it yourself</h3>
 <p>You'll have noticed that our front end does not currently support:</p>
@@ -2041,7 +2044,16 @@ export const getJSON = (hash) =&gt; {
 <li>Fulfiling a bounty</li>
 <li>Accepting a fulfilment</li>
 </ul>
-<p>Try adding UI components so users can use these features.</p></div>
+<p>Try adding UI components so users can use these features.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle:-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-24</li>
+<li><strong>Kauri original tags:</strong> TUTORIAL, TRUFFLE, WEB3JS, REACT</li>
+<li><strong>Kauri original hash:</strong> QmZhG4DHRTtB381LTiyG9FMyVYhv2ZPfrSrb7YZtQMZVKo</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../an-introduction-to-solidity-for-experienced-devel/" title="An Introduction to Solidity for Experienced Developers"><span>Previous</span></a></div>

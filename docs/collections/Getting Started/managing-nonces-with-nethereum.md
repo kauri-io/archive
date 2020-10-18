@@ -180,3 +180,17 @@ var txId = await web3.Eth.Transactions.SendRawTransaction.SendRequestAsync("0x" 
 
 
 For more support get in touch with our community:  https://gitter.im/Nethereum/Nethereum
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/managing-nonces-with-nethereum/d7e05d0b1d2e4161a0118df91cb67b89/a
+- **Kauri original author:** Gaël Blanchemain  (@anegg0)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** ethereum, nethereum, nonce, transaction
+- **Kauri original hash:** QmWd7tbNZGVBYVTvTySUryEZmap3XysWaMuKvViXvzb5Ku
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

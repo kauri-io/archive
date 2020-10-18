@@ -135,13 +135,13 @@ Here’s the architecture that
 `plasma-core`
  implements:
 
-![](https://api.kauri.io:443/ipfs/QmVKbwL35B1Pc1d5tABZTSygmFsgkFRaqcd8xjAMmg4mUj)
+![](https://ipfs.infura.io/ipfs/QmVKbwL35B1Pc1d5tABZTSygmFsgkFRaqcd8xjAMmg4mUj)
 
 Here’s the architecture that 
 `plasma-chain-operator`
  implements:
 
-![](https://api.kauri.io:443/ipfs/QmWsoXsxmebL4DvM9q5vWq4bG4fyMpUzpdoEjSXza6nZQJ)
+![](https://ipfs.infura.io/ipfs/QmWsoXsxmebL4DvM9q5vWq4bG4fyMpUzpdoEjSXza6nZQJ)
 
 
 ### 1. General Definitions and Data Structures
@@ -196,7 +196,7 @@ For example: let’s say that
 `0x00000001000000000000000000000004`
  .
 
-![](https://api.kauri.io:443/ipfs/QmZFEWnCuXykXdbyqSE1zcjuDAhXa74Dh96k7DyQzZho5h)
+![](https://ipfs.infura.io/ipfs/QmZFEWnCuXykXdbyqSE1zcjuDAhXa74Dh96k7DyQzZho5h)
 
 
 #### Denominations
@@ -400,7 +400,7 @@ _valid_
  transaction exists for that coin. The problem with this scheme is that transactions are “stuck” at this denomination: if you want to transact multiple coins, you need multiple transactions, one at each leaf.
 Unfortunately, if we put the range-based transactions into branches of a regular Merkle tree, light proofs would become insecure. This is because having one branch does not guarantee that others don’t intersect:
 
-![](https://api.kauri.io:443/ipfs/QmUrLWkfu1au3ksPpN1U2nzbhH2eMEnf8Mj8LUgg3W921h)
+![](https://ipfs.infura.io/ipfs/QmUrLWkfu1au3ksPpN1U2nzbhH2eMEnf8Mj8LUgg3W921h)
 
 With a regular Merkle tree, the 
 _only_
@@ -519,7 +519,7 @@ Then, the range the branch describes is
 `[leftSum, root.sum — rightSum)`
  . See the following example:
 
-![](https://api.kauri.io:443/ipfs/QmWJbC7gN1wjfxHVDFVhMx5GsCb1hNztJ9deNgTq9vZPsD)
+![](https://ipfs.infura.io/ipfs/QmWJbC7gN1wjfxHVDFVhMx5GsCb1hNztJ9deNgTq9vZPsD)
 
 In this example, branch 6’s valid range is 
 `[21+3, 36–5) == [24, 31)`
@@ -532,11 +532,11 @@ If you play around with it, you’ll see that it’s impossible to construct a M
 `?`
  s in grey boxes:
 
-![](https://api.kauri.io:443/ipfs/QmQ79WU9kjp4D6S3iDJ8qpfDo4SB5ab7gXvknTsqMsvwCx)
+![](https://ipfs.infura.io/ipfs/QmQ79WU9kjp4D6S3iDJ8qpfDo4SB5ab7gXvknTsqMsvwCx)
 
 You’ll see it’s always impossible at some level of the tree:
 
-![](https://api.kauri.io:443/ipfs/Qma8vbEY42btUsVPvaoHPBUsKYKJpzhZ2co7H7MXfLC5dX)
+![](https://ipfs.infura.io/ipfs/Qma8vbEY42btUsVPvaoHPBUsKYKJpzhZ2co7H7MXfLC5dX)
 
 This is how we get light clients. We call the branch range bounds the 
 `implicitStart`
@@ -627,7 +627,7 @@ _typed_
 #### Parsing Transfers as Leaves
 In a regular Merkle tree, we construct the bottom layer of nodes by hashing the “leaves”:
 
-![](https://api.kauri.io:443/ipfs/QmSrhxrYuhvGHX3yqgVxTKWTA8pB152XtVLAVBDCWFxLeK)
+![](https://ipfs.infura.io/ipfs/QmSrhxrYuhvGHX3yqgVxTKWTA8pB152XtVLAVBDCWFxLeK)
 
 In our case, we want the leaves to be the transactions. So, the hashing is straightforward, but we still need a 
 `.sum`
@@ -645,7 +645,7 @@ _not_
  will be too small.
 Interestingly, this is a non-deterministic choice because you can pad either the node to the right or left of the gap. We’ve chosen the following “left-aligned” scheme for parsing leaves into blocks:
 
-![](https://api.kauri.io:443/ipfs/QmVH6Wx3MSWRQKH57AYCLSXBUVmFY71hnsKhERUVcxvVF6)
+![](https://ipfs.infura.io/ipfs/QmVH6Wx3MSWRQKH57AYCLSXBUVmFY71hnsKhERUVcxvVF6)
 
 We call the bottommost 
 `.sum`
@@ -1334,7 +1334,7 @@ Currently, when a user recieves a transaction, they ask the operator and re-down
    
  Something we’re not taking advantage of yet is that merkle tree construction is highly parallelizable. If the operator was deployed as a networked cluster, we could increase block size by constructing subtrees in parallel.
 
-![](https://api.kauri.io:443/ipfs/QmYW557y9866JmahujnLhhPCvhH4FNPxE2aDQzRLnmcsj4)
+![](https://ipfs.infura.io/ipfs/QmYW557y9866JmahujnLhhPCvhH4FNPxE2aDQzRLnmcsj4)
 
  
 **Code review**
@@ -1371,3 +1371,17 @@ RSA accumulator constructions and STARKS/SNARKS which batch branch proofs over m
    
  Recently, there’s been some great progress in the research community which suggests state channels and scripting with covenants are feasible on Plasma. Our current spec does not support either of these features, and will require a significant upgrade to the smart contract to support.
 Together, we’ll build towards realizing the vision of a more decentralized future.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/plasma-group-s-plasma-spec/0b2dadc66e584af397bc9b29bc157076/a
+- **Kauri original author:** Plasma Group (@plasma)
+- **Kauri original Publication date:** 2019-04-22
+- **Kauri original tags:** ethereum, scaling, documentation, layer-2, plasma
+- **Kauri original hash:** QmV8Fvugz2B2x4TAzjyGu4ntcNCNZeC9MapVrtESVV6oaH
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

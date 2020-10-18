@@ -9,6 +9,8 @@ some_url:
 
 # 🧧 Red Envelope - gift anytime, any place, and to anyone
 
+![](https://ipfs.infura.io/ipfs/QmRTPY1Bpnqtpqc786BL8zFxKVHdrRshWXttTbAgr9BnGq)
+
 
 
 ## Project Name
@@ -60,5 +62,19 @@ https://github.com/eshavkun/redenvelope-extension
 https://github.com/eshavkun/redenvelope-backend  
 https://github.com/eshavkun/redenvelope-frontend  
 https://github.com/eshavkun/redenvelope-contract
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/red-envelope-gift-anytime-any-place-and-to-anyone/4484917c7868429c9c030ca9de61ebc2/a
+- **Kauri original author:** Johann Barbie (@johba)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ethereumfoundation-bounty2, bounty-status-2019
+- **Kauri original hash:** QmQWwNNWBkQxK4TEfHJShSBWWX5jza4d21FpbiJQaM1WXo
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

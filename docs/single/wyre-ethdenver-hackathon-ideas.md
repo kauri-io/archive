@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmT3XSa3BVP6WNFBNqAm4MuGyZEzjyHJMCgrdsb3fZhN1t)
+![](https://ipfs.infura.io/ipfs/QmT3XSa3BVP6WNFBNqAm4MuGyZEzjyHJMCgrdsb3fZhN1t)
 
 We’re always there to be the bridge between fiat & crypto so that the target market is not just crypto, but anyone who’s got an internet connection. Lowering the barriers to entry is our focus because accelerating the product feedback loop will hackers iterate more quickly.
 
@@ -34,7 +34,7 @@ We’re always there to be the bridge between fiat & crypto so that the target m
  *  _Have fun, and say hi to us. We’re there to help you so pester us with questions if you want!_ 
 ETHDenver is going to be absolutely rocking, and we’re pumped to meet you if we’ve not met you already! The ETHSF hackathon was a blast, and we got to see some amazing projects come out of that. We’re hoping to see the same from you all in Denver!
 
-![](https://api.kauri.io:443/ipfs/QmY7ocHERXEic2mXAGdcBFtJEunPgfeiziTWXv51RXb5x4)
+![](https://ipfs.infura.io/ipfs/QmY7ocHERXEic2mXAGdcBFtJEunPgfeiziTWXv51RXb5x4)
 
 
 ### Hackathon Ideas
@@ -107,3 +107,17 @@ Had something else in mind? Awesome! Give us a buzz, and we’d love to help you
  * 💬 Discord — [https://www.sendwyre.com/discord](https://www.sendwyre.com/discord) 
 We’re looking forward to meeting you all at the hackathon, and literally (can’t stress this enough) there are no stupid questions. This stuff is niche and complex at times, so never feel hesitant to ask the most basic questions. Nothing worse than feeling uncomfortable asking, so just hit us up!
 Good luck, and have fun!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/wyre-ethdenver-hackathon-ideas/0f5b10ed0109499c8417b346f1557867/a
+- **Kauri original author:** Thomas Scaria (@tomscaria)
+- **Kauri original Publication date:** 2019-02-15
+- **Kauri original tags:** wyre, dapp, dai
+- **Kauri original hash:** QmPiULde5VVd3yrksCtfxQc8ecGAThDrXrsWc6VMkSTGAR
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

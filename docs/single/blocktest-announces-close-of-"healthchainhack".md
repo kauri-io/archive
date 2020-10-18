@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmQc8dGwjvEmEd8r886qwJ3beshKtgJSNg5kqtrV2NTbkC)
+![](https://ipfs.infura.io/ipfs/QmQc8dGwjvEmEd8r886qwJ3beshKtgJSNg5kqtrV2NTbkC)
 
  
 _This article was originally published on_
@@ -66,3 +66,17 @@ As winners look forward to celebrating, and as
  hosts wrap up months of dedicated planning, the new year approaches with the promise of opportunities in the distributed world. BlockTEST co-founder Jennifer Jiang said of the competition’s wrap-up: “The last few months have been so exciting for us, hosting the industry’s first-of-its-kind major event as a new startup. Our whole team is grateful to our supporters and sponsors — without them this event would not have been possible. We hope that everyone is excited to see more from BlockTEST in the future.” BlockTEST already has its next steps laid out: the startup just recently announced the beta release of 
 **Greenhouse**
  , their performance-testing tool for blockchain solutions.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blocktest-announces-close-of-"healthchainhack"/f746d93a60b9431ea5fa5cdbf66640c0/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** blockchain, healthcare
+- **Kauri original hash:** QmbxSd7RyieS17yDgJgkVNDfnWZbeSyXzzZUBfB7CvgxSG
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

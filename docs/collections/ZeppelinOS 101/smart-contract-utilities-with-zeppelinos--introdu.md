@@ -79,3 +79,16 @@ ZeppelinOS expect to roll out new features in the future, in the meantime, we ha
 - [Technical details](https://blog.zeppelin.solutions/technical-details-of-zeppelinos-d3cf4da591f7)
 - [White paper](https://zeppelinos.org/zeppelin_os_whitepaper.pdf)
 - [Introducing ZeppelinOS](https://blog.zeppelin.solutions/introducing-zeppelinos-the-operating-system-for-smart-contract-applications-82b042514aa8)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos:-introdu/a054c697f68c434bb657f070cad83e98/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-06
+- **Kauri original tags:** smart-contract, evm-packages, zeppelinos, zeppelin, deploy
+- **Kauri original hash:** QmV7N5Maa3U6YjSyKbkXZq755d2FnjetvSiuhJD43n2r9H
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

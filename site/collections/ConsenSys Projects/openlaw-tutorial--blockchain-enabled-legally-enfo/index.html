@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>OpenLaw Tutorial Blockchain-Enabled, Legally Enforceable Smart Contracts &mdash; Kauri</title>
+    <title>OpenLaw Tutorial Blockchain-Enabled, Legally Enforceable Smart Contracts &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1091,11 +1094,11 @@
  . OpenLaw uses common, well-known markup tag syntax as well as some special tags, which are specific to our protocol. Once the template has been defined, a draft of the contract can be sent to the parties to electronically sign the contract. Evidence of the signature and the agreement will be memorialized on the blockchain once executed.</p>
 <h4 id="start-with-a-blank-document">Start with a Blank Document</h4>
 <p>Normally, contract professionals start with an example and then tailor it to meet the needs of the parties. In this tutorial, however, we will start from scratch to show you how to construct a template using the powerful OpenLaw markup language.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3" /></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC" /></p>
 <h4 id="creating-a-legal-document">Creating a Legal Document</h4>
 <p>In this tutorial, we’ll write up a legal contract where a buyer will buy a Volkswagen bus from a seller for 200 ether (a cryptocurrency on the Ethereum blockchain). A traditional paper-based agreement to support this commercial transaction might look like this:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN" /></p>
 <p>We’re going to recreate this simplistic legal agreement with OpenLaw’s markup and blockchain-enabled capabilities by inputting the following markup as a template, as shown here:
 \centered <strong> BILL OF SALE </strong>
 Seller at Ethereum address [[Seller Address: EthAddress]] (“Seller”) agrees to sell a <strong>[[Purchased Item]]</strong>, and buyer at Ethereum address [[Buyer Address: EthAddress]] (“Buyer”) agrees to pay [[Purchase Price: Number]] ether.
@@ -1116,13 +1119,13 @@ Similarly, we left the purchase price open with the following markup:
 [[Purchase Price: Number]]
 This field is slightly different from the last example in that it constrains the field to a numeric value by adding the suffix Number. There are many different types of constraints, such as dates, Ethereum addresses (in the example above), and more. We’ll describe how those fields work their way onto the blockchain in the next section.
 After updating the markup, saving the document on OpenLaw, and clicking the “Draft” button, we should see a screen that looks like the following:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3" /></p>
 <h3 id="signing-the-contract-on-openlaw">Signing the Contract on OpenLaw</h3>
 <p>In draft mode we can fill in the fields with the buyer’s address, seller’s address, a description of the Volkswagen Bus, and the purchase price, so now the parties can sign the document.
 The first step is to insert the buyer and seller email addresses as this will serve as their identity in OpenLaw (in the future, more options will be available). This is available on the left hand set of fields above like the other fields. Then click the send button to send the document out for signature.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmXTvRnAsNEzxagVidJ31XeNViPgrWksVDYJavH41Zp96g" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXTvRnAsNEzxagVidJ31XeNViPgrWksVDYJavH41Zp96g" /></p>
 <p>Since, in this example, we were logged into OpenLaw as one of the signing parties, we are immediately taken to the signature page, which looks something like the following:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmRBvsPoGN7ETEs1qHKttUdQTREBvMe9sN6ArnJieGerbd" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRBvsPoGN7ETEs1qHKttUdQTREBvMe9sN6ArnJieGerbd" /></p>
 <p>Each party will receive notification that they have a contract to sign via email.
 A key aspect of the signature process comes from special markup tag instructions to the OpenLaw interpreter. For example:
 [[Seller Signatory Email: Identity | Signature]]
@@ -1136,7 +1139,7 @@ The Identity suffix notifies OpenLaw that this field will serve as the user’s 
 <p>Returning to our example above, the parties can automate the purchase and sale of the Volkswagen Bus using a smart contract, such as the follow example in 
 <a href="https://solidity.readthedocs.io/">the Solidity programming language</a>
  , the most popular language for developing smart contracts on the Ethereum blockchain.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmWYZhQf2sdovwoVvg84c7VqRFEw4DfRYRSG5zVMX2URUZ" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWYZhQf2sdovwoVvg84c7VqRFEw4DfRYRSG5zVMX2URUZ" /></p>
 <p>A description of the Solidity programming language is far beyond the scope of this short tutorial, but if you’ve developed in any language, it should be clear that the function recordContract takes four parameters: the object to be sold, the purchase price, and the buyer and seller’s Ethereum addresses. An experienced reader will probably spot many issues with the smart contract code, but please keep in mind this is simply for demonstration.
 Now, using a tool like MetaMask or the Mist Wallet, the buyer can transfer his or her ether to the smart contract to be held pending confirmation that the vehicle was delivered. Once the buyer approves using a smart contract aware wallet like Mist or separate dApp by calling confirmReceipt, the funds will be released to the seller.
 Now that we have our smart contract language, we can deploy it using whatever tool you like. Common tools used for this purpose are 
@@ -1191,7 +1194,16 @@ Using a smart contract enabled wallet like Mist, the buyer can confirm that he o
 <a href="https://medium.com/@OpenLawOfficial">Medium</a>
  and 
 <a href="https://twitter.com/OpenLawOfficial">Twitter</a>
- for further announcements, tutorials, and helpful tips over the upcoming weeks and months.</p></div>
+ for further announcements, tutorials, and helpful tips over the upcoming weeks and months.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/openlaw-tutorial:-blockchain-enabled-legally-enfo/3a4016d6e3bd4c1fbba839244f1802e8/a</li>
+<li><strong>Kauri original author:</strong> Priyanka Desai (@priyanka-desai)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmU3TVPnGEFAHKTwKc9RFxGC4ExrtcifWeX6ECCuXu2hha</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../3box-social-profiles-for-web3-applications/" title="3Box - Social profiles for web3 applications"><span>Previous</span></a></div>

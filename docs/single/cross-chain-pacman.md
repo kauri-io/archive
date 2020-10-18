@@ -9,8 +9,10 @@ some_url:
 
 # Cross-Chain Pacman
 
+![](https://ipfs.infura.io/ipfs/QmYSMq6c4qRizttAju8syD6UAhtq6A1iUgi2Nxex3DBZFZ)
 
-![](https://api.kauri.io:443/ipfs/QmYSMq6c4qRizttAju8syD6UAhtq6A1iUgi2Nxex3DBZFZ)
+
+![](https://ipfs.infura.io/ipfs/QmYSMq6c4qRizttAju8syD6UAhtq6A1iUgi2Nxex3DBZFZ)
 ## Cross-Chain Pacman
 
 
@@ -45,6 +47,20 @@ https://cloudflare-ipfs.com/ipfs/QmR2nvCacJAQTK9drGzv1bYb95JWu7Bh1s18cgAsjxuR3Z/
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/hammadtq/Cross-Chain-Pacman
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cross-chain-pacman/7c9264f8b9b74601a3a247472baa3b77/a
+- **Kauri original author:** Hammad Tariq (@hammadtariq)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-zilliqa-2019
+- **Kauri original hash:** QmdHxT4N3ceUEHtVfQ9mpjcKfemseZdVRz1a5WDT671nC7
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

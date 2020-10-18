@@ -9,6 +9,8 @@ some_url:
 
 # Bzx - the Decentralized Margin Lending Protocol at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmQq9ECH1cfRdKG7SyWY5gdjz1cwQgVDeK83gEoe1GVtuH)
+
 
 bZx is a fully decentralized protocol for margin lending and margin trading on the Ethereum blockchain. It is a financial primitive, a fundamental building block of the decentralized finance software stack. The bZx protocol works alongside exchange protocols like 0x and KyberNetwork to allow critical functionalities like shorting and leverage. You can understand the bZx stack in terms of two layers: the base layer and the liquidation layer. The base layer of the protocol is a series of smart contracts which governs the logic of escrow and interest disbursement. The liquidation layer contains the logic used to execute margin calls on the escrowed funds. This layer also governs the valuation of assets within margin accounts and determines where liquidity is sourced in the event of a margin call.
 
@@ -88,3 +90,16 @@ If you're building a relay, it's not necessary to integrate a 0x orderbook. It c
 ### Need Help
 
 If you need help, please contact us on Telegram at t.me/b0xNet. Direct any technical questions to @tcb101. 
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bzx-the-decentralized-margin-lending-protocol-at-/77dd7d47505c42948f1f585761221fac/a
+- **Kauri original author:** KyleKistner (@bzx)
+- **Kauri original Publication date:** 2019-02-11
+- **Kauri original tags:** protocol, margin-lending, ethdenver, hackathons
+- **Kauri original hash:** QmbAE5hknKQLysztiigMUw623KCLJrZHfPfhiqcQUTAK1D
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -93,3 +93,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/team-insights:-tomas-full-stack-developer/8fe1b34829d84092aef16d3911a6ddb6/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmamvjVGuE3xSNTFrMb3AQt5uTvKKLyFwvVGaikEKXpnTF
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

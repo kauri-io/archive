@@ -225,3 +225,17 @@ function _getNextTokenId() private view returns (uint256) {
 #### Wrap Up
 
 In this article, we've covered the ERC721 token standard, the OpenZeppelin implementation, and how to use the implementation in a simple contract. Further articles in this series will cover more advanced usage patterns for NFTs, including Refungibles, Cryptocomposables (ERC998), and other NFT-compatible standards like ERC1155.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/understanding-openzeppelin-erc721/9a7a50e503a1477f8b91397ecf1677da/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-04
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmb5ysTem1C8r4LQ1kcSUrg9gqFGnz95nm6CyuQP4CUJaW
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

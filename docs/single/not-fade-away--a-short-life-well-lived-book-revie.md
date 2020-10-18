@@ -9,6 +9,8 @@ some_url:
 
 # Not Fade Away  A Short Life Well Lived [Book Review]
 
+![](https://ipfs.infura.io/ipfs/QmbtmY5xhpoLu6EvXgZpKwGjAyEwMXya7uvZ5XSbQq5Vvj)
+
 
 
 ----
@@ -19,7 +21,7 @@ Half biography-autobiography, successful husband, father, friend, and businessma
 [Not Fade Away: A Short Life Well Lived](https://www.google.com/url?sa=t&source=web&rct=j&url=https://www.amazon.com/Not-Fade-Away-Short-Lived/dp/006073731X&ved=2ahUKEwiVyOea0-PeAhVrHjQIHYf0DosQFjAMegQIBhAB&usg=AOvVaw2Onxre-Ub-z90LvF7pYGOg)
  is an intimate illustration of a man in understanding of his capstone life lessons. Humbly, Peter, makes no grandiose attempts at life's big questions. His story is personal.
 
-![](https://api.beta.kauri.io:443/ipfs/QmSQBY4N2ndTE3bbm5bsaYeUvrbxpKRKyUG1zRsc8fyBuK)
+![](https://ipfs.infura.io/ipfs/QmSQBY4N2ndTE3bbm5bsaYeUvrbxpKRKyUG1zRsc8fyBuK)
 
 
 ### How I Picked This Book
@@ -54,3 +56,17 @@ _Not Fade Away_
 
 ### Closing Thoughts
 The chapter that took me the longest to read was the last one. It's no surprise that Peter passes on, but as long as I was reading, he was still alive. So I procrastinated, not wanting to say goodbye.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/not-fade-away:-a-short-life-well-lived-book-revie/1cdfddc8d55d4c17bcf2ddfe3465723d/a
+- **Kauri original author:** Christopher Robison (@cbobrobison)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmdjk58SdNS1YUJp1D1fwgzkq7DVwKSVMqMss2Q9MNWvVQ
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

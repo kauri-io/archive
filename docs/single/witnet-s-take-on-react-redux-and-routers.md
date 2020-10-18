@@ -73,3 +73,17 @@ The containers themselves can handle their internal state as they wish. However,
  
 [Don’t drink the kool-aid](https://en.wikipedia.org/wiki/Drinking_the_Kool-Aid)
  . Use Redux and a router only for what they were thought for. They can interact and work together pretty nicely, but don’t try to mix them up just because you can.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-s-take-on-react-redux-and-routers/2995d69b766c46c38154e96ce7ff8814/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmb6kpk37iFmjjNNdkgBhqnZuTZsQMzQBVYSEBbUQD8Q2R
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

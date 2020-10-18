@@ -9,6 +9,8 @@ some_url:
 
 # How to Code Your Own Confidential Token on Ethereum
 
+![](https://ipfs.infura.io/ipfs/Qmb6Mn3BQcbi4qMZUXrGeAqNqRd8j2hkTKvhnRtcaWC1ZL)
+
 
 > an efficient zero-knowledge privacy protocol to enable private transactions aztec powers real world financial applications on ethereum mainnet today
 
@@ -49,7 +51,7 @@ Ethereum is a
 In this country, people interact, do finance on dApps, move to different cities (wallets) and so forth. I like to think about AZTEC as a quiet woodland confined within the geography of the country. People can go there, declare their balance before stepping in, but after that transactions are confidential.
 The stock picture below represents my (silly) attempt to portray the idea of fading into AZTEC. It’s crystal clear what’s going on in the normal environment (Ethereum), but the state of the world after one crosses the arch is fuzzy and concealed by the forest (AZTEC).
 
-![](https://api.kauri.io:443/ipfs/QmWYb1F5CisH7DcSuzFTv1Mb1137G2Qoj3u8XtXqDTNqW5)
+![](https://ipfs.infura.io/ipfs/QmWYb1F5CisH7DcSuzFTv1Mb1137G2Qoj3u8XtXqDTNqW5)
 
 
 ### Notes
@@ -62,11 +64,11 @@ It is very important to make a distinction between ERC20 and
 **Bitcoin UTXOs**
  , as the process of spending notes on AZTEC is very much similar.
 
-![](https://api.kauri.io:443/ipfs/QmT1o6LSDCSU24UkY4g2APMp3UZB4afiM2VsgXMQimyTHg)
+![](https://ipfs.infura.io/ipfs/QmT1o6LSDCSU24UkY4g2APMp3UZB4afiM2VsgXMQimyTHg)
 
 The contents of a note, classified by their visibility:
 
-![](https://api.kauri.io:443/ipfs/QmTrsPi6PX2dsJzZbfxGhBmGfqbek1KsQR66LeHHuVCfXj)
+![](https://ipfs.infura.io/ipfs/QmTrsPi6PX2dsJzZbfxGhBmGfqbek1KsQR66LeHHuVCfXj)
 
 We’re optimising for speed, so we stop with the fancy cryptography here. If you’re hungry for more, check out our 
 [white paper](https://github.com/AztecProtocol/AZTEC/blob/master/AZTEC.pdf)
@@ -118,7 +120,7 @@ Environment variables:
  *  [INFURA_API_KEY](https://infura.io/) 
 Now, check that your project looks like this:
 
-![](https://api.kauri.io:443/ipfs/QmSRAEwZu3Hz5gyRHwW6aq7g5KWHSdkMV2zCT9GRq9JeJ1)
+![](https://ipfs.infura.io/ipfs/QmSRAEwZu3Hz5gyRHwW6aq7g5KWHSdkMV2zCT9GRq9JeJ1)
 
 Run the demo:
 
@@ -288,7 +290,7 @@ let data = confidentialToken
 Finally, the fun part: call the confidential token contract to make the transfers. Note that the first transaction only converts the ERC20 tokens, so third parties can find out how many tokens were transferred. However, the second transaction is fully confidential.
 Here’s a mindmap for what we just did:
 
-![](https://api.kauri.io:443/ipfs/QmbYNeBtdUdFcekUtRJoaf9NegvP8RhseGUickKbXzpfQK)
+![](https://ipfs.infura.io/ipfs/QmbYNeBtdUdFcekUtRJoaf9NegvP8RhseGUickKbXzpfQK)
 
 
 ### Caveats
@@ -345,3 +347,17 @@ Find me on
  or 
 [Keybase](https://keybase.io/PaulRBerg)
  if you want to chat.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-code-your-own-confidential-token-on-ethere/b699361c8f7b4671aca588f1213e87bd/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-17
+- **Kauri original tags:** privacy, aztec, zero-knowledge-proofs, confidential-transactions
+- **Kauri original hash:** QmVQq8KALURS87KVjrx4DHwRbEEQPGdzXGpMgTrWWUxvfr
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

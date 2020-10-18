@@ -81,3 +81,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/making-p2p-marketplaces-trustless/c9b3cc69bec243b085255c65120b9f8b/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-15
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSWYV46nMsip2vVt8DAVKPR1UgBCfnzvFnc9v7Jd4xEor
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

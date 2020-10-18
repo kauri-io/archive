@@ -41,3 +41,17 @@ https://github.com/ErikAugust/safehouse-composable-contract (Composable ERC-998 
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-submission:-safehouse/61ed6618e7ce4a05810e5068e7410ac5/a
+- **Kauri original author:** Erik (@ease)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmW5yGF3V3xMWKm6nWHv21NeFbVyEUaUyadtwYk3iE7s6w
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

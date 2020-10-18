@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmPeSAtp7B3VVbZg6VWeyzSZXKzTa3pAx7AyqoJw7JHaTa)
+![](https://ipfs.infura.io/ipfs/QmPeSAtp7B3VVbZg6VWeyzSZXKzTa3pAx7AyqoJw7JHaTa)
 
  
 **We are proud to announce today that Ethereum is now available as a Linked Data graph for free.**
@@ -67,3 +67,17 @@ _for sponsoring an enterprise license of their awesome_
   
 _triple store!_
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-linked-data/deb098bc90a049cc8a64fbd975bea6b2/a
+- **Kauri original author:** Alethio (@alethio)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmcc3Awae9FHqsN7h1WDPsRtUJksmcXrko35VzVHzwcq3X
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

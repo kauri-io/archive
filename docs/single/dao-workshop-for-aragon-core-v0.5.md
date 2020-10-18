@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dao-workshop-for-aragon-core-v0.5/2a05982987164853baa8da50ca433420/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-05-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWxfzVbhYqoAXPrsgQj22g4xrzYWjhepVRpgXLGY5pAeq
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

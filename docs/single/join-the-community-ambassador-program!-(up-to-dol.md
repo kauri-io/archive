@@ -9,6 +9,8 @@ some_url:
 
 # Join the Community Ambassador Program! (up to $3k in bounty funding)
 
+![](https://ipfs.infura.io/ipfs/QmYv4NEbcXmick2F3WVccCC5UyZR4ySFJboiqAfx1ZEWaQ)
+
 
 [Apply here!](https://docs.google.com/forms/d/e/1FAIpQLSdPB8KRCSEzFZo-PTgJaPq1Frtu00_PtWJt_oLYr2gECHZw4Q/viewform)
 
@@ -79,3 +81,16 @@ The goal of the program is to enable community members to identify, create and c
 If this sounds interesting, please [apply here](https://docs.google.com/forms/d/e/1FAIpQLSdPB8KRCSEzFZo-PTgJaPq1Frtu00_PtWJt_oLYr2gECHZw4Q/viewform)!
 
 <br>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/join-the-community-ambassador-program!-(up-to-dol/2c51067790da43a2be61650d7c03bd68/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-08-12
+- **Kauri original tags:** kauri, community
+- **Kauri original hash:** QmQTgt9GxQ5FTrr6b8Un2NnaU6ba7Aeo788jyxEJqmUpaw
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

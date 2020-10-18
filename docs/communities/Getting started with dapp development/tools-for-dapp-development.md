@@ -250,3 +250,16 @@ Read Swarm and IPFS comparison (https://github.com/ethersphere/go-ethereum/wiki/
 Consensys Labs along with the Ethereum developer community, have been aggregating a list of open source tools, frameworks, and components, to help developers get started with building on Ethereum. This will be a useful resource to bookmark as you continue your journey into dApp development!
 
 [ConsenSysLabs/ethereum-developer-tools-list] (https://github.com/ConsenSysLabs/ethereum-developer-tools-list)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-01-16
+- **Kauri original tags:** Ethereum
+- **Kauri original hash:** QmVfRNCi22Lrz5MvHnY4pYoWyUP2zE8nVgMgawu1xyafSy
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

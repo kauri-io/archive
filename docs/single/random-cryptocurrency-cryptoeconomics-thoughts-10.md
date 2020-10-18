@@ -26,7 +26,7 @@ A blockchain should have a visible surface, publicly inspectable, as if it were 
  : it should be the summed total of the lingering scar tissue from the greatest attacks (hacking attempts) it survived. A blockchain’s skin should be this accumulating record of scars, an externally visible proof of the cumulative attacks it has endured.
 If you are not allowed a view of these massed scars, then you should probably not trust that chain yet.
 
-![](https://api.kauri.io:443/ipfs/QmVtN1rdLA3yjGhbPVEoJjLcLLJxm3FyGL7Y5VW3jhqXUb)
+![](https://ipfs.infura.io/ipfs/QmVtN1rdLA3yjGhbPVEoJjLcLLJxm3FyGL7Y5VW3jhqXUb)
 
  
 _It is not the most intellectual of the species that survives; it is not the strongest that survives; but the species that survives is the one that is able to adapt to and to adjust best to the changing environment in which it finds itself._
@@ -57,7 +57,7 @@ Crypto is a mind hack: it is a construct that invades (infects) your pre-existin
 Such a case means attempting to derive the axioms and heuristics/rules of cryptocurrencies and cryptoeconomics in purely ‘classical’ economic terms risks missing a vital explanatory framework: how viruses infect-then-overtake-then-rewire their hosts. Explaining and measuring cryptocoinz against old-world supposed-equivalents is a category error. You can’t explain motor cars in terms of hay consumed, height in hands or hurdles jumped.
 Crypto is a mind alien, it has new rules, new language, new origin myths, new logic; it is driven by new dynamics not borrowed/reinterpreted from the equities/bonds/forex markets. Understanding/learning/addressing/using crypto is learning to speak alien-talk to a creature from a spaceship landed on your old-world front lawn that is so weird it completely mind-fucks your old ideas. And then it eats you whole and you subsume into its reality.
 
-![](https://api.kauri.io:443/ipfs/QmSxo7fyLJRq6mHEiV71bj5CRrv7VZFFxFsszkuDKxTieb)
+![](https://ipfs.infura.io/ipfs/QmSxo7fyLJRq6mHEiV71bj5CRrv7VZFFxFsszkuDKxTieb)
 
  
 [https://www.youtube.com/watch?v=LGyvlt_b3is](https://www.youtube.com/watch?v=LGyvlt_b3is)
@@ -174,3 +174,17 @@ previous releases:
 ##1 
 [https://kauri.io/article/f20af020db864fffb5439f6e9870c143/v1/random-cryptocurrency-cryptoeconomics-thoughts-1](https://kauri.io/article/f20af020db864fffb5439f6e9870c143/v1/random-cryptocurrency-cryptoeconomics-thoughts-1)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-10/1aa6113f335d4e96810672188029c215/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, bitcoin
+- **Kauri original hash:** QmcgiskYEPUyiruTTrZETG24EXx5vmn7RrvAuevDHS1q4K
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

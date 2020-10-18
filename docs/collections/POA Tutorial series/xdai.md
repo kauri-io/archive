@@ -9,6 +9,8 @@ some_url:
 
 # xDai
 
+![](https://ipfs.infura.io/ipfs/QmPcYZHoqZoxc2ybhuXFyB8d1ExGLwV4WguKhwp65jLM7s)
+
 
 ## The xDai Chain
 
@@ -50,13 +52,13 @@ Under network selection in Metamask, click on "Custom RPC" and add the RPC endpo
 
 We can also use the Nifty wallet which already has the xDai network configured for you. Download the [Nifty Wallet](https://chrome.google.com/webstore/detail/nifty-wallet/jbdaocneiiinmjbjlgalhcelgbejmnid/related?hl=en) extension for your browser.
 
-![](https://api.kauri.io:443/ipfs/QmZ7B4UniExCxADK5HmudNaZS5knoU9m3CgQLuCDYzqfSu)
+![](https://ipfs.infura.io/ipfs/QmZ7B4UniExCxADK5HmudNaZS5knoU9m3CgQLuCDYzqfSu)
 
 If you already have a Metamask account, copy your seed phrase and click _import existing DEN_ button. Enter your seed phrase and create a password. Once logged in, select the xDai Chain from the list of networks.
 
 **Note**: Later in the tutorial you need this seed phrase again to create a mnemonic variable.
 
-![](https://api.kauri.io:443/ipfs/QmW5kSUBShBqNkWMXqyWSajgrLkfkr2qkpAimXLsaTQPeb)
+![](https://ipfs.infura.io/ipfs/QmW5kSUBShBqNkWMXqyWSajgrLkfkr2qkpAimXLsaTQPeb)
 
 Convert your Dai into xDai using the token bridge <https://dai-bridge.poa.network/>.
 
@@ -95,11 +97,11 @@ truffle migrate --network xdai
 
 Deploy to the xDai network.
 
-![](https://api.kauri.io:443/ipfs/Qmd25W7zi27GL2Kx11yQbJ2mY5ynNiHXi1HbBe8bfHSmDQ)
+![](https://ipfs.infura.io/ipfs/Qmd25W7zi27GL2Kx11yQbJ2mY5ynNiHXi1HbBe8bfHSmDQ)
 
 Use the block explorer to check the status of your transactions.
 
-![](https://api.kauri.io:443/ipfs/QmZQK4UsrnAyGyZbdwxwyJ1BAWdYdoU4fz8Lc6R97xvSdb)
+![](https://ipfs.infura.io/ipfs/QmZQK4UsrnAyGyZbdwxwyJ1BAWdYdoU4fz8Lc6R97xvSdb)
 
 Use the network status link to check the status of the chain nodes.
 
@@ -107,3 +109,17 @@ Use the network status link to check the status of the chain nodes.
 
 -   [More resources](https://forum.poa.network/t/xdai-chain-resources/1769)
 -   <https://poa.network/xdai>
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/xdai/7834a00daa6f4b1ba7c90d76a7350dec/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** poa, xdai
+- **Kauri original hash:** QmdLYHYp6kFqaFHAzTeRq6zCetvzQyyGSyW2gYHVAQsvz6
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

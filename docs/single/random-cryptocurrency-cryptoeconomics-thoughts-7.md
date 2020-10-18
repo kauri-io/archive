@@ -79,3 +79,17 @@ My non-exhaustive list of things a cryptocoin/project needs (or should aspire) t
  
 _Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-7/aa55c22a8b9c43fbbc00587e6359c66f/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmQD7Rh665wMkCncan24LLp9y2r5BntTxXGcRqj8tAXV3C
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

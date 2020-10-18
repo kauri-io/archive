@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/debugging-a-dapp-using-remix-mist-geth/d3cb62626206466a91908dbb52adf6e7/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-05-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQ7mfd4NKpHheBgDv13cBGsXhfyKwNTrScVB3G2vLDC8a
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

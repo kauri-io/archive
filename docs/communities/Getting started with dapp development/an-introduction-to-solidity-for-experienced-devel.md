@@ -9,6 +9,8 @@ some_url:
 
 # An Introduction to Solidity for Experienced Developers
 
+![](https://ipfs.infura.io/ipfs/QmY4YNTQKgxgvPAJTSbmmB6vaSks3nbzvuw2GFH9bhUwTL)
+
 
 **This post applies to Solidity 0.5.x, I am working on an update for 0.6.x**.
 
@@ -266,3 +268,17 @@ contract C {
 ```
 
 Read the documentation for more on [libraries](https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#libraries) and [using for](https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#using-for).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/an-introduction-to-solidity-for-experienced-devel/16b7b58597fc4a9e848b29a6299ee967/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2020-01-20
+- **Kauri original tags:** java, c, javascript, solidity
+- **Kauri original hash:** QmQjz5yTRSvw4MmSkdMxqR6NQwQ6oiV49qfgC7XNGk38sB
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

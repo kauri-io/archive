@@ -15,7 +15,7 @@ some_url:
 It is relatively easy to establish an Ethereum node, send and receive transactions, trade cryptocurrencies, and bring test environments online, though understanding the moving parts and complexities of such a fledgling technology is a formidable task. It takes time. This section will introduce consumers and developers to the decentralized app ecosystem. 
 
 ## Basic Decentralized Infrastructure Stack 
-![](https://api.beta.kauri.io:443/ipfs/QmRvq7e67HBEa3zDKLHwn1GcSk96yuachXxoQMtevui4ZN)
+![](https://ipfs.infura.io/ipfs/QmRvq7e67HBEa3zDKLHwn1GcSk96yuachXxoQMtevui4ZN)
 _(non-exhaustive)_
 
 ## How an End-User Interacts with Your Decentralized App
@@ -26,7 +26,7 @@ MetaMask is a wallet that serves to improve the user experience of transacting o
 
 Let’s send a simple transaction using MetaMask. First, if you haven’t added the app to your Chrome or Firefox browser, go ahead and do that now at the following link: [https://metamask.io/](https://metamask.io/) then move through the steps and setup a password. 
 
-![](https://api.beta.kauri.io:443/ipfs/Qmen7cYubP4VBcVDYivwaqfVieK1Eno18RhEZhKcHWCM6v)
+![](https://ipfs.infura.io/ipfs/Qmen7cYubP4VBcVDYivwaqfVieK1Eno18RhEZhKcHWCM6v)
 
 The above is what a MetaMask end-user sees when sending a transaction. It’s immensely more intuitive.
 
@@ -95,3 +95,17 @@ Integrated development environments all generally serve the same purpose: to str
 ### Linters: 
 - Solhint: [https://github.com/protofire/solhint](https://github.com/protofire/solhint)
 - Ethereum Solidity Language for Visual Studio Code: [http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/](http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-7-decentralized-apps/b282e90cb260459fb8a8cc6e24ae34fa/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** smart-contract, ethereum, 101, dapp, web3, developer, solidity
+- **Kauri original hash:** QmPABHD1nNfUan3jzi7DzpKATwNtUn9VcP6R573W7dmoMx
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

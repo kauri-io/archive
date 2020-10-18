@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Ethereum smart contract data with token/usd prices &mdash; Kauri</title>
+    <title>Ethereum smart contract data with token/usd prices &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1057,7 +1060,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1077,7 +1080,7 @@
 <h2 id="detailed-project-description-no-more-than-3-4-sentences">Detailed Project Description (no more than 3-4 sentences)</h2>
 <p>A hosted Postgres database with real-time Ethereum data that you can query with SQL. Smart contract data is decoded with ABI’s so the table columns are named after the parameters in the Solidity code. What we have added for the hackathon is price data from the CoinCap API - meaning that you can easily get USD value of tokens flowing through dApps. 
 Login to <a href="https://metabase.duneanalytics.com/collection/43">https://metabase.duneanalytics.com/collection/43</a> with email ethdenver@dune.demo and password Tk?ttN8CmSwAu5 and look at a few queries.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSpCqJj3LMXgsJkpv3fK2VJH92xmx5CY6BRXHsAzTAxvP" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSpCqJj3LMXgsJkpv3fK2VJH92xmx5CY6BRXHsAzTAxvP" /></p>
 <p>USD value of loan repayments on Dharma for different tokens</p>
 <h2 id="describe-your-tech-stack-eg-protocols-languages-apis-etc">Describe your tech stack (e.g., protocols, languages, API’s, etc.)</h2>
 <p>We store data in postgres, and let you query it using metabase. Fetching data from CoinCap’s API is done using golang.</p>
@@ -1086,7 +1089,16 @@ Login to <a href="https://metabase.duneanalytics.com/collection/43">https://meta
 <h2 id="all-bounties-completedincorporated">All Bounties Completed/Incorporated</h2>
 <p>Shapeshift bounty 1: CoinCap API</p>
 <h2 id="a-link-to-all-your-source-code-on-a-public-repo-ie-github">A link to all your source code on a public repo (i.e. Github)</h2>
-<p>https://github.com/duneanalytics/dune-coincapper</p></div>
+<p>https://github.com/duneanalytics/dune-coincapper</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-smart-contract-data-with-tokenusd-prices/551ac5d48be34043a59977d6f57e268d/a</li>
+<li><strong>Kauri original author:</strong> Fredrik Haga (@hagaetc)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-17</li>
+<li><strong>Kauri original tags:</strong> ethdenver-2019-submission, shapeshift</li>
+<li><strong>Kauri original hash:</strong> QmaKfjRFvEtXGiStQLBBP8qYkXJ3TGrNTL2TBPmz7eWXEL</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../towards-a-general-purpose-plasma/" title="Towards A General Purpose Plasma"><span>Previous</span></a></div>

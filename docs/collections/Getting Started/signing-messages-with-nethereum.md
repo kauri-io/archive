@@ -127,3 +127,17 @@ When receiving a signature that has been made with a hashed file it's necessary 
 var addressRec2 = signer2.HashAndEcRecover(msg2, signature2);
 ```
 For more support get in touch with our community:  https://gitter.im/Nethereum/Nethereum
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/signing-messages-with-nethereum/feb122418c014c8bb7010063263d0a20/a
+- **Kauri original author:** Gaël Blanchemain  (@anegg0)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** ethereum, encryption, -net, nethereum, tutorial
+- **Kauri original hash:** QmUWoti4Lr95GRAapp9HFuEnzmzozjA1CTNrSBF1GT5jV2
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

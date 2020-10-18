@@ -9,6 +9,8 @@ some_url:
 
 # Building a profile hover with 3box
 
+![](https://ipfs.infura.io/ipfs/QmUucLRhbzCcXpi2Cyf4pxcgf3TKhaHXwBjxCE2rULyja1)
+
 
 
 By design public addresses in Ethereum are represented by a 40 character hexadecimal hash which is unappealing for users. This problem can be solved using profile hovers which instead of displaying a user's Ethereum address, we can display a basic social identity, think of it like using [ENS domains](https://kauri.io/ens:-beginner's-guide/e7f098b57fd24afe9b70506517dd5a63/a) but more sociable.
@@ -213,3 +215,16 @@ UI.
 If you have any questions regarding profile hovers head over to the official
 documentation [here](https://docs.3box.io) and if you want to discuss something
 there is a [Discord Server](https://discordapp.com/invite/TAefehN) for that.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-profile-hover-with-3box/e16d5d2362c64f879426b2bed7a976e7/a
+- **Kauri original author:** Rachid (@rachid)
+- **Kauri original Publication date:** 2020-01-27
+- **Kauri original tags:** 3box, profile-hover, profiles
+- **Kauri original hash:** QmRY8mqo8ZLhR3dy2oEfkdjNaQXZyCGXNwLy7bF5QF3nyb
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

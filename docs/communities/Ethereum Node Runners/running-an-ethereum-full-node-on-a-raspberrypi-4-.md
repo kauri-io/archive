@@ -9,6 +9,8 @@ some_url:
 
 # Running an Ethereum Full Node on a RaspberryPi 4 (model B)
 
+![](https://ipfs.infura.io/ipfs/QmYqK1cmTmUA29EUX39UY1n7PdQwXLkTXGyaNgPXmraVLc)
+
 
 
 ### Introduction
@@ -74,7 +76,7 @@ As mentioned, the board is the latest [Raspberry 4 (model B) - 4GB](https://www.
 
 To host the operating system (OS), I use a [SanDisk 16GB Ultra microSD](https://www.amazon.com/Sandisk-Ultra-Micro-UHS-I-Adapter/dp/B073K14CVB)
 
-![](https://api.kauri.io:443/ipfs/QmRfSNZLcX56Y9FunZQxT3aMY7Z69d2xBVznT2RHxwsJdw)
+![](https://ipfs.infura.io/ipfs/QmRfSNZLcX56Y9FunZQxT3aMY7Z69d2xBVznT2RHxwsJdw)
 
 **Recommended price:** $5
 
@@ -788,3 +790,17 @@ This guide began from a discussion about how hard it is to keep an Ethereum node
 - [Dispelling Myths: How a Pruned Ethereum Node Can Fully Verify the Blockchain (Julian Martinez) - Sept 2018](https://medium.com/coinmonks/how-a-pruned-ethereum-node-can-fully-verify-the-blockchain-bbe9f29663ed)
 - [Intro to Beam Sync (Jason Carver) - Sept 2019](https://medium.com/@jason.carver/intro-to-beam-sync-a0fd168be14a)
 - [geth - command line options](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/running-an-ethereum-full-node-on-a-raspberrypi-4-/9695fcca217f46feb355245275835fc0/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-02-23
+- **Kauri original tags:** ethereum, geth, go-ethereum, raspberrypi, full-node, sync
+- **Kauri original hash:** QmZ4LHgqB57BkCTfMNyABupf3EiWbTEZxWjsmCvYzQgHGr
+- **Kauri original checkpoint:** unknown
+
+
+

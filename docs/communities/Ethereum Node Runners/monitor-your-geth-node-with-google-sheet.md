@@ -9,6 +9,8 @@ some_url:
 
 # Monitor your Geth node with Google Sheet
 
+![](https://ipfs.infura.io/ipfs/QmdTDdL7AmkJNw2aM7hP5dUNbLMt3Y34iZFovbgkRdJ2Hk)
+
 
 In this article, I will explain how to monitor a Geth node and keep track of the syncing process very easily with a **CronJob** and **Google Sheet**
 
@@ -123,3 +125,16 @@ You can now:
 - Track precisely the performance of your Geth node
 - Observe the system health, investigate unusual behaviour and find the root cause of a problem
 - Shill on Twitter your nice diagrams rather than dirty system logs 
+
+
+---
+
+- **Kauri original link:** https://kauri.io/monitor-your-geth-node-with-google-sheet/5ab5c4d558e04a73accebc652ef2246b/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-05-03
+- **Kauri original tags:** ethereum, geth, sheet, monitoring, cronjob
+- **Kauri original hash:** QmYU9ZXxziht9pnLhFyRhzfkzf4tD1GmMEGCBaHtXX55id
+- **Kauri original checkpoint:** unknown
+
+
+

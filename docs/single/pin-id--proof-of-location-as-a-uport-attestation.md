@@ -66,8 +66,22 @@ Bounty Description: "It should be highly usable, mobile friendly, have a low bar
 https://github.com/RyanJoseph15/uport-mobile
 
 
-![](https://api.kauri.io:443/ipfs/QmUxXb6VeaLGmKTNdkNycuYmoX1mzNRjzPKfEEkGvHaePd)
+![](https://ipfs.infura.io/ipfs/QmUxXb6VeaLGmKTNdkNycuYmoX1mzNRjzPKfEEkGvHaePd)
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/pin-id:-proof-of-location-as-a-uport-attestation/2c54b0a3da9348e2838e7d53732469bd/a
+- **Kauri original author:** Christopher Robison (@cbobrobison)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-makerdao, bounty-xyo-2019
+- **Kauri original hash:** QmV8Ku4p4b1tPAXHmqcpb1KWLKq86SnzkxDNn3Rkyac9sc
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

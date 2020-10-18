@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Building a Decentralized Comment Section with 3Box &mdash; Kauri</title>
+    <title>Building a Decentralized Comment Section with 3Box &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1064,6 +1067,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="building-a-decentralized-comment-section-with-3box">Building a Decentralized Comment Section with 3Box</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZ4mqt9me1b5Hvj8EegoiggXho5eGmn5KDquRVDvXFGRn" /></p>
 <p>User comments are an important part of any content-driven application. Traditional web applications usually pair commenting systems with a corresponding user profile system. When we create commenting systems for the decentralized web we also need decentralized user profiles. Luckily, the <a href="https://docs.3box.io/build/plugins/comments">3Box Comments Plugin</a> has us covered.</p>
 <p>The 3Box Comments Plugin is an easy to use <a href="https://reactjs.org/">React</a> component that adds a decentralized commenting system to your app. It connects directly to your users' Ethereum wallets, so there's no need to implement yet another profile system. It also integrates with <a href="https://3box.io/">3Box</a> to upload comments to a database that your users have control over. If you're looking for the ultimate decentralized commenting system, look no further.</p>
 <p>In this tutorial, we build a small React app that implements the 3Box Comments Plugin. We cover all the steps you need to take in order to get a decentralized commenting system running. If you're feeling adventurous, you're more than welcome to follow along while adding the plugin to an existing project.</p>
@@ -1080,7 +1084,7 @@ cd 3box-comments-demo
 <pre><code class="language-sh">npm start
 </code></pre>
 <p>You should see a placeholder page with some basic information about React:</p>
-<p><img alt="Initial React app screenshot" src="https://api.kauri.io:443/ipfs/QmRdD96Qf7FhyFNSGahNz2myAFyrpDFWR9FkVNhZMF2CWJ" /></p>
+<p><img alt="Initial React app screenshot" src="https://ipfs.infura.io/ipfs/QmRdD96Qf7FhyFNSGahNz2myAFyrpDFWR9FkVNhZMF2CWJ" /></p>
 <p><strong>Note</strong>: You'll have an easier time with this demo if you keep the development server running in one terminal window and edit your code in another.</p>
 <h4 id="installing-3box">Installing 3Box</h4>
 <p>Next, we install the 3Box Comments Plugin and the <a href="https://github.com/3box/3box-js">3Box.js SDK</a>. 3Box.js connects our plugin to the 3Box data storage system that gives users control over their comments. In your terminal:</p>
@@ -1123,7 +1127,7 @@ class App extends React.Component {
 export default App;
 </code></pre>
 <p>Your development server should automatically compile the app again once you've made these changes. The webpage should now look like this:</p>
-<p><img alt="React app setup screenshot" src="https://api.kauri.io:443/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs" /></p>
+<p><img alt="React app setup screenshot" src="https://ipfs.infura.io/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs" /></p>
 <h4 id="importing-3box">Importing 3Box</h4>
 <p>Now we start setting up our <code>3box</code> instance. We import <code>3box</code> and <code>3box-comments-react</code> at the top of <code>src/App.js</code> file:</p>
 <pre><code class="language-js">// src/App.js
@@ -1282,7 +1286,7 @@ class App extends React.Component {
 <li>A request for a signature to access your 3Box profile.</li>
 </ol>
 <p>Once you've accepted these requests, you should be able to leave a comment:</p>
-<p><img alt="First 3Box comment screenshot" src="https://api.kauri.io:443/ipfs/QmSvSXL63yCZbYAyxZLsBsCzunPSWyPPy2JPPhQQ7Qg5iA" /></p>
+<p><img alt="First 3Box comment screenshot" src="https://ipfs.infura.io/ipfs/QmSvSXL63yCZbYAyxZLsBsCzunPSWyPPy2JPPhQQ7Qg5iA" /></p>
 <p>And we're off!</p>
 <h3 id="optional-settings">Optional Settings</h3>
 <p>We managed to get the basic comments component running, but <code>3box-comments-react</code> also provides <a href="https://docs.3box.io/build/plugins/comments#3-configure-application-settings">a few additional customization options</a>. Here's a full list:</p>
@@ -1381,7 +1385,7 @@ class App extends React.Component {
 ...
 </code></pre>
 <p>Wait for your app to compile again and head over to the webpage. You should see these new features in action:</p>
-<p><img alt="3Box comments with more features screenshot" src="https://api.kauri.io:443/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW" /></p>
+<p><img alt="3Box comments with more features screenshot" src="https://ipfs.infura.io/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW" /></p>
 <h3 id="making-it-your-own">Making It Your Own</h3>
 <p>Now that you've played around with <code>3box-comments-react</code>, you're ready to integrate it into your own app. You can easily customize the visual style of the component by adding some CSS rules. Let's try making our comment text red. Open up <code>src/index.css</code> and add the following:</p>
 <pre><code class="language-css">// src/index.css
@@ -1392,11 +1396,20 @@ class App extends React.Component {
 }
 </code></pre>
 <p>And here's what that looks like:</p>
-<p><img alt="3Box comments with red text screenshot" src="https://api.kauri.io:443/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue" /></p>
+<p><img alt="3Box comments with red text screenshot" src="https://ipfs.infura.io/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue" /></p>
 <h3 id="conclusion">Conclusion</h3>
 <p>We did it! We managed to get the 3Box Comments Plugin added to a simple React app in just a short period of time. The decentralized future awaits. </p>
 <p>A final version of the code we wrote in this tutorial is available in <a href="https://github.com/kfichter/3box-comments-tutorial">this repository</a>. 3Box has <a href="https://3box.io/products">a lot of other cool tools</a> that you can check out on their <a href="https://3box.io/">website</a> and <a href="https://docs.3box.io/products">documentation page</a>. Since you've just tried out the Comments Plugin, you might want to look at the <a href="https://docs.3box.io/build/plugins/chatbox">Chatbox Plugin</a> next.</p>
-<p>Thanks for checking out this tutorial, see you in the next one!</p></div>
+<p>Thanks for checking out this tutorial, see you in the next one!</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-decentralized-comment-section-with-3bo/8c85ac6937d5481ca485ec2ee2be178d/a</li>
+<li><strong>Kauri original author:</strong> Kelvin Fichter (@kfichter)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-04</li>
+<li><strong>Kauri original tags:</strong> 3box, ethereum, plugin, tutorial, decentralized</li>
+<li><strong>Kauri original hash:</strong> Qma78zfKjjdGCRHiTqtHqmJk4n92pjSHB2xHLS1nxor2vA</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../updating-the-besu-client-binary-on-linux/" title="Updating the Besu client binary on Linux"><span>Previous</span></a></div>

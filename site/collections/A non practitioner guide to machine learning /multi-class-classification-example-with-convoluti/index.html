@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow &mdash; Kauri</title>
+    <title>Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -663,8 +666,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -763,10 +766,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1048,7 +1051,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1057,6 +1060,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow">Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbsUQbFc338YDcLY2T4y1JH7r5kcfSKuTtb8o1NZZMzsB" /></p>
 <p>In the previous articles, we have looked at a regression problem and a binary classification problem. Let's now look at another common supervised learning problem, multi-class classification.</p>
 <p>The staple training exercise for multi-class classification is the MNIST dataset, a set of handwritten roman numerals, while particularly useful, we can spice it up a little and use the  <a href="https://www.kaggle.com/c/Kannada-MNIST">Kannada MNIST dataset</a> available on Kaggle.</p>
 <p>The Kannada language is spoken in southern regions of India, by around 45 million people, and compared to roman numerals provides the advantage of being a lot less familiar to most people and also provides a little extra challenge due to similarity between some of its numerals.</p>
@@ -1108,7 +1112,7 @@ y_val, x_val, y_train, x_train = split_sets(train_raw_data)
 <pre><code class="language-python">sns.distplot(y_val, color='red')
 sns.distplot(y_train, color='green')
 </code></pre>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmTrWCRy9mNzmTSNQ3j4ZFkNSS69uDB2PM1FA1Roq74kMH" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTrWCRy9mNzmTSNQ3j4ZFkNSS69uDB2PM1FA1Roq74kMH" /></p>
 <p>Now let's preview some of the samples, what do this numbers actually look like??</p>
 <pre><code class="language-python">## Let's have a look at some random images
 
@@ -1121,7 +1125,7 @@ for i in range(6):
     ax[i].imshow(x_train[index],cmap=plt.cm.binary)
     ax[i].set_title(y_train[index], fontSize=24)
 </code></pre>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmf8p1UG3KcP7ruNTopYQbFCo7HLEw1DTXhiyjsQHJsL9t" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf8p1UG3KcP7ruNTopYQbFCo7HLEw1DTXhiyjsQHJsL9t" /></p>
 <p>Finally let's reshape the images yet again to prepare them for our Conv2D layers:</p>
 <pre><code class="language-python">x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
 x_val = x_val.values.reshape(x_val.shape[0], 28, 28, 1)
@@ -1194,7 +1198,16 @@ for row in range(ROWS):
         ax[row,column].imshow(image,cmap=plt.cm.binary)
         ax[row, column].set_title(np.argmax(predictions[imgIndex]), fontSize=24)
 
-</code></pre></div>
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/multi-class-classification-example-with-convoluti/145b4c03a55146cba2051f04e7f499e9/a</li>
+<li><strong>Kauri original author:</strong> Davide Scalzo (@davidescalzo)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-09</li>
+<li><strong>Kauri original tags:</strong> artificial-intelligence, machine-learning, classification</li>
+<li><strong>Kauri original hash:</strong> QmTPfUf5QEPK715NZgombYKrzMM8MYW5bbG9Nc94MrLjGq</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../predict-cryptocurrency-prices-with-tensorflow-as-/" title="Predict cryptocurrency prices with Tensorflow as binary classification problem"><span>Previous</span></a></div>

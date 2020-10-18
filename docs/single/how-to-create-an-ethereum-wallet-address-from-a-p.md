@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmPjsFF2FDEQc8fqQBG4rMUsMCaXmHgigUhgKpb1GXUXMV)
+![](https://ipfs.infura.io/ipfs/QmPjsFF2FDEQc8fqQBG4rMUsMCaXmHgigUhgKpb1GXUXMV)
 
 In 
 [the first article](https://medium.freecodecamp.org/how-to-generate-your-very-own-bitcoin-private-key-7ad0f4936e6c)
@@ -140,7 +140,7 @@ for i in range(len(address)):
 ### Conclusion
 As you can see, creating an address for Ethereum is much simpler than for Bitcoin. All we need to do is to apply the ECDSA to public key, then apply Keccak-256, and finally take the last 20 bytes of that hash.
 
-![](https://api.beta.kauri.io:443/ipfs/QmWDnVCb5rQLUQwcggjQcLQnB1vAckGnPUNquo6z92LS3Z)
+![](https://ipfs.infura.io/ipfs/QmWDnVCb5rQLUQwcggjQcLQnB1vAckGnPUNquo6z92LS3Z)
 
 If you want to play with the code, I published it to the 
 [GitHub repository](https://github.com/Destiner/blocksmith).
@@ -149,3 +149,17 @@ If you want to play with the code, I published it to the
 
 I also post random thoughts about crypto on 
 [Twitter](https://twitter.com/DestinerX), so you might want to check it out.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-create-an-ethereum-wallet-address-from-a-p/e464ca2b043a4d2e9e30b01b092dfa13/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2018-11-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSVudzGkE4wLw6ppThaTtHGeHnzfaVte9uPaWCxzwybfa
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

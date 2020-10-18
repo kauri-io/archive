@@ -30,3 +30,16 @@ $ pipenv shell
 
 #### Try it out
  [GitHub Repo](https://github.com/smarx/ethshardingpoc)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sharding-poc/0193c7d7a1d34604880adedae157c09d/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmPp3WrJipiNYL4RmV1TBgZfTQ7K9j21S4E2t6rvrTE5tJ
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

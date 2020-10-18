@@ -39,3 +39,17 @@ Open
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/SkidanovAlex/xshardsynccalls
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/synchronous-cross-shard-transactions/51c8d4c8908549468bb0f299f7c044b9/a
+- **Kauri original author:** Alexander Skidanov (@alexskidanov)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmQQMfWei9dADUWoSH1jFzRTUoz13Pakzix7B9BHdf5pLp
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

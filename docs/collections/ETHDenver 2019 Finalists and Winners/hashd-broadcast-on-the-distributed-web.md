@@ -41,3 +41,17 @@ https://github.com/Harryman/hashd
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/hashd-broadcast-on-the-distributed-web/adeeef4841ac4a6b9a45885e28a6d18b/a
+- **Kauri original author:** Harrison Stahl (@notenoughentropy)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmRzT5qu4iRM1xd4LdfXUa6ZTDPNXXrmNWdLPwBQfTeiup
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

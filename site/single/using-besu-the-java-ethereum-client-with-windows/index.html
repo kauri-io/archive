@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Using Besu, the Java Ethereum Client with Windows &mdash; Kauri</title>
+    <title>Using Besu, the Java Ethereum Client with Windows &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -667,8 +670,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -767,10 +770,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1052,7 +1055,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1061,6 +1064,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="using-besu-the-java-ethereum-client-with-windows">Using Besu, the Java Ethereum Client with Windows</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVmDUj7JVJDfMFmdqqCvQxAzG8XFznDfN6gQ8pWKN7AaD" /></p>
 <p><img alt="Toolbelt: Besu included!" src="https://i.imgur.com/9aae8yO.jpg" />
 Original photo by <a href="https://unsplash.com/@jessedo81?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jesse Orrico</a></p>
 <p><strong>Update</strong>: Pantheon is now Hyperledger Besu. For more information, see <a href="https://pegasys.tech/why-pegasys-contributed-their-ethereum-client-to-the-linux-foundations-hyperledger-community/">here</a>.</p>
@@ -1199,7 +1203,16 @@ sendRequest(requestUrl, payload);
   }
 }
 </code></pre>
-<p>Find more information in the <a href="http://besu.hyperledger.org/">Besu documentation</a>.</p></div>
+<p>Find more information in the <a href="http://besu.hyperledger.org/">Besu documentation</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/using-besu-the-java-ethereum-client-with-windows/8ed3a9dac7e044f9b6b45491fcef0df5/a</li>
+<li><strong>Kauri original author:</strong> Felipe Faraggi (@felipefaraggi)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-22</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, besu, windows</li>
+<li><strong>Kauri original hash:</strong> QmVa2sBYF7APnQqYjP2gRffPQmW75YMPcimA6TVSTyAAPL</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../the-forgotten-side-of-decentralization/" title="The Forgotten Side of Decentralization"><span>Previous</span></a></div>

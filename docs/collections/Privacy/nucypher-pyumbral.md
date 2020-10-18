@@ -9,6 +9,8 @@ some_url:
 
 # NuCypher - PyUmbral
 
+![](https://ipfs.infura.io/ipfs/QmWsMymRmjGBB1z3w8wb5CPwwgjWr6JDg4S4WsUiRhe3zq)
+
 
 > pyUmbral is the reference implementation of the [Umbral](https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf) threshold proxy re-encryption scheme. It is open-source, built with Python, and uses [OpenSSL](https://www.openssl.org/) and [Cryptography.io](https://cryptography.io/en/latest/).
 
@@ -75,7 +77,7 @@ $ pipenv run make html --directory=docs
 
 ### Using pyUmbral
 
-![](https://api.kauri.io:443/ipfs/QmZ2ijWK12hEgrfyuWD2fcj2gE8mx1q834xbEYHZ4HTtpo)
+![](https://ipfs.infura.io/ipfs/QmZ2ijWK12hEgrfyuWD2fcj2gE8mx1q834xbEYHZ4HTtpo)
 
 #### Configuration
 **Setting the default curve**
@@ -198,6 +200,20 @@ Finally, Bob decrypts the re-encrypted ciphertext using the activated capsule.
 ```
 >>> cleartext = pre.decrypt(ciphertext=ciphertext, capsule=capsule, decrypting_key=bobs_private_key)
 ```
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nucypher-pyumbral/7368f23b5e894a9bab71e1deb663f128/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-17
+- **Kauri original tags:** encryption, nucypher, umbral, privacy, proxy-re-encryption
+- **Kauri original hash:** QmejhqbRRm41d5EaGnNZMCuFNNPNF2JEVe2KjgzR9CLYtt
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

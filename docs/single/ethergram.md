@@ -9,6 +9,8 @@ some_url:
 
 # Ethergram
 
+![](https://ipfs.infura.io/ipfs/QmdcDeS1ujc5VHRRGcYbMzREeGgJ5hLSX55uhsibj5P1Ek)
+
 
 ### Ethergram - simple payments over telegram
 
@@ -79,3 +81,17 @@ ShapeShift - We allow users to make a swap from BTC to ETC and back
 POA Network - Use xDai and Bufficon token in Telegram!
 
 MakerDAO - Use DAI token in Telegram!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethergram/db03ca50ad79458ea66e9de25d53fb2a/a
+- **Kauri original author:** Nikita Kozlov (@enormousrage)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, bounty-rhombus-2019, bounty-celer-2019, bounty-makerdao, bounty-poa-2019
+- **Kauri original hash:** QmTSQHbFjGRbZTrb82xy8ANPg5akQuRAVbKAwR3KJmgKN8
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

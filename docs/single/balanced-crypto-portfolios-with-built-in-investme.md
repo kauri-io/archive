@@ -62,3 +62,16 @@ Open
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/protofire/portfolio-balancer
 https://github.com/NimrodHunter/Investment-Liquidity-Pool
+
+
+---
+
+- **Kauri original link:** https://kauri.io/balanced-crypto-portfolios-with-built-in-investme/9d19d66dc9d34f8f88bb9845d9f417d2/a
+- **Kauri original author:** Manuel Garcia (@mgarciap)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-salt-2019, bounty-makerdao, bounty-aave-2019
+- **Kauri original hash:** QmQqX4h1SpHNB2YFWCbdU1rE3DgavtGhXSQRxqTaDYkyuG
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

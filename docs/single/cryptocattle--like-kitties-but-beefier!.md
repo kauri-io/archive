@@ -10,7 +10,7 @@ some_url:
 # CryptoCattle  Like Kitties, but Beefier!
 
 
-![](https://api.kauri.io:443/ipfs/QmY3ECQaqJCf8Y1yL3yMCh11aM4S8CfH4xRRhQWqdhiT5e)
+![](https://ipfs.infura.io/ipfs/QmY3ECQaqJCf8Y1yL3yMCh11aM4S8CfH4xRRhQWqdhiT5e)
 ## Name - 
 
 CryptoCattle
@@ -62,6 +62,20 @@ Zeppelin - Bounty 2 Overview: Best usage of Zeppelin tools (OpenZeppelin & Zeppe
 
 https://github.com/openrelayxyz/cryptocattle
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cryptocattle:-like-kitties-but-beefier!/1d85cb754b1c4c13b819351287a27fab/a
+- **Kauri original author:** Beth Van Horn (@evanhorn)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-zeppelin-2019
+- **Kauri original hash:** QmZWZY8Pqiw1K45DQNotPwZ6jNCpjAp6GaD1oaCBNjo4iv
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

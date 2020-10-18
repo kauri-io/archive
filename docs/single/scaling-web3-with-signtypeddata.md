@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/scaling-web3-with-signtypeddata/e767162a2d944790851e3461a4422b5c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-05-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmTosjbtKPuhZJzrx2j7w2bRHDXDTmZ4Ww3ouNywNrxqo4
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

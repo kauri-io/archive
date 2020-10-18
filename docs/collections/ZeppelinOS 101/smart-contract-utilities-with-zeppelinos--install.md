@@ -354,3 +354,16 @@ That's it! We deployed and updated our contract on our local test network!
 ### Next Steps
 
 - <https://docs.zeppelinos.org/docs/upgrading.html>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos:-install/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** smart-contract, zeppelinos, upgrade, zeppelin, deploy
+- **Kauri original hash:** QmUG11wHr1CvoABM3xNRZCg6cXcriMkSou8ahXr2Pwvy9f
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

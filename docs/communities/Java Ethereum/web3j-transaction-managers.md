@@ -9,6 +9,8 @@ some_url:
 
 # Web3j Transaction Managers
 
+![](https://ipfs.infura.io/ipfs/QmaxTCcpfWnCSvMpXDZUQxZKEgDkh1xcRHzhiQ8SGQdBF7)
+
 
 A Transaction Manager in Web3j is an abstraction that controls how transactions are signed and broadcast to the Ethereum network, via a connected client.  You can pass an implementation to a [smart contract wrapper](https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b/generate-a-java-wrapper-from-your-smart-contract) when deploying or loading a contract, or you can use it to directly send transactions in a more manual way.
 
@@ -98,3 +100,16 @@ You can use this in situations where you would like to use an abstraction that t
 ### Summary
 
 There are a number of `TransactionManager` implementations bundled with Web3j, each with different characteristics.  The right choice for you depends on the manner of transactions (or lack of) that you will send from the application that you are building.  And if there isn't an implementation that fits your use case, you can always extend the existing ones with your desired functionality!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/web3j-transaction-managers/4cb780bb4d0846438d11885a25b6d7e7/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-09-09
+- **Kauri original tags:** ethereum, java, web3j, transaction
+- **Kauri original hash:** QmSzg1kCYrTe1kSXGxHiq863R1Kn17KDhGDZndQKPU5bSx
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

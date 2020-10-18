@@ -9,6 +9,8 @@ some_url:
 
 # Blockchain & Gaming  Revolution in present & future games
 
+![](https://ipfs.infura.io/ipfs/QmQwat4QQ3RtAne6E5NZjgbgiFLjT6rVrUTFcGVsyEAKKu)
+
 
 
 In this article, we are going to discuss how two giant industries (based on market potential) can come together to disrupt the market and to enhance their revenue together.
@@ -24,7 +26,7 @@ We will first discuss each industry separately and then explore the potential ca
 
 We all know the scope and potential of the gaming industry, Video game revenue in 2018 reached a new peak of $43.8 billion and the total blockchain gaming token market currently sits at around $488 million and includes major names like **Enjin (ENJ) **and **Theta Token (THETA)**, up 18 percent from the previous years, surpassing the projected total global box office for the film industry, according to new data released by the Entertainment Software Association and The NPD Group.
 
-![](https://api.kauri.io:443/ipfs/QmcTNSybkvHidvBiqzxfK51f9PAzvTw8Rop6WwqrtF4hsz)
+![](https://ipfs.infura.io/ipfs/QmcTNSybkvHidvBiqzxfK51f9PAzvTw8Rop6WwqrtF4hsz)
 
 
 And the market has seen gamers around the world spend around $138 billion on gaming in 2018 and blockchain will help take that beyond $500 billion. And one way to do that is to create more roles and ways to play for gamers so that they get engaged and stick around.
@@ -36,7 +38,7 @@ Gaming industry itself hold huge amount of audience, from cassette video games t
 Now let’s discuss the most emerging technology in the last three years. **Blockchain technology** is at a very crucial phase, where the existence of this technology is questionable.
 But people know and have seen already the power and potential of blockchain technology.
 
-![](https://api.kauri.io:443/ipfs/QmS79H8PUutpJacWjfvcphN5fenx89vaT1nxJG1EbkwM6h)
+![](https://ipfs.infura.io/ipfs/QmS79H8PUutpJacWjfvcphN5fenx89vaT1nxJG1EbkwM6h)
 
 From the above picture, you can see how rapidly the blockchain market is growing and estimated to grow.
 Till now we have faced many big attacks like DAO, parity and some other attacks on the ethereum blockchain, because of all these attacks on blockchain, existence, and acceptance of this technology is still questionable.
@@ -83,7 +85,7 @@ From the above discussion, we have concluded that there is a very high capabilit
 
                                **Blockchain and Gaming Industry together**
 Now, we will discuss how the gaming industry can be boosted using blockchain technology.
-![](https://api.kauri.io:443/ipfs/QmToPfGsyaYtu8eGTGSdZ9QzYZS8Z3QJM1L8exY1n1KbjN)
+![](https://ipfs.infura.io/ipfs/QmToPfGsyaYtu8eGTGSdZ9QzYZS8Z3QJM1L8exY1n1KbjN)
 
 
 The first taste of blockchain gaming involved either card games, breeding digital cats, or digital casinos with games of chance benefiting from a lack of centralized control. But game producers are now taking big and ambitious steps into the realms of multiverses and MMOs. The advantages of decentralization and asset provenance start to become key when one starts expanding the gaming sector into world creation where no one actor can shape the rules.
@@ -123,14 +125,14 @@ Blockchain integration makes in-game virtual assets more valuable, liquid, and w
 
 > “NFTs are unique and distinguishable tokens, mostly implemented on the Ethereum blockchain as ERC-721 tokens, which have individual traits and identities.”
 
-![](https://api.kauri.io:443/ipfs/QmbXc52m4NtjajekWtSxbG1eDr73ug5Hu9tXqpUpcVMdBb)
+![](https://ipfs.infura.io/ipfs/QmbXc52m4NtjajekWtSxbG1eDr73ug5Hu9tXqpUpcVMdBb)
 
 **What is NFT and how they are different from ERC20 tokens?**
 Non-fungible tokens (NFTs) are a form of a digital asset (or item) created using blockchain technology that are unique to the owner. When these items are purchased or earned, they become the property of the owner (not the game or another 3rd party) and are written to the blockchain. Till now, NFTs have gained the most attraction in the gaming and collectibles space, most notably with CryptoKitties, ERC20 tokens are not unique and cannot be represented as an asset.
 
 **The success story of NFTS**
 In December 2017, the blockchain based CryptoKitties video game became so popular that it congested the Ethereum network, causing it to reach an all-time high in transactions. In some cases, people reportedly paid more than $100,000 for a CryptoKitty non-fungible token, or NFT. By March 2018, CryptoKitties had been spun off as an independent company that received over $12 million in venture capital.
-![](https://api.kauri.io:443/ipfs/QmYpZW71iM7G4jDvrwoSDHucYFaw6S4TttvS6dMbSp53Wo)
+![](https://ipfs.infura.io/ipfs/QmYpZW71iM7G4jDvrwoSDHucYFaw6S4TttvS6dMbSp53Wo)
  
 
 > “CryptoKitties has shown that giving users a personal stake in the creation of an NFT makes them more attached to them and more likely to value them highly.”
@@ -160,5 +162,19 @@ The intersection of blockchain technology, cryptocurrencies, and gaming is promi
 
 Launch your current or new game on blockchain:
 [https://www.quillhash.com](QuillHash) helps you to launch your currently live or new Game on Blockchain with features Like NFTs/Crypto Collectibles, In-game asset management, Rewards, and Payment Gateways. Talk to our blockchain experts today
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-and-gaming:-revolution-in-present-and-/3c64fc2224814375ac14cc21daf24c98/a
+- **Kauri original author:** Preetam (@preetam)
+- **Kauri original Publication date:** 2019-06-15
+- **Kauri original tags:** gaming, blockchain, erc721, nft
+- **Kauri original hash:** QmUGf8syYbeeBawQbgDMpNkexY52xaDC9xGM2tuyqNsR2j
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

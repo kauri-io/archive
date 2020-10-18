@@ -9,6 +9,8 @@ some_url:
 
 # Ideas by Nature - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmXEwhcvnWbYe3bgcd4bCUVDG9oAVFPZ41UASz8bcZUEHp)
+
 
 ## Company/Project Name and Description
 
@@ -55,3 +57,17 @@ We work alongside blockchain innovators to deliver creative solutions, useful pr
 ## Contact Information
 
 Kate Garrigan - bounty@ideasbynature.com
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ideas-by-nature-sponsor-bounty-at-ethdenver-2019!/31a15fa906424f9385d5141c9f2c375f/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmcXdCucneKQNQTSoJ5iepUX1qSGeL3pXuCovMh9WHyFBM
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -44,3 +44,17 @@ Related Link :
  
 [Disclaimer](http://blog.allformz.com/about/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-microsoft-could-become-a-force-to-reckon-with/c84bc659ef3e48d282070f6e1543d948/a
+- **Kauri original author:** Ramesh Babu (@rameshbabu)
+- **Kauri original Publication date:** 2019-02-27
+- **Kauri original tags:** analytics, machine-learning, big-data
+- **Kauri original hash:** QmfLPByWJo22AjHh8ZnpnjdXR9RnbpArFWrZHC6ZYj5qoG
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

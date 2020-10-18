@@ -9,6 +9,8 @@ some_url:
 
 # Set Labs - Sponsor Bounty at ETHDenver 2019
 
+![](https://ipfs.infura.io/ipfs/QmekuhAkowpMsGqcrREn6BKtw4YML9pFecLdcf2b4g8xpW)
+
 
 ## Company/Project Name and Description
 
@@ -37,6 +39,20 @@ Usefulness & Wow Factor
 ## Contact Information
 
 Inje Yeo - Inje@setprotocol.com
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/set-labs-sponsor-bounty-at-ethdenver-2019/769106c9f7474782bf57a1a49fefe1d2/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmYQ1FRzUQJxpk1R8zgBa6YVB2EQt94XGqCkuvSm2XkiBV
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

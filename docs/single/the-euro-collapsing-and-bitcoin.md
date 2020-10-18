@@ -10,7 +10,7 @@ some_url:
 # The Euro Collapsing and Bitcoin
 
 
-![](https://api.kauri.io:443/ipfs/QmYriFmSnes5qAgPbi8Qn4jwfbFG5B3twG3d271pJX4wXe)
+![](https://ipfs.infura.io/ipfs/QmYriFmSnes5qAgPbi8Qn4jwfbFG5B3twG3d271pJX4wXe)
 What if the euro breaks? Can we imagine the consequences? It's possible? I will answer all those questions in this article.
 
 Putting us in Context
@@ -66,3 +66,16 @@ Really, in a situation with so many variables, as always in economics, you canno
 We are talking about 500 million people with a relatively high purchasing power and hundreds of millions with a very high purchasing power, who would see their savings in jeopardy overnight, with all the insecurity that we are facing right now.
 
 I am personally skeptical about the bankruptcy of the euro in a few years, but economists from different investment funds such as the co-founder of the firm Global Macro Investor or the executive Raoul Pal of Goldman Sachs warn about the potential imminent danger.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-euro-collapsing-and-bitcoin/0b3c8675e235444eadcb160f7c110660/a
+- **Kauri original author:** null (@ethernomics)
+- **Kauri original Publication date:** 2020-06-01
+- **Kauri original tags:** euro, bitcoin
+- **Kauri original hash:** QmdXYCS7x6pmKvRVd8bAkrrJXVEJ6SKFuoNepZnkiPS1Dq
+- **Kauri original checkpoint:** unknown
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Creating Bitcoin Transactions
 
+![](https://ipfs.infura.io/ipfs/QmdgSUUciYeLe4q7a86LXjXXfbYcfNztXUYdV1uZyiy6oP)
+
 
 _This article originally appeared on [bitcoin.org](https://bitcoin.org/en/developer-examples#transaction-tutorial)_
 ### Transactions
@@ -1258,3 +1260,17 @@ complete.
 
 We send the transaction spending the P2SH multisig output to the local
 node, which accepts it.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/creating-bitcoin-transactions/ef9245af2bf94699be53e0a9c41393a4/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-28
+- **Kauri original tags:** bitcoin
+- **Kauri original hash:** QmcMhVTePyJnM4q6G2NHMn7uJkeGkssFkuv1un199UmHju
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

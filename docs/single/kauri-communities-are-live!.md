@@ -12,7 +12,7 @@ some_url:
 
 We're excited to announce that [Kauri Communities](https://kauri.io/article/33d197077e5440d195a8ab76a7ba46d9) are officially live!
 
-![](https://api.kauri.io:443/ipfs/QmSuWDfzqu4GkN4AQ9bJ9xTDTHVqPhQBGKgXH3hccvT3BZ)
+![](https://ipfs.infura.io/ipfs/QmSuWDfzqu4GkN4AQ9bJ9xTDTHVqPhQBGKgXH3hccvT3BZ)
 <br>
 **With Communities, you can create effective developer onboarding experiences by:**
 
@@ -46,6 +46,20 @@ Additionally, if you're interested in leading a Community, apply to our [Ambassa
 * EVM and eWASM
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri-communities-are-live!/a0538d95b0714f1cbced50d77180b99b/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-07-18
+- **Kauri original tags:** kauri, communities
+- **Kauri original hash:** QmRkGvFjU9ZpkLjzGVv5HsRgA1MiE8XJSAwNRRD7Dg1qFd
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

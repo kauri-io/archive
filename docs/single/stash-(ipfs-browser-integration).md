@@ -9,15 +9,17 @@ some_url:
 
 # Stash (IPFS Browser Integration)
 
+![](https://ipfs.infura.io/ipfs/QmazpD2jSeWHXS6MYUHg2GT5C8YupZPyr1pdRMdkPfFXa3)
+
 
 
 ## Project Name
 
 IPFS Stash
 
-![](https://api.kauri.io:443/ipfs/QmeDozTDsYCywSBpCbLGEv5Ftez6Qf7DjsYHNHYc57ogNa)
+![](https://ipfs.infura.io/ipfs/QmeDozTDsYCywSBpCbLGEv5Ftez6Qf7DjsYHNHYc57ogNa)
 
-![](https://api.kauri.io:443/ipfs/QmVLg25tT1gTFrrAxDsoew2Gwu5YZYgZWig1RMt4amKoHZ)
+![](https://ipfs.infura.io/ipfs/QmVLg25tT1gTFrrAxDsoew2Gwu5YZYgZWig1RMt4amKoHZ)
 .
 
 ## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
@@ -74,5 +76,19 @@ Above
 * https://github.com/nicovalencia/ipfs-stash
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/jywO_yBLo1c" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/stash-(ipfs-browser-integration)/f04371889c1b4419b03f89b8fd391dfc/a
+- **Kauri original author:** Nico Valencia (@nicovalencia)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, usability, ipfs, impact, bounty-ideasbynature-2019, sponsor-bounty, bounty-mainframe-2019
+- **Kauri original hash:** Qmaqn5rqiCYLDnk1TTVFqu9eseErt2KPEc5dSYQGEnUoaz
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
 
 

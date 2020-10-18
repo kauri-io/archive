@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU)
+![](https://ipfs.infura.io/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU)
 
 ### Overview & Motivation
 This is a walkthrough of the 26 pages 
@@ -40,7 +40,7 @@ For example, the following code snippet will output the error:
 **there can only be one “owner” of data at a time**
  . In this example, x is the original owner, and then y becomes the owner.
 
-![](https://api.kauri.io:443/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz)
+![](https://ipfs.infura.io/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz)
 
 
 ### 2.2 Encoding Digital Assets in an Open System
@@ -56,7 +56,7 @@ To illustrate how we came up with the two properties, let’s start with the fol
 **Proposal#1: Simplest Rule Without Scarcity and Access Control**
  
 
-![](https://api.kauri.io:443/ipfs/QmcuSXE2qZvo6KqYFrCAxekHG8gSbE1mYfQETFpXdhAjUC)
+![](https://ipfs.infura.io/ipfs/QmcuSXE2qZvo6KqYFrCAxekHG8gSbE1mYfQETFpXdhAjUC)
 
 
 
@@ -75,7 +75,7 @@ The above representation has serval serious problems:
 **Proposal#2: Taking Scarcity into Account**
  
 
-![](https://api.kauri.io:443/ipfs/Qmc4BWkPsEtV1yuhtC37RTBGgKgGNpsoGNxrdkyouw5cMf)
+![](https://ipfs.infura.io/ipfs/Qmc4BWkPsEtV1yuhtC37RTBGgKgGNpsoGNxrdkyouw5cMf)
 
 Now we enforce that the number of coins stored under 𝐾𝑎 is at least 𝑛 before the transfer takes place.
 However, though this solves the scarcity issue, there’s no ownership checking on who can send Alice’s coins. (anyone can do so under this evaluation rule)
@@ -83,7 +83,7 @@ However, though this solves the scarcity issue, there’s no ownership checking 
 **Proposal#3: Considering both Scarcity and Access Control**
  
 
-![](https://api.kauri.io:443/ipfs/QmfEiEAWq6zmhL8GZ1Z3hA1i3K4rhb9Ti5bD8T46eRnxSy)
+![](https://ipfs.infura.io/ipfs/QmfEiEAWq6zmhL8GZ1Z3hA1i3K4rhb9Ti5bD8T46eRnxSy)
 
 We address the problem by using digital signature mechanism 
 `verify_sig`
@@ -158,7 +158,7 @@ From here we can see that Move prefers performing static verification instead of
 
 This is also a very well thought data abstraction design! which means that the data in a smart contract can only be modified within the contract scope but not other contracts from the outside.
 
-![](https://api.kauri.io:443/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o)
+![](https://ipfs.infura.io/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o)
 
 
 ### 4. Move Overview
@@ -170,7 +170,7 @@ This section walks you through an example about what
 
 #### 4.1. Peer-to-Peer Payment Transaction Script
 
-![](https://api.kauri.io:443/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb)
+![](https://ipfs.infura.io/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb)
 
 There are several new symbols here (The small red text is my own notes XD):
 
@@ -232,7 +232,7 @@ _resource_
 
 #### 4.2.1 Primer: Move execution model
 
-![](https://api.kauri.io:443/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS)
+![](https://ipfs.infura.io/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS)
 
 > Each account can contain zero or more modules (depicted as rectangles) and one or more resource val- ues (depicted as cylinders). For example, the account at address 0x0 contains a module 0x0.Currency and a resource value of type 0x0.Currency.Coin. The account at address 0x1 has two resources and one module; the account at address 0x2 has two modules and a single resource value.
 
@@ -263,7 +263,7 @@ _resource_
 
 #### 4.2.2 Declaring the Coin Resource
 
-![](https://api.kauri.io:443/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3)
+![](https://ipfs.infura.io/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3)
 
  
 **Some highlights:**
@@ -279,7 +279,7 @@ _resource_
 
 #### 4.2.3 Implementing Deposit
 
-![](https://api.kauri.io:443/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2)
+![](https://ipfs.infura.io/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2)
 
 > This procedure takes a Coin resource as input and combines it with the Coin resource stored in the payee’s account by:1. Destroying the input Coin and recording its value.2. Acquiring a reference to the unique Coin resource stored under the payee’s account.3. Incrementing the value of payee’s Coin by the value of the Coin passed to the procedure.
 
@@ -299,7 +299,7 @@ _resource_
 
 #### 4.2.4 Implementing withdraw_from_sender
 
-![](https://api.kauri.io:443/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD)
+![](https://ipfs.infura.io/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD)
 
 > This procedure:
 
@@ -330,5 +330,19 @@ Lastly, I highly recommend reading through the
  . It includes a lot of details regarding the programming language design principles behind and many great references.
 Thank you so much for your time reading. Feel free to share this with someone who might be interested :) Any suggestions are also welcomed!!
 
-![](https://api.kauri.io:443/ipfs/QmV4CcTkR8h9xWtyDJaTxbQKRNuiQCw2t6vfFWdjRRvn9C)
+![](https://ipfs.infura.io/ipfs/QmV4CcTkR8h9xWtyDJaTxbQKRNuiQCw2t6vfFWdjRRvn9C)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/whitepaper-deep-dive-move:-facebook-libra-blockch/aaff5b1d82dd46b9a8668ec983a71548/a
+- **Kauri original author:** Lee Ting Ting (@tina1998612)
+- **Kauri original Publication date:** 2019-06-19
+- **Kauri original tags:** cryptocurrency, ethereum, blockchain, facebook, community, bitcoin, technical-analysis
+- **Kauri original hash:** QmQPJcJqGmk6egz2K4ySdQQTa3V9UJTTwFEujdq7ZSoMmi
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

@@ -9,6 +9,8 @@ some_url:
 
 # Ethereum community and its ecosystem  Needs-Based Theories of Motivation approach
 
+![](https://ipfs.infura.io/ipfs/QmP3g6GJKcA266cKoZCjomqdMnw2v4JXbQYGfMLHF8w3MY)
+
 
 <FONT size="2pt">_Ethereum community and its ecosystem: Needs-Based Theories of Motivation approach_ </FONT>
 
@@ -18,7 +20,7 @@ With the approach of crowd psychology, we can see that Ethereum fulfills certain
 The approach will also attempt to analyze the reasons why some people decide to participate in the Ethereum community, as well as the influence of the effects produced by its protocol on their motivations and needs.
 
 <u>Spontaneous order or Self-organizing system of voluntary co-operations?</u><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmYcmQLVFSLMaf2vpkGYVB4Skio2s9eDkefYjcjFgeR1Z7)<br/>
+![](https://ipfs.infura.io/ipfs/QmYcmQLVFSLMaf2vpkGYVB4Skio2s9eDkefYjcjFgeR1Z7)<br/>
 
 **Spontaneous order** is typically used to describe the emergence of various kinds of social orders from a combination of self-interested individuals who are not intentionally trying to create order through planning. 
 Spontaneous orders are to be distinguished from organizations which are hierarchical networks.<br/> Organizations can be and often are a part of spontaneous social orders, but the reverse is not true. While organizations are created and controlled by humans, spontaneous orders are created, controlled, and controllable by no one. According to Friedrich Hayek, in economics and the social sciences, spontaneous order is defined as _"the result of human actions, not of human design"_
@@ -36,7 +38,7 @@ These DAPPS provide tools for a large variety of use and use case (Social, Finan
 We will rely on the approach of the psychologist Abraham Maslow and his hierarchy of need theory as a basis. Maslow's hierarchy of needs proposed that during their entire life, Humans being must satisfy 5 level of needs: Biological and Physiological needs, Safety needs, Love and belongingness needs, Esteem needs and Self-Actualization needs.
 Maslow's hierarchy of needs is a good approach to find out what are the different motivation at one point in time for a human action happen.
 
-![](https://api.kauri.io:443/ipfs/QmeLuZdhCWuZq9GioMcpvToL6VTPT4GsT4NpKsjLBDnEz3)<br/><br/>
+![](https://ipfs.infura.io/ipfs/QmeLuZdhCWuZq9GioMcpvToL6VTPT4GsT4NpKsjLBDnEz3)<br/><br/>
 
 I find the Maslow approach is very interesting because  it may be used in order to produce tools to send signal and insight to the community especially if the community need to be illuminated before taken decision on the protocol.<br/> Accordind to Madeleine Akrich  _<FONT size="2pt">(the construction of a socio-technical system 1989)</FONT>_ :  any innovation is a sociotechnical construction,“a technical object is always a social object” It combines several different types of arrangements (including social norms, formal and informal rules and procedures, market practices and technical solutions) which together constitute both its governance and its power structures.
 The choice of the tools, the material, the hardware used to build a car, will affect how the car looks, its performances and the type of people who is going to buy it. Each modification, each tweak will immediately have an affect on the design and the performance of a car and therefore is apt to attract different type of customers.<br/><br/>
@@ -56,7 +58,7 @@ Here you will find [my own tailored radar chart of my needs satisfaction about t
 ](https://www.edrawsoft.com/download-edrawmax-linux.php)
 
 
-![](https://api.kauri.io:443/ipfs/Qmbe5qsaAuoHe5fkxW19v73zExEYi8NjqYuxqq9RRcNtPv)<br/><br/>
+![](https://ipfs.infura.io/ipfs/Qmbe5qsaAuoHe5fkxW19v73zExEYi8NjqYuxqq9RRcNtPv)<br/><br/>
 
 **Usability:** Can Ethereum deliver satisfaction on practical use cases?<br/>
 Individuals or group of individuals contribute to develop, maintain or simply use the platform. Because of the intrinsic properties of Ethereum open source platform, she can so deliver practical uses, on personal and professional level, can be customize by individual or organization for profit or non-profit activity. Tools build from the Ethereum platform can be customized at will by users that want to tailor their own products and services, build new type of business or non-profit model for others. These tools can be upgraded as the user base grow, feedback get integrated consensually to the platform, and it is possible to build sophisticated governance model.
@@ -81,7 +83,7 @@ Here you will find a speculative radar chart  for the satisfaction needs of the 
 A personalised radar chart for the satisfaction needs of the Ethereum protocol can be easily tailored at will and can give us a relative insight from the entire community about what their needs satisfaction level of the current protocol are. <br/>
 I believe that these signals can potentialy help to gain a better understanding of the community needs and be used to give the community additional discernment into future collective decisions.<br/>
 
-![](https://api.kauri.io:443/ipfs/QmWcXG8L8UgCETeEoe1eHhr5jt3RTqK7VvK79nuPvHsfvh)<br/><br/>
+![](https://ipfs.infura.io/ipfs/QmWcXG8L8UgCETeEoe1eHhr5jt3RTqK7VvK79nuPvHsfvh)<br/><br/>
 
 
 
@@ -94,3 +96,17 @@ Want to help? have a look at my [github account](https://github.com/silver84/Eth
 Feel free to fork it, add comment, data or even add new projects.
 
 Thank you cards address: [Kudos me](https://gitcoin.co/kudos/marketplace/) @0x2e34cdb393c08086e759e3d186b3b4fb2ca5b1b2
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-needs-based/da4ec20a1daf4cdc98e00ef8d001ddb7/a
+- **Kauri original author:** Michael A (@silver84)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** ethereum, ecosystem, community, analysis, governance
+- **Kauri original hash:** QmRdKiPnX1Ew8QzmuNeMynjfdbBmsuYfLbvrNPbQ9XCHuk
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

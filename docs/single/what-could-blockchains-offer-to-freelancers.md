@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmZrWV2mk6C62Aw9efXT6BZzDJKZjzq3hAiVGCedrTrJrn)
+![](https://ipfs.infura.io/ipfs/QmZrWV2mk6C62Aw9efXT6BZzDJKZjzq3hAiVGCedrTrJrn)
 
 Freelance marketplace is one of the exciting fields that blockchain technology could help transform. Imagine the freelancers can independently setup smart contracts with the employers to get rewarded either in cryptocurrencies or tokens that can be vested over time.
 It would be a fundamental change in how people work together since it cut through the middleman and be more flexible for the working relationships.
@@ -45,7 +45,7 @@ Having a middleman to execute this duty comes at prices:
 2. The middleman could be biased when dealing with the conflicts of the contracts.
 3. They are in charge of the rules in how the rating calculated and how they are displayed. The rating is the key element for the freelancers as this is what the employer does the evaluation when making the employment, and that needs years of time to cultivate upon the platform. These rating data is owned by the platform and can’t be shared among other platforms.
 
-![](https://api.beta.kauri.io:443/ipfs/QmdrjbwBhfw9DpnroqKTt5VbWWkuKofjPmbk6kenEpiiW4)
+![](https://ipfs.infura.io/ipfs/QmdrjbwBhfw9DpnroqKTt5VbWWkuKofjPmbk6kenEpiiW4)
 
 > The bad news is that it became much harder for startups, creators, and other groups to grow their internet presence without worrying about centralized platforms changing the rules on them, taking away their audiences and profits.
 
@@ -113,17 +113,17 @@ If something doesn’t work well, a contract makes they eligible choose to termi
 
  * The employer can create a smart contract with configs in contract full period and trial period in a minute.
 
-![](https://api.beta.kauri.io:443/ipfs/Qmf3f7sTLJTyuufywdJE8vbKp7SiUNC8CAdE8EBHtLPjmR)
+![](https://ipfs.infura.io/ipfs/Qmf3f7sTLJTyuufywdJE8vbKp7SiUNC8CAdE8EBHtLPjmR)
 
 2. Once employer deposited funds into the smart contract, it will proceed to the 
 **handshake**
  stage where there is a URL, containing the address of this contract, to share to the employee to review this contract.
 
-![](https://api.beta.kauri.io:443/ipfs/QmQmMLc29XkhsqRWe8gWsFnMcSv5xTrhDhhbtJN3cJARPP)
+![](https://ipfs.infura.io/ipfs/QmQmMLc29XkhsqRWe8gWsFnMcSv5xTrhDhhbtJN3cJARPP)
 
 3. With the shared URL, employee can review the periods of the contracts and the available funds deposited. Once confirmed(signed) the contract, the contract starts with the trial period, in which payment requests are disabled. From now on, the deposited fund can only be transferred to the employee’s account address or be refunded by canceling the contract.
 
-![](https://api.beta.kauri.io:443/ipfs/QmY9zfWnygijzNzWuNVJBGyNe3nKVuEMhqVctRXxAqf1Bw)
+![](https://ipfs.infura.io/ipfs/QmY9zfWnygijzNzWuNVJBGyNe3nKVuEMhqVctRXxAqf1Bw)
 
 4. The employer can choose to cancel the contract. The contract is cancelable during stages of 
 **handshake**
@@ -133,11 +133,11 @@ If something doesn’t work well, a contract makes they eligible choose to termi
 5. Once trial period passed, the employee can request payment whenever needed and get paid immediately based on the current time and the length of the contract period.
 Alternatively, after the trial period, employer can authorize the contract completed to transfer the total payment to the contractor before the contract end time. This is meant to incentivize the contractor to deliver the quality work faster.
 
-![](https://api.beta.kauri.io:443/ipfs/QmbEgG2KK1LuLfRnC2E5U9BhhuwNsdRYYXqnyHmQoLzk6i)
+![](https://ipfs.infura.io/ipfs/QmbEgG2KK1LuLfRnC2E5U9BhhuwNsdRYYXqnyHmQoLzk6i)
 
 6. The contract will mark ended when all the fund deposits were paid to the employee.
 
-![](https://api.beta.kauri.io:443/ipfs/QmaPiKfMty4ui8grsKsQAxYWPNTux5YepZ1XA1FpcfXgms)
+![](https://ipfs.infura.io/ipfs/QmaPiKfMty4ui8grsKsQAxYWPNTux5YepZ1XA1FpcfXgms)
 
 
 ----
@@ -211,7 +211,7 @@ We are still in the very early stage of the blockchain. There are a lot of possi
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmRB3vAfbSEV5kvvdw2Jx1668tbC6wF5Pha5Rs2DoSkiXx)
+![](https://ipfs.infura.io/ipfs/QmRB3vAfbSEV5kvvdw2Jx1668tbC6wF5Pha5Rs2DoSkiXx)
 
 > 
 
@@ -224,7 +224,21 @@ The Startup
 > 
 our top stories here
 
-![](https://api.beta.kauri.io:443/ipfs/QmX4tW2jq4KhqCry4wZVWcH9MCfDsWjVzpzwsfpm2HpQzR)
+![](https://ipfs.infura.io/ipfs/QmX4tW2jq4KhqCry4wZVWcH9MCfDsWjVzpzwsfpm2HpQzR)
 
 > 
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-could-blockchains-offer-to-freelancers/3ebc9fe0343c4acf8c9cc65695daab05/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmcyoqTgcuTkJ6xMVdz3kvXFLjkX6ryxwpKYiMwR6QHLvp
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
 

@@ -1,6 +1,14 @@
-site_name: Kauri
+site_name: kauri.io
 theme:
     name: ivory
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - solidity
+extra:
+    logo: 'kauri.png'
+extra_css:
+    - css/extra.css
 nav:
     - Home: 'index.md'
     - Communities:
@@ -515,8 +523,8 @@ nav:
         - Metadata and Hosting Options: 'single/metadata-and-hosting-options.md'
         - ETH San Francisco Winner Roundup: 'single/eth-san-francisco-winner-roundup.md'
         - Publishing to the Decentralized Web with Android, Ethereum, and IPFS: 'single/publishing-to-the-decentralized-web-with-android-.md'
-        - Introduction to Pantheon — The Java Ethereum Client: 'single/introduction-to-pantheon-the-java-ethereum-client.md'
         - Clique  cross-client Proof-of-authority algorithm for Ethereum: 'single/clique--cross-client-proof-of-authority-algorithm.md'
+        - Introduction to Pantheon — The Java Ethereum Client: 'single/introduction-to-pantheon-the-java-ethereum-client.md'
         - Mining with Pantheon: 'single/mining-with-pantheon.md'
         - Gran Fondo : 'single/gran-fondo.md'
         - Brave and binance browser scandal: 'single/brave-and-binance-browser-scandal.md'
@@ -615,10 +623,10 @@ nav:
         - Watchtower Implementation for Plasma: 'single/watchtower-implementation-for-plasma.md'
         - Los 8 mejores wallets para tus criptomonedas: 'single/los-8-mejores-wallets-para-tus-criptomonedas.md'
         - Thought piece of making the dark web3 universe light: 'single/thought-piece-of-making-the-dark-web3-universe-li.md'
+        - Spin.FM  Decentralized Partying: 'single/spin.fm--decentralized-partying.md'
         - PayPic - ETHDenver 2019 Submission: 'single/paypic-ethdenver-2019-submission.md'
         - Client-Side EthQL Library Generator: 'single/client-side-ethql-library-generator.md'
         - 3Box Builders Series  How to Integrate with Profiles: 'single/3box-builders-series--how-to-integrate-with-profi.md'
-        - Spin.FM  Decentralized Partying: 'single/spin.fm--decentralized-partying.md'
         - POAP SUBMISSION: 'single/poap-submission.md'
         - Claiming your DNS on ENS via Web (3/3  The code): 'single/claiming-your-dns-on-ens-via-web-(33--the-code).md'
         - Dharma  A Generic Protocol for  Tokenized Debt Issuance: 'single/dharma--a-generic-protocol-for-tokenized-debt-iss.md'
@@ -1296,8 +1304,8 @@ plugins:
             metadata-and-hosting-options/e931dca3476f49b4ba7433a747ab5022/a: 'single/metadata-and-hosting-options.md'
             eth-san-francisco-winner-roundup/a1ba2aed040b4fa5b24c73f53a8fe8d3/a: 'single/eth-san-francisco-winner-roundup.md'
             publishing-to-the-decentralized-web-with-android-/4f32c0417fe54011b73b3e3fa5da72c6/a: 'single/publishing-to-the-decentralized-web-with-android-.md'
-            introduction-to-pantheon-the-java-ethereum-client/28c03622682842c888f6106a60c4d323/a: 'single/introduction-to-pantheon-the-java-ethereum-client.md'
             clique:-cross-client-proof-of-authority-algorithm/7f44cd9ea79043bc902070e6e6f3cf98/a: 'single/clique--cross-client-proof-of-authority-algorithm.md'
+            introduction-to-pantheon-the-java-ethereum-client/28c03622682842c888f6106a60c4d323/a: 'single/introduction-to-pantheon-the-java-ethereum-client.md'
             mining-with-pantheon/1016a4a10e5742638a5445d6268bdcdf/a: 'single/mining-with-pantheon.md'
             gran-fondo/3add68e04da54dde94c3fc07b81cf289/a: 'single/gran-fondo.md'
             brave-and-binance-browser-scandal/c385e999e0914fd6b7f23c80c889d2c5/a: 'single/brave-and-binance-browser-scandal.md'
@@ -1396,10 +1404,10 @@ plugins:
             watchtower-implementation-for-plasma/8f1b24f2eab34a62b11e0f59d36d3049/a: 'single/watchtower-implementation-for-plasma.md'
             los-8-mejores-wallets-para-tus-criptomonedas/cf527c66cb9743068afea1524385fa18/a: 'single/los-8-mejores-wallets-para-tus-criptomonedas.md'
             thought-piece-of-making-the-dark-web3-universe-li/b2848c79fae84c01bb9dbb31f26663da/a: 'single/thought-piece-of-making-the-dark-web3-universe-li.md'
+            spin.fm:-decentralized-partying/a8f1b12e984949b08323522a54cf189f/a: 'single/spin.fm--decentralized-partying.md'
             paypic-ethdenver-2019-submission/484af4a597d143c181df5f151e01ad7d/a: 'single/paypic-ethdenver-2019-submission.md'
             client-side-ethql-library-generator/1a7dffd63e6f44eaa35bd7772133156b/a: 'single/client-side-ethql-library-generator.md'
             3box-builders-series:-how-to-integrate-with-profi/389cbed20fc8404ebf631634153dc76f/a: 'single/3box-builders-series--how-to-integrate-with-profi.md'
-            spin.fm:-decentralized-partying/a8f1b12e984949b08323522a54cf189f/a: 'single/spin.fm--decentralized-partying.md'
             poap-submission/f444b199f5814e6397aaa9b9bd42494f/a: 'single/poap-submission.md'
             claiming-your-dns-on-ens-via-web-(33:-the-code)/3bb9fee637a540d7b1e027cba121ab14/a: 'single/claiming-your-dns-on-ens-via-web-(33--the-code).md'
             dharma:-a-generic-protocol-for-tokenized-debt-iss/478e09bde779448f8b76e0d3742c5d0f/a: 'single/dharma--a-generic-protocol-for-tokenized-debt-iss.md'

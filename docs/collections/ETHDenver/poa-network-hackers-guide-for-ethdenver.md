@@ -9,6 +9,8 @@ some_url:
 
 # POA Network Hackers Guide for ETHDenver 
 
+![](https://ipfs.infura.io/ipfs/QmaG21963chf4dQ5RGgYAy93B2M1s1bT9aXWtaBLAS3VSp)
+
 
   POA is proud to announce that we will be sponsoring
 [ETHDenver](https://ethdenver.com) for a second consecutive year! Last
@@ -116,4 +118,18 @@ contract to POA Core, and ask questions in our
 [forum](https://forum.poa.network) - we’ll be more than happy to help!
 The final wave of applications for ETHDenver closes January 31st so
 [apply today](http://ethdenver.com/) if you haven’t already!
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/poa-network-hackers-guide-for-ethdenver/bd3960fa9d124de0bbecd72691c0f89b/a
+- **Kauri original author:** Ziggy Zeidan (@ziggy)
+- **Kauri original Publication date:** 2019-01-29
+- **Kauri original tags:** EthDenver, POA, hackathons
+- **Kauri original hash:** QmTcVar9QsAaVXgXH5HjqemHrwLp7jNgpxyNU4U6GbUexr
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

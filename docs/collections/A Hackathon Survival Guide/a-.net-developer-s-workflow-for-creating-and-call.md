@@ -9,6 +9,8 @@ some_url:
 
 # A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts
 
+![](https://ipfs.infura.io/ipfs/QmbEDjh1DX8WDFby5axd3LwJ5SQ74xxcVq8RfzMeKAZfCw)
+
 
 There are 
 [many great tools](https://github.com/ConsenSys/ethereum-developer-tools-list#developer-tools)
@@ -25,7 +27,7 @@ Imagine your goal is to take the contract called
 ### Workflow Overview
 There are many possible workflows to achieve your goal, and as new versions of tools and plugins are released other options will appear. At the time of writing this workflow was found to be simple and quick:
 
-![](https://api.kauri.io:443/ipfs/QmTa6xnWda1zJj23HwPhyytQ1vEHhDLvzuJZJZZEDGiiyM)
+![](https://ipfs.infura.io/ipfs/QmTa6xnWda1zJj23HwPhyytQ1vEHhDLvzuJZJZZEDGiiyM)
 
 The diagram above shows these steps:
 
@@ -68,7 +70,7 @@ dotnet add package Nethereum.Autogen.ContractApi
 
  3. Open the SimpleStorage folder we just created. You should see something like this:
 
-![](https://api.kauri.io:443/ipfs/QmWQ5YJbfvpAaYr9djbfZQLW3SWCyBUYaxJi9FPur8hGzf)
+![](https://ipfs.infura.io/ipfs/QmWQ5YJbfvpAaYr9djbfZQLW3SWCyBUYaxJi9FPur8hGzf)
 
 4. If at any time, VS Code asks “Required assets to build and debug are missing from ‘SimpleStorage’. Add them?” say yes.
 5. Create a new file (ctrl+N).
@@ -125,13 +127,13 @@ Right-click on the SimpleStorage project and choose “Rebuild”. The act of re
 `SimpleStorage`
  like this:
 
-![](https://api.kauri.io:443/ipfs/Qmb8NLvoqDE6cBgfcY3X98WzfmrdNWwafvtH864sDsYV5B)
+![](https://ipfs.infura.io/ipfs/Qmb8NLvoqDE6cBgfcY3X98WzfmrdNWwafvtH864sDsYV5B)
 
 The generated 
 `SimpleStorageService`
  class contains some useful methods:
 
-![](https://api.kauri.io:443/ipfs/QmV23xsrvhJHRE88E1NvW31tJbWfxQD6GGRQQvEdpdMxtJ)
+![](https://ipfs.infura.io/ipfs/QmV23xsrvhJHRE88E1NvW31tJbWfxQD6GGRQQvEdpdMxtJ)
 
 Notice the C# method naming is different for the 
 `set()`
@@ -259,3 +261,17 @@ Thanks to
  for the Autogen code generator package and 
 [Gael Blanchemain](https://github.com/anegg0)
  for reviewing and improving the article content.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-.net-developer-s-workflow-for-creating-and-call/7df58e34248a4153b9a5f1b0c0eb54f3/a
+- **Kauri original author:** Kevin Small (@kevnsmall)
+- **Kauri original Publication date:** 2019-11-13
+- **Kauri original tags:** csharp, dotnet, visual-studio-code, nethereum, visual-studio
+- **Kauri original hash:** QmRNToJQ7MzGX8QDKHmsUNdE5yVp7o12eoXruUdVqtMwZX
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

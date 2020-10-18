@@ -12,22 +12,35 @@ some_url:
 
 Step 1: Press "Set" button at resolver
 
-![press set resolver](https://api.kauri.io:443/ipfs/QmW8GsJsybFaFi3t9YBBB1L78TiXKCQrXv6qpJdzSPvbNL)
+![press set resolver](https://ipfs.infura.io/ipfs/QmW8GsJsybFaFi3t9YBBB1L78TiXKCQrXv6qpJdzSPvbNL)
 
 Step 2:  Press "Public resolver"  and "Save"
-![](https://api.kauri.io:443/ipfs/QmaEgTVhx5hQVgq7TUqWZ9R56Rf2STnqXMwBnrNFNjMCQJ)
+![](https://ipfs.infura.io/ipfs/QmaEgTVhx5hQVgq7TUqWZ9R56Rf2STnqXMwBnrNFNjMCQJ)
 
 Step 3: Press "+" button, select "Address"
 
-![](https://api.kauri.io:443/ipfs/QmeYG1scLNDzzWfwQQNcoejYjvVoSxq39d4RChP1M7LBDj)
+![](https://ipfs.infura.io/ipfs/QmeYG1scLNDzzWfwQQNcoejYjvVoSxq39d4RChP1M7LBDj)
 
 Step 4: Copy owner address into address field and press "Save"
-![](https://api.kauri.io:443/ipfs/QmQ6UW6RVp9c4jp3jsaDjKSyoM86E2LQhiEDDMfGto1v8J)
+![](https://ipfs.infura.io/ipfs/QmQ6UW6RVp9c4jp3jsaDjKSyoM86E2LQhiEDDMfGto1v8J)
 
-![](https://api.kauri.io:443/ipfs/Qmf27pZzzDLzwQaqxqWR5WrwMX3HxKzvVUESSgZhoyRMgK)
+![](https://ipfs.infura.io/ipfs/Qmf27pZzzDLzwQaqxqWR5WrwMX3HxKzvVUESSgZhoyRMgK)
 
 Step 5:  Once all set, type the ens name on metamask sender field. If successful, you should see the green tick symbol.
 
-![](https://api.kauri.io:443/ipfs/QmYqGamPdwUR4raqmbMLDgcChUgZ17twqZH86ozAPdJks4)
+![](https://ipfs.infura.io/ipfs/QmYqGamPdwUR4raqmbMLDgcChUgZ17twqZH86ozAPdJks4)
 
-![](https://api.kauri.io:443/ipfs/Qmdoc1mPMj37HWfPNdjRp2Hq1nHBKSofChvJqM9TGpqskm)
+![](https://ipfs.infura.io/ipfs/Qmdoc1mPMj37HWfPNdjRp2Hq1nHBKSofChvJqM9TGpqskm)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-setup-ens-address/d6530b8ff5ad460bbc12da85deedf7c0/a
+- **Kauri original author:** Makoto Inoue (@makoto)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** ens
+- **Kauri original hash:** QmNvsWA4tDc9KTsH9VUycCcyRKhbCdgtfsyodBtiZZQ7je
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

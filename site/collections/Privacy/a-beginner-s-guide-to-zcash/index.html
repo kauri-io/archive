@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>A beginner’s guide to Zcash &mdash; Kauri</title>
+    <title>A beginner’s guide to Zcash &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -663,8 +666,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -763,10 +766,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1048,7 +1051,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1070,7 +1073,7 @@
  on a public ledger called the blockchain. Sophisticated software can be used to determine who is responsible for a significant number of these transactions. In response to this lack of privacy, there have been a number of cryptocurrencies that have focused on adding 
 <a href="https://hackernoon.com/privacy-on-the-blockchain-7549b50160ec">privacy functionality</a>
  . This post should help those who are new to Zcash to understand how it is different than other cryptocurrencies like bitcoin.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmUdKrD7XcrVWHzsQt6LA7sTQFm2PLfBDWjVGMRCvqjTwn" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdKrD7XcrVWHzsQt6LA7sTQFm2PLfBDWjVGMRCvqjTwn" /></p>
 <p><strong>Similarities and differences from Bitcoin</strong></p>
 <p>Zcash (ZEC) uses a new technology involving zero-knowledge proofs which allow one to prove something (e.g. prover owns greater than 10 ZEC) without requiring the prover to reveal any sensitive information (e.g. the total number of ZEC owned by prover). It gets its name from the fact that zero knowledge is revealed to the verifier in the process. The anonymous transactions produced from this technology are referred to as shielded transactions in Zcash.
 This is in sharp contrast to Bitcoin where if your bitcoin address is ever shared publicly, anyone can view your balance and all other bitcoin addresses you have ever transacted with. Even if you don’t share your address publicly, companies such as 
@@ -1078,7 +1081,7 @@ This is in sharp contrast to Bitcoin where if your bitcoin address is ever share
  and 
 <a href="https://www.elliptic.co/">Elliptic</a>
  have built software that can de-anonymize your address if you have transacted with other addresses that are not anonymous. Imagine if everyone you knew, and even strangers, could know how much money you had in your bank account, and how you spent your money. Despite perfectly legitimate transactions, you likely do not want the entire world to know this information.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSBVKKnFtxcSvmgcoWFJ7KvKboGrFrBbhdTXfyfN7K8ez" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSBVKKnFtxcSvmgcoWFJ7KvKboGrFrBbhdTXfyfN7K8ez" /></p>
 <p>Zcash and Bitcoin both have a total supply of 21 million units and are released through a process called mining. One unique aspect of Zcash is that the corporate development team (the Zcash Company, CEO 
 <a href="https://twitter.com/zooko">Zooko Wilcox</a>
  ) and the non-profit Zcash Foundation (Chair of the Board, 
@@ -1086,7 +1089,7 @@ This is in sharp contrast to Bitcoin where if your bitcoin address is ever share
  ), are funded directly from the blockchain. To achieve this, 20% of the mining reward for Zcash for the first 4 years goes to the stakeholders of the Zcash company (founders, employees, advisors, investors) resulting in 10% of the overall total supply. This “ 
 <a href="https://z.cash/blog/funding.html">Founders’ Reward</a>
  ” provides funding and incentive-alignment for the continued support and improvement of Zcash.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmdr3PKTU9iJSV33bdGLQsSZW8e6oV88kqz8SGEWn8hKzu" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmdr3PKTU9iJSV33bdGLQsSZW8e6oV88kqz8SGEWn8hKzu" /></p>
 <p><strong>Technology</strong></p>
 <p>Zcash uses a specific cutting edge form of zero knowledge verification called 
 <a href="https://z.cash/technology/zksnarks.html">zk-SNARKs</a>
@@ -1112,7 +1115,7 @@ The tradeoff to zk-SNARKs is that it requires the generation of public parameter
 Generating shielded transactions in Zcash requires a relatively significant amount of computer memory and time which makes it inconvenient for regular use. As a result currently not all transactions are shielded in Zcash which affects fungibility. This means that some coins may be more valuable than others because they don’t have a tainted history associated with it. However, the team has focused on 
 <a href="https://z.cash/blog/cultivating-sapling-faster-zksnarks.html">performance improvements</a>
  in a future update which will significantly reduce the amount of time and memory required. Even mobile phones will be capable of generating proofs. This means that a greater percentage of Zcash transactions will be shielded, increasing overall privacy. The development team has even alluded to a future plan for deprecating transparent addresses altogether.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYtSjKdYPUYWcXd63PRpsvHQ3i8ViqFRT1rgTq7aQiwNu" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYtSjKdYPUYWcXd63PRpsvHQ3i8ViqFRT1rgTq7aQiwNu" /></p>
 <p><strong>Resources</strong></p>
 <p>Zcash, founded in Oct 2016, is a relatively new cryptocurrency with powerful technology and a strong focus on development. Below are some links that may help you understand Zcash further and keep up with the development.</p>
 <p><em>Understanding Zcash</em></p>
@@ -1148,7 +1151,16 @@ Generating shielded transactions in Zcash requires a relatively significant amou
 <p>Thank you to 
 <a href="https://medium.com/@willwarren89">Will Warren</a>, 
 <a href="https://medium.com/@jcliff">Jordan Clifford</a>, and Linda Lee for reviewing this post.</p>
-<p><em>Disclaimer: I own Zcash.</em></p></div>
+<p><em>Disclaimer: I own Zcash.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-beginner-s-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a</li>
+<li><strong>Kauri original author:</strong> Linda Xie (@ljxie)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-03</li>
+<li><strong>Kauri original tags:</strong> privacy</li>
+<li><strong>Kauri original hash:</strong> QmbPKi2aNRDGav57VMJkKx4QCoBrQD5YKiAuVMYUmUnXBg</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../introduction-to-mimblewimble-and-grin/" title="Introduction to MimbleWimble and Grin"><span>Previous</span></a></div>

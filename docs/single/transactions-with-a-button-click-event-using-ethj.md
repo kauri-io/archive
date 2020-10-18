@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/transactions-with-a-button-click-event-using-ethj/3020865569a84394abc7e6aa2cf0838c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-05-03
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmd4vwYbusfLsaGLjtgZimuw4axN9EXxR1r6S5vtQBxtUG
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

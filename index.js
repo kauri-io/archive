@@ -15,6 +15,7 @@
 
     //#######  CONSTANT
     const conf = "mkdocs.yml";
+    const ipfs = "./ipfs.txt"
     const baseDir = "./docs"
     const endpoint = "https://api.kauri.io/graphql"
     const graphQLClient = new GraphQLClient(endpoint, { credentials: 'include', mode: 'cors' } )
@@ -28,20 +29,45 @@
       const title = (article.title) ? article.title.replace(/[\:\#]/g,' ') : ""
       const desc = (article.description) ? article.description.replace(/[\:\#]/g,'-') : ""
       const redirect = slugify(article.title, {lower: true}).replace(/[\']/g,'-').substring(0, 49) + "/" + article.id + "/a"
+      const author = article.contributors[0].name +" (@"+article.contributors[0].username+")"
+      const datePublication = article.datePublished.split("T")[0]
+      let content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##') : ""
+      let background =  (article.attributes && article.attributes.background) ? article.attributes.background : undefined;
 
-      const content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##') : ""
+
+      // IPFS images
+      const regexp = /https\:\/\/api\.(beta\.)?kauri\.io(\:443)?\/ipfs\/[a-zA-Z0-9]+/g
+      const found = content.match(regexp)
+      if(found)
+        found.forEach(link=> {
+          utils.appendFile(ipfs,link)
+          content = content.replace(/https\:\/\/api\.(beta\.)?kauri\.io(\:443)?\/ipfs\//g, "https://ipfs.infura.io/ipfs/")
+        });
+      if(background) {
+        utils.appendFile(ipfs, background)
+        background = background.replace(/https\:\/\/api\.(beta\.)?kauri\.io(\:443)?\/ipfs\//g, "https://ipfs.infura.io/ipfs/")
+      }
 
       const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-').substring(0, 49) + ".md"
       const text = "---\n" +
                    "title: " + title+ "\n" +
                    "summary: "  + desc  + "\n" +
                    "authors:\n" +
-                   "  - " + article.contributors[0].name +" (@"+article.contributors[0].username+")" + "\n" +
-                   "date: " + article.datePublished.split("T")[0] + "\n" +
+                   "  - " + author + "\n" +
+                   "date: " + datePublication + "\n" +
                    "some_url: \n" +
                    "---\n\n" +
                    "# " + title + "\n\n" +
-                   content;
+                   ((background) ? "![]("+background+")\n\n" : "") +
+                   content + "\n\n\n" +
+                   "---\n\n" +
+                   "- **Kauri original link:** https://kauri.io/" + redirect + "\n" +
+                   "- **Kauri original author:** " + author + "\n" +
+                   "- **Kauri original Publication date:** " + datePublication + "\n" +
+                   "- **Kauri original tags:** " + ((article.tags) ? article.tags.join(", ") : "none") + "\n" +
+                   "- **Kauri original hash:** " + article.contentHash + "\n" +
+                   "- **Kauri original checkpoint:** " + ((article.checkpoint) ? article.checkpoint : "unknown") + "\n" +
+                   "\n\n\n";
 
           return {file, text, title, redirect}
     }
@@ -56,12 +82,22 @@
     utils.deleteFolder(baseDir)
     utils.createDirectory(baseDir)
 
+    utils.deleteFile(ipfs)
+    utils.createFile(ipfs, "")
     utils.deleteFile(conf)
     utils.createFile(baseDir + "/CNAME", "archive.kauri.io")
     utils.createFile(baseDir + "/index.md", "#hello")
-    utils.createFile(conf, "site_name: Kauri\n" +
+    utils.createFile(conf, "site_name: kauri.io\n" +
                            "theme:\n" +
                            "    name: ivory\n" +
+                           "    highlightjs: true\n" +
+                           "    hljs_languages:\n" +
+                           "        - yaml\n" +
+                           "        - solidity\n" +
+                           "extra:\n" +
+                           "    logo: 'kauri.png'\n" +
+                           "extra_css:\n" +
+                           "    - css/extra.css\n" +
                            "nav:\n" +
                            "    - Home: 'index.md'\n")
 

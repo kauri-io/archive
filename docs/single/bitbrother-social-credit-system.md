@@ -42,3 +42,17 @@ https://github.com/jassiay/BitBrt
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bitbrother-social-credit-system/0eb6588fc81949d7a97c03eb8ea6c283/a
+- **Kauri original author:** Alex Liu (@382785858)
+- **Kauri original Publication date:** 2019-02-18
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmUMB81r2tDzQen1dyidNAjZAdFwEAL9M1c7jpqxaSKTN5
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

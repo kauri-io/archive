@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Bitcoin Contract Scripts &mdash; Kauri</title>
+    <title>Bitcoin Contract Scripts &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -667,8 +670,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -767,10 +770,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1052,7 +1055,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1061,6 +1064,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="bitcoin-contract-scripts">Bitcoin Contract Scripts</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbBbyyLyLQs2S59sn2w65cEjP1w5nnnaSiCCZsWHjQWGp" /></p>
 <p><em>This post originally appeared on <a href="https://bitcoin.org/en/contracts-guide#introduction">bitcoin.org</a></em></p>
 <h3 id="introduction">Introduction</h3>
 <p>The following subsections will describe a variety of Bitcoin contracts
@@ -1161,7 +1165,7 @@ second transaction.</p>
 by locktime. This is the refund transaction. Bob can't sign the refund transaction by himself, so he gives
 it to Alice to sign, as shown in the
 illustration below.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmP8xFKxMZbunPPthQXw2CGzEaeDYwKHBwezchkXSNdEDv" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmP8xFKxMZbunPPthQXw2CGzEaeDYwKHBwezchkXSNdEDv" /></p>
 <p>Alice checks that the refund transaction's locktime is 24 hours in the
 future, signs it, and gives a copy of it back to Bob. She then asks Bob
 for the bond transaction and checks that the refund transaction spends
@@ -1217,7 +1221,7 @@ pseudonymous persons first? The CoinJoin-style contract, shown in the
 illustration below, makes this decision easy: they create a single
 transaction which does all of the spending simultaneously, ensuring none
 of them can steal the others' satoshis.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYAyCrUnQJ2xr6G3UKWcUSiyGeaEteVHNpqy8eYebi3Mf" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYAyCrUnQJ2xr6G3UKWcUSiyGeaEteVHNpqy8eYebi3Mf" /></p>
 <p>Each contributor looks through their collection of Unspent Transaction
 Outputs (UTXOs) for 100 millibitcoins they can spend. They then each generate
 a brand new public key and give UTXO details and pubkey hashes to the
@@ -1276,7 +1280,16 @@ number of participants registered, a CoinJoin-round kicks in. In this scheme Cha
 Blind Signatures are utilized to prevent the coordinator and the peers from learning
 which outputs correspond to which inputs. An example for Chaumian CoinJoin is the
 following transaction:
-<a href="https://www.smartbit.com.au/tx/8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8">8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8</a></p></div>
+<a href="https://www.smartbit.com.au/tx/8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8">8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/bitcoin-contract-scripts/51a63137f2544b4a97ad1e9dc7eac110/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-04</li>
+<li><strong>Kauri original tags:</strong> script, bitcoin</li>
+<li><strong>Kauri original hash:</strong> QmSMoMo2q2UaqNYBwDxkkBHSi55oVYb7g1wLirYNb3oDEV</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../creating-bitcoin-transactions/" title="Creating Bitcoin Transactions"><span>Previous</span></a></div>

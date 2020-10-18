@@ -24,7 +24,7 @@ some_url:
 
 ### How it works
 
-![](https://api.beta.kauri.io:443/ipfs/QmasWnFCo1WTEu58JV8Sv6LhAzfgXGJvWPLu6xy2wdAdWZ)
+![](https://ipfs.infura.io/ipfs/QmasWnFCo1WTEu58JV8Sv6LhAzfgXGJvWPLu6xy2wdAdWZ)
 
 The web app deployed at 
 [0x.now.sh](https://0x.now.sh)
@@ -197,3 +197,17 @@ The complete source code for this project is on
 > 
 Github
 Pull Requests welcome 😁
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/making-a-url-shortener-on-ethereum-blockchain/a7ba00394f414496827730f0ce4aeacd/a
+- **Kauri original author:** sauravtom (@sauravtom)
+- **Kauri original Publication date:** 2018-12-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmfD4zffz3QRQAfYx5JKnPEtuVCHCH777MUCuRWidpTs1p
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

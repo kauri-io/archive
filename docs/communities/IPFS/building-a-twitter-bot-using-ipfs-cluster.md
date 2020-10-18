@@ -9,6 +9,8 @@ some_url:
 
 # Building a Twitter Bot using IPFS Cluster 🤖
 
+![](https://ipfs.infura.io/ipfs/QmXKWmtk8ecAEq5VKAsSDdxaCjKBuyXr8Eq9ddyFVES7Dp)
+
 
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/ipfs-cluster-twitter-pinbot/). If you are interested in IPFS, Libp2p, Ethereum, Zero-knowledge Proofs, Defi, CryptoEconomics, IPLD, Multi formats, and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com/).
 
@@ -1183,3 +1185,16 @@ Now, we are waiting for your tweets…
 
 **If you get stuck in any part or have any queries/doubts, then feel free to
 reach us out on our [discord channel](https://discord.gg/x2kmUXW).**
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-twitter-bot-using-ipfs-cluster/2b430e15c299442588e038cdb814a739/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-01-25
+- **Kauri original tags:** twitter, ipfs, bot, simpleaswater, golang, ipfs-cluster, tutorial
+- **Kauri original hash:** Qmf5U5ZVVD6qWG9E5DjVngFePQU4fHMBYkA8kW8S5MThYf
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

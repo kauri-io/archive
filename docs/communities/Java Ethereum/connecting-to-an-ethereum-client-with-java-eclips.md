@@ -9,6 +9,8 @@ some_url:
 
 # Connecting to an Ethereum client with Java, Eclipse and Web3j
 
+![](https://ipfs.infura.io/ipfs/QmZjb5Kp3LFcXTVxneoJN3aco6NF91M7TbVfxUq4B4ySsX)
+
 
 
 **Other articles in this series:**
@@ -275,3 +277,17 @@ Gas price: 3000000000
 - [Interacting with an Ethereum Smart Contract in Java](https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e)
 - [Listening for Ethereum Smart Contract Events in Java](https://kauri.io/article/760f495423db42f988d17b8c145b0874)
 - [Using Pantheon, the Java Ethereum Client with Linux](https://kauri.io/article/276dd27f1458443295eea58403fd6965)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/connecting-to-an-ethereum-client-with-java-eclips/b9eb647c47a546bc95693acc0be72546/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-07-19
+- **Kauri original tags:** ethereum, java, maven, web3j, json-rpc, eclipse
+- **Kauri original hash:** QmdCsaJm7ajyh3ZyxacmSc94FFoBgSPWeWJLLYTCEMUUxf
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

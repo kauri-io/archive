@@ -9,12 +9,14 @@ some_url:
 
 # MakerDAO  Decentralized stablecoin and collateral loans
 
+![](https://ipfs.infura.io/ipfs/QmRpdvAqRWLsvpcoEX1KPtEasdkwC1NUEaJ55k58f8nk3a)
+
 
 > Dai is an asset-backed stable currency created by the Maker Decentralized Autonomous Organization (MakerDAO). The Dai Stablecoin system maintains the stable value of Dai by ensuring that each Dai is always backed by a collateralized asset of more value. Single collateral Dai requires that each Dai is backed by at least 150% Ether. If at anytime, the amount of collateral backing Dai falls below 150%, "watchers" (community run bots) will call functions within the MakerDAO smart contracts that trigger liquidation of enough collateral to payback the debt.
 
 _This article originally appeared on the [MakerDAO blog](https://blog.makerdao.com/dai-developer-documentation/)_
 
-![](https://api.kauri.io:443/ipfs/QmVn4Ef6r7dgViSiFnvg9FVJCysb8e3jq7EjFBBdwFnHqk)
+![](https://ipfs.infura.io/ipfs/QmVn4Ef6r7dgViSiFnvg9FVJCysb8e3jq7EjFBBdwFnHqk)
 
 The MakerDAO ecosystem is designed as an elegant solution for an endless number of applications enabling decentralized finance. A critical part of that is fostering our developer community and supporting a wide network of open finance applications building on the Dai Credit System. This past year, we’ve seen incredible use cases and examples of powerful tools that integrate Dai.
 
@@ -58,3 +60,17 @@ This guide is for partners interested in implementing Keepers: programs that aut
 If you’re looking for market making resources, this guide gives insight into the various repositories to create custom Keepers or run a Keeper node. Here you’ll be able to find access to our repo on Market Maker statistics which provides tools for visualizing market making data, as well as our repo on a set of keepers that have been implemented to facilitate market making for ddexs.
 
 - Read more here: [Market Makers](https://github.com/makerdao/developerguides/tree/master/market-makers)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/makerdao:-decentralized-stablecoin-and-collateral/88db636595ca457eb7fec0a4a56d1a80/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-08
+- **Kauri original tags:** stablecoin, open-finance
+- **Kauri original hash:** QmUrh4UPcJcsPuednoAfKr7Kwfi7wdKQ6SKqwtEvi9EA4X
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

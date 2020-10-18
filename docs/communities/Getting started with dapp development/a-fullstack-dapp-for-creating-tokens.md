@@ -9,10 +9,12 @@ some_url:
 
 # A fullstack dapp for creating tokens
 
+![](https://ipfs.infura.io/ipfs/QmRoMYkdbHUAZP2WpUvAZzKv7D3u2FKg5U3NXRnLSGK3Uv)
+
 
 > This dapp implements the simplest form of a cryptocurrency that uses the ERC-20 standard to define a token you can create and send to others. This tutorial is intended to be followed using the online IDE available at [studio.ethereum.org](https://studio.ethereum.org), and selecting the "Coin" template.
 
-![Select Coin template](https://api.kauri.io:443/ipfs/QmWUTMmZAbbLYUhZv9ZzR9R1Ey2R4xgcxQQoFRoNdBPW85)
+![Select Coin template](https://ipfs.infura.io/ipfs/QmWUTMmZAbbLYUhZv9ZzR9R1Ey2R4xgcxQQoFRoNdBPW85)
 
 ### The smart contract
 
@@ -217,3 +219,17 @@ function isValidAmount(amount) {
 ```
 
 And that's all the code. To see the dapp in action, click _Compile_, then _Deploy_ found under the disclosure triangle of the contract file, then open the _Preview_ tab to see the frontend of the dapp.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-fullstack-dapp-for-creating-tokens/bdd65d6155a74b8aa52672b46b7230a8/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-12-06
+- **Kauri original tags:** smart-contract, getting-started, dapp, erc-20, token-standard, solidity
+- **Kauri original hash:** QmeLARWSKm5K65iUUBtjed3tUt7dRRVjt47N1xa14CxjS4
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

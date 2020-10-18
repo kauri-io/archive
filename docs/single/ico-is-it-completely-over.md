@@ -29,7 +29,7 @@ According to
 [CB Insights](https://www.cbinsights.com/research/blockchain-ico-vc-funding-pace/)
  , around $70 Million was raised during the first quarter of this year through the ICO route. It amounts to a whopping 37% percent of the total blockchain fund raising.
 
-![](https://api.kauri.io:443/ipfs/QmR4heSpBzsLt2ueGar9h9fJjV6xymKAg1PvJqH46dE1sb)
+![](https://ipfs.infura.io/ipfs/QmR4heSpBzsLt2ueGar9h9fJjV6xymKAg1PvJqH46dE1sb)
 
 
 ### Why are the governments and the regulators are freaking out?
@@ -103,3 +103,17 @@ _Twitter —_
   
 [@rameshbabua](https://twitter.com/rameshbabua)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ico-is-it-completely-over/5f3a41b8e18f45728398a4ad6b394015/a
+- **Kauri original author:** Ramesh Babu (@rameshbabu)
+- **Kauri original Publication date:** 2019-02-27
+- **Kauri original tags:** cryptocurrency, ico, blockchain
+- **Kauri original hash:** QmWfSJsMjsAJx5SRcSUSSUqsKtY7DkF6sbeyG1D6qJ8Uoh
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

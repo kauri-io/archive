@@ -917,15 +917,15 @@ event BountyIssued(
 [tutorial-source-root]: https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract
 [tutorial-source-full-contract]: https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol
 
-[screenshot-remix-create-file]: https://api.beta.kauri.io:443/ipfs/QmYMw578VU2z4nUwGbDwcoMBBmDTEsbriSNs7H44smJpYZ
-[screenshot-remix-compile]: https://api.beta.kauri.io:443/ipfs/QmSxzksHcCp9AibwAGsTxdYntdn6hGiBmjeCZm3bpKf4h6
-[screenshot-remix-static-warnings]: https://api.beta.kauri.io:443/ipfs/QmPbH2hJxqjwyCbo7iLMovVQLZyb96V9EbzKkUhJnS4Eem
-[screenshot-virtual-machine-dropdown]: https://api.beta.kauri.io:443/ipfs/QmdAgBc9WzFmE4GwKBxHkMRCBBdAapHP1Ym3dR8mS2atSF
-[screenshot-remix-deploy-button]: https://api.beta.kauri.io:443/ipfs/QmerrAduWYrYaxMT5254xE5DjngDid81hgaVT32uqGt1qt
-[screenshot-remix-constructor-transaction]: https://api.beta.kauri.io:443/ipfs/QmXCiXYPFLbuk8X8eWv16F3PQFSp2ZEi8pstDrsSbYNybw
-[screenshot-remix-contract-invoke-buttons]: https://api.beta.kauri.io:443/ipfs/QmUzyH4Vugc3vN52hna8r1r5hRzuLKTVXRC3vP4Huejqwt
-[screenshot-invoked-issue-bounty]: https://api.kauri.io/ipfs/QmQ1JYgeqgViBNxcSajU1NMh41v2UD2UFtYcdodDMv63zR
-[screenshot-array-getter-called]: https://api.beta.kauri.io:443/ipfs/QmS17UXysJzMLibRzDShajzzMsV5Lkvi3jdjJQTYVqrQzu
+[screenshot-remix-create-file]: https://ipfs.infura.io/ipfs/QmYMw578VU2z4nUwGbDwcoMBBmDTEsbriSNs7H44smJpYZ
+[screenshot-remix-compile]: https://ipfs.infura.io/ipfs/QmSxzksHcCp9AibwAGsTxdYntdn6hGiBmjeCZm3bpKf4h6
+[screenshot-remix-static-warnings]: https://ipfs.infura.io/ipfs/QmPbH2hJxqjwyCbo7iLMovVQLZyb96V9EbzKkUhJnS4Eem
+[screenshot-virtual-machine-dropdown]: https://ipfs.infura.io/ipfs/QmdAgBc9WzFmE4GwKBxHkMRCBBdAapHP1Ym3dR8mS2atSF
+[screenshot-remix-deploy-button]: https://ipfs.infura.io/ipfs/QmerrAduWYrYaxMT5254xE5DjngDid81hgaVT32uqGt1qt
+[screenshot-remix-constructor-transaction]: https://ipfs.infura.io/ipfs/QmXCiXYPFLbuk8X8eWv16F3PQFSp2ZEi8pstDrsSbYNybw
+[screenshot-remix-contract-invoke-buttons]: https://ipfs.infura.io/ipfs/QmUzyH4Vugc3vN52hna8r1r5hRzuLKTVXRC3vP4Huejqwt
+[screenshot-invoked-issue-bounty]: https://ipfs.infura.io/ipfs/QmQ1JYgeqgViBNxcSajU1NMh41v2UD2UFtYcdodDMv63zR
+[screenshot-array-getter-called]: https://ipfs.infura.io/ipfs/QmS17UXysJzMLibRzDShajzzMsV5Lkvi3jdjJQTYVqrQzu
 
 [link-semantic-versioning]: https://semver.org/
 [link-unix-timestamp-wiki]: https://ru.wikipedia.org/wiki/UNIX-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F 
@@ -941,5 +941,19 @@ event BountyIssued(
 [doc-remix-analyzer]: https://remix.readthedocs.io/en/latest/analysis_tab.html
 [doc-remix-javascript-vm]: https://remix.readthedocs.io/en/latest/run_tab.html
 [doc-solidity-transfer]: https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#address-related
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/ac1bde5c6c5f48b786e1e17909da095a/a
+- **Kauri original author:** Alex D. (@alex-d)
+- **Kauri original Publication date:** 2019-05-31
+- **Kauri original tags:** ethereum, remix, solidity
+- **Kauri original hash:** QmarPoh4HFpoFHefLsWn5VkQ1AgxppP9izXgiazf34RV5R
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

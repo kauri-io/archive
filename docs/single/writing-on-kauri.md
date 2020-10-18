@@ -9,6 +9,8 @@ some_url:
 
 # Writing on Kauri
 
+![](https://ipfs.infura.io/ipfs/QmeyZrmd7YWzQFpRP31gDM5nbD1RWmVUcHDBphHL12SpNG)
+
 
 Welcome to Kauri, we're excited to help you share your knowledge across the world via the Ethereum ecosystem.
 
@@ -53,7 +55,7 @@ Clicking this button takes you to the editor interface. The editor supports Mark
 
 You can upload PNG, GIF or JPEG images of up to 10 MB in size from the editor toolbar using the image button. This uploads the image to [IPFS](https://IPFS.io) and creates a markdown image tag with the URL auto-filled.
 
-![Adding images with the Kauri editor](https://api.kauri.io:443/ipfs/QmdUK89Fd11kDtaMLJS5DfC7CCMg7J2u7Ckkg9JgdpbpsM)
+![Adding images with the Kauri editor](https://ipfs.infura.io/ipfs/QmdUK89Fd11kDtaMLJS5DfC7CCMg7J2u7Ckkg9JgdpbpsM)
 
 If you have an image already hosted elsewhere you want to use, create the markdown image tag manually.
 
@@ -61,7 +63,7 @@ If you have an image already hosted elsewhere you want to use, create the markdo
 
 You can't upload videos to Kauri, but to embed videos hosted elsewhere, click the video button in the editor toolbar, paste the video into the popup box and an HTML embed tag is created for you.
 
-![Adding videos with the Kauri editor](https://api.kauri.io:443/ipfs/QmdpzQD41fDv2NMDgVxqea9JMSkXvetv98DUyuH3C4n1Vk)
+![Adding videos with the Kauri editor](https://ipfs.infura.io/ipfs/QmdpzQD41fDv2NMDgVxqea9JMSkXvetv98DUyuH3C4n1Vk)
 
 #### Preview tab
 
@@ -89,7 +91,7 @@ One of the core principles of Kauri is keeping content up-to-date and usable, an
 
 To update an article, first, open it. On the top toolbar of the article is an _Edit Article_ button. This button returns you to the editor, where you can make changes.
 
-![Updating an existing article](https://api.kauri.io:443/ipfs/QmVQ813g24q67FKJdRsAK5FVTkrzyugYHvFPaYHYeG2ixd)
+![Updating an existing article](https://ipfs.infura.io/ipfs/QmVQ813g24q67FKJdRsAK5FVTkrzyugYHvFPaYHYeG2ixd)
 
 If it's content you own, or content in a community you are an admin in, then you publish the changes as soon as you click _Publish Article_.
 
@@ -102,3 +104,17 @@ You also have the option of saving the article as a draft, but this creates a ne
 Submitting an article on-chain claims it as yours in a transaction on the Ethereum Blockchain.
 
 Click the _Submit Article to On-Chain_ button at the bottom of an article.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/writing-on-kauri/cc1cefd3523b4faeafc700a44698e43d/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-12-16
+- **Kauri original tags:** help, kauri
+- **Kauri original hash:** QmPd3GiLuFvyZCyVTPxJfnC3m7u87rH77SfM2pDmmV8JYH
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -72,3 +72,17 @@ Notes :
 2. https://kauri.io/article/7a0c7497951548b8837634305e62977b/v2/generating-a-load-of-keys-for-testing-in-go
 3. https://github.com/DaveAppleton/etherUtils
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-geth-simulated-backend/6285c9692883411aa041b6b970405a17/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-08-08
+- **Kauri original tags:** ethereum, geth, go-programming-language, testing, golang, abi, evm
+- **Kauri original hash:** QmUjWrv6XTYbe11Rt5krNgc1KfabftjFAmKmewVjwehc4X
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

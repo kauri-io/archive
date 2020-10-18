@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmaU2gy4bgn1EuA1TdK7GMpzbKJWHUwe9XdnsSQj9qVa9a)
+![](https://ipfs.infura.io/ipfs/QmaU2gy4bgn1EuA1TdK7GMpzbKJWHUwe9XdnsSQj9qVa9a)
 
  
 **TL;DR**
@@ -38,7 +38,7 @@ Writing a new plapp is as simple as writing a special type of smart contract, ca
 _on the plasma chain —_
  where it’s much, much cheaper.
 
-![](https://api.kauri.io:443/ipfs/QmaGRXm2WioGgfU3wbV6KkqTc4t3b9Aq5sSPYtP9v161LY)
+![](https://ipfs.infura.io/ipfs/QmaGRXm2WioGgfU3wbV6KkqTc4t3b9Aq5sSPYtP9v161LY)
 
 Of course, these applications still live in the plasma design space. Plapps need to implement a standard predicate contract interface, and individual transactions must still fit within the ethereum gas limit.
 In other words, plasma isn’t magical infinite Ethereum. However, most existing dapps (bounties, games, decentralized finance…) easily fulfill the above requirements. And, as a plapp, they get the benefits of plasma: low cost scalability, and frictionless onboarding — new users can join without ever touching Ethereum.
@@ -61,7 +61,7 @@ We then
 
 ### Where We’re Going
 
-![](https://api.kauri.io:443/ipfs/QmexiWUkjWdzTbA4smdACuyVnMRibJVG8T5aQcMSEHzKa5)
+![](https://ipfs.infura.io/ipfs/QmexiWUkjWdzTbA4smdACuyVnMRibJVG8T5aQcMSEHzKa5)
 
 Come build a plapp! We need your help. As we implement various parts of the architecture and distill our learnings into a detailed writeup, we need early adopters like you to help us understand your needs. We are building this for you, and we want to make it everything it can be.
 We designed all of this with the goal of making plapp development as easy as possible, but implementation always teaches you something new. This understanding will allow us to build better tooling for developers.
@@ -77,3 +77,17 @@ We designed all of this with the goal of making plapp development as easy as pos
 
  *  [Email](mailto:projects@plasma.group) 
 We’d love to hear from all of you. ❤
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/towards-a-general-purpose-plasma/9df6bb07a0dc40c5b2334931cb336491/a
+- **Kauri original author:** Plasma Group (@plasma)
+- **Kauri original Publication date:** 2019-04-22
+- **Kauri original tags:** ethereum, scaling, layer-2, plasma
+- **Kauri original hash:** Qmd2tq3xde3NKd1L1mqwAhDm4sUjK9KqqAsUF9PcEN7pKo
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

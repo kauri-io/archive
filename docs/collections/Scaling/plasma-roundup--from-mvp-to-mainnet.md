@@ -9,6 +9,8 @@ some_url:
 
 # Plasma Roundup  From MVP to Mainnet
 
+![](https://ipfs.infura.io/ipfs/QmTtmFGAtW4xAJCsn26ZA5pKQZiVY2GevQnKFm9dWvVUwR)
+
 
 Ethereum second layer scaling technology has come a long way in a short period of time. Second layer solutions, innovations beyond the layer one protocol level, include State Channels, Side Chains, and Plasma. Taken together, layer two technologies present a wide scope of possibility for scaling the Ethereum blockchain.
 
@@ -40,7 +42,7 @@ ganache-cli // In seperate terminal window
 npm test
 ```
 
-![](https://api.kauri.io:443/ipfs/QmbDKcmsdeVqnY3abxsJAAnJakrP3bFeFgwKNL6A4oCATX)
+![](https://ipfs.infura.io/ipfs/QmbDKcmsdeVqnY3abxsJAAnJakrP3bFeFgwKNL6A4oCATX)
 
 ### OmiseGO
 
@@ -87,8 +89,22 @@ View the local block explorer at _<http://127.0.0.1:8000>_. If that does not wor
 sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 3000
 ```
 
-![](https://api.kauri.io:443/ipfs/Qmcq47SvmNBkmTukfridq4f7UwskLSwTe519VvtRwyeQyw)
+![](https://ipfs.infura.io/ipfs/Qmcq47SvmNBkmTukfridq4f7UwskLSwTe519VvtRwyeQyw)
 
 ### Summary
 
 Overall, Plasma is making great leaps forward, but there are still obstacles to overcome. Implementations need to be audited and tested. With mass adoption and the potential for global application, the stakes are high for these chains which, if all goes according to plan, will be processing a significant number of states per second, each state possibly holding high values. These implementations may suggest that layer two Plasma technology is right around the corner, but careful engineering to protect users and avoid risk takes time.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/plasma-roundup:-from-mvp-to-mainnet/3103de2a3a874f348013b96d157451be/a
+- **Kauri original author:** Chris Spannos (@chrisspannos)
+- **Kauri original Publication date:** 2019-04-09
+- **Kauri original tags:** scaling, layer-2, plasma
+- **Kauri original hash:** QmcDQP5QnA7cXD9r4Ch8xyLHxEtMxeFiNaVRQERsbc9pvB
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

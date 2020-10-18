@@ -9,6 +9,8 @@ some_url:
 
 # Forward ... to the Hall of the Ancient Martian Wormhole and/or Jim's Gallery
 
+![](https://ipfs.infura.io/ipfs/QmW1EMfLxgzuANTwAwQ3Q7jiPGCwU2o2KEEgurMtMgHHZK)
+
 
 
 #### a magnanimous decision ...
@@ -46,3 +48,16 @@ Here my crossroads---halfway between the city my son lives in and the city my pa
 These words intended to be a "forward" to yet another compliment of a ((nother installment of a partial)) chain of emails; whimsically once half-joking ... I called it the Great Chain of Revelation.   The software too; part of the great chain, this "idea" that the blockchain revolution will eventually create a distributed and equal governance structure, and a rekindling of monetary value focused on "free and open collaboration" rather than "survival of the most unfit"--something society and civilization seem to have turned the "call of life" from and to ... literally just in the last few years as we were so very close to ... reaching beyond the Heaven(s).
 
 > Written with [StackEdit](https://stackedit.io/).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/forward-...-to-the-hall-of-the-ancient-martian-wo/e7754849da2347079353eda7279ccc7d/a
+- **Kauri original author:** Adam Marshall Dobrin (@gydpsjzq)
+- **Kauri original Publication date:** 2020-05-15
+- **Kauri original tags:** revelation
+- **Kauri original hash:** QmUeKCNjHc1MoFrJ6hrqf1YyEtnM4WFheCr4nHmAycrRqU
+- **Kauri original checkpoint:** unknown
+
+
+

@@ -37,3 +37,17 @@ MAKERDAO improve burner wallet.
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/riusricardo/burner-wallet/tree/Burner-wallet-ETHDenver
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/improve-burner-wallet/c287ed1802b34e10a0cbdf3a7053c242/a
+- **Kauri original author:** Ricardo Rius (@riusricardo)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, makerdao, burner-wallet
+- **Kauri original hash:** QmWFMwevQZiGFrPEd7yQyp4aobJLz3x2vLoW17X4wg7tFN
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

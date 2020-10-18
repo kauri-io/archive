@@ -9,6 +9,8 @@ some_url:
 
 # Kazuaki Ishiguro - Tokyo - Couger, EEA, blockchain.EXE, Token Engineering
 
+![](https://ipfs.infura.io/ipfs/QmVPTvsZHzXG6EEks6cMXdsSQcTkE6gMKYXDg5txnLqnSW)
+
 
 _Ahead of devcon, Kauri is interviewing local community members in Japan. We hope you readers will learn more about the local industry and blockchain activity. There will also be some gems from our interviews that hopefully give you some ideas of how to see Japan from a local perspective_
 
@@ -20,7 +22,7 @@ We are focused on privacy preserving technology, including Shamir secret sharing
 
 Connectome is our AI data marketplace and will allow anyone to interact with a personal assistant (AI), through your devices. These agents can have custom skins, language and other capabilities. 
 
-![](https://api.kauri.io:443/ipfs/QmRUZg7nWaj2tsDTR8QogGsC3b39PR8gPxZVwVFCmbRMXr)
+![](https://ipfs.infura.io/ipfs/QmRUZg7nWaj2tsDTR8QogGsC3b39PR8gPxZVwVFCmbRMXr)
 
 ###How is the blockchain community in Tokyo?
 
@@ -44,7 +46,7 @@ It depends on what you would like to do!
 
 1. Shopping, definitely Tokyo, especially in Omote-sando and the South side of Omote-sando which is more high end and has some hidden spots without signs, which is cool to see. Here you can also find antiques like tea pots. Cat street in harajuku is one of the coolest streets in Japan. 
 
-![](https://api.kauri.io:443/ipfs/QmbqZfau2vHrBAfh7wkzWeHcSwqzZL1NdZKqQZTpDRUNEb)
+![](https://ipfs.infura.io/ipfs/QmbqZfau2vHrBAfh7wkzWeHcSwqzZL1NdZKqQZTpDRUNEb)
 
 2. Sightseeing  you have to go to Kyoto. 
 
@@ -53,3 +55,16 @@ It depends on what you would like to do!
 ###Where can people find you at Devcon?
 
 Token Engineering - 8th October - Osaka - https://www.meetup.com/ja-JP/Token-Engineering-Tokyo/events/264947286/
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kazuaki-ishiguro-tokyo-couger-eea-blockchain.exe-/f5a359292f084aa0864b8bbe9947f470/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-10-02
+- **Kauri original tags:** eea, japan, devcon, couger, interview, blockchain-exe
+- **Kauri original hash:** QmXAdMtqncPou6cddn1AxWfv44hQcGUXGUnRLLTHRRWwz1
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Celer Network - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmaKtjS6a6MAfeRmjqmXo8dPjCCqCExbut3GCkrUTgUp8Z)
+
 
 ## Company/Project Name and Description
 
@@ -52,6 +54,20 @@ We will have super cool T-shirts, socks, stickers, etc. at our booth! Definitely
 ## Contact Information
 
 Sirong Li - sli@celer.network
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/celer-network-sponsor-bounty-at-ethdenver-2019!/c769a1d405544dc18ae17f9189349da6/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmZnv9KS57hzGvRvAvu1ye2CAQunucLy1R7tp6GBFYm947
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

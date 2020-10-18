@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>How to set up a simple Linux firewall &mdash; Kauri</title>
+    <title>How to set up a simple Linux firewall &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -669,8 +672,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -769,10 +772,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1054,7 +1057,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1063,6 +1066,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="how-to-set-up-a-simple-linux-firewall">How to set up a simple Linux firewall</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw" /></p>
 <p>This is the third part of a two part series. In the <a href="https://kauri.io/article/c287fe53de9b4073a18065443253a86d/v1/how-to-install-and-synchronize-your-own-remote-ethereum-nodes">first part</a> I described how to set up a remote Ethereum node. In the <a href="https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v1/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask">second part</a> I went over setting up an SSH tunnel and using it to access your node with MetaMask. In this article I cover why a Linux firewall is important and describe how to set one up on your remote <code>geth</code> node.</p>
 <h3 id="wat-firewal">WAT FIREWAL?!</h3>
 <p>A firewall is a technology which blocks network traffic to or from a computer. At first that may seem counterproductive. But you can poke holes in your firewall to allow external entities to access the machine on specific ports. What the heck is a port, though? From <a href="https://en.wikipedia.org/wiki/Port_(computer_networking)">Wikipedia</a>:</p>
@@ -1122,7 +1126,16 @@ To                         Action      From
 <p>That's it! Your computer is now sitting behind a firewall, only allowing the network traffic necessary to run <code>geth</code> and permitting you to access it via SSH.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>The first version of this article was quite a bit longer and far more complicated. In discussions with peers (thanks, Evans!) I realized that using UFW instead of manually specifying firewall rules would make a more effective article.</p>
-<p>With your shiny new firewall, your remote Ethereum node is now much safer from malicious attack. Note: this is specific to running <code>geth</code>. If you have other services on the same machine you'll have to open the relevant ports or your services will cease to function after you activate this firewall. I hope this article helped you understand a little more clearly what a firewall is and how to set one up. If you have any questions please ask in the comments below.</p></div>
+<p>With your shiny new firewall, your remote Ethereum node is now much safer from malicious attack. Note: this is specific to running <code>geth</code>. If you have other services on the same machine you'll have to open the relevant ports or your services will cease to function after you activate this firewall. I hope this article helped you understand a little more clearly what a firewall is and how to set one up. If you have any questions please ask in the comments below.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a</li>
+<li><strong>Kauri original author:</strong> Daniel Ellison (@zigguratt)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-16</li>
+<li><strong>Kauri original tags:</strong> iptables, ethereum, geth, firewall, linux</li>
+<li><strong>Kauri original hash:</strong> QmRauq9Yw7J7qfbkXKTbKJVvBgCx7vMCxdETwTZYyuz8PX</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" title="Make use of your remote Ethereum node using an SSH tunnel and MetaMask"><span>Previous</span></a></div>

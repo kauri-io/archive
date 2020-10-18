@@ -10,7 +10,7 @@ some_url:
 # Ethereum 2.0 is near
 
 
-![](https://api.kauri.io:443/ipfs/QmUvZk7yughHkwMRLo1GavttF98GQ4bY5PZDX298eBhTpc)
+![](https://ipfs.infura.io/ipfs/QmUvZk7yughHkwMRLo1GavttF98GQ4bY5PZDX298eBhTpc)
 
 Ethereum 2.0 or ETH2 is the planned update for Ethereum by its creator Vitalik Buterin.
 
@@ -26,3 +26,16 @@ For those who do not know, many of the largest blockhains are moving to this sec
 
 
 Thus, the Ethereum network will pay its users to keep their coins and serve as verifiers.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-2.0-is-near/5e15f17aa52146c8b41fc088d6458964/a
+- **Kauri original author:** null (@ethernomics)
+- **Kauri original Publication date:** 2020-06-03
+- **Kauri original tags:** ethereum, ether
+- **Kauri original hash:** Qmd23igQQpVYDcuaq2ZRdEuAZ3kT55jQjX5Qkmo5y7Ru1r
+- **Kauri original checkpoint:** unknown
+
+
+

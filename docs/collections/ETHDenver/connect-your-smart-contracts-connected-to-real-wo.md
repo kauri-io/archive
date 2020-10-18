@@ -9,6 +9,8 @@ some_url:
 
 # Connect your smart contracts connected to real world data with Chainlink
 
+![](https://ipfs.infura.io/ipfs/QmeQWVXDfS25BuYxGuNPDqRZ9WDrXqgok4rTyDGtQ5PyQk)
+
 
 This February, Chainlink is coming to Denver, home of snowy slopes, craft beer, ambitious coders, and, of course, the ETHDenver Hackathon.
 
@@ -35,3 +37,16 @@ At the Hackathon, some resources to help you get started:
 ### Prizes
 
 For our ETHDenver bounty, we are awarding a total of $5,000 of LINK or ETH equivalent to the top projects. The first prize of $2,500 will be for the most compelling and ready-to-run prototype using Chainlink. The 2nd prize of $1,500 will be for the most creative application of Chainlink and third prize is $1,000 for judges’ choice.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/connect-your-smart-contracts-connected-to-real-wo/f7defa7f512b4dc6b2398ac9b0a3ff42/a
+- **Kauri original author:** Chainlink (@chainlink)
+- **Kauri original Publication date:** 2019-01-29
+- **Kauri original tags:** EthDenver, hackathons
+- **Kauri original hash:** QmTNW7R6QastXByEVZpMQo3YWYgKR9EHBs1p1Vo6bSVN42
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

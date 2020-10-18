@@ -9,6 +9,8 @@ some_url:
 
 # Tokenize All the Things and What Happens Next?
 
+![](https://ipfs.infura.io/ipfs/Qmdz2UeJRe92QekQa9Piyf26MvB4g7C1EBro4djCWYGbGk)
+
 
 
 I am standing in a small hall of hastily assembled booths all flaunting tokens of some description and function. Somewhere over the past months, what I thought of as a unified community forked into the blockchain-crowd (using the technology to replace or supplement existing technology) and the crypto-crowd who seek to create value, be that with speculation, or token-based ecosystems. This split in the community isn't inherently bad, it's a natural process as a community grows, but it happened somewhat swiftly and took a lot of the broader community by surprise.
@@ -36,3 +38,17 @@ Jilles Van Gurp of [inbot](https://inbot.io) said to me at the same conference I
 Mulling on this concept more, it starts to sound a little like our current monetary system. You make money by investments, work, or other means and take it elsewhere to pay for things that you need or desire, and so the system continues. The decentralized nature puts the decisions on value more into the hands of the participants than centralized authorities, but will it turn out any different in the long run, or are we just replacing one abstract barter system with another?
 
 I'd love to hear your thoughts.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tokenize-all-the-things-and-what-happens-next/2d1045cceeba4738a42155d198c91eca/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-09-30
+- **Kauri original tags:** economy, token
+- **Kauri original hash:** QmSeGRimbzjhcvNwewsp17g9gawyWfFzo3dY88aW4fz3ar
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

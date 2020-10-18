@@ -16,7 +16,7 @@ All of us at NuCypher, the privacy layer of the decentralized web, are super exc
 
 It’s been a whirlwind in the Ethereum space since then, but we’ve never been more excited about the new dapps and protocols the community continues to #buidl.
 
-![](https://api.beta.kauri.io:443/ipfs/QmXYCxS2arsXPppHHXXSvCEoQJ2YNC41u6EP8YgAruA8HG)
+![](https://ipfs.infura.io/ipfs/QmXYCxS2arsXPppHHXXSvCEoQJ2YNC41u6EP8YgAruA8HG)
 
 We think hackathons are one of the best demonstrations of the quality and strength of our Ethereum community, which is why we’re always excited to sponsor (and sometimes [participate](https://devpost.com/software/sputnik)
  ).
@@ -76,3 +76,17 @@ Start exploring our tools, checking out some of the previous submissions, and as
 [Discord](https://discord.gg/7rmXa3S), we can’t wait to see you at ETHDenver and #buidl something awesome together.
 
 The final wave of applications for ETHDenver closes January 31st so [apply today](https://www.ethdenver.com/) if you haven’t already.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buidl-the-future-of-privacy-at-ethdenver-with-nuc/892e5ee1912e4478a0066b922585c17c/a
+- **Kauri original author:** MacLane Wilkison (@maclane)
+- **Kauri original Publication date:** 2019-01-25
+- **Kauri original tags:** Ethereum, ETHGLOBAL
+- **Kauri original hash:** QmcDMng6eU1RcPjShH9cqcMP6wdZsASZZwBT1ZRLugdTfE
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

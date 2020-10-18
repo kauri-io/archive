@@ -9,6 +9,8 @@ some_url:
 
 # Bloom - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmZR5NPQxGGr7YD2EbrZUHgbCfCFMdiqcAQCFW5aDhhLWJ)
+
 
 ## Company/Project Name and Description
 
@@ -40,6 +42,20 @@ User Experience, Integration of Bloom API / Bloom Share Kit
 ## Contact Information
 
 Jesse Leimgruber - jesse@bloom.co
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bloom-sponsor-bounty-at-ethdenver-2019!/954924cc48304c63a6d9f06f8299ac90/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmSmndTHgMw7nSoADouTQ3Zm2MUWKKb1eftf6hWod4shMX
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

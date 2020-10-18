@@ -389,3 +389,16 @@ I hope you enjoyed this tutorial and you're as excited about blockchain developm
 I compiled the code used throughout this article in this GitHub [repo](https://github.com/PaulRBerg/truffle-zos-tutorial). There are three branches (master, zos, zos-upgraded) with the correspondent code of the Note contract for every stage we've been through.
 
 Find me on [Twitter](https://twitter.com/PaulRBerg) or [Keybase](https://keybase.io/PaulRBerg) if you want to chat.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-write-upgradeable-smart-contracts-with-tru/315cbd6c71574e2686e15f0a20003089/a
+- **Kauri original author:** Paul Berg (@paulrberg-old-account)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** ethereum, truffle
+- **Kauri original hash:** QmV17ugGfaECarUVoerS1GCBoJcYmgAKj2vakqXZT1NkTG
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

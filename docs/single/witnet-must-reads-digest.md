@@ -92,3 +92,17 @@ Please let us know if you have any questions or comments below. You can
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-must-reads-digest/877c1197cd1541d8ad88c1b570fb8def/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQ2AqhXdY6tUVKb7oR4wbivnm4yyDTrMVndtQCXF7ziwG
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

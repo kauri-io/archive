@@ -57,3 +57,17 @@ Usability UX/UI
 Given all of this as a developer, this is a great time to get involved before the rocket is launched!
 
 DAPP development is in a nascent phase but the benefits that DAPPs provide (which traditional, centralized applications do not) suggest that we can expect to see impressive new functionalities and use-cases for blockchain technology in the near future.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-is-a-dapp/d53499905f484fa9940ea2e1a4f9b53d/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2018-09-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmZ5FuHTQMbj8w6JJHzXPUDd2pgxHAeEQUZExXQL2TXWxw
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

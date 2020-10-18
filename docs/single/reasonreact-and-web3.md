@@ -95,20 +95,20 @@ Didn't say the Web3 world was straight forward or easy... Well now you're readin
 
 Here I am going to outline a component API in ReasonML to connect your dApp's business logic and the Web3 state of the world.
 
-![/BrowserWeb3Capabilities.png](https://api.beta.kauri.io:443/ipfs/QmV2NY2CGcAzRee5d5DgzyCPvmZr1QZqdzzcnEDTxFZKnm)
+![/BrowserWeb3Capabilities.png](https://ipfs.infura.io/ipfs/QmV2NY2CGcAzRee5d5DgzyCPvmZr1QZqdzzcnEDTxFZKnm)
 
-![/BrowserWeb3State.png](https://api.beta.kauri.io:443/ipfs/QmSkzyg9VhhEXKkP1GMbrshSLcwvnWQppyu5z7gzgunCrs)
+![/BrowserWeb3State.png](https://ipfs.infura.io/ipfs/QmSkzyg9VhhEXKkP1GMbrshSLcwvnWQppyu5z7gzgunCrs)
 
 > We use *is*, *can* and *has* prefixes for the props that revolve around this Web3 component's capabilities!
 
 1. Internally the component polls the Web.js library and sets React state starting via componentDidMount().
 2. *isLoggedIn*, *currentLoggedInAddress* props are passed to our component for deriving state from props passed in from your own dApp. Did say they were business logic!
 
-![/BrowserWeb3Actions.png](https://api.beta.kauri.io:443/ipfs/QmfQuawGF9bbkp8Ln9bTwB1Hn76TGGsS6KuAZgEUg7js7w)
+![/BrowserWeb3Actions.png](https://ipfs.infura.io/ipfs/QmfQuawGF9bbkp8Ln9bTwB1Hn76TGGsS6KuAZgEUg7js7w)
 
 > Actions are enums but in ReasonML they're variant types with constructors. You see they're wrapping a typed value. Think of them as action.payload in React.js but with amazing type inference.
 
-![/BrowserWeb3Reducer.png](https://api.beta.kauri.io:443/ipfs/QmUU5naDfUjjN4JAyqN1BbEZ5pPMWC2cL6ASncftPvyqyW)
+![/BrowserWeb3Reducer.png](https://ipfs.infura.io/ipfs/QmUU5naDfUjjN4JAyqN1BbEZ5pPMWC2cL6ASncftPvyqyW)
 
 > ReasonReact has the redux reducer model built into its components but is based on the ReasonML/OCaml based pattern type matching.
 > Those above actions are types right... you can wrap the action payload in a type and switch case over it, that's it! **OMG**.
@@ -180,4 +180,17 @@ There is a mapping of well known network ids to their network names:
 
 Here's the ReasonReact component implementation code btw!
 
-![/BrowserWeb3Make.png](https://api.beta.kauri.io:443/ipfs/QmS2v8ZEm9B2QwoZaqQ3dcykbURexT4JLFkW4wkJXAjLfb)
+![/BrowserWeb3Make.png](https://ipfs.infura.io/ipfs/QmS2v8ZEm9B2QwoZaqQ3dcykbURexT4JLFkW4wkJXAjLfb)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/reasonreact-and-web3/99d20b1ab1bc43518bf65cdefd77c445/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2018-09-19
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmf6ZRGc5BwrLTUpPcWBppNmZA3T9tanz79PyyZ84i4mEb
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

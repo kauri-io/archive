@@ -9,6 +9,8 @@ some_url:
 
 # Creating a Flexible NFT (Part 2)
 
+![](https://ipfs.infura.io/ipfs/Qmazm9jnanGSzdwMTZgXBSmuD9msrRYGC142zGSsLfJC7F)
+
 
 ## Part 2
 
@@ -549,3 +551,16 @@ Let's add it to rarebits too.
     -   One example is the cloudinary's hue rotate used by ENSNifty.com ([github link](https://github.com/ENS-Nifty/ens-nifty-frontend/blob/master/functions/metadata.js#L73))
 -   Add a database to your lambda function for richer metadata
     -   **Bonus**: Get in a fight on Twitter about the meaning of true decentralization!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/creating-a-flexible-nft-(part-2)/85f570393e1448a7a94e2eab1bae6e48/a
+- **Kauri original author:** Billy Rennekamp (@okwme)
+- **Kauri original Publication date:** 2019-06-25
+- **Kauri original tags:** netlify, metadata, lambda, upgradeable, serverless, truffle, nft
+- **Kauri original hash:** QmNb1HJkCDQdCZmAmXWhJ7apfFHWeiJyamvLze7n4WEcFz
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

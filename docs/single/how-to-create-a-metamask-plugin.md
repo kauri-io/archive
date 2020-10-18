@@ -9,6 +9,8 @@ some_url:
 
 # How to create a Metamask Plugin
 
+![](https://ipfs.infura.io/ipfs/QmakSxGWzoHe9Jk3iTFHef3WvoRoLyaUyH7zWJKWrwvKGk)
+
 
 ## How to create a Metamask Plugin
 
@@ -107,23 +109,23 @@ yarn start
 
 1.  Click on the menu option in the top right corner.
 
-![](https://api.kauri.io:443/ipfs/QmdYKYszEDjnUM9TBnN5jZdPZUbgTAGov5udV4rLHNP4o7)
+![](https://ipfs.infura.io/ipfs/QmdYKYszEDjnUM9TBnN5jZdPZUbgTAGov5udV4rLHNP4o7)
 
 2.  Click on more tools. 
 
-![](https://api.kauri.io:443/ipfs/QmNidHMKuty6XfPk4YdWeBqJkdpA3TvW2y7d7jDCG38hRk)
+![](https://ipfs.infura.io/ipfs/QmNidHMKuty6XfPk4YdWeBqJkdpA3TvW2y7d7jDCG38hRk)
 
 3.  Click on Extensions 
 
-![](https://api.kauri.io:443/ipfs/QmUdsvMPbMbYkFsBwq3ctD7nLoF4Ri2bs91kUsLGpNbpKS)
+![](https://ipfs.infura.io/ipfs/QmUdsvMPbMbYkFsBwq3ctD7nLoF4Ri2bs91kUsLGpNbpKS)
 
 4.  Make sure that Developer Mode is on
 
-![](https://api.kauri.io:443/ipfs/QmbPZzLCLAfkNNJLrraaqpjPfSVUMQWMVq8brMJzNeWM3q)
+![](https://ipfs.infura.io/ipfs/QmbPZzLCLAfkNNJLrraaqpjPfSVUMQWMVq8brMJzNeWM3q)
 
 5.  Click on Load Unpacked option and choose the Metamask-snaps-beta/dist/chrome folder to load your metamask.
 
-![](https://api.kauri.io:443/ipfs/QmYuFQTKh7c3nkqYYgFrNMSPhiqj9DLHHQa2dPLqwdwCeo)
+![](https://ipfs.infura.io/ipfs/QmYuFQTKh7c3nkqYYgFrNMSPhiqj9DLHHQa2dPLqwdwCeo)
 
 `yarn start` automatically rebuilds MetaMask on any file change. You can then [add your custom build to your browser](https://metamask.zendesk.com/hc/en-us/articles/360016336611-Revert-Back-to-Earlier-Version-or-Add-Custom-Build-to-Chrome).
 
@@ -160,7 +162,7 @@ mm-snap serve
 
 This should give you a message `Server listening on http://localhost:8081`. You can configure the port, and the build target is configured in `snap.config.json`, or with command-line arguments. You can now open that address in your browser, and if you have installed your Snap branch of MetaMask correctly, you should be able to see this:
 
-![](https://api.kauri.io:443/ipfs/QmR4nkgUVpkiTph82oSRDaTgDmnik2ag82rdKrsacjGdS5)
+![](https://ipfs.infura.io/ipfs/QmR4nkgUVpkiTph82oSRDaTgDmnik2ag82rdKrsacjGdS5)
 
 -   Click the "Connect" button on the site.
 -   Approve the site's permissions request (which includes the Snap installation!)
@@ -237,20 +239,33 @@ When the `wallet_enable` method is sent, Metamask asks the user for the permissi
 
 1.  Right-click the MetaMask icon in the top right of your browser.
 
-![](https://api.kauri.io:443/ipfs/Qmf7dnvcKfk5HERsBGCbqLgzoZkZERpEDQQJ6mUKa37gLc)
+![](https://ipfs.infura.io/ipfs/Qmf7dnvcKfk5HERsBGCbqLgzoZkZERpEDQQJ6mUKa37gLc)
 
 2.  Select Manage Extensions.
 3.  Ensure "Developer Mode" is selected in the top right.
 4.  Click on the Details button on metamask extension. 
 
-![](https://api.kauri.io:443/ipfs/QmW3tPJgCVyKf3nssrdpANnkEajJCdaegPDtgZ7xhb3SGs)
+![](https://ipfs.infura.io/ipfs/QmW3tPJgCVyKf3nssrdpANnkEajJCdaegPDtgZ7xhb3SGs)
 
 5.  Scroll down to MetaMask, and click the "Inspect views: background page" link.
 
-![](https://api.kauri.io:443/ipfs/QmfCoDwrr94o6i6pZho9jL4GMoUULLVKX7iSkQPGPZRc4r)
+![](https://ipfs.infura.io/ipfs/QmfCoDwrr94o6i6pZho9jL4GMoUULLVKX7iSkQPGPZRc4r)
 
 6.  Wait for the new Inspector window to open. 
 7.  Click Console at the top of the Inspector window.
 8.  Look for any strange logs, especially red errors!
 
-![](https://api.kauri.io:443/ipfs/QmTJoqTPMi6c4C6G7S512AJ49WgqzLCs5wSnu6Fo8VTrjY)
+![](https://ipfs.infura.io/ipfs/QmTJoqTPMi6c4C6G7S512AJ49WgqzLCs5wSnu6Fo8VTrjY)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-create-a-metamask-plugin/937a0e7fb83047f39ec6cba27e679f89/a
+- **Kauri original author:** Sachin Mittal (@sachin_mittal)
+- **Kauri original Publication date:** 2020-01-29
+- **Kauri original tags:** metamask, documentation, kauri, layer-2, tutorial, ens, snap
+- **Kauri original hash:** QmRAsvpwR7V2Ur9iWtHzKGFgRoAfG889bytYMLMVqQqiaH
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

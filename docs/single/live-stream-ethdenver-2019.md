@@ -12,7 +12,7 @@ some_url:
 
 Unable to make it to ETHDenver? Had to stop by your hotel for a moment and don’t want to miss a beat? Check out our live stream content!
 
-![](https://api.kauri.io:443/ipfs/QmP5UsRpb9i28ptBizMpTgDW35knNSrdjVyhTMBGJ9LGeq)
+![](https://ipfs.infura.io/ipfs/QmP5UsRpb9i28ptBizMpTgDW35knNSrdjVyhTMBGJ9LGeq)
 
 Watch ETHDenver live. We will update the links for each day at the start of the day:
  
@@ -39,3 +39,17 @@ ETHDenver — Fortmatic Stage
  ETHDenver — BUIDL Stage
 ETHDenver — Bufficorn Stage
 ETHDenver — Fortmatic Stage
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/live-stream-ethdenver-2019/50aa214aa9e4475d8f276f093a74cd30/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2019-02-15
+- **Kauri original tags:** ethdenver, ethdenver-2019
+- **Kauri original hash:** QmSAvVz43xbCTr3zwHnkyj98m2gMrxow4igr1CgeYGH4s9
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

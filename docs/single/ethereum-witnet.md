@@ -129,3 +129,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-witnet/8386be0c5e084542a11276fe13fa02c5/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQZEue9E7TwCaZ2Q8N19wm6KDEWqNmxpkXCJQcEQju4Du
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

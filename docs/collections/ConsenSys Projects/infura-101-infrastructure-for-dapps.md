@@ -9,6 +9,8 @@ some_url:
 
 # Infura 101 - Infrastructure for Dapps
 
+![](https://ipfs.infura.io/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk)
+
 
 ### Why use Infura?
 
@@ -68,8 +70,22 @@ Then call the method, outputting the value to the interface:
 
 Once your Dapp has issued some requests to Infura, the _Stats_ pane shows a summary of method calls and information about the bandwidth used.
 
-![Infura stats dashboard](https://api.beta.kauri.io:443/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk)
+![Infura stats dashboard](https://ipfs.infura.io/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk)
 
 ### Migrating from V2 to V3
 
 If you used Infura before, make sure your applications are using the new `https://rinkeby.infura.io/v3/*` endpoints. If not, you need to re-register and update your Dapps to keep using Infura. BLOG POST?
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/infura-101-infrastructure-for-dapps/9113c37841e5451fbb2cf2477a3a63e5/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2018-12-07
+- **Kauri original tags:** none
+- **Kauri original hash:** Qma6nEx5dfuEGbFhjSr59qbeUDHMgtf9aLABiawrxbb5Nq
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

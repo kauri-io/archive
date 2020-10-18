@@ -10,7 +10,7 @@ some_url:
 # Weird quirks we found in Ethereum nodes
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmdDSza1PPqfpKDRkKsMekYCzE8TeFLowEj71LPBCE3nBw)
+![](https://ipfs.infura.io/ipfs/QmdDSza1PPqfpKDRkKsMekYCzE8TeFLowEj71LPBCE3nBw)
 At TokenAnalyst we are experts at hosting, running, and extracting valuable information from blockchain nodes. Through our time working with Ethereum, we encountered some interesting quirks that we’d love to share with the broader community. We work with the two top most-used Ethereum clients, namely Geth ( 
 [go-ethereum](https://github.com/ethereum/go-ethereum)
  ), built mainly by the 
@@ -45,3 +45,16 @@ Through the process of setting up our infrastructure. We learned that when build
 _parses and classifies every on-chain transaction (currently from the Ethereum blockchain) with the goal of deriving fundamental insights to understand crypto-assets._
  
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://upscri.be/618d25" width="512"></iframe>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/weird-quirks-we-found-in-ethereum-nodes/9d659d2cecd14c2bb65992f316fefcf9/a
+- **Kauri original author:** null (@eca41677558025c76bfd20e9289283cb4ca85f46)
+- **Kauri original Publication date:** 2018-12-20
+- **Kauri original tags:** Geth, Parity, Nodes
+- **Kauri original hash:** QmcrL3PUZaFStp51tyPXJ4JjWmLPP4eGfnFn5ih3jr69Rh
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

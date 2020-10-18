@@ -128,3 +128,17 @@ Sandcastle is one of several steps we’re taking to help advance blockchain dat
 The post [Sandcastle, our Latest R&D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts](https://pegasys.tech/sandcastle-brings-sql-to-ethereum-smart-contracts/) appeared first on [PegaSys](https://pegasys.tech).
 
   
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sandcastle-our-latest-randd-pre-alpha-release-bri/9c9decae6eb34414a6c91cca3b60b6c8/a
+- **Kauri original author:** PegaSys (@pegasys)
+- **Kauri original Publication date:** 2019-05-21
+- **Kauri original tags:** smart-contract, ethereum, sql
+- **Kauri original hash:** QmUYBi3H5X5fyDBVrS2fh5zwocLVf9JZqWqDjksL7xn33d
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

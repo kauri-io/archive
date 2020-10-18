@@ -79,3 +79,17 @@ To get to that point, the Ethereum blockchain community has been building softwa
 
 
 <p> **Note:** Scaling Today is funded by the May 2018 Ethereum Grants Program. For more information visit: [scaling.today](https://scaling.today) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/analysis:-the-state-of-ethereum-today/47bcc11830a6425d94434cc60e6b86ec/a
+- **Kauri original author:** Chris Spannos (@chris-spannos)
+- **Kauri original Publication date:** 2018-11-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmVkqmcCZg1dKgWVGRTGfaVvBeDVPeBvp3ZbLV9PAAvEkF
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

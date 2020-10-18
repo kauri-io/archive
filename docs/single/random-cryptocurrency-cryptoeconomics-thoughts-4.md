@@ -99,3 +99,17 @@ _>trusts>_
  
 _Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-4/9c3d9c0df6f2454094c60b9e138507f3/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmWbUpYHyiTSjadzw1WhgYR8pABWUbVkywwdkMnGuM3U3j
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

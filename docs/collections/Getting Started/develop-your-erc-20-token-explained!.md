@@ -15,7 +15,7 @@ ERC 20 Tokens are creating a rage in the cryptocurrency sector and you wouldn’
 **What is an ERC-20 Token?**
  
 
-![](https://api.kauri.io:443/ipfs/QmWa5PaKwACzkbbCdDDJbLgjuDGZEoJyjuB2QS9MV3oBqk)
+![](https://ipfs.infura.io/ipfs/QmWa5PaKwACzkbbCdDDJbLgjuDGZEoJyjuB2QS9MV3oBqk)
 
 Ethereum Request For Comments 20(ERC 20) is a protocol standard that defines certain rules and standards for issuing tokens on Ethereum’s network.
 A Token developed on Ethereum Blockchain is said to be an ERC-20 compliant only if it includes the basic functions defined by the protocol in its smart contract. The functions defined in the protocol are :
@@ -330,3 +330,17 @@ If you don’t want to take the burden of doing all this, reach out to us at
  
 Originally published by me at :
  [My Medium Blog](https://medium.com/@hargobindgupta/develop-your-erc-20-token-explained-f2437ef8329b)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/develop-your-erc-20-token-explained!/e05b1433dfa6434dba2788df96f423e9/a
+- **Kauri original author:** Hargobind Gupta (@hargobindgupta)
+- **Kauri original Publication date:** 2019-06-03
+- **Kauri original tags:** erc20, ethereum, blockchain, decentralized, hargobind, dlt, token
+- **Kauri original hash:** QmY58jzJzoEYFrzVc3nTFCSoPRCWDynpQSQtuni2iTuabb
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

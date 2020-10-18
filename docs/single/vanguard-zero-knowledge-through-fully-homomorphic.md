@@ -50,3 +50,17 @@ https://github.com/nucypher/vanguard
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/vanguard-zero-knowledge-through-fully-homomorphic/a372f6705cdf4b578cfa345a5443a743/a
+- **Kauri original author:** John Pacific (@tuxxy)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmQVuhQbBJGw3bXgu51ix94qQQDva4BmNnnpLbynadaGXg
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

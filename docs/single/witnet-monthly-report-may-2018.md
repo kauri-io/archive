@@ -72,3 +72,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-monthly-report-may-2018/9bae1089d8b343e19f71b267588c877d/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmeWLvygrGDfnhq7nHWff4SfF2G5GqpMPkexzTQzbHdELj
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

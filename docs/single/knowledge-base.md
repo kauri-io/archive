@@ -118,3 +118,16 @@ ETHBerlin will cover all meals & drinks for the entire Hackathon, and conference
 #### Sleeping Facilities
 Due to the regulations of the venue, unfortunately we cannot offer any sleeping facilities on-site, and
 sleeping bags are not allowed. Please make sure you take this into consideration when choosing an accomodation.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/knowledge-base/75f1de6eb6c04ababf1aba0213f886a5/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSxdd1VYZNE9FA6fohEoQjsaHawVAXammKj8q4Ryd4CW5
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

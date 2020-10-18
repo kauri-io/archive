@@ -131,3 +131,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/enabling-networks-to-become-cross-chain-with-witn/3d109c86ee4849ad95516ea071fda33a/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYM6h9pFDtKsKPgA4y8dfw5q2pGfwevujPgd5F9mdPP8w
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

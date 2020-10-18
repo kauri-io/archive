@@ -9,6 +9,8 @@ some_url:
 
 # Share Your Ethereum Knowledge and Write for Kauri
 
+![](https://ipfs.infura.io/ipfs/QmVRkodwoHCGcdp1tkSZrB1soxDfCVrNnbvACacyKnqpmC)
+
 
 Kauri is committed to improving the developer experience in the Ethereum ecosystem, from the first entry point and “Hello World” Dapps, to advanced development, and experimental research topics like generalized state channels and plasma. We believe this requires engaged communities of developers, technical writers, and curators working together to create and maintain high-quality documentation and tutorials.
 
@@ -74,3 +76,17 @@ For an example of the content we are looking for, [read our series on full stack
 Email: [info@kauri.io](mailto:info@kauri.io)
 Twitter: [@kauri_io](https://twitter.com/kauri_io)
 Slack: [Write the docs community](http://slack.writethedocs.org/) | [Gitcoin slack](https://gitcoin.co/slack) #kauri-general
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/share-your-ethereum-knowledge-and-write-for-kauri/b5c15961f13d4112bc82f6edb6fd3a75/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2018-10-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYo65tNW9UNDHdT7b48VaVjnRW3DQx4ZmXyMzdtLKEK4k
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

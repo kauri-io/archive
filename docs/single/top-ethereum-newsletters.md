@@ -9,8 +9,10 @@ some_url:
 
 # Top Ethereum Newsletters
 
+![](https://ipfs.infura.io/ipfs/QmRcy5dgNj9UDBqxLFyyZQ45P9jZyRE3jtzveKKG2iZ7LY)
 
-![](https://api.kauri.io:443/ipfs/QmRcy5dgNj9UDBqxLFyyZQ45P9jZyRE3jtzveKKG2iZ7LY)
+
+![](https://ipfs.infura.io/ipfs/QmRcy5dgNj9UDBqxLFyyZQ45P9jZyRE3jtzveKKG2iZ7LY)
 
 The [Ethereum](https://blog.coincodecap.com/tag/ethereum/) ecosystem is growing at a tremendous pace. You can subscribe to the Ethereum newsletters below to help you get updated with the latest Ethereum news. 
 
@@ -60,3 +62,17 @@ Kauri is a decentralized blogging platform built using IPFS and Ethereum. The pl
 *   [**Smart Contract Wallets**](https://blog.coincodecap.com/best-smart-contract-wallet/)
 *   [**Bitcoin for Beginners**](https://blog.coincodecap.com/bitcoin-for-beginners-common-questions/)
 *   **[Blockchain Analytics Softwares](https://blog.coincodecap.com/best-blockchain-analytics-softwares/)**
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/top-ethereum-newsletters/863ca4d2f5eb42558a43c35cc0e752ad/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** ethereum, newsletter
+- **Kauri original hash:** QmWsBTzPQ4ELN1Lxy4JddY5CkuMDusLGJF2VMG2WYL3yQy
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Whitepaper Deep Dive — Move Facebook Libra Blockchain’s New Programming Language &mdash; Kauri</title>
+    <title>Whitepaper Deep Dive — Move Facebook Libra Blockchain’s New Programming Language &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1064,7 +1067,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="whitepaper-deep-dive-move-facebook-libra-blockchains-new-programming-language">Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language</h1>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU" /></p>
 <h3 id="overview-motivation">Overview &amp; Motivation</h3>
 <p>This is a walkthrough of the 26 pages 
 <a href="https://developers.libra.org/docs/assets/papers/libra-move-a-language-with-programmable-resources.pdf">technical whitepaper of Move</a>
@@ -1093,7 +1096,7 @@ For example, the following code snippet will output the error:
  . This is because Rust has no garbage collection. When variables go out of scope, the memory they refer to is also deallocated. For simplicity, we can understand this as 
 <strong>there can only be one “owner” of data at a time</strong>
  . In this example, x is the original owner, and then y becomes the owner.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz" /></p>
 <h3 id="22-encoding-digital-assets-in-an-open-system">2.2 Encoding Digital Assets in an Open System</h3>
 <blockquote>
 <p>There are two properties of physical assets that are difficult to encode in digital assets:• Scarcity. The supply of assets in the system should be controlled. Duplicating existing assets should be prohibited, and creating new assets should be a privileged operation.• Access control. A participant in the system should be able to protect her assets with access control policies.</p>
@@ -1105,7 +1108,7 @@ For example, the following code snippet will output the error:
  (ownership) of the bill in your hand before spending it.
 To illustrate how we came up with the two properties, let’s start with the following proposals:</p>
 <p><strong>Proposal#1: Simplest Rule Without Scarcity and Access Control</strong></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmcuSXE2qZvo6KqYFrCAxekHG8gSbE1mYfQETFpXdhAjUC" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcuSXE2qZvo6KqYFrCAxekHG8gSbE1mYfQETFpXdhAjUC" /></p>
 <ul>
 <li>
 <p><code>G[K]:=n</code> denotes updating the number stored at key 𝐾 in the global blockchain state with the value 𝑛.</p>
@@ -1122,11 +1125,11 @@ The above representation has serval serious problems:</p>
 </li>
 </ul>
 <p><strong>Proposal#2: Taking Scarcity into Account</strong></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmc4BWkPsEtV1yuhtC37RTBGgKgGNpsoGNxrdkyouw5cMf" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc4BWkPsEtV1yuhtC37RTBGgKgGNpsoGNxrdkyouw5cMf" /></p>
 <p>Now we enforce that the number of coins stored under 𝐾𝑎 is at least 𝑛 before the transfer takes place.
 However, though this solves the scarcity issue, there’s no ownership checking on who can send Alice’s coins. (anyone can do so under this evaluation rule)</p>
 <p><strong>Proposal#3: Considering both Scarcity and Access Control</strong></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmfEiEAWq6zmhL8GZ1Z3hA1i3K4rhb9Ti5bD8T46eRnxSy" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfEiEAWq6zmhL8GZ1Z3hA1i3K4rhb9Ti5bD8T46eRnxSy" /></p>
 <p>We address the problem by using digital signature mechanism 
 <code>verify_sig</code>
  before the scarcity checking, which means Alice uses her private key to sign the transaction and prove that she is the owner of her coin.</p>
@@ -1208,7 +1211,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 </ol>
 </blockquote>
 <p>This is also a very well thought data abstraction design! which means that the data in a smart contract can only be modified within the contract scope but not other contracts from the outside.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o" /></p>
 <h3 id="4-move-overview">4. Move Overview</h3>
 <blockquote>
 <p>The example transaction script demonstrates that a malicious or careless programmer outside the module cannot violate the key safety invariants of the module’s resources.</p>
@@ -1217,7 +1220,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 <strong>modules, resources, and procedures</strong>
  actually is when writing the programming language.</p>
 <h4 id="41-peer-to-peer-payment-transaction-script">4.1. Peer-to-Peer Payment Transaction Script</h4>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb" /></p>
 <p>There are several new symbols here (The small red text is my own notes XD):</p>
 <ul>
 <li>
@@ -1270,7 +1273,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 </blockquote>
 <h4 id="42-currency-module">4.2. Currency Module</h4>
 <h4 id="421-primer-move-execution-model">4.2.1 Primer: Move execution model</h4>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS" /></p>
 <blockquote>
 <p>Each account can contain zero or more modules (depicted as rectangles) and one or more resource val- ues (depicted as cylinders). For example, the account at address 0x0 contains a module 0x0.Currency and a resource value of type 0x0.Currency.Coin. The account at address 0x1 has two resources and one module; the account at address 0x2 has two modules and a single resource value.</p>
 </blockquote>
@@ -1302,7 +1305,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 </li>
 </ul>
 <h4 id="422-declaring-the-coin-resource">4.2.2 Declaring the Coin Resource</h4>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3" /></p>
 <p><strong>Some highlights:</strong></p>
 <ul>
 <li>
@@ -1316,7 +1319,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 </li>
 </ul>
 <h4 id="423-implementing-deposit">4.2.3 Implementing Deposit</h4>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2" /></p>
 <blockquote>
 <p>This procedure takes a Coin resource as input and combines it with the Coin resource stored in the payee’s account by:1. Destroying the input Coin and recording its value.2. Acquiring a reference to the unique Coin resource stored under the payee’s account.3. Incrementing the value of payee’s Coin by the value of the Coin passed to the procedure.</p>
 </blockquote>
@@ -1336,7 +1339,7 @@ Despite that I’m a big fan of Ethereum, I agree that these asset properties sh
 </li>
 </ul>
 <h4 id="424-implementing-withdraw_from_sender">4.2.4 Implementing withdraw_from_sender</h4>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD" /></p>
 <blockquote>
 <p>This procedure:</p>
 <ol>
@@ -1369,7 +1372,16 @@ Lastly, I highly recommend reading through the
 <a href="https://developers.libra.org/docs/assets/papers/libra-move-a-language-with-programmable-resources.pdf">original white paper</a>
  . It includes a lot of details regarding the programming language design principles behind and many great references.
 Thank you so much for your time reading. Feel free to share this with someone who might be interested :) Any suggestions are also welcomed!!</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmV4CcTkR8h9xWtyDJaTxbQKRNuiQCw2t6vfFWdjRRvn9C" /></p></div>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV4CcTkR8h9xWtyDJaTxbQKRNuiQCw2t6vfFWdjRRvn9C" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/whitepaper-deep-dive-move:-facebook-libra-blockch/aaff5b1d82dd46b9a8668ec983a71548/a</li>
+<li><strong>Kauri original author:</strong> Lee Ting Ting (@tina1998612)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-19</li>
+<li><strong>Kauri original tags:</strong> cryptocurrency, ethereum, blockchain, facebook, community, bitcoin, technical-analysis</li>
+<li><strong>Kauri original hash:</strong> QmQPJcJqGmk6egz2K4ySdQQTa3V9UJTTwFEujdq7ZSoMmi</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../building-and-working-with-facebook-s-cryptocurren/" title="Building and Working with Facebook’s Cryptocurrency Libra"><span>Previous</span></a></div>

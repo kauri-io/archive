@@ -9,6 +9,8 @@ some_url:
 
 # has abaslom and the ethos of arcadia
 
+![](https://ipfs.infura.io/ipfs/QmUC9jEBDbVpex42JYKDhk1dxakggtp37UsdNWY61diMud)
+
 
 alas, babylon.
 
@@ -21,3 +23,16 @@ i imagine he did not know "hammurabi's" name; and even today in this place where
 ... just a quote from one of my favorite movies; which of course is re-quoting "dante" and/or "the bible"
 
 "a dwelling place [of] (the) demons (say), it has become."
+
+
+---
+
+- **Kauri original link:** https://kauri.io/has-abaslom-and-the-ethos-of-arcadia/c69700272499484da5ab1e4da74a501f/a
+- **Kauri original author:** Adam Marshall Dobrin (@gydpsjzq)
+- **Kauri original Publication date:** 2020-05-15
+- **Kauri original tags:** revelation
+- **Kauri original hash:** QmS3hozE8kKzvLLWG5gBnPVSKCvrPMUxGGE1Z24CZg1pF6
+- **Kauri original checkpoint:** unknown
+
+
+

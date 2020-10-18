@@ -45,3 +45,17 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/gin/2019-ethdenver
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethlend-feedback/899037c491af44a6ab5fea346d851aba/a
+- **Kauri original author:** Luigi Leung (@luigi)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-aave-2019
+- **Kauri original hash:** QmeFbLjB91nZGeTGwE8k6FCJkSv4cndWv4qZVejy1BxvVS
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

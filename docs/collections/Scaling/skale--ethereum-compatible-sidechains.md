@@ -9,6 +9,8 @@ some_url:
 
 # SKALE  Ethereum-compatible sidechains
 
+![](https://ipfs.infura.io/ipfs/QmYM6J6iRfCSU1YozYfv62xT2hB5wR5Bqqzs4UR6FK6jAK)
+
 
 > SKALE's elastic sidechains provide all benefits of standard full-capacity sidechains alongside the security guarantees of truly decentralized networks. Elastic sidechains are highly performant, configurable, and Ethereum / Web3 Compatible. 
 
@@ -26,7 +28,7 @@ You will need to connect MetaMask to your SKALE Chain, by creating a Custom RPC 
 ‍
 MetaMask will be used to sign all transactions, including the initial deployment of your contracts onto SKALE.
 
-![](https://api.kauri.io:443/ipfs/QmPMx2w5e9gU9SywMGdbcgqBVAivr9PxSr7nQJJi2uruVP)
+![](https://ipfs.infura.io/ipfs/QmPMx2w5e9gU9SywMGdbcgqBVAivr9PxSr7nQJJi2uruVP)
 
 ### Fund Your Wallet
 
@@ -45,7 +47,20 @@ truffle deploy --reset --network [ENTER_YOUR_NETWORK] --compile-all
 ```
 See [Code Samples](https://developers.skalelabs.com/code-samples) for more deployment script examples.
 
-![](https://api.kauri.io:443/ipfs/QmXGFVF26dGd1pXyweks5CRAwzMp9nvkfX3gX64FHH4kQ8)
+![](https://ipfs.infura.io/ipfs/QmXGFVF26dGd1pXyweks5CRAwzMp9nvkfX3gX64FHH4kQ8)
 <br>
 ## 3. Send a Transaction
 Once your smart contracts have been moved over to your SKALE Chain, you can test sending out a new transaction.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/skale:-ethereum-compatible-sidechains/1695fa6d727347e58af02ba7c36a0581/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-17
+- **Kauri original tags:** scaling, sidechain
+- **Kauri original hash:** QmZnbS72HCD9AMVz8Vhj5NCLj6maoQpdFVEPGotMMF5tHw
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

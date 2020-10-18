@@ -36,3 +36,17 @@ There are two types of Proof-of-Stake algorithms, a chain-based proof and a Byza
 
 The Ethereum roadmap includes a transition to Proof of Stake at an indefinite time in the future. The Ethereum Proof of Stake FAQ is a good reference point for more in-depth discussion: 
 - https://github.com/ethereum/wiki/wiki/Proof-of-Stake-FAQs
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-3-consensus-protocols/1c2c9e3a3db0461584757a60ca2424a9/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** consensus, ethash, ethereum, proof-of-stake, proof-of-work
+- **Kauri original hash:** QmUojf2ufPWuD2vJAEvEkntg2JJNHUWzeU8TLo8sikVLn5
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

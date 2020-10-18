@@ -9,6 +9,8 @@ some_url:
 
 # Parity - Private Transactions
 
+![](https://ipfs.infura.io/ipfs/QmR7aHV4B1oWgahPMJuD79BmAsxN1HmjnEFxXk1vnLukGx)
+
 
 > Parity Ethereum's private transactions feature allows to store, modify and view encrypted data on the Ethereum blockchain. The solution is agnostic to the type of the chain. You can deploy it on any Ethereum based chain with any consensus algorithm. 
  
@@ -144,3 +146,16 @@ You can do so by calling the method `addKey(address[] users, bytes32 key)` from 
 
 ### Flags
 To use the private transactions functionality, Parity client must be launched with specifc `private` flags. Find more information on [Private Transactions Options](https://wiki.parity.io/Configuring-Parity-Ethereum) and in the [Private transactions tutorial](https://wiki.parity.io/Private-Transactions-Tutorial-Overview).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/parity-private-transactions/15d01dbd345340789461b8bd48f56f3c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-01
+- **Kauri original tags:** ethereum, blockchain, parity, privacy, private-transactions
+- **Kauri original hash:** QmeNwPxn69vJQQ8hhgfguUkPcjpdbsD5ifLsgMreGhfYdi
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

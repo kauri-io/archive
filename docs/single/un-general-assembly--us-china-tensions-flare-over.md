@@ -9,6 +9,8 @@ some_url:
 
 # UN General Assembly  US-China tensions flare over coronavirus
 
+![](https://ipfs.infura.io/ipfs/QmZnTUq5GXDr6Hn5LqREfSPt7r8hBnoPBPzXjXkgbdvtFx)
+
 
 **Tensions between the US and China came to the fore of the annual UN General Assembly in New York, with US President Donald Trump blaming China for the spread of coronavirus.**
 
@@ -46,3 +48,16 @@ Speaking soon after the US leader, President Xi warned of the risks of a "clash 
 In remarks released ahead of Tuesday's speech, President Xi took a more overt swipe at the US, saying "no country has the right to dominate global affairs, control the destiny of others, or keep advantages in development all to itself", something China itself has been accused of by critics.
 
 Also in his speech, President Xi said China - the world's biggest emitter of greenhouse gases - aims to hit peak emissions in 2030 and be carbon neutral by 2060.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/un-general-assembly:-us-china-tensions-flare-over/10bdac926e18432893d0d6e19f4c2246/a
+- **Kauri original author:** David  (@leong9898)
+- **Kauri original Publication date:** 2020-09-22
+- **Kauri original tags:** china, corona, us
+- **Kauri original hash:** QmQRA9a7YfqAQ9PiDQAxcRHKfjjUGdT83suhLJTyaDEmY6
+- **Kauri original checkpoint:** unknown
+
+
+

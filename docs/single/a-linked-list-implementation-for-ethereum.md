@@ -15,7 +15,7 @@ Coding data structures in Solidity is weird and beautiful.
 
 [![Alberto Cuesta Cañada](https://miro.medium.com/fit/c/96/96/1*FmM57rntjA9sQCNBo5XAPw.jpeg)](https://medium.com/@albertocuestacanada?source=post_page-----a2915bf8122f----------------------)
 
-![](https://api.kauri.io:443/ipfs/QmWPDdkWc4QsW5aC252JBtGebSmAYVcZYXcjfaEFyYc4Fy)
+![](https://ipfs.infura.io/ipfs/QmWPDdkWc4QsW5aC252JBtGebSmAYVcZYXcjfaEFyYc4Fy)
 
 A few months ago I implemented a [Linked List](https://en.wikipedia.org/wiki/Linked_list) in Solidity for a client. More recently I decided that I might take on implementing a Fast Limit Order Book in Solidity as a pet project (aren’t nerds fun!) and Linked Lists appeared again.
 
@@ -103,7 +103,7 @@ You would use this method anytime that you know of an item and you want to inser
 
 A gas comparison between LinkedList.sol and DoubleLinkedList.sol sheds some more light on the issue. For these tests I used a list with 100 items.
 
-(https://api.kauri.io:443/ipfs/QmbWF7Fc7GdNnW82RfUbtUvRu5pscjyqCRx1GTLnULnGsx)
+(https://ipfs.infura.io/ipfs/QmbWF7Fc7GdNnW82RfUbtUvRu5pscjyqCRx1GTLnULnGsx)
 
 `addHead` and `insertAfter` operations with LinkedList are O(1) and cost about 100K gas. Data retrieval is not depicted but given that we use a mapping the cost will be O(1).
 
@@ -140,3 +140,16 @@ In this article I’ve shown both Singly Linked Lists and Doubly Linked Lists, p
 I feel quite privileged to have the opportunity to code basic data structures. Sometimes coding smart contracts feels like a trip many years back when programming meant being very close to the hardware and was very close to mathematics. I like that.
 
 If you are considering using this code in a project, want to contribute, or have ideas to explore, please [drop me a line](http://www.albertocuesta.es/)! Talking to those that read me is always a pleasure :)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-linked-list-implementation-for-ethereum/2b40f522f07a45f391dafebfaadc444d/a
+- **Kauri original author:** Alberto Cuesta Cañada (@albertocuesta)
+- **Kauri original Publication date:** 2020-03-02
+- **Kauri original tags:** smart-contract, ethereum, how-to, blockchain, buidl, solidity
+- **Kauri original hash:** QmVcxvg9qTzSXbcsPaAGKs46TdGCD5pkBQUh7pQ6zs4Drw
+- **Kauri original checkpoint:** unknown
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Building a dapp with the Rhombus Oracle
 
+![](https://ipfs.infura.io/ipfs/Qmao35NGpXgss8EfuRRsUvwaLmiBccPbUbqLUMst99RsXL)
+
 
 ### Introduction
 
@@ -181,3 +183,17 @@ Now, you cannot deploy `Gamble.sol` with the random number lighthouse address pr
 5.  Now lets take a look at how to write test cases with lighthouses. Scroll down and find the `TestWrite()` function. First we write a value into the lighthouse with `newlighthouse.write(dataValue, nonce);` Next, we read from the lighthouse, and check to see if the value we get is correct with an assert statement. If the read or write failed, the value we obtain from `peekData()` would be wrong and we can proceed to debug with error statements that Truffle provides. There are more complicated test cases provided below for you to reference.
 
 With this setup, you can perform Truffle testing as usual, and not have to worry about lighthouse's only being available on Rinkeby.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-dapp-with-the-rhombus-oracle/093b82a34e924fedb2fed3c80034aec1/a
+- **Kauri original author:** Jeff Rosen (@jeffrosen)
+- **Kauri original Publication date:** 2019-05-10
+- **Kauri original tags:** rhombus, gaming, dapp, oracles
+- **Kauri original hash:** QmUZ4UAFpiHk65wQjZxc5hrymJLzhv5C2TUyvuRsuqjS2a
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Setting your OSS repo’s monetary policy
 
+![](https://ipfs.infura.io/ipfs/QmXE8LhTvMJh8bgPhLV4hEbMjRVndsqCEE63AyaYxcjEEJ)
+
 
 
 One of the externalities of creating a [mesh network of paid contributors](https://medium.com/gitcoin/how-to-buidl-a-mesh-network-of-human-beings-a5293ecca60a) to open source software is the expectation of **always getting** paid. If you do some really great work on a Github repo, for the good of the project, and you see someone else get paid, but you did not get paid, you might be confused. 😕And rightfully so!
@@ -56,4 +58,18 @@ I’m curious to hear how the above affects how contributors are motivated to wo
 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*91GgdFbhUB1Ggl_Mysnqog.png)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/setting-your-oss-repo-s-monetary-policy/b0f233605054472fb7766ff0bdce4d6e/a
+- **Kauri original author:** Gitcoin (@gitcoin)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** QmTqrgTV4uEHsLLMVXy2QnRPdWQxpiY51Y29yKu57q79i8
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
 

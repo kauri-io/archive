@@ -9,6 +9,8 @@ some_url:
 
 # ETHDenver Blog bounties
 
+![](https://ipfs.infura.io/ipfs/QmRoEBHpU1k9wh8KZ4BDNGuxTW8ZvbV1XnTVD7eSoKQZMK)
+
 
 Looking for small issues to work on and earn a 0.1 ETH bounty at ETHDenver 2020? Here's some of our articles we would like an extra pair of eyes to review and update.
 
@@ -24,3 +26,16 @@ And if you find any others with issues that need fixing, then feel free to sugge
 To receive the bounty, create an account during ETHDenver, use the _suggest an edit_ button and wait for the original poster to accept the update, then we'll pay out the 0.1 ETH bounty.
 
 [Visit our documentation community for guidance on good documentation](https://kauri.io/documentation-and-technical-communication/5d5545b7dd87360001f8ac16/cm).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-blog-bounties/efe82d94ee2c408e95abc6f979bcab93/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2020-02-04
+- **Kauri original tags:** documentation, ethdenver, blog, hackathons
+- **Kauri original hash:** QmW2qTMHtAL29uqgKTGtuqVtxZZegyC64PZxKK1oT6oq7E
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

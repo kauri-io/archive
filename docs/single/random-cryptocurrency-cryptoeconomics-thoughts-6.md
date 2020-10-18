@@ -68,3 +68,17 @@ _“As Nick Szabo rightly points out, ultimately we are speculating about people
  As TPTB (the powers that be) twist and contort themselves into justifying extreme new anti-crypto measures to staunch the crypto momentum, TPTB will likely enact hyper-fierce and hyper-extreme measures so as to force the outcome. Participants (you and me) will thus be forced into adaptive countermeasures that may invalidate the sanguine predictions that crypto/economists had made prior, and that crypto programmers had assumed as they formulated our crypto codebases (mechanism design, game theory, as modelled inside crypto consensus algorithms). The encoded consensus mechanisms will break or strain as those prior assumptions get tested by these ‘extreme new times’. Crypto codebases made assumptions about how participants will act under the incentive/consensus model coded into the coin: will those assumptions still be valid/robust if a government throws superior tech/weight of numbers at the codebase’s assumptions? If they start locking up well-known crypto HODLers, will mining/Nakamoto Consensus still work as per usual?  
  Crypto works because decentralised trust exists ephemerally, by social consensus. It is thus fragile and soft-bodied: Attila The Hun might invalidate it easily.
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-6/a7f709a168a54c5d80073a59f4d98233/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmUi7SKF5xKGnZ3NciYX2EkSvCEkL9KhcGz23Ky5aKmM6G
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

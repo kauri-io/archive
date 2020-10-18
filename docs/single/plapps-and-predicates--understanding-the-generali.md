@@ -30,7 +30,7 @@ The main takeaways from our previous article are:
  * Most developers just want simple and easy ways to scale their dapps. People want good tools and well documented libraries. They certainly don’t want to build entire blockchains from scratch to run a single app.
 So we set out to create a platform that makes it easy to build scalable blockchain applications without having to be a plasma expert. We ended up with a general purpose plasma chain you can build apps (or “plapps”) on. Sound weird yet? Plapp. Plaaapp. Plappp. Yup.
 
-![](https://api.kauri.io:443/ipfs/QmNm8cUS2YrEXmdUTbEFpP8YVLaMfFaAmxXHVHV5n8Uy7j)
+![](https://ipfs.infura.io/ipfs/QmNm8cUS2YrEXmdUTbEFpP8YVLaMfFaAmxXHVHV5n8Uy7j)
 
 
 ### Layer 2: Claims about State
@@ -59,7 +59,7 @@ _ownership_
 Alice will deposit an asset into a smart contract on Ethereum and she will become the owner of that asset. She can then sign an off-chain message that transfers ownership of the asset to Bob. Bob can then withdraw the asset back on Ethereum by making a claim using that signed message.
 We can also represent more complex things than ownership. Let’s say Alice deposits a CryptoKitty and signs a bunch of messages that change the kitty’s fur color. Just like in the example above, she can eventually make a claim on Ethereum about the kitty’s fur color using the last message she signed!
 
-![](https://api.kauri.io:443/ipfs/QmV8LgRYMX2yVSiHoascgF8gri3rm8udWefwFnoKV1DTWs)
+![](https://ipfs.infura.io/ipfs/QmV8LgRYMX2yVSiHoascgF8gri3rm8udWefwFnoKV1DTWs)
 
 Whether it’s changing the kitty’s fur color or eye color, the smart contract back on Ethereum needs to have a way of understanding these changes. Each new piece of functionality — or new type of “state transition” — requires a change to the logic followed by the plasma contract. In previous plasma specs, adding a feature like this meant that one would have to re-deploy the *entire* plasma contract and migrate everyone’s assets from the old plasma chain to the new one. This is not secure, scalable, or upgradeable.
 
@@ -88,7 +88,7 @@ Now let’s dive into the details of how this all works in practice. The buildin
 
  *  `parameters` : Some arbitrary blob of data that describes the object.
 
-![](https://api.kauri.io:443/ipfs/QmYgPVUVMmHtQgnfiiXKyuuLrs2pwuprtogdZNcSenBnBY)
+![](https://ipfs.infura.io/ipfs/QmYgPVUVMmHtQgnfiiXKyuuLrs2pwuprtogdZNcSenBnBY)
 
 State objects are effectively assets — a generalization of the concept of the non-fungible “coins” in Plasma Cash. Just like each unique coin had a 
 `coinID`
@@ -107,7 +107,7 @@ That’s it! The
 `stateID`
  s.
 
-![](https://api.kauri.io:443/ipfs/QmSXgqfBBmfJcE99MwCaKPjtYsntQxRZPcTgbTSi91htGZ)
+![](https://ipfs.infura.io/ipfs/QmSXgqfBBmfJcE99MwCaKPjtYsntQxRZPcTgbTSi91htGZ)
 
 Because we use a 
 [range-based Cash variant](https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf)
@@ -245,11 +245,11 @@ The most important function to implement is
 `verifyDeprecated`
  needs to check that these things are valid, which means checking a signature and a Merkle proof.
 
-![](https://api.kauri.io:443/ipfs/QmfVkWVXXNZt5b65g1SLDbatDpFEVib2jobVR65eCdeFeU)
+![](https://ipfs.infura.io/ipfs/QmfVkWVXXNZt5b65g1SLDbatDpFEVib2jobVR65eCdeFeU)
 
 Putting it all together, we see how the owner can deprecate its ownership state by approving a new update:
 
-![](https://api.kauri.io:443/ipfs/QmZnz2MSMPga5S1A1ZLbA5taHrs9AZYkejYmtqic5ZacaT)
+![](https://ipfs.infura.io/ipfs/QmZnz2MSMPga5S1A1ZLbA5taHrs9AZYkejYmtqic5ZacaT)
 
 The remaining functions are pretty simple. 
 `canInitiateExit`
@@ -357,3 +357,17 @@ Alex Attar
  Matt Slipper  
  Vitalik Buterin  
  Xuanji Li
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/plapps-and-predicates:-understanding-the-generali/d817df6443194a2684bee248a1a20cbd/a
+- **Kauri original author:** Plasma Group (@plasma)
+- **Kauri original Publication date:** 2019-04-22
+- **Kauri original tags:** plapps, ethereum, scaling, predicates, layer-2, plasma, generalized-plasma
+- **Kauri original hash:** QmNYgchK2Unz7bMvyKj7mQ16kcy2G43WZge8xa1dejMyML
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -61,3 +61,16 @@ If Blockade continues to succeed in creating seamless on-chain gaming integratio
 Wrapping things up in style, Ben and [some friends](https://twitter.com/coin_artist/status/1229208102483836929?s=20) received the Judge’s Choice Award for [Die Kitty Die](https://dkd-staging.herokuapp.com/), at the ETHDenver hackathon. The idea started as a way to help you get rid of any old cryptokitties you have sitting around.
 
 ![](https://miro.medium.com/max/1920/0*vbi7dKLPoW0U9712.png)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-2020-blockchain-gaming-part-2:-blockade/4e9f978ee4cd4286b33a6b1b57c3ca55/a
+- **Kauri original author:** Zak Wolff (@inmathswetrust)
+- **Kauri original Publication date:** 2020-02-19
+- **Kauri original tags:** ethdenver-2020, gaming, blockade-games
+- **Kauri original hash:** QmXKCdL3jueSuEk2hD8jNJtTB3RqDWLEvPtZGvmj9bP5Hi
+- **Kauri original checkpoint:** unknown
+
+
+

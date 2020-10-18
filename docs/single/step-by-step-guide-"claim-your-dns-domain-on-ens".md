@@ -271,3 +271,17 @@ Tada! You can see that `matoken.xyz` is assigned to the owner name I added onto 
  **Conclusion** 
 Currently it is still quite a lengthy process, but it is cools to be able to claim ENS address tied into your DNS name. I encourage you to try out with different providers and share the knowledge so that it will be easier for ENS team to come up ways to make your on boarding process a lot easier.
 (Special thanks to [Nick Johnson](https://medium.com/@weka) for helping me completing this work and also reviewing this blog post).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/step-by-step-guide-"claim-your-dns-domain-on-ens"/02de92af458b488a98379870ae9a91ae/a
+- **Kauri original author:** Makoto Inoue (@makoto)
+- **Kauri original Publication date:** 2018-10-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYuy5BVc3Kij5uayVjhmnB366FHc3YjM9Krwpm8vabkXA
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

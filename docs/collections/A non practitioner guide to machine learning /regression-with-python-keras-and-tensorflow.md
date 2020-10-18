@@ -9,6 +9,8 @@ some_url:
 
 # Regression with Python, Keras and Tensorflow
 
+![](https://ipfs.infura.io/ipfs/QmNWabGoWpGE821uheTAYrRkR5Koo8e7zsBMWUnw7gTNST)
+
 
 In this tutorial we are going to do a quick and dirty estimation of house prices based on a dataset from a Kaggle competition. Kaggle is the leading data science competition platform and provides a lot of datasets you can use to improve your skills.
 
@@ -37,7 +39,7 @@ test_dataset = pd.read_csv('./test.csv', skipinitialspace=True)
 ```
 
 and let's visualise the first few rows of both datasets with `raw_dataset.head()` and `test_dataset.head()`
-![](https://api.kauri.io:443/ipfs/QmPHmJkQDmHrS7Cs7XTUey7q74KBFG4mZbicm61FZmYKjQ)
+![](https://ipfs.infura.io/ipfs/QmPHmJkQDmHrS7Cs7XTUey7q74KBFG4mZbicm61FZmYKjQ)
 
 As we can see, we have a lot of columns which we'll call features, of different types (you can run `raw_dataset.dtypes` to verify each columns data type), but for this tutorial we will focus on a small subset of features.
 
@@ -47,7 +49,7 @@ First let's extract our `SalePrice` column, which will be our label or dependent
 labels = raw_dataset['SalePrice']
 sns.distplot(labels)
 ```
-![Skewed prices distribution chart](https://api.kauri.io:443/ipfs/QmZHSbHas8HmfqDgyLKrpqwHSvCj95w8DTFSuTsUu9DsnE)
+![Skewed prices distribution chart](https://ipfs.infura.io/ipfs/QmZHSbHas8HmfqDgyLKrpqwHSvCj95w8DTFSuTsUu9DsnE)
 
 The prices distribution is heavily skewed towards the left and definitely not normally distributed, while we can train a model using the labels as they are, a more normally distributed input will make training easier.
 
@@ -55,7 +57,7 @@ The prices distribution is heavily skewed towards the left and definitely not no
 labels = np.log1p(raw_dataset['SalePrice'])
 sns.distplot(labels)
 ```
-![Corrected prices distribution](https://api.kauri.io:443/ipfs/Qmb9iuLirTD9iWSPhakbJ5VuaapmeKoZDkWMscL3vJkd5L)
+![Corrected prices distribution](https://ipfs.infura.io/ipfs/Qmb9iuLirTD9iWSPhakbJ5VuaapmeKoZDkWMscL3vJkd5L)
 
 Much better now, let's just remember that our model will now estimate the log of the price, so we will need to convert it back by using `np.exp1()`.
 
@@ -87,7 +89,7 @@ test_data = test_dataset[[
     'Neighborhood']]
 train_data.head()
 ```
-![Filtered datasets](https://api.kauri.io:443/ipfs/QmaHX4QqPXKYn1En9TgVmLmkKRQitLeDZ7C6Yn1zoRgAVu)
+![Filtered datasets](https://ipfs.infura.io/ipfs/QmaHX4QqPXKYn1En9TgVmLmkKRQitLeDZ7C6Yn1zoRgAVu)
 
 Much more manageable! We now have a couple of problems. First, some of the numeric columns actually represent categories, like `GarageCars` or `OverallQual`. Secondly, our model will only accept numeric data, so we will need to convert our qualitative data into numbers. Let's first convert the first set to string.
 
@@ -145,7 +147,7 @@ input_test['YearBuilt'] = normed_test['YearBuilt']
 ```
 
 Our final input data should look like this:
-![Final input data](https://api.kauri.io:443/ipfs/QmR3J77skdWhmcDU6pGGsMK8WV3W2GyQZt7hNuXWe2Qgcp)
+![Final input data](https://ipfs.infura.io/ipfs/QmR3J77skdWhmcDU6pGGsMK8WV3W2GyQZt7hNuXWe2Qgcp)
 
 And let's save these datapoints to a pickle file, so we don't need to do all of this in case we want to reuse this data.
 
@@ -230,7 +232,7 @@ sns.distplot(results['SalePrice'])
 sns.distplot(np.exp(labels))
 ```
 
-![Fully rendered model](https://api.kauri.io:443/ipfs/QmXMJ8MquB61jor9Y6G4WyLWmQJudE719ndWVMgBaNUrK1)
+![Fully rendered model](https://ipfs.infura.io/ipfs/QmXMJ8MquB61jor9Y6G4WyLWmQJudE719ndWVMgBaNUrK1)
 
 That's it! You've built your first models for estimating the price of real estate property! This model clearly needs some work but we'll cover it in the following articles. If you want to get ahead, try tweaking some of the parameters, like increasing the number of Epochs, pre-processing the data a bit differently or the structure of the models and see if you can improve the model yourself.
 
@@ -241,6 +243,20 @@ If you have any question or spot any error please feel free to comment or submit
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/regression-with-python-keras-and-tensorflow/d035bc33cd37467db92e5b428a7565fd/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2019-10-22
+- **Kauri original tags:** artificial-intelligence, machine-learning, regression
+- **Kauri original hash:** QmXrSb83unEwNB2Lv5R8VME38ctmjRoLE5W1ipH5uQPa1b
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

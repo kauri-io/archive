@@ -62,3 +62,16 @@ SoulToken: https://rinkeby.etherscan.io/address/0x358c520dd479d693fbc3e733199d9f
 
 #### Try it out
 [artonomous-ethberlin.s3-website-us-east-1.amazonaws.com](artonomous-ethberlin.s3-website-us-east-1.amazonaws.com)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/artonomous/a736b9830cc34c63b6b8c43720f64dfa/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbgmXZRgvEo59tpSdgk4JuuoEhuooJm1GdcsLQtCmWid5
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

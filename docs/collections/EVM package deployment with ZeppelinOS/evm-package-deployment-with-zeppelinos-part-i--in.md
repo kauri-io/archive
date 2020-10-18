@@ -9,6 +9,8 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract
 
+![](https://ipfs.infura.io/ipfs/QmSqVDNgfVx5E4PpuiJykBwfvaMd44Z8z9GPzdo1nakMng)
+
 
 ### Introduction to ZeppelinOS and Package Managers
 
@@ -593,3 +595,17 @@ testing or via web3 in a dApp.
 
 _Thanks to_ [_Santiago Palladino_](https://twitter.com/smpalladino) _for
 reading early drafts and providing feedback._
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-i:-in/307e1eb5f1044e3e8aabb33e12f60c9d/a
+- **Kauri original author:** Dennison Bertram (@dennisonbertram1)
+- **Kauri original Publication date:** 2019-03-07
+- **Kauri original tags:** zeppelinos, packages, evm, solidity
+- **Kauri original hash:** QmXaEk6YckSTAub8HAs1uq6fjz7kwyq4DE3ak2c2Yo2Fxu
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

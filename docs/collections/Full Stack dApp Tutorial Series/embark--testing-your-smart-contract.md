@@ -121,7 +121,7 @@ contract("Bounties", function () {
 * Within the contract container, we also define a variable to hold the contract instance being tested *bountiesInstance*, and a **beforeEach** block
 * The **beforeEach** block will execute before each test and will deploy an instance of the Bounties.sol smart contract. This ensures each test is executed against a clean contract state
 
-![](https://api.beta.kauri.io:443/ipfs/QmYG7ATMCzjLjSLMP3Pd1r9xHdKzyahVkgtDyU1kSdUSku)
+![](https://ipfs.infura.io/ipfs/QmYG7ATMCzjLjSLMP3Pd1r9xHdKzyahVkgtDyU1kSdUSku)
 
 At this point, we have the basic skeleton of our test file and we can test everything is set up correctly by executing the following:
 
@@ -203,7 +203,7 @@ Object.assign(exports, {
 });
 ```
 
-![](https://api.beta.kauri.io:443/ipfs/QmPj67qKz1WKQKndejXdtMs5XtYDoh4J6jd4XHCKutMdpb)
+![](https://ipfs.infura.io/ipfs/QmPj67qKz1WKQKndejXdtMs5XtYDoh4J6jd4XHCKutMdpb)
 
 The above extract uses the web3 library to get the **latest** block from the EVM and from that return its timestamp. 
 
@@ -236,7 +236,7 @@ Object.assign(exports, {
 });
 ```
 
-![](https://api.beta.kauri.io:443/ipfs/QmWaFwv1udeBqcEwHixre55igXssD9RaLNPeuQyvirwsmX)
+![](https://ipfs.infura.io/ipfs/QmWaFwv1udeBqcEwHixre55igXssD9RaLNPeuQyvirwsmX)
 
 The above extract takes a promise as its first argument, which would be a web3 transaction, and an assertion fail message as the next. It wraps the promise in a try and catches the error,  if the promise fails it checks if the error message contains the string **"revert”**.
 
@@ -433,6 +433,20 @@ You can find the [complete bounties.js test file here for reference] (https://gi
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/embark:-testing-your-smart-contract/e8f18d0643c14756b43d698122bba9d9/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2018-09-12
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbqwpbMfyJh8dasREBhs7meyk7MYP1bydPQQiNoik3yDp
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

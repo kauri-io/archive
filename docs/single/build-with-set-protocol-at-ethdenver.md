@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmQp8Cw4d1nmmE18XywzwdyHTUBBovtfoJixQ2MdrjyNGj)
+![](https://ipfs.infura.io/ipfs/QmQp8Cw4d1nmmE18XywzwdyHTUBBovtfoJixQ2MdrjyNGj)
 
 The Set Protocol team is excited to be sponsoring ETHDenver 2019, which will be our 
 **sixth**
@@ -21,7 +21,7 @@ The Set Protocol team is excited to be sponsoring ETHDenver 2019, which will be 
 [Kitty Crates](https://devpost.com/software/kitty-crates)
  , a basket of CryptoKitties represented as an ERC-721!
 
-![](https://api.beta.kauri.io:443/ipfs/QmXLhmJUrwZfWuy8bMRGwKaaz5JEgahTF3N4fyMPgAwHif)
+![](https://ipfs.infura.io/ipfs/QmXLhmJUrwZfWuy8bMRGwKaaz5JEgahTF3N4fyMPgAwHif)
 
 Our overall amazing experience at ETHDenver 2018 led us to participate and sponsor many more of these events last year. We came away thoroughly impressed by the quality of projects that incorporated the 
 [Set Developer Platform](https://docs.setprotocol.com/#/)
@@ -77,3 +77,17 @@ The final wave of applications for ETHDenver closes January 31st so
  *  [Javascript Library](https://github.com/SetProtocol/setprotocol.js) 
 
  *  [Whitepaper](http://whitepaper.setprotocol.com) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/build-with-set-protocol-at-ethdenver/01f3f38475304944852bb9f24d7c0fe6/a
+- **Kauri original author:** Richard Liang (@richard-liang)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** ethereum, set-protocol, ethdenver, defi
+- **Kauri original hash:** QmbpBH2Dpr3WWHV4pYnmXRbjQqau4Fkj68XzQh76qKGWLk
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

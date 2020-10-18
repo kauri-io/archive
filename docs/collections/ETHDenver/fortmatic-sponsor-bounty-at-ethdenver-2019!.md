@@ -9,6 +9,8 @@ some_url:
 
 # Fortmatic - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmPwbNYMtV8NDX3AhTd7v9KNxuLUmGqUHMwJtbV2o2hsDb)
+
 
 ## Company/Project Name and Description
 
@@ -36,5 +38,19 @@ User Experience, Practicality, Originality
 ## Contact Information
 
 Sean Li - sean@fortmatic.com
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/fortmatic-sponsor-bounty-at-ethdenver-2019!/67292751c2334f78bd4c6d187dd64f50/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmbUZmFUBWu2g3g7Ws7x4VorJmCPfzRox2WW7SsLXLqPsu
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

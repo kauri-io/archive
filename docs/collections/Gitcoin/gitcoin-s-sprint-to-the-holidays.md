@@ -9,6 +9,8 @@ some_url:
 
 # Gitcoin’s Sprint To The Holidays
 
+![](https://ipfs.infura.io/ipfs/QmfVPHgqCaTE7ZRcxs7f4A5aje32dpeYmbvZiLrEu8Dpd3)
+
 
 
 The Gitcoin team has been hard at work throughout the summer and fall growing open source. As we transition into winter, we’ll look back at what we accomplished in Q3 while looking forward to the holiday season.
@@ -41,3 +43,17 @@ As we continue to expand into broader areas of open source, we had clear goals t
  * Launch two new products which impact our ability to grow open source in the web3 community **(Launched 1/2… more to come!)** 
 
  * Create 10+ self sustaining bounty programs for open source projects in the ecosystem, leveraging [our EF grant](https://medium.com/gitcoin/grow-open-source-ethereum-foundation-grant-d393802fe9aa)  **(Complete, see below) ✅** 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gitcoin-s-sprint-to-the-holidays/7e32e1edd63d4dc4a86e763e1459fc4a/a
+- **Kauri original author:** Gitcoin (@gitcoin)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbvUNR1g51VcfMK3mLDv3W3RJffYvP9LXgqE3hW9M8DBz
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

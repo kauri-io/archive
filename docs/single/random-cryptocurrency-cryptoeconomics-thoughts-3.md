@@ -52,3 +52,17 @@ _homo economicus_
  . Expect a circus, not a scripted tv show. Cryptoeconomics ingests classical notions derived from the corpus of economic thought and recasts such axioms as statements that can be executed in a sharded state model : cryptoeconomics is eating the classical economics canon and spitting it out as a cryptoconsensus codebase.
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
 My ZenCash address = znk9GjfbzRHwDiMWmq2xeTi5FNkgnzQXthg
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-3/ecf61bedf5cf472681b609a8a564205e/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmRnwN8HgtaDidxApZDrEq7BynXv8eDeQ2FRYkNAftbafK
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

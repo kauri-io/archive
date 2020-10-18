@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmYVcgHuRug4Coz9GF91iMU3roRTAVYzfoS98b5oKt3CVG)
+![](https://ipfs.infura.io/ipfs/QmYVcgHuRug4Coz9GF91iMU3roRTAVYzfoS98b5oKt3CVG)
 
 
 ### TL; DR
@@ -28,11 +28,11 @@ For the past few months, various projects have blossomed in decentralized financ
 [the block](https://www.theblockcrypto.com/2019/03/14/mapping-out-ethereums-defi/)
  , below is the landscape picturing the DeFi ecosystem. The most trending protocols fall into exchanges & liquidity, derivatives, prediction markets, stablecoins and credit & lending categories. We will dive into examples for each of them later in this article.
 
-![](https://api.kauri.io:443/ipfs/QmciK7XEv2sMRbj7JwkdfgKR4touC5aP2ESSZMf8MyHkhG)
+![](https://ipfs.infura.io/ipfs/QmciK7XEv2sMRbj7JwkdfgKR4touC5aP2ESSZMf8MyHkhG)
 
 As a concern raised from the community, a considerable amount of ETH are sent to those applications for collateralization purposes. Until April 25, over 2.2 million ETH has been locked up in DeFi platforms, which makes up over 2% of total ETH supply by then. Among them, Maker gathered the most — more than 90% out of 6 major DeFi projects (shown below).
 
-![](https://api.kauri.io:443/ipfs/QmUkchbCjDi18LMaYKZhJDk6GU63ifvrocqj6yWxVJJBUF)
+![](https://ipfs.infura.io/ipfs/QmUkchbCjDi18LMaYKZhJDk6GU63ifvrocqj6yWxVJJBUF)
 
 
 ### Maker DAO & DAI
@@ -52,7 +52,7 @@ A CDPs lifecycle is defined in 6 stages (
 [according to the purple paper](https://makerdao.com/purple/#dfn-free)
  )
 
-![](https://api.kauri.io:443/ipfs/Qmd3ESirMkBj3zQsduCGkz8dYyZvNwfjfHgFKiTU3vUP8H)
+![](https://ipfs.infura.io/ipfs/Qmd3ESirMkBj3zQsduCGkz8dYyZvNwfjfHgFKiTU3vUP8H)
 
  
 **Some implications:**
@@ -71,7 +71,7 @@ A CDPs lifecycle is defined in 6 stages (
 **Risk Management:**
  The MKR token. MKR is an ERC-20 token which is created/destroyed in response to DAI price fluctuations in order to keep it hovering around $1 USD. Aside from being used to pay the stability fees on the system, the holders of the MKR token are responsible for voting on performing a number of risk management actions. They can add or modify existing CDP types (currently only single collateral CDPs), change the DAI savings rate (unused currently — a part of the switch to multi-collateral CDPs), choose the set of oracles that help determine accurate collateral prices (properly incentivized external actors which report prices), choose a set of emergency oracles which have the ability to trigger an Emergency Shutdown, and finally, the voters can instantly trigger Emergency shutdown themselves if enough voters deem it necessary (Emergency Shutdown is the mechanism used in case (Emergency Shutdowns can occur due to technical updates or if the system is subject to a serious attack it can be used to mitigate that).
 
-![](https://api.kauri.io:443/ipfs/QmRUYiQrvrkLiYs18Pf55WYEAuUoYcSSjZ4PZzzqxjKWQu)
+![](https://ipfs.infura.io/ipfs/QmRUYiQrvrkLiYs18Pf55WYEAuUoYcSSjZ4PZzzqxjKWQu)
 
 Above is showing by March 12, how the user community around Maker Collateral Pool look like. Green nodes are all the external accounts created CDPs and deposited into the liquidity pool. Some of them communicated through proxy contracts (blue nodes) and exchanged ETH for WETH first, and then deposited WETH into Maker SaiTub, while some of them sent WETH directly towards the Maker (green nodes around it). The total WETH volume makes up the total amount of ETH once locked up in Maker, which is ~2 million ETH by then. (*2% of total ETH supply and ~89% out of 6 major defi projects*)
 
@@ -80,7 +80,7 @@ Compound is a protocol on the Ethereum blockchain that uses a process of algorit
 Users supply tokens to the platform directly, and earn a floating interest rate, without negotiating anything with their counterparties (conversely borrowers take loans of tokens from the platforms and pay the interest rates).
 Insead of having suppliers and borrowers negotiate on terms and rates, the interest rates in the Compound protocol are computed using a model that follows the theoretical notion that increased demand should increase interest rates. Each money market undergoes this calculation, and thus each token has its own interest rate model — a function of that specific token’s utilization. Of course, the interest earned by suppliers is less than that paid by borrowers — to ensure the protocol’s economic stability and sustainability.
 
-![](https://api.kauri.io:443/ipfs/QmR52TAFePmT93J9vLseTKqAQbh5rxNBXSEsa99rLuZeBq)
+![](https://ipfs.infura.io/ipfs/QmR52TAFePmT93J9vLseTKqAQbh5rxNBXSEsa99rLuZeBq)
 
 Why be a supplier? Or a borrower?
 Money markets accrue interest in real time, and offer complete liquidity — so users can view their balances (including interest) and withdraw them at any time. Long term holders can leverage their positions and use the money markets as an additional source of income.
@@ -88,7 +88,7 @@ Similarly, borrowers can instantly borrow tokens (they collateralize these loans
 
 #### Platform usage
 
-![](https://api.kauri.io:443/ipfs/QmacuJuWeAPZLRv5txaLvpsNEBcPSW1CXRPouSZCQb5tCC)
+![](https://ipfs.infura.io/ipfs/QmacuJuWeAPZLRv5txaLvpsNEBcPSW1CXRPouSZCQb5tCC)
 
 The table above summarizes the usage in the Compound platform so far. The simplest way to determine supply and demand forces and their influence on the interest is to look at the number of loans, lenders and borrowers. Another interesting metric that could explain the higher interest rates, is the percent lent, which shows how much of the total supply was borrowed at one point — by the most borrowed tokens are DAI and WETH.
 
@@ -134,7 +134,7 @@ These were the hows, now onto the whys. The incentive to provide liquidity comes
 
  * Effectively 0.5991% fee on input ERC20
 
-![](https://api.kauri.io:443/ipfs/QmRh3YV68jx3VE4NxXcdqsrmm7vH9PaGqHvgqrYYMg2yBP)
+![](https://ipfs.infura.io/ipfs/QmRh3YV68jx3VE4NxXcdqsrmm7vH9PaGqHvgqrYYMg2yBP)
 
 This chart shows liquidity providers for each token. The Each color represents a token, each rectangle — a provider. The size of each rectangle is proportional to the amount of liquidity provided. The 2 biggest tokens on the left (green and gold) are DAI and MKR — apparently the most popular pairs.
 
@@ -159,7 +159,7 @@ Once the event that the market was created to predict occurs — it’s outcome 
 #### Market Settlement
 Traders exit their positions by either selling their shares to others or by settling with the market.
 
-![](https://api.kauri.io:443/ipfs/QmNrrZQrTjTVUwK5RDvWbAKv87SsujgGycS2AcszPWDKGA)
+![](https://ipfs.infura.io/ipfs/QmNrrZQrTjTVUwK5RDvWbAKv87SsujgGycS2AcszPWDKGA)
 
 When creating a market, users can specify a description, and also some tags to help describe the scope of that market. The chart above is a word cloud built from the Augur market tags used so far. 
 _(They were extracted and decoded from the data field of the topics that the Augur smart contract generated when the create market event is fired)_
@@ -209,7 +209,7 @@ For Maker, this would be made up of those who opened CDPs, and for Compound by b
  * 28 users with 10 or more CDPs (2 of which have more than 1,000 CDPs — 1360 and 4,893 respectively)
 From the total of 30,353 actions in total (which will correspond to the edges in the next graph, but since there is no point in keeping them all as they’ll only clutter the graph, only 11,109 are included — one between each of the unique nodes), there are 9,539 unique addresses (these will be the nodes).
 
-![](https://api.kauri.io:443/ipfs/QmYrtW18oSQQzG6UsU4YFzMUpALGNhkjPqXAJFN34QbsjG)
+![](https://ipfs.infura.io/ipfs/QmYrtW18oSQQzG6UsU4YFzMUpALGNhkjPqXAJFN34QbsjG)
 
 At a glance, we notice the size difference between the 2 platforms, a large group of addresses in between them (and other smaller ones towards one or the other) as well as some rings formed around the nodes representing Maker and Compound. Let’s describe what these groups are, to help better understand what the chart can tell us. First, it would help to think of the Maker and Compound nodes as having a sort of ‘gravity’. The closer a node is to them, the more interactions it had.
 The large group in the middle: around 775 addresses that interacted with both protocols in equal or close to equal amounts (1–2 interactions with each).
@@ -221,3 +221,17 @@ All in all, if we sum up the addresses that were unique for each of the actions 
  
 _Disclaimer: Alethio has no preference or prejudice towards any of the projects mentioned above. The range of protocols discussed is limited and we will keep working on adding more in the list to achieve a more holistic view. Alethio has a strong commitment to staying neutral by providing facts and best judgments based on objective and/or verified information. This article should never be used as a guide for any malicious practice or trading suggestion._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-defi-series-an-overview-of-the-ecosystem-and-/c4a236b658874fb78cff95a73e54a587/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-04-25
+- **Kauri original tags:** ethereum, blockchain, makerdao, defi, decentralized-finance
+- **Kauri original hash:** QmUDGT11RGrA6ho65W31QAWxwugqoKQsJFiVLNNwoYui3F
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

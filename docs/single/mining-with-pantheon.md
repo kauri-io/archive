@@ -22,36 +22,36 @@ Navigate to
 [https://metamask.io](https://metamask.io/)
  in your browser. On the home page, click on ‘Get chrome extension’ (or if you are using another browser click on the relevant link).
 
-![](https://api.kauri.io:443/ipfs/QmYS1cViRmH56eRa5kasbiTRKQkr4K4JXiFNnh8A6ztjD7)
+![](https://ipfs.infura.io/ipfs/QmYS1cViRmH56eRa5kasbiTRKQkr4K4JXiFNnh8A6ztjD7)
 
 Click on ‘Add to Chrome’ and follow the rest of the prompts to complete the installation.
 
 #### 2. Create a new MetaMask wallet
 After the MetaMask installation completes, click on the ‘Get Started’ button and then you will see this page. Click on ‘Create a Wallet’ to start the process of creating your first wallet.
 
-![](https://api.kauri.io:443/ipfs/QmeXGCHiXLkuHM5wUKmrmpfDSShRdRp3hw7HNyqcEX6yHe)
+![](https://ipfs.infura.io/ipfs/QmeXGCHiXLkuHM5wUKmrmpfDSShRdRp3hw7HNyqcEX6yHe)
 
 Start by entering a new password for your MetaMask wallet, accept the terms and conditions and then click ‘Create’.
 
-![](https://api.kauri.io:443/ipfs/QmYZ8ac1no2gYRqzYHbdSEuV43JFVFFRg9a7ecHvqHgJTD)
+![](https://ipfs.infura.io/ipfs/QmYZ8ac1no2gYRqzYHbdSEuV43JFVFFRg9a7ecHvqHgJTD)
 
 Follow the rest of the prompts to confirm your secret backup phrase and then you should see the MetaMask home screen.
 
 #### 3. Create a new ethereum account in MetaMask
 On the MetaMask home screen, click on the circle icon in the top right and then click on ‘Create Account’.
 
-![](https://api.kauri.io:443/ipfs/QmPb4euGEJsEsxrrpvgmXqjZUv3b1KKjn8uQW2HmcysvfA)
+![](https://ipfs.infura.io/ipfs/QmPb4euGEJsEsxrrpvgmXqjZUv3b1KKjn8uQW2HmcysvfA)
 
 
-![](https://api.kauri.io:443/ipfs/QmdF2ULGbZaQKdzXRwoGQQeysYwBejjwAjYNAMtZVUQJNB)
+![](https://ipfs.infura.io/ipfs/QmdF2ULGbZaQKdzXRwoGQQeysYwBejjwAjYNAMtZVUQJNB)
 
 Enter a name for your new account and then click on ‘Create’. In this example below, I have named the account ‘Pantheon Miner’. Note that creating a new account simply generates a new public/private key pair and address. Details of this account don’t actually get sent to any Ethereum network until you start using the account on that network to send some transactions. You can use the same account on multiple networks but ether earned on one network will be separate from ether earned on another network.
 
-![](https://api.kauri.io:443/ipfs/QmZAgni18dtfLmdrdXfZmKXJ81sGtRxq2AsvxapyaDwzyh)
+![](https://ipfs.infura.io/ipfs/QmZAgni18dtfLmdrdXfZmKXJ81sGtRxq2AsvxapyaDwzyh)
 
 We can now see our new account in the MetaMask home screen and it shows that we currently have zero ether on the Main Ethereum Network (aka mainnet). You can select one of the other networks in the network dropdown in the top right and it will still show that we have zero ether. After running the miner we will see that value grow as we mine.
 
-![](https://api.kauri.io:443/ipfs/QmQcDVGLeLXkKy6j1ZFSFy3WC3UuCvwokTf38cc6R7B1ns)
+![](https://ipfs.infura.io/ipfs/QmQcDVGLeLXkKy6j1ZFSFy3WC3UuCvwokTf38cc6R7B1ns)
 
 Next click on the address of the Pantheon Miner account (just below the ‘Details’ button) to copy the value to the clip board. We will be using this account address in the rest of the tutorial.
 
@@ -96,11 +96,11 @@ $ pantheon --network=dev --miner-enabled --miner-coinbase=0x04fCE695a0aa69C3e994
 
 Now open MetaMask again, and then click on the ‘Networks’ button in the top right and select ‘Localhost 8545’. MetaMask should successfully connect to your dev Pantheon node running locally.
 
-![](https://api.kauri.io:443/ipfs/QmZYPC6Z293wDyQJqLFXX3znZ3iHdDgjKDUXmwEGSqYnwm)
+![](https://ipfs.infura.io/ipfs/QmZYPC6Z293wDyQJqLFXX3znZ3iHdDgjKDUXmwEGSqYnwm)
 
 Now that our Pantheon miner is running, we can now see that the ether in our account (on the local dev network) has already increased to 124 ether and continues to grow:
 
-![](https://api.kauri.io:443/ipfs/QmXF65LyVRHZrNA1qtZQLErHjCnChN51AkWi3ZE8Ekwdry)
+![](https://ipfs.infura.io/ipfs/QmXF65LyVRHZrNA1qtZQLErHjCnChN51AkWi3ZE8Ekwdry)
 
 
 #### Mining on a Testnet
@@ -273,3 +273,17 @@ $ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_hashrate","parms":[],"id":
 #### Summary
 So that gives you a brief overview of how to mine using Pantheon. We successfully created an Ethereum account using MetaMask, and started a dev Pantheon node with mining and RPC enabled. After that we watched the ether in our account grow using MetaMask, as our dev miner added new blocks. We then we ran the command to start the miner and watched the data start to sync on both Ropsten and Mainnet. I also covered some of the JSON-RPC methods you can use to configure and monitor the Pantheon miner.
 I hope you find this information helpful. Feel free to send me your comments or questions and don’t forget to subscribe if you want to follow my future posts here at Web3 Developer.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mining-with-pantheon/1016a4a10e5742638a5445d6268bdcdf/a
+- **Kauri original author:** Web3 Developer (@web3developer)
+- **Kauri original Publication date:** 2019-06-02
+- **Kauri original tags:** metamask, ethereum, mining, pantheon
+- **Kauri original hash:** QmNQi2VXQHBgEiFZtBHr6fGptEh5JuzADBgKdRJoLTxXSq
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # The Kauri Stack
 
+![](https://ipfs.infura.io/ipfs/QmUgWuHdZo6M7Bcpqfq7fK7uDZEs9q1zx7whxWPH71UURW)
+
 
 
 The Kauri team has been heads down in research and development, exploring how we can launch and scale a knowledge network that is curated not by a central moderator, but by the community itself. This article, while technical in nature, is intended to provide the community with an overview of how Kauri was designed, how it was built, how the application and protocol layers interact, and how the smart contracts function. We believe that making this information open to the larger Ethereum ecosystem is vital to Kauri’s success, as we pursue the long-term goal of a community-curated body of knowledge.
@@ -104,4 +106,18 @@ The IPFS Store mechanism provides an API to link an IPFS node with ElasticSearch
 The Kauri authentication and authorization module generates a JSON Web Token for a user, which serves to authenticate and authorize the caller to an API resource server. The authentication is proven without a password using cryptographic signature, and depends on a decentralized policy smart contract deployed on the Ethereum blockchain. The API access control mechanism isn’t based on any central authority or storage, though it is possible to attach some information (e.g. username, email) to the User ID (ethereum account address).
 
 The passwordless authentication module process is as follows: first a user will obtain a piece of data to share, the user will then sign that data (currently using MetaMask, though future methods may use uPort or other mechanisms), the user will then call the API (using “POST /auth”) with their account address, signature, and personal information. The server will check the signature against the address via ecrecover, generate a JSON Web Token, and then store the personal information. At this point, the user can access the resource by passing an X-Auth-Token HTTP header.
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-kauri-stack/774f8a80d2584bebb46ac7dbde8b51cd/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-12-17
+- **Kauri original tags:** kauri
+- **Kauri original hash:** QmWRFrwHhvz8pgSemWVHPCxLTCm6KxwbAX9b1HL5jRYNjB
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

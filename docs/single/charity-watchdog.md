@@ -69,3 +69,17 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 https://github.com/peteygao/charity-watchdog
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/charity-watchdog/aab03a8dfc8c4626b5e32b0a5d0546a7/a
+- **Kauri original author:** Artem Kuznetsov (@artemkhere)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-salt, bounty-fortmatic-2019
+- **Kauri original hash:** QmfUxKhr9mcjskuhpmcDjRJWf5XPiBdCzNjM8kfPWRnu7D
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -204,3 +204,17 @@ Additionally, the EVM's gas metering mechanism ensures that miners receive compe
 The EVM is a subject that should be discussed at length. We won't go into any more detail, as the purpose of this section is to simply introduce users to the internal mechanisms of the EVM. If this topic is interesting to you, then we recommend the Ethereum Virtual Machine (EVM) Awesome List as a good starting point: 
 - https://github.com/ethereum/wiki/wiki/Ethereum-Virtual-Machine-(EVM)-Awesome-List
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-7-the-evm/a7ac47d26eab4ce899a865619122d42e/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** bytecode, ethereum, 101, virtual-machine, opcode, ethereum-virtual-machine, evm
+- **Kauri original hash:** QmWSA6oxhDQD6A96cCmqRPU3iXYugKoqRzZVRHtopbMsTq
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

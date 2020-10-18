@@ -19,7 +19,7 @@ According to the
 [Monero website](https://getmonero.org/home)
  , “Monero is a secure, private, untraceable currency.” Some people might think that this definition could be applied to Bitcoin but that is actually not the case when it comes to being private and untraceable. Monero is a digital currency that uses a different kind of cryptography to allow for these specific attributes. This beginner’s guide should help those who are new to Monero to understand the high level differences between the two.
 
-![](https://api.kauri.io:443/ipfs/QmU1grN2WpxDfXSj5yXMcNNxPe7Nkt3x4cPvCiJoLZKnrr)
+![](https://ipfs.infura.io/ipfs/QmU1grN2WpxDfXSj5yXMcNNxPe7Nkt3x4cPvCiJoLZKnrr)
 
  
 **Comparison**
@@ -31,7 +31,7 @@ Monero is different than Bitcoin in that it focuses on the privacy aspect of tra
 [WikiLeaks donation address](https://shop.wikileaks.org/donate)
  .
 
-![](https://api.kauri.io:443/ipfs/QmdMHqLe4kKfvktRX33CyUMduQfqqhFj2NKgf67DG3ahSt)
+![](https://ipfs.infura.io/ipfs/QmdMHqLe4kKfvktRX33CyUMduQfqqhFj2NKgf67DG3ahSt)
 
 While certain organizations that need to be transparent may want their transaction history to be displayed, the same can’t be said about all individuals and companies. Imagine that anyone could see all of your bank balances and transactions. You might not want the entire world to know your salary and spending habits. Financial privacy has been especially relevant after the string of security breaches over the past few years that have leaked credit card data. You might not necessarily want every store and website that you make purchases on to store that information. Monero values protecting this personal information and makes transaction details private to the outside world by default.
  
@@ -92,3 +92,17 @@ Thanks to
  
 _Please note this post is not an endorsement of Monero by Coinbase. All opinions are my own. Disclaimer: I own Monero._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-beginner-s-guide-to-monero/b0da5ffc94fb4fb894741839aa2fa616/a
+- **Kauri original author:** Linda Xie (@ljxie)
+- **Kauri original Publication date:** 2019-05-03
+- **Kauri original tags:** privacy
+- **Kauri original hash:** QmNhxMTpWwxbiZnikjCt2cAwKKR5NAFJYuFgRqozbnqqEA
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

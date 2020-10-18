@@ -46,3 +46,17 @@ https://github.com/michaelhly/0x-subgraph-extractor
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/0x-subgraph-extractor/1622d337e0c14e55b26e5907548e057e/a
+- **Kauri original author:** Michael Huang (@michaelhly)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, 0x, bounty-thegraph-2019
+- **Kauri original hash:** QmfGZQkphxSXrHqwUfXP26HDuTX31oXjAb3uNFBtM1JiRZ
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

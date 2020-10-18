@@ -84,3 +84,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/team-insights:-maria-back-end-engineer/a4189c85bd284749909fec9011b2b072/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmXJegARg2d47vJfeg2PjyadorxNmt3B3vsTziU2M1u6Uv
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

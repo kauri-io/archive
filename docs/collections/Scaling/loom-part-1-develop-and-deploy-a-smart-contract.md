@@ -9,6 +9,8 @@ some_url:
 
 # Loom - Part 1 - Develop and deploy a smart contract
 
+![](https://ipfs.infura.io/ipfs/QmdhzPG6wt6YXQQWfBLcGiZriBrZmwniwdrKJ7D7QKKgvR)
+
 
 [Loom Network](https://loomx.io/) is a Layer 2 scaling solution for Ethereum focusing on social and gaming dApps that require a very high throughput. Loom SDK enables to generate a sidechain called dAppChain using a dPoS consensus optimised for high-scalability. Loom is contributing on Plasma which is a mechanism to securely transfer a digital asset (ERC20 or ERC721) to a mainchain.
 
@@ -47,7 +49,7 @@ $ ls -l | grep key
 
 5. Click on *Request* and wait until you see **100 faucet-karma**
 
-![](https://api.beta.kauri.io:443/ipfs/QmVvPTJktFDRBxyzSmFJzPXaVgWtG83JvUTLdsWKU5uadK)
+![](https://ipfs.infura.io/ipfs/QmVvPTJktFDRBxyzSmFJzPXaVgWtG83JvUTLdsWKU5uadK)
 
 ### Step 2: Deploy a contract on the Loom extdev network
 
@@ -322,4 +324,18 @@ const address = LocalAddress.fromPublicKey(publicKey).toString();
 * Documentation: https://loomx.io/developers/docs/en/phaser-sdk-demo-websocket.html
 
 **Code**: https://github.com/gjeanmart/kauri-content/tree/master/loom_tutorial_extdev_part1
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/loom-part-1-develop-and-deploy-a-smart-contract/6f807cc4fe01479b8b14bd5625b68191/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-07-05
+- **Kauri original tags:** loom, sidechain
+- **Kauri original hash:** QmW3jg3nKMzThkuZnNq7TLhrH6S3Q3ekjKU3W5C9hzNFXg
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

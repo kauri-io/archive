@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>How to create a Metamask Plugin &mdash; Kauri</title>
+    <title>How to create a Metamask Plugin &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -664,8 +667,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -764,10 +767,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1049,7 +1052,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1058,6 +1061,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="how-to-create-a-metamask-plugin">How to create a Metamask Plugin</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmakSxGWzoHe9Jk3iTFHef3WvoRoLyaUyH7zWJKWrwvKGk" /></p>
 <h2 id="how-to-create-a-metamask-plugin_1">How to create a Metamask Plugin</h2>
 <h3 id="what-is-it">What is It?</h3>
 <p>A Metamask plugin is a script that allows developers to customize the browser extension and introduce extra features with the help of powerful APIs. By default, the plugin system has zero privilege though, there are several methods in the snaps which enable a permission system a developer can offer to users according to the needs of a Dapp.</p>
@@ -1128,23 +1132,23 @@ yarn start
 <ol>
 <li>Click on the menu option in the top right corner.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmdYKYszEDjnUM9TBnN5jZdPZUbgTAGov5udV4rLHNP4o7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdYKYszEDjnUM9TBnN5jZdPZUbgTAGov5udV4rLHNP4o7" /></p>
 <ol>
 <li>Click on more tools. </li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmNidHMKuty6XfPk4YdWeBqJkdpA3TvW2y7d7jDCG38hRk" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNidHMKuty6XfPk4YdWeBqJkdpA3TvW2y7d7jDCG38hRk" /></p>
 <ol>
 <li>Click on Extensions </li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmUdsvMPbMbYkFsBwq3ctD7nLoF4Ri2bs91kUsLGpNbpKS" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdsvMPbMbYkFsBwq3ctD7nLoF4Ri2bs91kUsLGpNbpKS" /></p>
 <ol>
 <li>Make sure that Developer Mode is on</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmbPZzLCLAfkNNJLrraaqpjPfSVUMQWMVq8brMJzNeWM3q" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbPZzLCLAfkNNJLrraaqpjPfSVUMQWMVq8brMJzNeWM3q" /></p>
 <ol>
 <li>Click on Load Unpacked option and choose the Metamask-snaps-beta/dist/chrome folder to load your metamask.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYuFQTKh7c3nkqYYgFrNMSPhiqj9DLHHQa2dPLqwdwCeo" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYuFQTKh7c3nkqYYgFrNMSPhiqj9DLHHQa2dPLqwdwCeo" /></p>
 <p><code>yarn start</code> automatically rebuilds MetaMask on any file change. You can then <a href="https://metamask.zendesk.com/hc/en-us/articles/360016336611-Revert-Back-to-Earlier-Version-or-Add-Custom-Build-to-Chrome">add your custom build to your browser</a>.</p>
 <p>You now have the forked the Metamask running on your machine.</p>
 <h4 id="running-snap-dapps">Running Snap Dapps</h4>
@@ -1167,7 +1171,7 @@ mm-snap serve
 <li><code>mm-snap serve</code>: Locally serve Snap file(s) for testing  </li>
 </ul>
 <p>This should give you a message <code>Server listening on http://localhost:8081</code>. You can configure the port, and the build target is configured in <code>snap.config.json</code>, or with command-line arguments. You can now open that address in your browser, and if you have installed your Snap branch of MetaMask correctly, you should be able to see this:</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmR4nkgUVpkiTph82oSRDaTgDmnik2ag82rdKrsacjGdS5" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR4nkgUVpkiTph82oSRDaTgDmnik2ag82rdKrsacjGdS5" /></p>
 <ul>
 <li>Click the "Connect" button on the site.</li>
 <li>Approve the site's permissions request (which includes the Snap installation!)</li>
@@ -1232,23 +1236,32 @@ async function send () {
 <ol>
 <li>Right-click the MetaMask icon in the top right of your browser.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmf7dnvcKfk5HERsBGCbqLgzoZkZERpEDQQJ6mUKa37gLc" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf7dnvcKfk5HERsBGCbqLgzoZkZERpEDQQJ6mUKa37gLc" /></p>
 <ol>
 <li>Select Manage Extensions.</li>
 <li>Ensure "Developer Mode" is selected in the top right.</li>
 <li>Click on the Details button on metamask extension. </li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmW3tPJgCVyKf3nssrdpANnkEajJCdaegPDtgZ7xhb3SGs" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW3tPJgCVyKf3nssrdpANnkEajJCdaegPDtgZ7xhb3SGs" /></p>
 <ol>
 <li>Scroll down to MetaMask, and click the "Inspect views: background page" link.</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmfCoDwrr94o6i6pZho9jL4GMoUULLVKX7iSkQPGPZRc4r" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfCoDwrr94o6i6pZho9jL4GMoUULLVKX7iSkQPGPZRc4r" /></p>
 <ol>
 <li>Wait for the new Inspector window to open. </li>
 <li>Click Console at the top of the Inspector window.</li>
 <li>Look for any strange logs, especially red errors!</li>
 </ol>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmTJoqTPMi6c4C6G7S512AJ49WgqzLCs5wSnu6Fo8VTrjY" /></p></div>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTJoqTPMi6c4C6G7S512AJ49WgqzLCs5wSnu6Fo8VTrjY" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-create-a-metamask-plugin/937a0e7fb83047f39ec6cba27e679f89/a</li>
+<li><strong>Kauri original author:</strong> Sachin Mittal (@sachin_mittal)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-29</li>
+<li><strong>Kauri original tags:</strong> metamask, documentation, kauri, layer-2, tutorial, ens, snap</li>
+<li><strong>Kauri original hash:</strong> QmRAsvpwR7V2Ur9iWtHzKGFgRoAfG889bytYMLMVqQqiaH</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../reducing-mainnet-transactions-with-a-sidechain/" title="Reducing Mainnet Transactions with a Sidechain"><span>Previous</span></a></div>

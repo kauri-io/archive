@@ -57,3 +57,17 @@ Now, the prover, that’s another nice thing about it, can be written and execut
 <p>**Eli:** Thank you.
  
 <p>**You can read more about the latest in scaling research and development at**  [scaling.today](https://scaling.today/) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eli-ben-sasson-on-using-starks-to-scale-ethereum/bd1cefe782a64962b4f42920cf947a11/a
+- **Kauri original author:** Chris Spannos (@chris-spannos)
+- **Kauri original Publication date:** 2018-11-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmRaBquRwRLhFzSSYSsG5RvDJFF6aNUbkQ3r9TCceKjhDW
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

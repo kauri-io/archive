@@ -9,6 +9,8 @@ some_url:
 
 # Truffle 101 - Development Tools for Smart Contracts
 
+![](https://ipfs.infura.io/ipfs/QmUdXomD6zYFydtj7o634U3cgWxfGWwnm6XUEVrH1VVB4G)
+
 
 Truffle is a suite of tools to help Dapp developers build, deploy and manage their applications. The three tools provide a stack for managing the development lifecycle of an application similar to those you may have used with other languages and frameworks. These are:
 
@@ -22,7 +24,7 @@ Each tool has its own features and functionality summarized below, for full deta
 
 Available as a cross-platform GUI application or command line tool (`ganache-cli`), Ganache starts a local and personal Ethereum blockchain on your machine useful for testing, and other aspects of the Truffle Suite. Alongside this are tabs for details on settings, accounts, blocks, transactions, and logs.
 
-![The Ganache Interface](https://api.beta.kauri.io:443/ipfs/QmZxcN6LHeoP28KeGuVM9aXywhHuiH7a5C3QVF3M4tJLMe)
+![The Ganache Interface](https://ipfs.infura.io/ipfs/QmZxcN6LHeoP28KeGuVM9aXywhHuiH7a5C3QVF3M4tJLMe)
 
 ### Truffle
 
@@ -62,3 +64,17 @@ Similar to consoles provided by Ruby and Python, Truffle lets you test potential
 ### Drizzle
 
 Based on popular JavaScript framework, [Redux](https://redux.js.org), Drizzle is a collection of reactive libraries to build Dapp front-ends that stay in sync with your contract and transaction data. It borrows a lot of concepts from frameworks such as React and brings them to the Web3 word ecosystem.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2018-12-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmR6jDx2u81TSNVjTkuTqn2UsWJYzpf5vdv4RjwPewq5Te
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

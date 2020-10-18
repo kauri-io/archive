@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmVLn7MBpxbL1MoDWmmj8ZA1fvDaEGy1opxwZKQ7nbS1SE)
+![](https://ipfs.infura.io/ipfs/QmVLn7MBpxbL1MoDWmmj8ZA1fvDaEGy1opxwZKQ7nbS1SE)
 
 First, we would like to emphasize that we have a lot of respect for our friends at Zcash and Monero and the activities that these projects have completed so far in order to promote the needed financial confidentiality in crypto.
 We will organize our comparison by looking at three parameters: confidentiality, scalability, and auditability. The comparison is quite advanced and does not claim to be complete — there are other played factors besides the three we have chosen to address.
@@ -95,13 +95,13 @@ You can also read
 ### Appendix — Scalability comparison methodology
 To assess scalability, we used public data on the total number of transactions in Bitcoin, Zcash, and Monero, and divided the total blockchain size by the number of transactions. The data for the time of writing is summarized in the table below:
 
-![](https://api.kauri.io:443/ipfs/QmdRETk5W7fuaBoHZpF4fdGPdspCwMzt17xJysXTKrtKG8)
+![](https://ipfs.infura.io/ipfs/QmdRETk5W7fuaBoHZpF4fdGPdspCwMzt17xJysXTKrtKG8)
 
 
 ### BEAM blockchain size estimation
 In Mimblewimble and thus in BEAM, the blockchain needs to store the header of each block, the kernel of each transaction, and all the UTXOs. The sizes for each element are in the table below:
 
-![](https://api.kauri.io:443/ipfs/QmcPXRV85cWsr1eNoE12MVEPHYoxwW9t8YwpMWGnwVrj18)
+![](https://ipfs.infura.io/ipfs/QmcPXRV85cWsr1eNoE12MVEPHYoxwW9t8YwpMWGnwVrj18)
 
 Now let’s assess what BEAM’s blockchain size will be when BEAM reaches the scale Bitcoin has at the time of writing this (October 2018). Bitcoin’s numbers are below:
 
@@ -176,3 +176,17 @@ __
  : 
 [discord.gg/BHZvAhg](https://discord.gg/BHZvAhg)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-s-the-difference-between-monero-zcash-and-be/86aba6d03b05423088d273057c576a82/a
+- **Kauri original author:** Beni Issembert (@bissembert)
+- **Kauri original Publication date:** 2019-06-23
+- **Kauri original tags:** mimblewimble, zcash, monero, privacy, privacy-blockchain, privacy-coin
+- **Kauri original hash:** QmR43q5epSu3K7Wf4rB31oScNM4rg5ksSNg6DTadBzGAuD
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

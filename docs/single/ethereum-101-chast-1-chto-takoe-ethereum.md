@@ -105,3 +105,17 @@ Ether (эфир) используется для оплаты данной ко�
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-chast-1-chto-takoe-ethereum/ad4ff9164fc04320a55de6d774d300e0/a
+- **Kauri original author:** Anton (@random-char)
+- **Kauri original Publication date:** 2019-05-31
+- **Kauri original tags:** ethereum, dapp, blockchain, ----, tutorial
+- **Kauri original hash:** QmWCbokS1ybtE3jHUWXeZePYifiP72YbG6SN1XsyGQZckD
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

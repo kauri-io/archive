@@ -56,3 +56,16 @@ None - Bounties were not our focus this weekend :confused:
 
 
 https://github.com/carbos-workshop/app
+
+
+---
+
+- **Kauri original link:** https://kauri.io/carbos:-more-than-a-carbon-market/6a32aacaed51411ba9cc2d7adb1478a2/a
+- **Kauri original author:** Carbos (@alek-tutchton)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, carbon
+- **Kauri original hash:** QmWe9PA7Di26HxwvT9jmqFDdc78hsWGSwnQZAJhDZV81Fe
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

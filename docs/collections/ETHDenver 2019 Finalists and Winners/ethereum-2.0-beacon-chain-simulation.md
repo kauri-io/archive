@@ -9,6 +9,8 @@ some_url:
 
 # Ethereum 2.0 Beacon Chain Simulation
 
+![](https://ipfs.infura.io/ipfs/QmU12FsHAKYo8qVVKwqsw4KGtaqrwQccNfRUVQhSZXjM4m)
+
 
 ## Project Name
 Beacon Thugs n Harmony
@@ -54,6 +56,20 @@ http://www.beacon-chain.com/
 We found a potential attack vector to the beacon chain while we were building the simulation 
 - a malicious actor can DDoS the validator during their RANDAO slot, between the hash submission and the reveal - and cause them to lose money via the penalty.
 This shows the value of having a simulation
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-2.0-beacon-chain-simulation/135a5720b9d44104bfbc44a5f69f9f20/a
+- **Kauri original author:** Richard Ma (@rtmqsp)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ideasbynature-2019, sponsor-bounty, bounty-mainframe-2019
+- **Kauri original hash:** QmSjrD73sTSFWyLovKcZqVbJq4gBCCQHq6LAqQn2kjJBfL
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Building a Decentralized Comment Section with 3Box
 
+![](https://ipfs.infura.io/ipfs/QmZ4mqt9me1b5Hvj8EegoiggXho5eGmn5KDquRVDvXFGRn)
+
 
 User comments are an important part of any content-driven application. Traditional web applications usually pair commenting systems with a corresponding user profile system. When we create commenting systems for the decentralized web we also need decentralized user profiles. Luckily, the [3Box Comments Plugin](https://docs.3box.io/build/plugins/comments) has us covered.
 
@@ -41,7 +43,7 @@ npm start
 
 You should see a placeholder page with some basic information about React:
 
-![Initial React app screenshot](https://api.kauri.io:443/ipfs/QmRdD96Qf7FhyFNSGahNz2myAFyrpDFWR9FkVNhZMF2CWJ)
+![Initial React app screenshot](https://ipfs.infura.io/ipfs/QmRdD96Qf7FhyFNSGahNz2myAFyrpDFWR9FkVNhZMF2CWJ)
 
 **Note**: You'll have an easier time with this demo if you keep the development server running in one terminal window and edit your code in another.
 
@@ -108,7 +110,7 @@ export default App;
 
 Your development server should automatically compile the app again once you've made these changes. The webpage should now look like this:
 
-![React app setup screenshot](https://api.kauri.io:443/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs)
+![React app setup screenshot](https://ipfs.infura.io/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs)
 
 #### Importing 3Box
 
@@ -262,7 +264,7 @@ Wait for the development server to recompile the app. You should be able to see 
 
 Once you've accepted these requests, you should be able to leave a comment:
 
-![First 3Box comment screenshot](https://api.kauri.io:443/ipfs/QmSvSXL63yCZbYAyxZLsBsCzunPSWyPPy2JPPhQQ7Qg5iA)
+![First 3Box comment screenshot](https://ipfs.infura.io/ipfs/QmSvSXL63yCZbYAyxZLsBsCzunPSWyPPy2JPPhQQ7Qg5iA)
 
 And we're off!
 
@@ -325,7 +327,7 @@ class App extends React.Component {
 
 Wait for your app to compile again and head over to the webpage. You should see these new features in action:
 
-![3Box comments with more features screenshot](https://api.kauri.io:443/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW)
+![3Box comments with more features screenshot](https://ipfs.infura.io/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW)
 
 ### Making It Your Own
 
@@ -342,7 +344,7 @@ Now that you've played around with `3box-comments-react`, you're ready to integr
 
 And here's what that looks like:
 
-![3Box comments with red text screenshot](https://api.kauri.io:443/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue)
+![3Box comments with red text screenshot](https://ipfs.infura.io/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue)
 
 ### Conclusion
 
@@ -351,3 +353,16 @@ We did it! We managed to get the 3Box Comments Plugin added to a simple React ap
 A final version of the code we wrote in this tutorial is available in [this repository](https://github.com/kfichter/3box-comments-tutorial). 3Box has [a lot of other cool tools](https://3box.io/products) that you can check out on their [website](https://3box.io/) and [documentation page](https://docs.3box.io/products). Since you've just tried out the Comments Plugin, you might want to look at the [Chatbox Plugin](https://docs.3box.io/build/plugins/chatbox) next.
 
 Thanks for checking out this tutorial, see you in the next one!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-decentralized-comment-section-with-3bo/8c85ac6937d5481ca485ec2ee2be178d/a
+- **Kauri original author:** Kelvin Fichter (@kfichter)
+- **Kauri original Publication date:** 2020-02-04
+- **Kauri original tags:** 3box, ethereum, plugin, tutorial, decentralized
+- **Kauri original hash:** Qma78zfKjjdGCRHiTqtHqmJk4n92pjSHB2xHLS1nxor2vA
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

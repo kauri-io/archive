@@ -85,3 +85,17 @@ Until then, see you in Berlin and Prague!
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-s-fall-event-schedule/74f3d118f7ae4068bbf615bf6e50468f/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQBaadQcBQQf7jepsyJFJZL2CazbbGqpTyNSXEjfqa8vd
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

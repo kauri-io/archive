@@ -43,3 +43,17 @@ https://github.com/pshirlyn/crypto-messenger
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cryptomessenger/594e5305566e4630bf6f992c05afcde6/a
+- **Kauri original author:** Shirlyn Prabahar (@pshirlyn)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, shapeshift
+- **Kauri original hash:** QmUp96aB4Nqj1BHX6JD3U918LHLAhuz8iFZ8joudxgoXAL
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

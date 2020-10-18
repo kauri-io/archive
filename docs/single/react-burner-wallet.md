@@ -48,3 +48,17 @@ https://github.com/adamgoth/react-burner-wallet
 github hosted page (demo): https://adamgoth.github.io/react-burner-wallet/
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/react-burner-wallet/73caa695608744a892c09370c7ab1abe/a
+- **Kauri original author:** Adam Goth (@ag)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-makerdao, bounty-poa-2019
+- **Kauri original hash:** QmYh5V811kNdEK2WNnJ5p5rjcEPmnJYnatmLYnc27kscfM
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

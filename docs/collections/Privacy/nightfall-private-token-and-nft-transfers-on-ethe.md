@@ -9,6 +9,8 @@ some_url:
 
 # Nightfall - Private Token and NFT Transfers on Ethereum
 
+![](https://ipfs.infura.io/ipfs/QmRVKXctEticBFgAYUNpytw9no9GrSgN86UGHRBWGmUDwF)
+
 
 ## Nightfall
 
@@ -214,3 +216,16 @@ they have shared with the community:
 [Libsnark](https://github.com/scipr-lab/libsnark)  
 [Zcash](https://github.com/zcash/zcash)  
 [GM17](https://eprint.iacr.org/2017/540.pdf)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nightfall-private-token-and-nft-transfers-on-ethe/23d6c65e76614b0ea2af0f3d2606dcfa/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** erc20, privacy, confidential-transactions, private-transactions, erc721
+- **Kauri original hash:** QmUUuY7mq8bGGTtqtq7t4jA4CoQ5k5JscpodEDDYQCAGDk
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

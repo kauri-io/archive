@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmRttyKJdtNGBXMvTkLrkjGVk7kjdagrnNDXKceiykcsfA)
+![](https://ipfs.infura.io/ipfs/QmRttyKJdtNGBXMvTkLrkjGVk7kjdagrnNDXKceiykcsfA)
 
 
 ### You & Your Data: Full Disk Encryption
@@ -116,4 +116,18 @@ _That’s all for this edition — @ us on_ [Twitter](https://twitter.com/denver
  
 
  
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/you-and-your-data-part-1:-full-disk-encryption/41424d8691a84350a43b43530da27ad1/a
+- **Kauri original author:** Artlimber (@artlimber)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmT48zYALCoLcK3EHrqa2Xa73csPiAjmBx1JGxBh4dY8AN
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

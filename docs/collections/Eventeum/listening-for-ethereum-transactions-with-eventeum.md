@@ -9,6 +9,8 @@ some_url:
 
 # Listening for Ethereum Transactions with Eventeum
 
+![](https://ipfs.infura.io/ipfs/QmR3jU48TTKEqPuyjRrQWxpZfNnhD1BzMayHSsXPJH9Hcw)
+
 
 In this tutorial we will walk through how to use Eventeum to be notified when certain transactions have been mined within the Ethereum network.
 
@@ -85,25 +87,25 @@ To test that the transaction subscription was successful, we must send a transac
 
 1. First ensure that metamask is connected to the Rinkeby network.  **This is a very important step, as there is a risk that you may transfer real ETH if you're connected to the wrong network!!**
 
-![](https://api.kauri.io:443/ipfs/QmdS4ckxBKfzCvHqUGzszJhQ7wNPs3LivBSNKC8CE5hivD)
+![](https://ipfs.infura.io/ipfs/QmdS4ckxBKfzCvHqUGzszJhQ7wNPs3LivBSNKC8CE5hivD)
 
 2. Next, paste the `0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2` address into the 'Add Recipient' box.
 
-![](https://api.kauri.io:443/ipfs/QmYFzTiqAsorTpXeG233GTx3gYWaky6A7sp9tmG1qisEqQ)
+![](https://ipfs.infura.io/ipfs/QmYFzTiqAsorTpXeG233GTx3gYWaky6A7sp9tmG1qisEqQ)
 
 3. Enter a small value in the `Amount` box, such as 0.001 ETH.
 
-![](https://api.kauri.io:443/ipfs/Qmf7m7QF1Da3XN5eqKGsX4bEDGqCjz2Y3wUomJVhrQNbFG)
+![](https://ipfs.infura.io/ipfs/Qmf7m7QF1Da3XN5eqKGsX4bEDGqCjz2Y3wUomJVhrQNbFG)
 
 4. Click next.
 
 5. Keep the default values here, and click Confirm.
 
-![](https://api.kauri.io:443/ipfs/QmUN6t9SM98BUiNXizSdqPqHS3kjf2vzDnd1hH2XaCS7ja)
+![](https://ipfs.infura.io/ipfs/QmUN6t9SM98BUiNXizSdqPqHS3kjf2vzDnd1hH2XaCS7ja)
 
 6. Your transaction has now been broadcast to the Rinkeby network.  Once the transaction has been mined (this could potentially take a few minutes), you will see a popup similar to this one:
 
-![](https://api.kauri.io:443/ipfs/QmVdAozLhv8BjeJsYWwd2cXP4S8KfyWFCeGgLMBDwpjxQN)
+![](https://ipfs.infura.io/ipfs/QmVdAozLhv8BjeJsYWwd2cXP4S8KfyWFCeGgLMBDwpjxQN)
 
 7. Now in the Eventeum terminal, check the log and you should soon see a 'Sending transaction event message' with details about the transaction that you just sent.  This means Eventeum has now broadcast the transaction onto a Kafka queue, that can be consumed by your backend services!
 
@@ -147,5 +149,19 @@ If you haven't already, it would be worth checking out the other Eventeum articl
 To learn more about Eventeum API's, message specifications or advanced configuration, checkout the github page at: https://github.com/ConsenSys/eventeum/.
 
 Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs…just don't forget to create a pull request afterwards, to help improve the product!
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/listening-for-ethereum-transactions-with-eventeum/3e31587c96a74d24b5cdd17952d983e9/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-09-26
+- **Kauri original tags:** eventeum, ethereum, transaction
+- **Kauri original hash:** QmVNtSzauVjx9APfucuUJBom8J27YjmFMEPiDK1YQr8A1U
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

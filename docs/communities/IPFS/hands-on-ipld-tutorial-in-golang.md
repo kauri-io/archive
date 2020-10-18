@@ -9,6 +9,8 @@ some_url:
 
 # Hands-on IPLD Tutorial in Golang
 
+![](https://ipfs.infura.io/ipfs/QmcPFE5hvGL2XNThLHJmzKqacxpJc8XdRxBgZDxUgbj2Es)
+
 
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/hands-on-ipld-tutorial-in-golang/). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
@@ -352,5 +354,19 @@ You can know more about him [here](https://www.linkedin.com/in/kumblegp/).
 
 
 Vaibhav is the Co-founder of [TowardsBlockchain](https://towardsblockchain.com), [SimpleAsWater](https://simpleaswater.com) & [Dappkit](https://dappkit.io). You can know more about him [here](https://www.linkedin.com/in/vasadev/). 
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/hands-on-ipld-tutorial-in-golang/d1e5568bc5204ec4a81b9e7249bb3fe9/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-01-13
+- **Kauri original tags:** ipfs, simpleaswater, golang, dag, tutorial, ipld
+- **Kauri original hash:** QmPSoCECkemwDqr6wf65vjfjV5e37UBmvyYixRvYGpW3CS
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
 
 

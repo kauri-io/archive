@@ -9,6 +9,8 @@ some_url:
 
 # Fuzzing Smart Contracts Using Multiple Transactions
 
+![](https://ipfs.infura.io/ipfs/QmPGrTmXhqNeVGJ85nYeqAijteW7xeaW4CbXbmzF496u7y)
+
 
 In previous posts, we 
 [introduced Harvey](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
@@ -157,3 +159,17 @@ Thanks to
  , and 
 [Bernhard Mueller](https://twitter.com/muellerberndt)
  for feedback on drafts of this article.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/fuzzing-smart-contracts-using-multiple-transactio/566c70b35d564ac8a8fcc08c37fb5859/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** fuzzing, security, smart-contracts
+- **Kauri original hash:** QmP3eFb7sZg7C91YSZ54chACWkxR29wh9vHMoCicB1RD3z
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

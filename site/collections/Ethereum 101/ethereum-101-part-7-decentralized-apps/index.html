@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Ethereum 101 - Part 7 - Decentralized Apps &mdash; Kauri</title>
+    <title>Ethereum 101 - Part 7 - Decentralized Apps &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -671,8 +674,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -771,10 +774,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1056,7 +1059,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1068,13 +1071,13 @@
 <h2 id="developing-on-the-ethereum-platform">Developing on the Ethereum Platform</h2>
 <p>It is relatively easy to establish an Ethereum node, send and receive transactions, trade cryptocurrencies, and bring test environments online, though understanding the moving parts and complexities of such a fledgling technology is a formidable task. It takes time. This section will introduce consumers and developers to the decentralized app ecosystem. </p>
 <h2 id="basic-decentralized-infrastructure-stack">Basic Decentralized Infrastructure Stack</h2>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmRvq7e67HBEa3zDKLHwn1GcSk96yuachXxoQMtevui4ZN" />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRvq7e67HBEa3zDKLHwn1GcSk96yuachXxoQMtevui4ZN" />
 <em>(non-exhaustive)</em></p>
 <h2 id="how-an-end-user-interacts-with-your-decentralized-app">How an End-User Interacts with Your Decentralized App</h2>
 <p>Using ethereumjs to execute a raw transaction is code-heavy process for such a simple task, not many users will want to do that for every transaction. </p>
 <p>MetaMask is a wallet that serves to improve the user experience of transacting on the Ethereum network while protecting the end-user's private keys. </p>
 <p>Let’s send a simple transaction using MetaMask. First, if you haven’t added the app to your Chrome or Firefox browser, go ahead and do that now at the following link: <a href="https://metamask.io/">https://metamask.io/</a> then move through the steps and setup a password. </p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmen7cYubP4VBcVDYivwaqfVieK1Eno18RhEZhKcHWCM6v" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmen7cYubP4VBcVDYivwaqfVieK1Eno18RhEZhKcHWCM6v" /></p>
 <p>The above is what a MetaMask end-user sees when sending a transaction. It’s immensely more intuitive.</p>
 <p>In the top left corner you can see that this transaction was broadcast onto the Rinkeby testnet. The 18.750 ETH is not real ether, as it was obtained using Rinkeby’s faucet @ <a href="https://faucet.rinkeby.io/">https://faucet.rinkeby.io/</a>.</p>
 <h2 id="web3-libraries">Web3 Libraries</h2>
@@ -1121,6 +1124,15 @@ contract NameOfMyProject is StandardToken {
 <ul>
 <li>Solhint: <a href="https://github.com/protofire/solhint">https://github.com/protofire/solhint</a></li>
 <li>Ethereum Solidity Language for Visual Studio Code: <a href="http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/">http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-7-decentralized-apps/b282e90cb260459fb8a8cc6e24ae34fa/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, 101, dapp, web3, developer, solidity</li>
+<li><strong>Kauri original hash:</strong> QmPABHD1nNfUan3jzi7DzpKATwNtUn9VcP6R573W7dmoMx</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
 </ul></div>
                 <footer>
     <div class="footer-buttons">

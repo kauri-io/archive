@@ -10,7 +10,7 @@ some_url:
 # ¿Cual es la diferencia entre un token y una moneda? ¿Tipos de tokens?
 
 
-![](https://api.kauri.io:443/ipfs/Qmeu5J2rTkbfb5YFN71jGpa9DX8Nj36bEsFDCEAW9KSbZa)
+![](https://ipfs.infura.io/ipfs/Qmeu5J2rTkbfb5YFN71jGpa9DX8Nj36bEsFDCEAW9KSbZa)
 
 Las monedas o criptomonedas son el resultado marginal de la blolckchain, por ejemplo Rippple, Bitcoin o Ether son monedas, en el caso de Bitcoin la moneda se llama igual que la blockchain, pero sin embargo por ejemplo en el caso de Ethereum la blockchain se llama así y la moneda que surje de ello se llama Ether.
 
@@ -39,3 +39,16 @@ Y es una entiendad, en este caso una empresa que respalda cada token con oro rea
 
 
 -Collectibles: Son tokens únicos, un ejemplo sería Cryptokitties, están grabados en la blockchain y a diferencia del resto de tokens, no hay 2 iguales.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cual-es-la-diferencia-entre-un-token-y-una-moneda/82f328bb1a9345ae9383367b83103398/a
+- **Kauri original author:** null (@ethernomics)
+- **Kauri original Publication date:** 2020-06-08
+- **Kauri original tags:** ethereum, token
+- **Kauri original hash:** QmXWAjurKfkRWApDQwWT15VZnZ8v4r7E9D9Bp1nUcyJgrR
+- **Kauri original checkpoint:** unknown
+
+
+

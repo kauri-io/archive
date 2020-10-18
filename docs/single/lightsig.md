@@ -38,3 +38,17 @@ some_url:
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lightsig/6b2b6b849f464bf5a00ce89e36a63352/a
+- **Kauri original author:** Poole Party (@poole-party)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmVMa2diAFYsubzbJ8n3tj4FXfZ8pGX3GEz5LZTXYNLLma
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

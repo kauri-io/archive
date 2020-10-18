@@ -14,7 +14,7 @@ some_url:
 ## Project Name
 GitTron.me
 
-![](https://api.kauri.io:443/ipfs/QmQwER4xthDxadooYGNhLHazHtduPjqg1hyqevF9dPGAEe)
+![](https://ipfs.infura.io/ipfs/QmQwER4xthDxadooYGNhLHazHtduPjqg1hyqevF9dPGAEe)
 
 
 ## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
@@ -44,6 +44,20 @@ https://github.com/odyssy-automaton/od-gittron-api
 https://github.com/odyssy-automaton/od-gittron-contract
 https://github.com/odyssy-automaton/od-sls-htmlgen
 https://github.com/odyssy-automaton/od-sls-svgflatr
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gittron.me/4b50294bfe4949e484ba4478e775136d/a
+- **Kauri original author:** Dekan Brown (@dekanbrown)
+- **Kauri original Publication date:** 2019-02-19
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmV2h7wqmDYUQGHFzKQbrXWQiz8vm4JyFwkFgaVzQNgoot
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

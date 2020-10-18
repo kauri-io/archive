@@ -9,6 +9,8 @@ some_url:
 
 # Kauri  The Knowledge Network for the Ethereum Ecosystem
 
+![](https://ipfs.infura.io/ipfs/QmeuZteeX9NajHSdSN3is7Bs1S7NwkeQSyStxvDAkAguT3)
+
 
 
 As new developers and technical enthusiasts enter the Ethereum space, they are met with an incredibly friendly community but a disorienting vacuum of technical documentation. The lack of documentation stems from the fast-paced and rapidly changing business models being driven by the Ethereum ecosystem, which is ripe — and sometimes saturated — with new protocols, crypto-mechanisms, and software on a seemingly weekly basis.
@@ -56,4 +58,18 @@ Over the course of 2018 and 2019, we plan to build out Kauri’s application and
 
 Kauri will provide both new and experienced developers with completely free access to a curated, high-quality, and continuously expanding Ethereum knowledge base. The point is less time searching and vetting, and more time learning and building. The Kauri network is not owned and operated by a single gatekeeper but rather aligns incentives and facilitates community members so that participants themselves can curate and grow the network. Experts will be rewarded for sharing time and expertise. In turn, development teams will finally be able to harness the full resources and support of the incredibly talented Ethereum community. We look forward to unlocking our ecosystem’s collective wisdom.
 Are you interested in building a community of knowledge contributors for your open source project? Please reach out to us at [info@kauri.io](mailto:info@kauri.io) or visit [kauri.io](http://kauri.io) to learn more.
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri:-the-knowledge-network-for-the-ethereum-eco/e6b0a7e5c4d74f1fa7ad0f4a82b225aa/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** QmfFJpV8KKmHLuXr2pww88c8Gvt3LPjVBbaUTFM82TvzzV
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
 

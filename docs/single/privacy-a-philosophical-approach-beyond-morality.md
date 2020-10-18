@@ -16,7 +16,7 @@ _The philosophical approach has given insufficient attention so far to the probl
 
 ### Is Privacy ‘only’ a value?
 
-![](https://api.kauri.io:443/ipfs/Qmb4xHwgL6X6afWUkycaefYiT5fhh7HRbgpFZ58uuAGCKT)
+![](https://ipfs.infura.io/ipfs/Qmb4xHwgL6X6afWUkycaefYiT5fhh7HRbgpFZ58uuAGCKT)
 
 What has not been addressed, or at least made explicit, is 
 **why privacy is commonly considered a right or a value**
@@ -37,7 +37,7 @@ This ascertainment exists in the philosophical field
 **due to the Judeo-Christian prism**
  (inherited from Plato[1])through which everything must be seen as good or evil.
 
-![](https://api.kauri.io:443/ipfs/QmYQH891sS5K9biW3f3ZMiezoP5TEVzoEUEaf3kTopuXGE)
+![](https://ipfs.infura.io/ipfs/QmYQH891sS5K9biW3f3ZMiezoP5TEVzoEUEaf3kTopuXGE)
 
 Consequently, 
 **a certain level of privacy seems to be necessary in order to warrant to the individual the feasibility of moral choice and action.**
@@ -53,7 +53,7 @@ Given a definition of moral choice as a right of the indi­vidual, one might the
 
 ### Far from the ‘Moraline’
 
-![](https://api.kauri.io:443/ipfs/QmbFRMz8x2rW4cN9j36L585Agc3SuVhM9qbW5aQdzFZ3PU)
+![](https://ipfs.infura.io/ipfs/QmbFRMz8x2rW4cN9j36L585Agc3SuVhM9qbW5aQdzFZ3PU)
 
  
 **The first question that is asked nowadays about the right of privacy is whether it is indeed a right at all**
@@ -78,7 +78,7 @@ _ittlichkeit_
 
 ### Will to Privacy
 
-![](https://api.kauri.io:443/ipfs/QmNZazdZtExCy8EfGMduTm3JFwgMBTsyrPATsfPK5dGSjJ)
+![](https://ipfs.infura.io/ipfs/QmNZazdZtExCy8EfGMduTm3JFwgMBTsyrPATsfPK5dGSjJ)
 
 Let’s propose with humility 
 **to wear the same ontological glasses and to express the essence of privacy as a pure Will to Privacy**
@@ -90,7 +90,7 @@ Privacy is an essential requirement for the achievement of morality in our Judeo
 **Privacy must be crafted daily**
  ; the crafting process begins at birth and ends at death.
 
-![](https://api.kauri.io:443/ipfs/QmPD6aDF5B3YkgUkqyJaYsDVHnmr17pUgamFgenqQJj81y)
+![](https://ipfs.infura.io/ipfs/QmPD6aDF5B3YkgUkqyJaYsDVHnmr17pUgamFgenqQJj81y)
 
  
 **The modern human is born in platonic chains, but this is not the role of the State, of the Law to free him or her.**
@@ -129,3 +129,17 @@ _Thus Spoke Zarathustra_
  . According to him, the will to power is more 
 _powerfu_
  l than the will to survive. Schopenhauer’s “Will to life” thus became a subsidiary to the will to power, which is the stronger will.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/privacy-a-philosophical-approach-beyond-morality/44486d3af3d4471d8f0ddb80531916b4/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** beam, mimblewimble
+- **Kauri original hash:** QmbBKf6pEv2MzW5xmSLUowtoBCEJQqCTE9Ckjci8s1fmui
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

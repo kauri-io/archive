@@ -9,6 +9,8 @@ some_url:
 
 # Why write documentation
 
+![](https://ipfs.infura.io/ipfs/Qmd3jT6LxnaLhtxDSJeZQ7ZoKbt4mSg7nYXFP2of5FmbJM)
+
 
 **What's one of the first things you look at when you look at using a new project?**
 
@@ -84,3 +86,17 @@ previous efforts to explain them in other ecosystems.
 
 There are ways to explain complex topics without blinding people. You
 abstract some detail, but that's fine. We'll look at the best places to explain what level of technical detail in the next post.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-write-documentation/203c87d1ee4b4444b0139fe054f28607/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-11-20
+- **Kauri original tags:** documentation, writing
+- **Kauri original hash:** QmQoenKzVBhi6WAhBXmeWZwcLmhFM1mxMbTdZXWDj2C6eU
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

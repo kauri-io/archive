@@ -43,16 +43,16 @@ In OpenLaw, the first step is to create (or reuse) a legally enforceable contrac
 #### Start with a Blank Document
 Normally, contract professionals start with an example and then tailor it to meet the needs of the parties. In this tutorial, however, we will start from scratch to show you how to construct a template using the powerful OpenLaw markup language.
 
-![](https://api.beta.kauri.io:443/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3)
+![](https://ipfs.infura.io/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3)
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC)
+![](https://ipfs.infura.io/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC)
 
 
 #### Creating a Legal Document
 In this tutorial, we’ll write up a legal contract where a buyer will buy a Volkswagen bus from a seller for 200 ether (a cryptocurrency on the Ethereum blockchain). A traditional paper-based agreement to support this commercial transaction might look like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN)
+![](https://ipfs.infura.io/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN)
 
 We’re going to recreate this simplistic legal agreement with OpenLaw’s markup and blockchain-enabled capabilities by inputting the following markup as a template, as shown here:
 \centered ** BILL OF SALE **
@@ -75,18 +75,18 @@ Similarly, we left the purchase price open with the following markup:
 This field is slightly different from the last example in that it constrains the field to a numeric value by adding the suffix Number. There are many different types of constraints, such as dates, Ethereum addresses (in the example above), and more. We’ll describe how those fields work their way onto the blockchain in the next section.
 After updating the markup, saving the document on OpenLaw, and clicking the “Draft” button, we should see a screen that looks like the following:
 
-![](https://api.beta.kauri.io:443/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3)
+![](https://ipfs.infura.io/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3)
 
 
 ### Signing the Contract on OpenLaw
 In draft mode we can fill in the fields with the buyer’s address, seller’s address, a description of the Volkswagen Bus, and the purchase price, so now the parties can sign the document.
 The first step is to insert the buyer and seller email addresses as this will serve as their identity in OpenLaw (in the future, more options will be available). This is available on the left hand set of fields above like the other fields. Then click the send button to send the document out for signature.
 
-![](https://api.beta.kauri.io:443/ipfs/QmXTvRnAsNEzxagVidJ31XeNViPgrWksVDYJavH41Zp96g)
+![](https://ipfs.infura.io/ipfs/QmXTvRnAsNEzxagVidJ31XeNViPgrWksVDYJavH41Zp96g)
 
 Since, in this example, we were logged into OpenLaw as one of the signing parties, we are immediately taken to the signature page, which looks something like the following:
 
-![](https://api.beta.kauri.io:443/ipfs/QmRBvsPoGN7ETEs1qHKttUdQTREBvMe9sN6ArnJieGerbd)
+![](https://ipfs.infura.io/ipfs/QmRBvsPoGN7ETEs1qHKttUdQTREBvMe9sN6ArnJieGerbd)
 
 Each party will receive notification that they have a contract to sign via email.
 A key aspect of the signature process comes from special markup tag instructions to the OpenLaw interpreter. For example:
@@ -104,7 +104,7 @@ Returning to our example above, the parties can automate the purchase and sale o
 [the Solidity programming language](https://solidity.readthedocs.io/)
  , the most popular language for developing smart contracts on the Ethereum blockchain.
 
-![](https://api.beta.kauri.io:443/ipfs/QmWYZhQf2sdovwoVvg84c7VqRFEw4DfRYRSG5zVMX2URUZ)
+![](https://ipfs.infura.io/ipfs/QmWYZhQf2sdovwoVvg84c7VqRFEw4DfRYRSG5zVMX2URUZ)
 
 A description of the Solidity programming language is far beyond the scope of this short tutorial, but if you’ve developed in any language, it should be clear that the function recordContract takes four parameters: the object to be sold, the purchase price, and the buyer and seller’s Ethereum addresses. An experienced reader will probably spot many issues with the smart contract code, but please keep in mind this is simply for demonstration.
 Now, using a tool like MetaMask or the Mist Wallet, the buyer can transfer his or her ether to the smart contract to be held pending confirmation that the vehicle was delivered. Once the buyer approves using a smart contract aware wallet like Mist or separate dApp by calling confirmReceipt, the funds will be released to the seller.
@@ -159,3 +159,17 @@ Since the law pervades every part of our life, as you can imagine, there are sev
  and 
 [Twitter](https://twitter.com/OpenLawOfficial)
  for further announcements, tutorials, and helpful tips over the upcoming weeks and months.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openlaw-tutorial:-blockchain-enabled-legally-enfo/3a4016d6e3bd4c1fbba839244f1802e8/a
+- **Kauri original author:** Priyanka Desai (@priyanka-desai)
+- **Kauri original Publication date:** 2018-12-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmU3TVPnGEFAHKTwKc9RFxGC4ExrtcifWeX6ECCuXu2hha
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

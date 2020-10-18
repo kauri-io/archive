@@ -53,3 +53,17 @@ https://github.com/Struka9/TangerineCoffee
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/spitl-tipping-multiple-users-with-a-single-step/2178f8c1b7af4d41a3ca2e133b01006f/a
+- **Kauri original author:** Cristian Espinoza (@crisgarner)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-makerdao, bounty-ideasbynature-2019, bounty-zeppelin-2019, bounty-poa-2019
+- **Kauri original hash:** QmadWeVn9sa1poKHKw8sWkaop3kHnpb8TqfVVd3W8U4b4K
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

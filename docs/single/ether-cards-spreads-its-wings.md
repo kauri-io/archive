@@ -81,3 +81,16 @@ We are open to exploring partnerships with any synergistic parties who, like us,
 https://ether.cards
 
 https://twitter.com/ether_cards
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ether-cards-spreads-its-wings/1caa445cdad94bd5b56450cc686685fc/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-09-30
+- **Kauri original tags:** ethereum, devcon5
+- **Kauri original hash:** QmcgphVcoPabM4jJ5kdLPUcireHSN3ZZJZTMp67MeZMZS4
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

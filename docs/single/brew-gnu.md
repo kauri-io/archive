@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmZXfKNEeFdcP5wv6dGNQuRRqK8YdnzHHy4ML2h2SUYJFU)
+![](https://ipfs.infura.io/ipfs/QmZXfKNEeFdcP5wv6dGNQuRRqK8YdnzHHy4ML2h2SUYJFU)
 
 ## Project Name
 BREW GNU - Beer brewed with ETH
@@ -44,6 +44,20 @@ Zeppelin
 
 ## A link to all your source code on a public repo (i.e. Github)
 github.com/souradeep-das/Beereth
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/brew-gnu/9d58536df39446baab358b5e9fcada98/a
+- **Kauri original author:** Chris Nunes (@ucnunes)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-zeppelin-2019
+- **Kauri original hash:** QmXue9oM2tdNUomFJnqbSVZVncwTdmsz9gyhcYZnjYL8Yb
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
 
 
 

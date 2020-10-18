@@ -66,3 +66,17 @@ Imbrex
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/pvela/jobsimple
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/jobsimple/ac7653f3b1234a91af80fe21e397d55b/a
+- **Kauri original author:** Tyler Tworek (@tworektj)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-imbrex-2019, bounty-aave-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmaX13ad2fXdR8U1RJWusd9yt33WzXaDu6Ws7eQrpDSPq4
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

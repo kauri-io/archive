@@ -9,6 +9,8 @@ some_url:
 
 # Chat, browse and transact securely with Status
 
+![](https://ipfs.infura.io/ipfs/QmWyr9ooBWsVm55Bx6qP5tVNHaR75qCaeSsNJL9Cg97XA8)
+
 
 Status is a mobile first, secure and private messaging client that has chat, browser and wallet functionality. Status aims to create an Ethereum App ecosystem that enables users and developers to interact with DApps as smoothly as possible. Efforts began with mobile apps for iOS and Android, but they recently released a desktop app.
 
@@ -48,3 +50,17 @@ Status is offering up to \$5K for the best extensions built during the hackathon
 ### Team members attending
 
 Chris Hutchinson, Nabil Naghdy, Michael Bradley & Ben Morris
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/chat-browse-and-transact-securely-with-status/7da7e02418b84a898688bbf44d88abe5/a
+- **Kauri original author:** Status (@status)
+- **Kauri original Publication date:** 2019-02-07
+- **Kauri original tags:** ethdenver, mobile, hackathons
+- **Kauri original hash:** QmUAqy1T7DCjUztdycvXJzjuNMvvzu4Nt1JtMKL8iHQMrD
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

@@ -70,3 +70,17 @@ some_url:
  
 
 <p>**Note:** Scaling Today is funded by the May 2018 Ethereum Grants Program. For more information visit: [scaling.today](https://scaling.today) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/insight-2:-teams/2acb2237f9e1403b9d1a956456ba1dea/a
+- **Kauri original author:** Chris Spannos (@chris-spannos)
+- **Kauri original Publication date:** 2018-11-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmeWtkMPmbQANhf6JBtnKxEcVaqiM8aGjG7ftK5Pnb2uBs
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

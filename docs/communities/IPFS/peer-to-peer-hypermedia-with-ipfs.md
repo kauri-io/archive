@@ -9,6 +9,8 @@ some_url:
 
 # Peer-to-peer hypermedia with IPFS
 
+![](https://ipfs.infura.io/ipfs/QmVmFg2MiFVxb4Ro967CaubE8ytjWD5gDFgsNzRCnrVUj9)
+
 
 InterPlanetary File System, also known as IPFS, is a peer to peer media protocol that means to make the web faster, safer, and open sourced. Right now we're in need of a system that has fast performance, continuous access to content, efficient data transfer, easy naming conventions, and low cost. Although IPFS is in its early stages, it can do all of these things.
 
@@ -84,7 +86,7 @@ The browser extension also known as the companion, allows the user to view short
 
 In the next tutorial we will not be covering the browser extension. To learn more click the [link](https://github.com/ipfs-shipyard/ipfs-companion).
 
-![](https://api.kauri.io:443/ipfs/Qmevyp8k7QKnE8WAmBb6LrmvvarVXFZ4mcyrpCFmXLF1Tx)
+![](https://ipfs.infura.io/ipfs/Qmevyp8k7QKnE8WAmBb6LrmvvarVXFZ4mcyrpCFmXLF1Tx)
 
 #### Local Webhost
 
@@ -92,17 +94,17 @@ Once you have connected to the daemon server, you can access your own personal w
 
 <http://localhost:5001/webui>
 
-![](https://api.kauri.io:443/ipfs/QmY38K1ps2iG2DsYcWbq9nc9Y4uz2PA3PmD9q12R8Z5Bno)
+![](https://ipfs.infura.io/ipfs/QmY38K1ps2iG2DsYcWbq9nc9Y4uz2PA3PmD9q12R8Z5Bno)
 
 The status page allows the users to check information in regards to how their node is running on the network.
 
-![](https://api.kauri.io:443/ipfs/QmdCspQhUqUsXHSUpL85mdJkmwfJJE2vSf35bbko9X6N3s)
+![](https://ipfs.infura.io/ipfs/QmdCspQhUqUsXHSUpL85mdJkmwfJJE2vSf35bbko9X6N3s)
 
 You can upload files to your node directly in the browser as well as explore files on other nodes if you know the hash of the content. 
 
-![](https://api.kauri.io:443/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf)
+![](https://ipfs.infura.io/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf)
 
-![](https://api.kauri.io:443/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf)
+![](https://ipfs.infura.io/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf)
 
 The web interface is the ultimate tool for checking the status of your node and managing your files.
 
@@ -115,3 +117,17 @@ IPFS is a system that allows the web to be more reliable and robust than what we
 - <https://docs.ipfs.io/introduction/usage/>
 - <https://www.sitepoint.com/http-vs-ipfs-is-peer-to-peer-sharing-the-future-of-the-web/>
 - <https://medium.com/@ConsenSys/an-introduction-to-ipfs-9bba4860abd0>
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/peer-to-peer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** server, ipfs, web, peer2peer
+- **Kauri original hash:** QmUkUFrYQjRrjXFWfAPTWHHB9eGUiMLSLpG42gU3m2vg4b
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

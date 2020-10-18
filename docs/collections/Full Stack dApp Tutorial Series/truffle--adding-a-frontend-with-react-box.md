@@ -80,7 +80,7 @@ Commands:
 ```
 This creates a new truffle project with an example SimpleStorage dApp example:
 
-![](https://api.beta.kauri.io:443/ipfs/QmTUZDeNyDqWXFCP6GZoi4jW1hSVaXmFVQ2rk5GVvKzyUb)
+![](https://ipfs.infura.io/ipfs/QmTUZDeNyDqWXFCP6GZoi4jW1hSVaXmFVQ2rk5GVvKzyUb)
 
 * **client/**: Files for react app
 * **client/public/**: store static web files
@@ -107,7 +107,7 @@ networks: {
 ```
 Your truffle.js file should look like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmNXLHM7cV4r7unU5CVKdKMVLFdExXiVHeSqi6nBMiS9H7)
+![](https://ipfs.infura.io/ipfs/QmNXLHM7cV4r7unU5CVKdKMVLFdExXiVHeSqi6nBMiS9H7)
 
 Note: Make sure you add the comma after `contracts_build_directory: path.join(_dirname, "client/src/contracts"),`
 
@@ -235,7 +235,7 @@ To create a production build, use npm run build.
 ```
 You should see the following when you visit **http://localhost:3000** in your browser:
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ1ELwN6wTLte71W5h5Fkn374LXc5czNMpd7n9YkNiH4u)
+![](https://ipfs.infura.io/ipfs/QmQ1ELwN6wTLte71W5h5Fkn374LXc5czNMpd7n9YkNiH4u)
 
  Note: Right now this tutorial is assuming that you do not have Metamask installed. Thus if the stored value is 0 do not be alarmed. If you have Metamask installed: switch to the localhost network. You will see a transaction message pop up on the screen. If you reject the transaction you will see a 0 and if you accept it you will see a 5. Either way we will just continue on from this step. 
 
@@ -261,7 +261,7 @@ Next, delete the contracts/SimpleStorage.sol file and replace it with the [Bount
 
 **Note: You will also need to replace inside the Bounties.sol file anything that says SimpleStorage with Bounties.**
 
-![](https://api.beta.kauri.io:443/ipfs/QmSjNJpDkMq4MFX7ucWFoXy6D5wpNikMU3Mm2AWvQwtwnb)
+![](https://ipfs.infura.io/ipfs/QmSjNJpDkMq4MFX7ucWFoXy6D5wpNikMU3Mm2AWvQwtwnb)
 
 Next, update the migration file `2_deploy_contracts.js` to deploy our `Bounties.sol` smart contract:
 ```
@@ -271,7 +271,7 @@ module.exports = function(deployer) {
   deployer.deploy(Bounties);
 };
 ```
-![](https://api.beta.kauri.io:443/ipfs/QmSSC3fraVm6ou7CpEZFSBPa6W5P1ujijz53p1W3bmocn9)
+![](https://ipfs.infura.io/ipfs/QmSSC3fraVm6ou7CpEZFSBPa6W5P1ujijz53p1W3bmocn9)
 
 Now we have everything set up, we can now start updating our main application logic within the `src/App.js` file.
 
@@ -671,11 +671,11 @@ If you do not already have an Infura account, the first thing you need to do is 
 
 Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.
 
-![](https://api.beta.kauri.io:443/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
+![](https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
 
 Once your project is created, select the environment we will be deploying to, in this case **Rinkeby**, from the **Endpoint** drop down and copy the endpoint URL for future reference:
 
-![](https://api.beta.kauri.io:443/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
+![](https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
 
 Make sure you save this token and keep it private!
 
@@ -709,13 +709,13 @@ In the BIP39 Mnemonic code form:
 3. Click the “Generate” button to generate the mnemonic
 4. Copy and save the mnemonic located in the field “BIP39”, **remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
+![](https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
 
 5. Scroll down the page to the *Derived Addresses* section and copy and save the *Address* this will be your Ethereum deployment account.
 
 **NOTE: Your private key will be displayed here, please keep this private.**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
+![](https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
 
 Above the address we’ll be using is: **0x56fB94c8C667D7F612C0eC19616C39F3A50C3435**
 
@@ -727,7 +727,7 @@ First let's create a `secrets.json` file, this file will store your mnemonic and
 
 **NOTE: Remember not to check this file into any public repository!**
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23)
+![](https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23)
 
 Next, copy the following extract to the `truffle.js` configuration file:
 
@@ -776,17 +776,17 @@ To request ETH from the faucet we need to complete the following steps:
 
 2. Copy the link to the social media post
 
-![](https://api.beta.kauri.io:443/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
+![](https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
 
 3. Paste the link into the [*Rinkeby* ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent
 
-![](https://api.beta.kauri.io:443/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
+![](https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
 
 4. Check the Rinkeby etherscan for the status of the transaction
 
  [https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)
 
-![](https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
+![](https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
 
 **Deploy**
 
@@ -878,19 +878,19 @@ Install Metamask
 * Visit [https://metamask.io](https://metamask.io)
 * Select the option to install the extension in your browser, this should take you to the browser extension store
 
-![](https://api.beta.kauri.io:443/ipfs/Qmb9oQNLHRhX9VYhRxjWG2bJEHGFspCTcByFPtPf8E27PL)
+![](https://ipfs.infura.io/ipfs/Qmb9oQNLHRhX9VYhRxjWG2bJEHGFspCTcByFPtPf8E27PL)
 
 * In the store, select the option to add the extension to the browser
 
-![](https://api.beta.kauri.io:443/ipfs/QmeVJnN8xtTWha25crJSj95QwAsPaZdzJMdsQKTnjMAdC2)
+![](https://ipfs.infura.io/ipfs/QmeVJnN8xtTWha25crJSj95QwAsPaZdzJMdsQKTnjMAdC2)
 
 * Accept the permissions to install the Metamask extension
 
-![](https://api.beta.kauri.io:443/ipfs/QmUZLuuVz9WbAe5YcrBA4cECQmqtDDXhswoYcpU3bZwDwJ)
+![](https://ipfs.infura.io/ipfs/QmUZLuuVz9WbAe5YcrBA4cECQmqtDDXhswoYcpU3bZwDwJ)
 
 * Once installed, open the extension in the browser extension tab and you will be prompted to create an account, if you already have an account you can import it here using your seed phrase
 
-![](https://api.beta.kauri.io:443/ipfs/QmPCcMzmwZZ8oPZBJWef9hinUgaNR9zxj7VNqmFYCSNCKr)
+![](https://ipfs.infura.io/ipfs/QmPCcMzmwZZ8oPZBJWef9hinUgaNR9zxj7VNqmFYCSNCKr)
 
 *  Whilst creating your account, Metamask will take you through accepting terms and conditions and then will prompt you to save your seed phrase and force you to re-enter it to sure you remember it
 
@@ -898,7 +898,7 @@ Install Metamask
 
 * Once done you'll be logged into Metamask with Metamask point at the Ethereum mainnet, so let's ensure we switch the environment to rinkbey test net before we begin
 
-![](https://api.beta.kauri.io:443/ipfs/QmSx5Mgm1SbHSjdztdkFxVwmpk6CQ7pQqLYnwXJzHvcenf)
+![](https://ipfs.infura.io/ipfs/QmSx5Mgm1SbHSjdztdkFxVwmpk6CQ7pQqLYnwXJzHvcenf)
 
 **Fund Account**
 
@@ -908,7 +908,7 @@ So now we have a new account set up in Metamask we'll want to fund it! We can do
 
 We just need to copy our accounts address to send ETH to which we can find in Metamask here:
 
-![](https://api.beta.kauri.io:443/ipfs/QmQGi7gxC5DMvekV3mzrrKcjcBH3mLVzmpHetYSK3FFsiz)
+![](https://ipfs.infura.io/ipfs/QmQGi7gxC5DMvekV3mzrrKcjcBH3mLVzmpHetYSK3FFsiz)
 
 **Run the app!**
 
@@ -927,7 +927,7 @@ To create a production build, use npm run build.
 
 Our dApp will be available at **http://localhost:3000** and should look like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmeMTzTSgCMRFMjtBA36ZWZSZkQuzkK51HtsUAkdWny5cg)
+![](https://ipfs.infura.io/ipfs/QmeMTzTSgCMRFMjtBA36ZWZSZkQuzkK51HtsUAkdWny5cg)
 
 **Issue a bounty**
 
@@ -939,7 +939,7 @@ Let's submit the following data:
 * Bounty deadline: 1691452800 - (August 8th 2023)
 * Bounty amount: 1 (Remember our app will covert this to weis before sending)
 
-![](https://api.beta.kauri.io:443/ipfs/QmYS72i51Q9q7rzgvfo24VYaA1mpfwx5iaUqG7yaqi6eNm)
+![](https://ipfs.infura.io/ipfs/QmYS72i51Q9q7rzgvfo24VYaA1mpfwx5iaUqG7yaqi6eNm)
 
 When you hit the “issue Bounty” button you should expect to see a Metamask popup similar to above. This is a transaction confirmation screen, you have the option to:
 
@@ -1045,7 +1045,7 @@ Your App.js file should now [look like this] (https://github.com/kauri-io/kauri-
 
 We're now ready to relaunch our app, actually since its hot loading we shouldn't have to. Your app should now look like this in the browser:
 
-![](https://api.beta.kauri.io:443/ipfs/QmacomLt3mKrJCg2LZHUncEoyhNnKjucdXk1hsVfagPbJv)
+![](https://ipfs.infura.io/ipfs/QmacomLt3mKrJCg2LZHUncEoyhNnKjucdXk1hsVfagPbJv)
 
 Awesome, that's it! Now when you issue a bounty, the details of the bounty will be available in the table once the transaction has been processed. 
 
@@ -1209,11 +1209,11 @@ Let's submit the following data:
 * Bounty deadline: 1691452800 - (August 8th 2023)
 * Bounty amount: 1.5 (Remember our app will covert this to weis before sending)
 
-![](https://api.beta.kauri.io:443/ipfs/QmYspPfPiXwnxeqaTUuGvXvZxZVgQVYqAbmojJLbFPAHmr)
+![](https://ipfs.infura.io/ipfs/QmYspPfPiXwnxeqaTUuGvXvZxZVgQVYqAbmojJLbFPAHmr)
 
 Once the transaction is confirmed and processed, our app should look like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmcaKWkjWapYUKh9oR5sxrPAk3LMmGjaKWJrSUAGU5brXR)
+![](https://ipfs.infura.io/ipfs/QmcaKWkjWapYUKh9oR5sxrPAk3LMmGjaKWJrSUAGU5brXR)
 
 That's all folk! You have successfully built and deployed a bounty dApp to the rinkeby development environment. The dApp which uses ipfs to store bounty requirements, and we've developed a front end to allow a user to issue a bounty!
 
@@ -1273,6 +1273,20 @@ Try adding UI components so users can use these features.
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/truffle:-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-01-24
+- **Kauri original tags:** TUTORIAL, TRUFFLE, WEB3JS, REACT
+- **Kauri original hash:** QmZhG4DHRTtB381LTiyG9FMyVYhv2ZPfrSrb7YZtQMZVKo
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

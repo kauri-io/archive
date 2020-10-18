@@ -48,3 +48,17 @@ http://www.github.com/jamslevy/foothodl
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/foothodl:-a-simple-blockchain-powered-system-for-/d1382b1b07e143d48158949ba86f89ec/a
+- **Kauri original author:** James Levy (@jameslevy)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-makerdao, bounty-poa-2019
+- **Kauri original hash:** QmQCzUmbeTtLMKVnyvY7QWZt51EgzTUFzUxX2KhGTpnAQH
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

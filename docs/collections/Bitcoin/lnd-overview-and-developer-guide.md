@@ -9,6 +9,8 @@ some_url:
 
 # LND Overview and Developer Guide
 
+![](https://ipfs.infura.io/ipfs/QmYtwZDtoDyFUhqrXFWY7xSpwdhHRgteztvDKtKsMexKgd)
+
 
 _This article originally appeared on the Lighting Labs [developer blog](https://dev.lightning.community/overview/)_
 #### Introduction
@@ -243,3 +245,17 @@ We have now covered the basic workflow for generating invoices and sending/recei
 #### Conclusion
 
 You have completed the conceptual overview of LND and a high level primer on the components and workflows. To get started on developing, check out the [installation guide](https://dev.lightning.community/guides/installation/guides/installation/) and [tutorial](https://dev.lightning.community/guides/installation/tutorial/).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lnd-overview-and-developer-guide/7d91c7cd0bc84c97b322d4491950d35f/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-29
+- **Kauri original tags:** lightning, bitcoin
+- **Kauri original hash:** QmRmhAotLDt2BVc7Aq5Ms85tgG8d76oWgF78epC7YEHksu
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

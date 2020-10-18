@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>POA - Part 2 - Bridge assets between a sidechain and a mainchain &mdash; Kauri</title>
+    <title>POA - Part 2 - Bridge assets between a sidechain and a mainchain &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -671,8 +674,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -771,10 +774,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1056,7 +1059,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1065,6 +1068,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain">POA - Part 2 - Bridge assets between a sidechain and a mainchain</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbbW1gkfPqjgggfF96byCijSjT2QAeNwGkpj6yaHMNoT2" /></p>
 <p>This article is part of a <strong>POA tutorial series</strong>:</p>
 <ul>
 <li><a href="https://kauri.io/article/549b50d2318741dbba209110bb9e350e">POA - Part 1 - Develop and deploy a smart contract</a></li>
@@ -1088,7 +1092,7 @@
 <li>User decides to exit his tokens from the sidechain and transfer them back to the mainchain via the bridge (tokens unlocked on the mainchain and burned on the sidechain)</li>
 <li>User sells his tokens on the mainchain</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmWH44b3xpJk1yEiLok7xPZw991J3SgxGaoQ6nj6a8GUhn" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWH44b3xpJk1yEiLok7xPZw991J3SgxGaoQ6nj6a8GUhn" /></p>
 <p>In this tutorial, we will learn how to deploy a token on the two networks (RinkeBy network as mainchain and POA Sokol as sidechain) and then deploy and use the bridge (ERC20 to ERC20) to let a user transfers his assets from one network to another.</p>
 <hr />
 <h3 id="requirements">Requirements</h3>
@@ -1340,7 +1344,7 @@ $ cd ./tokenbridge/
 <p><br /></p>
 <h3 id="step-3-configure-and-deploy-the-bridge-contracts">Step 3: Configure and Deploy the bridge contracts</h3>
 <p>In this third step, we will deploy the necessary contracts to enable a ERC20 to ERC20 bridge.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmaVm2rdtf78fHsG7pRh2GYGXeRdos6tNkWrWtU2AZAT8w" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaVm2rdtf78fHsG7pRh2GYGXeRdos6tNkWrWtU2AZAT8w" /></p>
 <ol>
 <li>Go to the <code>contracts</code> folder</li>
 </ol>
@@ -1566,9 +1570,9 @@ REACT_APP_FOREIGN_HTTP_PARITY_URL=https://rinkeby.infura.io/mew
 </code></pre>
 <p><br />
 4. Open your Internet Browser, unlock Metamask on the Rinkeby network with the account used to deploy BRT token and go to <a href="http://localhost:3000/">http://localhost:3000/</a></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmPNXRHicnw5ZVFiyiZVN7rDEwR8rtVtWsMYq1bLEMovor" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPNXRHicnw5ZVFiyiZVN7rDEwR8rtVtWsMYq1bLEMovor" /></p>
 <p>If you are on the RinkeBy network, you should see that you own 100 BRT token on the mainchain (RinkeBy) and 0 on the sidechain (POA Sokol)</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmPbXEgc9q2xZ31hJjLJS4mvbFUy5fLj8SoFP89v25AMeq" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPbXEgc9q2xZ31hJjLJS4mvbFUy5fLj8SoFP89v25AMeq" /></p>
 <p>You can now transfer BRT token between the mainchain and the sidechain:</p>
 <p><img alt="" src="https://imgur.com/lPYryIU.gif" /></p>
 <p><br />
@@ -1580,6 +1584,15 @@ REACT_APP_FOREIGN_HTTP_PARITY_URL=https://rinkeby.infura.io/mew
 <li><a href="https://github.com/poanetwork/tokenbridge">token-bridge (monorepo) GitHub</a></li>
 <li><a href="https://medium.com/poa-network/introducing-the-erc20-to-erc20-tokenbridge-ce266cc1a2d0">Introducing the ERC20 to ERC20 TokenBridge</a> (November 2018)  </li>
 <li><a href="https://medium.com/poa-network/introducing-poa-bridge-and-poa20-55d8b78058ac">Introducing POA Bridge and POA20</a> (April 2018) </li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/poa-part-2-bridge-assets-between-a-sidechain-and-/19072f7340184628b47c0d86e7feac6d/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-21</li>
+<li><strong>Kauri original tags:</strong> poa, bridge, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmZWFdH1EZodsLeXvHDhQSgfnTv5zvtYe4SwmXjBkJr7w3</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
 </ul></div>
                 <footer>
     <div class="footer-buttons">

@@ -9,6 +9,8 @@ some_url:
 
 # Get Started with colonyJS
 
+![](https://ipfs.infura.io/ipfs/QmRFKepurowu9QWTkQZGsCCmn81WbzEMo1ecvGLNWPnM96)
+
 
 This article will show you how to use [colonyJS](https://github.com/JoinColony/colonyJS) to connect to the network, create a token, create a colony, and make a payment. We will be using the `goerli` test network, so make sure you have an Ethereum wallet with some test Ether before getting started. If you have never created an Ethereum wallet, check out [this article](https://medium.com/compound-finance/the-beginners-guide-to-using-an-ethereum-test-network-95bbbc85fc1d). To get some test Ether, you can use [Goerli Authenticated Faucet](https://faucet.goerli.mudit.blog).
 
@@ -304,3 +306,17 @@ PRIVATE_KEY=<private-key> node colony
 ```
 
 Congratulations! You created your first colony and made your first payment. Colonies are all about collaboration and a colony with one member who only makes payments to themselves is not a very attractive colony for others to join, so you should probably seek out some collaborators and reward them with some payments before paying yourself for any more of your "hard work".
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/get-started-with-colonyjs/6325600fdb894517832a26a9cf0babc1/a
+- **Kauri original author:** Ryan Christoffersen (@ryanchristo)
+- **Kauri original Publication date:** 2019-09-16
+- **Kauri original tags:** ethereum, colony, javascript
+- **Kauri original hash:** QmZD3irBZwvQZ5W5od1vUVbgycq2XjLaq3iMSwhtApxNyg
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

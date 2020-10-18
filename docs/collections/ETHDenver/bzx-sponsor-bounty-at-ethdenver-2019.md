@@ -9,6 +9,8 @@ some_url:
 
 # Bzx - Sponsor Bounty at ETHDenver 2019
 
+![](https://ipfs.infura.io/ipfs/QmW5gzme6soqemvnsMFzfZT2AjYwTLiGfcDfPFesnGD6md)
+
 
 ### Prizes Offered
 
@@ -76,3 +78,16 @@ If you're building a relay, it's not necessary to integrate a 0x orderbook. It c
 ### Need Help
 
 If you need help, please contact us on Telegram at t.me/b0xNet. Direct any technical questions to @tcb101. 
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bzx-sponsor-bounty-at-ethdenver-2019/fb0c79750e92413ca218e40b7f25324f/a
+- **Kauri original author:** Andreas Wallendahl (@awallendahl)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmRWJ1bwmmcjR4Z3W9ZVm28N3MmZPfZWRBZR92cQFLHWQq
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

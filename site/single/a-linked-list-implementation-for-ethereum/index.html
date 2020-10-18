@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>A Linked List Implementation for Ethereum &mdash; Kauri</title>
+    <title>A Linked List Implementation for Ethereum &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -664,8 +667,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -764,10 +767,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1049,7 +1052,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1060,7 +1063,7 @@
                 <div id="content"><h1 id="a-linked-list-implementation-for-ethereum">A Linked List Implementation for Ethereum</h1>
 <h2 id="coding-data-structures-in-solidity-is-weird-and-beautiful">Coding data structures in Solidity is weird and beautiful.</h2>
 <p><a href="https://medium.com/@albertocuestacanada?source=post_page-----a2915bf8122f----------------------"><img alt="Alberto Cuesta Cañada" src="https://miro.medium.com/fit/c/96/96/1*FmM57rntjA9sQCNBo5XAPw.jpeg" /></a></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmWPDdkWc4QsW5aC252JBtGebSmAYVcZYXcjfaEFyYc4Fy" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWPDdkWc4QsW5aC252JBtGebSmAYVcZYXcjfaEFyYc4Fy" /></p>
 <p>A few months ago I implemented a <a href="https://en.wikipedia.org/wiki/Linked_list">Linked List</a> in Solidity for a client. More recently I decided that I might take on implementing a Fast Limit Order Book in Solidity as a pet project (aren’t nerds fun!) and Linked Lists appeared again.</p>
 <p>As I recently wrote in an article about <a href="https://www.techhq.io/8686/how-to-not-run-out-of-gas-in-ethereum/">when to use different data structures</a>:</p>
 <p><strong>Linked Lists are your data structure of choice when you need to preserve the insertion order, and also when you want to insert in arbitrary positions.</strong></p>
@@ -1115,7 +1118,7 @@ function findPrevId(uint256 _id) public view returns (uint256) {
 <p>That <code>while</code> statement is evil.</p>
 <p>You would use this method anytime that you know of an item and you want to insert another before it. Quite a common use case.</p>
 <p>A gas comparison between LinkedList.sol and DoubleLinkedList.sol sheds some more light on the issue. For these tests I used a list with 100 items.</p>
-<p>(https://api.kauri.io:443/ipfs/QmbWF7Fc7GdNnW82RfUbtUvRu5pscjyqCRx1GTLnULnGsx)</p>
+<p>(https://ipfs.infura.io/ipfs/QmbWF7Fc7GdNnW82RfUbtUvRu5pscjyqCRx1GTLnULnGsx)</p>
 <p><code>addHead</code> and <code>insertAfter</code> operations with LinkedList are O(1) and cost about 100K gas. Data retrieval is not depicted but given that we use a mapping the cost will be O(1).</p>
 <p>The issue is when we need to loop over the list. Every item we loop through seems to cost about 1K gas as seen in <code>findTailIdWithGas</code> (which is a mock function that encloses <code>findTailId</code> in a transaction, wasting some gas).</p>
 <p>Maybe we can make without adding items at the tail or inserting before a known item, but the <code>remove</code> function is more of an issue. In a LinkedList you have to loop through the list from the head to remove items. In smart contracts a method with a cost of O(N) needs to be approached very carefully, or better even, avoided.</p>
@@ -1137,7 +1140,16 @@ function findPrevId(uint256 _id) public view returns (uint256) {
 <p><a href="https://en.wikipedia.org/wiki/Linked_list">Linked Lists</a> are the first complex data structure that is considered in smart contracts. Given the constraints in smart contracts that force us to code as simply as possible it is necessary to know the trade offs between different linked list implementations.</p>
 <p>In this article I’ve shown both Singly Linked Lists and Doubly Linked Lists, pointing to <a href="https://github.com/HQ20/contracts/tree/master/contracts/lists">code ready to be reused</a>. An analysis of gas costs has also been provided, along with guidance for safe use.</p>
 <p>I feel quite privileged to have the opportunity to code basic data structures. Sometimes coding smart contracts feels like a trip many years back when programming meant being very close to the hardware and was very close to mathematics. I like that.</p>
-<p>If you are considering using this code in a project, want to contribute, or have ideas to explore, please <a href="http://www.albertocuesta.es/">drop me a line</a>! Talking to those that read me is always a pleasure :)</p></div>
+<p>If you are considering using this code in a project, want to contribute, or have ideas to explore, please <a href="http://www.albertocuesta.es/">drop me a line</a>! Talking to those that read me is always a pleasure :)</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-linked-list-implementation-for-ethereum/2b40f522f07a45f391dafebfaadc444d/a</li>
+<li><strong>Kauri original author:</strong> Alberto Cuesta Cañada (@albertocuesta)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-03-02</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, how-to, blockchain, buidl, solidity</li>
+<li><strong>Kauri original hash:</strong> QmVcxvg9qTzSXbcsPaAGKs46TdGCD5pkBQUh7pQ6zs4Drw</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../interacting-with-the-ipfs-protocol--a-tutorial-fo/" title="Interacting with the IPFS protocol a tutorial for beginner"><span>Previous</span></a></div>

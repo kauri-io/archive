@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Reducing Mainnet Transactions with a Sidechain &mdash; Kauri</title>
+    <title>Reducing Mainnet Transactions with a Sidechain &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -668,8 +671,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -768,10 +771,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1053,7 +1056,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1062,12 +1065,13 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="reducing-mainnet-transactions-with-a-sidechain">Reducing Mainnet Transactions with a Sidechain</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZe6PFEZx9y9LAMSYDeYkeGWH73Nt9ZP2bpG69u8YGrDP" /></p>
 <p>At Kauri, we think its important that article attribution is open and permanent on the immutable Ethereum blockchain, but we also believe that limiting the number of transactions that a user has to send when interacting with the platform is critical to a great user experience.  These two somewhat conflicting goals left us with a tricky dilemma; not requiring a transaction to be sent for every article that is published, but also providing a timestamped way to prove ownership on the Ethereum mainnet for every article.</p>
 <h2 id="why-care-about-transactions">Why Care About Transactions?</h2>
 <p>Before explaining our approach we should first cover why we want to reduce the number of transactions in the first place. </p>
 <p>To send a transaction, a gas fee must be paid in ether, which adds friction into the system.  Users really aren't used to using a product where they have to pay actual money (albeit a small amount) per interaction, and this can make them feel uncomfortable.  They may not even currently own any cryptocurrency, and will have to go through the process of depositing fiat to an exchange in order to buy Ether before they can fully use your application.  Some people just won't bother, and turn away.</p>
 <p>Also, there is the issue of fluctuating gas costs during network congestion.  There are times when the cost of sending a transaction is significantly higher than average, such as during the infamous <a href="https://www.cryptokitties.co/">CryptoKitties</a> network spike towards the end of 2017.  If / when this happens again, users of your application will probably see their transactions stuck in the mempool for hours or days, which could cause confusion and a negative perception of your application if they don't fully understand what's going on behind the scenes.  Experienced users will end up having to pay exorbitant fees to interact with your DApp, or will simply refuse to use it until the average gas price lowers to an acceptable amount.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmWiL7u78CTbQWegkyRwZV9d7eFiJWTgK6CRWqtUtVQe6A" />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWiL7u78CTbQWegkyRwZV9d7eFiJWTgK6CRWqtUtVQe6A" />
 <em>Peak Cryptokitties Network Congestion</em></p>
 <p>The Ethereum space is quite unique in the software development space because of the fact that backend architecture decisions can significantly affect the overall UX of the entire application.</p>
 <blockquote>
@@ -1113,7 +1117,7 @@
 <p>If you are unfamilar with the concept of Merkle Trees, its worth reading <a href="https://media.consensys.net/ever-wonder-how-merkle-trees-work-c2f8b7100ed3">this</a> excellent primer by ConsenSys.</p>
 <h3 id="the-checkpointer">The Checkpointer</h3>
 <p>Analogous to an operator in Plasma, the checkpointers job is to gather up all the sidechain articles that have not yet been committed to the mainchain and create a Merkle tree of these articles.  They must also publish a 'checkpoint document' to IPFS, which is essentially all the data required to reconstruct the Merkle tree, in order to create a Merkle proof.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmcxXuwa5jPdsQDZroZ2t3hvBE6cRXFPKMSFwbKbY5nZ1S" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcxXuwa5jPdsQDZroZ2t3hvBE6cRXFPKMSFwbKbY5nZ1S" /></p>
 <h3 id="article-lifecycle">Article Lifecycle</h3>
 <h4 id="publication">Publication</h4>
 <ol>
@@ -1134,7 +1138,7 @@
 <li>The smart contract verifies that the signature has been signed by a trusted checkpointer, the Merkle Root is stored, and an ArticlesCheckpointed event is emitted containing the Merkle Root and IPFS hash of the checkpoint document.</li>
 <li>The checkpointer listens for the ArticlesCheckpointed event, and sets the checkpoint IPFS hash on all sidechain articles included within the checkpoint (they are then considered 'checkpointed').</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmeSS7priz6SfLW6Z93daCpVM8nQhZtaf6NUZdyZtgK51h" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeSS7priz6SfLW6Z93daCpVM8nQhZtaf6NUZdyZtgK51h" /></p>
 <h4 id="proving-article-authorship">Proving Article Authorship</h4>
 <ol>
 <li>Sometime afterwards, Alice wants to claim a request bounty for the article that she wrote in step 1.</li>
@@ -1146,7 +1150,7 @@
 </ol>
 <p><em>Note: Steps 2 - 4 will generally be performed by the Kauri middleware on behalf of the user for efficiency, but this is not a necessity, and could be done in the browser.</em></p>
 <p><em>Proving Authorship using Kauri Middleware to Generate Proof</em>
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/QmX8xE4JyfjdkqL9vbsp9tQSVbA5KrRcxhFHhNKqGKthff" /></p>
+<img alt="" src="https://ipfs.infura.io/ipfs/QmX8xE4JyfjdkqL9vbsp9tQSVbA5KrRcxhFHhNKqGKthff" /></p>
 <h3 id="automatic-checkpointing">Automatic Checkpointing</h3>
 <p>This description assumes that it will always be a Kauri user that instigates the checkpointing, but it would be great if we could provide some guarantees on how long it will take for a written article to be relayed to the mainnet.  Therefore, we are planning on building a service that is scheduled to checkpoint every 24 hours, which will allow us to provide guarantees around article ownership after that time frame.  In theory, as network activity grows on the Kauri platform, this service will become less useful as checkpointing will occur naturally at more regular intervals.</p>
 <h3 id="benefits">Benefits</h3>
@@ -1157,7 +1161,7 @@
 </ul>
 <h3 id="the-importance-of-checkpoint-documents">The Importance of Checkpoint Documents</h3>
 <p>Having access to the checkpoint documents is vital in order to prove ownership of an article.  As mentioned earlier, this should therefore be pinned in multiple places, and the checkpointer should keep a backup, centralized copy in a database so that it can be re-added to IPFS if it somehow gets unpinned everywhere.  It would also be a good idea to provide a way for users to download all checkpoint documents for articles that they have written.  If they store these securely then article ownership can always be proven.  If even more decentralization is required, then a Kauri client could be created for running on a users desktop machine, which would constantly listen for ArticlesCheckpointed events, and store any checkpoint documents for articles that the user is interested in.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmVebkZqyx3DVhWGsgLAWwNPsuVSRp8YSedwv6CzX1cNRT" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVebkZqyx3DVhWGsgLAWwNPsuVSRp8YSedwv6CzX1cNRT" /></p>
 <h3 id="what-can-go-wrong">What Can Go Wrong?</h3>
 <h4 id="malicious-checkpointing">Malicious Checkpointing</h4>
 <p>The checkpointer is inherently a trusted party in this system, which will initially be operated by Kauri.  What is stopping us from lying whilst checkpointing, and changing the article details so that they do not match the data within the sidechain?  On the flipside to this question, what is there to gain by Kauri acting in this way?  As all the data is open and transparent, this abuse can be easily proven off-chain.  Kauri has substantial skin-in-the-game; we are a known entity with reputation on the line (a similar argument is made for node operators in a POA network), and it is also in our best interests for this platform to succeed.  No one will want to use the Kauri platform or protocol if it is proven that we have been acting maliciously.  In a Plasma chain, users are guaranteed to be able to exit with their funds if an operator is a bad actor; no funds are at risk in the Kauri sidechain, but article writers will 'exit' by simply refusing to use the platform anymore.</p>
@@ -1169,7 +1173,16 @@
 <p>One further benefit of this approach is that when a checkpointing is instigated by a user, all non-checkpointed articles will be committed to the mainchain, not just articles for the instigating user.  This does not cost any extra gas, as only a single bytes32 value (the Merkle root) regardless of how many articles are included within the checkpoint.</p>
 <p>The checkpointer actor does introduce a layer of trust.  The checkpointer(s) should be known parties with skin-in-the-game, so that it is in their best interests to function fairly and correctly.  All data is transparent and open, so any misbehaviour can be easily proven off-chain, and as there is no monetary value held in the sidechain, the main thing that will be lost is trust in the Kauri platform and protocol.</p>
 <h2 id="thanks">Thanks</h2>
-<p>Thanks to the entire Kauri team, for helping with the design and suggesting edits to this article.  A special shoutout to Gregoire "Diagram Master" Jeanmart for producing the images in the article.</p></div>
+<p>Thanks to the entire Kauri team, for helping with the design and suggesting edits to this article.  A special shoutout to Gregoire "Diagram Master" Jeanmart for producing the images in the article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/reducing-mainnet-transactions-with-a-sidechain/a66d50655f8746edb7df90de4b8eb416/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-13</li>
+<li><strong>Kauri original tags:</strong> scaling, dapp, kauri, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmdTJXDrQnFK4sSd4yHrKEbeuoShwgw2LnExttiw7TsPPs</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../quorum-how-to/" title="Quorum how-to"><span>Previous</span></a></div>

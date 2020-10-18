@@ -47,3 +47,16 @@ Overall, as the title of Mo’s talk implies, the focus was on how developers ca
 After his talk I also discussed with him the process of how CeleX handles game selection. He mentioned there are have been a lot of games submitted but they are working hard to ensure quality control. More games are likely coming soon.
 
 In part two of my ETHDenver 2020 Blockchain Gaming series, I’m going to talk about Ben Heidorn from Blockade Games’ excellent presentation on “The Mainstream Blockchain Game Infrastructure.” His talk highlighted fascinating details around the challenges of building impressive free to play games like [Neon District](https://www.neondistrict.io/) using blockchain.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-2020-blockchain-gaming-part-1:-celerx/177925ed1dc6415bb5db3f462105d668/a
+- **Kauri original author:** Zak Wolff (@inmathswetrust)
+- **Kauri original Publication date:** 2020-02-17
+- **Kauri original tags:** ethereum, ethdenver-2020, gaming, esports
+- **Kauri original hash:** QmYFb46inqXtdR7nUpNg9x2trrTP6aMhCpW5vZL5GphEAW
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

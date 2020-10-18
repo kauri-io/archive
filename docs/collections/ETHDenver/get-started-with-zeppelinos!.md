@@ -9,6 +9,8 @@ some_url:
 
 # Get started with ZeppelinOS!
 
+![](https://ipfs.infura.io/ipfs/QmbBG5KW8mwsK8XgD3VBatx3Tm2QpbA2yWJMPeUYudZX4e)
+
 
 To help you get prepared for all the hacking at #ETHDenver this year, we wanted to put together a quick toolkit to help you get hacking as quickly and easily (and securely!) as possible.
 
@@ -56,7 +58,7 @@ We have plenty of resources for you to learn how to use ZepKit and OpenZeppelin'
 
 ##IRL
 You are not alone! Team Zeppelin will be at the hackathon! You will recognize us in our snazzy Zeppelin shirts! We are going to be there to support you, the hackers, so feel free to ask us questions!
-![](https://api.kauri.io:443/ipfs/QmRA6y7nWDbRiF5UZ79nonVaWCKpHiKXcq1KUzeGNmk5AE)
+![](https://ipfs.infura.io/ipfs/QmRA6y7nWDbRiF5UZ79nonVaWCKpHiKXcq1KUzeGNmk5AE)
 
 ##Be part of our Community:
 
@@ -64,5 +66,19 @@ You are not alone! Team Zeppelin will be at the hackathon! You will recognize us
 - Join the discussion on our [Telegram group](https://medium.com/r/?url=http%3A%2F%2Fzpl.in%2Ftelegram)
 - Follow us on [Twitter](https://medium.com/r/?url=https%3A%2F%2Ftwitter.com%2FzeppelinOrg)
 - Even better, [join the team](https://medium.com/r/?url=https%3A%2F%2Fzeppelin.solutions%2Fjobs%2F%3Futm_campaign%3Dzos-tutorial-evmpackages%26utm_medium%3Dblog%26utm_source%3Dwordpress)!
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/get-started-with-zeppelinos!/f6371bb1254b43aaa34ab821f3043e40/a
+- **Kauri original author:** Dennison Bertram (@dennisonbertram)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** zeppelinos, zepkit
+- **Kauri original hash:** QmVUUC3Lg6auoap7LrYxjSxNaHU1h1cdZkRo3US5BeWkwo
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
 
 

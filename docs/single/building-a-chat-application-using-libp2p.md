@@ -9,6 +9,8 @@ some_url:
 
 # Building a Chat Application using Libp2p
 
+![](https://ipfs.infura.io/ipfs/QmZUii1zraq5yn7jcfsFZEMnup6GycfUw1hDGxMuGkp8Xy)
+
 
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/chat-using-libp2p). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
@@ -749,3 +751,17 @@ In case you are stuck somewhere, let us know [here](https://discord.gg/x2kmUXW).
 
 This article was first published on
 [SimpleAsWater.com](https://simpleaswater.com/chat-using-libp2p/)*.*
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-chat-application-using-libp2p/32b0d9455bfa4312a2f6fb02cae8383f/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-01-05
+- **Kauri original tags:** tcp, trasports, secio, ipfs, libp2p, tutorial, bundle
+- **Kauri original hash:** QmfUNCDadmkVNiQ8nMsbUDVnRRC2jpTYYePCxtMLb4Mygx
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

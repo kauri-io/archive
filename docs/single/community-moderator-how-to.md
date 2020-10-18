@@ -18,13 +18,13 @@ If you've received an invitation to join a Community, follow the instructions be
 
 If you’ve received an email invitation to join a Community, first, click on the link in the email. You’ll be redirected to Kauri, and will see the option to “Accept” or “Reject” the invitation.
 
-![](https://api.kauri.io:443/ipfs/QmeU2NGstmQ6iG6Fh8AaLJrPDLfocXVYiz3tW4DJc6iv4Z)
+![](https://ipfs.infura.io/ipfs/QmeU2NGstmQ6iG6Fh8AaLJrPDLfocXVYiz3tW4DJc6iv4Z)
 
 ## Adding Articles
 
 There are two main ways to add articles to a community:
 
-![](https://api.kauri.io:443/ipfs/QmdWBNkPKzoXTDwCBrCwns91MC4fPgVxNf77Ar5FXCM3tM)
+![](https://ipfs.infura.io/ipfs/QmdWBNkPKzoXTDwCBrCwns91MC4fPgVxNf77Ar5FXCM3tM)
 
 Existing articles can be added by selecting “Add Content” on the main Community page. If you’re familiar with adding articles to collections, the process is very similar! The differences being you must select one article to add at a time, and you can only select from articles you’ve written yourself (for now!). After choosing an article in the widget, you’ll be asked to sign a message transferring the article to the Community.
 
@@ -32,7 +32,7 @@ Note: Transferring an article to a Community allows any admins or moderators to 
 
 New articles can be published directly to a Community. To do this, simply start writing an article, and when you’re ready to publish, select the Community in the dropdown.
 
-![](https://api.kauri.io:443/ipfs/QmWghLXfgNVpAbRqp6yknGZUdptUmK5hLEECT14gb9cbKM)
+![](https://ipfs.infura.io/ipfs/QmWghLXfgNVpAbRqp6yknGZUdptUmK5hLEECT14gb9cbKM)
 
 ## Adding Collections
 
@@ -45,3 +45,16 @@ Editing your Community’s articles and collections works exactly like editing y
 For articles, select the “Update Article” option on the article you’d like to edit, make the desired changes, then hit “Publish Article”
 
 For collections, go to the collection page and select “Update Collection”. Make your changes, then select “Update” again to finalize them!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/community-moderator-how-to/603248a7cede4ebdac53daeb54cbc622/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-07-08
+- **Kauri original tags:** kauri, communities
+- **Kauri original hash:** QmRP5NGMZMkSiAWLWM82qBcHPBzfbFV7XsUjS3pRDvCjmS
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

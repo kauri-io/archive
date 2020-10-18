@@ -9,6 +9,8 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract
 
+![](https://ipfs.infura.io/ipfs/QmbwrPpkqvZozPc7EdDPqWW3gfYhWeGwC3F44A7ss5NmQS)
+
 
 ### Testing and publishing
 
@@ -409,3 +411,17 @@ npm install <<your-project-name>>
 
 _Thanks to [Santiago Palladino](https://twitter.com/smpalladino) for
 reading early drafts and providing feedback._
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-ii:-d/077f5e1d62e147089f21f709f77d8ccb/a
+- **Kauri original author:** Dennison Bertram (@dennisonbertram1)
+- **Kauri original Publication date:** 2019-03-07
+- **Kauri original tags:** zeppelinos
+- **Kauri original hash:** QmNoTdvcTK3Cv43y8nFCzwzjcCaftGPa5bFY6jXfZAJJSi
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

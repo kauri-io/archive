@@ -9,6 +9,8 @@ some_url:
 
 # WeMeme  Make and Sell Memes Together
 
+![](https://ipfs.infura.io/ipfs/QmWptVFWaG1wiwFfdZsZwXmDW66goT5xh98CSgn7AzS8xo)
+
 
 ## Project Name
 **WeMeme**, https://wememe.world
@@ -55,6 +57,20 @@ WeMeme is where friends make and sell memes together. Memes are collaboratively 
 * https://github.com/wememe/app
 * https://wememe.world
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/wememe:-make-and-sell-memes-together/43d595f7e43d4b92b25dd424b803e7a5/a
+- **Kauri original author:** Michael Sena (@michaelsena)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmPBQA6W74BVGW48HS2DTxySWYdZ4DLh5spyrfKiktjwrg
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Why Decentralize?
 
+![](https://ipfs.infura.io/ipfs/QmW8ntdR5Y3bp21zrSGmcQQDEF9gxecqCwLg3MiCKpGtsR)
+
 
 
 Important: You MUST add a tag (at the top, under Title) for each bounty you'd like to submit to. Your project will not be considered for any bounties unless they are tagged. Click "ADD TAG", type  "bounty" and select the desired bounty from the list. If you'd like to apply to more than 6 bounties, please add the first 6 as tags, add the details for all of them (max of 10) here, and contact the Kauri team (info@kauri.io) to notify them of all 10 bounties you'd like to be considered for. These instructions can be deleted.
@@ -44,6 +46,20 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 https://github.com/K-Ho/why_decentralize
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-decentralize/0602925eb327497ba9582b327c7ca9c1/a
+- **Kauri original author:** Kevin Ho (@k-ho)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-ideasbynature-2019
+- **Kauri original hash:** QmPHj9ZeBKTESZ53LfwqH8S4dTGSYG9qp85GTG3et8toBt
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Make your DApps accessible with Portis at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmUweVzAi6VxTmKPN26gFMm624HZkirYMMz8namnZwfkPH)
+
 
 Portis is a platform for making decentralized applications accessible to mainstream users. We offer developers an SDK that they can integrate into their decentralized application (DApp) to make it familiar and easy for their users, just like using a regular web app. 
 
@@ -72,3 +74,17 @@ We will be looking for DApps created in the Hackathon that have taken our vision
 Tom, Itay and Scott from Portis will be on site, either roaming the premises or at our booth. You can also find them on our [Telegram channel](https://t.me/PortisHQ) as @notgivingawayNIS, @radotzki and @scottgr.
 
 For even more hands on help, [we are running a series of workshops](https://medium.com/@portis/theres-a-dapp-for-that-how-portis-can-help-you-buidl-for-the-mainstream-at-ethdenver-a878876f71ea) covering using Portis.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/make-your-dapps-accessible-with-portis-at-ethdenv/c6935bb83d3f477891f98a114998e40f/a
+- **Kauri original author:** Tom Teman (@tomteman)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** usability, ux, ethdenver, hackathons
+- **Kauri original hash:** QmSqaroKBFemMNQTykFxnveBxgCWUBN7Jz4RtQG4qzoK93
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

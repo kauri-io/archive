@@ -48,3 +48,17 @@ Graph & Formatic
 https://github.com/aalireza/ethpages
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-pages/73af293d7bd94579b450299892771e9b/a
+- **Kauri original author:** Cameron Dennis (@cjd425)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-graph-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmVRsibzgAPYgHgyDZqgz4pvUcYABWSqAYHNgu1HJzS289
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

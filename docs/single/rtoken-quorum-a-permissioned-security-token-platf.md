@@ -9,6 +9,8 @@ some_url:
 
 # RToken Quorum, a Permissioned Security Token Platform
 
+![](https://ipfs.infura.io/ipfs/QmRnPiwauRoD9xJ99eNMSkVkzFkFeRjYCFdjs7qJhWZvZT)
+
 
 
 ## Project Name
@@ -45,14 +47,14 @@ A permissioned security token standard which enables global issuance and trading
 
 For the compliance aspect, we used the leading open source ERC20 security token standard, the [R-Token](https://harbor.com/rtokenwhitepaper.pdf), a RegulatedToken that checks the validity potential transfers against a RegulatorService. This R-Token then leverages the Quorum privacy platform by allowing issuers to share knowledge of state while remaining agnostic to each other's trades. 
 
-![](https://api.kauri.io:443/ipfs/QmZHJkeqnYDZW2iGYdGoDqBT7E1ecaKBV9epcHUeWVc2iF)
+![](https://ipfs.infura.io/ipfs/QmZHJkeqnYDZW2iGYdGoDqBT7E1ecaKBV9epcHUeWVc2iF)
 
 We deploy a RegulatorService contract which is private to nodes owned by the regulator and issuers of R-Tokens. The issuer-specific R-Token contracts and state are private to only the issuer and regulator, meaning though two issuers can share knowledge of investors essential to ensuring legal compliance, they will not be aware each other's issuances and secondary trades. 
 
 This allows for issuers to only view their own token balances and state, while querying a global regulator service when attempting to make a transaction, and for no public entity outside of the regulator to be able to view all issuer transactions. 
 
 
-![](https://api.kauri.io:443/ipfs/QmRnPiwauRoD9xJ99eNMSkVkzFkFeRjYCFdjs7qJhWZvZT)
+![](https://ipfs.infura.io/ipfs/QmRnPiwauRoD9xJ99eNMSkVkzFkFeRjYCFdjs7qJhWZvZT)
 
 
 ## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
@@ -70,5 +72,19 @@ Quorum Sponsor Bounty #2: Privacy
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/sjarvie/rtoken_quorum
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/rtoken-quorum-a-permissioned-security-token-platf/2a3279632e9c4cbbbe3bd40048023084/a
+- **Kauri original author:** Shane Jarvie (@sjarvie)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, quorum
+- **Kauri original hash:** QmTHnRx7u6F9He4PDkjRDxaWGrx49LRJqPcArSqzygtqvd
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

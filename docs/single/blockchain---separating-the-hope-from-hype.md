@@ -54,7 +54,7 @@ Excited? Check out the following resources to get you started.
 
 The hype around Blockchain is not without a reason. Financial institutions which were weary of the Bitcoin has embraced Blockchain which is the underpinning tech of Bitcoin with open arms.
 
-![](https://api.kauri.io:443/ipfs/QmRZiGPqukeuXqsuVQeKdzihUKZVj8VMKHz5e79quNQ867)
+![](https://ipfs.infura.io/ipfs/QmRZiGPqukeuXqsuVQeKdzihUKZVj8VMKHz5e79quNQ867)
 
 
 
@@ -65,14 +65,14 @@ The hype around Blockchain is not without a reason. Financial institutions which
 
  * Going by Google Trends, year 2015 was just the beginning. But year 2016 has started with a bang for Blockchain.
 
-![](https://api.kauri.io:443/ipfs/QmS795JwtefD7znkKDEzsrHKf3cfYdhEr82DJe5fmX9y6T)
+![](https://ipfs.infura.io/ipfs/QmS795JwtefD7znkKDEzsrHKf3cfYdhEr82DJe5fmX9y6T)
 
 
 
 
  * Again there is a significant uptick on the number of transactions conducted on Blockchain
 
-![](https://api.kauri.io:443/ipfs/Qmatvg9K5XSBcNRSfpMbpaxAwNqKMKM22tLk658WD91vBQ)
+![](https://ipfs.infura.io/ipfs/Qmatvg9K5XSBcNRSfpMbpaxAwNqKMKM22tLk658WD91vBQ)
 
 > The Hope
 
@@ -131,8 +131,22 @@ Whichever way it goes, Blockchain is definitely a cool technology that has the p
 Happy to hear your views, thoughts and feedback.
 Please do post them as comments below.
 
-![](https://api.kauri.io:443/ipfs/QmRfHKwL4ih1kXPnJUQsHG8TnxZoCCTom8trGmgAM98w2R)
+![](https://ipfs.infura.io/ipfs/QmRfHKwL4ih1kXPnJUQsHG8TnxZoCCTom8trGmgAM98w2R)
 
  
 _Ramesh Babu is a veteran data evangelist and analytics thought leader, he champions the Analytics, Blockchain, Data themes for customers globally._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-:-separating-the-hope-from-hype/60b740262a0042a29285e4fab9b92800/a
+- **Kauri original author:** Ramesh Babu (@rameshbabu)
+- **Kauri original Publication date:** 2019-02-27
+- **Kauri original tags:** blockchain
+- **Kauri original hash:** QmXDRDdURdmPWcxXMrmGYuveZ4FSMWoyy84VG5aFLzhWWD
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

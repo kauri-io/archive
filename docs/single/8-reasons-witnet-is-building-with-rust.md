@@ -51,3 +51,17 @@ Summing up, here are the **8 reasons why Witnet will make the most of Rust** :
 8. Thriving community
 
 By the way, do you love Rust and want to join one of the most exciting projects using it in the blockchain space? [We’re hiring!](https://angel.co/witnet-foundation-1/jobs) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/8-reasons-witnet-is-building-with-rust/09d57dce0b2f4a43bb411c68c5f147e6/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-15
+- **Kauri original tags:** none
+- **Kauri original hash:** QmafqpMuSyufDDUFZNK3oUbRo2r1puRwjh1zYqfcPUcCdM
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

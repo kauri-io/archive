@@ -10,7 +10,7 @@ some_url:
 # Los 8 mejores wallets para tus criptomonedas
 
 
-![](https://api.kauri.io:443/ipfs/QmQgHccGppRYU9wQkKBPDXek656a254j2gWwA8okmTbxpa)
+![](https://ipfs.infura.io/ipfs/QmQgHccGppRYU9wQkKBPDXek656a254j2gWwA8okmTbxpa)
 Esta es una lista de los 8 mejores wallets que hay para criptomonedas, la idea es que usando esta lista rápidamente conozcas todos ellos y las características que importan detrás de cada uno, para así saber más o para poder elegir el más adecuado para ti.
 
 
@@ -116,3 +116,16 @@ Tiene como caractetísicas extras un token propio llamado “Status” y además
 Además tiene chat integrado en la aplicación.
 
 Disponible para Android e iOS.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/los-8-mejores-wallets-para-tus-criptomonedas/cf527c66cb9743068afea1524385fa18/a
+- **Kauri original author:** null (@ethernomics)
+- **Kauri original Publication date:** 2020-06-03
+- **Kauri original tags:** ethereum, spanish, wallet, dapp, bitcoin
+- **Kauri original hash:** QmWjHwBFqTBA711vjEENszjsUsTYubRbvHZeHEmvgGmLv5
+- **Kauri original checkpoint:** unknown
+
+
+

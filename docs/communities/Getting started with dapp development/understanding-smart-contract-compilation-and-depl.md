@@ -498,3 +498,16 @@ Now that we have done it the hard way, the next part of the series will look at 
 >If you enjoyed this guide, or have any suggestions or questions, let me know in the comments. 
 
 >If you have found any errors, feel free to update this guide by selecting the **'Update Article'** option in the right hand menu, and/or [update the code](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-compilation-and-deploy)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/understanding-smart-contract-compilation-and-depl/973c5f54c4434bb1b0160cff8c695369/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-05-02
+- **Kauri original tags:** smart-contract, ethereum, abi, deploy, solidity
+- **Kauri original hash:** Qmd5yizBatsxkSz1XiwX23HEsX3JAA5PGDCWddHvBcqrhV
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -102,3 +102,17 @@ There just needs to be an even playing field for a service and goods marketplace
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/thought-piece-of-making-the-dark-web3-universe-li/b2848c79fae84c01bb9dbb31f26663da/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2019-03-01
+- **Kauri original tags:** dao, marketplace, personal-tokens, web3
+- **Kauri original hash:** QmR4rjmdPV3cmfEHo7C3FXBRKhxhBVQTgmoE5JRKCmt2cA
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

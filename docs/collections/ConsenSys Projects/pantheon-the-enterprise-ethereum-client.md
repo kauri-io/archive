@@ -9,6 +9,8 @@ some_url:
 
 # Pantheon - The Enterprise Ethereum Client
 
+![](https://ipfs.infura.io/ipfs/Qme8Rk7peKJkFMQfhpVhNsyKLaaNYBanGdSNjqpu91hgK7)
+
 
 Pantheon is a suite of ETH-based services created by PegaSys, and aims to create an ethereum client that develops its enterprise-focused
 features in lock-step with the evolution of the public Ethereum
@@ -120,3 +122,17 @@ It is recommended that you create a VM with the following attributes:
 - [The Private Network Quickstart](https://docs.pantheon.pegasys.tech/en/latest/Tutorials/Private-Network-Quickstart/)
 - [Starting Pantheon](https://docs.pantheon.pegasys.tech/en/latest/Getting-Started/Starting-Pantheon/)
 - [The Pantheon knowledge base](https://docs.pantheon.pegasys.tech/en/stable/)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/pantheon-the-enterprise-ethereum-client/48c4c61a77304ecab8df7247aa1900ac/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-03-01
+- **Kauri original tags:** ethereum, library, enterprise, pantheon, sdk
+- **Kauri original hash:** QmYrQXKqFndyoNJim1ptxNvZ4UnGwccCvKd3UBXY9GG2jz
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

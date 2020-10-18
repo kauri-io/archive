@@ -77,3 +77,16 @@ Artem Vorobyev, artall64
 
 #### Try It Out
 [GitHub Repo](https://github.com/shamatar/go-snarks)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-game-of-snarks/b5c16a6c2b754ed08f25210c4983bc31/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYXVALR2WpMjNr3wnNrJbcuAWkCNNtSZUsD7NkkLF8bvx
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

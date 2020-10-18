@@ -151,3 +151,16 @@ Since we sent the above transaction on the Rinkeby testnet, you could simply use
 - Ethereum Yellow Paper: 
 https://ethereum.github.io/yellowpaper/paper.pdf
 - Ethereum Beige Paper: https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-4-accounts-transactions-and-mes/7e79b6932f8a41a4bcbbd194fd2fcc3a/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** smart-contract, ethereum, 101, web3, state, message, transaction
+- **Kauri original hash:** QmTF8hThon8NnFva8AqmxHzYb32fr32xUei3FkyMY7M7r7
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -94,3 +94,17 @@ Option #1, an on-chain index, remains the most promising decentralized storage s
 A secure, efficient, and elegant storage solution remains an ongoing challenge for the Ethereum ecosystem. The trilemma between security, decentralization, and scaling exists as much for handling transaction volume as for managing longer-form content. But between batching and sidechains, a number of compelling and decentralized storage options have emerged.
 
 As developers test drive these Layer 2 solutions over the coming months––for both scaling and storage––the Kauri team looks forward to not just documenting their progress, but counting ourselves among the dApps who are also actively building these solutions for Web3. 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-forgotten-side-of-decentralization/1dce7ead0840458d930e5980ce879728/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2018-09-14
+- **Kauri original tags:** none
+- **Kauri original hash:** Qma31dqtG726FBttTs1DpRjQhx58FhfrAk4aaNGfx3FQuV
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

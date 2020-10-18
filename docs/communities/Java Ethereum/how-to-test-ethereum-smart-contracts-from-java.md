@@ -26,13 +26,13 @@ All these moving parts scream out for a bit of tooling, so we wrapped it all up 
 
 Rather than figuring out how to install, configure and run a local Ethereum node, this is now fully automated. You don’t even need to know there is one running. And when the tests have finished, the node is automatically terminated with nothing left behind unintentionally. 
 
-![Easily test Ethereum smart contracts using Web3j-unit](https://api.kauri.io:443/ipfs/QmPWzjAnYFEnagm5Mj2R4puXAdJmYDGkTcHKAiu2Xtik8D)
+![Easily test Ethereum smart contracts using Web3j-unit](https://ipfs.infura.io/ipfs/QmPWzjAnYFEnagm5Mj2R4puXAdJmYDGkTcHKAiu2Xtik8D)
 
 What makes the above otherwise simple test special is the @EVMTest class annotation you see on line 11. This highlights the test for our web3j-unit library to pick up, and lets us create and inject the required Web3j instance, in addition to a transaction manager and gas calculator. On the annotation itself you’ll notice the type parameter. This defines which type of node will get started, with current support for Geth, Besu and our embedded EVM implementation we’ll cover below. 
 
 With these injected you have a preconfigured and good to go connection to the Ethereum blockchain. We’re off to a great start with web3j-unit as it’s never been easier to test and interact with Ethereum smart contracts from Java. 
 
-![EVM + JVM = true](https://api.kauri.io:443/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU)
+![EVM + JVM = true](https://ipfs.infura.io/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU)
 
 ### Running EVM code in the JVM
 
@@ -44,7 +44,7 @@ Firstly, there is no need to start a docker image, which improves upon startup t
 
 Secondly, because we now run the Solidity bytecode within an EVM running inside the JVM, we don’t need to cross process boundaries. This lets us inspect all the details of what’s happening within your smart contract, which is great for providing context and debugging tools. 
 
-![Stepping through EVM byte code for that true low level experience](https://api.kauri.io:443/ipfs/QmTmfTszpp1FbCp4VZLPak1RZju5o9YK85DTNZzUF75M3t)
+![Stepping through EVM byte code for that true low level experience](https://ipfs.infura.io/ipfs/QmTmfTszpp1FbCp4VZLPak1RZju5o9YK85DTNZzUF75M3t)
 
 The above gif is showing an early demo of this in action, where we’re stepping through the individual EVM opcodes that are executed as part of normal contract deployment and interaction. While this might be a bit low level, it does show the potential for higher-level tools. We’ll be sharing more details on this as it becomes available.
 
@@ -55,3 +55,17 @@ While the @EVMTest annotation lets you get up and running with local Ethereum no
 But there are additional things needed when using a testnet, specifically a prefunded wallet address and somewhere you can connect. Sure, it isn’t that difficult getting free test Ether, but it does bring with it some additional steps we’d like to eliminate. 
 
 We’ll return with more on this as well when we have something to offer around the tooling of this in the near future, but the idea is to extend the @EVMTest annotation with additional types covering these. 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-test-ethereum-smart-contracts-from-java/b1d2293f5c4442f1bafbb4eee2ce45d6/a
+- **Kauri original author:** Christian Felde (@cfelde)
+- **Kauri original Publication date:** 2020-01-10
+- **Kauri original tags:** ethereum, developer-tool, java, developer-experience
+- **Kauri original hash:** QmbcT79uFqLxEzzCYQcG9AqhEbB5aKfiSsjornPncJoNUW
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

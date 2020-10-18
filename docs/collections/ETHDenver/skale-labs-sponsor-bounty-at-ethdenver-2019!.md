@@ -9,6 +9,8 @@ some_url:
 
 # SKALE Labs - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmYuCjtRixbHmAWUTWAMxbkS28gzrCSh8MEjKfZrdWnkVt)
+
 
 ## Company/Project Name and Description
 
@@ -48,6 +50,20 @@ Advancements in both smart contract complexity and computation power vastly incr
 
 - Hacker Support Squad - support@skalelabs.com 
 - SKALE Discord - https://discord.gg/J6XfZB9
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/skale-labs-sponsor-bounty-at-ethdenver-2019!/124b019c56b5406f89dc6a29ceb320e5/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-14
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmZDNGBsJypyQEaXi2C57EqT3pyGySETaqcH8BkCRQg4wj
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

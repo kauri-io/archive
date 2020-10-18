@@ -10,7 +10,7 @@ some_url:
 # Token Bonding Curves for Social Impact Crowdfunding
 
 
-![](https://api.kauri.io:443/ipfs/QmVqvHwJHexadLtCXrcfpydQvR6uSvGaqSxBR6ePYe2GGm)
+![](https://ipfs.infura.io/ipfs/QmVqvHwJHexadLtCXrcfpydQvR6uSvGaqSxBR6ePYe2GGm)
 
 
 ## 🤝 P a c t f u l
@@ -34,6 +34,20 @@ https://github.com/curved-ethdenver/Curved
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/token-bonding-curves-for-social-impact-crowdfundi/093ba3e7182c442583e015b409e7d4e5/a
+- **Kauri original author:** Abbey Titcomb (@abbey-titcomb)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-3box, bounty-ideasbynature-2019, bounty-portis-2019, bounty-zeppelin-2019
+- **Kauri original hash:** QmVruRmD8bTPVyc9BY68zkS79kc3YrHyMTDLn94Tv7PYkt
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

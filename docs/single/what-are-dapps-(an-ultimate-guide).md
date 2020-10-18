@@ -10,7 +10,7 @@ some_url:
 # What are Dapps? (An ultimate guide)
 
 
-![](https://api.kauri.io:443/ipfs/QmeZPLRQgBL58Bs33zx9hyk8Gdx5YQR2hbcfg7sHu4d92J)
+![](https://ipfs.infura.io/ipfs/QmeZPLRQgBL58Bs33zx9hyk8Gdx5YQR2hbcfg7sHu4d92J)
 
 If you have been following blockchain space for a while, you must have come across the word Dapps. but what are Dapps?
 
@@ -106,3 +106,16 @@ The future of Dapps seems bright and full of possibilities. Many sectors have ye
 *   **[Smart Contract Wallets](https://blog.coincodecap.com/best-smart-contract-wallet/)**
 *   [**Blockchain Analytics Softwares**](https://blog.coincodecap.com/best-blockchain-analytics-softwares/)
 *   **[Top 10 Ethereum Newsletter](https://blog.coincodecap.com/ethereum-newsletters/)**
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-are-dapps-(an-ultimate-guide)/69bf3b02cd4449a7adcc3a98aea15e22/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** dapp
+- **Kauri original hash:** QmWkYjzu133YjmF3eEWrhEu6PvtyfywzgA8CdWeNbQvy9U
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

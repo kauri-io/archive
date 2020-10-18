@@ -9,6 +9,8 @@ some_url:
 
 # OpenZeppelin Part 4  Crowdsales
 
+![](https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG)
+
 
 ## Crowdsales
 
@@ -141,3 +143,16 @@ contract myCrowdsale is PostDeliveryCrowdsale, TimedCrowdsale {
 For examples of how to use OpenZeppelin Crowdsale contracts use the following link to access open source code:
 
 - [Crowdsales](https://github.com/search?q=import+%22openzeppelin-solidity%2Fcontracts%2Fcrowdsale&type=Code)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openzeppelin-part-4:-crowdsales/f7287d9006e346f2a628fad7132ff19c/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-02-28
+- **Kauri original tags:** smart-contract, openzeppelin, zeppelin, crowdsale, token
+- **Kauri original hash:** QmcEH6v6VB3qu48sjCzAV3bRhBWwsb2jJpquj9vK8sk4iH
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

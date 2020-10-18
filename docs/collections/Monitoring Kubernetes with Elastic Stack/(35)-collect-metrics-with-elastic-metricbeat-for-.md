@@ -9,6 +9,8 @@ some_url:
 
 # (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes 
 
+![](https://ipfs.infura.io/ipfs/QmfFTZb7ZaiZfDzc34kQfc137WaQ5HewS4JzinqEu2QRpE)
+
 
 
 [**Metricbeat**](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html) is a lightweight shipper installed on a server to periodically collect metrics from the host and services running. This represents the first pillar of observability to monitor our stack.
@@ -391,3 +393,16 @@ In the following article, we will learn how to install and configure Filebeat:
 
 <br />
 <br />
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(35)-collect-metrics-with-elastic-metricbeat-for-/935f4e17a10243139b41546780f43c42/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-10-19
+- **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat
+- **Kauri original hash:** QmV8jRTc1MmPN1fTgoi5cSZ9qzvLkQseb6RRUNFDLAkRPf
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

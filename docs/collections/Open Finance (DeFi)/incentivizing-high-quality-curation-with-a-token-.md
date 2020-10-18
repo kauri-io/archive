@@ -350,3 +350,17 @@ TCRs is a broad topic that goes beyond technical specifics. If you want to learn
 -   [Update by the author of the original paper, Mike Goldin](https://medium.com/@ilovebagels/token-curated-registries-1-1-2-0-tcrs-new-theory-and-dev-updates-34c9f079f33d), where he proposes improvements to the TCR design.
 -   “Awesome token-curated registries” repository on Github: [GitHub - miguelmota/awesome-token-curated-registries: Curated list of awesome Token Curated Registry (TCR) resources.](https://github.com/miguelmota/awesome-token-curated-registries)
 -   A reference TCR implementation: [GitHub - skmgoldin/tcr: A generic token-curated registry](https://github.com/skmgoldin/tcr)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/incentivizing-high-quality-curation-with-a-token-/5d256b3a16c3430080718f29d6758366/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2019-05-18
+- **Kauri original tags:** cryptoeconomics, solidity
+- **Kauri original hash:** QmdjaQcQ1CxNHerNkZLdQqAyhF88qGX8Dr1SNs2t9ksTyh
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

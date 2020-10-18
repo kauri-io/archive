@@ -227,3 +227,16 @@ Outra opção que fiz foi usar a distribuição Ubuntu Linux como nosso Geth O s
 Eu escolhi um utilitário de serviço do sistema para o Windows, sem alternativas, e cobri o aspecto do SSH no sistema operacional. Da mesma forma, se eu quiser acessar todos os aspectos de todos os softwares em todas as plataformas, esses artigos abordarão novelas. Peço desculpas àqueles que querem mais detalhes. Se você tiver dúvidas sobre essas coisas, poste uma resenha.
 
 Esta é definitivamente uma longa jornada. Eu sei que tudo isso é um pouco ambicioso, especialmente para aqueles com baixo conteúdo técnico. Espero que você possa seguir estas instruções e terminar com seu próprio nó remoto Ethereum, conectando-se ao MetaMask através de um túnel SSH seguro. Se você tiver alguma dúvida ou precisar de ajuda com esse processo, poste um comentário aqui. Estou feliz em ajudar.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/como-usar-o-tunel-ssh-e-o-metamask-para-usar-o-no/b78fc3fef28d419db0d327840175b275/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-08-13
+- **Kauri original tags:** metamask, ethereum, geth, linux, ssh-tunnel, windows, macos
+- **Kauri original hash:** QmWJPafWmzPjnHPMAQHsNix1XwxjWHfMGrXJMz2eHDrsUe
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

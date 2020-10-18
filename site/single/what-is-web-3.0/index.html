@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>What is Web 3.0? &mdash; Kauri</title>
+    <title>What is Web 3.0? &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -673,8 +676,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -773,10 +776,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1058,7 +1061,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1095,7 +1098,16 @@ A peer to peer architected internet can solve many of these problems by making p
 <p>The Ethereum Name Service (ENS) aims to replace DNS by creating a lookup service mapping human readable names to Ethereum addresses and other resources. ENS offers a secure &amp; decentralised way to address resources both on and off the blockchain using simple, human-readable names.</p>
 <h4 id="dapps-decentralized-applications">DApps — Decentralized Applications</h4>
 <p>Finally on top of all these new technologies, blockchain protocols, and decentralized platforms, a new wave of applications will be and has already started to be developed. These Web 3.0 applications are called DApps (Decentralized Applications) and are built on top of peer to peer, decentralized and blockchain based technologies and so they benefit from the properties of the underlying technologies described above. Users will transact using cryptocurrencies and will store data and code on the blockchain and on the decentralized cloud.
-Users will have full ownership of their data which will also be censorship resistant because it is permanently stored on the blockchain. Currently most DApps are developed to run on the Ethereum blockchain and are written in Solidity. They also use IPFS to serve the frontend which connects to smart contracts running on the blockchain and do away with the traditional centralized backend database and APIs. There is still much work to be done before we complete decentralizing the internet and so there has never been a better time to learn about Web 3.0 and become a DApps developer. Keep following me here at Web3 Developer if you want to learn more!</p></div>
+Users will have full ownership of their data which will also be censorship resistant because it is permanently stored on the blockchain. Currently most DApps are developed to run on the Ethereum blockchain and are written in Solidity. They also use IPFS to serve the frontend which connects to smart contracts running on the blockchain and do away with the traditional centralized backend database and APIs. There is still much work to be done before we complete decentralizing the internet and so there has never been a better time to learn about Web 3.0 and become a DApps developer. Keep following me here at Web3 Developer if you want to learn more!</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/what-is-web-3.0/2678d5d36f5c45f981e482de289ce154/a</li>
+<li><strong>Kauri original author:</strong> Web3 Developer (@web3developer)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-02</li>
+<li><strong>Kauri original tags:</strong> ethereum, blockchain, web3, dapps</li>
+<li><strong>Kauri original hash:</strong> Qmb2Vx4Gm3CPsLczXJ34RcfVzrNWPNCUVZFypcRLK8Xppg</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../how-to-write-upgradeable-smart-contracts-with-tru/" title="How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0"><span>Previous</span></a></div>

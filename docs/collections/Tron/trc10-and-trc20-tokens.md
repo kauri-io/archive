@@ -9,6 +9,8 @@ some_url:
 
 # TRC10 & TRC20 Tokens
 
+![](https://ipfs.infura.io/ipfs/QmYwjfBubwHjModgqPCadkzsP17Q3UHd3aRcU8Z1QJv7NA)
+
 
 ## Token Issuance
 
@@ -468,3 +470,16 @@ td, th {
     <td></td>
   </tr>
 </table>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/trc10-and-trc20-tokens/6b8ebe84d0a14af48bdc09b62bf3d27c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-01
+- **Kauri original tags:** beginner, tron
+- **Kauri original hash:** Qmb7gSPWzScCR8xP87uSdSmeGK9qfbrBXsrNsftqttt8RV
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

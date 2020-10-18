@@ -11,3 +11,16 @@ some_url:
 
 
 Now self published!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/personal-article-2!/97f35ae3e3444ef284667a25264d590e/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2018-08-31
+- **Kauri original tags:** none
+- **Kauri original hash:** QmaJNf9eVH2ANeUC6eMKDziBtPiDB87iyuk3g9vQ6s6Eqm
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

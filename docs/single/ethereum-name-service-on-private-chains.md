@@ -274,3 +274,17 @@ The test folder contains examples of the calls to the registry, registrar, and r
 Once "mycontract.example" is properly registered and resolvable, we can look up the associated information in a two step process: First we fetch the resolver that handles the data for our node (`registry.resolver(node)`). Then, we can query the resolver for the information about our node we are looking for, e.g. `resolver.addr(node)`.
 
 Unlike storing records, which is rarely necessary to do from an on-chain contract, reading them is often helpful both from off-chain applications and on-chain contracts. The test at `test\testWorkflow.js` demonstrates how to get domain records with web3. For on-chain lookup this repo also includes the helper contract `ENSReader.sol` which can be inherited from to handle registry and registrar lookups on-chain (see `test\TestContractWorkflow.sol`).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-name-service-on-private-chains/30ed03248cc2432ba5565375c4413608/a
+- **Kauri original author:** null (@d68b300ccdf5795ac5cbf64a483518b89bfe6e8e)
+- **Kauri original Publication date:** 2019-05-31
+- **Kauri original tags:** ethereum, truffle, ens, tutorial
+- **Kauri original hash:** QmaNmH6qULk4TwrW32z7H6AiB9RpoUcUenLJqPPEUvBr6V
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

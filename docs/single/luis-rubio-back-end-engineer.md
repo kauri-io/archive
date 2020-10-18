@@ -12,7 +12,7 @@ some_url:
 
 ##Luis is one of our talented backend engineers, letting his curiosity and passion drive his work
 
-![](https://api.beta.kauri.io:443/ipfs/QmSFZwXyyrYr98xQEomy1tw9sfCB73jZpyJjkDUkGGSu7C)
+![](https://ipfs.infura.io/ipfs/QmSFZwXyyrYr98xQEomy1tw9sfCB73jZpyJjkDUkGGSu7C)
 
 **Hi Luis and welcome to the team. Could you start by telling us a bit about you, your career and academic background?**
 
@@ -51,4 +51,18 @@ I also like to spend time with my girlfriend and my friends. Traveling to new co
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/luis-rubio-back-end-engineer/099b2f27716046599392a51e1cdb357f/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-21
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYfxwoMD6qvVyNjZhC1RyTSYX6zauUGWmVtPBmLbqrvC4
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

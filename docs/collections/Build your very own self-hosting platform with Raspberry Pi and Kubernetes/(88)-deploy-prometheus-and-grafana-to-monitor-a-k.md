@@ -9,6 +9,8 @@ some_url:
 
 # (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster
 
+![](https://ipfs.infura.io/ipfs/QmPkbAuQryPTYbKiZ3X542xCXrkXUwXYWtQfwYLtzh2iER)
+
 
 <br />
 
@@ -32,7 +34,7 @@ Monitoring is an important part of the maintenance of a Kubernetes cluster to ga
 
 [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/) is a common combination of tools to build up a monitoring system where Prometheus acts as a data collector pulling periodically metrics from different systems and Grafana as a dashboard solution to visualise the data.
 
-![](https://api.kauri.io:443/ipfs/QmW2155L91oNeMp9H2VR1nSeoB5GchppXQJCjfTt6wtSW4)
+![](https://ipfs.infura.io/ipfs/QmW2155L91oNeMp9H2VR1nSeoB5GchppXQJCjfTt6wtSW4)
 
 Specifically for Kubernetes, a great Open-Source project called [**cluster-monitoring**](https://github.com/carlosedp/cluster-monitoring) offers a scripts to automate the installation and configuration of Prometheus + Grafana and provides a lot of dashboards for Kubernetes out of the box.
 
@@ -178,3 +180,16 @@ Click on the Grafana link and login with the default login/password `admin/admin
 You can now finally enjoy a lot of pre-configured dashboards for your Kubernetes cluster.
 
 ![](https://i.imgur.com/ASJhgZ3.png)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(88)-deploy-prometheus-and-grafana-to-monitor-a-k/186a71b189864b9ebc4ef7c8a9f0a6b5/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-04-01
+- **Kauri original tags:** self-hosting, analytics, kubernetes, grafana, prometheus, monitoring
+- **Kauri original hash:** QmVCXG2Uum6gQkKbE1dQprGJ1NUmye7uTPvuiqojGDFupw
+- **Kauri original checkpoint:** unknown
+
+
+

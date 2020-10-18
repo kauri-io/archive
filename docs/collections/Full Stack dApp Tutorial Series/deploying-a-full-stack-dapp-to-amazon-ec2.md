@@ -277,3 +277,16 @@ const ipfs = new IPFS({ provider: 'username:password@kaleidoIPFSUrl', protocol: 
     1.  If you change the dApp, repeat steps 7 to 9 to see your changes.
 
 <!-- TODO: Do you need Apache? What about node server? -->
+
+
+---
+
+- **Kauri original link:** https://kauri.io/deploying-a-full-stack-dapp-to-amazon-ec2/26165036e74b44a69e6aeb2137c71d54/a
+- **Kauri original author:** Mulili Nzuki (@mulili)
+- **Kauri original Publication date:** 2019-09-27
+- **Kauri original tags:** ethereum, dapp, ec2, kaleido, aws
+- **Kauri original hash:** QmasJddMj3KSnxAGxVgsaFRJJL9hzzygFydJJ1t9Ubu59r
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

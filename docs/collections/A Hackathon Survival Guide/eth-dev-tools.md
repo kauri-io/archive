@@ -69,3 +69,16 @@ We added a module to allow developers and dapp users to create and delete subscr
 - ETH Dev Tools Chrome Inspector Plugin: https://github.com/theoephraim/ethdevtools
 - Dummy Testing Dapp: https://github.com/okwme/dummy-dapp
 - Webhook->Websocket proxy: https://github.com/musnit/sockethook
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-dev-tools/03a1ce4d66aa47e2a935f7d65f936371/a
+- **Kauri original author:** Aidan Musnitzky (@musnit)
+- **Kauri original Publication date:** 2019-02-22
+- **Kauri original tags:** ethdenver-2019-submission, bounty-salt-2019, bounty-thegraph-2019, bounty-infura-2019
+- **Kauri original hash:** QmUEaqnAseE3vrj2nPUrsvez65prEnM87LETwXmAXdyAu2
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

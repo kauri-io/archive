@@ -95,3 +95,16 @@ The above illustrates two privacy groups enabling:
 - [Getting started with Pantheon](https://github.com/PegaSysEng/pantheon/blob/master/docs/Getting-Started/Getting-Started.md)
 - [Configuring a network for private transactions](https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Configuring-Privacy.md)
 - [Processing Private Transactions](https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Private-Transaction-Processing.md)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/privacy-with-pantheon-ethereum-java-client/f0758bcdfad84d70a5d1adf43baa59d4/a
+- **Kauri original author:** PegaSys (@pegasys)
+- **Kauri original Publication date:** 2019-05-03
+- **Kauri original tags:** ethereum, java, blockchain, privacy, pantheon
+- **Kauri original hash:** Qmae75UbjYFrNk6mUBEgy1UmgbAwQTQK4ZJ1AiWftMKetw
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

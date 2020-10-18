@@ -47,3 +47,17 @@ https://github.com/Brownie79/ethctf (README has further explanation)
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-cyber-security-ctf-platform-(chainctf)/60ad746c233b4e48bd67622af370b0b4/a
+- **Kauri original author:** Dev Bharel (@spacemandev)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-zeppelin-2019, bounty-thegraph-2019
+- **Kauri original hash:** QmZKigEXBSUfq7y8LATuf1UBvvxH9JrWVVf58HgPSp4kPh
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

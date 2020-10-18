@@ -9,6 +9,8 @@ some_url:
 
 # Bountibot  rewarding GitHub Pull Requests for you and the rest of the OSS community
 
+![](https://ipfs.infura.io/ipfs/QmZw1LPa5BKxr9bhxfmFZRVQWsQ9pd1hXxh32YfxMTYafE)
+
 
 
 ## Project Name
@@ -47,6 +49,20 @@ No, ineligible for Chainlink bounties.
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/smartcontractkit/bountibot
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bountibot:-rewarding-github-pull-requests-for-you/65ead2d82e104b94a1d3906f32aa6b8a/a
+- **Kauri original author:** Dimitri Roche (@dimroc)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** chainlink, ethdenver-2019-submission, github
+- **Kauri original hash:** QmcQdACHDaRkkxLmfekLr8JjnGH3JBTbkaWtM6rH1YGWkm
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

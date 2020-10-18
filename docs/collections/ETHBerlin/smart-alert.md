@@ -48,3 +48,16 @@ You can set the api url in `/frontend/src/constants/env.js`
  [46.101.140.249](http://46.101.140.249)
 
  [GitHub Repo](https://github.com/nebojsa94/smart-alert)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-alert/9b3f5bbebfd64623bf4478004bda405c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSGB3M5gYxPga5j1xP1xDnGnHrAW6peoWqJMsi1cFc7E4
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

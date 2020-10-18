@@ -16,7 +16,7 @@ Görli is a Proof of Authority testnet that can support popular Ethereum clients
 
 https://devpost.com/software/gorli-testnet
 
-![](https://api.beta.kauri.io:443/ipfs/QmcgaLe43UHUAzX6UhVmz7RS6NhstoAeqBt3cHwvkHLjzV)
+![](https://ipfs.infura.io/ipfs/QmcgaLe43UHUAzX6UhVmz7RS6NhstoAeqBt3cHwvkHLjzV)
 
 #### Inspiration
 To build a cross client Proof of Authority testnet. Currently there is a reliance on testnets that are completely isolated from interacting with other clients due to the differing PoA consensus mechanisms.
@@ -43,3 +43,16 @@ Next we plan on solidifying our current Go implementation of Aura in Geth. From 
 [http://ethstats.goerli.ethberl.in:3000/](http://ethstats.goerli.ethberl.in:3000/)
 
 [GitHub Repo](https://github.com/goerli)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gorli-testnet/00ff76472aa9486c903687c2d37ab71d/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-24
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQgme3v6wVzFa3GSajUi3ghFHgSkNjhCmFp4Fn7oShbCi
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

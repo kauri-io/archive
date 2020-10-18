@@ -43,3 +43,17 @@ https://github.com/jamslevy/foothodl
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/iq-donate/d5ee42ff42b543f98e20aa313a5e214c/a
+- **Kauri original author:** Boris (@thebrightestday)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, buidl, bounty-makerdao, impact, confidential-transactions, burner-wallet, bounty-poa-2019
+- **Kauri original hash:** QmR5NvBwW1ukeHuYAUxfdvY7NaFpeT2cFqig6xEtTmVWbM
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

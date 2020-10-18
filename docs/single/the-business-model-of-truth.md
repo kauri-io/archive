@@ -12,7 +12,7 @@ some_url:
 
 ## How Decentralized Oracle Networks like Witnet can be a crucial use case of blockchain technology in the so-called post-truth era
 
-![](https://api.beta.kauri.io:443/ipfs/QmdEy51vweSW7NWCMGDSuD3ECL5qhFtmsuLZqvjpaLiiiT)
+![](https://ipfs.infura.io/ipfs/QmdEy51vweSW7NWCMGDSuD3ECL5qhFtmsuLZqvjpaLiiiT)
 
 [Jason Taellious](https://www.flickr.com/photos/dreamsjung/5987215653) — [CC by-sa]
 
@@ -34,7 +34,7 @@ A recent [Buzzfeed article](https://www.buzzfeed.com/charliewarzel/the-terrifyin
 > 
 “I think what you see now is an attack on the enlightenment — and enlightenment documents like the Constitution — by adversaries trying to create a post-truth society. And that’s a direct threat to the foundations of our current civilization.”
 
-![](https://api.beta.kauri.io:443/ipfs/QmPuodNiwhe3ubwmoFEtwoNAAhSst3Q9fVss6Ddf73jYEa)
+![](https://ipfs.infura.io/ipfs/QmPuodNiwhe3ubwmoFEtwoNAAhSst3Q9fVss6Ddf73jYEa)
 
 Time Saving Truth from Falsehood and Envy, François Lemoyne, 1737
 
@@ -75,4 +75,18 @@ In politics, it might be useful to discuss on verifiable facts rather than a non
 Ideas such as transparency, decentralized governance or open sourcing are the founding ideas behind the blockchain technology. As the technology matures, we expect these ideas start shaping our society and become philosophical movements such as Renaissance, the Age of enlightenment or the industrial revolution.
 
 Decentralized oracle networks and the notion of truth that depends on decentralized verification are the gateways of blockchain technology for a broader impact on the society. That is why I am excited about the promise of Witnet.
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-business-model-of-truth/2bd87589bcdc426aac3c1873cc512b3b/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQ72j4E2Qy4s4M4Ft3YdBFJeAXLutfbY3DBmVMAg6hjcX
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
 

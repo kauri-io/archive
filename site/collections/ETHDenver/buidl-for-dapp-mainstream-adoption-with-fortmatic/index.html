@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019 &mdash; Kauri</title>
+    <title>BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019 &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -666,8 +669,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -766,10 +769,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1051,7 +1054,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1060,13 +1063,14 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="buidl-for-dapp-mainstream-adoption-with-fortmatic-at-ethdenver-2019">BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW17LnEYhV57hwV9PgMf3r3KnxD9pHHqVi17kgrxsGx8C" /></p>
 <p>Hello, ETHDenver hackers! 👋 from all at
 <a href="https://fortmatic.com/">Fortmatic</a>
 who are thrilled to meet you in a few days! This is a significant event and milestone for Fortmatic, as ETHDenver will be their first public debut.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmT8M1Qz1e6MTZHY8saTKH3Aga1dXC1nEkGjvUtT6xnfCX" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT8M1Qz1e6MTZHY8saTKH3Aga1dXC1nEkGjvUtT6xnfCX" /></p>
 <p>After many months of hard-work, the team has built an amazing product that allows end-users to directly interact with dApps, without having to download any browser extensions or 3rd party mobile apps. All of this will be available for developers by adding a couple lines of code, without having to change any existing Web3 implementation!</p>
 <h3 id="how-does-it-work">How does it work?</h3>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmRQdYDB11umANbpvsXcBANxRS37SZXAMnNe4tcCcjjLbB" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRQdYDB11umANbpvsXcBANxRS37SZXAMnNe4tcCcjjLbB" /></p>
 <h4 id="for-dapp-users">For dApp users:</h4>
 <ul>
 <li>Users interact with the dApp by, for example, clicking on a “Buy” button</li>
@@ -1098,7 +1102,16 @@ and follow our updates on
 <a href="https://twitter.com/fortmatic">Twitter</a>
 . Feel free to hang out with us in our
 <a href="https://discordapp.com/invite/JqrDbRB">Discord Channel</a>
-too — don’t hesitate to reach out and ask us anything!</p></div>
+too — don’t hesitate to reach out and ask us anything!</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/buidl-for-dapp-mainstream-adoption-with-fortmatic/5ce02c1566f44fc09bc471bd6e3fdbd6/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-14</li>
+<li><strong>Kauri original tags:</strong> ethdenver, hackathons</li>
+<li><strong>Kauri original hash:</strong> QmYGcENrC1QHPjNDPUeA7CE8aaqpKjGfUzWg4SHH1tzMQj</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../get-started-with-zeppelinos%21/" title="Get started with ZeppelinOS!"><span>Previous</span></a></div>

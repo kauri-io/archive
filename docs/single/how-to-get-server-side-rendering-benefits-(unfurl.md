@@ -10,7 +10,7 @@ some_url:
 # How to Get Server Side Rendering Benefits (Unfurling, Indexing, Search-ability) without Building…
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmbDwkHYVZWdLzDfHfaNPycYsJ5eMQkxj8tVvzPinQUTjX)
+![](https://ipfs.infura.io/ipfs/QmbDwkHYVZWdLzDfHfaNPycYsJ5eMQkxj8tVvzPinQUTjX)
 
 You’re not going to hear much about the topic of server side rendering (SSR) from many blockchain startups. If it’s not about a new scaling mechanism, token economic structure, or some other revolutionary idea, you may tune out or keep scrolling. However, there are plenty of things to talk about as a blockchain startup that are not related to the protocol layer or other bleeding edge research. We still face the same problems regular startups have — with a little extra magic. In our case, we were building quickly and wanted to forgo the heaviness of implementing a server side rendering (SSR) solution in our code. We found we could get all the benefits of an SSR solution without having to implement SSR into our code.
  
@@ -38,7 +38,7 @@ So, we worked hard to make our bot friends happy — Slack, Twitter, Google, Duc
  
 The bots get a fully rendered page in under a second. Meta tags, links, and everything else are indexable and now discoverable by Google. Unfurling happens beautifully — just take a look at this on Twitter:
 
-![](https://api.beta.kauri.io:443/ipfs/QmRUfgaoApWnTrsMoB7Q8yquyF637226GLCwBNU2A4N17i)
+![](https://ipfs.infura.io/ipfs/QmRUfgaoApWnTrsMoB7Q8yquyF637226GLCwBNU2A4N17i)
 
 I will talk more on unfurling below. :)
 
@@ -52,11 +52,11 @@ I will talk more on unfurling below. :)
 
 The first snippet adds the appropriate headers on viewer request. The second snippet triggers the routing/proxy behavior on origin request. Both of these are pure lambda functions based on the code found on [this Github repo](https://github.com/jinty/prerender-cloudfront). In CloudFront, the additions should look like the following:
 
-![](https://api.beta.kauri.io:443/ipfs/QmWLbVLnRwPahvdtV388GxXQJmHi17etqpr8ZLy3YhTs65)
+![](https://ipfs.infura.io/ipfs/QmWLbVLnRwPahvdtV388GxXQJmHi17etqpr8ZLy3YhTs65)
 
 For this to work, you also have to turn on custom headers for the bot request to always forward:
 
-![](https://api.beta.kauri.io:443/ipfs/QmTGv7NvhnEx67DvQCpRjYFk2MBDs18VakEsxsTkdCD3Tp)
+![](https://ipfs.infura.io/ipfs/QmTGv7NvhnEx67DvQCpRjYFk2MBDs18VakEsxsTkdCD3Tp)
 
 
 #### Prerender:
@@ -65,15 +65,15 @@ We plan on building our own service soon. In the meantime, [Prerender](https://p
 ### Unfurling:
 When you share one of our bounties on Twitter, it looks like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmRUfgaoApWnTrsMoB7Q8yquyF637226GLCwBNU2A4N17i)
+![](https://ipfs.infura.io/ipfs/QmRUfgaoApWnTrsMoB7Q8yquyF637226GLCwBNU2A4N17i)
 
 On Slack, it looks like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmPz4pt7z7kQfkCQoMbjD4EnxnVJjbfH11cVGhAAfXNxQW)
+![](https://ipfs.infura.io/ipfs/QmPz4pt7z7kQfkCQoMbjD4EnxnVJjbfH11cVGhAAfXNxQW)
 
 On Facebook it looks like this:
 
-![](https://api.beta.kauri.io:443/ipfs/QmZ6ZuJg5eKbujEEMKTxNXMi9RSr4JoihJ5qfpoA7bmyQN)
+![](https://ipfs.infura.io/ipfs/QmZ6ZuJg5eKbujEEMKTxNXMi9RSr4JoihJ5qfpoA7bmyQN)
 
  
 **In order to accomplish this unfurling, we needed to do 3 things:**
@@ -97,7 +97,7 @@ To determine whether search engines can properly view and read your page:
  3. Keep your sitemaps up to data and your pages optimized correctly
 
 #### Fetch as Google:
-![](https://api.beta.kauri.io:443/ipfs/QmZaHrWU32KAf3JekubktziS5WcfSH4xkyHkvSY8RhYH1F)
+![](https://ipfs.infura.io/ipfs/QmZaHrWU32KAf3JekubktziS5WcfSH4xkyHkvSY8RhYH1F)
 
 This one is simple. If the page shows up for you, you’re in the clear. If not, then you have an issue you need to investigate. In our case, Google was not able to render our pages, resulting in us just seeing a blank page. Our issue was stray ES6 code lying around. One of the libraries we used was responsible and was breaking Google, yikes!
 
@@ -130,3 +130,17 @@ Check out our new explorer at:
 - Join our [Bounties Slack community](https://join.slack.com/t/bountiesnetwork/shared_invite/enQtMzA2Mjk3MzAzODQwLTZjN2UxMmU5MWYxZTVmMmM4OGNjZDRiMDgwYTVhOTIwYmQ4MjVlMjNkZjYzOTE4MWI4OTFhOWE4ZTUzN2MyNWY)
 - [sign up to learning sessions](http://eepurl.com/dpTC-5)
 - [follow us on Twitter](https://twitter.com/ethbounties) to see what we’re up to!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-get-server-side-rendering-benefits-(unfurl/936e38ed86f641cf9931e6d99f7ae9b1/a
+- **Kauri original author:** Will Villanueva (@will)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmZ9iHqrCCMJnjxQWzVDwEjMoF6Mdfu5JSt47dVL7GE3n9
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

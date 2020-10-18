@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmStJy3DeoTjssW4ndvjYTUdJB3jrd1KBkt6jwr9mrV9Jz)
+![](https://ipfs.infura.io/ipfs/QmStJy3DeoTjssW4ndvjYTUdJB3jrd1KBkt6jwr9mrV9Jz)
 
 In cryptocurrencies, a private key allows a user to gain access to their wallet. The person who holds the private key fully controls the coins in that wallet. For this reason, you should keep it secret. And if you really want to generate the key yourself, it makes sense to generate it in a secure way.
 Here, I will provide an introduction to private keys and show you how you can generate your own key using various cryptographic functions. I will provide a description of the algorithm and the code in Python.
@@ -37,7 +37,7 @@ Formally, a private key for Bitcoin (and many other cryptocurrencies) is a serie
 [mnemonic phrase](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
  , or finally, a hex string. For our purposes, we will use a 64 character long hex string.
 
-![](https://api.beta.kauri.io:443/ipfs/QmQgy8nTGLRkkRGPhzuwbS8vjxz3219Y4Z42abbtEiz1mE)
+![](https://ipfs.infura.io/ipfs/QmQgy8nTGLRkkRGPhzuwbS8vjxz3219Y4Z42abbtEiz1mE)
 
 Why exactly 32 bytes? Great question! You see, to create a public key from a private one, Bitcoin uses the 
 **ECDSA**
@@ -108,7 +108,7 @@ Now,
 
 So how does it work? It uses you — yes, you — as a source of entropy. It asks you to move your mouse or press random keys. You do it long enough to make it infeasible to reproduce the results.
 
-![](https://api.beta.kauri.io:443/ipfs/QmeXBer1XCFMsa1jAWMEmMPsxyADT4q6WyT9ib1ro85ApX)
+![](https://ipfs.infura.io/ipfs/QmeXBer1XCFMsa1jAWMEmMPsxyADT4q6WyT9ib1ro85ApX)
 
 Are you interested to see how 
 [bitaddress.org](https://bitaddress.org)
@@ -264,3 +264,17 @@ If you want to play with the code, I published it to this
  
 _I also post random thoughts about crypto on [Twitter](https://twitter.com/DestinerX), so you might want to check it out._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-generate-your-very-own-bitcoin-private-key/b05de74bdcb94b1aaf5bf604a05c266e/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2018-11-29
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmdp25QEfHTUQb463NbvfHBzyyvfr8SLhCADHScvv3eKfR
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -51,3 +51,17 @@ Shapeshift, Coincap, Rhombus, POA
 
 https://github.com/web3devs/sms-blockchain-protocol
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sms-blockchain-protocol/00d6519895f44cc0ae1e8a5cd537366b/a
+- **Kauri original author:** null (@a68e919d220aef723b522b18abc7d012718b3c72)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, rhombus, poa, shapeshift
+- **Kauri original hash:** QmNjYKYnpLCibb8E676sfXpGSfyH5Pp5epMfwrYTRktNcX
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

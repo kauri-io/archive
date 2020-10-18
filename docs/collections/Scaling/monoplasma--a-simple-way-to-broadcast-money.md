@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmQSHbBgSFnF1FvNG3PUJw8Y51uCQbrEJN7Xfs7aSMdhyn)
+![](https://ipfs.infura.io/ipfs/QmQSHbBgSFnF1FvNG3PUJw8Y51uCQbrEJN7Xfs7aSMdhyn)
 
 Monoplasma is a special-purpose off-chain scaling solution for one-to-many payments. It’s a good fit for any system where you repeatedly need to:
 
@@ -73,7 +73,7 @@ _We sacrificed generality in favour of special-purpose._
  
 This is not a generic payment system where everyone can arbitrarily transact with each other. The system is unidirectional: there are no transfers between accounts in the side channel.
 
-![](https://api.kauri.io:443/ipfs/QmahajBWs32vSqejLqjiz8vQjYB26FEepemPoTzzesTH3M)
+![](https://ipfs.infura.io/ipfs/QmahajBWs32vSqejLqjiz8vQjYB26FEepemPoTzzesTH3M)
 
 In other words, tokens can’t be spent on the side channel. But why is that a good thing? Since tokens can’t be spent there, there can be no double spending! And as you might know, preventing double spending is arguably the hardest problem in designing any distributed system that transfers value. Not having to deal with this simplifies things immensely, which is exactly what we wanted.
 
@@ -81,14 +81,14 @@ In other words, tokens can’t be spent on the side channel. But why is that a g
 Since there’s no side channel spending, balances on the side channel are your cumulative lifetime earnings. In other words, your account balance can only increase monotonically. Hence the name: Monoplasma.
 So what about withdrawals then? Withdrawals are tracked on-chain instead of off-chain. The side channel records your cumulative earnings (credits) and the smart contract keeps track of your cumulative withdrawals (debits).
 
-![](https://api.kauri.io:443/ipfs/Qma61nf3ZpBQyUL9fhPPtZ5xSEvXyGxjGRGHmt4KQcAPJ8)
+![](https://ipfs.infura.io/ipfs/Qma61nf3ZpBQyUL9fhPPtZ5xSEvXyGxjGRGHmt4KQcAPJ8)
 
 Your withdrawable balance is the difference. To withdraw, all you need to do is prove your positive balance to the smart contract. You do this by providing a simple 
 [Merkle proof](https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5)
  .
 Let’s look at an example. The Monoplasma smart contract holds all the non-withdrawn tokens of the side channel. If we can prove we have earned 100 tokens, and the Monoplasma smart contract has seen us withdraw only 30 so far, it will allow us to withdraw 70 more.
 
-![](https://api.kauri.io:443/ipfs/Qmb873JytyeDiC5syqa6janF9e6oZ4XDfXrdFvvsVExZoz)
+![](https://ipfs.infura.io/ipfs/Qmb873JytyeDiC5syqa6janF9e6oZ4XDfXrdFvvsVExZoz)
 
 The smart contract updates its internal record keeping to reflect that we now have withdrawn 100. If we try to withdraw again with a proof of earnings of 100 (or less), it won’t give us any further tokens. In other words, Monoplasma relies on the secure consensus mechanism of Ethereum to prevent people from withdrawing more than their provable share.
 
@@ -104,7 +104,7 @@ I’ll briefly highlight some other aspects of Monoplasma:
  * One difference, however, is that there’s no challenge period/exit game, as there can’t be double spending. Instead, there’s a non-interactive freeze period to allow time for Validators to exit people’s funds using the last validated honest block in case the Operator cheats. So earned funds do become withdrawable with a few days of latency, which is fine for many use cases, including ours.
 Although somewhat simplified, the below table summarizes some of the similarities and differences between Monoplasma and other typical implementations in the same space:
 
-![](https://api.kauri.io:443/ipfs/Qmc1CCQDpY3mgEEzeBSSWpEaC3LNswVgQk4SNz188wjSvU)
+![](https://ipfs.infura.io/ipfs/Qmc1CCQDpY3mgEEzeBSSWpEaC3LNswVgQk4SNz188wjSvU)
 
 
 ### As a developer, how can I try it out?
@@ -140,3 +140,17 @@ You can follow the Streamr community’s progress on
 [developer forum](http://forum.streamrdev.com)
  .
 Good luck!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/monoplasma:-a-simple-way-to-broadcast-money/c94efbb60cf44a8aa663c5812e7f8012/a
+- **Kauri original author:** Matthew Fontana (@fonty)
+- **Kauri original Publication date:** 2019-05-04
+- **Kauri original tags:** ethereum, scaling, plasma, scalability
+- **Kauri original hash:** QmTo9QKa3VbYBmPTRBAL5gRG5NgVJLViWYrY21UKxHxG8H
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

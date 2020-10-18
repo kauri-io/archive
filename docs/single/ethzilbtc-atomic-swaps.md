@@ -49,3 +49,17 @@ Open
 https://github.com/mattBlackDesign/chainabstractionlayer
 https://github.com/mattBlackDesign/chainabstractionlayer/tree/master/src/providers/zilliqa
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethzilbtc-atomic-swaps/7c3b7e1a4d78437d923a666f50f4c7e2/a
+- **Kauri original author:** Tony Cai (@runrafter)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-zilliqa-2019, bounty-zerion-2019
+- **Kauri original hash:** QmaJZWUQC7myq29Mq6CgWaTMZJWYHe6cAEtnNeUdRUJu61
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -11,12 +11,12 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmPnCEie99sQuB4iRDL77rUAJCCJj39faSZt9T2UKmVDGZ)
+![](https://ipfs.infura.io/ipfs/QmPnCEie99sQuB4iRDL77rUAJCCJj39faSZt9T2UKmVDGZ)
 
 
 ### What is Sound Money?
 
-![](https://api.kauri.io:443/ipfs/QmSKSB1T1S9PxSUmvXakAAYVBFyouhphtTgHJwzgg4xZmT)
+![](https://ipfs.infura.io/ipfs/QmSKSB1T1S9PxSUmvXakAAYVBFyouhphtTgHJwzgg4xZmT)
 
  
 **Sound Money refers to a currency that derives its value from the markets**
@@ -30,7 +30,7 @@ some_url:
 
 ### What Philosophers had to say
 
-![](https://api.kauri.io:443/ipfs/QmbDVNcpSdVFXnra1b6EHkarw8aN2CDLQ4rCrpH6iHyShP)
+![](https://ipfs.infura.io/ipfs/QmbDVNcpSdVFXnra1b6EHkarw8aN2CDLQ4rCrpH6iHyShP)
 
  
 **Since the birth of philosophy in Ancient Greece, thinkers were interested in the subject of money and wealth.**
@@ -38,7 +38,7 @@ some_url:
 **Aristotle**
  was the first to provide a comprehensive view of money.
 
-![](https://api.kauri.io:443/ipfs/QmSqisH1eAPBeZWtw3G4yJ1jWxcwp96atGiX3XvzKm5QQU)
+![](https://ipfs.infura.io/ipfs/QmSqisH1eAPBeZWtw3G4yJ1jWxcwp96atGiX3XvzKm5QQU)
 
 According to the views expressed in 
 [Aristotle’s Politics](https://www.quora.com/How-does-Aristotle-define-sound-currency)
@@ -55,7 +55,7 @@ According to the views expressed in
  * It must have **Intrinsic Value** 
 Over the subsequent centuries, the influence of Aristotle on philosophy was overwhelming, and little original work was done on the subject of money.
 
-![](https://api.kauri.io:443/ipfs/QmeXT5cSEa5E31iwTmqsw1BQCvM4MPSyJiQmAQCKnS1Xhi)
+![](https://ipfs.infura.io/ipfs/QmeXT5cSEa5E31iwTmqsw1BQCvM4MPSyJiQmAQCKnS1Xhi)
 
  
 **In the 16th century**
@@ -79,7 +79,7 @@ Over the subsequent centuries, the influence of Aristotle on philosophy was over
 
 ### When was our money sound?
 
-![](https://api.kauri.io:443/ipfs/QmT4C6EXvB9n9UJzderzcfQbk1TxackADmrcPrm3TGxdRA)
+![](https://ipfs.infura.io/ipfs/QmT4C6EXvB9n9UJzderzcfQbk1TxackADmrcPrm3TGxdRA)
 
  
 **Gold and other precious metals answer those five characteristics almost correctly, and thus for thousands of years gold and silver were used as the primary currency.**
@@ -94,7 +94,7 @@ However, in the early 20th century
 
 ### The Crypto Age
 
-![](https://api.kauri.io:443/ipfs/QmcFxtWjXFHZdtPdVXb8zctoVcrDSSZZgVmj5hNgJ2dqdB)
+![](https://ipfs.infura.io/ipfs/QmcFxtWjXFHZdtPdVXb8zctoVcrDSSZZgVmj5hNgJ2dqdB)
 
 Fast forward to 
 **2008**
@@ -113,7 +113,7 @@ Fast forward to
 
 ### Something is still missing
 
-![](https://api.kauri.io:443/ipfs/QmW7qEvM8JnvZ3aEUoA94gBVswbyVuEWy85NJJmTDPa2QK)
+![](https://ipfs.infura.io/ipfs/QmW7qEvM8JnvZ3aEUoA94gBVswbyVuEWy85NJJmTDPa2QK)
 
 We believe, however, that there is one more fundamental characteristics of sound money — namely 
 **confidentiality**
@@ -146,7 +146,7 @@ We believe, however, that there is one more fundamental characteristics of sound
 
  *  **Scarcity — Beam emission is capped at around 263 million coins.** The emission curve is encoded in the protocol. During the first year of existence, 100 coins are minted for each mined block. In the second through 5th year, 50 coins per block are minted. In 6th year, the block reward is halved, and more halvings occur every four years until year 133 when the emission stops. The emission curve is shown on the chart below.
 
-![](https://api.kauri.io:443/ipfs/QmXR5LhgBfLF2RvpS4tBE592m7eD97jaAGTdTt2ba9eKLq)
+![](https://ipfs.infura.io/ipfs/QmXR5LhgBfLF2RvpS4tBE592m7eD97jaAGTdTt2ba9eKLq)
 
  
 **Since Beam blockchain is entirely opaque**
@@ -212,3 +212,17 @@ References:
  
 **Newsletter** : [https://beamprivacy.substack.com/](https://beamprivacy.substack.com/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-beam-is-sound-money/480ca270b63f444195fb5d0f61e0f54f/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** beam, mimblewimble
+- **Kauri original hash:** QmWd7hbz4U59AvuqLbFRKScduELiCh7MVMHJ6UKe5TyFsm
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

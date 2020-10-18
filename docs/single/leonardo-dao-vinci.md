@@ -55,7 +55,21 @@ Open
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/casinocats/leonardo-dao-vinci
 
-![](https://api.kauri.io:443/ipfs/QmNnGHrFmV3R8aK86s5aeVYa5i3sNTj7qSzCbJ7MvtBjbo)
+![](https://ipfs.infura.io/ipfs/QmNnGHrFmV3R8aK86s5aeVYa5i3sNTj7qSzCbJ7MvtBjbo)
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/leonardo-dao-vinci/49a76d9ed29a4bbf93d979f678663416/a
+- **Kauri original author:** Ed Harrod (@ech)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ideasbynature-2019, bounty-graph-2019, bounty-zeppelin-2019
+- **Kauri original hash:** QmfCn8eVCh9eZFcBmWDhXxStV9iWjCHFbxQE1VKt5osPw6
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
 
 
 

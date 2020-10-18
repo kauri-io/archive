@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmT3XSa3BVP6WNFBNqAm4MuGyZEzjyHJMCgrdsb3fZhN1t)
+![](https://ipfs.infura.io/ipfs/QmT3XSa3BVP6WNFBNqAm4MuGyZEzjyHJMCgrdsb3fZhN1t)
 
 The Wyre Team is excited about our 
 [ETHDenver](https://www.ethdenver.com)
@@ -34,15 +34,29 @@ We have two different products that are tailor made for DApp developers
 
 Here are some snapshots of the great times we’ve had with our hacker community!
 
-![](https://api.kauri.io:443/ipfs/QmcbxGbAMQQ7wQyFroDws6bHWKAib2TPk5ouru7r74ARxX)
+![](https://ipfs.infura.io/ipfs/QmcbxGbAMQQ7wQyFroDws6bHWKAib2TPk5ouru7r74ARxX)
 
 
-![](https://api.kauri.io:443/ipfs/QmXU4Gdgh133gBGGaDLMRTXCDRLYpbJqWayBteoS8atmNo)
+![](https://ipfs.infura.io/ipfs/QmXU4Gdgh133gBGGaDLMRTXCDRLYpbJqWayBteoS8atmNo)
 
 
-![](https://api.kauri.io:443/ipfs/QmaaKWPc2u5aq4FmoocH1pzUfp8heFS7F8waLyxP8f16kj)
+![](https://ipfs.infura.io/ipfs/QmaaKWPc2u5aq4FmoocH1pzUfp8heFS7F8waLyxP8f16kj)
 
 
-![](https://api.kauri.io:443/ipfs/QmRs1B5ynbcKcyLEms3V1itUmLhNXVYM8MB8krnMiWaTPG)
+![](https://ipfs.infura.io/ipfs/QmRs1B5ynbcKcyLEms3V1itUmLhNXVYM8MB8krnMiWaTPG)
 
 We want to thank everyone in advance for participating in the hackathon, it will be truly invigorating to see all the teams working hard on some next-level ideas and we’re encouraged to see the ecosystem in the capable hands of some pretty smart builders.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/go-to-market-now-with-the-wyre-widgetapi-buidl/95398111de5f4606a345ad721afaa93d/a
+- **Kauri original author:** Thomas Scaria (@tomscaria)
+- **Kauri original Publication date:** 2019-02-15
+- **Kauri original tags:** wyre, dapp, dai
+- **Kauri original hash:** Qmcoqa9xtxPVCE1H1tppBWKza3M8YRXa5PDNJo4coYfLcE
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -49,3 +49,17 @@ https://github.com/jschiarizzi/ethbookOS
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-book/db5152f67e8941d0aeb905022206f786/a
+- **Kauri original author:** Joseph Schiarizzi (@jschiarizzi)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmYbwVmNGkqSL8LQHT8pit3jtPKPbFHGEeiB2m2PUGcWeu
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

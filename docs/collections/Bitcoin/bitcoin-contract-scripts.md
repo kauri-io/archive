@@ -9,6 +9,8 @@ some_url:
 
 # Bitcoin Contract Scripts
 
+![](https://ipfs.infura.io/ipfs/QmbBbyyLyLQs2S59sn2w65cEjP1w5nnnaSiCCZsWHjQWGp)
+
 
 _This post originally appeared on [bitcoin.org](https://bitcoin.org/en/contracts-guide#introduction)_
 ### Introduction
@@ -138,7 +140,7 @@ by locktime. This is the refund transaction. Bob can't sign the refund transacti
 it to Alice to sign, as shown in the
 illustration below.
 
-![](https://api.kauri.io:443/ipfs/QmP8xFKxMZbunPPthQXw2CGzEaeDYwKHBwezchkXSNdEDv)
+![](https://ipfs.infura.io/ipfs/QmP8xFKxMZbunPPthQXw2CGzEaeDYwKHBwezchkXSNdEDv)
 
 Alice checks that the refund transaction's locktime is 24 hours in the
 future, signs it, and gives a copy of it back to Bob. She then asks Bob
@@ -206,7 +208,7 @@ illustration below, makes this decision easy: they create a single
 transaction which does all of the spending simultaneously, ensuring none
 of them can steal the others' satoshis.
 
-![](https://api.kauri.io:443/ipfs/QmYAyCrUnQJ2xr6G3UKWcUSiyGeaEteVHNpqy8eYebi3Mf)
+![](https://ipfs.infura.io/ipfs/QmYAyCrUnQJ2xr6G3UKWcUSiyGeaEteVHNpqy8eYebi3Mf)
 
 Each contributor looks through their collection of Unspent Transaction
 Outputs (UTXOs) for 100 millibitcoins they can spend. They then each generate
@@ -277,3 +279,17 @@ Blind Signatures are utilized to prevent the coordinator and the peers from lear
 which outputs correspond to which inputs. An example for Chaumian CoinJoin is the
 following transaction:
 [8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8](https://www.smartbit.com.au/tx/8fee07b90f26e85e22e87da13e1618cd9eeaf98f3f3774273c9307cd40ff98e8)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bitcoin-contract-scripts/51a63137f2544b4a97ad1e9dc7eac110/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-04
+- **Kauri original tags:** script, bitcoin
+- **Kauri original hash:** QmSMoMo2q2UaqNYBwDxkkBHSi55oVYb7g1wLirYNb3oDEV
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

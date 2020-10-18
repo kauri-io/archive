@@ -9,6 +9,8 @@ some_url:
 
 # API-based asset exchange with ShapeShift at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmQ8Rakexg4VHqRDLyDzdi7Fww9k4NBYtKZq5PM1ffbV3L)
+
 
 The ShapeShift platform gives you an API to quickly swap between assets in a seamless, safe, and secure environment.
 
@@ -34,3 +36,17 @@ To use the ShapeShift API you need to create ann account first. You can find ful
 ### Need Help
 
 If you run into problems ShapeShift have an [FAQ section](https://info.shapeshift.io/faq/) and a [help center](https://shapeshift.zendesk.com/hc/en-us).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/api-based-asset-exchange-with-shapeshift-at-ethde/fc9af330a3e44f3ab2c557486aaccf2e/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** trading, coins, ethdenver, exchange, api, hackathons
+- **Kauri original hash:** QmXykD8S5esvmrSPnSQ25UFDPmxuCqp8keymsLJPPhGS8h
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

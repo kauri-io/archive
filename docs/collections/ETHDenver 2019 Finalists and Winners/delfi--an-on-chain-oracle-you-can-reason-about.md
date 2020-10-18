@@ -9,6 +9,8 @@ some_url:
 
 # Delfi  An On-Chain Oracle You Can Reason About
 
+![](https://ipfs.infura.io/ipfs/QmVz5CtSfAsDTZixsPeuh15ebj3rjg7JJc862wromzQEHz)
+
 
 ## Project Name
 Delfi
@@ -42,3 +44,16 @@ Open
 - https://etherscan.io/address/0x04ac1eb4bdcce9cf16b3e44d9cf3ece2d4911906#code
 - https://etherscan.io/address/0xde1f1ea07370b0ee063c2306c240b1e579c4ff34#code
 - https://delfi.surge.sh
+
+
+---
+
+- **Kauri original link:** https://kauri.io/delfi:-an-on-chain-oracle-you-can-reason-about/c59dfaa3c1cb4ee2bcaeb8ff8a97397c/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, bounty-bzx-2019
+- **Kauri original hash:** QmdGXXETmj6ur4cfhntDH5dhPxmpKZ8hoJHrWWnMKm7cEd
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

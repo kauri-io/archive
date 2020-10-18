@@ -9,6 +9,8 @@ some_url:
 
 # Documentation structure
 
+![](https://ipfs.infura.io/ipfs/QmWadZ6EmZtwo3E6BHodBkaCTwqcx7MTPgpZ3wUwHC95mY)
+
 
 Documentation structure applies to your documentation as a whole, and to each page. Let's start at the top and work down.
 
@@ -135,3 +137,17 @@ with formatting. I have my personal preferences which are:
 But really what formatting you use for what isn't the important part,
 it's more important to be consistent if someone expects to see italics
 to show file paths, then stick to it.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/documentation-structure/cb1cad8db083475389718cbea3217db2/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-11-14
+- **Kauri original tags:** writing, documentation
+- **Kauri original hash:** QmY9imMBZxrsfQ6VKq1so4ZgSY5697nTs4iCoP5ZxByyHH
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

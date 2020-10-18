@@ -9,6 +9,8 @@ some_url:
 
 # Bitcoin Blockchain Overview
 
+![](https://ipfs.infura.io/ipfs/Qme1FAbwNY7dgerFRE5n1cWCU8d9xkVnCbKVA7zK38AAxH)
+
 
 _This article originally appeared on [bitcoin.org](https://bitcoin.org/en/blockchain-guide)_
 ### Introduction
@@ -21,7 +23,7 @@ nodes follow to maintain consensus are called [consensus
 rules](https://bitcoin.org/en/glossary/consensus-rules). This section describes many of
 the consensus rules used by Bitcoin Core.
 
-![](https://api.kauri.io:443/ipfs/QmThKV39X58nkRZmuhFKy17A1zcLASHhnnZKzEVMwvZi5Q)
+![](https://ipfs.infura.io/ipfs/QmThKV39X58nkRZmuhFKy17A1zcLASHhnnZKzEVMwvZi5Q)
 
 The illustration above shows a simplified version of a block chain.
 A [block](https://bitcoin.org/en/glossary/block) of one or more new transactions
@@ -42,7 +44,7 @@ transaction spends the satoshis previously received in one or more earlier
 transactions, so the input of one transaction is the output of a
 previous transaction.
 
-![](https://api.kauri.io:443/ipfs/QmQrMZGXKQCXcX1do99MYSzAQiWzTXsp4qvrEvQEyCCEex)
+![](https://ipfs.infura.io/ipfs/QmQrMZGXKQCXcX1do99MYSzAQiWzTXsp4qvrEvQEyCCEex)
 
 A single transaction can create multiple outputs, as would be
 the case when sending to multiple addresses, but each output of
@@ -149,7 +151,7 @@ by their [block height](https://bitcoin.org/en/glossary/block-height) ---the num
 block (block 0, most commonly known as the [genesis block](https://bitcoin.org/en/glossary/genesis-block)). For example,
 block 2016 is where difficulty could have first been adjusted.
 
-![](https://api.kauri.io:443/ipfs/QmSpjpTkDJbnyvZJvip7gXErAnv1rpW9NQs31LqXmLFFqk)
+![](https://ipfs.infura.io/ipfs/QmSpjpTkDJbnyvZJvip7gXErAnv1rpW9NQs31LqXmLFFqk)
 
 Multiple blocks can all have the same block height, as is common when
 two or more miners each produce a block at roughly the same time. This
@@ -270,7 +272,7 @@ nodes. This creates permanently divergent chains---one for non-upgraded
 nodes and one for upgraded nodes---called a [hard
 fork](https://bitcoin.org/en/glossary/hard-fork).
 
-![](https://api.kauri.io:443/ipfs/Qmf1pmytUhhrvMXkrPoYfAL1oNayrfwLMJxiRCQw3gRB5F)
+![](https://ipfs.infura.io/ipfs/Qmf1pmytUhhrvMXkrPoYfAL1oNayrfwLMJxiRCQw3gRB5F)
 
 In the second case, rejection by upgraded nodes, it's possible to keep
 the block chain from permanently diverging if upgraded nodes control a
@@ -280,7 +282,7 @@ upgraded nodes can build a stronger chain that the non-upgraded nodes
 will accept as the best valid block chain. This is called a [soft
 fork](https://bitcoin.org/en/glossary/soft-fork).
 
-![](https://api.kauri.io:443/ipfs/QmRavJXZFsjBBJDb5Sij748BnJpbQKhJyoCfbQRW37p4WQ)
+![](https://ipfs.infura.io/ipfs/QmRavJXZFsjBBJDb5Sij748BnJpbQKhJyoCfbQRW37p4WQ)
 
 Although a fork is an actual divergence in block chains, changes to the
 consensus rules are often described by their potential to create either
@@ -352,3 +354,17 @@ divergence, the client can disconnect from nodes with weaker chains.
 SPV clients should also monitor for block and transaction version number
 increases to ensure they process received transactions and create new
 transactions using the current consensus rules.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bitcoin-blockchain-overview/60804658f033475cad5797438adcab90/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-04
+- **Kauri original tags:** blockchain, bitcoin
+- **Kauri original hash:** QmcokTjQSaABoiFy9LRjevpMxmodaSaXcfLQTNPgT8zLUu
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

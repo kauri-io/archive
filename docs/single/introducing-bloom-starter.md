@@ -10,7 +10,7 @@ some_url:
 # Introducing Bloom Starter
 
 
-![](https://api.kauri.io:443/ipfs/QmPsZKGrX7F7swmezHEXGLigX3dxzvqJvC5NQv7kbYeAj1)
+![](https://ipfs.infura.io/ipfs/QmPsZKGrX7F7swmezHEXGLigX3dxzvqJvC5NQv7kbYeAj1)
 
 
 We are happy to announce [Bloom Starter](https://github.com/hellobloom/bloom-starter), a starting point for integrating Bloom into your app.
@@ -107,3 +107,16 @@ To learn more about the latest with Bloom:
 - [Join the conversation on Telegram](https://t.me/bloomprotocol)
 - [Follow us on Twitter](https://twitter.com/bloom)
 - [Read our Blog](https://bloom.co/blog)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introducing-bloom-starter/61d982a9c6d441049670c1f0acf6358f/a
+- **Kauri original author:** Isaac Patka (@isaacpatka)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** ethereum, bloom, identity, ethdenver, credit, ethdenver-2019
+- **Kauri original hash:** QmbVt3c6kbeSvswJ7rRgjA9JdAxCVi6Z6huXc3U7pEfbyP
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

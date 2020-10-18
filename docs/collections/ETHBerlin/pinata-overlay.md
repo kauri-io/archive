@@ -14,7 +14,7 @@ Pinata Overlay is a system consisting of a smart contract and IPFS oracles that 
 
 https://devpost.com/software/project-overlay
 
-![](https://api.beta.kauri.io:443/ipfs/Qmc9BHYv9H93nEUkJLVH3kPh8xfjU4XHCMLbwfyWhLAp9W)
+![](https://ipfs.infura.io/ipfs/Qmc9BHYv9H93nEUkJLVH3kPh8xfjU4XHCMLbwfyWhLAp9W)
 
 #### Inspiration
 DApp companies hate the current state of IPFS infrastructure. These companies are unhappy with the centralization associated with hosting their own IPFS node and are forced to waste dev resources building and managing their own nodes. These IPFS obstacles prevent dApps from being truly decentralized applications and prevent the dApp companies from being able to focus on solveing their customer's problems. At #ETHBerlin, we talked with people from Gitcoin, Gnosis, Kauri, ConsenSys and Colony who formed and strengthened these assumptions.
@@ -60,3 +60,17 @@ We will continue building out Pinata Overlay for #ETHSanFransisco where we inten
 [Oracle Node Repo](https://github.com/obo20/ETHBerlin-Pinata-Oracle-Node)
 
 [Frontend Demo Repo](https://github.com/obo20/ETHBerlin-Front-End-Demo)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/pinata-overlay/31db845be1fd42e2be03ec6da4d7259b/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmPzfRTTu4FY4QiNzgppbm3k2YmPguAdWaE8VJGF42nZcn
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

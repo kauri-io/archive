@@ -62,23 +62,23 @@ Mintable will be the easiest way for you to interact with your digital items. Wa
 
 #### Mint — Make a smart contract that YOU own, for free.
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ91BdskcRAVCUxwEjHZpfBP5Bhpf1KVhhCaA5TGdbTY2)
+![](https://ipfs.infura.io/ipfs/QmQ91BdskcRAVCUxwEjHZpfBP5Bhpf1KVhhCaA5TGdbTY2)
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
+![](https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
 
 
 #### Manage — Easily move or interact with your digital items
 
-![](https://api.beta.kauri.io:443/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
+![](https://ipfs.infura.io/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmX6mNsJ41agfqb3FzaKAWzR5Mp9JFeiXYQHBX2dZhHDry)
+![](https://ipfs.infura.io/ipfs/QmX6mNsJ41agfqb3FzaKAWzR5Mp9JFeiXYQHBX2dZhHDry)
 
 
 #### Browse — Look at all the newly searched and minted digital items
 
-![](https://api.beta.kauri.io:443/ipfs/QmcNauqj7u8KYyBULC2ESjQ3i1UnnJ5pUZ97C61DzpNMSJ)
+![](https://ipfs.infura.io/ipfs/QmcNauqj7u8KYyBULC2ESjQ3i1UnnJ5pUZ97C61DzpNMSJ)
 
 
 ### Compatible with Mobile Wallets
@@ -90,7 +90,7 @@ You need a wallet connected to send transactions and mint items.
 **But we work with the major mobile wallets! Here is an example using Coinbase Wallet**
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmNtwDHyqHMgv4WzcA1deMTMTrSjc7gX8fmZoKFJwu8spa)
+![](https://ipfs.infura.io/ipfs/QmNtwDHyqHMgv4WzcA1deMTMTrSjc7gX8fmZoKFJwu8spa)
 
 
 ### What’s coming next?
@@ -129,3 +129,17 @@ _Email — zach@mintable.app_
  
 _Events — We will be at many events in the next coming weeks in Asia. If you are going to any of the asian blockchain conferences, please reach out to us and lets meet up!_
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mint-any-erc-721-you-want-in-seconds-manage-all-y/d7b523cabb8f44419a14ea5ce1a4c0f3/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYUjWpN7EDFqRJU3vLdexKi3wtMDsVGKrov5bcNKEGgRP
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

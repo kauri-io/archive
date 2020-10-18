@@ -9,6 +9,8 @@ some_url:
 
 # Predict cryptocurrency prices with Tensorflow as binary classification problem
 
+![](https://ipfs.infura.io/ipfs/QmevA8kcH7ZfEVeepf72EvvUvmZBfUMZXuWhcC74XLrscB)
+
 
 ### Introduction
 In this tutorial we'll go through the prototype for a neural network which will allow us to estimate cryptocurrency prices in the future, as a binary classification problem, using Keras and Tensorflow as the  our main clarvoyance tools.
@@ -196,7 +198,7 @@ sns.distplot(y_train)
 len(y_train)
 ```
 
-![Dataset result](https://api.kauri.io:443/ipfs/QmRwCWoLMrUkRxuQHAaJohdAXsFAz3ay23gd6mxRgdqSA2)
+![Dataset result](https://ipfs.infura.io/ipfs/QmRwCWoLMrUkRxuQHAaJohdAXsFAz3ay23gd6mxRgdqSA2)
 
 After running the snippet a couple of time, you should get something like this, with an even split of buys and sells (left vs right) across both datasets.
 
@@ -288,7 +290,7 @@ data['future_value'] = data['c'].shift(-LOOKAHEAD)
 
 That's it, in a few line we have massively enriched our dataset. We can now run the model generator loop to figure out how our models perform with the new dataset, this will take quite a bit longer, but should be worth the wait.
 
-![](https://api.kauri.io:443/ipfs/QmdvN4dQGfGqdhDxuaQWg7kzEvtneccnDrjUcTFa8XwYJY)
+![](https://ipfs.infura.io/ipfs/QmdvN4dQGfGqdhDxuaQWg7kzEvtneccnDrjUcTFa8XwYJY)
 
 A richer, more meaningful dataset should ensure a more accurate model, and in the image above, we can clearly see how the richer dataset perform better than the simple data-set, with a validation accuracy hovering around the 80% mark!
 
@@ -333,7 +335,7 @@ and let's now call this function every time we finish training on a model:
 
 As the different models train we should now see images similar to the below, where the buys are plotted in green (and we want them on the right end side, clustered around the 1 value) and the sells are plotted in red (clustered around the 0 values on the left). These should help us decide which model provides a more reliable estimation of future prices.
 
-![](https://api.kauri.io:443/ipfs/QmWJ4Zjwiwi5814oKRi7FF8tgEWQRXfC92FYGneX9qydmc)
+![](https://ipfs.infura.io/ipfs/QmWJ4Zjwiwi5814oKRi7FF8tgEWQRXfC92FYGneX9qydmc)
 
 
 And that's it, we now have a few prototypes to play with that provide a decent estimation of future prices.
@@ -344,3 +346,16 @@ As an exercise for yourself try the following:
 - What happens if you test your best model on new data? (e.g. by fetching a different timestamp from Binance?
 
 If you have any question or suggestion, please feel free to comment below or suggest an update to this article :)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/predict-cryptocurrency-prices-with-tensorflow-as-/badf8853afb9404196bd8b5cbeec61a2/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2019-10-22
+- **Kauri original tags:** cryptocurrency, artificial-intelligence, machine-learning, tensorflow, python
+- **Kauri original hash:** QmYUnZ97LSC2zY2ZVRt9SthQEM2kjRusTzqaGaX3yikjra
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

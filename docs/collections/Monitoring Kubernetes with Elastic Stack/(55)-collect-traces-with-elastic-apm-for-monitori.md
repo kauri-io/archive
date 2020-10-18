@@ -9,6 +9,8 @@ some_url:
 
 # (5/5) Collect traces with Elastic APM for monitoring Kubernetes 
 
+![](https://ipfs.infura.io/ipfs/QmPohRWQiprtKujAU8F5sb1fFcSncXy7Js96mrtvnVAKAd)
+
 
 
 **Elastic APM** is an application performance monitoring system built on the Elastic Stack. It allows you to monitor software services and applications in real time — collect detailed performance information on response time for incoming requests, database queries, calls to caches, external HTTP requests, and more. This makes it easy to pinpoint and fix performance problems quickly.
@@ -319,3 +321,17 @@ Hopefully, this series of articles helped you understand how to deploy a monitor
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(55)-collect-traces-with-elastic-apm-for-monitori/bbbc0af03721495b886567ce6af6c59e/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-04-15
+- **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat
+- **Kauri original hash:** QmRxombZcGthVgQ9BEjUP36cbcdSAdsZKeQWs7jt99nCZR
+- **Kauri original checkpoint:** unknown
+
+
+

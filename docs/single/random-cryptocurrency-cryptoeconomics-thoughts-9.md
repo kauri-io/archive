@@ -19,7 +19,7 @@ _The below is unstructured, thinking out loud, a collection of thought bubbles w
 Blockchain Heresy:
 The advance of intelligence is arguably measured as being the accumulating ledger/record of progress in a social grouping’s tolerance (and/or embrace) for its heretics, critics and infidels.
 
-![](https://api.kauri.io:443/ipfs/QmSA1Dv7vY9rx7RCd4G62jaCfwA6Uh2TaWxgFcZ41DEGUq)
+![](https://ipfs.infura.io/ipfs/QmSA1Dv7vY9rx7RCd4G62jaCfwA6Uh2TaWxgFcZ41DEGUq)
 
 *“The test of a first-rate intelligence is the ability to hold two opposed ideas in mind at the same time and still retain the ability to function.”
 F. Scott Fitzgerald*
@@ -35,7 +35,7 @@ The cost of this waiting room mentality is lost opportunity cost. If we think cu
 The killer app of blockchain is blockchain: no superior use case will ever emerge. Doubtless, new apps will arise one day that add much extra, fresh, unique value on top of base chains. Should we wait forlornly until then, idle ourselves and stay modest in our risk taking? Is the blockchain base case invalid until some future superbeing bequeaths us some godly heretofore-unseen killer app?
 Markets (bonds, forex, options, etc.) are well-recognised economic constructs. The obvious intuition is that markets exist to allow/ensure the emergent property of optimal resource allocation occurs — markets magically ‘figure out’ where to allocate resources in the best (socially optimal) way, as indicated by the price a market is traded at.
 
-![](https://api.kauri.io:443/ipfs/QmUuvfgcVbTzqjob2SvjAbkNR8rnCNKPFXtQAZkGFHF5XG)
+![](https://ipfs.infura.io/ipfs/QmUuvfgcVbTzqjob2SvjAbkNR8rnCNKPFXtQAZkGFHF5XG)
 
 A crypto-influenced view may instead posit that (crypto-specific) markets exist as mechanisms that incent ‘hackers’ (i.e. traders) to exploit them/probe them (each coin project, e.g. BTC, ETH) so as to find their fault lines and thus criticise/collapse them. In this sense, crypto-market traders are explicitly incentivised to ‘hack away’ (i.e. make trades) as (perhaps unknowing) penetration testers (ethical hackers, white hats) of the underlying social rationale for a given crypto project’s existence.
 Whereas traders of ‘traditional’ equities -such as AAPL (Apple stock) — are incentivised (e.g. by buying AAPL) to share in Apple’s future cash flows as a company that seeks to produce profits for shareholders, crypto-traders instead profit if they best unlock the global social value of the weakness or strength of the crypto meme itself. Crypto-traders in this sense ‘decide’ if a coin deserves to survive by buying it/HODLing or by selling out of it and buying an alternate (stronger, more fit to survive) project’s coin. Crypto-traders can ‘overload’ a coin if they wish to hasten its demise (the CryptoKitties overload event in late 2017 that threatened to crash the massed ethereum nodes/miners). Traders of crypto markets are in this sense incentivised to figure out which cryptocoin is strongest/best deserves to thrive (is hardest to hack/short into nothingness), more so than traditional traders are asked/paid to determine the underlying relevance and deservedness of their markets and the individual fitness-to-survive of the issuances involved. Traders of AAPL shares are not (in the large part) paid for their opinion of AAPL’s right to exist, whereas buying Ether is inherently a statement of belief in Ethereum’s future and codebase soundness.
@@ -44,3 +44,17 @@ Just as George Soros famously shorted the British £ Pound Sterling in the early
  
 _Disclaimers:. YMMV. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-9/8bc57926af17404a9a853cdf9dbff858/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, bitcoin
+- **Kauri original hash:** QmNhmBgGJ9ySNQ3bFK2XnrwoAhX6BdKEdoipq7pZYgHAKU
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

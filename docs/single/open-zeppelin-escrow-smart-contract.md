@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmY9EN1miTFb4k1P6w15d5rVw1rYZFsVBo8arf5g6bwV2V)
+![](https://ipfs.infura.io/ipfs/QmY9EN1miTFb4k1P6w15d5rVw1rYZFsVBo8arf5g6bwV2V)
 
 Today, we will look in smart contract escrow and understand open-zeppelin escrow smart contract.
 
@@ -251,3 +251,17 @@ function depositsOf(address payee) public view returns (uint256) {
 
 That’s it, our smart contract is complete. We can add extra functionality on top of it and also it’s well tested but you can test it just for getting an idea that how things are working. We will look at other 2 escrow contracts (Conditional Escrow and RefundEscrow)provided by open-zeppelin library in next tutorials which are built upon this Escrow smart contract.
 If you don’t understand anything or learn anything about smart contracts, you can comment below. And if you find this useful you can 👏 and follow me on medium.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/open-zeppelin-escrow-smart-contract/ef4c7847d2844f88b3dab887b79b72e5/a
+- **Kauri original author:** Coinmonks (@coinmonks)
+- **Kauri original Publication date:** 2018-12-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmVy2vfoQdTRmqPht5dZEsmhLRnni22ojcNKwQ4niUTEsq
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

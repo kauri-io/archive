@@ -9,6 +9,8 @@ some_url:
 
 # (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction
 
+![](https://ipfs.infura.io/ipfs/QmPFWQJ1gevuXVxMfELZ9XoXx9QEANSonMiEvNw7YP254t)
+
 
 
 ### Preface
@@ -58,7 +60,7 @@ As most modern software engineers can attest, containers have offered a dramatic
 
 Now we know, it is easy to run containerized applications, we need an orchestrator to manage our applications across multiple hosts (machines), this will help automating most of the maintenance tasks (reboot after application or host crash, scaling, load balancing, configuration management, etc.).   
 
-![](https://api.kauri.io:443/ipfs/QmXCrk532MtmJPY5eWnyrXvmgi8PCaxdbGh6DFtknHHbdN)
+![](https://ipfs.infura.io/ipfs/QmXCrk532MtmJPY5eWnyrXvmgi8PCaxdbGh6DFtknHHbdN)
 
 [Kubernetes (k8s) from Google](https://kubernetes.io) is the market leader in container orchestration, it offers:
 
@@ -78,7 +80,7 @@ Kubernetes comes with a lot of tools that aren't necessarily needed or optimized
 
 A [Raspberry Pi (RPI)](https://www.raspberrypi.org) is Single-Board Computer (SBC) initially launched in 2012 as an educational tool to learn programming but it actually quickly became very popular in the hardware and hacking communities and people now use RPI for hardware projects, home automation, robotics and much more...
 
-![](https://api.kauri.io:443/ipfs/QmexqWd1z8T1XsAWbxwgkgSwimtU4buUD9CoksLwKAoRaZ)
+![](https://ipfs.infura.io/ipfs/QmexqWd1z8T1XsAWbxwgkgSwimtU4buUD9CoksLwKAoRaZ)
 
 <br />
 
@@ -155,7 +157,7 @@ I am personally using [this rack case](https://www.amazon.co.uk/gp/product/B07J9
 
 The result looks like this on my side for a total cost around $250 approximately:
 
-![](https://api.kauri.io:443/ipfs/Qme6ME6QJaDXKqX14CA7oSQpySMpdpgLV55DzHdMX5Yc6Q)
+![](https://ipfs.infura.io/ipfs/Qme6ME6QJaDXKqX14CA7oSQpySMpdpgLV55DzHdMX5Yc6Q)
 
 <br />
 <br />
@@ -189,3 +191,17 @@ _If you'd like to see an article in this series: please contact me on Twitter [@
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(18)-build-your-very-own-self-hosting-platform-wi/1229f21044ef4bff8df35875d6803776/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-04-13
+- **Kauri original tags:** self-hosting, kubernetes, raspberrypi, k8s, privacy, k3s, home-lab
+- **Kauri original hash:** QmafSCAJNiFRu7XihbUqXB2J7SsRiH7TGkJcrxcGevnkP1
+- **Kauri original checkpoint:** unknown
+
+
+

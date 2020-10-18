@@ -9,6 +9,8 @@ some_url:
 
 # MythX is real.
 
+![](https://ipfs.infura.io/ipfs/QmXMb7eUk5CWN7aN8BG9QrnfLxCuY4xNZgDyqinRfphXEB)
+
 
 _myth: n: a popular belief or tradition that has grown up around something or someone, especially: one embodying the ideals and institutions of a society or segment of society_
  ( 
@@ -34,7 +36,7 @@ That’s why we created
 
  It allows any developer or development team to perform a comprehensive range of industry-leading analyses on smart contracts, including an input fuzzer, a static code analyzer, linter, and a symbolic analyzer. All accessible through an easy-to-use API.
 
-![](https://api.kauri.io:443/ipfs/QmPZkcXri2nwKgBGkT1tb9kMSj9Liv1oKHT86YQ5T5Ruaz)
+![](https://ipfs.infura.io/ipfs/QmPZkcXri2nwKgBGkT1tb9kMSj9Liv1oKHT86YQ5T5Ruaz)
 
 MythX was built by a team at 
 [ConsenSys Diligence](https://consensys.net/diligence/)
@@ -44,7 +46,7 @@ MythX was built by a team at
 
  This means that you have access to all of the analyses and tools, for free, for a limited time.
 
-![](https://api.kauri.io:443/ipfs/QmNrp7tinAZRaVyRS11P4eYdHB58ZkWvPTcyV8xGKhMFLE)
+![](https://ipfs.infura.io/ipfs/QmNrp7tinAZRaVyRS11P4eYdHB58ZkWvPTcyV8xGKhMFLE)
 
 We want you to use the service. Overuse it even. We’re offering professional audit capabilities without needing to hire anyone!
 And while MythX doesn’t replace 
@@ -68,3 +70,17 @@ Use it to help make your products real too. Let’s make security top of mind, a
  
 [Get started at mythx.io.](https://mythx.io)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mythx-is-real./3206b1e377b14cf6954b1061c5bd585c/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** mythx, security, smart-contracts, diligence
+- **Kauri original hash:** QmVvnRBLGbFeZnVPaRMp6KMzjuni3Gtd5uXwzNc5E98s1N
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

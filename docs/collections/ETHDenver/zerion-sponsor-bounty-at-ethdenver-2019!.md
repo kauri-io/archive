@@ -9,6 +9,8 @@ some_url:
 
 # Zerion - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmPodZUZxj1VaR2EZrvpgG4ZjkptaXJGQCxk7eYdYCCC2r)
+
 
 ## Company/Project Name and Description
 
@@ -72,6 +74,20 @@ Bonus points for using DSProxy add implementing the product as a forwarding prox
 ## Contact Information
 
 Alexey Bashlykov - Alexey@zerion.io
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/zerion-sponsor-bounty-at-ethdenver-2019!/c62ff43313974b97bfea7b4b05016717/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmcUYwJTGnEr86cmNGJhEuKAgtNNvzdxtbg7TEfWViABif
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

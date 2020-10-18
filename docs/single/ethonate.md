@@ -48,3 +48,17 @@ https://github.com/Sonicrida/Ethonate-Client
 https://github.com/blurpesec/ed-back
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethonate/ca9cf9060c2d4718bd09867c813b07e9/a
+- **Kauri original author:** Jonathan Chhabra (@sonicrida)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, 4ideas-by-nature
+- **Kauri original hash:** QmePQjJpCbG8pwiWQWfMW4kMJzqD9TVYQnQA52vimpnqf1
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

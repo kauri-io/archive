@@ -9,6 +9,8 @@ some_url:
 
 # Compound  Money markets on Ethereum
 
+![](https://ipfs.infura.io/ipfs/QmNVeYrVj3v38LQMspq5iShDbkVEjDRJ7ipqZw3HCukyAb)
+
 
 > Compound gives you the ability to borrow and lend tokens. In Compound, users contribute to a shared pool of tokens, from which lenders can receive a debt. Lenders can repay the debt at any time, as long as they maintain enough collateral. In case their debt becomes under collateralized, users of the protocol can default the lender’s debt by selling his assets in an auction. - Description from [ethhub.io](https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview)
 
@@ -52,7 +54,7 @@ When the QuickBorrow contract receives Ether, the following steps occur in a sin
 
  * The borrowable asset is borrowed from the Compound Protocol, such that the user’s collateral value is equal to 1.75x the borrowed position, and sent to the user
 
-![](https://api.kauri.io:443/ipfs/QmTxYwyBYMyaiftW6oDh5eAofEPckAaXLLVjdALArMqnax)
+![](https://ipfs.infura.io/ipfs/QmTxYwyBYMyaiftW6oDh5eAofEPckAaXLLVjdALArMqnax)
 
 The user will eventually need to repay the borrowed tokens. To do this, the user must 
 `approve`
@@ -60,16 +62,16 @@ The user will eventually need to repay the borrowed tokens. To do this, the user
 [Example](https://rinkeby.etherscan.io/tx/0xdc90e4c88d3168ec297df6486bc3abecca4717eaeb7e00e514ae1b46026155ad)
  
 
-![](https://api.kauri.io:443/ipfs/Qmdwn7Q8sS2RhMxuJUqr4HSfH9m7n6k8MP39iC4GzCFZSf)
+![](https://ipfs.infura.io/ipfs/Qmdwn7Q8sS2RhMxuJUqr4HSfH9m7n6k8MP39iC4GzCFZSf)
 
 The user then calls 
 `repay`
  . The original borrow plus interest owed is repaid, and collateral is returned with interest received. That’s it! One function call to borrow an asset, two to return it.
 
-![](https://api.kauri.io:443/ipfs/QmdYsVzK6Lnjw2bAZmr16RKDtBYijac5jzvRBRpBJxYkga)
+![](https://ipfs.infura.io/ipfs/QmdYsVzK6Lnjw2bAZmr16RKDtBYijac5jzvRBRpBJxYkga)
 
 
-![](https://api.kauri.io:443/ipfs/QmeZiZNUYe9NaxKt8XAhgNY7JnaxJwbrGrVhdYp93BRrbD)
+![](https://ipfs.infura.io/ipfs/QmeZiZNUYe9NaxKt8XAhgNY7JnaxJwbrGrVhdYp93BRrbD)
 
 
 ### Building QuickBorrow
@@ -362,3 +364,17 @@ That’s it! In less than 50 lines of Solidity, we are able to deposit Ether in 
 For a full implementation with more nuanced borrow and withdraw amounts ( maintaining a supply / balance ratio of collateral requirement + 25% ), a newly deployed contract for each new user, and unit tests using mocked interfaces, see the 
 [QuickBorrow project on github](https://github.com/compound-finance/QuickBorrow)
  !
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/compound:-money-markets-on-ethereum/33e45b49f47f42228d3c35726a341a1b/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-08
+- **Kauri original tags:** lending, open-finance
+- **Kauri original hash:** QmbV8jkjP2GUZqJRKxEk9mKfYGCayFV6Kd8RbBqTabWvjx
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

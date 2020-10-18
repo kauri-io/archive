@@ -11,13 +11,13 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmY4ikbtqvnYVUsTRbJNtAWdko19HggHgr16r5QBazcP1y)
+![](https://ipfs.infura.io/ipfs/QmY4ikbtqvnYVUsTRbJNtAWdko19HggHgr16r5QBazcP1y)
 
 he era of the cryptocurrency industry has clearly demonstrated an expeditious advancement. The implementation of this innovative form of financial interaction entails a completely transformed method of business transaction.
 
 ### Women in Tech
 
-![](https://api.kauri.io:443/ipfs/QmPxXx5WxtPwqtqrR8P5t2q33FvXgoqTdpnHGZZi1Ncugc)
+![](https://ipfs.infura.io/ipfs/QmPxXx5WxtPwqtqrR8P5t2q33FvXgoqTdpnHGZZi1Ncugc)
 
 As such a globally impactful field takes widespread coverage, 
 **it is imperative to focus on the emphasis of the leaders and shapers of the industry,**
@@ -45,7 +45,7 @@ _crypto-industry_
 
 ### The Virtues of Women in Crypto
 
-![](https://api.kauri.io:443/ipfs/QmNN9wp4PhMP8jXCwbbia5SkGm1YW9NgS9awrcZ2km9fYr)
+![](https://ipfs.infura.io/ipfs/QmNN9wp4PhMP8jXCwbbia5SkGm1YW9NgS9awrcZ2km9fYr)
 
  
 **Being an active player in the crypto industry entails upholding certain virtues.**
@@ -56,7 +56,7 @@ A decentralized financial transaction system, such as that within the crypto, en
 **the inclusion of women into this industry in order to maintain continuous development and exceptional success.**
  
 
-![](https://api.kauri.io:443/ipfs/Qmf8RPLURnBG8JrK4WmsvVj8STyrNdB8SKWvHBBpCpVRhM)
+![](https://ipfs.infura.io/ipfs/Qmf8RPLURnBG8JrK4WmsvVj8STyrNdB8SKWvHBBpCpVRhM)
 
 Since the emergence of this industry and the commencement of its prevailing impact, 
 **a number of women have been playing key roles in developing its global influence**
@@ -68,17 +68,17 @@ _needed_
 
 ### Top 10 Influential Women Leaders Within the Crypto Industry
 
-![](https://api.kauri.io:443/ipfs/QmRtM29YseukhswqcZp3kZPThB2ZQ3LeteqPewuKaWSBb4)
+![](https://ipfs.infura.io/ipfs/QmRtM29YseukhswqcZp3kZPThB2ZQ3LeteqPewuKaWSBb4)
 
 
 
 
  *  **Kathleen Breitman**  [@breitwoman](https://twitter.com/breitwoman)  **:** Breitman is currently a Co-Founder of [Tezos](https://tezos.com) , an open-source decentralized blockchain platform that operates under a self-upgrading and governance model for smart contracts. This means that various stakeholders vote on alterations to the specific protocol, which contributes to an overall social consensus on the particular proposals. This powerful company has raised $232 million up to date.
 
-![](https://api.kauri.io:443/ipfs/QmQ1ZF6rj77oiLP88ceERWJHcbKyNKMJYHKy9mAbY5umeq)
+![](https://ipfs.infura.io/ipfs/QmQ1ZF6rj77oiLP88ceERWJHcbKyNKMJYHKy9mAbY5umeq)
 
 
-![](https://api.kauri.io:443/ipfs/QmP7EwZ1XoxwaMUfTd8u34mmxqPAUPWrPw44TXeqsp9TnV)
+![](https://ipfs.infura.io/ipfs/QmP7EwZ1XoxwaMUfTd8u34mmxqPAUPWrPw44TXeqsp9TnV)
 
 2. 
 **Catheryne Nicholson**
@@ -96,7 +96,7 @@ _needed_
 [BlockCypher](https://www.blockcypher.com)
  allows corporations to build blockchain applications in a facilitated manner. An engineer and entrepreneur, Nicholson is a rich background in product marketing as well as softwareproduct management.
 
-![](https://api.kauri.io:443/ipfs/QmPWHBGpQ9NgYXRFtW5LNtLLLbChT7YuALbHwuCjpaDqCz)
+![](https://ipfs.infura.io/ipfs/QmPWHBGpQ9NgYXRFtW5LNtLLLbChT7YuALbHwuCjpaDqCz)
 
 3. 
 **Arianna Simpson**
@@ -112,7 +112,7 @@ _needed_
 [BitCoin](https://bitcoin.org/en/)
  wallet, overall providing clients with financial services and security solutions.
 
-![](https://api.kauri.io:443/ipfs/QmTNE9mRquxCoLVhSvqWY2NjT2dAZYRSCqHjUMiWS681kF)
+![](https://ipfs.infura.io/ipfs/QmTNE9mRquxCoLVhSvqWY2NjT2dAZYRSCqHjUMiWS681kF)
 
 4. 
 **Elizabeth Stark**
@@ -124,7 +124,7 @@ _needed_
 [Lightning Labs](https://lightning.engineering)
  , which provides a more scalable blockchain to make any transaction cheap and quick. This decentralized protocol streamlines the number of nodes involved in individual transactions. As a result, individual transactions are performed at a quicker pace.
 
-![](https://api.kauri.io:443/ipfs/QmZujou5H1om4K7vkhSo2aEsJoNPFkWnjjYQErGSj1wVda)
+![](https://ipfs.infura.io/ipfs/QmZujou5H1om4K7vkhSo2aEsJoNPFkWnjjYQErGSj1wVda)
 
 5. 
 **Katherine Wu**
@@ -138,7 +138,7 @@ _needed_
 [Messari](https://messari.io)
  promotes transparency and smarter decision-making in the crypto ecosystem through data gathering into an organized and structured database.
 
-![](https://api.kauri.io:443/ipfs/QmP5fdTEZV3nCtVfsa6AwWvzbnGS947SawBfrbYDdu2gvB)
+![](https://ipfs.infura.io/ipfs/QmP5fdTEZV3nCtVfsa6AwWvzbnGS947SawBfrbYDdu2gvB)
 
 6. 
 **Neha Narula**
@@ -154,7 +154,7 @@ _needed_
 [Google](https://www.google.com/about/)
  , Narula has completed her PhD in computer science at MIT and has constructed various scalable databases and secure software systems.
 
-![](https://api.kauri.io:443/ipfs/QmVJkJreJZtM5GBxj9omhJDUqvhFuPAeFJE12csvByL324)
+![](https://ipfs.infura.io/ipfs/QmVJkJreJZtM5GBxj9omhJDUqvhFuPAeFJE12csvByL324)
 
 7. 
 **Elaine Shi**
@@ -168,7 +168,7 @@ _needed_
 [BitCoin](https://bitcoin.org/en/)
  and decentralized smart contracts. Elaine is currently a professor at Cornell University.
 
-![](https://api.kauri.io:443/ipfs/Qmcg7QjuLyFiQQP2QHfihWBPKgQxoRxrLZWqemzP1cLwTX)
+![](https://ipfs.infura.io/ipfs/Qmcg7QjuLyFiQQP2QHfihWBPKgQxoRxrLZWqemzP1cLwTX)
 
 8. 
 **Mona El Isa**
@@ -182,10 +182,10 @@ _needed_
 [Ethereum](https://ethereum.org)
  platform. El Isa has been distinguished for winning the “Hottest Blockchain/Crypto Startup Founder” at the Europas, which awards the newest, innovative European startups.
 
-![](https://api.kauri.io:443/ipfs/Qme596BBmBfdX2dLofZ5pjqWMgMDyw73j8CaZGHtLbQrbE)
+![](https://ipfs.infura.io/ipfs/Qme596BBmBfdX2dLofZ5pjqWMgMDyw73j8CaZGHtLbQrbE)
 
 
-![](https://api.kauri.io:443/ipfs/QmQnxV27f4p7Vq8Tako96itYZKxEWjdTLKtzehnbM4cFFo)
+![](https://ipfs.infura.io/ipfs/QmQnxV27f4p7Vq8Tako96itYZKxEWjdTLKtzehnbM4cFFo)
 
 9. 
 **Maja Vujinovic:**
@@ -193,7 +193,7 @@ _needed_
 [GE Digital](https://www.ge.com/digital/)
  and has taken roles relating to digital business transformation and overall driving innovation.
 
-![](https://api.kauri.io:443/ipfs/QmQ1hRtL2T9VRJY5orw4au3uMNYU3vTrEM2e87XTM2NJWG)
+![](https://ipfs.infura.io/ipfs/QmQ1hRtL2T9VRJY5orw4au3uMNYU3vTrEM2e87XTM2NJWG)
 
 10. 
 **Sandra Ro**
@@ -212,7 +212,7 @@ As exemplified above,
 **By doing so, the crypto sector is capable of maintaining continuous, significant development in the long run.**
  
 
-![](https://api.kauri.io:443/ipfs/QmRmssHS9zMhsu8XTC2GxMukm52CmSqgAhp7LA2AL4jDvQ)
+![](https://ipfs.infura.io/ipfs/QmRmssHS9zMhsu8XTC2GxMukm52CmSqgAhp7LA2AL4jDvQ)
 
 The very pioneers in this industry recognize the true value of this incorporation. They uphold the values related to the significance of the cryptocurrency industry. These values include the trust in the individual, the belief in their possibilities, the importance of integrity within the scope of business and outside that realm as well. This scope of value encompasses the encouragement to bring women to the breakthrough of the crypto world.
  
@@ -234,7 +234,7 @@ Currently,
 **is one of the only engagers within the crypto industry who have standing up to this supportive reputation and have been ardently standing by this movement and advocating for its further development.**
  
 
-![](https://api.kauri.io:443/ipfs/Qmbw8wW7anzhbryMNF2TxWS5gZzwjiDzWjhTdPn5pLMahf)
+![](https://ipfs.infura.io/ipfs/Qmbw8wW7anzhbryMNF2TxWS5gZzwjiDzWjhTdPn5pLMahf)
 
  
 **Learn more about our project**
@@ -285,3 +285,17 @@ __
  : 
 [https://beamprivacy.substack.com/](https://beamprivacy.substack.com/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-importance-of-women-in-the-cryptocurrency-ind/b8385b995e9544db9ce322ed20c6279a/a
+- **Kauri original author:** Beni Issembert (@bissembert)
+- **Kauri original Publication date:** 2019-06-23
+- **Kauri original tags:** cryptocurrency, privacy-blockchain, women
+- **Kauri original hash:** QmVxAGrqAJYcgtiuJcYaHj4iRcTf769TGgLFGk4oVKAktm
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

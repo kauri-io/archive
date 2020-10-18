@@ -45,3 +45,17 @@ Got a comment?  Check out our [Gitter Channel](https://gitter.im/SecurEth_Guidel
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/secureth-guidelines-introduction/15f9b5cb2c644476ab8f68a9924f8549/a
+- **Kauri original author:** Rex Hygate (@rhygate)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** solidity-guidelines-developer-vyper
+- **Kauri original hash:** QmWtBHPeJtdcCv19THz2Zpw9DxrRZdjkWsXLJXyBEDszrW
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

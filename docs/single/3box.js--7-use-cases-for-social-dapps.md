@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmPzN12erYvZtDadCD5ZFyDqeCyfc7qbP246BnP1s56TNG)
+![](https://ipfs.infura.io/ipfs/QmPzN12erYvZtDadCD5ZFyDqeCyfc7qbP246BnP1s56TNG)
 
  
 _User profiles, onboarding, distributed data storage, encryption, and data sharing are just a few of the ways_
@@ -160,5 +160,19 @@ _to dig into the code. Join our_
 _to chat and say hi!_
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmNMSqWAKfHKJbiG7PW4hRArhJobPFFsFbixa1C5w6bHB6)
+![](https://ipfs.infura.io/ipfs/QmNMSqWAKfHKJbiG7PW4hRArhJobPFFsFbixa1C5w6bHB6)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/3box.js:-7-use-cases-for-social-dapps/ba17ec11c71a4a1b918ca030b4f09e4d/a
+- **Kauri original author:** Danny Zuckerman (@dazuck)
+- **Kauri original Publication date:** 2018-12-14
+- **Kauri original tags:** none
+- **Kauri original hash:** QmZXm2pihn7mxMuGSdwWV75rpfsm3N3ajdm9SDmdQARyrL
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

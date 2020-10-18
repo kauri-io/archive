@@ -9,6 +9,8 @@ some_url:
 
 # Mainframe - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/Qmdr5QEk2u1SQeBf5D5j2mZd77Er1Vwmog883Dy372UG1u)
+
 
 ## Company/Project Name and Description
 
@@ -56,3 +58,17 @@ N/A
 ## Contact Information
 
 Pete Abilla - pete@mainframe.com
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mainframe-sponsor-bounty-at-ethdenver-2019!/8b22522e2f414450a3f911111f11edd1/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmPpYx7xxY9oQQhArxPP5bbbtnD9n2GE4Zgn2aPPtiDAxc
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

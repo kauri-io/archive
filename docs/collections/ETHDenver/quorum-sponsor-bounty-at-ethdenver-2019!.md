@@ -9,6 +9,8 @@ some_url:
 
 # Quorum - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmXAECXm9TEPAJ5Q67QthmSYvqMY3Tya8aGDyUnri5itVt)
+
 
 ## Company/Project Name and Description
 
@@ -53,5 +55,19 @@ some_url:
 ## Contact Information
 
 Matt Wright - matthew.d.wright@jpmchase.com
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/quorum-sponsor-bounty-at-ethdenver-2019!/a75b9640b7de4ecebb69a103c202351f/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmT4fQbiv554GNprPyFvaHPQuPGBtSY2TjGCXB13UaTsZn
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

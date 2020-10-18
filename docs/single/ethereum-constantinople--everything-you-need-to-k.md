@@ -27,7 +27,7 @@ Have you ever tried to open a Word document or other file and it looked all wonk
 This is because the blockchain is decentralized and running on a ton of computers simultaneously. Instead of emailing that Word document from one person to another, everyone can access the most up-to-date “Word document” (aka the blockchain) simultaneously.
 So, to make sure things don’t get wonky, everyone running a the blockchain software (aka a “node”) must update. That way everyone has the same new features and security features and is playing by the same rules.
 
-![](https://api.beta.kauri.io:443/ipfs/QmSbC12ETgBrGMB4QtHqH1ouoesQszuK3FdVkhwQiYGszb)
+![](https://ipfs.infura.io/ipfs/QmSbC12ETgBrGMB4QtHqH1ouoesQszuK3FdVkhwQiYGszb)
 
 
 #### Why is it called a fork?
@@ -35,7 +35,7 @@ It’s referred to as a fork because, similar to a fork in the road, a single ch
 With non-contentious hard-forks, most people stop running the old software. No one adds new blocks to that chain. The chain naturally slows and then dies. There is no value to the coins on the old chain.
 However, if an update fork is contentious (meaning there are people who don’t agree with the changes being made), both “paths” of the fork may continue to live and have value. This is how ETC was spawned from ETH and BCH from BTC.
 
-![](https://api.beta.kauri.io:443/ipfs/QmdvkbkXJRKPUKy5vmDHy8hzZ2cJefrkoCiGCgSxdGgGLp)
+![](https://ipfs.infura.io/ipfs/QmdvkbkXJRKPUKy5vmDHy8hzZ2cJefrkoCiGCgSxdGgGLp)
 
 
 #### What is Constantinople?
@@ -43,7 +43,7 @@ Constantinople is simply a name given to this update to the Ethereum network. Th
 As a result, like the non-contentious updates that have come before (Homestead in 2016 and Byzantium in 2017), this hard fork will result in two chains with the old chain dying almost immediately. Also, like the updates that have come before, the average person will not notice any changes or that there was a fork in the road.
 This new ETH blockchain includes a handful of new Ethereum Improvement Proposal (EIP) implementations that are all intended to… improve Ethereum.
 
-![](https://api.beta.kauri.io:443/ipfs/QmfE65uhwZftSknAcYJ5waicijjSc9VTSJ5F4bjFLuzpR5)
+![](https://ipfs.infura.io/ipfs/QmfE65uhwZftSknAcYJ5waicijjSc9VTSJ5F4bjFLuzpR5)
 
 
 #### Do I have to do anything with this new blockchain, or move my ETH?
@@ -166,3 +166,17 @@ Any questions? Feel free to reach out to us on
 [email](mailto:support@mycrypto.com)
  .
 Thanks for reading! See you on the 16th!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-constantinople:-everything-you-need-to-k/374b4ffa522d4bf2aea5d3100cfbc1b2/a
+- **Kauri original author:** MyCrypto (@mycrypto)
+- **Kauri original Publication date:** 2019-02-04
+- **Kauri original tags:** cryptocurrency, blockchain, Ethereum
+- **Kauri original hash:** QmYQwmaRXfcistKXbstzCCKq2HR6A4LYD1NxmXwCaDgUbN
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

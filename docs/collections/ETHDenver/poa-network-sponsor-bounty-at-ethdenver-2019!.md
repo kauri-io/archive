@@ -9,6 +9,8 @@ some_url:
 
 # POA Network - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmTzfpdvf9zu7A2Csxs3nB7MZTJfkwMmWZWjGQXYpZZAay)
+
 
 ## Company/Project Name and Description
 
@@ -41,4 +43,18 @@ These DApps will be judged on the criteria of originality, UX and real-world app
 ## Contact Information
 
 Igor Barinov - igor@poa.network
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/poa-network-sponsor-bounty-at-ethdenver-2019!/3f2b37024c0e448293cd9099ad451f36/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmYDRP71UN4nati6jJrdgXKjY4BracxYhhs8HETtjfV8QX
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
 

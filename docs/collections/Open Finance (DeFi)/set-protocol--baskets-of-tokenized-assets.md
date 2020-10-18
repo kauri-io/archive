@@ -9,6 +9,8 @@ some_url:
 
 # Set Protocol  Baskets of tokenized assets
 
+![](https://ipfs.infura.io/ipfs/QmNM92dhoDTzoyeT8XyYfwVr1ie9x7aVFjyNGHY9oDXtoy)
+
 
 > Set Protocol allows grouping multiple tokens into one asset. Each set is a deployed smart contract with each set being fully-collateralized. Anyone can deposit a token to the set contract and withdraw them back, which makes the sets permissionless. Sets comply with the ERC20 standard, so they can be transferred and traded on exchanges. This also means that sets can be grouped into other sets.
 
@@ -255,3 +257,16 @@ Now you’re ready to start building! Try your hand at some of our tutorials:
 * [Redeeming a Set](https://docs.setprotocol.com/#/tutorials#redeeming-a-set)
 * [Create and Fill Issuance Order](https://docs.setprotocol.com/#/tutorials#create-and-fill-issuance-order)
 * [Fill Issuance Order with 0x](https://docs.setprotocol.com/#/tutorials#0x-protocol-issuance-order-fill)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/set-protocol:-baskets-of-tokenized-assets/f6bedcda0eb24decb02de9f4d3e42ef3/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-08
+- **Kauri original tags:** erc20, portfolio, open-finance
+- **Kauri original hash:** QmWPvhLTS31wUkw3Hg9r526TN4vonNESKWPysFxaDhTC7o
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

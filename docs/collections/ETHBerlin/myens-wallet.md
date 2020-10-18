@@ -12,7 +12,7 @@ some_url:
 
 ENS enables human-readable domain names mapped to Ethereum addresses. And the MyENS Wallet app for iPhone lets you bid on and purchase ENS names and manage your ENS domains. Someday, everything will have an ENS address and this helps envision that future. Built with Web3Swift and Infura. - Hugh Lang (ECF)
 
-![](https://api.beta.kauri.io:443/ipfs/QmQyz81cUaTs4t2rsJwV9pUM1qENrofUfKBcbQ7UKi3qii)
+![](https://ipfs.infura.io/ipfs/QmQyz81cUaTs4t2rsJwV9pUM1qENrofUfKBcbQ7UKi3qii)
 #### Inspiration
 I got the idea to build this after I attempted to get my girlfriend to register an ENS domain name. Talk about a nightmare.
 
@@ -56,3 +56,16 @@ Some features that I'd like to include in the future:
 
 #### Try It Out
 [GitHub Repo](https://github.com/barrasso/enswallet)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/myens-wallet/a9cb6da01bce48c08cb8a536481e15fc/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmP8hSgL1rMnKySqkG9PHyYbrVG651WMNU52vWkc9JRuq9
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

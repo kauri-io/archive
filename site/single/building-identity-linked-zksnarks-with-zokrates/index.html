@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Building Identity-linked zkSNARKs with ZoKrates &mdash; Kauri</title>
+    <title>Building Identity-linked zkSNARKs with ZoKrates &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -768,10 +771,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1053,7 +1056,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1104,11 +1107,11 @@ As an example, we will use the simple hash pre-image proof we just presented as 
 The following figure shows how Alice uses ZoKrates to create a pre-image proof. When she inputs her secret pre-image labeled 
 <em>private</em>
  , she can execute the program fully, which returns the hash and a proof.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmV7kxJW1GZoGiopPBsHq4vHUYRe1jRhGgtkqACpNjha5i" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV7kxJW1GZoGiopPBsHq4vHUYRe1jRhGgtkqACpNjha5i" /></p>
 <p>Alice wants to prove knowledge of the pre-image to Bob. Hence, she sends both the hash and the proof she generated on her machine to him. Bob can easily verify the correctness of the proof and thus be convinced that Alice knows the secret. Right?
 Well, no.
 Consider the following case where Charlie knows the secret and Alice does not.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmQYPuUGUHaURHnJzdFb7cTz8JCYcT5qEgNPYawmgGpzUw" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQYPuUGUHaURHnJzdFb7cTz8JCYcT5qEgNPYawmgGpzUw" /></p>
 <p>Charlie uses the secret to create a Proof of Knowledge. She then sends it to Alice, who forwards it to Bob. Note that Alice does not learn the pre-image and could hence not create the proof herself.
 Obviously, something is missing here: there is no link between the Proof of Knowledge and the identity who claims it.
 How about signing the proof? Alice could just as well sign the proof she got from Charlie, so that does not work. It’s now clear: proving knowledge and proving the creator’s identity must happen at the same time. Since the proof of pre-image happens in the zkSNARK, this means that we need the identity to also be proven in the zkSNARK!</p>
@@ -1157,7 +1160,7 @@ def main(field[2] pk, private field sk, field[10] context) -&gt; (field):
 We simply combine the two to complete our protocol:</p>
 </li>
 </ul>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmTh8hdp5zaYGESNJAYQJxPrPYKccX7QbqmgYtGiL1gxar" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTh8hdp5zaYGESNJAYQJxPrPYKccX7QbqmgYtGiL1gxar" /></p>
 <p><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/stefandeml/7521446196b3663f53120b3f26399c53.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey &amp;&amp; donkey.resize) {donkey.resize(height); resized = true;}if (parent &amp;&amp; parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location &amp;&amp; window.location.hash === "#amp=1" &amp;&amp; window.parent &amp;&amp; window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit &amp;&amp; window.webkit.messageHandlers &amp;&amp; window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height &amp;&amp; notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></p>
 <pre><code>import &quot;ecc/babyjubjubParams.code&quot; as context
 import &quot;ecc/proofOfOwnership.code&quot; as proofOfOwnership
@@ -1186,7 +1189,7 @@ def main(field[2] pkA, private field[4] secret, private field skA) -&gt; (field[
 <h3 id="repudiable-identity-linked-proofs-of-knowledge">Repudiable Identity-linked Proofs of Knowledge</h3>
 <p>Now that we’re able to link Alice’s identity to the Proof of Knowledge, Bob can be sure that Alice knows the secret pre-image.
 Interestingly, this is not only true for Bob, though. Consider the following case, where Bob forwards the message received from Alice to Dave.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYcGbhXHjLvSiiqfnUCpueWM2hAMMkvbD2FVQpPuGyZbm" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYcGbhXHjLvSiiqfnUCpueWM2hAMMkvbD2FVQpPuGyZbm" /></p>
 <p>From the forwarded message, Dave also learns that Alice knows the secret.
 Even though the secret itself is always only known to Alice, the proof can still be very sensitive: if Alice is proving to Bob that she holds more than 1000 bitcoins, that’s already a lot of information she would not want Dave to get, even if the exact amount is hidden.</p>
 <h4 id="repudiation">Repudiation</h4>
@@ -1211,7 +1214,7 @@ Let’s see how this solves the issue.</p>
 We just added repudiation: No one (except Bob) can be convinced that Alice created a given proof, since it could trivially have been created by Bob. Technically, this can simply be done using a logical OR linking the original statement and a Proof of Private Key that succeeds for the receiver’s private key.</p>
 </li>
 </ul>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSig3gWmPTvi9aoJDt6ei12D8UDC3e427zAGjtzBwJcmZ" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSig3gWmPTvi9aoJDt6ei12D8UDC3e427zAGjtzBwJcmZ" /></p>
 <p>Let’s see how this idea can actually be implemented using ZoKrates.</p>
 <p><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/stefandeml/4cfb2cc3c144bc6a996afcbc4b3493b5.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey &amp;&amp; donkey.resize) {donkey.resize(height); resized = true;}if (parent &amp;&amp; parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location &amp;&amp; window.location.hash === "#amp=1" &amp;&amp; window.parent &amp;&amp; window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit &amp;&amp; window.webkit.messageHandlers &amp;&amp; window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height &amp;&amp; notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></p>
 <pre><code>import &quot;ecc/babyjubjubParams.code&quot; as context
@@ -1242,10 +1245,19 @@ In academia, this basic principle has been described as
 <a href="http://markus-jakobsson.com/papers/jakobsson-eurocrypt96.pdf">Designated Verifier Proofs</a>
  . We’d like to thank Jordi Baylina for sharing it with the community.
 Stay tuned for more guides on how to use ZoKrates to enhance your DApp’s privacy and scalability!</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmQR2JveG3xcQPEZ9tgs5s1Tc6j1EQxeh2tnmC3o7fq4uT" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQR2JveG3xcQPEZ9tgs5s1Tc6j1EQxeh2tnmC3o7fq4uT" /></p>
 <p><em>Special thanks go to Stefan Deml and Thibaut Schaeffer for their contributions to this article.</em></p>
 <p><em>Diagrams by</em></p>
-<p><a href="http://chloeheinis.fr">Chloé Heinis</a></p></div>
+<p><a href="http://chloeheinis.fr">Chloé Heinis</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-identity-linked-zksnarks-with-zokrates/37a2319942ce4916a60a6f84a193edb4/a</li>
+<li><strong>Kauri original author:</strong> Jacob Eberhardt (@jacob-eberhardt)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-09</li>
+<li><strong>Kauri original tags:</strong> zokrates, ethereum, blockchain, zksnarks, zero-knowledge-proofs</li>
+<li><strong>Kauri original hash:</strong> QmZ6ai87Ep6gY1eqQySzpwxQSDfV8mvSf1aagSLPXwJV2r</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../smartpiggies/" title="SmartPiggies"><span>Previous</span></a></div>

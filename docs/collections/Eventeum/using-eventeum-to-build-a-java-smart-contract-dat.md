@@ -9,6 +9,8 @@ some_url:
 
 # Using Eventeum to Build a Java Smart Contract Data Cache
 
+![](https://ipfs.infura.io/ipfs/QmYFxNNi9uce9UGSmTi12wEU8LmpfZs7tcT7fDEdhZRFtp)
+
 
 In this tutorial, I am going to walk you through how to build a service that caches data emitted via smart contract events, so that this data can be consumed by other services in your system.
 
@@ -292,9 +294,23 @@ The caching service and Eventeum will now be connected to the same Kafka broker,
 
 Now add a bunch of sample users in remix (again, described in the getting started guide), and test out some searches in your browser by querying the REST endpoint (at http://localhost:8080/name).  If everything is working correctly you should get the correct results:
 
-![](https://api.beta.kauri.io:443/ipfs/QmSrkLxGJBNRMF1DQhYSum9D29HghmEZXtfXfGmuFQhTXm)
-![](https://api.beta.kauri.io:443/ipfs/QmbZZFY5y9TGzBtAVTZ5ynxum4pPjiWqqNm3krwEWLZJWA)
+![](https://ipfs.infura.io/ipfs/QmSrkLxGJBNRMF1DQhYSum9D29HghmEZXtfXfGmuFQhTXm)
+![](https://ipfs.infura.io/ipfs/QmbZZFY5y9TGzBtAVTZ5ynxum4pPjiWqqNm3krwEWLZJWA)
 
 ## Summary
 
 Congratulations!  You have just implemented a caching service that listens to events emitted from a smart contract (via Eventeum), and stores this data into a MongoDB database for easier querying in your dApp.  By depending on Eventeum for the Ethereum side of things, you did not have to actually write that much code, and have resiliency and failover resistance out of the box!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/using-eventeum-to-build-a-java-smart-contract-dat/fe81ee9612eb4e5a9ab72790ef24283d/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-04-14
+- **Kauri original tags:** spring, eventeum, ethereum, java, event-listener
+- **Kauri original hash:** QmUvB15MzfQpJVM5eJ473ULnJWSVW2xPguvCJb1Vur6jVM
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

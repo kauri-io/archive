@@ -9,6 +9,8 @@ some_url:
 
 # Betoken is Live on Mainnet!
 
+![](https://ipfs.infura.io/ipfs/QmQaEniKpUcFjDaYoqByEJ3CP6PUC9rxrinhzRksEh1vHi)
+
 
 ### [Get started](https://betoken.fund/start.html) with the first crowd-powered crypto asset management protocol. Powered by [Kyber](https://kyber.network/), [Fulcrum](https://fulcrum.trade/), [Compound](https://compound.finance/), [DAI](https://makerdao.com/en/dai), and [Ethereum](https://www.ethereum.org/).
 
@@ -33,7 +35,7 @@ commissions. This tightly couples the managers’ interests — earning commissi
 — with the users’ interests — putting at work their money and saving time. We
 believe this will **make magic happen**.
 
-![](https://api.kauri.io:443/ipfs/QmdYkjbbeUo8sQPCaEaddr8DfTQ5aLGNzRXYmSDb8Z7XsL)
+![](https://ipfs.infura.io/ipfs/QmdYkjbbeUo8sQPCaEaddr8DfTQ5aLGNzRXYmSDb8Z7XsL)
 <span class="figcaption_hack">Betoken assets management workflow.</span>
 
 #### **Get started now!**
@@ -217,3 +219,17 @@ shiftly.finance. Play w/ [@MagDuWebdesign](http://twitter.com/MagDuWebdesign).
 Crowd-powered crypto assets management protocol connecting capital 💰 w/ talent
 🧙‍♂️🧠🤓 & vice versa. 🇺🇸 [http://t.me/betokenfund](http://t.me/betokenfund)
 🇯🇵 [https://t.me/betokenJapanese](https://t.me/betokenJapanese)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/betoken-is-live-on-mainnet!/2765b9980e8241e584b1668f03e5ba50/a
+- **Kauri original author:** Guillaume Palayer (@guillaumep)
+- **Kauri original Publication date:** 2019-07-07
+- **Kauri original tags:** ethereum, dapp, betoken, blockchain, defi
+- **Kauri original hash:** QmVbaW7hcoYvpmWEZda1eNF1dHM4gEgswx76dPSivET9pg
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

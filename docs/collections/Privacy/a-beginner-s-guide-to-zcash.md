@@ -25,7 +25,7 @@ Bitcoin is an open and permissionless cryptocurrency but there is a common misco
 [privacy functionality](https://hackernoon.com/privacy-on-the-blockchain-7549b50160ec)
  . This post should help those who are new to Zcash to understand how it is different than other cryptocurrencies like bitcoin.
 
-![](https://api.kauri.io:443/ipfs/QmUdKrD7XcrVWHzsQt6LA7sTQFm2PLfBDWjVGMRCvqjTwn)
+![](https://ipfs.infura.io/ipfs/QmUdKrD7XcrVWHzsQt6LA7sTQFm2PLfBDWjVGMRCvqjTwn)
 
  
 **Similarities and differences from Bitcoin**
@@ -37,7 +37,7 @@ This is in sharp contrast to Bitcoin where if your bitcoin address is ever share
 [Elliptic](https://www.elliptic.co/)
  have built software that can de-anonymize your address if you have transacted with other addresses that are not anonymous. Imagine if everyone you knew, and even strangers, could know how much money you had in your bank account, and how you spent your money. Despite perfectly legitimate transactions, you likely do not want the entire world to know this information.
 
-![](https://api.kauri.io:443/ipfs/QmSBVKKnFtxcSvmgcoWFJ7KvKboGrFrBbhdTXfyfN7K8ez)
+![](https://ipfs.infura.io/ipfs/QmSBVKKnFtxcSvmgcoWFJ7KvKboGrFrBbhdTXfyfN7K8ez)
 
 Zcash and Bitcoin both have a total supply of 21 million units and are released through a process called mining. One unique aspect of Zcash is that the corporate development team (the Zcash Company, CEO 
 [Zooko Wilcox](https://twitter.com/zooko)
@@ -47,7 +47,7 @@ Zcash and Bitcoin both have a total supply of 21 million units and are released 
 [Founders’ Reward](https://z.cash/blog/funding.html)
  ” provides funding and incentive-alignment for the continued support and improvement of Zcash.
 
-![](https://api.kauri.io:443/ipfs/Qmdr3PKTU9iJSV33bdGLQsSZW8e6oV88kqz8SGEWn8hKzu)
+![](https://ipfs.infura.io/ipfs/Qmdr3PKTU9iJSV33bdGLQsSZW8e6oV88kqz8SGEWn8hKzu)
 
  
 **Technology**
@@ -79,7 +79,7 @@ Generating shielded transactions in Zcash requires a relatively significant amou
 [performance improvements](https://z.cash/blog/cultivating-sapling-faster-zksnarks.html)
  in a future update which will significantly reduce the amount of time and memory required. Even mobile phones will be capable of generating proofs. This means that a greater percentage of Zcash transactions will be shielded, increasing overall privacy. The development team has even alluded to a future plan for deprecating transparent addresses altogether.
 
-![](https://api.kauri.io:443/ipfs/QmYtSjKdYPUYWcXd63PRpsvHQ3i8ViqFRT1rgTq7aQiwNu)
+![](https://ipfs.infura.io/ipfs/QmYtSjKdYPUYWcXd63PRpsvHQ3i8ViqFRT1rgTq7aQiwNu)
 
  
 **Resources**
@@ -118,3 +118,17 @@ Thank you to
  
 _Disclaimer: I own Zcash._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-beginner-s-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a
+- **Kauri original author:** Linda Xie (@ljxie)
+- **Kauri original Publication date:** 2019-05-03
+- **Kauri original tags:** privacy
+- **Kauri original hash:** QmbPKi2aNRDGav57VMJkKx4QCoBrQD5YKiAuVMYUmUnXBg
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

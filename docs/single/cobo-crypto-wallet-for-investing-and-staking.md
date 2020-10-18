@@ -9,6 +9,8 @@ some_url:
 
 # Cobo Crypto wallet for investing and staking 
 
+![](https://ipfs.infura.io/ipfs/QmVZqfLDgdnJkKTsLSPiyvEatZuXonBqdmb94mcnbaRspi)
+
 
 Intro
 
@@ -55,3 +57,16 @@ Conclusion
 This is a different type of investment vehicle than  the Celsius financial platform, which I will discuss in another article. Each one has advantages and disadvantages, and I believe that its good to have both. My evaluation and testing of this service has been good, and it has a lot of going for it. There are a lot of features, and it takes a little while to start getting all the benefits. My only complaint is that it would be nice to have a desktop version, but the mobile version is quite use-able. They don’t seem to do much marketing, so most people have not heard anything about it yet, but I believe that this project will continue to grow, and could be huge in the future – A sleeping giant worth checking out, in my opinion.  Please keep in mind that I am not a financial adviser, and this is not investment advice. Let me know what you think.
 
  
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cobo-crypto-wallet-for-investing-and-staking/1ab97af325d645128b6bf46760cbb873/a
+- **Kauri original author:** Fred Blauer (@fblauer)
+- **Kauri original Publication date:** 2019-07-24
+- **Kauri original tags:** open-finance, defi, fintech, finance
+- **Kauri original hash:** QmNNdFTXyeF7dLEXtjnfkLXHufN2czEtFpX4snemvw9Zuv
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

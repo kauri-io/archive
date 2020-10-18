@@ -10,7 +10,7 @@ some_url:
 # Best Crypto Payroll Softwares
 
 
-![](https://api.kauri.io:443/ipfs/QmWmWzzQrAYZVoWQfirSaeBrjAJ6mHK6fmgEEiZcp7tb2L)
+![](https://ipfs.infura.io/ipfs/QmWmWzzQrAYZVoWQfirSaeBrjAJ6mHK6fmgEEiZcp7tb2L)
 
 Today we will talk about the best crypto payroll softwares. There are many advantages of crypto salaries.
 
@@ -106,3 +106,17 @@ If you are a company in the crypto space, consider using a crypto payroll softwa
 *   [**Bitcoin for Beginners (Common Questions)**](https://blog.coincodecap.com/bitcoin-for-beginners-common-questions/)
 
 *   [**Rebalancing Strategy For Your Crypto Portfolio**](https://blog.coincodecap.com/crypto-portfolio-rebalancing/)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/best-crypto-payroll-softwares/22cecdf974cd4552b367ed5b2d9e12d9/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** payroll, crypto-payroll-
+- **Kauri original hash:** QmUPkoZzqrW3PrxwLKDHtob4i2N2dKZQ3wGgMen5UkuiHq
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

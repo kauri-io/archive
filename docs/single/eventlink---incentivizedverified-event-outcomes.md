@@ -9,6 +9,8 @@ some_url:
 
 # EventLINK   Incentivized/Verified Event Outcomes 
 
+![](https://ipfs.infura.io/ipfs/QmbZRpmfswDUFBKn9GdcMrZZGVrLBgvZ63y8K46yN3Rtn9)
+
 
 
 <div align="center">
@@ -65,6 +67,20 @@ https://github.com/HenryNguyen5/ethdenver2019 -> Backend
 
 :)
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eventlink-:-incentivizedverified-event-outcomes/9dd2481966a74ea9894049edd582bbf6/a
+- **Kauri original author:** Max Seesing (@maxseesing)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-chainlink-2019
+- **Kauri original hash:** QmXnaV3G8adS1LA3H875Uw4x26asyJ61Fwrf5mfVe1Tcc3
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

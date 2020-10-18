@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>A beginner’s guide to Monero &mdash; Kauri</title>
+    <title>A beginner’s guide to Monero &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -663,8 +666,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -763,10 +766,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1048,7 +1051,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1062,7 +1065,7 @@
 <p>According to the 
 <a href="https://getmonero.org/home">Monero website</a>
  , “Monero is a secure, private, untraceable currency.” Some people might think that this definition could be applied to Bitcoin but that is actually not the case when it comes to being private and untraceable. Monero is a digital currency that uses a different kind of cryptography to allow for these specific attributes. This beginner’s guide should help those who are new to Monero to understand the high level differences between the two.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmU1grN2WpxDfXSj5yXMcNNxPe7Nkt3x4cPvCiJoLZKnrr" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmU1grN2WpxDfXSj5yXMcNNxPe7Nkt3x4cPvCiJoLZKnrr" /></p>
 <p><strong>Comparison</strong></p>
 <p>There is a common misconception that Bitcoin is entirely untraceable digital money. The very premise of Bitcoin is that all transactions 
 <a href="https://blockchain.info/">can be viewed</a>
@@ -1070,7 +1073,7 @@
 Monero is different than Bitcoin in that it focuses on the privacy aspect of transacting with a digital currency. Monero uses a different type of technology to make the transactions untraceable and the balances hidden. If your bitcoin address is ever shared publicly, anyone can view your balance and all other bitcoin addresses you have ever transacted with. Even though names aren’t explicitly stated on the blockchain, if someone decides to share their address publicly, all previous and future activity associated with that address will forever be linked to that person. You also don’t necessarily need to share your address publicly for someone to figure out that you own it. In fact, just transacting with other tagged addresses may be enough for someone to figure out that an account is owned by you. For example, below you can see all transactions and the balance associated with the popular and publicly shared 
 <a href="https://shop.wikileaks.org/donate">WikiLeaks donation address</a>
  .</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmdMHqLe4kKfvktRX33CyUMduQfqqhFj2NKgf67DG3ahSt" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdMHqLe4kKfvktRX33CyUMduQfqqhFj2NKgf67DG3ahSt" /></p>
 <p>While certain organizations that need to be transparent may want their transaction history to be displayed, the same can’t be said about all individuals and companies. Imagine that anyone could see all of your bank balances and transactions. You might not want the entire world to know your salary and spending habits. Financial privacy has been especially relevant after the string of security breaches over the past few years that have leaked credit card data. You might not necessarily want every store and website that you make purchases on to store that information. Monero values protecting this personal information and makes transaction details private to the outside world by default.</p>
 <p><strong>Technology</strong></p>
 <p>Without diving too deep into the technical details, the way Monero is able to make transactions untraceable is through a technology called 
@@ -1123,7 +1126,16 @@ In Monero there is also something called a “spend key” used to spend funds a
 <a href="https://medium.com/@hkparker">Hayden Parker</a>, 
 <a href="https://medium.com/@bramanathan">Reuben Bramanathan</a>, and 
 <a href="https://medium.com/@Dfarmer">David Farmer</a> .</p>
-<p><em>Please note this post is not an endorsement of Monero by Coinbase. All opinions are my own. Disclaimer: I own Monero.</em></p></div>
+<p><em>Please note this post is not an endorsement of Monero by Coinbase. All opinions are my own. Disclaimer: I own Monero.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-beginner-s-guide-to-monero/b0da5ffc94fb4fb894741839aa2fa616/a</li>
+<li><strong>Kauri original author:</strong> Linda Xie (@ljxie)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-03</li>
+<li><strong>Kauri original tags:</strong> privacy</li>
+<li><strong>Kauri original hash:</strong> QmNhxMTpWwxbiZnikjCt2cAwKKR5NAFJYuFgRqozbnqqEA</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../a-beginner-s-guide-to-zcash/" title="A beginner’s guide to Zcash"><span>Previous</span></a></div>

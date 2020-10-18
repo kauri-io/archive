@@ -587,3 +587,16 @@ currentUserAddr
 
 
 For more information, view our Comments documentation.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-a-distributed-appstore-with-3box/a9544b3cd4484369a97cb5171c420ceb/a
+- **Kauri original author:** Rachel (@rachblondon)
+- **Kauri original Publication date:** 2020-01-03
+- **Kauri original tags:** 3box, ethereum, dapp, ipfs, identity, react
+- **Kauri original hash:** QmSLy7G23eMpZmbeoGspXS2fmnUiv9JqL6tZ1YgXvh9WSj
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

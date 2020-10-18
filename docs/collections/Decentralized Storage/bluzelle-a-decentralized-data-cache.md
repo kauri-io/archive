@@ -9,6 +9,8 @@ some_url:
 
 # Bluzelle - A decentralized data cache
 
+![](https://ipfs.infura.io/ipfs/QmUA7WxrGCsVzmHC5nkL1krDzcFRrHuBkP52mdGwciz9Cq)
+
 
 > Bluzelle is a decentralized data cache with servers available in data centers across multiple regions, and auto-replication.
 
@@ -81,3 +83,17 @@ It is possible to launch your own swarm locally using docker by following the in
 #### Insecure WebSockets connections over HTTPS
 
 Bluzelle does not currently implement secure WebSockets \(WSS\). If you try to create a connection in an https page, you may get an error message along the lines of "the operation is insecure." To fix, host your page over HTTP, or change your browser settings. In Firefox navigate to "about:config" in the url bar, scroll down and set the `network.websocket.allowInsecureFromHTTPS` flag to true.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bluzelle-a-decentralized-data-cache/4cdd52b4333f4d579dbb81fd5e2ab100/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** storage, cdn, caching
+- **Kauri original hash:** QmR6Fx3c1b3sQJ6BdWhA1RizSjW1md3LZoncyKucorhDG2
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

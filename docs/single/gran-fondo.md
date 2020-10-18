@@ -14,7 +14,7 @@ some_url:
 
 ## **Gran Fondo**
 
-![](https://api.kauri.io:443/ipfs/Qmc9YQ5qZp7MJzNsqSVv3GanCGFehHzZwAXbRcbbnqWXDm)
+![](https://ipfs.infura.io/ipfs/Qmc9YQ5qZp7MJzNsqSVv3GanCGFehHzZwAXbRcbbnqWXDm)
 
 ## Project Tagline/Description
 The dApp for athletic excellence. Pledge ETH to a pooled smart contract for biking and running challenges and earn when you meet your goals.
@@ -37,9 +37,9 @@ Aaron: 0x04ea36bb53c923ab06a88e37f0c3ca30326aea059119647166462baffa1c90479f676f2
 ## Detailed Project Description
 Gran Fondo is a competitive commitment device. It encourages athletes who use Strava, a social fitness tracking platform, to create fitness challenges, stake ETH as an incentive to meet their goals, and then compete for the ETH prizes. The app makes it simple to create or join a fitness challenge, view competitors, and claim your rewards if, and only if, the Strava API proves that you  have earned them. The Chainlink integration enables us to pass data between the Strava API and our smart contract holding staked funds.
 
-![](https://api.kauri.io:443/ipfs/QmcxexgzxnYvF7VRmVZehMRL2RRg2XGgKbAZ1m2dp5dke7)
+![](https://ipfs.infura.io/ipfs/QmcxexgzxnYvF7VRmVZehMRL2RRg2XGgKbAZ1m2dp5dke7)
 
-![](https://api.kauri.io:443/ipfs/QmYbJuUyitEvtTW7TjsH2km7HR4S7vJ6tnUfSoYruBtg7F)
+![](https://ipfs.infura.io/ipfs/QmYbJuUyitEvtTW7TjsH2km7HR4S7vJ6tnUfSoYruBtg7F)
 
 
 ## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
@@ -68,6 +68,20 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/tokensoft/gran-fondo
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gran-fondo/3add68e04da54dde94c3fc07b81cf289/a
+- **Kauri original author:** Gran Fondo (@gran-fondo)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** staking, ethdenver-2019-submission, game, bounty-chainlink-2019, social, fitness, self-improvement
+- **Kauri original hash:** QmZLoVtuM9gcfrEYwqAxu5pnQonVsH8Hmc88W4ABXzaECr
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Sending an Ether Transfer Transaction from One Account to Another in Web3j
 
+![](https://ipfs.infura.io/ipfs/QmZnHp73HpRsYbnNKPMNF3VZPLbLpHCZnMfNzX2s1X9cfi)
+
 
 To transfer ether from one account to another, a transaction must be sent to the ethereum network.  The easiest way to achieve this within your java application is to use the useful `Transfer` class of web3j.
 
@@ -36,3 +38,16 @@ TransactionReceipt transactionReceipt = Transfer.sendFunds(
 ```
 
 Note that there are multiple ways to generate wallet credentials.  For more imformation, check out [Managing an Ethereum Account with Java and Web3j.](https://kauri.io/manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sending-an-ether-transfer-transaction-from-one-ac/4b90439223894d7da2ee3fcfef5fa49e/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-12-18
+- **Kauri original tags:** ethereum, java, ether, web3j, transaction
+- **Kauri original hash:** QmdG2L4m11Mk93L9gcePuYSBnaBqiR27bjZpSSrZKzaLqy
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

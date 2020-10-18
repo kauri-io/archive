@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmX6CCsCB7oSCQZmNAZ6NPBwYEocYdL1jZuj7hA7hULuF9)
+![](https://ipfs.infura.io/ipfs/QmX6CCsCB7oSCQZmNAZ6NPBwYEocYdL1jZuj7hA7hULuF9)
 
  
 **Lane Rettig**
@@ -19,7 +19,7 @@ some_url:
 **Ameen Soleimani**
  (Spankchain)
 
-![](https://api.kauri.io:443/ipfs/QmStLSqLQCnJ4GUuk1YoCsHEFEkTZ6aUvwmNn6iFesj3P7)
+![](https://ipfs.infura.io/ipfs/QmStLSqLQCnJ4GUuk1YoCsHEFEkTZ6aUvwmNn6iFesj3P7)
 
 
 
@@ -132,5 +132,19 @@ Sneak peak of
 [Burner Wallet with group of 50 college students.](https://twitter.com/austingriffith/status/1116723108575006721)
  
 
-![](https://api.kauri.io:443/ipfs/QmSSMzK1ZWCXSYW31J8HuKNQLUMuJZfyCoU9bhGBU5cHyJ)
+![](https://ipfs.infura.io/ipfs/QmSSMzK1ZWCXSYW31J8HuKNQLUMuJZfyCoU9bhGBU5cHyJ)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cryptotwitter-roundup-04122019/49a0943de2e444be8712fac09b8cee00/a
+- **Kauri original author:** Joseph Bender (@jdbender128)
+- **Kauri original Publication date:** 2019-04-12
+- **Kauri original tags:** ethereum, twitter, blockchain, social, bitcoin
+- **Kauri original hash:** QmQvoJEdYGzmYFiqBdoSdJpDTJFBw6NV1anuwQMyNAvAi2
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

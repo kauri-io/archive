@@ -44,3 +44,17 @@ https://github.com/nedodn/lattice-cdp
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/grid-+-lattice-cdp-manager/d911d25e38d546debefefb24d29e7a21/a
+- **Kauri original author:** Nate Oden (@nedodn)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, grid
+- **Kauri original hash:** Qmbzwdv5SbAw3W5342LWM6pYGvGM2S4at2iBEVPzH7sbDJ
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

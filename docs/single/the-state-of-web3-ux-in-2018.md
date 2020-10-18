@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmWwkEMR1xEbRQPXizqNn8MT6ETuPeCu61LxR172tPRfRe)
+![](https://ipfs.infura.io/ipfs/QmWwkEMR1xEbRQPXizqNn8MT6ETuPeCu61LxR172tPRfRe)
 
 One of the biggest frictions with on-boarding users to Web3 is overcoming a lot of the technical issues that are required by design from decentralized networks. From owning your private keys to sending transactions to the blockchain, there is a lot of pointers to consider when companies are designing user-friendly products on Ethereum. In short, the web3 UX can be broken down into three major components, the Dapp, the Wallet and the Blockchain and here is an overview of each component’s experience for a user today.
 
@@ -50,3 +50,17 @@ This is where layer 2 solutions come into play that includes two popular solutio
 
 ### Conclusion
 As the community keeps developing and working together to bring new solutions to the table, it is by fart the standards that are built and coordinated between all teams that really help bring Ethereum and Web3 closer to mainstream adoption. We may not be there yet this year, but there was a lot less synergy and standards being built to improve the user experience in this space. If you are interested in contributing to any of these efforts, feel free to join working groups and rings that are actively working on Identity Proxy or Meta Transactions or Universal Logins or State Channels or Plasma Chains.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-state-of-web3-ux-in-2018/e58bc467b7474a0eb3e1afe4eb9fe634/a
+- **Kauri original author:** Pedro Gomes (@pedrouid)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmdNVysaRr4KzQKik9hAnujgzcU4ub1Yrbc4wz7eeZXh6U
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

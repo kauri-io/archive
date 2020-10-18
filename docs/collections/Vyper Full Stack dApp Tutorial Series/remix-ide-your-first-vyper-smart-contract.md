@@ -31,7 +31,7 @@ Clear the content of the editor, and name the file _Bounty.vy_.
 
 <!-- TODO: Update -->
 
-![](https://api.kauri.io:443/ipfs/QmYMV1Xu841fpMpyqSaVYQAvnJ5xuXHKmpn9DjeUtsXpac)
+![](https://ipfs.infura.io/ipfs/QmYMV1Xu841fpMpyqSaVYQAvnJ5xuXHKmpn9DjeUtsXpac)
 
 We first define structs for the contract.
 
@@ -53,15 +53,15 @@ struct Fulfillment:
 
 To test if everything is working, click the _Compile_ button to compile the contract.
 
-![](https://api.kauri.io:443/ipfs/QmNQH4ytWiWeHSRgLTQofbnkzYRRuiRtmwLguVTWXHCKoS)
+![](https://ipfs.infura.io/ipfs/QmNQH4ytWiWeHSRgLTQofbnkzYRRuiRtmwLguVTWXHCKoS)
 
 If everything is ok, you should see output in the _Bytecode_, _Runetime Bytecode_ and _LLL_ tabs, this indicates the compilation was successful.
 
-![](https://api.kauri.io:443/ipfs/QmTLoPwXJ1TooRbC9hagxHcBXkPNAJsFULvCnhfUBzWpdg)
+![](https://ipfs.infura.io/ipfs/QmTLoPwXJ1TooRbC9hagxHcBXkPNAJsFULvCnhfUBzWpdg)
 
 If there is an error, you should see an error message when you open any of the tab links.
 
-![](https://api.kauri.io:443/ipfs/QmcTdx9ifH6nipE2KeaWjkz6EtDMgk3m3ib4zGCX1vyipM)
+![](https://ipfs.infura.io/ipfs/QmcTdx9ifH6nipE2KeaWjkz6EtDMgk3m3ib4zGCX1vyipM)
 
 ### Issuing a Bounty
 
@@ -192,3 +192,17 @@ You can find the [complete Bounties.vy file here for reference](https://github.c
 > If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.
 >
 > If you found any errors, feel free to update this guide by selecting the **'Update Article'** option in the right hand menu, and/or [update the code](https://github.com/iamonuwa/Bounties)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/remix-ide-your-first-vyper-smart-contract/15b95281c17a4954a5278865bbc0f515/a
+- **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
+- **Kauri original Publication date:** 2019-08-29
+- **Kauri original tags:** smart-contract, vyper, remix
+- **Kauri original hash:** QmPm7a67kersmmvLSR6Mr9bCmbY3tZoXLj4Pdi4hSj33rp
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

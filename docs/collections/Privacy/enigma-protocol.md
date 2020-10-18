@@ -9,6 +9,8 @@ some_url:
 
 # Enigma Protocol
 
+![](https://ipfs.infura.io/ipfs/QmS4f5GcwUAKn23Na4WiJbCikqdEw8jKirqi4nLPSMPseE)
+
 
 > The Enigma protocol is a decentralized and distributed network of servers around the world (known as ‘nodes’) which, through the use of secret contracts, are able to compute data in a way that maintains confidentiality and integrity.
 
@@ -100,6 +102,19 @@ Once completed, three xterm windows will spawn. At this point you will be able t
 
 3. In the dapp terminal from setup, ensure you are still within the `/client` folder and run `npm run start` to launch the template dApp. If everything was completed successfully, you should now be viewing a page that looks like so:
 
-![](https://api.kauri.io:443/ipfs/QmddQeKwn8RRAKWDoiD6jUtZD6TJNb5CKHEzs2Z8rRCy4b)
+![](https://ipfs.infura.io/ipfs/QmddQeKwn8RRAKWDoiD6jUtZD6TJNb5CKHEzs2Z8rRCy4b)
 
 If you are instead seeing a message informing you that it is still loading, repeat the steps to ensure no errors were made.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/enigma-protocol/0143727c506d4f1d9013a1fca1a4c73c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-17
+- **Kauri original tags:** enigma, privacy
+- **Kauri original hash:** QmRTiVJXrqJZAox6hex9o2zTCEFQG6Fk52xk21a861v3LL
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

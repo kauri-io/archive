@@ -24,7 +24,7 @@ With SBBS client wallets can exchange messages even if they are currently offlin
 ### Computerized Bulletin Board Systems — A Dinosaur from the eighties?
 A bulletin board system is a computer server running a software that allows users to connect with a client. Once logged, the user can upload or download messages through public message boards or private email, as well as file downloads (often text files), and if the client allowed, direct chatting and even text-based multiplayer games.
 
-![](https://api.kauri.io:443/ipfs/QmPg5VmNbbwGkLpWD1LyaUgY8jqvtB6LNZFJrezP9Ws7oL)
+![](https://ipfs.infura.io/ipfs/QmPg5VmNbbwGkLpWD1LyaUgY8jqvtB6LNZFJrezP9Ws7oL)
 
 It used to dominate the internet experience during the decade of the 80s due to the introduction of modems. BBSes were a precursor to the modern internet. They required a direct point-to-point connection with your modem to the server. In modern terms, there wasn’t a website URL, but a phone number which had to be dialed. Users were welcomed to a subculture of elaborate ASCII-art logos and text files with instructions. Relics of that era have been curated in 
 [textfiles.com](http://textfiles.com)
@@ -32,7 +32,7 @@ It used to dominate the internet experience during the decade of the 80s due to 
 [bbsdocumentary.com](http://www.bbsdocumentary.com/)
  
 
-![](https://api.kauri.io:443/ipfs/QmX292nQ7ve26YUeuY7mKFPLUJwV7X3r1g2earozdF29SF)
+![](https://ipfs.infura.io/ipfs/QmX292nQ7ve26YUeuY7mKFPLUJwV7X3r1g2earozdF29SF)
 
 Fido became the first network of BBSes, which means that BBSes could call other Fido nodes and exchange messages between them worldwide, 
 [FidoNet](https://www.fidonet.org/inet92_Randy_Bush.txt)
@@ -49,7 +49,7 @@ _echoes_
 
 ### Beam’s Secure BBS
 
-![](https://api.kauri.io:443/ipfs/QmSkCy4EF2v46YxRr69si3Hkkvmvu53ibTwR4h65Rn1ywW)
+![](https://ipfs.infura.io/ipfs/QmSkCy4EF2v46YxRr69si3Hkkvmvu53ibTwR4h65Rn1ywW)
 
 The architecture of BBS can be replicated with Beam’s nodes and wallets, as described in the 
 [GitHub repository](https://github.com/BeammW/beam/wiki/Secure-bulletin-board-system-%28SBBS%29)
@@ -92,7 +92,7 @@ The public key infrastructure is already in place. The cryptographic primitives 
 
  * If successful, he notifies the wallet.
 
-![](https://api.kauri.io:443/ipfs/QmTLtNBbpqwoD6dhrHwdhZ6iFxZmq7SKdsgmmUJh3TmUw6)
+![](https://ipfs.infura.io/ipfs/QmTLtNBbpqwoD6dhrHwdhZ6iFxZmq7SKdsgmmUJh3TmUw6)
 
 
 ### Conclusion
@@ -112,3 +112,17 @@ Beam is offering these properties and more. Hopefully other cryptocurrencies wil
 
 
  * Poelstra, A. (2016). Mimblewimble. Retrieved from [https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf](https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-secure-bulletin-board-system-(sbbs)-implement/cc964fc41c434ed3a51cafab51ebbc2c/a
+- **Kauri original author:** Beni Issembert (@bissembert)
+- **Kauri original Publication date:** 2019-06-23
+- **Kauri original tags:** beam, mimblewimble, privacy, privacy-blockchain
+- **Kauri original hash:** QmT3CdcBo73cog6XACwZVC8HBdHPoYAiYrdFmiEVrbmbCZ
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

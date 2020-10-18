@@ -10,7 +10,7 @@ some_url:
 #  Monero and Zcash are no longer privacy coins?
 
 
-![](https://api.kauri.io:443/ipfs/QmQJK6tDtyYyXhX54wSUsdb9ZRYJTkZJ2RhzaegjfExfuB)
+![](https://ipfs.infura.io/ipfs/QmQJK6tDtyYyXhX54wSUsdb9ZRYJTkZJ2RhzaegjfExfuB)
 
 The company Chainalysis said that they can make traceable some cryptocurrencies that are famous for be focused into user privacy throught no traceable transactions, obviously we are talking about Monero, Zcash and Dash too.
 
@@ -31,5 +31,19 @@ Maybe the people must be free to choose which money they want to use. The excuse
 Anyway I am sure that in the nets months and years the majority of countries will banned coins like Monero and Zcash but it's not the end, Bitcoin was invented to be unstoppable so, privacy coins are too.
 
 In addition in really free countries, like Switzerland, the privacy coins will be banned more later when the European Union deep state threat them like they did with another things to kill the people liberty.
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/monero-and-zcash-are-no-longer-privacy-coins/e162b391d6484dcf86a56738820dc914/a
+- **Kauri original author:** null (@ethernomics)
+- **Kauri original Publication date:** 2020-06-09
+- **Kauri original tags:** zcash, monero, privacy, dash
+- **Kauri original hash:** QmStYwgJ7igJK6Q8vMEdCEN4vJz8AFZvqYNydhKzXP41hv
+- **Kauri original checkpoint:** unknown
+
 
 

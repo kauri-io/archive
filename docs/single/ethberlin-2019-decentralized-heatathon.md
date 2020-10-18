@@ -9,6 +9,8 @@ some_url:
 
 # ETHBerlin 2019 - Decentralized Heatathon 
 
+![](https://ipfs.infura.io/ipfs/QmNkVqyVg6fefx1QPWQHAN1UqwntR5CpEJF2PYrkq29rd1)
+
 
 I wasn't at Berlin Blockchain week in 2018, so can't directly compare the two events, but this year seemed busy to me, others mentioned they thought it was quieter. However, the venues used for the events were large and sprawling, so it was hard to get a complete picture of how many attendees there were, but the crowd felt enthusiastic to me. Especially considering the sweltering heat for most of the week.
 
@@ -38,7 +40,7 @@ And a handful of projects that appealed to us purely for being a cool idea:
 -   [Babel Fish 3.0](https://devpost.com/software/ethberlinzwei-babelfish_3_0): A decentralized verifiable speech-to-text service.
 -   [Stikkit](https://devpost.com/software/badge-around): Badges, badges, badges!
 
-![](https://api.kauri.io:443/ipfs/QmTFWWEboNpDm3ijRBaM21djhyB7JqkD1TC6ZSwSAJqtHt)
+![](https://ipfs.infura.io/ipfs/QmTFWWEboNpDm3ijRBaM21djhyB7JqkD1TC6ZSwSAJqtHt)
 
 ### Documentation bounties
 
@@ -67,3 +69,17 @@ Berlin Blockchain week isn't just about the main event, but also the innumerable
 -   [Coding Berlin BBW special](https://www.meetup.com/en-AU/CODING-BERLIN/events/263450379/): Once of the best meetups in Berlin hosted a hacking-focussed session with several key ecosystem projects.
 
 And that's at! See you at DevCon in Osaka. 🇯🇵 👋
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethberlin-2019-decentralized-heatathon/09019039d2564449a129f7f415b79187/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-08-30
+- **Kauri original tags:** hackathons, berlin, events
+- **Kauri original hash:** QmTvTuf8dPf5TdQAritFdkuCcND2ntfJ2sZVJoT4a6o8zv
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

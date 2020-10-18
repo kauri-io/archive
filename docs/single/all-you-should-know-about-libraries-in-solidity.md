@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmSdjNhBNvSRGsvmGFQXDeAnjzR64QPDcokdiGeLqYxeDN)
+![](https://ipfs.infura.io/ipfs/QmSdjNhBNvSRGsvmGFQXDeAnjzR64QPDcokdiGeLqYxeDN)
 
 It’s very important to know about the libraries in solidity while writing Dapps. In simple words, a library is the reusable piece of code which is deployed once and shared many times.
 
@@ -94,7 +94,7 @@ Before going in depth, let’s cover few prerequisite for better understanding:
 **How library works?**
  
 
-![](https://api.kauri.io:443/ipfs/QmXZF88bnHtvDVdC64rCuDMmvntCoZ55hpWxSb7rWFhqci)
+![](https://ipfs.infura.io/ipfs/QmXZF88bnHtvDVdC64rCuDMmvntCoZ55hpWxSb7rWFhqci)
 
 In blockchain, transaction can change state of smart contract. There are various kinds of state change that can happen in a contract:
 
@@ -245,3 +245,17 @@ Happy Coding 😇
   
 [medium.com/@sarvesh.sgsits](https://medium.com/@sarvesh.sgsits)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/all-you-should-know-about-libraries-in-solidity/bb7efad0f7204a67aa6fa2b71b9641bc/a
+- **Kauri original author:** Sarvesh Jain (@sarveshgs)
+- **Kauri original Publication date:** 2019-05-13
+- **Kauri original tags:** ethereum, library, evm, ethereum-virtual-machine, solidity
+- **Kauri original hash:** QmcdCUBdqznJAfEuC7Av5M34NeBiYULdnY4Y83AdYMLUMA
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

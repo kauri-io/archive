@@ -9,6 +9,8 @@ some_url:
 
 # EthVelcro
 
+![](https://ipfs.infura.io/ipfs/QmWGFVEeVw4GWjb1iZJDpZWbpusvuqsT8mQsS8T5ZSLSHa)
+
 
 ## EthVelcro
 
@@ -51,4 +53,18 @@ Graph Protocol
 [Velcro Frontend](https://github.com/ethvelcro/velcro-dapp)
 
 [EthVelcro Organization](https://github.com/ethvelcro)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethvelcro/172e228b2e7d4beaa59c0a49a027ef1e/a
+- **Kauri original author:** Brendan Asselstine (@asselstine)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-graph-2019, bounty-grap
+- **Kauri original hash:** QmUE2ypGhYLcPhnSVxmzbsUtaxVF6gnKkvGBTwzxRDx4W8
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
 

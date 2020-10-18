@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmUrR1Jj55txK3iXwjQ8io9aBsbwnavPxTS4bLrfFKqF4W)
+![](https://ipfs.infura.io/ipfs/QmUrR1Jj55txK3iXwjQ8io9aBsbwnavPxTS4bLrfFKqF4W)
 
 ## Project Name
 
@@ -56,5 +56,19 @@ Impact
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/alice-si/alice-tc2
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/impact-curator/62a6c0e38c094999b6f3945a5ed07cdb/a
+- **Kauri original author:** Jakub Wojciechowski (@kuba)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-impact, bounty-skale-2019
+- **Kauri original hash:** QmYpnpF7bCW5F57qm4sPM3boFKpFqeNxHMTZaiC1mjVSCy
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

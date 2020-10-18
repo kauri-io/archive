@@ -9,6 +9,8 @@ some_url:
 
 # Interacting with an Ethereum Smart Contract in Java
 
+![](https://ipfs.infura.io/ipfs/QmQBqEvUaNN7ByVMSPrpa2Tw1mMGCCNPYyfai7Z6WE6Fwr)
+
 
 
 **Other articles in this series:**
@@ -261,6 +263,20 @@ In the next article in this series, we will walk you through how to [listen for 
 **Next Steps:**
 - [Listening for Ethereum Smart Contract Events in Java](https://kauri.io/article/760f495423db42f988d17b8c145b0874)
 - [Using Pantheon, the Java Ethereum Client with Linux](https://kauri.io/article/276dd27f1458443295eea58403fd6965)
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/interacting-with-an-ethereum-smart-contract-in-ja/14dc434d11ef4ee18bf7d57f079e246e/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2020-01-26
+- **Kauri original tags:** ethereum, java, web3j, smart-contracts
+- **Kauri original hash:** QmdsYPGQbjoqWpCSrDFNKEo2E5enYeQGpXtemgnfFqGqph
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

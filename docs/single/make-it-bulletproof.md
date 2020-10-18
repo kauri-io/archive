@@ -9,6 +9,8 @@ some_url:
 
 # Make it Bulletproof
 
+![](https://ipfs.infura.io/ipfs/QmNPsj2Q5ue5eoMgPMnTEYwtjEWURFdfMUxCGRjKJVL9Gq)
+
 
 ### An-depth breakdown of Zero-Knowledge Proofs and Benedikt Bünz’s brainchild.
 
@@ -36,7 +38,7 @@ One of the first steps to better confidentiality was taken by Gregory Maxwell’
 Confidential Transactions are facilitated by something called _Petersen commitments_, which essentially allow you to commit to a certain value without necessarily revealing that value to anyone until you choose to do so. Petersen commitments operate under the 
 [discrete logarithm problem](https://en.wikipedia.org/wiki/Discrete_logarithm_problem), which is a type of one-way computation. In other words, it’s totally infeasible to compute the input from the output. This not only makes Petersen commitments really tough to crack, thus keeping your value safe, but also forces the person sending the transaction to commit to that value, thus _binding_ them to that commitment.
 
-![](https://api.beta.kauri.io:443/ipfs/QmTArfrR4qC5qVEZJbb854GGiK6wuTPgDf1RckB17nfhe1)
+![](https://ipfs.infura.io/ipfs/QmTArfrR4qC5qVEZJbb854GGiK6wuTPgDf1RckB17nfhe1)
 
 What’s awesome about Confidential Transactions is that they’re _homomorphically encrypted_, which means you can perform different operations (like adding and subtracting) on the encrypted values but have the true result still be computationally correct. This gives a lot more freedom and flexibility to different institutions looking to adopt blockchain.
 
@@ -52,7 +54,7 @@ So what are they really? zkSNARK stands for
 
 Imagine a zero-knowledge proof as a situation where you want to prove to your colour-blind friend that you know the colour of each of the two pens you’re holding — without actually revealing which one is what colour. You give the pens to your friend, and ask them to hide the pens behind their back. Your friend will switch the pens from hand to hand or keep them in the same hands as they wish, and bring them back out to ask you if they’ve switched the pens or not. At first, if you were also colourblind you’d have a 50% chance of guessing correctly; however, the possibility to guess correctly slims down at a really fast pace until you’re in the decimals of probability in later rounds.
 
-![](https://api.beta.kauri.io:443/ipfs/QmTGJmJoJsQzt6JYepm21PmRAXNW1qn5MogumkY89hTF8z)
+![](https://ipfs.infura.io/ipfs/QmTGJmJoJsQzt6JYepm21PmRAXNW1qn5MogumkY89hTF8z)
 
 The **succinct** part tells us that the proofs themselves are really, really fast and really, really small; think in the scale of mere milliseconds and bytes. This is important for protocol implementation, because as I’ve mentioned previously, one of blockchain’s biggest issues right now is scalability and speed. We need every aspect of the technology to be as efficient and compact as possible.
 
@@ -94,15 +96,15 @@ Easy to compute, hard to crack.
 Peggy then takes a random number _v,_ and computes _t = g^v_. After that, she finally hashes _g, y,_ and _t_ all together to obtain a value _c_.
 She’s not done yet! Peggy whips out her calculator to compute the following:
 
-![](https://api.beta.kauri.io:443/ipfs/QmfEoTbDAg91wDZYCqzSxne9jSg8wohfEPcEx37tAStgqc)
+![](https://ipfs.infura.io/ipfs/QmfEoTbDAg91wDZYCqzSxne9jSg8wohfEPcEx37tAStgqc)
 
 After this tedious four-step computation, she finally sends over her proof pair (_t, r_) to Victor to have him verify it, and for him it’s as easy as simply making sure that the following is true:
 
-![](https://api.beta.kauri.io:443/ipfs/QmV1sSxGT4FdMDD4tYGNxYMNi2HDRrH86EALKMXyWJJ3wJ)
+![](https://ipfs.infura.io/ipfs/QmV1sSxGT4FdMDD4tYGNxYMNi2HDRrH86EALKMXyWJJ3wJ)
 
 How does this one single operation prove that Peggy’s proof was valid? It’s because the math checks out:
 
-![](https://api.beta.kauri.io:443/ipfs/QmdL9cd9jFXy2pvB5UcPDkDYyHgdTbitd5cmtHJBxSXvy5)
+![](https://ipfs.infura.io/ipfs/QmdL9cd9jFXy2pvB5UcPDkDYyHgdTbitd5cmtHJBxSXvy5)
 
 So as a general rule, these kinds of proofs based on the Fiat-Shamir heuristic will take the longest time to prove, but are really fast when it comes to verification. The process might seem complex, but in reality we’ve essentially condensed the original zero-knowledge proof process of three separate back-and-forths between Peggy and Victor to just one single interaction.
 
@@ -137,4 +139,18 @@ Lastly, an interesting thing to note that is that Bulletproofs are still very mu
 
 
 <iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://upscri.be/7b0181" width="512"></iframe>
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/make-it-bulletproof/117ed6a341254792b2120857b3a14dd8/a
+- **Kauri original author:** Ramy Zhang (@ramyjzhang)
+- **Kauri original Publication date:** 2019-01-14
+- **Kauri original tags:** zkproofs, bulletproofs, zksnarks, monero, confidential-transactions
+- **Kauri original hash:** Qmc6wY369dat4xgLsZ5gFRqJ7Ab27ES5S6vqTijmi3jjMY
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

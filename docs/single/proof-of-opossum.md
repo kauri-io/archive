@@ -56,3 +56,17 @@ In our day jobs, we created a Dapp that utilized Status-JS and a by product is t
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/proof-of-opossum/e25b16d506bc4776add5b2c29075752b/a
+- **Kauri original author:** Edmund Miller (@emiller88)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, fortmatic-inc-, zepkit, zkproofs, status-im, the-graph, status
+- **Kauri original hash:** QmbYyPCRNLKaDixkbUAYAnWp8BLCKS5iFRtgBWYPq8xMFS
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

@@ -9,8 +9,10 @@ some_url:
 
 # Ethereum Explained  Merkle Trees, World State, Transactions, and More
 
+![](https://ipfs.infura.io/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK)
 
-![Ethereum Architecture Diagram](https://api.beta.kauri.io:443/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK)
+
+![Ethereum Architecture Diagram](https://ipfs.infura.io/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK)
 
 _At PegaSys we understand that entering into the Ethereum world can be a daunting task. There are many new concepts and terms that one needs to learn to engage in the community. In Ethereum Explained our protocol engineer, Lucas Saldanha, provides an easy to digest summary of the Ethereum Yellow Paper for technical and non-technical people alike._
 
@@ -236,3 +238,17 @@ In my experience, learning from the Yellow Paper is not easy and requires a lot 
 - [Ethereum Design Rationale](https://github.com/ethereum/wiki/wiki/Design-Rationale)
 
 _Note: This blog post was originally posted on Lucas Saldanha's personal website [www.lucassaldanha.com](https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/) and imported from the [PegaSys blog post](https://pegasys.tech/ethereum-explained-merkle-trees-world-state-transactions-and-more/)_
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-explained:-merkle-trees-world-state-tran/1f4196c3db7f41e5845f063dc1581a4e/a
+- **Kauri original author:** PegaSys (@pegasys)
+- **Kauri original Publication date:** 2019-01-15
+- **Kauri original tags:** Ethereum-Architecture, State, Ethereum, Merkle-Trees, PegaSys
+- **Kauri original hash:** QmfSkxDaqNr1oTC4VeWHtKtgvATgUCqY8WwNTkBNjGENH1
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

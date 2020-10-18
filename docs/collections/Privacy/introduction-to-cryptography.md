@@ -9,6 +9,8 @@ some_url:
 
 # Introduction to Cryptography 
 
+![](https://ipfs.infura.io/ipfs/QmYtkHzVDGn8srtqqv8vza5LL6pBo5jFb1AGYkUJFQ2UxR)
+
 
 >Disclaimer: The content of these research summaries has been written after a year of reading, researching and writing about blockchain technologies and applications. Definitions may vary depending on the paper cited. The summaries provided are subject to further iterations; whereby, the first version relies on my personal understanding of the industry and the technologies. Most of it is based on informal discussions, academic papers, industry whitepapers and primary research. These research summaries may foster from previous research but do not replicate any ideas or content created previously. 
 
@@ -28,12 +30,12 @@ This summary will provide an introduction to the type of cryptography used in bl
 ###Symmetric encryptions
 Symmetric encryption was the first form of encryption. The security of the message relies on one secret key that is used to encrypt and decrypt the plain-text message. The main drawback is that it requires the trusted parties to securely share the key with each other before transferring any other messages. The transfer either relies on additional cryptographic mechanisms or the key has to be shared in person. Transferring the key over a network would risk that a middleman intercepts the message and obtains the key. Once the middleman has the key, she/he will be able to decipher any future messages that have been encrypted with the exact same key. Thus, any key transfer requires both parties to agree on a key without revealing the key. A malicious actor, who intercepts the messages, would only know the information that both parties publicly agree on but not their individual secrets that are required to construct the key.
 
-![Alice shares key with Bob](https://api.kauri.io:443/ipfs/QmPBby41gs3w9oDYc41LJveNwPdt9kkpGH2q7Yty93vf3E)
+![Alice shares key with Bob](https://ipfs.infura.io/ipfs/QmPBby41gs3w9oDYc41LJveNwPdt9kkpGH2q7Yty93vf3E)
 **Figure 1** Alice shares the secret key with Bob; Bob shares the encrypted message; Alice decrypts the message with the same key.
 
 An example for symmetric encryption is the Vigenere Cipher. Participants, who wish to communicate with each other, share a decryption/encryption table and a key that has to be used in connection with the table. An example is the one provided below on the right. The user takes the plaintext that they wish to transfer. Then she/he maps each letter of the key to the according letter in the plaintext to generate the keystream. To encrypt the plaintext, the user simply maps letter 1 of the plaintext on the y axis and letter 1 of the keystream on the x axis. The letter at the point where both lines intercept is the according encrypted letter. To decrypt a message, the process is executed the other way around.
 
-![Vigenere Cipher](https://api.kauri.io:443/ipfs/QmS47hwe5RR7KzUrWV18QRtBjYKR89pyNKLszSKvRLragY)
+![Vigenere Cipher](https://ipfs.infura.io/ipfs/QmS47hwe5RR7KzUrWV18QRtBjYKR89pyNKLszSKvRLragY)
 **Figure 2** Example of symmetric encryption -- the Vigenere Cipher [[Source](https://eu.udacity.com/course/intro-to-information-security--ud459])]
 
 
@@ -47,7 +49,7 @@ While symmetric encryption relies on one secret key to both encrypt and decrypt 
 ###Types of asymmetric encryption
 The most popular asymmetric encryption is RSA. RSA is the acronym for “Rivest–Shamir–Adleman,” composing “the surnames of Ron Rivest, Adi Shamir, and Leonard Adleman, who first publicly described the algorithm in 1978.” [[Source](https://en.wikipedia.org/wiki/RSA_(cryptosystem)])] It is based on the idea that it is quite easy to multiply two prime numbers together but it is a lot harder to factorise those prime numbers. You can read more on this [here](http://crypto.stanford.edu/~dabo/courses/cs255_winter03/rsa-lecture.pdf.).
 
-![Bob accesses Alices Public Key](https://api.kauri.io:443/ipfs/QmXwgTreTqSY6WDyZcTBjD6gPC8LwC36E7savaQa5aQ9GH)
+![Bob accesses Alices Public Key](https://ipfs.infura.io/ipfs/QmXwgTreTqSY6WDyZcTBjD6gPC8LwC36E7savaQa5aQ9GH)
 **Figure 3** Bob accesses Alice’s public key (green) to encrypt the message. Once Alice receives the message she can decrypt it with her private key (red).
 
 Another popular asymmetric encryption is based on elliptic curve cryptography (ECC). Points are basically dotted across an elliptic curve to generate a function. The idea is that it is quite easy to compute from this function (function A) another function (function B). However, it is a lot more difficult to compute from function B function A. Imagine it to be like a room with a ball that bounces up and down. When the room is entered, the ball will be in a stagnant position. The observer will not know where the ball has been before, nor how many times it has bounced up and down. Finding the previous positions of the ball in the room is really difficult. Here is a video that offers a high level explanation.
@@ -72,7 +74,7 @@ Hash functions vary in their level of security, application and size. For exampl
 
 The example [below](https://blockgeeks.com/guides/what-is-hashing/) shows how two different inputs result with the same hash in two completely different outputs. Merely by analysing hashing patterns, it is impossible to recover the original input.
 
-![Hash examples](https://api.kauri.io:443/ipfs/QmQq91svuyqRM8bTDnrikSV1ugRZyMf7KYiux6Dy2NLh3W)
+![Hash examples](https://ipfs.infura.io/ipfs/QmQq91svuyqRM8bTDnrikSV1ugRZyMf7KYiux6Dy2NLh3W)
 
 **Hash functions in Blockchains**
 
@@ -141,6 +143,20 @@ Privacy-focused projects
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introduction-to-cryptography/7431fc3a27d44108b46f8a8a81f5802c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-01
+- **Kauri original tags:** encryption, privacy, cryptography, zero-knowledge-proofs
+- **Kauri original hash:** QmcHbNcC3286UrgHGhaDY6Ey6BnyDaC2npx92Sdf9V4wK4
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

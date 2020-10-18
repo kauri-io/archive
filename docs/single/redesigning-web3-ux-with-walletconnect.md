@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmZrSHYNCi8aPX9E4VYAMYdBX5tL3crDFxnZgb7EuebSdL)
+![](https://ipfs.infura.io/ipfs/QmZrSHYNCi8aPX9E4VYAMYdBX5tL3crDFxnZgb7EuebSdL)
 
 There are a lot of discussions around scalability in Ethereum but few around the experience for users to securely manage and control their keys. To get to mainstream adoption of a decentralized web there needs to be more work in the UX side otherwise users will fallback to centralized and custodial services.
 However a lot has improved in the past couple months since the price speculation noise has faded and the community was able to focus on core issues. More organized discussions and initiatives to create 
@@ -28,7 +28,7 @@ A couple of months back while struggling to find better Web3 UX alternatives, I 
 > 
 Balance Manager
 
-![](https://api.beta.kauri.io:443/ipfs/QmRnXT2NDLaGKPkyyL8Jww9FC1HtzPE2TFuevh2M4UUzch)
+![](https://ipfs.infura.io/ipfs/QmRnXT2NDLaGKPkyyL8Jww9FC1HtzPE2TFuevh2M4UUzch)
 
 We developed a prototype and were so excited with the results that we wanted to share with everyone so we open-sourced it as 
 [WalletConnect](https://github.com/WalletConnect)
@@ -41,7 +41,7 @@ WalletConnect
 The vision is to open the world of Dapps that has been enabled by Metamask to all of the mobile wallets available on iOS and Android without the compromise of a small screen or a restricted web view. A simple approach that resembles OAuth that can be implemented by any Dapp or Wallet.
 The feedback from the community was amazing and we had external contributions on Github within the first couple of hours. One month later, a lot of hard work was put into it by Jin Chung (Balance), Jaynti Kanani (Matic Network), Arron Hunt (Hart), Jeff Reiner (Contentful) and Witek Randomski (Enjin Network) which kickstarted the project to a great start.
 
-![](https://api.beta.kauri.io:443/ipfs/QmUeRBXMGBNwFNBstA9XsbECkKcipGFHbS87D2f4N3BsSe)
+![](https://ipfs.infura.io/ipfs/QmUeRBXMGBNwFNBstA9XsbECkKcipGFHbS87D2f4N3BsSe)
 
 Last Friday, the Ethereum Community Fund (ECF) in collaboration with Gitcoin have funded 6 bounties for WalletConnect as part of the Web 3.0 Infrastructure Fund Pilot Program which were claimed in less than two days.
 
@@ -54,7 +54,7 @@ In May, the Ethereum Foundation awarded WalletConnect with a
 grant
 But WalletConnect Foundation has the goal to push user experience even further. We are first focused in developing a set of easy-to-use libraries for connecting mobile wallets to desktop Dapps but we are not stopping there, we want to help developers provide better experience for their users to interact with their Dapp using any wallet.
 
-![](https://api.beta.kauri.io:443/ipfs/Qma4oYXiHaDLz9JuyMBXWhq2J75HoFtbByCLxscYk9Kax2)
+![](https://ipfs.infura.io/ipfs/Qma4oYXiHaDLz9JuyMBXWhq2J75HoFtbByCLxscYk9Kax2)
 
 As first designed by Richard Burton (Balance), we will be developing a 
 [WalletConnect Widget](https://github.com/WalletConnect/walletconnect-widget)
@@ -82,3 +82,17 @@ https://t.me/walletconnect
 https://github.com/walletconnect
 > 
 https://discord.gg/fM8kbHh
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/redesigning-web3-ux-with-walletconnect/d77f0c2ca81445f78a2974b5206c6891/a
+- **Kauri original author:** Pedro Gomes (@pedrouid)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmPCptN67UByk6yPPPrPMDoU3Saujkkw1gEAUpkdr8yxCK
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

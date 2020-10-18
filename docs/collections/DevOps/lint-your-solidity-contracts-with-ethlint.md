@@ -9,6 +9,8 @@ some_url:
 
 # Lint your Solidity contracts with Ethlint
 
+![](https://ipfs.infura.io/ipfs/QmdB7bqHShAvbtpEeg8L57FW4t1BA7kHKu2cHhUhbH6Lcr)
+
 
 Ethlint (Formerly Solium) analyzes your Solidity code for style & security issues and fixes them.
 
@@ -109,3 +111,17 @@ solium -d contracts/ --fix
 - Read the [Documentation](https://ethlint.readthedocs.io/).
 - [IDE and Editor Integrations](http://solium.readthedocs.io/en/latest/user-guide.html#index-9)
 - [Demo Video](https://www.youtube.com/watch?v=MlQ6fzwixpI)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lint-your-solidity-contracts-with-ethlint/1cf59f73db9948cf89019e59abb93146/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-28
+- **Kauri original tags:** linting, ethlint, best-practise-
+- **Kauri original hash:** QmNXkG1fEnMboYXPqJ7fabSo3rkHakvLt1hkc427pbmbZE
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

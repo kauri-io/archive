@@ -9,6 +9,8 @@ some_url:
 
 # Sia  Decentralized Cloud Storage
 
+![](https://ipfs.infura.io/ipfs/QmbKjyrRHif6WS2vkVErss1vdnWUDBv64eBk2ZfkJgvpRi)
+
 
 > Sia is a decentralized cloud storage platform and data storage marketplace. Sia encrypts and distributes your files across it's network, keeping your data private.
 
@@ -398,3 +400,17 @@ Now that we’ve covered the basics of using the API, you can find the complete 
   
 _, by Nebulous Inc., is a blockchain-based decentralized cloud storage platform._
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sia:-decentralized-cloud-storage/c9958fbe0a7f4a2abb6e25ad37ee1107/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-14
+- **Kauri original tags:** storage
+- **Kauri original hash:** QmT85UP6ZiMvyzXEtpKMoYLas1cA8jdazzMqgURbVXpkgk
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

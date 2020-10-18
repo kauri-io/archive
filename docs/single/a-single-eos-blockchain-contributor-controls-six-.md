@@ -9,6 +9,8 @@ some_url:
 
 # A Single EOS Blockchain Contributor Controls Six Block
 
+![](https://ipfs.infura.io/ipfs/QmYr8qZ83UzuGbXUKevBCKMuWorsaysudhcugeVTyFRiRK)
+
 
 EOS Block Producer, EOS New York, recently brought to light evidence that shows that a single entity manages six registered producers on the EOS blockchain.
 
@@ -26,3 +28,16 @@ EOS New York said "1/ Six registered producers on EOS are managed by a single en
 This data paved the way for another allegation against EOS, which works on a smart contract platform, enabling the millions of transactions per second with no cost of the transaction.
 
 Besides, the network operates on the delegated proof-of-stake mechanism wherein the network participants can stake coins. These funds allow users to vote for block producers as elected delegates. Interestingly, the community also supported the issue raised by EOS New York. As a way to address the issue, a few members are suggesting that the critical issue is the consensus mechanism while others are urging to reform the governance and voting system.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-single-eos-blockchain-contributor-controls-six-/021d3e4b4b594891adfe95b5855ef8fa/a
+- **Kauri original author:** Nelgzmatic Otty (@nelgzmatic)
+- **Kauri original Publication date:** 2019-11-30
+- **Kauri original tags:** cryptocurrency, blockchain, eos
+- **Kauri original hash:** QmdEmHPHGfrLV3NXjJ44zfPbLxYJrvyoU9Yg6Yi4fwgUtF
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -36,3 +36,17 @@ Skale Labs, BlockNative
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/flockonus/eth-denver-2019
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/radical-buidlers/e7cdcb4eefea48b4a3df48450403468c/a
+- **Kauri original author:** Sam Hutch (@samhutch)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-skale-2019, bounty-blocknative-2019
+- **Kauri original hash:** QmckG9vR3KWwEqb6CnGoF1aaBnUkVJ5EPZ246jgb8zudVb
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

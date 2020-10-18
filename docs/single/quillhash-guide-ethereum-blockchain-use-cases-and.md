@@ -77,3 +77,16 @@ It is harder for smaller business get funding  which sometimes become the reason
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 At QuillHash, we understand the Potential of Blockchain and have a good team of developers who can develop any blockchain applications like Smart Contracts, dApps, DeFi, DEX on the any Blockchain Platform like Ethereum, EOS and Hyperledger. 
+
+
+---
+
+- **Kauri original link:** https://kauri.io/quillhash-guide-ethereum-blockchain-use-cases-and/05e5b5275be9420b96cf1b879f255c47/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-08-24
+- **Kauri original tags:** ethereum, usability, defi
+- **Kauri original hash:** QmQcDd2voVtJngLHzNTybC5AyfzCt8QFDS7TJgobnnMaqD
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

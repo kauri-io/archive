@@ -167,3 +167,17 @@ function reveal(uint256 _bid, bytes memory randString) public
 ```
 function withdrawRefund() public
 ```
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/devcon5-osaka-online-ticket-auction/c26a5fcda75c4b35bbee651ae2beed98/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-08-27
+- **Kauri original tags:** smart-contract, ethereum, devcon, defi, devcon5
+- **Kauri original hash:** QmbVqLaLnFa4tSiehSvBUY82jkCsDLJksLaw2T7AQDTH1G
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # MythX is Upping the Smart Contract Security Game
 
+![](https://ipfs.infura.io/ipfs/QmY1nU5qRqkk2yywgY4cxZT8DdUbFQVHAGRMXUdEBjPPNn)
+
 
 Ethereum is in a dire situation. No, I’m not talking about the price of ETH. I’m talking about the prevalence of high-profile hacks that are harming trust towards decentralized applications and 
 [providing talking points for Bitcoin maximalists](https://medium.com/@jimmysong/the-truth-about-smart-contracts-ae825271811f)
@@ -43,7 +45,7 @@ Unbeknownst to the public, our team has spent the last six months cooking up the
  *  **Mythril++** , an improved version of the Mythril symbolic analyzer built by [Joran Honig](http://about.joranhonig.nl) , [Nikhil Parasaram](https://www.linkedin.com/in/nikhil-parasaram-1956b5134/) and others.
 We’re also building composite analysis tech that orchestrates the various components. For example, static analysis informs symbolic analysis, and the result of both are used to configure dynamic analysis. This allows us to produce highly accurate results with a minimum of false positives. The result is far beyond what any standalone tool on the market can deliver.
 
-![](https://api.kauri.io:443/ipfs/QmPUn1Yp5PLSDFH7D7ZpUBvFUJi6EJqrLZUR8LWyGSwoav)
+![](https://ipfs.infura.io/ipfs/QmPUn1Yp5PLSDFH7D7ZpUBvFUJi6EJqrLZUR8LWyGSwoav)
 
 All of this will be packaged into a SaaS solution called 
 [MythX](https://mythx.io)
@@ -81,3 +83,16 @@ The best way to get in contact is to ping the team on
  and the 
 [whitepaper](https://mythril.ai/files/whitepaper.pdf)
  for more information.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mythx-is-upping-the-smart-contract-security-game/b9057f45fcf247a586eaebee612568ec/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-04
+- **Kauri original tags:** mythril, security, dilligence, smart-contracts
+- **Kauri original hash:** QmYhwunizUSVBixthrj23nw1dKuqvaMaxXkiRAYhnBxxKN
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

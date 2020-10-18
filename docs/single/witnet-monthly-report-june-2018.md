@@ -101,3 +101,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-monthly-report-june-2018/e00868d12f0c4164a4938088ca98c83e/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYD6XnrQwQBeihLDmhivoMfTVmWbefwmgcaPMaCSSLQCn
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

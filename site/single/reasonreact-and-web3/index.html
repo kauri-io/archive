@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>ReasonReact and Web3 &mdash; Kauri</title>
+    <title>ReasonReact and Web3 &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1118,8 +1121,8 @@ In the Web3 world, you carry your identity by your private key which can also be
 <h3 id="browserweb3capabilities">BrowserWeb3Capabilities</h3>
 <p><code>&lt;BrowserWeb3Capabilities /&gt;</code></p>
 <p>Here I am going to outline a component API in ReasonML to connect your dApp's business logic and the Web3 state of the world.</p>
-<p><img alt="/BrowserWeb3Capabilities.png" src="https://api.beta.kauri.io:443/ipfs/QmV2NY2CGcAzRee5d5DgzyCPvmZr1QZqdzzcnEDTxFZKnm" /></p>
-<p><img alt="/BrowserWeb3State.png" src="https://api.beta.kauri.io:443/ipfs/QmSkzyg9VhhEXKkP1GMbrshSLcwvnWQppyu5z7gzgunCrs" /></p>
+<p><img alt="/BrowserWeb3Capabilities.png" src="https://ipfs.infura.io/ipfs/QmV2NY2CGcAzRee5d5DgzyCPvmZr1QZqdzzcnEDTxFZKnm" /></p>
+<p><img alt="/BrowserWeb3State.png" src="https://ipfs.infura.io/ipfs/QmSkzyg9VhhEXKkP1GMbrshSLcwvnWQppyu5z7gzgunCrs" /></p>
 <blockquote>
 <p>We use <em>is</em>, <em>can</em> and <em>has</em> prefixes for the props that revolve around this Web3 component's capabilities!</p>
 </blockquote>
@@ -1127,11 +1130,11 @@ In the Web3 world, you carry your identity by your private key which can also be
 <li>Internally the component polls the Web.js library and sets React state starting via componentDidMount().</li>
 <li><em>isLoggedIn</em>, <em>currentLoggedInAddress</em> props are passed to our component for deriving state from props passed in from your own dApp. Did say they were business logic!</li>
 </ol>
-<p><img alt="/BrowserWeb3Actions.png" src="https://api.beta.kauri.io:443/ipfs/QmfQuawGF9bbkp8Ln9bTwB1Hn76TGGsS6KuAZgEUg7js7w" /></p>
+<p><img alt="/BrowserWeb3Actions.png" src="https://ipfs.infura.io/ipfs/QmfQuawGF9bbkp8Ln9bTwB1Hn76TGGsS6KuAZgEUg7js7w" /></p>
 <blockquote>
 <p>Actions are enums but in ReasonML they're variant types with constructors. You see they're wrapping a typed value. Think of them as action.payload in React.js but with amazing type inference.</p>
 </blockquote>
-<p><img alt="/BrowserWeb3Reducer.png" src="https://api.beta.kauri.io:443/ipfs/QmUU5naDfUjjN4JAyqN1BbEZ5pPMWC2cL6ASncftPvyqyW" /></p>
+<p><img alt="/BrowserWeb3Reducer.png" src="https://ipfs.infura.io/ipfs/QmUU5naDfUjjN4JAyqN1BbEZ5pPMWC2cL6ASncftPvyqyW" /></p>
 <blockquote>
 <p>ReasonReact has the redux reducer model built into its components but is based on the ReasonML/OCaml based pattern type matching.
 Those above actions are types right... you can wrap the action payload in a type and switch case over it, that's it! <strong>OMG</strong>.</p>
@@ -1191,7 +1194,16 @@ Well still not quite until the next part of the series :(.</p>
 <hr />
 <h2 id="browserweb3capabilitiesmake">BrowserWeb3Capabilities.make()</h2>
 <p>Here's the ReasonReact component implementation code btw!</p>
-<p><img alt="/BrowserWeb3Make.png" src="https://api.beta.kauri.io:443/ipfs/QmS2v8ZEm9B2QwoZaqQ3dcykbURexT4JLFkW4wkJXAjLfb" /></p></div>
+<p><img alt="/BrowserWeb3Make.png" src="https://ipfs.infura.io/ipfs/QmS2v8ZEm9B2QwoZaqQ3dcykbURexT4JLFkW4wkJXAjLfb" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/reasonreact-and-web3/99d20b1ab1bc43518bf65cdefd77c445/a</li>
+<li><strong>Kauri original author:</strong> Eric Juta (@ericjuta)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-19</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qmf6ZRGc5BwrLTUpPcWBppNmZA3T9tanz79PyyZ84i4mEb</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../get-started-with-colonyjs/" title="Get Started with colonyJS"><span>Previous</span></a></div>

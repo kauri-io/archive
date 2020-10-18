@@ -9,6 +9,8 @@ some_url:
 
 # Using Besu, the Java Ethereum Client with Linux/MacOS
 
+![](https://ipfs.infura.io/ipfs/QmUzvLvjLLisUjUunfW81gqCuZ32Uhn5mdiidJ7ArKkkb4)
+
 
 ![Toolbelt: Besu included!](https://i.imgur.com/LhdU0DH.jpg)
 Original photo by [Jesse Orrico](https://unsplash.com/@jessedo81?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
@@ -227,3 +229,16 @@ That request should return the following result:
 ```
 
 Find more information in the [Besu documentation](http://besu.hyperledger.org/).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/using-besu-the-java-ethereum-client-with-linuxmac/276dd27f1458443295eea58403fd6965/a
+- **Kauri original author:** Felipe Faraggi (@felipefaraggi)
+- **Kauri original Publication date:** 2019-11-22
+- **Kauri original tags:** ethereum, pegasys, java, installation, client, pantheon, besu
+- **Kauri original hash:** QmYiNu6o74Y3GaMH7PrNmFzpxadbMgf2vPtbQ6BV63ENvp
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

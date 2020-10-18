@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/Qmd32MCdPPq12yGQJE5ZjJ2YF6u7U3doePaHRc2uqmDNxM)
+![](https://ipfs.infura.io/ipfs/Qmd32MCdPPq12yGQJE5ZjJ2YF6u7U3doePaHRc2uqmDNxM)
 
  
 [#PrivacyMatters](https://twitter.com/search?q=%23PrivacyMatters&src=typd)
@@ -30,7 +30,7 @@ This privacy ontology shall provide developers and service providers with an ove
 
 ### Ontology? Some first basics concepts
 
-![](https://api.kauri.io:443/ipfs/QmSVfVqmoyRSF5qBtrcrikmfb7uupoU9ebHW1DKVMFA2S1)
+![](https://ipfs.infura.io/ipfs/QmSVfVqmoyRSF5qBtrcrikmfb7uupoU9ebHW1DKVMFA2S1)
 
 Let’s start by defining our concept of ontology for each one of us does have his/her own and respectful appreciation of the word. In general and widely, ontology questions the meaning of being, of what ‘is,’ or in other words, how we know what we know. “What does it mean to be, or exist” could be considered the inaugural question. And this is the question most of the early philosophers ask themselves, i.e. Parmenides and Plato. In other word, ontology asks about the meaning of being, related to the being-in-action ( 
 [Etre de l’étant)](https://www.proz.com/kudoz/french-to-english/philosophy/5060552-l%E2%80%99%C3%A9tant-vs-l%C3%AAtre.html)
@@ -40,7 +40,7 @@ _Etre comme tel_
 
 ### Privacy — a quick view and its evolution
 
-![](https://api.kauri.io:443/ipfs/QmYhXYnTWDPVVMFW5qmF949XkDVWvGkWFT3hLQPoZH4zeH)
+![](https://ipfs.infura.io/ipfs/QmYhXYnTWDPVVMFW5qmF949XkDVWvGkWFT3hLQPoZH4zeH)
 
 Speaking and writing about the endogenous concept of privacy forces us to take into consideration many notions. The concept itself has evolved over time when the first public records related to privacy is said to come from Warren and Brandeis in their “Right to Privacy”(1) which was published in a legal publication at the end of the 19th century. For these jurists, privacy meant 
 **“the right to be left alone.”**
@@ -72,7 +72,7 @@ Privacy sounds interesting when it comes to access control from a data subject p
 
 ### Toward a Privacy Ontology
 
-![](https://api.kauri.io:443/ipfs/Qma3Ro63Kga9TaDcCWygmjpcei88PQ6wdir14ah8ULMYxC)
+![](https://ipfs.infura.io/ipfs/Qma3Ro63Kga9TaDcCWygmjpcei88PQ6wdir14ah8ULMYxC)
 
  
 **Building an ontology could be related to using a doable method for seizing and structuring the knowledge in the domain of privacy.**
@@ -103,3 +103,17 @@ Moreover, this methodology also permits to include knowledge during the building
  *  _Privacilla’s Two-Part Definition of Privacy_ , [http://www.privacilla.org,](http://www.privacilla.org,)  [http://www.privacilla.org/fundamentals/privacydefinition.html,](http://www.privacilla.org/fundamentals/privacydefinition.html,) 2003
 
  * Nicola Guarino & Steffen Staab & Rudy Studer, Handbook on Ontologies, Berlin, Springer Verlag, 2003, p.14
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introduction-to-a-privacy-ontology/f7b84779281a420a8a710cecc72cd552/a
+- **Kauri original author:** Beni Issembert (@bissembert)
+- **Kauri original Publication date:** 2019-06-23
+- **Kauri original tags:** privacy, privacy-blockchain, philosophy
+- **Kauri original hash:** QmUVGSbWUQdxuL255MQSwqJ43A3Je8moBrQAWPQPXLuFSs
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

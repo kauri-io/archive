@@ -11,3 +11,16 @@ some_url:
 
 
 Test3
+
+
+---
+
+- **Kauri original link:** https://kauri.io/test3/552533a508524661b43a4538efa6f12e/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmbm4vRZrSwKhn5En2BKZp4BvRnagCYM8jBcbs1HaEZjb6
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

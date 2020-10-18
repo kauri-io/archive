@@ -9,6 +9,8 @@ some_url:
 
 # How to earn money while workin toward Hacktoberfest
 
+![](https://ipfs.infura.io/ipfs/QmVBdXko8t6SAv91SN4V8qdK3RmDRWEZVxXVMCj4ZCHy2Y)
+
 
 
  [Hacktoberfest](https://hacktoberfest.digitalocean.com/) is upon us! For all of October you can earn a GitHub T-shirt (and prestige) by submitting at least 5 pull requests after signing up. To celebrate all the amazing contributions being made to Open Source this month, Gitcoin is posting bounties on issues for our favorite projects. We are still taking more [Requests](https://gitcoin.co/requests) , so don’t forget to submit issues from your favorite projects.
@@ -164,3 +166,17 @@ Here’s some of the bounties we’ve put up:
 
 Many of these bounties are funded by Gitcoin with the the goal of growing open source. Many others are funded through [grants we’ve received](https://medium.com/gitcoin/grow-open-source-ethereum-foundation-grant-d393802fe9aa) from the Ethereum Foundation in order to support the community and ecosystem.
 Now get out there and complete some bounties!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-earn-money-while-workin-toward-hacktoberfe/9d180d91abd5467d9d2dbfcaaa93ce63/a
+- **Kauri original author:** Gitcoin (@gitcoin)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmf27x2jmw7BxyNrvq4CmavNrm2MQyEVHZy3swCtQUyXXq
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Gitcoin - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmRDAJasZJn9kZdUveyby9VnQcCAFWDFPtyWCGbhH4izFv)
+
 
 ## Company/Project Name and Description
 
@@ -41,6 +43,20 @@ Originality + Wow Factor
 ## Contact Information
 
 Kevin Owocki - kevin@gitcoin.co
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gitcoin-sponsor-bounty-at-ethdenver-2019!/6c9126267c72443a8d23bea394dfa577/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmWfPfUhda17W742TXK1CcB8WA18HELvRkhSzoptuHd8Vi
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

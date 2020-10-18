@@ -9,6 +9,8 @@ some_url:
 
 # OpenZeppelin Part 1  Introductory
 
+![](https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG)
+
 
 ## Introductory To OpenZeppelin
 
@@ -74,3 +76,16 @@ Documentation and Next Steps:
 - <https://github.com/OpenZeppelin/openzeppelin-solidity>
 - <https://openzeppelin.org/>
 - [Examples of contracts that use the OpenZeppelin library](https://github.com/OpenZeppelin/openzeppelin-solidity/tree/2c34cfbe0ea5b2969ca5a13710694f44c1be3e6a/contracts/mocks)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openzeppelin-part-1:-introductory/c3ef30099d1e404180067ed4f656aad2/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** smart-contract, openzeppelin, zeppelin, solidity
+- **Kauri original hash:** QmTgSJ69J6KmHojB1DZdb2nrudnjcvPn2udwWmXgXjexgk
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

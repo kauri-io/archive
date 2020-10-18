@@ -9,6 +9,8 @@ some_url:
 
 # Lint your Solidity contracts with Solhint
 
+![](https://ipfs.infura.io/ipfs/QmXJRvZDVnQqrd1L8cQUdCXe1Kk8KrBVunZt4yHVmzqfPH)
+
 
 Solhint is an open source project for linting [Solidity](http://solidity.readthedocs.io/en/develop/) code. This project
 provides both **Security** and **Style Guide** validations.
@@ -166,3 +168,16 @@ Or disable all validations for a group of lines:
          https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)**
   - **[VS Code: Solidity Language Support by CodeChain.io](
          https://marketplace.visualstudio.com/items?itemName=kodebox.solidity-language-server)**
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lint-your-solidity-contracts-with-solhint/2ff86d30589b4832ad90f6c87c08fbea/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-05
+- **Kauri original tags:** linting, solhint, best-practise-
+- **Kauri original hash:** QmPZ2PzAwgAAamV6LXz4hHpLQaGyRgUaWpwhiEZSEaP17P
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

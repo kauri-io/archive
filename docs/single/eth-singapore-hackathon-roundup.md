@@ -9,6 +9,8 @@ some_url:
 
 # ETH Singapore Hackathon - Roundup
 
+![](https://ipfs.infura.io/ipfs/QmZZniGS35z84VCJWRANgtK9URg53fXJe7QPcXzrWUX3P9)
+
 
 The first South East Asia marathon ever, saw an incredible crowd immerse in an extremely creative venue. ETH Global and the local ETH Singapore team have shown a flawless execution, which have left all the attendees extremely happy.
 
@@ -66,5 +68,19 @@ Built on top of Kyber Network and Vault, DAICO Hedge allows owners of DAICO cont
 Day.ly team built an Ethereless wallet DAI wallet. It allows for payment without paying for gas cost in Ether . Instead the wallet uses a meta transaction provider which issues the transaction in place of the originator and pays the gas cost. The transaction provider charges a small fee to compensate for the gas cost incurred and the fee.
 
 ### One more thing...
-![ETH-CAPETOWN](https://api.beta.kauri.io:443/ipfs/QmNs87WayJqWyMiPcbUGirxuymMrjxMcvo778WT38nSznB) 
+![ETH-CAPETOWN](https://ipfs.infura.io/ipfs/QmNs87WayJqWyMiPcbUGirxuymMrjxMcvo778WT38nSznB) 
 Before closing the ceremony, the ETH Global team has announced [ETH Cape Town](https://ethcapetown.com/), on April 19, 2019. [Check out their website](https://ethcapetown.com/) and let's see you there!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-singapore-hackathon-roundup/c38807b010d74c2a9e91a742eae6cc29/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2018-12-10
+- **Kauri original tags:** none
+- **Kauri original hash:** QmeUFi1XNJ5KZUFRPCX3RV3p87vsoApCHWbA5XvTvUd5ZR
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

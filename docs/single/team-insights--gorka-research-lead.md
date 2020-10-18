@@ -62,3 +62,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/team-insights:-gorka-research-lead/b6d848a946a24482b7f7b6bbd94030a4/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQHHsVuGAqSV36pCjwkHZQCYWLLaSJinr8eFV9bAc5LGp
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

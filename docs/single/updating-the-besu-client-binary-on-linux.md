@@ -9,6 +9,8 @@ some_url:
 
 # Updating the Besu client binary on Linux
 
+![](https://ipfs.infura.io/ipfs/QmTpqQxw6J2L5CiaxdGM4iK98rzwpPkKFmrc3FXv7t5gMU)
+
 
 If you've read the [previous article on how to add the Besu Binary to your PATH](https://kauri.io/installing-besu-binary-on-linux/e00df6efcb644e07ab44df169d9375e9/a), then updating the client is very easy.
 
@@ -46,3 +48,16 @@ Get more information on Besu here:
 [Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)  
 [Jira](https://jira.hyperledger.org/projects/BESU/issues)  
 [Web](https://pegasys.tech/solutions/hyperledger-besu/)  
+
+
+---
+
+- **Kauri original link:** https://kauri.io/updating-the-besu-client-binary-on-linux/b8900d3bcd5347a5bd88999b366561bc/a
+- **Kauri original author:** Felipe Faraggi (@felipefaraggi)
+- **Kauri original Publication date:** 2020-02-25
+- **Kauri original tags:** linux, besu
+- **Kauri original hash:** QmX9BgaG2xrGKz9NoK3cLSSfCdG6qb59N3NbaEr4xhjM33
+- **Kauri original checkpoint:** unknown
+
+
+

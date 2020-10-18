@@ -53,3 +53,17 @@ https://github.com/solipsis/ethsplain
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-ethsplainer/ca2ba545af584220aa169a164349a852/a
+- **Kauri original author:** Dave Alexander (@dave-alexander)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmRfg2jG2H2BvbYAW14svhRb1xQ6V1683RS8uZG9zrPkkq
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # New Digital Token regulation in Malaysia  in 2020 - ICOs out, IEOs in
 
+![](https://ipfs.infura.io/ipfs/QmZW2Hx4TbFATTLoBeqWBMhtt24iBLktJzqN4AYNSF6wQ9)
+
 
 Securities Commission Malaysia published on 15th January 2020 a new regulatory Guideline on Digital Assets. The guideline outlines a framework for digital token offerings in Malaysia, previously known as ICOs.
 
@@ -60,3 +62,16 @@ This new development can be viewed in a few different ways:
 * [Read the complete guidelines here](https://www.sc.com.my/api/documentms/download.ashx?id=dabaa83c-c2e8-40c3-9d8f-1ce3cabe598a)
 
 _Image by [beate bachmann](https://pixabay.com/users/spirit111-5026413/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2718016) from [Pixabay](https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=2718016)_
+
+
+---
+
+- **Kauri original link:** https://kauri.io/new-digital-token-regulation-in-malaysia-in-2020-/83611f58e7534b1e8e53b3ed406d7fdc/a
+- **Kauri original author:** Zaim Bakar (@zaim)
+- **Kauri original Publication date:** 2020-01-30
+- **Kauri original tags:** ieo, ico, cryptoeconomics, defi, malaysia
+- **Kauri original hash:** QmU4Em3zp7UXjia1HstJWLAo28xNGdBhgekv4NS5ttgXZW
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Building and Working with Facebook’s Cryptocurrency Libra &mdash; Kauri</title>
+    <title>Building and Working with Facebook’s Cryptocurrency Libra &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -668,8 +671,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -768,10 +771,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1053,7 +1056,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1062,25 +1065,26 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="building-and-working-with-facebooks-cryptocurrency-libra">Building and Working with Facebook’s Cryptocurrency Libra</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ6Ja45gL89wV6vxiiqtBGzyShj3Q4LCe7bphvBjWLLoM" /></p>
 <p><em>EDIT: I work at ConsenSys Academy, creating educational content similar to this. I teach developers and non-developers on how to use the Ethereum Blockchain. If you enjoy this content on Libra and want to learn more about blockchain, I highly recommend you sign up for <a href="https://learn.consensys.net/catalog/info/id:141?utm_source=kauri&amp;utm_medium=post&amp;utm_campaign=libra">the Developer Program On-Demand.</a></em></p>
 <p>Even though Facebook's name is hard to find on <a href="https://libra.org">the Libra website</a>, the long term plan is for it to integrate with their forthcoming <a href="https://newsroom.fb.com/news/2019/06/coming-in-2020-calibra/">Calibra wallet</a>, and then, the whole game plan might make more sense. For now, the intention of Libra appears to a global currency, maybe for those who have little access to banks, or maybe for the global citizens of Facebook.</p>
 <p>With partnerships with major "old finance" enterprises on board such as Mastercard, PayPal, Stripe and Visa, it's hard to know if Libra will be the injection that cryptocurrencies have always needed or the end of cryptocurrencies as we all know them.</p>
 <p>We don't know for now, but in this post, we take a quick look through the getting started guide for the project and what we can accomplish with it. This is early days for the project, and we tested quickly, so some details are missing.</p>
 <h3 id="setup">Setup</h3>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVQ4zYoysUEc4bB1U59eVBF284NVT7hEbBhCiFVQmV9Zo" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVQ4zYoysUEc4bB1U59eVBF284NVT7hEbBhCiFVQmV9Zo" /></p>
 <p>We followed <a href="https://developers.libra.org/docs/my-first-transaction#clone-and-build-libra-core">the setup instructions in the documentation</a> on macOS which worked with out any issues and downloaded any dependencies missing from our local system.</p>
 <p>We noticed that Libra is using <a href="https://rocksdb.org">rocksdb</a> for storage, which is unsurprising as it's a popular option and also created by Facebook. There are other dependencies, mostly used for cryptography and storage, you can see the full list in the various <em>Cargo.toml</em> files in the repository. Which also shows that most of Libra is written in Rust. Interestingly we noticed that Libra uses the <a href="https://github.com/rust-bitcoin/bitcoin_hashes">Rust Bitcoin hashes</a> project for hashing, plus a handful of Parity labs modules.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYkHTwBEuNrEJD9VpPJySN5VRPbvm9naoioQ3We2tQCr7" /></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVeFKQwJoKAGzmPbqx8ZwbbiJkKzhYCc5Vke7n1cRATab" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYkHTwBEuNrEJD9VpPJySN5VRPbvm9naoioQ3We2tQCr7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVeFKQwJoKAGzmPbqx8ZwbbiJkKzhYCc5Vke7n1cRATab" /></p>
 <h3 id="build-and-connect">Build and connect</h3>
 <p>After setup, <a href="https://developers.libra.org/docs/my-first-transaction#build-libra-cli-client-and-connect-to-the-testnet">you can build the CLI client and connect to the testnet</a>. This takes some time and uses a reasonable amount of your computer resources, but again completed with no issues. At the end of the build process, your local machine connects to a validator node and provides you with an interface to the node.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmQ8yfWSAaw9VcfQgAEFzBe6QdyJrVtaKLXM9s8VoN2789" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ8yfWSAaw9VcfQgAEFzBe6QdyJrVtaKLXM9s8VoN2789" /></p>
 <p><a href="https://developers.libra.org/docs/my-first-transaction#create-alice-s-and-bob-s-account">Next, we tried creating accounts</a>, which worked fine. There are three main functions: <code>account</code>, <code>query</code>, <code>transfer</code>; all of which are relatively self-explanatory. In this step of the tutorial, we create two accounts, each of which has their own index and hex address. You can use the index value instead of the address in other CLI commands to reference the account you want to interact with.</p>
 <h3 id="add-coins">Add coins</h3>
 <p><a href="https://developers.libra.org/docs/my-first-transaction#add-libra-coins-to-alice-s-and-bob-s-accounts">Next, we add Libra coins using a time-honored faucet</a>. We noticed that the testnet faucet has a limit of 5 requests per minute, which is not realistic for a real-world payment option, hopefully, this is just testnet rate limiting.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmUtmEMhSd97NF7s7fqAfNJuZuMix3kgW8DGLAKCaYM4XY" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUtmEMhSd97NF7s7fqAfNJuZuMix3kgW8DGLAKCaYM4XY" /></p>
 <p>At this point, we also noticed that using the <code>query account_state 0</code> command returned a couple of interesting field values, including a <code>Blockchain version</code> value, a "sequence number" (kind of like a nonce). The account also had a state before we have yet pushed the account values to the blockchain. This is different from Ethereum or Bitcoin and means that either account generation must also have an event which pings testnet or that if it's a valid account number, Libra returns its balance as "none", but validates it's a compliant address.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmbbYY1b1iv2WgH8oAM4ZBDSVTJ1PpjC5dmAMvRwTU1ayi" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbbYY1b1iv2WgH8oAM4ZBDSVTJ1PpjC5dmAMvRwTU1ayi" /></p>
 <p><em>Update 1: <a href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://developers.libra.org/docs/assets/papers/the-libra-blockchain.pdf">Reading the technical whitepaper</a> found this:</em></p>
 <p><em>"The new account is created in the ledger state when a transaction sent from an existing account invokes the
 <code>create_account(a)</code> Move [ed: Libra’s blockchain VM language] instruction. This typically happens when a transaction attempts to send Libra to an account at address a that has not yet been created"</em></p>
@@ -1090,7 +1094,16 @@
 <p><a href="https://developers.libra.org/docs/my-first-transaction#submit-a-transaction">Next, we tried sending a transaction between accounts</a>. This step reintroduces the sequence value mentioned above, as you can query the sequence to understand the number of transactions on each account so far. Once you have submitted the transaction, you can query for the status to find out when the validator node has accepted it. You can also use a "blocking transfer" to only return to the client when a validator node has validated a transaction.</p>
 <h3 id="summary">Summary</h3>
 <p>What's most interesting about Libra is that we're seeing how another set of engineers maybe not so steeped in the crypto-world would build a blockchain. That's not to say their choices are better or worse, but it's interesting.</p>
-<p>Who knows what Facebook (sorry Libra's) aim with this new crypto currency is, but in the meantime, if you're working on a DeFi project, it may be a well engineered solution that's worth investigating.</p></div>
+<p>Who knows what Facebook (sorry Libra's) aim with this new crypto currency is, but in the meantime, if you're working on a DeFi project, it may be a well engineered solution that's worth investigating.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-and-working-with-facebook-s-cryptocurren/cc41c516e62a4ca593f5ecdd86bdf299/a</li>
+<li><strong>Kauri original author:</strong> Coogan (@cooganb)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-02</li>
+<li><strong>Kauri original tags:</strong> blockchain, facebook, libra, tutorial</li>
+<li><strong>Kauri original hash:</strong> Qmb3gGNy79daQzJKy2Vy5Gk4rimPsRUfZqoFmbsifUnQZV</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../../Flexible%2C%20Upgradeable%20%26%20Highly%20Available%20NFTs/creating-a-flexible-nft-%28part-2%29/" title="Creating a Flexible NFT (Part 2)"><span>Previous</span></a></div>

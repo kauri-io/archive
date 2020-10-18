@@ -14,7 +14,7 @@ some_url:
 _ConsenSys Diligence is a ConsenSys service providing [audits of smart contracts and programs built off the Ethereum network](https://consensys.net/diligence/). Periodically, ConsenSys Diligence will publish a summary of an audit, including weaknesses and recommendations for clients. Recently, the Diligence team completed an audit for the 0x protocol v2 upgrade. Read a recap of the team’s conclusions below._
  
 
-![](https://api.kauri.io:443/ipfs/QmPyrBr5KpJg4b8sCk6GHPnoJE3s4F7qyHDEfUFP6o5s1Y)
+![](https://ipfs.infura.io/ipfs/QmPyrBr5KpJg4b8sCk6GHPnoJE3s4F7qyHDEfUFP6o5s1Y)
 
 
 ### Scope
@@ -26,13 +26,13 @@ The in-scope items can be divided into the following three distinct parts:
  *  **Asset Proxy** is responsible for decoding asset-specific metadata contained within an order, performing the actual asset transfer and authorizing/unauthorizing Exchange contract addresses from calling the transfer methods.
  *  **Forwarder** enables users to buy assets (ERC20 or ERC721 tokens) with ETH. It removes the required knowledge of WETH and allowances.
 
-![](https://api.kauri.io:443/ipfs/QmT1AMYm75XjuogAY7JCmoH1h6JvbNmCxdaoQ6TAgEHZsU)
+![](https://ipfs.infura.io/ipfs/QmT1AMYm75XjuogAY7JCmoH1h6JvbNmCxdaoQ6TAgEHZsU)
 
 
 ### Issue Overview
 25 issues were identified during the audit. About half of the issues have been prioritised and already fixed during the initial audit phase. Remediation efforts to fix the remaining issues are currently ongoing. The full list of issues can be found in the issue table overview.
 
-![](https://api.kauri.io:443/ipfs/QmNQ8xqUDtpfg74Ew9cNo235G3ZvTuWF1SE6R7UKdLUier)
+![](https://ipfs.infura.io/ipfs/QmNQ8xqUDtpfg74Ew9cNo235G3ZvTuWF1SE6R7UKdLUier)
 
 
 ### Recommendations
@@ -65,4 +65,17 @@ The complete report for the audit has been published
 [here](https://github.com/ConsenSys/0x_audit_report_2018-07-23)
  . Github issues were created in a separate audit working repository and links contained in the report are only accessible to the 0x team and the ConsenSys Diligence audit team.
 
-![](https://api.kauri.io:443/ipfs/QmW8tro1jwV1iJ7vNQ4pra6Sho9XcDv2ZfQd693RemSxhW)
+![](https://ipfs.infura.io/ipfs/QmW8tro1jwV1iJ7vNQ4pra6Sho9XcDv2ZfQd693RemSxhW)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/auditing-the-0x-protocol-v2-with-consensys-dilige/db4ae4880b3e4bc399279ada15b04411/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-04
+- **Kauri original tags:** security, audit, 0x, smart-contracts, diligence
+- **Kauri original hash:** QmXugvwuZzJVMuseNCMBHh8MQGQUYVmDhtnG8ivkh7WXSB
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

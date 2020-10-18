@@ -14,7 +14,7 @@ Team Sputnik is pushing the limits of private smart contracts by creating an ass
 
 https://devpost.com/software/sputnik
 
-![](https://api.beta.kauri.io:443/ipfs/QmdLyJwwyJincntk2jrVRp4TkX9U6ZX69XEqnSH3phTGA7)
+![](https://ipfs.infura.io/ipfs/QmdLyJwwyJincntk2jrVRp4TkX9U6ZX69XEqnSH3phTGA7)
 
 #### Inspiration
 Apparently, fully homomorphic encryption is impractical? Until now...
@@ -50,3 +50,16 @@ Launch it into orbit...
  [GitHub Repo](https://github.com/nucypher/Sputnik)
 
  [docs.google.com](https://docs.google.com/presentation/d/1haXqjNmm3FZA9OvY9BdW4rVR4h9ZQoCzUmRpmL5oEvg/edit?usp=sharing)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sputnik/8806bbaf6a924a6b91f2b1400f31bb81/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSp6iCtnSMi8RR1CNeEfS1XuCi93APNfJWbfysGJnnjvs
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

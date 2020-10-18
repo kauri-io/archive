@@ -9,6 +9,8 @@ some_url:
 
 # Running a Pantheon Node in Java Integration Tests
 
+![](https://ipfs.infura.io/ipfs/QmPS8X2k3fEVfFr37L2Paq8Gj1KVgMBEKAHMdLyNrSxsHa)
+
 
 The first problem you are likely to meet when attempting to write integration tests for your Java Ethereum application is that you need a running node to connect to for sending transactions. One option to overcome this is to run a node yourself manually in the background, but this becomes hard to manage if you want to run your tests in a CI pipeline, and forcing all contributors to you codebase to run a node manually is not ideal. Luckily there's a better way!
 
@@ -124,3 +126,16 @@ public void shutdownWeb3j() {
 Using the Testcontainers library to start a Pantheon node is a convenient way to ensure that an Ethereum node is accessible to your tests. This makes running the tests in your continuous integration pipeline less arduous, and also means that other third party contributors can run your tests on their local machine more easily.
 
 You can find an example test class demonstrating the code described in this tutorial [on GitHub](https://github.com/kauri-io/java-web3j-pantheon-testing/blob/master/src/test/java/io/kauri/java/test/TestWeb3jPantheon.java), from the [java-web3j-pantheon-testing](https://github.com/kauri-io/java-web3j-pantheon-testing) project.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/running-a-pantheon-node-in-java-integration-tests/7dc3ecc391e54f7b8cbf4e5fa0caf780/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-08-13
+- **Kauri original tags:** ethereum, junit, java, web3j, testing, pantheon
+- **Kauri original hash:** QmUAyrxMcrhPuX1AjXenAcrE46e42Dm9sdZio9mJd8QZ4X
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # An Introduction to Smart Contracts with Solidity
 
+![](https://ipfs.infura.io/ipfs/QmeN9SKhoubbXwfpSdprqKF8bmNVmW6JaBB99MdwuGtuLj)
+
 
 Smart contracts are programs which govern the behaviour of accounts within the Ethereum state, and Solidity is an object-oriented, high-level language for implementing smart contracts.
 
@@ -55,3 +57,17 @@ This introduction and example was taken from [the official Solidity documentatio
 -   [The more advanced subcurrency example](https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#subcurrency-example)
 -   [A selection of smart contract examples](https://solidity.readthedocs.io/en/latest/solidity-by-example.html)
 -   [An in-depth guide to the language core concepts](https://solidity.readthedocs.io/en/latest/solidity-in-depth.html)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/an-introduction-to-smart-contracts-with-solidity/6479f4a2cb3446d790dd27e8aeb36f63/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-30
+- **Kauri original tags:** ethereum, smart-contracts, solidity
+- **Kauri original hash:** QmSXAzZk2YzuDvTGy8mQHy3pFjEP3QKKQYB7GXTakFshNd
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

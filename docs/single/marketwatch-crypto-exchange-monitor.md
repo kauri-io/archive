@@ -40,3 +40,17 @@ Open
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/marketwatch-crypto-exchange-monitor/4c46af598aa24bf4bbf3bfe349afb133/a
+- **Kauri original author:** Cooper Wiegand (@cooper-wiegand)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, shapeshift
+- **Kauri original hash:** QmTE57AyYrLvsZtfdr9qCpWwToU1jRjAYbv5Z11VJssSid
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

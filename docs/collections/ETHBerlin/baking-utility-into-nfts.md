@@ -21,3 +21,16 @@ By Christopher Robison
 [Keynote Slides](https://www.icloud.com/keynote/0DUPpjDqH9K3wnIY8ilClav9g#EthBerlin_-_Baking_Utility_NFTs_-_KEYNOTE)
 
 [NFTweets Demo on Mainnet](http://nftweets.com/)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/baking-utility-into-nfts/c5f31cd6bd464d15aa7c8e10fa35c55f/a
+- **Kauri original author:** Kendall Cole (@kendall)
+- **Kauri original Publication date:** 2018-09-14
+- **Kauri original tags:** none
+- **Kauri original hash:** QmY21rfny2GN61emWzpQT5G6jL58wcCmGAiqtVyjW31h6j
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

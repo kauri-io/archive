@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Truffle 101 - Development Tools for Smart Contracts &mdash; Kauri</title>
+    <title>Truffle 101 - Development Tools for Smart Contracts &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -666,8 +669,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -766,10 +769,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1051,7 +1054,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1060,6 +1063,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="truffle-101-development-tools-for-smart-contracts">Truffle 101 - Development Tools for Smart Contracts</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdXomD6zYFydtj7o634U3cgWxfGWwnm6XUEVrH1VVB4G" /></p>
 <p>Truffle is a suite of tools to help Dapp developers build, deploy and manage their applications. The three tools provide a stack for managing the development lifecycle of an application similar to those you may have used with other languages and frameworks. These are:</p>
 <ul>
 <li><a href="https://truffleframework.com/ganache">Ganache</a>, for starting a personal test Ethereum blockchain on your machine.</li>
@@ -1069,7 +1073,7 @@
 <p>Each tool has its own features and functionality summarized below, for full details read <a href="https://truffleframework.com/docs">the Truffle documentation</a>.</p>
 <h3 id="ganache">Ganache</h3>
 <p>Available as a cross-platform GUI application or command line tool (<code>ganache-cli</code>), Ganache starts a local and personal Ethereum blockchain on your machine useful for testing, and other aspects of the Truffle Suite. Alongside this are tabs for details on settings, accounts, blocks, transactions, and logs.</p>
-<p><img alt="The Ganache Interface" src="https://api.beta.kauri.io:443/ipfs/QmZxcN6LHeoP28KeGuVM9aXywhHuiH7a5C3QVF3M4tJLMe" /></p>
+<p><img alt="The Ganache Interface" src="https://ipfs.infura.io/ipfs/QmZxcN6LHeoP28KeGuVM9aXywhHuiH7a5C3QVF3M4tJLMe" /></p>
 <h3 id="truffle">Truffle</h3>
 <p>Truffle packs a lot of features that follow familiar patterns and paradigms. I'll highlight a couple in this guide, and you can find a full guide in <a href="https://truffleframework.com/docs/truffle/overview">the Truffle documentation</a>.</p>
 <h4 id="truffle-boxes">Truffle Boxes</h4>
@@ -1091,7 +1095,16 @@
 <h4 id="interacting-with-a-contract">Interacting with a contract</h4>
 <p>Similar to consoles provided by Ruby and Python, Truffle lets you test potential interactions with your contracts via the <code>truffle console</code> command and receive instant feedback.</p>
 <h3 id="drizzle">Drizzle</h3>
-<p>Based on popular JavaScript framework, <a href="https://redux.js.org">Redux</a>, Drizzle is a collection of reactive libraries to build Dapp front-ends that stay in sync with your contract and transaction data. It borrows a lot of concepts from frameworks such as React and brings them to the Web3 word ecosystem.</p></div>
+<p>Based on popular JavaScript framework, <a href="https://redux.js.org">Redux</a>, Drizzle is a collection of reactive libraries to build Dapp front-ends that stay in sync with your contract and transaction data. It borrows a lot of concepts from frameworks such as React and brings them to the Web3 word ecosystem.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmR6jDx2u81TSNVjTkuTqn2UsWJYzpf5vdv4RjwPewq5Te</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../infura-101-infrastructure-for-dapps/" title="Infura 101 - Infrastructure for Dapps"><span>Previous</span></a></div>

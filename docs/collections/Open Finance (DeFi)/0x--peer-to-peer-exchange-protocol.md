@@ -9,6 +9,8 @@ some_url:
 
 # 0x  Peer-to-peer exchange protocol
 
+![](https://ipfs.infura.io/ipfs/QmeM4VKZzMJL79gNpEAmUj57PzYq15bVc5DKdJYnfvvU89)
+
 
 > 0x is an open protocol that facilitates peer-to-peer exchange of digital assets on the Ethereum blockchain. 0x is open source, free to use, and provides a drop-in exchange solution for developers to build on top of. Developers use 0x protocol to build decentralized exchanges (DEXs), marketplaces for digital collectibles, and to integrate exchange functionality into wallets. - Description from [ethhub.io](https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview)
 
@@ -91,3 +93,16 @@ Over time, orders may expire, partially filled, cancelled or no longer fillable.
 #### Next steps
 
 Now that you have a high level idea of what a relayer does, it's time to get started learning how they work. Check out [0x-launch-kit](https://github.com/0xProject/0x-launch-kit/) for a fully-working relayer example, or dive into the [Create, Validate, and Fill Orders](https://0x.org/wiki#Create,-Validate,-Fill-Order) tutorial to master the basics of dealing with 0x orders. You may also want to decide on a [Relayer Strategy](https://0x.org/wiki#Open-Orderbook). We recommend the open orderbook strategy. If you're looking for more orders to add to your orderbook, take a look at the [Standard Relayer API](https://github.com/0xProject/standard-relayer-api) and [0x Connect](https://0x.org/docs/connect). There are several relayers that have already implemented it and are broadcasting orders. Remember to keep your orderbook free of stale orders by using an [OrderWatcher](https://0x.org/wiki#0x-OrderWatcher).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/0x:-peer-to-peer-exchange-protocol/81054d98abe9412d87f91cd86719e90f/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-08
+- **Kauri original tags:** dex, open-finance
+- **Kauri original hash:** QmZB1EVYcW7gP3vHWjxWwuWgrf4E6dR9sHXmXtdQQEopHz
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

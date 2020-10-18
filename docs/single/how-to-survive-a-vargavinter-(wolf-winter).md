@@ -9,8 +9,10 @@ some_url:
 
 # How to survive a Vargavinter (Wolf Winter)
 
+![](https://ipfs.infura.io/ipfs/QmZLjKtjCmp42WX9bfkyKnWHr2cgVZ7gMPKQRTNHJgpPdN)
 
-![](https://api.kauri.io:443/ipfs/QmSX3VPv9NM8PPaArTv12ud2hw1NkpAdsbbCvTcLeYrHmv)
+
+![](https://ipfs.infura.io/ipfs/QmSX3VPv9NM8PPaArTv12ud2hw1NkpAdsbbCvTcLeYrHmv)
 
 In my family we have a tradition of going skiing each January. It brightens up the darkness of the long and gruesome winters that we have in Sweden. Last year everyone was curious, impressed and maybe a little jealous, since they had all learned of “the Bitcoin” that had skyrocketed after the 
 [super hype in 2017](https://www.nytimes.com/2018/01/13/style/bitcoin-millionaires.html)
@@ -44,3 +46,17 @@ Present at
 Some are saying we will all succumb to this winter. Let’s buidl them 
 [a beatuful ice hotel.](https://www.goodhousekeeping.com/uk/lifestyle/travel/g26005891/icehotel-sweden-holidays/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-survive-a-vargavinter-(wolf-winter)/84190d43eafd4668931273387a12ec25/a
+- **Kauri original author:** Tove Andersson (@superblocks-com)
+- **Kauri original Publication date:** 2019-02-15
+- **Kauri original tags:** vargavinter, ethdenver, cryptowinter
+- **Kauri original hash:** QmdWTBETmFpUENYZDuuBHFDMiifvDEsDjfBw6pHSBCMNM9
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

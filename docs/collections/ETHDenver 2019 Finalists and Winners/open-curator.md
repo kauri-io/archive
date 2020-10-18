@@ -59,3 +59,17 @@ https://github.com/Xivis/opencurator
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/open-curator/5367fae354344dc2886538d97f5cadb9/a
+- **Kauri original author:** Agustin Ferreira (@agustin-xivis-com)
+- **Kauri original Publication date:** 2019-02-21
+- **Kauri original tags:** ethdenver-2019-submission, bounty-portis-2019, bounty-zeppelin-2019
+- **Kauri original hash:** Qmdvc9kbiZGSE4nNhMc3fTKBUMVy5cgF8oM2htmRpQ7knt
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow
 
+![](https://ipfs.infura.io/ipfs/QmbsUQbFc338YDcLY2T4y1JH7r5kcfSKuTtb8o1NZZMzsB)
+
 
 In the previous articles, we have looked at a regression problem and a binary classification problem. Let's now look at another common supervised learning problem, multi-class classification.
 
@@ -78,7 +80,7 @@ sns.distplot(y_val, color='red')
 sns.distplot(y_train, color='green')
 ```
 
-![](https://api.kauri.io:443/ipfs/QmTrWCRy9mNzmTSNQ3j4ZFkNSS69uDB2PM1FA1Roq74kMH)
+![](https://ipfs.infura.io/ipfs/QmTrWCRy9mNzmTSNQ3j4ZFkNSS69uDB2PM1FA1Roq74kMH)
 
 Now let's preview some of the samples, what do this numbers actually look like??
 
@@ -94,7 +96,7 @@ for i in range(6):
     ax[i].imshow(x_train[index],cmap=plt.cm.binary)
     ax[i].set_title(y_train[index], fontSize=24)
 ```
-![](https://api.kauri.io:443/ipfs/Qmf8p1UG3KcP7ruNTopYQbFCo7HLEw1DTXhiyjsQHJsL9t)
+![](https://ipfs.infura.io/ipfs/Qmf8p1UG3KcP7ruNTopYQbFCo7HLEw1DTXhiyjsQHJsL9t)
 
 Finally let's reshape the images yet again to prepare them for our Conv2D layers:
 ```python
@@ -176,3 +178,17 @@ for row in range(ROWS):
         ax[row, column].set_title(np.argmax(predictions[imgIndex]), fontSize=24)
 
 ```
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/multi-class-classification-example-with-convoluti/145b4c03a55146cba2051f04e7f499e9/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2019-10-09
+- **Kauri original tags:** artificial-intelligence, machine-learning, classification
+- **Kauri original hash:** QmTPfUf5QEPK715NZgombYKrzMM8MYW5bbG9Nc94MrLjGq
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

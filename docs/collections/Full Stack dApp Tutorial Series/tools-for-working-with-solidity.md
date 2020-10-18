@@ -53,3 +53,16 @@ You know when the development community has started to accept a language when it
 
 ### An Ecosystem of Constant Change
 The blockchain space is in constant flux and thus a list of tools will not be comprehensive for the foreseeable future. If there’s anything missing from this list, please add it to the comments below.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tools-for-working-with-solidity/7a27a1c1fbdc428b8058f14db1a227aa/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmaDL9YWMhvGCDcmMera3YhLtWGF3sQoxrPSQGC4pqYS8m
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

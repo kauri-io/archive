@@ -46,3 +46,17 @@ I'm not familiar with Github so I apologize if I uploaded it wrong.
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/chaincap/ac7d7dc2346441cb8a9ec14e3bb09d5a/a
+- **Kauri original author:** Matt Wojnoski (@matt-wojnoski)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmfXVgzoiF9YikANrJcA7A4DhywFPu7nUYYF8eRH2UYZMC
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

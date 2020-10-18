@@ -14,7 +14,7 @@ We have released Ðappboard a couple of weeks now. We hope you had a chance to e
 [DApps here on our explorer](http://dappboard.com/app)
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmU3Gvsy9bNUdQDmyjypq5doJTYrAGq8DsG19EnqmtaXbb)
+![](https://ipfs.infura.io/ipfs/QmU3Gvsy9bNUdQDmyjypq5doJTYrAGq8DsG19EnqmtaXbb)
 
 
 ### We are here for the long run
@@ -31,7 +31,7 @@ We started working on ETHlytics since November 2017 as a side project. We finall
 [Ðappboard](http://dappboard.com)
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmXEfp5ng9YKDG2KcjfPsYkprk3QiW5wieHbXDY9aAAqoL)
+![](https://ipfs.infura.io/ipfs/QmXEfp5ng9YKDG2KcjfPsYkprk3QiW5wieHbXDY9aAAqoL)
 
 
 ### What is Ðappboard?
@@ -40,7 +40,7 @@ We started working on ETHlytics since November 2017 as a side project. We finall
  . Ðappboard has a public interface to display DApps statistics which help you to understand the performance of each DApp. We track all transactions, events, then process all the data to extract volume, balance, numbers of users of a decentralized application etc..  
  All the key metrics help find the most active DApps and understand each smart contract performance.
 
-![](https://api.beta.kauri.io:443/ipfs/QmWDkmBrtjKTbGHadjtmksnSPkLgtfYbp33L8tY6pDawda)
+![](https://ipfs.infura.io/ipfs/QmWDkmBrtjKTbGHadjtmksnSPkLgtfYbp33L8tY6pDawda)
 
 In addition to the public interface, we also provide individual projects custom dashboards that help each project to understand how people interact with their application and who are the users.
 
@@ -62,3 +62,17 @@ _You can find out more at_
   
 [www.dappboard.com](http://www.dappboard.com)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dappboard-:-the-next-generation-of-blockchain-exp/2609365a787b452e9881c90c46b9a6f9/a
+- **Kauri original author:** Aimable Dusingizimana (@aimable-dusingizimana)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** QmRQ3e5LGQLiY83wcxSnLBwwSrsisV2NkGRBQ66zVnmnXc
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

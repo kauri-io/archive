@@ -9,12 +9,14 @@ some_url:
 
 # Listening to Ethereum Events with Eventeum
 
+![](https://ipfs.infura.io/ipfs/QmbU72Pp8ujDbJQS5yRyPZrLYEN7peQWBw3QwHZxU9ub41)
+
 
 ### What is Eventeum?
 Eventeum is an Ethereum event listener service that provides a bridge between your smart contracts and middleware layer.  Events subscriptions can be registered dynamically, and on emission, a message containing the details of the event are broadcast onto a message bus (currently either Kafka or RabbitMQ) which can then be consumed by your backend services.
 
 It was developed by the kauri.io team, and the source code is freely available under the Apache 2.0 license.  Click [here](https://github.com/ConsenSys/eventeum/) to view the github repository.
-![](https://api.beta.kauri.io:443/ipfs/QmXqLJc3qp8vkHqifRCjbZApg758kdgBrgZVibkMDDFCqZ)
+![](https://ipfs.infura.io/ipfs/QmXqLJc3qp8vkHqifRCjbZApg758kdgBrgZVibkMDDFCqZ)
 Eventeum is:
 
 - Highly Available - Eventeum services communicate with each other to ensure that every instance is subscribed to the same collection of smart contract events.
@@ -75,7 +77,7 @@ contract NamesRegistry {
 #### Deploying
 We want to deploy our smart contract to the parity node that we started via docker, so open [remix](https://remix.ethereum.org) and select the 'Web3 Provider' environment from the Run panel.
 
-![](https://api.beta.kauri.io:443/ipfs/QmZtXWsmrcdznQ4xByD4dtV7Gv7VHVvcZaMs4XvbggdWVf)
+![](https://ipfs.infura.io/ipfs/QmZtXWsmrcdznQ4xByD4dtV7Gv7VHVvcZaMs4XvbggdWVf)
 
 When prompted, keep the default http://localhost:8545 endpoint address.  You should now be connected to your local parity dev node with plenty of test eth to play around with in the default, unlocked account.
 
@@ -114,7 +116,7 @@ If everything went well, you should see a `registerContractEventFilter - Registe
 
 To test that Eventeum is correctly listening for events emitted from the deployed contract, try adding a name to the registry.
 
-![](https://api.beta.kauri.io:443/ipfs/QmeMarJvXRoGjY8EFa8xrPUDNSjecSYhb9GUq92NbE879g)
+![](https://ipfs.infura.io/ipfs/QmeMarJvXRoGjY8EFa8xrPUDNSjecSYhb9GUq92NbE879g)
 
 If everything is configured correctly, you should see a `broadcastContractEvent` entry in the Eventeum logs that looks similar to this:
 
@@ -138,3 +140,16 @@ Now that Eventeum is configured correctly, you are ready to [build a service tha
 To learn more about Eventeum API's, message specifications or advanced configuration, checkout the github page at: [https://github.com/ConsenSys/eventeum/](https://github.com/ConsenSys/eventeum/).
 
 Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs...just don't forget to create a pull request afterwards, to help improve the product!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/listening-to-ethereum-events-with-eventeum/90dc8d911f1c43008c7d0dfa20bde298/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-08-06
+- **Kauri original tags:** eventeum, ethereum, web3, event-listener
+- **Kauri original hash:** QmYWKGy1Cv41Ywf9TwzCy8f9fnSW5sSCLJne4rnxMkHVhX
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

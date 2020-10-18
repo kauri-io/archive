@@ -18,7 +18,7 @@ some_url:
 > 
 Fabrice Croiseaux
 
-![](https://api.beta.kauri.io:443/ipfs/Qmamka2Ty9CzEbzu28z3WBe82u8bgKMcysiZMHPf1UQE1Z)
+![](https://ipfs.infura.io/ipfs/Qmamka2Ty9CzEbzu28z3WBe82u8bgKMcysiZMHPf1UQE1Z)
 
 Current in-store cryptocurrency purchases are cumbersome and costly due in part to the difficulties in accessing the buyers’ Private Key. Payment providers are required to manage their user wallets and users must send cryptocurrencies to their payment providers’ managed accounts to transact. The most common way to do so is to generate a QR Code on the merchant’s Point of Sale (POS) machine and scan it with a mobile phone that contains the users’ Private Key to generate payment.
  
@@ -50,3 +50,17 @@ http://www.intech.lu
 **About Touché**
  
 Touché is a Singapore-based technology company whose world leading biometric solutions deliver fast and convenient transactions at the point of interactions and highly secure, personalised consumer experiences benefiting banks, merchants and customers. Founded in 2014 by an experienced management team, Touché is headquartered in Singapore with offices in Barcelona and Tokyo. Touché’s biometric-based device and industry leading data analytics solution was launched in 2017. The Touché solution re-invents the point of interaction for merchants and customers by enabling customers to pay​, redeem rewards and loyalty points-based discounts​ at the touch of two fingers. Touché’s strategy is to pursue exclusive collaboration with acquiring banks in each market and with category leading partners in industry verticals.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-biometry-will-revolutionize-in-store-cryptocu/c9bc2f882cc44a3ea781d738ec7674ca/a
+- **Kauri original author:** Fabrice CROISEAUX (@fxzo)
+- **Kauri original Publication date:** 2018-12-02
+- **Kauri original tags:** none
+- **Kauri original hash:** QmXiZibyyJRoBfAU9UZ3Fdmpr2xHxv2bKZqUkMZKfFQz38
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

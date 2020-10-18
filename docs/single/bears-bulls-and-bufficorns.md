@@ -9,6 +9,8 @@ some_url:
 
 # Bears, Bulls, & Bufficorns
 
+![](https://ipfs.infura.io/ipfs/QmYFhBZQ3NHtBnGnqEuxkQrRdKr2JHU2jUeFpe6rNpJwuP)
+
 
 ## Project Name
 Bears, Bulls, & Bufficorns
@@ -38,6 +40,20 @@ Celer Network - Sponsor Bounty at ETHDenver 2019! (cGamer, cInnovator, cBUIDLer)
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/XavierEkkel/ETHDenver
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bears-bulls-and-bufficorns/7c2ceac6a11a4d0099abe15d0c0abad1/a
+- **Kauri original author:** Xavier Ekkel (@xavierekkel)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-celer-2019
+- **Kauri original hash:** QmWLaHu5ZUyw31uY7ZMAemB5LhDofaEChhzRa79gV88XUD
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

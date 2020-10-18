@@ -59,3 +59,17 @@ Likewise, multi client testnets create environments that allow for testing of cl
 ## Additional Reading: 
 - “Ropsten to Kovan to Rinkeby: Ethereum’s Testnet Troubles:’ [https://www.ethnews.com/ropsten-to-kovan-to-rinkeby-ethereums-testnet-troubles](https://www.ethnews.com/ropsten-to-kovan-to-rinkeby-ethereums-testnet-troubles)
 - Ropsten Revival, Ethereum Github: [https://github.com/ethereum/ropsten/blob/master/revival.md](https://github.com/ethereum/ropsten/blob/master/revival.md)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-6-mainnet-and-testnets/3eba08b801a44776a07607b9e046dd08/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** ganache, ethereum, 101, geth, parity, mainnet, testnet
+- **Kauri original hash:** QmTr1MHA8rs7BLZ5oViu5Yeynwu8pqunwjgEbz6W5bnwRd
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

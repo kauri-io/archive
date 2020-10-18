@@ -14,7 +14,7 @@ Good Badger is a system for rewarding people with badges for their unique contri
 
 https://devpost.com/software/good-badger
 
-![](https://api.beta.kauri.io:443/ipfs/QmZhE7PeZHGHxdQgbRh32kKYbjnWLFMx6tHuLnowCNY9F4)
+![](https://ipfs.infura.io/ipfs/QmZhE7PeZHGHxdQgbRh32kKYbjnWLFMx6tHuLnowCNY9F4)
 
 #### Inspiration
 Engage more people to become aware of the SDGs and to make a positive contribution. Allowing their efforts to be known and measured in the form of a permanently issued badge.
@@ -52,3 +52,16 @@ We want to add more customisation options to the badges so issuers can make it "
 [GitHub Repo](https://github.com/good-badger)
 
 [docs.google.com](https://docs.google.com/presentation/d/1nYmMxfiAV93oYE74KvXsIhdzEvJu71_Z0HVxOyaonTE/edit?usp=sharing)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/good-badger/5fb7052e24ec47fc85591d334809f51b/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** Qmdoq8PFkfN7ADD7eej7XVVYNh3kzydGR8HHXWKkaHF3eq
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

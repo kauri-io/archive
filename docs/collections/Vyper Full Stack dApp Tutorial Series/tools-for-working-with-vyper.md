@@ -18,7 +18,7 @@ While [Vyper](https://vyper.readthedocs.io/en/latest/index.html) lacks the tools
 
 Vyper Online Compiler is an online editor for Vyper. Its web-based. It is currently in the experimental version. You can compile vyper codes, import vyper codes, save vyper codes to disk from it. It also has pre-written vyper codes that can serve as sample codes for you.
 
-![](https://api.kauri.io:443/ipfs/QmRW9yKWNJGh9q63JJC1Cw35hRwiL5tzEr3RNj5sAznPF7)
+![](https://ipfs.infura.io/ipfs/QmRW9yKWNJGh9q63JJC1Cw35hRwiL5tzEr3RNj5sAznPF7)
 
 ### Remix Vyper plugin
 
@@ -28,7 +28,7 @@ Vyper Online Compiler is an online editor for Vyper. Its web-based. It is curren
 
 If you want to use the atom editor to write vyper code, there is a vyper plugin that adds [syntax highlighting](https://atom.io/packages/language-vyper) on atom for you.
 
-![](https://api.kauri.io:443/ipfs/QmQ1Kh9ai157HsnvHN87nxswshxhMSc12ent39bWkUyy8t)
+![](https://ipfs.infura.io/ipfs/QmQ1Kh9ai157HsnvHN87nxswshxhMSc12ent39bWkUyy8t)
 
 ### Visual Studio Code
 
@@ -43,3 +43,17 @@ You know when the development community has started to accept a language when it
 ### An Ecosystem of Constant Change
 
 The blockchain space is in constant flux and thus a list of tools will not be comprehensive for the foreseeable future. If there'ss anything missing from this list, please add it to the comments below.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tools-for-working-with-vyper/ca43e064d5054f829f733970909de1ad/a
+- **Kauri original author:** Onuwa Nnachi Isaac (@iamonuwa)
+- **Kauri original Publication date:** 2019-08-29
+- **Kauri original tags:** vyper
+- **Kauri original hash:** QmZ5J7UJXwWuPiPZWTfCwCPkJUBCqdPzgyY71i9XgJGdgR
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

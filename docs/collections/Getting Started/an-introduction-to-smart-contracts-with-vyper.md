@@ -9,6 +9,8 @@ some_url:
 
 # An Introduction to Smart Contracts with Vyper
 
+![](https://ipfs.infura.io/ipfs/QmUUT6kMFq1jqXJQPKizRqq9ziGKSBejSjAG7yFjgPAotD)
+
 
 Vyper is a smart contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM).
 
@@ -164,3 +166,17 @@ This introduction and example was taken from [the official Vyper documentation](
 
 -   [Vyper by example](https://vyper.readthedocs.io/en/latest/vyper-by-example.html)
 -   [Structure of a contract](https://vyper.readthedocs.io/en/latest/structure-of-a-contract.html)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/an-introduction-to-smart-contracts-with-vyper/af913a853eaf4db88627b3ff9572b770/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-30
+- **Kauri original tags:** ethereum, smart-contracts, vyper
+- **Kauri original hash:** QmZy9DsHhcRGeR3QsnsRPinxQv56YdXoRirYu9wYANDjLk
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

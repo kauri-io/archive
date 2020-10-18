@@ -50,3 +50,17 @@ https://github.com/PositiveControl/shares-app (Web App - shares.dwns.io)
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/shares-issue-private-company-shares-in-minutes/e2c50b7aec4d4546abe94700ed3fa7ac/a
+- **Kauri original author:** Mark Evans (@mevans)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, salt---meerkat
+- **Kauri original hash:** QmXeaNznpR5a3W6rebca8CvfZQftm2w5N4e4hJUWt848KX
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # How to install and synchronize your own remote Ethereum node
 
+![](https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw)
+
 
 This is a two part tutorial. The first part covers the process of installing an Ethereum node remotely on a Virtual Private Server (VPS), synchronizing it with the blockchain, and setting it up to allow secure remote access.
 
@@ -171,3 +173,16 @@ Your node will eventually get back to spitting out lines with _Imported new chai
 
 ### Coming up
 In the [second article](https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v1/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask) of this series I describe how to set up a local SSH tunnel and make MetaMask use that tunnel to interact with our `geth` node. To finish up I describe how to make everything we've done survive crashes and reboots, having it all restart automatically. See you there!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-install-and-synchronize-your-own-remote-et/c287fe53de9b4073a18065443253a86d/a
+- **Kauri original author:** Daniel Ellison (@zigguratt)
+- **Kauri original Publication date:** 2019-05-24
+- **Kauri original tags:** metamask, ethereum, geth, blockchain, infura, ssh-tunnel, tutorial
+- **Kauri original hash:** QmQynEB8S5cBDvGdGAkufJrY7oWaTz4yhL4pbNRUtYCAYV
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

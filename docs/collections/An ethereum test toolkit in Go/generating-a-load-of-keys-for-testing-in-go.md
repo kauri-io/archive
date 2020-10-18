@@ -88,3 +88,17 @@ It is not expected to be necessary for concurrent creation of keys so keys are s
 ```
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/generating-a-load-of-keys-for-testing-in-go/7a0c7497951548b8837634305e62977b/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-08-08
+- **Kauri original tags:** ethereum, geth, go-programming-language, golang, testing
+- **Kauri original hash:** QmYeFYYmS8usAkaJxF31ojgHLvwE7ZnNviSQbB1YK7juE4
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

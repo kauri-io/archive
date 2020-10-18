@@ -45,3 +45,17 @@ https://github.com/g-r-a-n-t/dutchx-subgraph
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver2k19-hackathon:-dutchx-subgraph/22ecff5e47b243a8a983393e0b6874b7/a
+- **Kauri original author:** Grant Wuerker (@grant-wuerker)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-graph-2019
+- **Kauri original hash:** QmVRaKjok51BT9B7NtmreKT1MKWezUdy71kWpARkmkynus
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

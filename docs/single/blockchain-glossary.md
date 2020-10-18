@@ -9,6 +9,8 @@ some_url:
 
 # Blockchain glossary
 
+![](https://ipfs.infura.io/ipfs/QmXHu9jhPSs3Sw4nsN6WxTqajBZrtDK8ajifpSECNKibdc)
+
 
 _A non-exhaustive and comprehensive Blockchain words glossary to help beginners to understand all the different concepts._
 
@@ -219,3 +221,17 @@ Different categories of wallet exists:
 - Full-node or not: A wallet connected to a full node hosted by the owner will guarantee the legibility of the blockchain as full-nodes verify all transactions included in each block. If the wallet connects to a third-party node, wallet owners have to trust this provider.
 
 ---------------------------------------------------------------------
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-glossary/1f5da0c171cd4eecb68d23be9acce25d/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-05-21
+- **Kauri original tags:** glossary, blockchain
+- **Kauri original hash:** QmWUzc6x9m4BtVhPDEBck4vAxCww8vGpP1R46Gz3tEcQYT
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

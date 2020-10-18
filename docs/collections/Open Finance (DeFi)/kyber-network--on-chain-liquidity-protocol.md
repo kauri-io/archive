@@ -9,6 +9,8 @@ some_url:
 
 # Kyber Network  On-chain liquidity protocol
 
+![](https://ipfs.infura.io/ipfs/QmYqAaxo5NRF6SohUPVkqxsARb18tBnLAMZUtoMYkC1biw)
+
 
 > Kyber Network builds a liquidity pool of tokens to facilitate token swaps. Different parties, including Kyber itself, maintain their own pools called reserves. Each reserve is a smart contract that is controlled by reserve admin who deployed it. Reserves vary in supported tokens, liquidity and conversion prices. When a user wants to exchange one token for another, Kyber scans all reserves to pick the cheapest one.
 
@@ -16,7 +18,7 @@ _This article originally appeared on the [Kyber Developer](https://developer.kyb
 
 Kyber is building an on-chain liquidity protocol that allows open contribution of liquidity from token holders. Our protocol enables a whole new class of decentralized applications, including [payments in multiple tokens](https://developer.kyber.network/docs/VendorsUseCase/), [transparent portfolio rebalancing](https://developer.kyber.network/docs/DappsUseCase/), [in-wallet token swap](https://developer.kyber.network/docs/WalletsUseCase/) and many more.
 
-![](https://api.kauri.io:443/ipfs/QmS3Pq31WhoQhDQTLdQoAC7B3GZeaVRFaBF86am51UsjeP)
+![](https://ipfs.infura.io/ipfs/QmS3Pq31WhoQhDQTLdQoAC7B3GZeaVRFaBF86am51UsjeP)
 
 Kyber's design offers 3 important properties that are essential to consumer facing applications.
 
@@ -28,10 +30,23 @@ Our design principle is to focus on the ease of integration, security and transp
 
 To integrate with the Kyber protocol is as simple as initiating a transaction or message call to our smart contracts via the public APIs. This makes the integration to on-chain entities like smart contracts seamless and hassle-free, compared to other off-chain or hybrid solutions. In addition, there is no trusted third party introduced in the integration process.
 
-![](https://api.kauri.io:443/ipfs/QmUmwbtw7KMny7j2w24vQErx1espxhjRmV1ZH9qsb8pcGv)
+![](https://ipfs.infura.io/ipfs/QmUmwbtw7KMny7j2w24vQErx1espxhjRmV1ZH9qsb8pcGv)
 
 At Kyber, we believe in working together with other players in the ecosystem so we built the Kyber protocol to be application agnostic. Hence, allowing developers to create their own unique applications but still be able to easily leverage our liquidity pool by interacting with the Kyber protocol.
 
 The details about the Kyber protocol specifications and integration guides are available on this website. Should you have any question, feel free to join our telegram group at https://t.me/KyberDeveloper or shoot us an email at hello@kyber.network.
 
 Happy building!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kyber-network:-on-chain-liquidity-protocol/9f81242a0dac4e0d91807f30312f0d0e/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-08
+- **Kauri original tags:** dex, open-finance
+- **Kauri original hash:** QmQ6GhCohBk112NHZTvucRTuSmkoe26rg4sa8ZcrqatCrz
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

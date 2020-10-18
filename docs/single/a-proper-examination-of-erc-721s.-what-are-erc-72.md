@@ -21,7 +21,7 @@ _These series are brought to you by_
 _a free resource that lets you transfer/manage your ERC-721s safely and easily. (You can also do a lot more, like create any ERC-721 - which is currently free to do!)_
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmbHsPexACi5tf8yKutyYdLvKc8LzUgNLhnxcNVzeiJ1K8)
+![](https://ipfs.infura.io/ipfs/QmbHsPexACi5tf8yKutyYdLvKc8LzUgNLhnxcNVzeiJ1K8)
 
 
 ### What are Tokens?
@@ -66,7 +66,7 @@ First, some definitions:
 
 ### So…..What are NFTs/ERC-721s?
 
-![](https://api.beta.kauri.io:443/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
+![](https://ipfs.infura.io/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
 
 You can get these items, called ERC-721 Non-fungible Tokens, by interacting with different services/games on the blockchain. Every week multiple new games are released where items or objects are made as ERC-721 tokens for you to digitally own via your Ethereum address. Items like collectible cats, pokemon cards, baseball cards, trading card games, resource management games, etc.
 These are tokens on a smart contract, which is on the 
@@ -92,7 +92,7 @@ Lets imagine you are traveling the world and have an ethereum wallet, like your 
 **You upload your passport photo as the metadata on a NFT.**
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
+![](https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
 
 You upload a picture of your passport, to a new NFT. This NFT is given to your ethereum address and you now own a token that has the special data you put on it. In this case it’s your passport.
 You did this so that:
@@ -108,7 +108,7 @@ You did this so that:
 > Why its a security risk: Anything you upload currently, can be seen on the blockchain. So if I uploaded my passport, then everyone in the world can view my passport and steal it. We at mintable are working on technology that removes this burden, so that you CAN upload sensitive data and its held privately.
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt)
+![](https://ipfs.infura.io/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt)
 
 That’s one example of an NFT. It could be anything. It could be…
 
@@ -151,26 +151,26 @@ They are non-fungible. The value is not set. The game might decide to only have 
 
 #### Zombie Battleground — https://loom.games/
 
-![](https://api.beta.kauri.io:443/ipfs/QmV88SJcT51tNh8pTzT53AuaDCZppnnNeVnY53aZGAU6Dh)
+![](https://ipfs.infura.io/ipfs/QmV88SJcT51tNh8pTzT53AuaDCZppnnNeVnY53aZGAU6Dh)
 
 Loom is similar to Gods Unchained. Its a trading card game, where each card is a ERC-721 token. So if you have token #500, thats the 500th card made, and it might be rare, or it might be common. Each card has its rarity, skills, and powers within the token. So when you transfer me token #500, you just gave me a card — that has special abilities — which I can now use to play the game with.
 
 #### MLB Baseball — https://mlbcryptobaseball.com
 
-![](https://api.beta.kauri.io:443/ipfs/Qmf93zjtwGvN53F4S6WCHZetgb865UJWViskntT1toiT2i)
+![](https://ipfs.infura.io/ipfs/Qmf93zjtwGvN53F4S6WCHZetgb865UJWViskntT1toiT2i)
 
 MLB baseball cards on the blockchain! What more do I need to say? Each card is a collectible baseball card, and you own it, as an ERC-721.
 
 #### CryptoKitties — http://cryptokitties.com
 
-![](https://api.beta.kauri.io:443/ipfs/QmY24yQcX8Kj3uvLHJhP46SPjnjDCjTakaeME3vyYvCiwL)
+![](https://ipfs.infura.io/ipfs/QmY24yQcX8Kj3uvLHJhP46SPjnjDCjTakaeME3vyYvCiwL)
 
 Cryptokitties was the creator of the ERC-721 idea/standard. They were the first to create a game using tokens that held special metadata corresponding to different cats. The way it works is simple — you have a token that has a random string of numbers as the metadata. So your token #1 has a name: Cat 1, and metadata: 32659154922846298626. This string of random numbers would represent special stats. So the first number is the color, and 3 = blue. Therefore, you have a blue cat.
 You’d then breed and sell the cats you got, that have rare genes (aka, rare random bytes of numbers).
 
 #### Decentraland — https://decentraland.org/
 
-![](https://api.beta.kauri.io:443/ipfs/QmQh9etKwG5gVxQvyW1xRw73LgZEn8aXbWcFfJj4cuXAJs)
+![](https://ipfs.infura.io/ipfs/QmQh9etKwG5gVxQvyW1xRw73LgZEn8aXbWcFfJj4cuXAJs)
 
 Decentraland is the project behind an ERC-20 token you can trade, ERC-721 tokens that are assets, and a VR game you can play. Basically — in the game, it mimics real life in a VR setting, so that you have a shop, a house, land, a business, anything you want. The land is currently plots of land sold as ERC-721 tokens that you own. Pretty cool stuff.
 
@@ -196,3 +196,17 @@ discord:
  
 [Mintable: Mintable.app](https://mintable.app)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-proper-examination-of-erc-721s.-what-are-erc-72/ecd47323706d4d7db1abc55a4aa6071b/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** QmRckns8NzA6bGFbTxo4nz1ouf3tb4ZSPhATr7uvtUkWYf
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

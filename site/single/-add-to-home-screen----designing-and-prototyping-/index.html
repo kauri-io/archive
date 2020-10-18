@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>‘Add to home screen’ Designing & prototyping a native app in HTML &mdash; Kauri</title>
+    <title>‘Add to home screen’ Designing & prototyping a native app in HTML &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1050,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1059,12 +1062,13 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="add-to-home-screen-designing-prototyping-a-native-app-in-html">‘Add to home screen’   Designing &amp; prototyping a native app in HTML</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYpeAFYtC7UPhTP3PC7YNUSpWankTB9SMeeWw58rtND21" /></p>
 <p><strong>TL;DR: at</strong></p>
 <p><a href="https://www.parasut.com/">Paraşüt</a></p>
 <p><strong>we built a</strong></p>
 <p><a href="http://mobile-ui.parasut.com/">prototype</a></p>
 <p><strong>in HTML &amp; CSS to be able to design, prototype and iteratively test our mobile app. Works great, you should try it.</strong></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmT9KVb6EWovsRFwNgd4pHZjzA7PooyYBVh6iaT86PfzdB" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT9KVb6EWovsRFwNgd4pHZjzA7PooyYBVh6iaT86PfzdB" /></p>
 <p>specially in world of designing for web, CSS is such a brilliant and relatively simple way of ‘owning up’ to your design: instead of designing for a fixed size canvas and data situation, you have to define constraints and be (at least partly) responsible for how your design behaves in different situations. When designing for native mobile this is not so easy — but this story shows how we tackled it for 
 <a href="http://parasut.com/">Paraşüt</a>
  ’s mobile app.
@@ -1074,11 +1078,11 @@ We formed a 2-man team; one
  , one designer ( 
 <a href="https://twitter.com/ldanielswakman">me</a>
  ). At this point, our startup was mostly rooted in web technologies, which by its continuous development nature made it easier to build an agile product. For me as a designer it was the same; in the past years of designing for web, I had gotten used to being responsible for the designs I made via CSS.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmeK5ZzJGuuqigDKwAqGRf8g4e8D3jhgX2e6V9jf1XBYyA" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeK5ZzJGuuqigDKwAqGRf8g4e8D3jhgX2e6V9jf1XBYyA" /></p>
 <blockquote>
 <p>“So yeah, we tried design deliverables.”</p>
 </blockquote>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmQrK1WytNbz1vQCuqWhvrHDVR6AkExCE6WjGpujkXN8wW" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQrK1WytNbz1vQCuqWhvrHDVR6AkExCE6WjGpujkXN8wW" /></p>
 <p>After being set on a clear course for the visual &amp; interaction design of the app, the design (Sketch/Illustrator) files started to look a bit like this (see image).
 This drove 2 people crazy: the developer, who always had to ask about one or two dimensions, colours or font-styles I had forgotten to specify, and me, who felt like using a foreign language to explain from the start a system I had figured out in another language.</p>
 <p><em>(I won’t go into the details of the app’s design language too much; that’s a story for another time.)</em></p>
@@ -1089,7 +1093,7 @@ This drove 2 people crazy: the developer, who always had to ask about one or two
 <p>“Designers, don’t stay inside your Sketch cage!”</p>
 </blockquote>
 <p>So at that point, opened an empty index.html file in my browser, and turned on responsive design mode…</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVorkfJinWZwQ6YkaXn8bBjsQTVsCgZZyT55HF7rFFY4W" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVorkfJinWZwQ6YkaXn8bBjsQTVsCgZZyT55HF7rFFY4W" /></p>
 <p>… and started to implement the design system in simple HTML and CSS. One page, one html file. Icon fonts. Exact and consistent dimensions. The file structure is nothing more than a folder with 
 <strong>HTML</strong>
  files, (image) 
@@ -1101,7 +1105,7 @@ This drove 2 people crazy: the developer, who always had to ask about one or two
  : at Parasut, we love designers who code. We have 4 designers, each in a different (product/marketing) team, that are all comfortable writing HTML, (S)CSS and the odd line of jQuery. In practice, this means we deliver HTML mockups to developers, and manage the growth and maintenance of the SCSS design pattern library.</p>
 <h4 id="how-does-it-work">How does it work?</h4>
 <p>Back to the design for our mobile app. The approach was to create one html page for every mobile view. Let’s take the invoice list for example. The mobile design has a Material Design inspired list view, with a colourful top header, tabs for different list types, and a swipeable list view, with a centred plus button to create a new invoice.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmWZmFBSxTR1kjuZjGieA6c6qHo4Zp8BAtbQ5TZTxzsio2" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWZmFBSxTR1kjuZjGieA6c6qHo4Zp8BAtbQ5TZTxzsio2" /></p>
 <p>As you can see, the list view design is nothing more than a 
 <strong><ul></strong>
  with 
@@ -1112,7 +1116,7 @@ This drove 2 people crazy: the developer, who always had to ask about one or two
 <a href="http://mobile-ui.parasut.com/">mobile-ui.parasut.com</a>
  . Any update I push to that repository will directly be visible to any developer, product manager, or test user visiting that URL.
 I’ve set up the file structure so that it contains both the html files for the mockup, as well as the few image assets we have for different resolutions:</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmT2ShikfU3DK2jDTKMh5HxNXmxtoDgegcEYvrGqztNDJz" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT2ShikfU3DK2jDTKMh5HxNXmxtoDgegcEYvrGqztNDJz" /></p>
 <p>And… as much as I’ld like to dive deeper into how it works, that’s about it! The development workflow comes down to the designer committing the html mockups to the repository and creating a GitHub issue that lists the specs. The developer then opens the mockup in their browser, and keeps referring to that during the implementation. When I asked them about what they think of this workflow, a smile appears on their face and they radiate with joy: no more doubt about how the visual design should be implemented, because it is already defined.</p>
 <h4 id="takeaways">Takeaways</h4>
 <p>After some initial struggling, we found a great way to work out and iterate our app, both for 
@@ -1126,11 +1130,20 @@ I’ve set up the file structure so that it contains both the html files for the
  , when testing with users if the design works.
 In the end this solution begs the question: wouldn’t it be great if there wasn’t such a disjoint between web and (iOS/Android native)? The web has proven agile and continuously iterative for developers and designers; why can’t designing and building for native mobile be the same? We did once explore the possibility of mapping our SCSS to the Android xml stylesheets, but never took it further.
 Do you have any similar experiences with designing for native mobile? I’m curious for your thoughts on this, or other takes on bridging the gap between design and development. I hope this read has been useful and can help you on your way when you’re dealing with the shady uncanny valley of designing for mobile.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmdXdWxAJKXy8qpwctDidkepPmN4dj4b58cguZkzFXoH8b" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdXdWxAJKXy8qpwctDidkepPmN4dj4b58cguZkzFXoH8b" /></p>
 <p>— L Daniel Swakman</p>
 <p><em>Daniel is a graphic &amp; web designer working on achieving great visual experiences in digital and analog context, both for startups and</em></p>
 <p><a href="http://ldaniel.eu/">freelance</a></p>
-<p><em>.</em></p></div>
+<p><em>.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/-add-to-home-screen--:-designing-and-prototyping-/45d39987ae974e5ab52a2cc0dd772c35/a</li>
+<li><strong>Kauri original author:</strong> L Daniel Swakman (@ldanielswakman)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-24</li>
+<li><strong>Kauri original tags:</strong> ux, design, frontend</li>
+<li><strong>Kauri original hash:</strong> QmbAskyjJfF5A7JEhz1GQVRXND78nzPiFgzty2Bj7QvLM2</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../ethereum-in-emerging-economies/" title="Ethereum in Emerging Economies"><span>Previous</span></a></div>

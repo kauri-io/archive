@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmStntke9yvjMVK3Aq7cHUjzzLWmWkk4rfoaCxGeaxYctX)
+![](https://ipfs.infura.io/ipfs/QmStntke9yvjMVK3Aq7cHUjzzLWmWkk4rfoaCxGeaxYctX)
 
 > Blockchains are useless in a perfect world. Let’s bring dApps to the places that need them most.
 
@@ -34,7 +34,7 @@ This brings me to a specific group of talks at Devcon4 called, “Society & Syst
 [Chelsea Palmer](https://medium.com/@chiselinc)
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ7dedbDc92psd1nRL2GrjeUVcrwANXF9joG5Kn3xLEYc)
+![](https://ipfs.infura.io/ipfs/QmQ7dedbDc92psd1nRL2GrjeUVcrwANXF9joG5Kn3xLEYc)
 
 These emerging markets are where we should focus our onboarding efforts. This is where Ethereum has the most potential to impact the world now.
 
@@ -51,7 +51,7 @@ Unfortunately, it is especially difficult to onboard new users because our ecosy
 #### What we need is a way to exchange an intuitive currency like DAI using a simple and ubiquitous platform like the mobile web browser.
 Here are two phones exchanging value in a matter of seconds using burners:
 
-![](https://api.beta.kauri.io:443/ipfs/Qme8fjarQYZG5KXpNkfZJ4dYomtsUyu9AWX5RFNHwjcVjF)
+![](https://ipfs.infura.io/ipfs/Qme8fjarQYZG5KXpNkfZJ4dYomtsUyu9AWX5RFNHwjcVjF)
 
  
 **One mobile phone can send DAI to another in 5 seconds with a simple QR code scan without any wallet download, this works on web browsers.**
@@ -103,7 +103,7 @@ The original idea for a DAI wallet came from Alejandro Machado [
  
 In some of these emerging markets the on and off ramps to fiat are still shaping up. We see sites like localbitcoin and localethereum helping users connect, but there still isn’t a great solution. This remains and another open ended problem to solve. Let’s figure it out!
 
-![](https://api.beta.kauri.io:443/ipfs/QmUzJPmVMdtwAnJGQqbNW7SvhmweExq2QGjn4zxUe7X5AW)
+![](https://ipfs.infura.io/ipfs/QmUzJPmVMdtwAnJGQqbNW7SvhmweExq2QGjn4zxUe7X5AW)
 
 Thanks for following along on this journey. Keep an eye out for updates and let’s keep #BUIDLING and #SHIPLING! Learn more about me at 
 [https://austingriffith.com](https://austingriffith.com)
@@ -111,7 +111,7 @@ Thanks for following along on this journey. Keep an eye out for updates and let�
 [@austingriffith](https://twitter.com/austingriffith)
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmQpzqNYuRL6zHbuRtKmEXpDzJnmfFSQQnrsPUn2T1fPU8)
+![](https://ipfs.infura.io/ipfs/QmQpzqNYuRL6zHbuRtKmEXpDzJnmfFSQQnrsPUn2T1fPU8)
 
 
 ----
@@ -127,3 +127,17 @@ If you are interested in building or designing the next iteration of the Burner 
  
 [https://github.com/austintgriffith/burner-wallet](https://github.com/austintgriffith/burner-wallet)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-in-emerging-economies/98c8af5e3c734ef29798b55975fa0dbc/a
+- **Kauri original author:** Austin Griffith (@austingriffith)
+- **Kauri original Publication date:** 2018-11-28
+- **Kauri original tags:** none
+- **Kauri original hash:** QmPBUT11KsVY1NFrcU13dDzaJ5XZdniWMinr17hiXiRXpK
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

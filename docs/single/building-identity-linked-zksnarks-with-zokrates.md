@@ -61,13 +61,13 @@ The following figure shows how Alice uses ZoKrates to create a pre-image proof. 
 _private_
  , she can execute the program fully, which returns the hash and a proof.
 
-![](https://api.kauri.io:443/ipfs/QmV7kxJW1GZoGiopPBsHq4vHUYRe1jRhGgtkqACpNjha5i)
+![](https://ipfs.infura.io/ipfs/QmV7kxJW1GZoGiopPBsHq4vHUYRe1jRhGgtkqACpNjha5i)
 
 Alice wants to prove knowledge of the pre-image to Bob. Hence, she sends both the hash and the proof she generated on her machine to him. Bob can easily verify the correctness of the proof and thus be convinced that Alice knows the secret. Right?
 Well, no.
 Consider the following case where Charlie knows the secret and Alice does not.
 
-![](https://api.kauri.io:443/ipfs/QmQYPuUGUHaURHnJzdFb7cTz8JCYcT5qEgNPYawmgGpzUw)
+![](https://ipfs.infura.io/ipfs/QmQYPuUGUHaURHnJzdFb7cTz8JCYcT5qEgNPYawmgGpzUw)
 
 Charlie uses the secret to create a Proof of Knowledge. She then sends it to Alice, who forwards it to Bob. Note that Alice does not learn the pre-image and could hence not create the proof herself.
 Obviously, something is missing here: there is no link between the Proof of Knowledge and the identity who claims it.
@@ -124,7 +124,7 @@ Let’s recap:
  * we have another function which checks that a given public key was derived from a given private key
 We simply combine the two to complete our protocol:
 
-![](https://api.kauri.io:443/ipfs/QmTh8hdp5zaYGESNJAYQJxPrPYKccX7QbqmgYtGiL1gxar)
+![](https://ipfs.infura.io/ipfs/QmTh8hdp5zaYGESNJAYQJxPrPYKccX7QbqmgYtGiL1gxar)
 
 
 <body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/stefandeml/7521446196b3663f53120b3f26399c53.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
@@ -160,7 +160,7 @@ Alice can now convince Bob that *she* knows the pre-image: Bob checks that the p
 Now that we’re able to link Alice’s identity to the Proof of Knowledge, Bob can be sure that Alice knows the secret pre-image.
 Interestingly, this is not only true for Bob, though. Consider the following case, where Bob forwards the message received from Alice to Dave.
 
-![](https://api.kauri.io:443/ipfs/QmYcGbhXHjLvSiiqfnUCpueWM2hAMMkvbD2FVQpPuGyZbm)
+![](https://ipfs.infura.io/ipfs/QmYcGbhXHjLvSiiqfnUCpueWM2hAMMkvbD2FVQpPuGyZbm)
 
 From the forwarded message, Dave also learns that Alice knows the secret.
 Even though the secret itself is always only known to Alice, the proof can still be very sensitive: if Alice is proving to Bob that she holds more than 1000 bitcoins, that’s already a lot of information she would not want Dave to get, even if the exact amount is hidden.
@@ -186,7 +186,7 @@ Let’s see how this solves the issue.
  * Bob is able to create valid proofs with only his private key (2.)
 We just added repudiation: No one (except Bob) can be convinced that Alice created a given proof, since it could trivially have been created by Bob. Technically, this can simply be done using a logical OR linking the original statement and a Proof of Private Key that succeeds for the receiver’s private key.
 
-![](https://api.kauri.io:443/ipfs/QmSig3gWmPTvi9aoJDt6ei12D8UDC3e427zAGjtzBwJcmZ)
+![](https://ipfs.infura.io/ipfs/QmSig3gWmPTvi9aoJDt6ei12D8UDC3e427zAGjtzBwJcmZ)
 
 Let’s see how this idea can actually be implemented using ZoKrates.
 
@@ -226,7 +226,7 @@ In academia, this basic principle has been described as
  . We’d like to thank Jordi Baylina for sharing it with the community.
 Stay tuned for more guides on how to use ZoKrates to enhance your DApp’s privacy and scalability!
 
-![](https://api.kauri.io:443/ipfs/QmQR2JveG3xcQPEZ9tgs5s1Tc6j1EQxeh2tnmC3o7fq4uT)
+![](https://ipfs.infura.io/ipfs/QmQR2JveG3xcQPEZ9tgs5s1Tc6j1EQxeh2tnmC3o7fq4uT)
 
 _Special thanks go to Stefan Deml and Thibaut Schaeffer for their contributions to this article._
  
@@ -234,3 +234,17 @@ _Diagrams by_
   
 [Chloé Heinis](http://chloeheinis.fr)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-identity-linked-zksnarks-with-zokrates/37a2319942ce4916a60a6f84a193edb4/a
+- **Kauri original author:** Jacob Eberhardt (@jacob-eberhardt)
+- **Kauri original Publication date:** 2019-05-09
+- **Kauri original tags:** zokrates, ethereum, blockchain, zksnarks, zero-knowledge-proofs
+- **Kauri original hash:** QmZ6ai87Ep6gY1eqQySzpwxQSDfV8mvSf1aagSLPXwJV2r
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

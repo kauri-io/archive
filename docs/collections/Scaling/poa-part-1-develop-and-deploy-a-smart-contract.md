@@ -9,6 +9,8 @@ some_url:
 
 # POA - Part 1 - Develop and deploy a smart contract
 
+![](https://ipfs.infura.io/ipfs/QmbNpbky6U4N7B5BmyiNvLKNTFeBN4RcMhgp84UuHpSDbu)
+
 
 This article is part of a **POA tutorial series**: 
 
@@ -36,7 +38,7 @@ In this first step, we’re going to learn how to connect our Metamask wallet to
 
 2. Go to Settings, enter the following new RPC URL https://sokol.poa.network and click on Save
 
-![](https://api.beta.kauri.io:443/ipfs/QmSZNDxcCSmVwvxxWkzLz9Z2kEj6TTgYCBEYU4VJE2XusP)
+![](https://ipfs.infura.io/ipfs/QmSZNDxcCSmVwvxxWkzLz9Z2kEj6TTgYCBEYU4VJE2XusP)
 
   *Metamask should switch to this new private network*
 
@@ -48,7 +50,7 @@ In this first step, we’re going to learn how to connect our Metamask wallet to
 
 5. Click on Request 0.5 POA
 
-![](https://api.beta.kauri.io:443/ipfs/QmbNrvNNVdysPjLYDC1hVMfhT7u2azCvsPT5Sp2tBJT45G)
+![](https://ipfs.infura.io/ipfs/QmbNrvNNVdysPjLYDC1hVMfhT7u2azCvsPT5Sp2tBJT45G)
 
 6. You can your account balance in Metamask or also see in the [POA Sokol Explorer](https://blockscout.com/poa/sokol/) if the transaction went through.
 
@@ -348,6 +350,20 @@ If Metamask is unlocked and connected to the Solok network, The web3 provider co
 **Code**: https://github.com/gjeanmart/kauri-content/tree/master/poa_tutorial_sokol_part1
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/poa-part-1-develop-and-deploy-a-smart-contract/549b50d2318741dbba209110bb9e350e/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-01-21
+- **Kauri original tags:** poa, sokol, sidechain
+- **Kauri original hash:** QmSJGfnQfdCjeijf47eaDy4te9Gx4zCiaxcdzj1eDA3Hfa
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

@@ -32,3 +32,16 @@ Collections group together articles around themes, [create your own here](https:
 - [Consensys projects](https://beta.kauri.io/collection/5c06ca634f34080001c81be9/consensys-projects)
 - [POA Network](https://beta.kauri.io/collection/5c1265524f34080001c81c1b/poa-tutorial-series)
 - [GitCoin](https://beta.kauri.io/collection/5bd3262b26f0a50001f2a276/gitcoin)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/january-9th-2019-newsletter/fdb92acde71e4feb8093bfd169ee10e9/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-01-10
+- **Kauri original tags:** Newsletter, News, KAURI
+- **Kauri original hash:** QmdNkg3jzZ3vhMXX96ZDFACxteTFVzo8PTnd7wNpBu4rQ8
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

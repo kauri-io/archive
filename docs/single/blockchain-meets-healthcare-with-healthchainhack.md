@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmTau6j3o1nPQyKbTmMgpzpMsNzLEmKwUbdMPXkoTNEFwD)
+![](https://ipfs.infura.io/ipfs/QmTau6j3o1nPQyKbTmMgpzpMsNzLEmKwUbdMPXkoTNEFwD)
 
 
 #### BlockTEST Announces Hackathon, Collaboration Across Blockchain and Healthcare Industries
@@ -45,5 +45,19 @@ Sponsors for
 > Visit us at hackathon.blocktest.com
 
 
-![](https://api.kauri.io:443/ipfs/Qmda9sez5feRDX9rBWJWCMYskw6eUW47Qzy9pyJc74YLfE)
+![](https://ipfs.infura.io/ipfs/Qmda9sez5feRDX9rBWJWCMYskw6eUW47Qzy9pyJc74YLfE)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blockchain-meets-healthcare-with-healthchainhack/c79ca6bed0c8443192c5b92481384679/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** blockchain, healthcare
+- **Kauri original hash:** QmaKJTtMbfRnY7vWq2fUWGk8uwG4v4vhEpjMhLMfMrUpEK
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

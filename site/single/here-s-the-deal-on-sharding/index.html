@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Here’s The Deal on Sharding &mdash; Kauri</title>
+    <title>Here’s The Deal on Sharding &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -768,10 +771,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1053,7 +1056,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1062,6 +1065,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="heres-the-deal-on-sharding">Here’s The Deal on Sharding</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWYCz2aar8wqVJQfiVFfvDskb8f4nXJbcnb9gLXYc41nJ" /></p>
 <p>Blockchains <strong>suck</strong>.</p>
 <p>They’re really slow, the fees are high, and right now nearly nothing built on them can scale, as evidenced by Cryptokitties and every single Ethereum stress test since then.</p>
 <p>In fact, blockchains are so bad that there’s an infamous “scalability trilemma” to sum up their biggest cons: as they are right now, they can’t exist without having to trade off either <strong>decentralization</strong>, <strong>scalability</strong>, or <strong>security</strong>.</p>
@@ -1070,18 +1074,18 @@
 <a href="https://en.bitcoin.it/wiki/Block_size_limit_controversy">block size</a>, creating more individual <em>altcoins</em> to deal with separate tasks, and <a href="https://www.cryptocompare.com/mining/guides/what-is-merged-mining-bitcoin-namecoin-litecoin-dogecoin/">merged mining</a>. However, they all have their own pitfalls; block size (or the block gas limit in ETH’s case) cannot be increased indefinitely (increased block size will cause a network to <a href="https://www.newsbtc.com/2017/11/12/61408/">become centralized</a> around a handful of miners), altcoins will spread out hashing power across multiple blockchains which sharply decreases security, and merged mining increases miners’ computational burden.</p>
 <h4 id="eli5-on-sharding-kinda">ELI5 on Sharding… Kinda</h4>
 <p>Sharding is one of the in-protocol solutions that have been proposed to help Ethereum scale. Sharding splits up the <strong>state</strong> of the network into multiple <em>shards</em> or pieces, where each piece has its own transaction history and portion of the network’s state. (The state is composed of all the information on what the network looks like at one specific moment, for example the amount of transactions that have been processed, the balances at each address, etc.)</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmThKpRX6Q8qBRXYV2Gx985wWSw8f9uMi5VciVBN1K29nU" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmThKpRX6Q8qBRXYV2Gx985wWSw8f9uMi5VciVBN1K29nU" /></p>
 <p>For example, in one sharding mechanism, a certain amount of addresses could be confined to a certain shard. In other words, all addresses beginning with 0x00 could go into shard 1, all addresses beginning with 0x01 could go into shard 2, and so on and so forth. Each new transaction on each individual shard would change the state of <em>that</em> shard only. Inter-shard communication would be facilitated through <a href="https://github.com/ethereum/wiki/wiki/Sharding-FAQs#how-can-we-facilitate-cross-shard-communication">some fancy functionalities</a>, which I’ll explain later.</p>
 <p>Every single shard processes its own portion of the <em>state</em> of the network, which allows multiple transactions to be verified in parallel instead of one transaction having to be processed by every single node. In this way, the network would be able to process transactions much, much faster.
 With a protocol such as this, we would now have two dimensions of operation instead of just one. Let’s zoom in and start with the first dimension, that of the shards. Check out the diagram below:</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmV5TRFgogCHBmR1KohXBLtqVf2fdG9BLHvufdbjmYTkrR" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV5TRFgogCHBmR1KohXBLtqVf2fdG9BLHvufdbjmYTkrR" /></p>
 <p>Instead of making blocks of transactions, certain nodes called <em>proposers</em> native to each shard build <em>collations</em>, which are basically groups of transactions.
 Each collation has a collation <em>header</em> as seen above, which contains information about the collation — which shard it belongs to, the state of the shard before the transactions were processed, the state of the shard after, and the receipt root after all the transactions are verified. The right side of the header with all the <sig #0000> elements represents <em>notary</em> nodes or <em>collators</em> that are meant to download and verify the collation. These notaries are randomly assigned to each shard, and the assigned shards get shuffled after a set period.</p>
 <p>Then, in the body of the collation, we see the collection of all the transaction IDs to be processed.</p>
 <p><em>So quick</em> <strong>TL;DR</strong><em>: proposer nodes build collations that are groups of transactions. Collations have headers that contain information about the state of the shard and the nodes that will verify them. The collation bodies contain the transactions.</em></p>
 <p>Let’s zoom out a bit to the <strong>2nd dimension of operation</strong> — the “main chain”.</p>
 <p>Instead of storing full blocks of transaction, now the main chain — the Proof of Work chain — pretty much solely serves to store the collation headers from each shard that have been properly verified.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qma7xkvDYxyt7f9XkiXq5kbga3bRMwHAh3pVpmsyf4CwfC" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma7xkvDYxyt7f9XkiXq5kbga3bRMwHAh3pVpmsyf4CwfC" /></p>
 <p>So in the diagram above, we can see sort of the “top level” of the protocol, where in each block we store two roots; one that describes the state of the network, which is divided into shards, and one that contains the information about all the verified collation headers. This means that the “longest chain” of each shard is the longest chain that contains every single collation that has been put onto the main chain.</p>
 <h4 id="cross-shard-communication">Cross-Shard Communication</h4>
 <p>One of the most important aspects of sharding would be to implement some method of cross-shard communication. What good would it be if you couldn’t send a transaction from address X in shard 1 to address Y in shard 3?</p>
@@ -1096,15 +1100,15 @@ Each collation has a collation <em>header</em> as seen above, which contains inf
 </blockquote>
 <p>Essentially there are two processes happening here: one “transaction” simply deducts account A’s balance, and then another transaction, being matched with the receipt from the deduction transaction, adds to account B’s balance the amount that was deducted from A. In this way we can effectively construct a full cross-shard transaction.
 If you’re a more visual learner, here’s a diagram describing the same process:</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmbSbpfAGBDBcaL41K1FRSZe92zfxw8i69muzhJztcEtvL" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbSbpfAGBDBcaL41K1FRSZe92zfxw8i69muzhJztcEtvL" /></p>
 <h4 id="vulnerabilities">Vulnerabilities</h4>
 <p>So sharding sounds amazing and all, but you must be thinking that there <em>has</em> to be a catch somewhere. Well, you’re right. </p>
 <p>The biggest issue the sharding solution might have to face is the single-shard takeover attack. A blockchain insures security through the validation of each transaction by every single node in the network. However, when the state of the network is sharded, each node will only process a certain portion of each transaction. This will make it more difficult to keep the information secure. It will be comparatively easy to take over all the proposers, collators and notaries in a shard in order to submit false collations.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmXrQBwH91CqZ8CmDeWQrse2YqdwsCVD44w1PoFJ1hyA4f" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXrQBwH91CqZ8CmDeWQrse2YqdwsCVD44w1PoFJ1hyA4f" /></p>
 <p>The primary way Ethereum aims to solve this issue is through <strong>random sampling</strong>. A certain number of <em>notaries</em> are assigned to each shard to verify the collations, and as mentioned before, the assigned shards will shuffle after a set period of time.</p>
 <p>There are two ways this can happen. Notaries may be <strong>explicitly</strong> <strong>chosen</strong> and grouped into <em>committees</em> to vote on whether collations are valid or not. They can also be <strong>implicitly</strong> expected to go back through the chain and verify a certain number of older parent collations with each new collation that they process.
 With this restriction, even though there’s only a fraction of the total nodes that are processing new transactions on each shard, the level of security will still relatively remain the same. We can apply the theory of binomial distribution here:</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmekAgKMUHKA4qPDj7Pi34FgVb9uTmCLjgdmgZx229K3Hr" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmekAgKMUHKA4qPDj7Pi34FgVb9uTmCLjgdmgZx229K3Hr" /></p>
 <p>The total area under each dotted line represents the total number of nodes in the network. The portions under the humps show where the majority of the nodes are. The numbers on the x-axis represent the number of honest nodes out of the total set. The more the hump leans towards the right of the diagram, the more nodes in the network are honest. The more the hump leans towards the left, the less nodes are honest. The blue line represents a 50–50 chance of a node being honest with a 20-node sample size, the green represents a 70–30 chance of the node being honest with a 20-node sample size, and so on and so forth.</p>
 <p>For this reason, if we go along with statistic probability and assume that the majority of the nodes, around 67%, will be honest, that means the “hump” of our binomial distribution will skew more towards the right. Because of this, if we take a smaller sample (say 150 nodes) representing 1 shard out of the total number of nodes, we will see that there’s <a href="https://github.com/ethereum/wiki/wiki/Sharding-FAQs#how-can-we-solve-the-single-shard-takeover-attack-in-an-uncoordinated-majority-model">practically a 100% probability</a> that the shard will have a majority of honest nodes.
 In this way, attackers will have to actually control 100% - 67% = 33% of the network to actually present a real threat if the sharding solution were implemented.</p>
@@ -1120,7 +1124,16 @@ Furthermore, instead of storing transaction group roots, the beacon chain will b
 <a href="https://github.com/ethereum/sharding/blob/develop/docs/doc.md">official doc</a>.</p>
 <blockquote>
 <p>I hope this was helpful! Please let me know any questions you may have, and any feedback as well if I’ve misrepresented any information. Thank you for reading! Be sure to follow me for more articles like this. Note: this article was originally written in July 2018, and may not be up to date in certain areas.</p>
-</blockquote></div>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/here-s-the-deal-on-sharding/04b66cfa4382448c93440ebf3da26224/a</li>
+<li><strong>Kauri original author:</strong> Ramy Zhang (@ramyjzhang)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-07</li>
+<li><strong>Kauri original tags:</strong> ethereum, casper, sharding, scalability</li>
+<li><strong>Kauri original hash:</strong> QmZHMuNVnJP3cid6Nwgac4pLfrHd6WHuRgZMtPaMk73aKD</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../weird-quirks-we-found-in-ethereum-nodes/" title="Weird quirks we found in Ethereum nodes"><span>Previous</span></a></div>

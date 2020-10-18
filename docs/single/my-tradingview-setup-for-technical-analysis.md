@@ -9,6 +9,8 @@ some_url:
 
 # My TradingView setup for Technical Analysis
 
+![](https://ipfs.infura.io/ipfs/Qmb8SBcsf4iBovsGE8d2RtUYJExFgikRgL3aPeQFbChxHu)
+
 
 ### Tip me Ether @ 0xbfeceC47dD8bf5F6264A9830A9d26ef387c38A67 if I've helped you
 ## Intro
@@ -25,11 +27,11 @@ I actually don't draw triangles, lines etc. on my charts usually but each to the
 
 1. Dark Theme
 2. Heikin Ashi candles
-3. ![](https://api.kauri.io:443/ipfs/QmedatJwDFZM7wQ89g9qXV7pQpyUiF9s2n3CFaxDHN1GTD)
+3. ![](https://ipfs.infura.io/ipfs/QmedatJwDFZM7wQ89g9qXV7pQpyUiF9s2n3CFaxDHN1GTD)
 
 ## Indicators used
 
-![](https://api.kauri.io:443/ipfs/QmPX86YpLLhyaDVdXdQmZcuqbaYk7TzPA3wKt4w2QZ1YFT)
+![](https://ipfs.infura.io/ipfs/QmPX86YpLLhyaDVdXdQmZcuqbaYk7TzPA3wKt4w2QZ1YFT)
 
 Above is the setup I use, mainly discovered via crypto twitter and telegram groups!
 <iframe src="https://giphy.com/embed/l0NwHXQy3kUSfFF60" width="480" height="271" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
@@ -38,31 +40,31 @@ Above is the setup I use, mainly discovered via crypto twitter and telegram grou
 ## Indicator guides
 
 ### VPVR  [Explanation on how to use it](https://medium.com/@xanxsells/using-the-volume-profile-in-crypto-b88461efb2fc)
-- ![](https://api.kauri.io:443/ipfs/QmTc3FWSZ73fJaNmVdyqChoKcBmGVeLap57gpaArqPF4XW)
+- ![](https://ipfs.infura.io/ipfs/QmTc3FWSZ73fJaNmVdyqChoKcBmGVeLap57gpaArqPF4XW)
 
 Used with [Support/Resistance V2](https://www.tradingview.com/script/JAW0oW7R-Support-Resistance-V2-Indicator/)
 The Orange dotted lines help identify points of control.
 
 ### [TTM Squeeze](https://www.tradingview.com/script/DY3eWCvS-TTM-Squeeze-Momentum-by-Drecken/)
-- ![](https://api.kauri.io:443/ipfs/QmVQX4TpEn13JDCQ35Hz4urPJ2ym1s4BP4kRmFdVnyWsM2)
+- ![](https://ipfs.infura.io/ipfs/QmVQX4TpEn13JDCQ35Hz4urPJ2ym1s4BP4kRmFdVnyWsM2)
 
 Notice how it follows the trend and shows potential momentum crossover indicated by the red dots?
 
 ### [OBV Divergence](https://www.tradingview.com/script/dI9ULkYY-OBV-Divergence-Alerts-BETA/)
-- ![](https://api.kauri.io:443/ipfs/QmRoJETksnvSnLr8LZFLV4ZcWTFshND9GonCjs1h7okG68)
+- ![](https://ipfs.infura.io/ipfs/QmRoJETksnvSnLr8LZFLV4ZcWTFshND9GonCjs1h7okG68)
 
 Notice the red dots? It potentially means GTFO!
 
 ### MFI
-- ![](https://api.kauri.io:443/ipfs/QmV2vc4m1Cf93udz5rmccfrFEMrk9YXTpzqnT84Mebq8S9)
-- ![](https://api.kauri.io:443/ipfs/QmZ41dtxmhNRi1Lu2EacGPyEAAkTtms6UTVc9kHNEUQkw7)
+- ![](https://ipfs.infura.io/ipfs/QmV2vc4m1Cf93udz5rmccfrFEMrk9YXTpzqnT84Mebq8S9)
+- ![](https://ipfs.infura.io/ipfs/QmZ41dtxmhNRi1Lu2EacGPyEAAkTtms6UTVc9kHNEUQkw7)
 
 Higher timeframes the better, especially used with Volume indicators in general. 
 Great for identifying positive trends and reversals.
 
 ### [Stoch RSI](https://www.tradingview.com/script/Wylw98ue-CM-Stochastic-Multi-TimeFrame/)
 
-- ![](https://api.kauri.io:443/ipfs/QmZJuNtiKUMhCFpd2A9MsuHXXwVwuw7vfmLwgRdw5B9QMa)
+- ![](https://ipfs.infura.io/ipfs/QmZJuNtiKUMhCFpd2A9MsuHXXwVwuw7vfmLwgRdw5B9QMa)
 
 This one's debatable based on the fact it's relevant to itself essentially.
 Same important quantifiable levels as with MFI are below 40 and above 80.
@@ -70,20 +72,20 @@ I do like the red and green bars on this Chris Moody indicator though :)
 
 ### [RSI Divergence](https://www.tradingview.com/script/AISwMrzv-RS-RSI-Divergence-V6-with-alerts/)
 
-- ![](https://api.kauri.io:443/ipfs/QmbfZwMJuJ5NRaabtytMLgdKKH6U9A52qfgykvHvRgN4rv)
+- ![](https://ipfs.infura.io/ipfs/QmbfZwMJuJ5NRaabtytMLgdKKH6U9A52qfgykvHvRgN4rv)
 
 Hidden divergences with labels! What's not to like!
 
 ### [Market God - @kingthies](https://www.tradingview.com/script/x9qd7nQH-Market-God-by-KingThies/)
 
-- ![](https://api.kauri.io:443/ipfs/Qmev8zcb38sZQskJB2qzjCZtfgsSWJrYTPAuz3cMhbJh8E)
+- ![](https://ipfs.infura.io/ipfs/Qmev8zcb38sZQskJB2qzjCZtfgsSWJrYTPAuz3cMhbJh8E)
 
 Not much to say here but works better on higher timeframes. 
 Tip him, his eyes are bleeding atm getting the new version out.
 
 ### [Trendmaster - @IchimokuScholar & @Crypto_C00kie](https://www.tradingview.com/script/q6cUzHUY-Trendmaster-IchimokuScholar/)
 
-- ![](https://api.kauri.io:443/ipfs/QmWL75bR4hqxANrMqrXfJY1qD8mmeYMtUoPNUKS4pGLvSx)
+- ![](https://ipfs.infura.io/ipfs/QmWL75bR4hqxANrMqrXfJY1qD8mmeYMtUoPNUKS4pGLvSx)
 
 Break above or down the cloud on higher timeframes, 4H or 1D. 
 Buy or Sell.
@@ -92,7 +94,7 @@ They have a discord with automated signals too :)
 
 ### MTF Deviation - @Mtrl_Scientist - Join their telegram
 
-- ![](https://api.kauri.io:443/ipfs/QmeU2XYQ9qHXb3Fj8HFCArBz2EXU2qXQErpyL7an2NP3o7)
+- ![](https://ipfs.infura.io/ipfs/QmeU2XYQ9qHXb3Fj8HFCArBz2EXU2qXQErpyL7an2NP3o7)
 
 Knifecatching, $OAX breaks below its calculated 0.0 fib, moons 5 days later.
 
@@ -107,3 +109,16 @@ Knifecatching, $OAX breaks below its calculated 0.0 fib, moons 5 days later.
 Hope this helped you, share and tweet me @ericjuta!
 
 ### Tip me Ether @ 0xbfeceC47dD8bf5F6264A9830A9d26ef387c38A67 if I've helped you
+
+
+---
+
+- **Kauri original link:** https://kauri.io/my-tradingview-setup-for-technical-analysis/107d00bf882143dc81352008cbe0f1a1/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2019-04-06
+- **Kauri original tags:** trading, cryptocurrency, ethereum, ericjuta, indicators, bitcoin, technical-analysis
+- **Kauri original hash:** QmZ4GAfZiHbSFwpFPaZ3d1Gzu2SRowr2GKsujkA2QdjgS7
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

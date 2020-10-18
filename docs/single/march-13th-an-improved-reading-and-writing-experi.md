@@ -22,19 +22,19 @@ While the ability for readers to suggest updates to articles has always been a g
 
 Now, article owners can see the changes proposed inline, plus any comments added, and approve or reject accordingly.
 
-![Approving changes view](https://api.kauri.io:443/ipfs/QmcNrgMHuQCqv8X9irccfdiUkR546RpkinKHxScf6wzfQf)
+![Approving changes view](https://ipfs.infura.io/ipfs/QmcNrgMHuQCqv8X9irccfdiUkR546RpkinKHxScf6wzfQf)
 
 ### Add to collection improvement
 
 Collections are the main way to organize content on Kauri, but adding content to them always involved a lot of back and forth between articles and collections. Now you can add an article to your collections right from the article by clicking the _Add to Collection_ button on the right-hand side of an article.
 
-![Add to collection button](https://api.kauri.io:443/ipfs/QmazWKkoqoJtaUgFL2GvCf2W2mNHwpbYH2dQF5uKxHqTLb)
+![Add to collection button](https://ipfs.infura.io/ipfs/QmazWKkoqoJtaUgFL2GvCf2W2mNHwpbYH2dQF5uKxHqTLb)
 
 ### Improved search
 
 We admit it; our old search wasn't that great. We've now tweaked things behind the scenes. Results are now more accurate, you can toggle them between articles and collections, and the preview of the article in the results is vastly improved.
 
-![New search results](https://api.kauri.io:443/ipfs/QmS8PxhbG3eaTdgsj67aj4f6eAsiSiXeJmm58sMg68srRL)
+![New search results](https://ipfs.infura.io/ipfs/QmS8PxhbG3eaTdgsj67aj4f6eAsiSiXeJmm58sMg68srRL)
 
 ### SEO improvements
 
@@ -64,3 +64,17 @@ If you're interested in creating content on Kauri, below are some places to get 
 - Want to import your content from Medium? [We have an importer that helps](https://kauri.io/article/15673b4f86da49f5aed621696499c662/v2/kauri-importer-guidelines)
 
 P.S. If you're having trouble using Kauri, we recommend viewing the articles in the [Help section](https://kauri.io/help). And if you need more help, [contact us](mailto:help@kauri.io).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/march-13th-an-improved-reading-and-writing-experi/904ece2aaa764ccb8918c6c0199958cc/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-03-14
+- **Kauri original tags:** news, collaboration, kauri, updates
+- **Kauri original hash:** QmNde4ivG7ngwyTeKNUMXboLQ1oK8yBUYoXxBEqgszdSGH
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

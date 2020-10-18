@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Client-Side EthQL Library Generator &mdash; Kauri</title>
+    <title>Client-Side EthQL Library Generator &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,6 +764,7 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2 current"><a class="nav-item current" href="./">Client-Side EthQL Library Generator</a>
 <ul class="subnav">
@@ -775,7 +779,6 @@
 <li class="toctree-l3"><a class="nav-item toc" href="#a-link-to-all-your-source-code-on-a-public-repo-ie-github">A link to all your source code on a public repo (i.e. Github)</a></li>
 </ul></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1057,7 +1060,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1066,6 +1069,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="client-side-ethql-library-generator">Client-Side EthQL Library Generator</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZP61xH2YWo8orkRmeQA2Qi6nZ52d2zCfNUYPG1L1Qei7" /></p>
 <h2 id="project-name">Project Name</h2>
 <p>Client-Side EthQL Library Generator</p>
 <h2 id="project-taglinedescription-140-characters-max-will-be-used-on-table-card-for-judging">Project Tagline/Description (140 Characters Max. Will be used on table card for judging)</h2>
@@ -1099,7 +1103,16 @@ Ryan - 0x04b6a985dfad67a11e5be0838c3502ddbe49052fd1e78fdc9b78d7bb811b4ba2e2f064d
 <li>Infura EthQL bounty</li>
 </ul>
 <h2 id="a-link-to-all-your-source-code-on-a-public-repo-ie-github">A link to all your source code on a public repo (i.e. Github)</h2>
-<p>https://github.com/ryanchristo/lil-buidl</p></div>
+<p>https://github.com/ryanchristo/lil-buidl</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/client-side-ethql-library-generator/1a7dffd63e6f44eaa35bd7772133156b/a</li>
+<li><strong>Kauri original author:</strong> Scott Street (@sprusr)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-17</li>
+<li><strong>Kauri original tags:</strong> ethdenver-2019-submission, bounty-infura-2019</li>
+<li><strong>Kauri original hash:</strong> Qmceoq4iPeexpzycvDvMUaKryq8j1kgKY8j3Rhm6DptqyC</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../paypic-ethdenver-2019-submission/" title="PayPic - ETHDenver 2019 Submission"><span>Previous</span></a></div>

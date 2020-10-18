@@ -54,3 +54,17 @@ https://github.com/c-o-l-o-r/standalone-tor-proxy
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/watchtower-implementation-for-plasma/8f1b24f2eab34a62b11e0f59d36d3049/a
+- **Kauri original author:** Matt Garnett (@mattgarnett)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmaeCfUZvTC3RkfHy7LwH4P5dBVf8BoF5gzhfrTC9DbT3r
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

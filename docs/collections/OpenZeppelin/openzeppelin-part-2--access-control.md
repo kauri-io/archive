@@ -9,6 +9,8 @@ some_url:
 
 # OpenZeppelin Part 2  Access Control
 
+![](https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG)
+
 
 ## Access Control
 
@@ -95,3 +97,16 @@ For more examples of using _Ownable.sol_ and _Roles.sol_ check out the following
 
 - [Ownable](https://github.com/search?utf8=%E2%9C%93&q=import+%22openzeppelin-solidity%2Fcontracts%2Fownership%2FOwnable.sol%22%3B&type=Code)
 - [Roles](https://github.com/search?utf8=%E2%9C%93&q=import+%22openzeppelin-solidity%2Fcontracts%2Faccess%2FRoles.sol%22%3B&type=Code)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openzeppelin-part-2:-access-control/6816abb97f104026a946ba65968eefe6/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** smart-contract, openzeppelin, ownership, zeppelin, access-control
+- **Kauri original hash:** QmQ6LWCdPPBFz7A44eoq5bhTH78AEXnXvr5Z2sHevRFtp2
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

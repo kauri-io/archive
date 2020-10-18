@@ -371,3 +371,16 @@ sudo systemctl enable swarm
 
 Congratulations — you are mightily contributing to a decentralized web in the background of your computer!
 ###
+
+
+---
+
+- **Kauri original link:** https://kauri.io/run-an-ethereum-node-on-debian-with-an-external-s/a73723dd2e924d8c948923709763f409/a
+- **Kauri original author:** William (@wschwab)
+- **Kauri original Publication date:** 2020-03-08
+- **Kauri original tags:** metamask, geth, nodes, swarm, systemd, debian
+- **Kauri original hash:** QmczpCVLAjrXRV7smmvCoNvhj7cx497QFk3dNWfBTXp7Ry
+- **Kauri original checkpoint:** unknown
+
+
+

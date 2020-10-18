@@ -27,17 +27,31 @@ Create a Kauri account, and sign in.
 
 When you find an author you appreciate, On the left hand side of an article you can see how much an author has already received, and a "Tip Author" button. Clicking it asks you to specify an amount and opens your wallet to ask you to confirm the amount. That's it!
 
-![Tip Author button](https://api.kauri.io:443/ipfs/Qmdyu5RBYW9kxzqUfJ5WfJcnbybFUCD71QiPkjoGHozQAq)
+![Tip Author button](https://ipfs.infura.io/ipfs/Qmdyu5RBYW9kxzqUfJ5WfJcnbybFUCD71QiPkjoGHozQAq)
 
-![Specify tip amount](https://api.kauri.io:443/ipfs/QmQXMt952rogTUPtF5fJNcm5t6ngB733smtoDvBX7pNngW)
+![Specify tip amount](https://ipfs.infura.io/ipfs/QmQXMt952rogTUPtF5fJNcm5t6ngB733smtoDvBX7pNngW)
 
 To see a summary of tips you sent to writers, open your profile page from the avatar in the top right, then _Manage_, _Tip History_ and _Tips Sent_.
 
-![History of tips sent](https://api.kauri.io:443/ipfs/QmcTEeGhxNWvzRXyRZJzV2r4wq2EBnPzhy4iD86zugjVuK)
+![History of tips sent](https://ipfs.infura.io/ipfs/QmcTEeGhxNWvzRXyRZJzV2r4wq2EBnPzhy4iD86zugjVuK)
 
 ### Collecting your tips as a writer
 
 As a writer, you should receive tips to the Ethereum address you registered to Kauri with. To see a summary of all the tips you have received, open your profile page from the avatar in the top right, then _Manage_, _Tip History_ and _Tips Received_.
 
-![History of tips received](https://api.kauri.io:443/ipfs/QmP9BvJEjik6miKFdsZEEuKqvdisGeiKccVY6UdLKeBTG5)
+![History of tips received](https://ipfs.infura.io/ipfs/QmP9BvJEjik6miKFdsZEEuKqvdisGeiKccVY6UdLKeBTG5)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/support-the-writers-you-love-with-tipping/2985889f4ba54a70883c52ff7e19f4d0/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2020-02-12
+- **Kauri original tags:** tipping, kauri, writing, support
+- **Kauri original hash:** QmUTT3H6KVETrYbpccEghTUCq1WeLY3rZoW4Ta314PYft6
+- **Kauri original checkpoint:** QmZdtBB4fpmwj59DYo9qNeuTBKYDHwcKWapbYa5WAtrFdn
+
+
 

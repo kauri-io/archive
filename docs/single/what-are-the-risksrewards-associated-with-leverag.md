@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-are-the-risksrewards-associated-with-leverag/1afc125f25b34c3dac3de8934671e833/a
+- **Kauri original author:** null (@handsomecodemonkey)
+- **Kauri original Publication date:** 2018-05-10
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWcuMNLn4rXJoDX4NWHQd9VNBujjQEiLPPoMNwP1TCbLb
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

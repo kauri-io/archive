@@ -47,3 +47,17 @@ In the 1990’s and 2000’s, the internet jargon was about the term ‘disinter
  Crypto is doing the same with money: replacing/obviating central banks and sovereign states as sole issuers of money and policy. This aspect of crypto is thus ‘disintermediating’ governments and regulators — perhaps we need a word for this, such as ‘dis-sovereigning’ or ‘dis-governmenting’ or ‘dis-censoring’.
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
 My ZenCash address = znk9GjfbzRHwDiMWmq2xeTi5FNkgnzQXthg
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-5/38277d1f858f43f4b2a82da6157b8809/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmXn6MVC67bTkaokTLbDk6mLjqguTagHYRXSe1p4RnH66K
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

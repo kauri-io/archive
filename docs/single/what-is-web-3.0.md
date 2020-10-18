@@ -49,3 +49,17 @@ The Ethereum Name Service (ENS) aims to replace DNS by creating a lookup service
 #### DApps — Decentralized Applications
 Finally on top of all these new technologies, blockchain protocols, and decentralized platforms, a new wave of applications will be and has already started to be developed. These Web 3.0 applications are called DApps (Decentralized Applications) and are built on top of peer to peer, decentralized and blockchain based technologies and so they benefit from the properties of the underlying technologies described above. Users will transact using cryptocurrencies and will store data and code on the blockchain and on the decentralized cloud.
 Users will have full ownership of their data which will also be censorship resistant because it is permanently stored on the blockchain. Currently most DApps are developed to run on the Ethereum blockchain and are written in Solidity. They also use IPFS to serve the frontend which connects to smart contracts running on the blockchain and do away with the traditional centralized backend database and APIs. There is still much work to be done before we complete decentralizing the internet and so there has never been a better time to learn about Web 3.0 and become a DApps developer. Keep following me here at Web3 Developer if you want to learn more!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-is-web-3.0/2678d5d36f5c45f981e482de289ce154/a
+- **Kauri original author:** Web3 Developer (@web3developer)
+- **Kauri original Publication date:** 2019-06-02
+- **Kauri original tags:** ethereum, blockchain, web3, dapps
+- **Kauri original hash:** Qmb2Vx4Gm3CPsLczXJ34RcfVzrNWPNCUVZFypcRLK8Xppg
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Installing IPFS
 
+![](https://ipfs.infura.io/ipfs/QmVmFg2MiFVxb4Ro967CaubE8ytjWD5gDFgsNzRCnrVUj9)
+
 
 In this tutorial, we install IPFS and learn its basic commands.
 
@@ -269,3 +271,17 @@ We've covered the basics of working with IPFS. Here is a summary of all the comm
 - <https://medium.freecodecamp.org/ipfs-101-understand-by-doing-it-9f5622c4d4ed>
 - <https://docs.ipfs.io/introduction/usage/>
 - <https://flyingzumwalt.gitbooks.io/decentralized-web-primer/content/>
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/installing-ipfs/b01b9b7bebcd4ebf80edf021bdd0e232/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** ipfs, web, installation, peer2peer
+- **Kauri original hash:** Qmd7KF8uSN8i5xRAvNHHJieYLc5FCVdEPXSuGLDh2qxjGU
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

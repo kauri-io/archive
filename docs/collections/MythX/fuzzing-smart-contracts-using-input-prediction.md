@@ -9,6 +9,8 @@ some_url:
 
 # Fuzzing Smart Contracts Using Input Prediction
 
+![](https://ipfs.infura.io/ipfs/QmZHSD8LwYkompXoa7ypaBbMvXjgjB7ba1jTwNd6yi6wuw)
+
 
 In the 
 [previous post](https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2)
@@ -121,7 +123,7 @@ This problem has been studied extensively and there are many different methods, 
 `a==42`
  that will be tried next.
 
-![](https://api.kauri.io:443/ipfs/QmQgGB39PVedEstcPUhGZqjm2iSkTdvrwaZWbgN83EK5AT)
+![](https://ipfs.infura.io/ipfs/QmQgGB39PVedEstcPUhGZqjm2iSkTdvrwaZWbgN83EK5AT)
 
 Et voilà! By running the input we confirm that it indeed explores the desired branch. If we were less lucky, we could apply the same approach iteratively, for instance, if the branch condition was 
 `a*a*a==27`
@@ -145,3 +147,17 @@ Thanks to
  ), and 
 [Bernhard Mueller](https://twitter.com/muellerberndt)
  for feedback on drafts of this article.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/fuzzing-smart-contracts-using-input-prediction/c3d4ee5919064a23bc0e5f3317310f16/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** fuzzing, security, smart-contracts
+- **Kauri original hash:** QmTFYVGWjTzUUCdtWvmrcAM746Ap6HG2npu5ko8Neg4tge
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

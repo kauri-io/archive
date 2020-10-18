@@ -9,6 +9,8 @@ some_url:
 
 # Getting Started With Machine Learning (Non practitioner guide)
 
+![](https://ipfs.infura.io/ipfs/QmXr4rimqN5am3bcKe1UGtD1kcBsAwBeazRNyoEjhTN9bH)
+
 
 In the recent years, machine learning has made a comeback into everybody's conversations. From the classrooms in Stanford or MIT, to movies like HER or Ex-Machina, AI is not just permeating all our lives but also our imagination.
 
@@ -28,3 +30,17 @@ Here's a breakdown of the different articles:
 - [Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow](https://kauri.io/article/145b4c03a55146cba2051f04e7f499e9/v1/multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow)
 
 More articles (more supervised learning, unsupervised and reinforcement learning) will be coming soon!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/getting-started-with-machine-learning-(non-practi/b92d356410cb4ffd9e11e15726972ab7/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2019-11-07
+- **Kauri original tags:** artificial-intelligence, machine-learning, python, anaconda
+- **Kauri original hash:** QmV1pNK3Z57XfjudSUfeXsDATWBKJPmruX4ysoerbiEfhz
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Remix IDE - Your first smart contract
 
+![](https://ipfs.infura.io/ipfs/QmNQCiD3aQgUrnRS7ApCEBY2ydXBoVvfjx2BjTnUh3vMvU)
+
 
 The easiest place to start writing smart contracts in Solidity in with the [online Remix IDE.](https://remix.ethereum.org/)
 
@@ -26,7 +28,7 @@ Before we get started, a quick reminder of what we are building: A dApp which al
 
 In Remix, create a new file by selecting the "+" icon in the upper left-hand corner. Name the file: _Bounties.sol_
 
-![The Remix file explorer](https://api.kauri.io:443/ipfs/QmSZV9mbP1LUsdimZvoRxwxs3D2fmV4kJx3zWZix5X8bes)
+![The Remix file explorer](https://ipfs.infura.io/ipfs/QmSZV9mbP1LUsdimZvoRxwxs3D2fmV4kJx3zWZix5X8bes)
 
 In the first line of our Solidity Smart Contract, we tell the compiler which version of Solidity to use:
 
@@ -65,7 +67,7 @@ contract Bounties {
 
 In Remix, select the "Compile" tab in the top right-hand side of the screen, and start the compiler by selecting the "Start to Compile" option.
 
-![Compile tab in Remix](https://api.kauri.io:443/ipfs/QmfTNZVoHzTBWwF3Nz9Dd8jkYxqD3MTWzXJ4cq1A2oK8mT)
+![Compile tab in Remix](https://ipfs.infura.io/ipfs/QmfTNZVoHzTBWwF3Nz9Dd8jkYxqD3MTWzXJ4cq1A2oK8mT)
 
 If everything is ok, you should see a green label with the name of your contract: "Bounties", this indicates the compilation was successful.
 
@@ -321,7 +323,7 @@ You will notice a few static analysis warnings in the static analysis tab of the
 
 In Remix, select the `Run` tab in the top right-hand side of the screen. Within the `Environment` dropdown section, select the `Javascript VM` option.
 
-![Deploy and run panel in Remix](https://api.kauri.io:443/ipfs/QmeNPZCm5rQMKn9feQh9zAjoT8C62LYMySER91scTP56dK)
+![Deploy and run panel in Remix](https://ipfs.infura.io/ipfs/QmeNPZCm5rQMKn9feQh9zAjoT8C62LYMySER91scTP56dK)
 
 The "JavaScript VM" option, runs a Javascript VM blockchain within the browser, this allows you to deploy and send transactions to a blockchain within the RemixIDE in the browser. This is particularly useful for prototyping, especially since no dependencies are required to be installed locally. [You can read more about running transactions within Remix here](https://remix-ide.readthedocs.io/en/latest/run.html).
 
@@ -331,7 +333,7 @@ This button executes a transaction to deploy the contract to the local blockchai
 
 Within the RemixIDE console, which is located directly below the editor panel, you will see the log output of the contract creation transaction.
 
-![Log output in Remix](https://api.kauri.io:443/ipfs/QmcLv2bWgZHj4rggjwAgic99wivND9G7ZsmPqfH5iHfdrj)
+![Log output in Remix](https://ipfs.infura.io/ipfs/QmcLv2bWgZHj4rggjwAgic99wivND9G7ZsmPqfH5iHfdrj)
 
 The "green" tick indicates that the transaction itself was successful.
 
@@ -342,7 +344,7 @@ Here we have the following options:
 -   `issueBounty` the colour of this button "pink" indicates that invocation would result in a transaction
 -   `bounties` the colour of this button "blue" indicates that invocation would result in a call
 
-![Deploy and run panel in Remix](https://api.kauri.io:443/ipfs/QmRnPSACBzP561kkKNEa4G5jboPrWWQ9LdmVTHQbAEXjMf)
+![Deploy and run panel in Remix](https://ipfs.infura.io/ipfs/QmRnPSACBzP561kkKNEa4G5jboPrWWQ9LdmVTHQbAEXjMf)
 
 To invoke the `issueBounty` function, we need to first set the arguments in the "issueBounty" input box.
 
@@ -363,7 +365,7 @@ Clicking the "issueBounty" button in the "Deployed Contracts" section, within th
 
 Within the console, you will see the log output of the issueBounty transaction.
 
-![Console output in Remix](https://api.kauri.io:443/ipfs/QmXLonrP7pnMfW6BurbwavW6w28usWf8d66HDRnS4EnX4t)
+![Console output in Remix](https://ipfs.infura.io/ipfs/QmXLonrP7pnMfW6BurbwavW6w28usWf8d66HDRnS4EnX4t)
 
 The "Green" tick indicates the transaction was successful.
 
@@ -373,7 +375,7 @@ This should be the index of our "Bounty" data within the bounties array in our s
 
 Set the `uint256` argument of the bounties function to `0` and click the "blue" bounties button.
 
-![Set arguments in Remix](https://api.kauri.io:443/ipfs/QmUPZF54AToDSsm8sMy3r9BueGKArPgHx3jRdU5vyqBbiG)
+![Set arguments in Remix](https://ipfs.infura.io/ipfs/QmUPZF54AToDSsm8sMy3r9BueGKArPgHx3jRdU5vyqBbiG)
 
 Here we confirm that the data inputs for our issuedBounty are retrieved correctly from the "bounties" array with deployed smart contracts storage.
 
@@ -397,3 +399,17 @@ You can find the [complete Bounties.sol file here for reference](https://github.
 > If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.
 >
 > If you have found any errors, feel free to update this guide by selecting the **'Update Article'** option in the right-hand menu, and/or [update the code](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-11-20
+- **Kauri original tags:** ethereum, remix, solidity
+- **Kauri original hash:** QmXczsudavLX1QxncEivoEsLTTc4CZEd7Wf4sJBXQPYS4j
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

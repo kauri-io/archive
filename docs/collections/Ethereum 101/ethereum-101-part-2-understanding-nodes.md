@@ -93,3 +93,17 @@ You're running a truncated implementation of the Ethereum network. A light node 
 Additional reading: 
 * Ethereum light client protocol specification: https://github.com/ethereum/wiki/wiki/Light-client-protocol
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-2-understanding-nodes/48d5098292fd4f11b251d1b1814f0bba/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** ethereum, geth, nodes, primer, parity, client, light-client
+- **Kauri original hash:** QmNuAE2iSCVNvNB2Utj9MEGStVVoqf9Schj7fqQ6HLHp8W
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

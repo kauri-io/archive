@@ -9,6 +9,8 @@ some_url:
 
 # Grid+ - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmZrTmsVDyDsLXFEECQVbZjB7n3hsi89y6fN8H5MQbVS99)
+
 
 ## Company/Project Name and Description
 
@@ -39,3 +41,16 @@ No set criteria, but originality is desired. Some suggestions were give in our b
 ## Contact Information
 
 Mark D'Agostino - mark@gridplus.io
+
+
+---
+
+- **Kauri original link:** https://kauri.io/grid+-sponsor-bounty-at-ethdenver-2019!/3acbbc2faa314ca0ae6646a97e5408cf/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmcHoXTyqfLYhfQmuWAJrmnY6gs4x9U6tWy9ddV5j1fovr
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

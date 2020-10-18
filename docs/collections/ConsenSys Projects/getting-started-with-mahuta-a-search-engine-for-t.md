@@ -9,6 +9,8 @@ some_url:
 
 # Getting started with Mahuta - A Search engine for the IPFS
 
+![](https://ipfs.infura.io/ipfs/QmWMrtdrHCU5J7N4BQ9SX5Uy1NXK7viCNZT9pqEkt2C3wP)
+
 
 
 [**Mahuta**](https://github.com/ConsenSys/Mahuta) (formerly known as IPFS-Store) is a convenient library and API to aggregate and consolidate files or documents stored by your application on the IPFS network. It provides a solution to collect, store, index and search data used.
@@ -274,3 +276,16 @@ curl -X POST \
   }
 }
 ```
+
+
+---
+
+- **Kauri original link:** https://kauri.io/getting-started-with-mahuta-a-search-engine-for-t/874b1fe11d00406bbbef053405fd4538/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-12-10
+- **Kauri original tags:** ipfs-store, elasticsearch, ipfs, mahuta, search-engine, caching
+- **Kauri original hash:** QmbaS915QBSxes6g5WU5jFVZVuv4T13xxTVd4uSkWbnsrD
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -42,3 +42,17 @@ Let us handle your support while you build.
 
 Follow us on Twitter:
 https://twitter.com/ahnboard
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/announcing-ahnboard.io-the-trusted-onboarding-and/16746f95a2a949f8b6420ed17d940e0c/a
+- **Kauri original author:** Ahnboard.io (@ahnboard-io)
+- **Kauri original Publication date:** 2018-12-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWijaDxcpPVwZ9CzXoR5j78eZkj1D34dcF1H7JPU4pyxu
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

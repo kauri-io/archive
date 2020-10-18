@@ -21,7 +21,7 @@ some_url:
 > Spend every waking moment, that isn’t at work or with family, hacking on something even if you are building digital sandcastles. You’ll learn so much and you might just catch a lucky break!
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmZ6mm7iC8N4GnnGjPH1RJsdWCFT9a8hD3YKuRQhB7izN1)
+![](https://ipfs.infura.io/ipfs/QmZ6mm7iC8N4GnnGjPH1RJsdWCFT9a8hD3YKuRQhB7izN1)
 
 
 ----
@@ -34,7 +34,7 @@ In November of 2017, almost one year ago, I started building products on Ethereu
 _no one really cared_
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmVtMBvikNnREkv2kcZcnrWZJ8r2yJc5NjTFM6sZqQEodP)
+![](https://ipfs.infura.io/ipfs/QmVtMBvikNnREkv2kcZcnrWZJ8r2yJc5NjTFM6sZqQEodP)
 
 From this first Ethereum project, 
 [Clevis](https://github.com/austintgriffith/clevis)
@@ -44,7 +44,7 @@ _No one really cared. It wasn’t 10x better than something that already existed
 > There is something truly defeating about showing off something you love and getting no response at all.
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmUabQ425RkTk9Zd85G6Y9A97ShDTmPKj4yeMERh7RrySk)
+![](https://ipfs.infura.io/ipfs/QmUabQ425RkTk9Zd85G6Y9A97ShDTmPKj4yeMERh7RrySk)
 
 Next, I decided to build a game called 
 [Galleass](http://galleass.io)
@@ -52,15 +52,15 @@ Next, I decided to build a game called
 _crafting_
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmdbA6F5Jq1Tv8XtCj7XDLPkWr1jPXAcF2uFXAVyHxBBut)
+![](https://ipfs.infura.io/ipfs/QmdbA6F5Jq1Tv8XtCj7XDLPkWr1jPXAcF2uFXAVyHxBBut)
 
 The first phase of the game is fishing. You craft a Dogger (ERC721 fishing boat) by sending 4 Timber (ERC20) using a transferAndCall() (ERC677). Then you “sail on the blockchain” to a location to cast your bait in a commit/reveal randomness scheme to catch fish (ERC20).
 
-![](https://api.beta.kauri.io:443/ipfs/QmP8FUq65c9opE5mFeWuatdC6h1ArSXr8kq9CN8w7oeXen)
+![](https://ipfs.infura.io/ipfs/QmP8FUq65c9opE5mFeWuatdC6h1ArSXr8kq9CN8w7oeXen)
 
 A really neat mechanic that emerged from a fully decentralized game is each deployment goes to IPFS. Not only do players own their own assets and identity, but if they don’t like an update I push, they can go play the old version as if each iteration is a hard fork.
 
-![](https://api.beta.kauri.io:443/ipfs/QmNoznUHfSNkXjNVJn5vKkiccKwoJbRPiRfxaSptRyP6Zx)
+![](https://ipfs.infura.io/ipfs/QmNoznUHfSNkXjNVJn5vKkiccKwoJbRPiRfxaSptRyP6Zx)
 
 Galleass still exists out on the Rinkeby and Ropsten, but there were so many contracts it just wasn’t worth auditing. I learned a lot from building it and you can 
 [read more here](https://austingriffith.com/portfolio/galleass/)
@@ -71,10 +71,10 @@ _downvoted into oblivion. No one could make money from playing it._
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ4cJgFMVFX67DNA6sL7juzYS1ctHAKgHJsaLtTuCVz2o)
+![](https://ipfs.infura.io/ipfs/QmQ4cJgFMVFX67DNA6sL7juzYS1ctHAKgHJsaLtTuCVz2o)
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmQejya28jPuxRM6ZWXj3GPypqjKdKZRot4oGapcNUJnNM)
+![](https://ipfs.infura.io/ipfs/QmQejya28jPuxRM6ZWXj3GPypqjKdKZRot4oGapcNUJnNM)
 
 I stuck with game design and at 
 [ETHDenver](https://www.ethdenver.com/)
@@ -166,7 +166,7 @@ The greatest success of the whole project was
 [Matt Condon](https://medium.com/@mattcondon)
  putting a “Niftie” on his shoulder in his Twitter profile: 🤣💙🤣
 
-![](https://api.beta.kauri.io:443/ipfs/QmWBsy4jJ9R71Ws6S9rieteLKT15G3YgQdjaHrzzNqziiW)
+![](https://ipfs.infura.io/ipfs/QmWBsy4jJ9R71Ws6S9rieteLKT15G3YgQdjaHrzzNqziiW)
 
 
 ----
@@ -276,7 +276,7 @@ Finally, don’t get caught up in the hustle so much that you lose sight of your
 [knucklehead](https://austingriffith.com/portfolio/mydude/)
  in our backyard:
 
-![](https://api.beta.kauri.io:443/ipfs/Qmenta6Uaap2Mxp8Cgsi4fWDgToHhDGEhKi7Tyex1sAQpz)
+![](https://ipfs.infura.io/ipfs/Qmenta6Uaap2Mxp8Cgsi4fWDgToHhDGEhKi7Tyex1sAQpz)
 
 
 ----
@@ -289,3 +289,17 @@ If you are stuck on a problem I can help with or just in a rut in the #buidl eco
 [http://austingriffith.com](http://austingriffith.com)
  
 Thank you, good luck, and go get ’em.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/my-big-break-into-ethereum/3d1c347273bb4f86a79f0e303b06ca5a/a
+- **Kauri original author:** Austin Griffith (@austingriffith)
+- **Kauri original Publication date:** 2018-11-28
+- **Kauri original tags:** none
+- **Kauri original hash:** QmUY6L8QqFdNKvuW32uMs6pCGHiACJTx959x5NZHEbvHsT
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

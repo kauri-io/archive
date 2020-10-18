@@ -102,3 +102,16 @@ Similarly to the library above, the [Python API](https://github.com/makerdao/pym
 ### **Need help?**
 
 Contact [integrate@makerdao.com](mailto:integrate@makerdao.com) or #dev channel on chat.makerdao.com
+
+
+---
+
+- **Kauri original link:** https://kauri.io/quick-guide-listing-dai-or-mkr-tokens-on-exchange/c7b0426e21404c7cb4d06380219bf18d/a
+- **Kauri original author:** David Utrobin (@davidutro)
+- **Kauri original Publication date:** 2019-02-06
+- **Kauri original tags:** EthDenver
+- **Kauri original hash:** QmeJZBiiNyYUfaWpX1sRjM5PTt8J7gPBe5eTZJG1Ubf8iB
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

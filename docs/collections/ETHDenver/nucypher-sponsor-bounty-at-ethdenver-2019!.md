@@ -9,6 +9,8 @@ some_url:
 
 # NuCypher - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/Qmb6HbdhwBwXNSfUcerHcwfggqJm6BVhzomL1StBwTnDAb)
+
 
 ## Company/Project Name and Description
 
@@ -41,4 +43,18 @@ Anymore questions? NuCypher will also have a sponsor table where you can find us
 ## Contact Information
 
 Ryan Caruso - ryan@nucypher.com
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nucypher-sponsor-bounty-at-ethdenver-2019!/d1854ecd2f34497e8170a4157360ccbb/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** Qma7rF8uyEXehPKKBsuqxxtDvQUEnqsmtZv8EqQRt3DReq
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
 

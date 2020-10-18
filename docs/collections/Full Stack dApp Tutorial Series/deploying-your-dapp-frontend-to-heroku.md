@@ -125,4 +125,17 @@ Once you navigate to the right webpage, you are able to configure metamask. Be s
 
 Here's an example of the application running remotely in the browser.
 
-![Running Remotely](https://api.kauri.io:443/ipfs/QmNRLm9qFQfzkMRUCo1V63TxEFAhD1aYdeN7RAJ5gPEKEd)
+![Running Remotely](https://ipfs.infura.io/ipfs/QmNRLm9qFQfzkMRUCo1V63TxEFAhD1aYdeN7RAJ5gPEKEd)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/deploying-your-dapp-frontend-to-heroku/a2e8c4a594344f7a951613a73f463fe7/a
+- **Kauri original author:** Crawford Leeds (@crawfordleeds)
+- **Kauri original Publication date:** 2019-08-23
+- **Kauri original tags:** dapp, heroku, deploy
+- **Kauri original hash:** Qma9h4zEKG6kDo2Da2RcRFxgUtgc4qptCGtjyXAinyGo59
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

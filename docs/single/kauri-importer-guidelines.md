@@ -36,3 +36,17 @@ Link to website: [https://kauri.io](https://kauri.io)
 
 * The tool will import tweets and embedded youtube videos; if you use another video hosting service, such as vimeo, please update the links to your embedded videos in the Kauri editor when the article is in draft stage
 * Importing a large amount of articles can take up to 15-20 minutes
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri-importer-guidelines/15673b4f86da49f5aed621696499c662/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-04-27
+- **Kauri original tags:** kauri, medium
+- **Kauri original hash:** QmchXxowgqTjCtbt99cpxmqFAgKhuN3gGPPGhxgC8kau8d
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

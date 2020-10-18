@@ -47,3 +47,17 @@ Property rights = incentives and disincentives. Behavioural economics seems to c
  This suggests that someone now needs to run around and inventory/catalogue every entity that exists in your backyard, your state, your continent, and then database those into a catalogue of legal entities. Every butterfly and rock becomes a person at a law. Every rock can own its own cryptocoinz and vote those into its respective governance loop. Your rock can write a smart contract with you that benefits it if you renege. Your rock can establish a will for its estate. Your rock can charge you for its services. Your rock can choose which neighbourhood it wants to move to. Should the rock itself have the rights, or should the human guardian/s on its behalf? I suspect each such blockchain-represented rock will get an AI that acts as its guardian. Encoded properly, coin codebases themselves will wrestle with and work out a solution to the above hypotheticals: ethers, humans and rocks will each have a smart contract/avatar that exists in the EVM and the codelogic itself will mediate the roles and interests so as to achieve workable functional balance. At least that’s my hope…..
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
 My ZenCash address = znk9GjfbzRHwDiMWmq2xeTi5FNkgnzQXthg
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-2/d77ee9f2a76b4642889e5ffc98a5a00d/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** Qmdq47JQT1f5NLNctr1nMiAYLuZ27Mzju8dmVPBbbRbZ6m
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

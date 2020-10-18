@@ -9,6 +9,8 @@ some_url:
 
 # POA - Part 2 - Bridge assets between a sidechain and a mainchain
 
+![](https://ipfs.infura.io/ipfs/QmbbW1gkfPqjgggfF96byCijSjT2QAeNwGkpj6yaHMNoT2)
+
 
 
 This article is part of a **POA tutorial series**:
@@ -38,7 +40,7 @@ As part of the layer 2 scalability solutions, sidechain and bridges implement th
 4. User decides to exit his tokens from the sidechain and transfer them back to the mainchain via the bridge (tokens unlocked on the mainchain and burned on the sidechain)
 5. User sells his tokens on the mainchain
 
-![](https://api.beta.kauri.io:443/ipfs/QmWH44b3xpJk1yEiLok7xPZw991J3SgxGaoQ6nj6a8GUhn)
+![](https://ipfs.infura.io/ipfs/QmWH44b3xpJk1yEiLok7xPZw991J3SgxGaoQ6nj6a8GUhn)
 
 In this tutorial, we will learn how to deploy a token on the two networks (RinkeBy network as mainchain and POA Sokol as sidechain) and then deploy and use the bridge (ERC20 to ERC20) to let a user transfers his assets from one network to another.
 
@@ -331,7 +333,7 @@ $ yarn install && yarn install:deploy
 
 In this third step, we will deploy the necessary contracts to enable a ERC20 to ERC20 bridge.
 
-![](https://api.beta.kauri.io:443/ipfs/QmaVm2rdtf78fHsG7pRh2GYGXeRdos6tNkWrWtU2AZAT8w)
+![](https://ipfs.infura.io/ipfs/QmaVm2rdtf78fHsG7pRh2GYGXeRdos6tNkWrWtU2AZAT8w)
 
 1. Go to the `contracts` folder
 
@@ -602,11 +604,11 @@ $ npm start
 <br />
 4. Open your Internet Browser, unlock Metamask on the Rinkeby network with the account used to deploy BRT token and go to [http://localhost:3000/](http://localhost:3000/)
 
-![](https://api.beta.kauri.io:443/ipfs/QmPNXRHicnw5ZVFiyiZVN7rDEwR8rtVtWsMYq1bLEMovor)
+![](https://ipfs.infura.io/ipfs/QmPNXRHicnw5ZVFiyiZVN7rDEwR8rtVtWsMYq1bLEMovor)
 
 If you are on the RinkeBy network, you should see that you own 100 BRT token on the mainchain (RinkeBy) and 0 on the sidechain (POA Sokol)
 
-![](https://api.beta.kauri.io:443/ipfs/QmPbXEgc9q2xZ31hJjLJS4mvbFUy5fLj8SoFP89v25AMeq)
+![](https://ipfs.infura.io/ipfs/QmPbXEgc9q2xZ31hJjLJS4mvbFUy5fLj8SoFP89v25AMeq)
 
 You can now transfer BRT token between the mainchain and the sidechain:
 
@@ -623,4 +625,18 @@ You can now transfer BRT token between the mainchain and the sidechain:
 - [token-bridge (monorepo) GitHub](https://github.com/poanetwork/tokenbridge)
 - [Introducing the ERC20 to ERC20 TokenBridge](https://medium.com/poa-network/introducing-the-erc20-to-erc20-tokenbridge-ce266cc1a2d0) (November 2018)  
 - [Introducing POA Bridge and POA20](https://medium.com/poa-network/introducing-poa-bridge-and-poa20-55d8b78058ac) (April 2018) 
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/poa-part-2-bridge-assets-between-a-sidechain-and-/19072f7340184628b47c0d86e7feac6d/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-01-21
+- **Kauri original tags:** poa, bridge, sidechain
+- **Kauri original hash:** QmZWFdH1EZodsLeXvHDhQSgfnTv5zvtYe4SwmXjBkJr7w3
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
 

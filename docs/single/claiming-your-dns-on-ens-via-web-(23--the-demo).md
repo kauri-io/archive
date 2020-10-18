@@ -87,3 +87,17 @@ Gas usage: 84822
 In reality, the majority of people will be paying this amount of gas.
  **Summary** 
 In this blog post, I showed you the demo app which allows you to claim DNS on ENS. I also explained that transaction cost becomes lower if part of the proof has already been submitted. In the next blog post, I will show you how the demo code make use of a series of ENS libraries.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/claiming-your-dns-on-ens-via-web-(23:-the-demo)/8666e3b3000541498f3e9d08cd9a4808/a
+- **Kauri original author:** Makoto Inoue (@makoto)
+- **Kauri original Publication date:** 2018-10-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmXLkr1T9MRmDUa8NXtpsZupT3x3SGREvEPYV3xEHoKL58
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

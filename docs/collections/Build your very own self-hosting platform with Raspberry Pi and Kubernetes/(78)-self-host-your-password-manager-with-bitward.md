@@ -9,6 +9,8 @@ some_url:
 
 # (7/8) Self-host your password manager with Bitwarden
 
+![](https://ipfs.infura.io/ipfs/QmfTTYuhANiy3D9u9TbWPu1GgK3hSokKQH27XmnF5egmgH)
+
 
 
 
@@ -31,7 +33,7 @@ some_url:
 [Bitwarden](https://bitwarden.com/) is a free, open-source and audited Password Manager, it provides a large range of clients (desktop, web, browser extension and mobiles) to access your password easily and safely from anywhere. While Bitwarden offers a SaaS solutions (they host your passwords in an encrypted way), because Bitwarden is open-source, you can decide to host yourself your password and this is what we are going to learn in this tutorial.
 
 
-![](https://api.kauri.io:443/ipfs/QmcPDteMCafr51JeoHPG3RVk8f1nD5tEvYhDr6VHM9DmFx)
+![](https://ipfs.infura.io/ipfs/QmcPDteMCafr51JeoHPG3RVk8f1nD5tEvYhDr6VHM9DmFx)
 
 For information, we will deploy [Bitwarden-rs](https://github.com/dani-garcia/bitwarden_rs), Unofficial Bitwarden compatible server written in Rust, ideal for self-hosting.
 
@@ -365,6 +367,20 @@ You can also install and configure your custom server to easily and safely acces
 
 - [Bitwarden Mobile App](https://play.google.com/store/apps/details?id=com.x8bit.bitwarden&hl=en_US) (available on iOS and GooglePlay)
 - [Bitwarden Web Browser extension](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb?hl=en) (available on Chrome and Firefox)
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(78)-self-host-your-password-manager-with-bitward/b2187730d4294626b28d1d938057e2e0/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-04-01
+- **Kauri original tags:** self-hosting, kubernetes, password-manager, bitwarden
+- **Kauri original hash:** QmdEAA7UJgWkx9FgUiRXnEJuE46chrd7S9R4j9w78gL6ka
+- **Kauri original checkpoint:** unknown
 
 
 

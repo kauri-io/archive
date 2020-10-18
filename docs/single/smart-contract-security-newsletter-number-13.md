@@ -97,3 +97,16 @@ This newsletter is supported by [ConsenSys Diligence](https://consensys.net/dili
 ----
 
 I know, I know, there's a crazy amount of whitespace at the bottom of this newsletter. Proably time to move off of TinyLetter anyways.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contract-security-newsletter-number-13/41a7720bc6ce4b6983cf252976fcb7ff/a
+- **Kauri original author:** Maurelian (@maurelian)
+- **Kauri original Publication date:** 2019-02-02
+- **Kauri original tags:** security
+- **Kauri original hash:** QmP8onKX3PFvvEfThW5ccXymGEygG6LoN2tX3ApTwLvUdE
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

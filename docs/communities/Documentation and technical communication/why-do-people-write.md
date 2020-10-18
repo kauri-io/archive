@@ -9,6 +9,8 @@ some_url:
 
 # Why do people write?
 
+![](https://ipfs.infura.io/ipfs/QmR2pSb5ZnzPNvuxfdxqfAXghb75A1UZRQUXrT3wG1HYTS)
+
 
 > Why do people write content online?
 
@@ -83,3 +85,17 @@ We have added features to help make a writers life better, and have more to come
 Hopefully we have you convinced to try Kauri. You can start quickly by [adding an external link](https://kauri.io/create-link) to existing content, helping bring useful resources into one place. Or you can [curate a collection](https://kauri.io/create-collection), grouping together existing content into themes.
 
 When you're ready, [start writing whatever you want](https://kauri.io/write-article) that you think might interest our audience, and we'll do our best to help you with any questions or problems you have.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-do-people-write/2d1f63d4be3a4de19981e1f82c41884d/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2020-01-16
+- **Kauri original tags:** meta, writing, community
+- **Kauri original hash:** QmRXYZxMwGJSh3z8DUVkLF3198iSFbkzZPDiiS6dNhCHod
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

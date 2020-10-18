@@ -9,6 +9,8 @@ some_url:
 
 # Deploying a full-stack dApp to Google Cloud
 
+![](https://ipfs.infura.io/ipfs/QmV3aiCbkwhcn82wNr3m15qQQ1r1Y4E1GQTDbMdTjWKEM3)
+
 
 In the previous [tutorials in this series](https://kauri.io/collection/5b8e401ee727370001c942e3), we saw how to develop a full-stack ethereum-based blockchain dApp.
 
@@ -157,3 +159,16 @@ The `gsutil` utility helps you use the Google Cloud platform from the terminal. 
     -   If you set up the CNAME record properly and has propagated, your domain name points to the bucket's contents.
     -   Congratulations, your dApp is now live, hosted on Google Cloud Storage!
 3.  Whenever you update your React code, follow the steps in [Deploying your dApp](#deploying-your-dapp) to update your deployed dApp.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/deploying-a-full-stack-dapp-to-google-cloud/2ee06d313ffa41348f916afa13a78bbd/a
+- **Kauri original author:** David T (@david-t)
+- **Kauri original Publication date:** 2019-10-03
+- **Kauri original tags:** dapp, google-cloud, firebase, deploy
+- **Kauri original hash:** QmfKHpAtBoPdVe6QWu48Pz1eVEHiAc36vqvPybXS892aSY
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

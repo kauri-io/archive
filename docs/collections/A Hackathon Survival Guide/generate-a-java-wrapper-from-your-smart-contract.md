@@ -9,6 +9,8 @@ some_url:
 
 # Generate a Java Wrapper from your Smart Contract
 
+![](https://ipfs.infura.io/ipfs/QmTfBi56eSEH6PnX1fK7aYsQWv6Tq4mja1KH3Yxk8NFzJ5)
+
 
 
 
@@ -482,3 +484,17 @@ In this last step, we execute the build using `./gradlew tasks --all` and verify
 - [Interacting with an Ethereum Smart Contract in Java](https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e)
 - [Listening for Ethereum Smart Contract Events in Java](https://kauri.io/article/760f495423db42f988d17b8c145b0874)
 - [Using Pantheon, the Java Ethereum Client with Linux](https://kauri.io/article/276dd27f1458443295eea58403fd6965)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/generate-a-java-wrapper-from-your-smart-contract/84475132317d4d6a84a2c42eb9348e4b/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-07-19
+- **Kauri original tags:** smart-contract, ethereum, java, web3j, wrapper, solidity
+- **Kauri original hash:** QmQA9Ef7EpyQtbGuxxfL4z4YE5UqPPk7bkbgT1aQQV1Zt1
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

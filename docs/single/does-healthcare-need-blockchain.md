@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/Qmdo7PAhgejnv9nMQzddvPMHkUZCiHNMggZaCBz154GDMY)
+![](https://ipfs.infura.io/ipfs/Qmdo7PAhgejnv9nMQzddvPMHkUZCiHNMggZaCBz154GDMY)
 
  
 _This article was originally published on_
@@ -48,3 +48,17 @@ What do you think? Do you think new blockchain technology will be the answer to 
  
 _Healthcare via Pexels_
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/does-healthcare-need-blockchain/2b56213519cf42eaab4f607b2316251e/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** blockchain, healthcare
+- **Kauri original hash:** QmbqLR5LuUDiLVgz5fVpcehXRCEGtx5weCEt758wKWQpJM
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

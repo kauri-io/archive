@@ -44,3 +44,17 @@ https://drive.google.com/open?id=1K8sGnANbccx33Hc5Pe-asfwYirkJKqBE
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/uiux-with-pablo/6a9b195fb42340678cfa0d0debc2b7a0/a
+- **Kauri original author:** Federico Malvezzi (@fedemalvezzi)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-aave-2019
+- **Kauri original hash:** QmTxczrEgJ98fkuCsrpuQtzSmaQzehA8Qgz2mH557AymZ7
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

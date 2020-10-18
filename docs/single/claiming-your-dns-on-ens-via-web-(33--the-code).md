@@ -128,3 +128,17 @@ It’s a super breeding edge version and it is highly likely that many things ar
  * Support for Ropsten network (once the new DNSSEC Oracle smart contract is deployed).
 
  * Make migration file as a separate function so that you don’t have to copy & paste each time
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/claiming-your-dns-on-ens-via-web-(33:-the-code)/3bb9fee637a540d7b1e027cba121ab14/a
+- **Kauri original author:** Makoto Inoue (@makoto)
+- **Kauri original Publication date:** 2018-10-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmdLCs3guAFBThCYEv2kAwhLtuyNVYqtBVSj1kUCVW45xX
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

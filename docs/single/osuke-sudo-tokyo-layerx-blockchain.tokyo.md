@@ -9,6 +9,8 @@ some_url:
 
 # Osuke Sudo - Tokyo - LayerX, blockchain.tokyo
 
+![](https://ipfs.infura.io/ipfs/QmZ6uoDBXDywjpukCQatYmzHrktTdC2Es5VeQRADuQ1Lm7)
+
 
 _Ahead of devcon, Kauri is interviewing local community members in Japan. We hope you readers will learn more about the local industry and blockchain activity. There will also be some gems from our interviews that hopefully give you some ideas of how to see Japan from a local perspective_
 
@@ -20,7 +22,7 @@ Our R&D focuses on Zerochain and Casper CBC projects. Zerochain is built on subs
 
 When polkadot launches to mainnet at the end of this year we will also launch zero chain. 
 
-![](https://api.kauri.io:443/ipfs/QmPdrCcRB8p8WZ6HBnk7J4fRiV449NSrifq1QcPn2VT8Vr)
+![](https://ipfs.infura.io/ipfs/QmPdrCcRB8p8WZ6HBnk7J4fRiV449NSrifq1QcPn2VT8Vr)
 
 ###How is the blockchain community in Tokyo?
 
@@ -39,11 +41,25 @@ Some financial institutions and insurance companies are also updating their syst
 
 2 Try some sushi at the new fish market, Toyosu
 
-![](https://api.kauri.io:443/ipfs/QmVc4MLR1uK5ov4dTDEzT3JNXtSYT1DT7Ud6j2z8zgabMe)
+![](https://ipfs.infura.io/ipfs/QmVc4MLR1uK5ov4dTDEzT3JNXtSYT1DT7Ud6j2z8zgabMe)
 
 ###Where can people find you at Devcon?
 
 Devcon - Osaka - talk on zero chain and how they can preserve privacy with an account based approach.
 
 Blockchain research meetup - Osaka - October 9th with LayerX, Quantstamp and MythX - https://www.eventbrite.com/e/devcon5-blockchain-research-meetup-tickets-70113871477
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/osuke-sudo-tokyo-layerx-blockchain.tokyo/371428400af6444eb854ba21ecf43147/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-10-02
+- **Kauri original tags:** japan, devcon, layerx, interview, zerochain
+- **Kauri original hash:** QmeK7gm5mAQTrT931xeLU7SdVAS3iU9SZjfeT6yugNFRJN
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

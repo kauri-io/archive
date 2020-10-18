@@ -14,7 +14,7 @@ some_url:
 _TLDR: We’ve created a simple way to deploy your own plasma chains._
  
 
-![](https://api.kauri.io:443/ipfs/QmcpW3gG5oWYu7Q5K6zn8p5wN8EXNEjvctGHFttUrRSAMY)
+![](https://ipfs.infura.io/ipfs/QmcpW3gG5oWYu7Q5K6zn8p5wN8EXNEjvctGHFttUrRSAMY)
 
 Hello world! We are excited to announce a full service plasma toolbox for deploying, transacting on, building with, and developing on plasma chains.
 This implementation set foot in the aftermath of devconIV. Though it’s an unaudited beta release, we hope it will lay the groundwork for a community-driven initiative to make plasma a tool for decentralization for everyone.
@@ -56,3 +56,17 @@ We would like to give resounding thanks to our donors:
   
 [Website](https://plasma.group)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introducing-plasma-group/d0bf181104714563b39c151eeae03846/a
+- **Kauri original author:** Plasma Group (@plasma)
+- **Kauri original Publication date:** 2019-04-22
+- **Kauri original tags:** ethereum, scaling, layer-2, plasma
+- **Kauri original hash:** QmaZhUQzU7w98G7YHhedLpAsewryFTZG8rugTcMsKfmdmm
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

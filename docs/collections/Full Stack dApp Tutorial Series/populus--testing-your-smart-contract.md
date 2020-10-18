@@ -176,3 +176,17 @@ Populus appears to be planning the implementation of eth-tester in the future.
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/populus:-testing-your-smart-contract/55a5ce344a31434ab7c749da26b58119/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2018-09-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmW4tBPQPWa7S9GT3nbNjko5vzsGNcNLqsMQCMQqMYQMUd
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

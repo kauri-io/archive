@@ -9,6 +9,8 @@ some_url:
 
 # Installing Anaconda, Python3 and Tensorflow
 
+![](https://ipfs.infura.io/ipfs/QmZLkzEbnFEsJNPF47NUwfJgPVpEnsKJ5sEg6qUzUhr7M2)
+
 
 First thing first, here's a list of the things we need to start playing around with some data:
 - Python
@@ -18,7 +20,7 @@ First thing first, here's a list of the things we need to start playing around w
 
 Luckily for us, the Anaconda distribution includes all of them, head on to https://www.anaconda.com/distribution/#download-section and follow the instructions.
 
-![Anaconda homepage](https://api.kauri.io:443/ipfs/QmWhCsbMdjfn12ZpvmnWG7RnR4fxoDdwo4LTCrgQMjKK6M)
+![Anaconda homepage](https://ipfs.infura.io/ipfs/QmWhCsbMdjfn12ZpvmnWG7RnR4fxoDdwo4LTCrgQMjKK6M)
 
 On linux is as easy as downloading the file, opening the terminal and type `~$ bash Anaconda3-<release>` from the folder you downloaded the installer in.
 
@@ -74,7 +76,7 @@ Now let's check that a few more things are working correctly type the following 
 
 You should see the Jupyter Notebook starting up in a new tab in your default browser.
 
-![Jupyter notebook file browser](https://api.kauri.io:443/ipfs/QmYKoL55dk3MbPxmmgJddirEkhsJRQV5mZ5nXv8ZdMvnob)
+![Jupyter notebook file browser](https://ipfs.infura.io/ipfs/QmYKoL55dk3MbPxmmgJddirEkhsJRQV5mZ5nXv8ZdMvnob)
 
 Create a new Jupyter Notebook document and type the following
 
@@ -85,7 +87,7 @@ from sklearn.ensemble import RandomForestRegressor
 
 The first line will import a Regressor from sci-kit learn and the second line will display the source code of that function thanks to the `?`
 
-![Jupyter notebook](https://api.kauri.io:443/ipfs/Qmf58ig45auRigrBQA6ykZDcX1Rbh8uxT6LXHo5e28oG9k)
+![Jupyter notebook](https://ipfs.infura.io/ipfs/Qmf58ig45auRigrBQA6ykZDcX1Rbh8uxT6LXHo5e28oG9k)
 
 
 Finally, we want to install Tensorflow. Tensorflow is Google's open source framework for building and evaluating neural network systems and it does have libraries for Python, JS and a lite version for mobile and IOT. To install it type `pip install tensorflow` and on your newly created notebook add the following:
@@ -100,6 +102,20 @@ You should see the tensorflow version printed out, `1.14.0` at the time of writi
 We are ready to go! The Anaconda distribution installed the `conda` package manager, Python3, Jupyter Notebook and a bunch of libraries we'll need to build our models.
 
 Well done so far and let's start building our first model!
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/installing-anaconda-python3-and-tensorflow/5bf3a311af45420781dfbb3963b253b1/a
+- **Kauri original author:** Davide Scalzo (@davidescalzo)
+- **Kauri original Publication date:** 2019-10-22
+- **Kauri original tags:** artificial-intelligence, machine-learning, python, anaconda
+- **Kauri original hash:** QmaR5o3VN6CEYauCBYBYn8WnALPbM1vK6PdiUNfLfNTSSK
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

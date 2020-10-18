@@ -54,3 +54,17 @@ BOUNTY-3BOX, BOUNTY-FORTMATIC
 https://github.com/rej156/fortmatic-3box-integration
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-submission-2019:-3box-and-fortmatic-int/536a6f4edec840f6b392788378ba35e0/a
+- **Kauri original author:** Eric Juta (@ericjuta)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** 3box, ethdenver-2019-submission, fortmatic-inc-, bounty-3box, bounty-fortmatic-2019
+- **Kauri original hash:** QmYwCE6GR7se8Xc4MMPX3Gg7tiySEQWbEynC9q2weXLtGw
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

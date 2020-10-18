@@ -43,3 +43,16 @@ We will be there over the weekend to support the mentors on-site if you have que
 
 If you have any questions along the way or can't access any of the mentorship-specific tools (our Riot chat or ticket system), please reach out!
 For all the general event infos, please go to the [ETHBerlin website](https://ethberlin.com) or the general [ETHBerlin Knowledge Base](https://beta.kauri.io/article/75f1de6eb6c04ababf1aba0213f886a5).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/mentors/070bca5119664fd290764dd8a9764b99/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmVu9krVGkLeZDApjbhhNY5wnNqGLnpqBfYk4VmgkRKoQv
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

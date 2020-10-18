@@ -34,11 +34,11 @@ Visitors to the site who arrive without an in browser wallet are given a key. A 
 - Dapp incorporates a gas management contract
 - Rinkeby based subscription manager to allow Dapp developers to keep their dapp running
 
-![](https://api.kauri.io:443/ipfs/QmZvtuuL7DMqSYPauUCQ7aRff2FdVgnTqKDfurjbZXQgua)
+![](https://ipfs.infura.io/ipfs/QmZvtuuL7DMqSYPauUCQ7aRff2FdVgnTqKDfurjbZXQgua)
 
 #### Key Management / Transactions
-![](https://api.kauri.io:443/ipfs/QmY7w7bc4EiZEXJAp4WiHXCda8VLxQ2p7584tSGTUfw67M)
-![](https://api.kauri.io:443/ipfs/QmcWXh57X7Ye9cXhSdUyNtEy4hmPqMpPFAcSmiP6maPbjj)
+![](https://ipfs.infura.io/ipfs/QmY7w7bc4EiZEXJAp4WiHXCda8VLxQ2p7584tSGTUfw67M)
+![](https://ipfs.infura.io/ipfs/QmcWXh57X7Ye9cXhSdUyNtEy4hmPqMpPFAcSmiP6maPbjj)
 
 ## Track
 Open
@@ -51,3 +51,16 @@ Quorum - High Performance / Public Private Chain
 Main project - https://github.com/BradleyC/tidbits
 "Main net" subscription manager - https://github.com/BradleyC/murdoch
 Oracle / bridge repo - https://github.com/taylorjdawson/ion
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tidbits-smooth-web3-user-experience/186fdbdf6d6a437bb76ed7012b406462/a
+- **Kauri original author:** Bradley Clarke (@bradley-clarke)
+- **Kauri original Publication date:** 2019-02-19
+- **Kauri original tags:** ethdenver-2019-submission, bounty-quorum-2019, bounty-clearmatics-2019
+- **Kauri original hash:** QmfL2HxnwGYcnMziwkqsXc52hopG8tarUeu6BuvRriaN7K
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

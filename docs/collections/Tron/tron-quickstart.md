@@ -9,6 +9,8 @@ some_url:
 
 # Tron Quickstart
 
+![](https://ipfs.infura.io/ipfs/QmZADJcvUd7937t4ZSkBkp3ARbKpLBUiYLqrDyydFLSXTN)
+
 
 ## Introduction
 
@@ -245,5 +247,19 @@ To kill an active container, run:
 ```
 docker container kill 513078dc7816   // use your container ID
 ```
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tron-quickstart/86d71acb737444e390e3fbf9d461c36c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-01
+- **Kauri original tags:** beginner, tron
+- **Kauri original hash:** QmZM2AAPSPSCFNyCoijLh9jcH2yyvi2s9K8MXPzzX4VdKC
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

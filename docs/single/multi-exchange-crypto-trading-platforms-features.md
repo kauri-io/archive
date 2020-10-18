@@ -10,7 +10,7 @@ some_url:
 # Multi-Exchange Crypto Trading Platforms Features
 
 
-![](https://api.kauri.io:443/ipfs/QmPtddYtmmobECL4itDSxwPYY2C1QKJ3N5jAApzszMtVop)Multi-exchange crypto trading platforms build for professional traders. In this article, we will discuss the features of a multi-exchange trading platform. 
+![](https://ipfs.infura.io/ipfs/QmPtddYtmmobECL4itDSxwPYY2C1QKJ3N5jAApzszMtVop)Multi-exchange crypto trading platforms build for professional traders. In this article, we will discuss the features of a multi-exchange trading platform. 
 
 #### **1\. Unified Interface** 
 
@@ -91,3 +91,16 @@ Let us know if we missed any feature of multi-exchange trading platforms in the 
 *   **[Rebalancing Strategy For Your Crypto Portfolio](https://blog.coincodecap.com/crypto-portfolio-rebalancing/)**
 
 If you want to learn more about the Crypto ecosystem, sign up for the weekly newsletter.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/multi-exchange-crypto-trading-platforms-features/389cd3cade874025bd737c71e878df4f/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** cryptocurrency, crypto-trading
+- **Kauri original hash:** QmQcYBZVpLvZcdi2c3xte4LNTXZBnq9jpHEeb4R8pan7kG
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

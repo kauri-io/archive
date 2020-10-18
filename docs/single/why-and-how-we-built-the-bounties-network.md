@@ -10,20 +10,20 @@ some_url:
 # Why and How We Built the Bounties Network
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx)
+![](https://ipfs.infura.io/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx)
 
 We began building the Bounties Network in early 2017, and quickly realized that whether it was social media, bugs, or code, across different platforms, there was a very good reason for a standard to exist across all variations.
 Enter, [StandardBounties](https://github.com/Bounties-Network/StandardBounties): a community driven implementation for bounties on Ethereum, which is a collaborative effort among freelancing & incentivization platforms that rely on Ethereum.
 
 Although data storage was (and still is) extremely expensive on the Ethereum Mainnet, we used IPFS to store the data pertaining to bounty specifications and submissions in a decentralized manner. This meant that any platform or user on Ethereum can easily access all relevant data, thereby avoiding a replication of the walled-garden architectures we saw with existing freelancing platforms in the web2.0 world.
 
-![](https://api.beta.kauri.io:443/ipfs/QmbYiX4PG72KaMDxkBiYVTJ7iotZ29aB5HLJzotmC9MMGa)
+![](https://ipfs.infura.io/ipfs/QmbYiX4PG72KaMDxkBiYVTJ7iotZ29aB5HLJzotmC9MMGa)
 
 Because most users aren’t comfortable interacting with smart contracts through command line tools, we realized the need to build a front-end interface — a **Bounties Explorer**. This would serve as an open-source, generalized platform for bounties across Ethereum, which could provide a reference client for new developers building on StandardBounties, as well as a website which end-users could employ to quickly begin **building a world on bounties.**
  
 In the interest of building the system to be as decentralized as possible, we wanted the Bounties Explorer to be a fat client, one which managed as much logic in the front-end as possible,  **so there would be no need for a back-end server at all.** This meant the Bounties Explorer could be deployed & accessed using decentralized storage services like IPFS and Swarm, and would only rely on data stored on the Ethereum network (along with those storage services). And to make it even easier for Ethereum novices, we also deployed it using existing web server practises to the beta.bounties.network domain.
 
-![](https://api.beta.kauri.io:443/ipfs/QmThyoeDYkU4ncUxvR2kXkckHqArU9zDiZbmKt4xQnVfJK)
+![](https://ipfs.infura.io/ipfs/QmThyoeDYkU4ncUxvR2kXkckHqArU9zDiZbmKt4xQnVfJK)
 
 Over time, as the Bounties Network grew and began being used to pay out real bounties to developers, writers, and creators in the ecosystem, we ran into some technical challenges. Because we didn’t cache any data off-chain, the entire state of the bounties registry, including all bounties and submissions on the network, needed to be loaded from the blockchain on page-load, which not only provided a diminished user experience for our users (through some really awful load times), but also added an undue load on [Infura](https://infura.io), through the substantial number of _eth_calls_ required to pull all the data. Because the data was stored in IPFS, we didn’t have access to search functionality, pagination for quicker response times, analytics processing, and more. 
 _We sincerely thank [Infura](https://infura.io/%5C) for their support in happily scaling their server infrastructure as usage of the Bounties Network and other Ethereum applications continues to grow._
@@ -44,7 +44,7 @@ We also wanted to make it easy to filter, parse, and explore the data. As a resu
 #### Structured data to build open analytics tools for the community to participate in
 We found it crucial to build the API to work in realtime and be as fail proof as possible. In order to accomplish this, we had to put a stable, solid architecture together.
 
-![](https://api.beta.kauri.io:443/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu)
+![](https://ipfs.infura.io/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu)
 
 All the services we built are containerized using [docker](https://www.docker.com), and managed by [kubernetes](http://kubernetes.io). Containerization makes it easy for us to build multiple systems with a clear and distinct separation of concerns. Also, it allows for easy testing, deployment repeatability, simple local setup (one command runs everything), and scaling. For example, kubernetes integrates with AWS and provides auto-scaling if server loads increase, and will automatically restart failed containers. This automatic restart helps with error management and also helps to simplify the codebase.
 
@@ -69,3 +69,17 @@ _My thanks to [Mark Beylin](https://medium.com/@mark.beylin) and others for thei
 - Join our [Bounties Slack community](https://join.slack.com/t/bountiesnetwork/shared_invite/enQtMzA2Mjk3MzAzODQwLTZjN2UxMmU5MWYxZTVmMmM4OGNjZDRiMDgwYTVhOTIwYmQ4MjVlMjNkZjYzOTE4MWI4OTFhOWE4ZTUzN2MyNWY)
 - [sign up to learning sessions](http://eepurl.com/dpTC-5)
 - [follow us on Twitter](https://twitter.com/ethbounties) to see what we’re up to!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-and-how-we-built-the-bounties-network/1d5500b865fe4e2fa0b06e535216d233/a
+- **Kauri original author:** Will Villanueva (@will)
+- **Kauri original Publication date:** 2018-11-30
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQdKQKTXeaH9R5G5rtf6BvyuKHvFEzPe983haPVtWBPFN
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

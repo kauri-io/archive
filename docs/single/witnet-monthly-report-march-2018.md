@@ -54,3 +54,17 @@ The Integrated Development Environment will let the prototype simulate:
 
 That’s what we’ve been working on over the last month! Please let us know what you think of the recent developments by sharing your thoughts with the team.
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-monthly-report-march-2018/0f80353fac864afe95d840f8dd420f7c/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmUacUhFvyHsEuzgHXeHgnDmGYMCDptrFHtx3qMwo4wzL2
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

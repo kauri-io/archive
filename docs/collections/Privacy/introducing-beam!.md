@@ -14,7 +14,7 @@ some_url:
 _This story has been published in 2018 and updated in May 2019._
  
 
-![](https://api.kauri.io:443/ipfs/QmYzYze3SCE5W2ptuoTqAJNf5mn6zatyLXsNbHidoq1iQE)
+![](https://ipfs.infura.io/ipfs/QmYzYze3SCE5W2ptuoTqAJNf5mn6zatyLXsNbHidoq1iQE)
 
 
 ### Why today?
@@ -78,3 +78,17 @@ You can discover Beam’s user-friendly technology and products (Wallet) on the 
  
 **Twitter:** _[twitter.com/beamprivacy](https://twitter.com/beamprivacy)_
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introducing-beam!/4a387990f62b472ba2187e3ec3345f10/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** beam, mimblewimble
+- **Kauri original hash:** QmPPxgfVAqpVEtPQanHZH93dkMr1QC7XobJGc6aEoivBcM
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

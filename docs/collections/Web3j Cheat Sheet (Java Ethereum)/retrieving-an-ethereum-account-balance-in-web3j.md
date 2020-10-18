@@ -9,6 +9,8 @@ some_url:
 
 # Retrieving an Ethereum Account Balance in Web3j
 
+![](https://ipfs.infura.io/ipfs/QmZS5cWXvWfsqeEpcGWVRnhyxbJGbMSY3zRQBZwXrBHeM7)
+
 
 ### Balance at Current Block
 
@@ -43,4 +45,18 @@ BigInteger balanceInWei = balanceResult.getBalance();
 ```
 
 Balances are returned in the smallest denomination, called `wei`.  To convert to other denominations, such as `ether`, see this [cheetsheet article.](https://kauri.io/converting-between-ether-units-denominations-in-web3j/ecfdb383843b4379bc0c7aac37d6ba77/a)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/retrieving-an-ethereum-account-balance-in-web3j/9983473f687348c9b950fff16f71cbfe/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-12-18
+- **Kauri original tags:** ethereum, cheatsheet, java, web3j
+- **Kauri original hash:** QmTWEwu3cZJk7mACR8sXSYsNUvDaBJxdq2VB9o1TDqpXSx
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
 

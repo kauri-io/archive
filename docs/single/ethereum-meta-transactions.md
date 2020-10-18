@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmRdqBJda6fGg3C4dCrpjWZ6ki52T33xviV3qRGWjtN61V)
+![](https://ipfs.infura.io/ipfs/QmRdqBJda6fGg3C4dCrpjWZ6ki52T33xviV3qRGWjtN61V)
 
 
 ### Introduction
@@ -157,5 +157,19 @@ Thanks for checking out meta transactions on Ethereum. Hit me up on Twitter:
 [uport-identity](https://github.com/uport-project/uport-identity)
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmTD27DHrZAzDQxDqA9ac8tN3zvUVnTP3pu1WVJaXYCjKP)
+![](https://ipfs.infura.io/ipfs/QmTD27DHrZAzDQxDqA9ac8tN3zvUVnTP3pu1WVJaXYCjKP)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-meta-transactions/8b1e4a4cdbb240c892925cd4779e34ca/a
+- **Kauri original author:** Austin Griffith (@austingriffith)
+- **Kauri original Publication date:** 2018-11-28
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQKp9xH7C69FYZsEF8QXKF4VnoN3cE7UA7PxTo1dY128b
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

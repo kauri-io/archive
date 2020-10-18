@@ -42,7 +42,7 @@ https://get.status.im/user/0x044c6e10af104e473777cd88861d227cfe1e8e7e884569e6fb1
 ## Detailed Project Description 
 In the face of rapid economic and real estate development, the city of Denver has identified 92,000 cost burdened households (31%) and 42,000 that earn less than 30% of average median income, the most in need of affordable housing funds. However current affordable housing fund deployments only stand to benefit just under 8,000 of those in need. Powered by blockchain enabled digital identity, Uptown allows city residents to register and vote on real estate issues most affecting their circumstance as well as assessing registries’ qualification for affordable housing based on criteria such as verified household income and residency tenure. Using smart contracts on Ethereum and sovereign digital I.D. Uptown will provide the infrastructure to efficiently deploy affordable housing funds through weighted subsidies in the form of UPT (ERC 223 tokens) with the potential to reach a far greater number of those in need than the current 8,000 in the case of Denver.
 
-![](https://api.kauri.io:443/ipfs/QmYEQsscm8ghfTWe8FXKasUmSXAdyHVbrLNckL3CfwMfQY)
+![](https://ipfs.infura.io/ipfs/QmYEQsscm8ghfTWe8FXKasUmSXAdyHVbrLNckL3CfwMfQY)
 
 [https://docs.google.com/presentation/d/1tkFn6PKeHaOJf_O0D_KBhkin9BVCDZ38Z1hgeYnoY88/edit?usp=sharing](
 )
@@ -69,6 +69,20 @@ Impact
 
 ## A link to all your source code on a public repo (i.e. Github):
 https://github.com/oasisethdenver2019/UpTown
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/uptown/5bc0603263a745aab70373b319622abc/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-rhombus-2019, bounty-impact, bounty-graph-2019, bounty-zeppelin-2019, bounty-aave-2019
+- **Kauri original hash:** QmSrMRWKkW7Sjn2aMeGKEx4xiAHqLaFakwc7zaV4d5RQBk
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

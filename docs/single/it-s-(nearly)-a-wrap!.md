@@ -9,6 +9,8 @@ some_url:
 
 # It's (nearly) a wrap! 🎉🥳👏
 
+![](https://ipfs.infura.io/ipfs/Qmbqm4JEMWkqjwNDhpRazUKuCA7aG9fZY1tZAQGY6GF99d)
+
 
 ### Audio version of newsletter
 
@@ -79,3 +81,17 @@ We've added a new community that's still taking shape, but with new moderators o
 for updates moving into the new year. If you have any cool hacks you've built with IPFS, then [let us know](mailto:info@kauri.io)
 , and [publish it over the holiday break](https://kauri.io/write-article)
 !
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/it-s-(nearly)-a-wrap!/5a4b04efa2fd489b8954e92f8f5dd8fc/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-12-19
+- **Kauri original tags:** news, 2019
+- **Kauri original hash:** Qme9e6qiBi5u4oSrSQ61thLVh6yuNwWQQLoqZdcfUhCW5j
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

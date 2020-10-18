@@ -9,6 +9,8 @@ some_url:
 
 # Learn Blockchain | Create Your First Blockchain | Blocks & Consensus
 
+![](https://ipfs.infura.io/ipfs/QmbLkWcP11qcMn33VxVpwiSNaPWnPtbeMTnTAR9sPhniJQ)
+
 
 > The best way to for a developer to fully understand blockchain technology is to get underneath the hood and build one themselves!
 
@@ -46,7 +48,7 @@ At any point during this tutorial you can refer to [**the final source code here
 
 A blockchain is a sequential list of records which we call blocks. Each block contains data, this can be any form of data, files or in the case of most blockchains a list of transactions. These blocks are **chained** together sequentially using cryptographic hashes.
 
-![Chain of blocks](https://api.kauri.io:443/ipfs/QmR2wDW8Ua1f4ipry9JmYWUsUDUcWTsKUMLDqboMP8r9qN)
+![Chain of blocks](https://ipfs.infura.io/ipfs/QmR2wDW8Ua1f4ipry9JmYWUsUDUcWTsKUMLDqboMP8r9qN)
 
 These hashes are fundamental to how blockchains are secured, if you are unfamiliar with hashes, [get clued up here!](https://medium.com/@ConsenSys/blockchain-underpinnings-hashing-7f4746cbd66b)
 
@@ -632,13 +634,13 @@ Let's give it a try! Run `mocha test` in the root of the project:
 ./node_modules/mocha/bin/mocha test
 ```
 
-![mocha test results](https://api.kauri.io:443/ipfs/QmPVJ1YEhCv9oPQZFxxr5qNzzT4iRtHpwh8TNEkDhcGVxf)
+![mocha test results](https://ipfs.infura.io/ipfs/QmPVJ1YEhCv9oPQZFxxr5qNzzT4iRtHpwh8TNEkDhcGVxf)
 
 Hopefully you should have 5 tests passing as shown above!
 
 If so, awesome! You have created a simple blockchain which implements proof of work mining
 
-![awesome gif](https://api.kauri.io:443/ipfs/QmW8kcCqxE1w1UqnXHi7XTnxeu6wVATF2vL1JNSBXWxNf6)
+![awesome gif](https://ipfs.infura.io/ipfs/QmW8kcCqxE1w1UqnXHi7XTnxeu6wVATF2vL1JNSBXWxNf6)
 
 We're not done yet! We still need to create our blockchain network and let our nodes agree on a shared state!
 
@@ -1024,7 +1026,7 @@ node src/server.js
 
 Since this creates a new blockchain which mines the genesis block this may take a few minutes, however you should see something like this when complete:
 
-![start first server](https://api.kauri.io:443/ipfs/QmTcFYS7aFqbxKypavJ4HSmAnxcET6AusgCiM523BeC1Pr)
+![start first server](https://ipfs.infura.io/ipfs/QmTcFYS7aFqbxKypavJ4HSmAnxcET6AusgCiM523BeC1Pr)
 
 Great, so we now have a node with an API exposed at `http://localhost:5000`.
 
@@ -1040,7 +1042,7 @@ curl -X POST "localhost:5000/mine" -H 'Content-Type: application/json' -d'
 '
 ```
 
-![mine a block](https://api.kauri.io:443/ipfs/QmV2K36xWDMXqtjtYpejZyqrXL5mEvWhAwHoGJiLFVmNvq)
+![mine a block](https://ipfs.infura.io/ipfs/QmV2K36xWDMXqtjtYpejZyqrXL5mEvWhAwHoGJiLFVmNvq)
 
 You should see output similar to the above, we should now have 2 or in my case 3 blocks in our blockchain, since from the above you can see I ran the command twice!
 
@@ -1050,7 +1052,7 @@ We can use our `/blocks` endpoint to confirm this by running the following curl 
 curl -X GET "localhost:5000/blocks" -H 'Content-Type: application/json'
 ```
 
-![get blocks](https://api.kauri.io:443/ipfs/QmYWWUorXgqrw9rkFrCHph3NgauDqQRtkQhnZZy1hB1f14)
+![get blocks](https://ipfs.infura.io/ipfs/QmYWWUorXgqrw9rkFrCHph3NgauDqQRtkQhnZZy1hB1f14)
 
 From the image above we can see there are 3 blocks in the node:
 
@@ -1063,7 +1065,7 @@ This is great but, we do not yet have a network, this is one node running on a m
 node src/server.js port=5001
 ```
 
-![start second server](https://api.kauri.io:443/ipfs/QmbtLm9xc3VpTqvSA4Knm592SFD8oVyxCgE5Vp6NpwitET)
+![start second server](https://ipfs.infura.io/ipfs/QmbtLm9xc3VpTqvSA4Knm592SFD8oVyxCgE5Vp6NpwitET)
 
 Now lets add our first node to this new server as a peer using the `/peers/add` endpoint:
 
@@ -1075,7 +1077,7 @@ curl -X POST "localhost:5001/peers/add"  -H 'Content-Type: application/json' -d'
 '
 ```
 
-![Add peer](https://api.kauri.io:443/ipfs/Qme8kunkuT4j3Lykk2nerrQycRc3ztkVmxYSfB2oa6Ssbj)
+![Add peer](https://ipfs.infura.io/ipfs/Qme8kunkuT4j3Lykk2nerrQycRc3ztkVmxYSfB2oa6Ssbj)
 
 Mine a new block on our second node:
 
@@ -1087,7 +1089,7 @@ curl -X POST "localhost:5001/mine" -H 'Content-Type: application/json' -d'
 '
 ```
 
-![New block on second server](https://api.kauri.io:443/ipfs/QmdPNrq3osXVCGMSCAanJPv44DQtqqE1iN4ewnnK1uyJnZ)
+![New block on second server](https://ipfs.infura.io/ipfs/QmdPNrq3osXVCGMSCAanJPv44DQtqqE1iN4ewnnK1uyJnZ)
 
 Here we have an issue, we 2 nodes in our network:
 
@@ -1096,7 +1098,7 @@ Here we have an issue, we 2 nodes in our network:
 
 Which is a fork in our blockchain network from the genesis block.
 
-![](https://api.kauri.io:443/ipfs/QmX1sgDBSPTwcSAt5dtcUvqoMP2A9LzzqEzY1Rbg9ujLUF)
+![](https://ipfs.infura.io/ipfs/QmX1sgDBSPTwcSAt5dtcUvqoMP2A9LzzqEzY1Rbg9ujLUF)
 
 What the fork! But we have a consensus mechanism, proof of work! Why are the nodes in the network not reaching consensus! Has consensus failed! No not quite.
 
@@ -1332,7 +1334,7 @@ Start the node 1 server:
 node src/server.js
 ```
 
-![start first node](https://api.kauri.io:443/ipfs/QmYD3Y5rsh51fG1DhmMmqqW4K9fJBejCCH4v9totDrwdYo)
+![start first node](https://ipfs.infura.io/ipfs/QmYD3Y5rsh51fG1DhmMmqqW4K9fJBejCCH4v9totDrwdYo)
 
 Mine a few blocks
 
@@ -1344,7 +1346,7 @@ curl -X POST "localhost:5000/mine" -H 'Content-Type: application/json' -d'
 '
 ```
 
-![Blocks mined on node 1](https://api.kauri.io:443/ipfs/QmYurZSDQ2871FphJUEdyvyqdYRR4TbjpzWkRsXBB3pPTA)
+![Blocks mined on node 1](https://ipfs.infura.io/ipfs/QmYurZSDQ2871FphJUEdyvyqdYRR4TbjpzWkRsXBB3pPTA)
 
 Start node 2 server:
 
@@ -1352,7 +1354,7 @@ Start node 2 server:
 node src/server.js port=5001
 ```
 
-![start second node](https://api.kauri.io:443/ipfs/QmSeJgEu3vxJ5115CkryyUC3wPJ4fWrEJGNHAJW8YVx7t4)
+![start second node](https://ipfs.infura.io/ipfs/QmSeJgEu3vxJ5115CkryyUC3wPJ4fWrEJGNHAJW8YVx7t4)
 
 Mine a block on node 2
 
@@ -1364,7 +1366,7 @@ curl -X POST "localhost:5001/mine" -H 'Content-Type: application/json' -d'
 '
 ```
 
-![Block mined on node 2](https://api.kauri.io:443/ipfs/QmdNYQrvHKNhn3RdmGa21yzNxDR9nifJ8XaNapRiuVaZcz)
+![Block mined on node 2](https://ipfs.infura.io/ipfs/QmdNYQrvHKNhn3RdmGa21yzNxDR9nifJ8XaNapRiuVaZcz)
 
 Now add our nodes as peers of each other:
 
@@ -1381,7 +1383,7 @@ curl -X POST "localhost:5001/peers/add"  -H 'Content-Type: application/json' -d'
 '
 ```
 
-![Add peers](https://api.kauri.io:443/ipfs/QmWSLUyLGzxGE6gFDy2gJg36X1Vs2LmUGUqw3dHKmjSiDV)
+![Add peers](https://ipfs.infura.io/ipfs/QmWSLUyLGzxGE6gFDy2gJg36X1Vs2LmUGUqw3dHKmjSiDV)
 
 Again where we have a fork, so calling `/peers/check` on node 2 results in the chain on node 2 being replaced with the chain on node 1:
 
@@ -1389,7 +1391,7 @@ Again where we have a fork, so calling `/peers/check` on node 2 results in the c
 curl -X GET "localhost:5001/peers/check"
 ```
 
-![Check peers](https://api.kauri.io:443/ipfs/QmSGM1bCdk6fEvMtoy5WZUTb9eVi1TLPGQkBVQGvQ9MGus)
+![Check peers](https://ipfs.infura.io/ipfs/QmSGM1bCdk6fEvMtoy5WZUTb9eVi1TLPGQkBVQGvQ9MGus)
 
 From the image above we can see that our chain on node 2 was updated and replaced with the list of blocks from node 1.
 
@@ -1403,7 +1405,7 @@ curl -X POST "localhost:5001/mine" -H 'Content-Type: application/json' -d'
 '
 ```
 
-![Mine new block on node2](https://api.kauri.io:443/ipfs/QmSz8t33JJh66y7dn1vj9uPjYeshUbjZBFaig4QhPGaYXr)
+![Mine new block on node2](https://ipfs.infura.io/ipfs/QmSz8t33JJh66y7dn1vj9uPjYeshUbjZBFaig4QhPGaYXr)
 
 And there you have it!
 
@@ -1413,7 +1415,7 @@ We have reached consensus between node 1 and node 2 in network and then added a 
 
 In this tutorial we built a basic blockchain network with node.js.
 
-![Well done](https://api.kauri.io:443/ipfs/Qma4tkh6boiQ8kEXiA3rQkKZZsqicHw9Fh54pPkrSGJEjg)
+![Well done](https://ipfs.infura.io/ipfs/Qma4tkh6boiQ8kEXiA3rQkKZZsqicHw9Fh54pPkrSGJEjg)
 
 Our blockchain:
 
@@ -1430,4 +1432,18 @@ For the next instillment (part 2), we'll extend our blockchain to process transa
 **If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.**
 
 If you have found any errors, update this tutorial by selecting the **Suggest Edit** option in the top menu, and/or [update the code](https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/learn-blockchain-or-create-your-first-blockchain-/92034a0c23ed4cb4a6ca959e0a4b78b9/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-12-13
+- **Kauri original tags:** consensus, proof-of-work, blockchain, learn, block, tutorial, nodejs
+- **Kauri original hash:** QmTns4ugR8NA8jEDbpBLDgq5f3BcdD9bc74NYUFkeKPXK4
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

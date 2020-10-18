@@ -13,7 +13,7 @@ some_url:
 ## Project Name
 PayPic
 
-![](https://api.kauri.io:443/ipfs/QmY4gqTMBMhTXeLTQSMcktPKjRKxx5J47LBXzMF62JJ4ic)
+![](https://ipfs.infura.io/ipfs/QmY4gqTMBMhTXeLTQSMcktPKjRKxx5J47LBXzMF62JJ4ic)
 
 ## Project Tagline/Description (140 Characters Max. Will be used on table card for judging)
 Get paid for your photos instantly, without leaving the chat.
@@ -50,6 +50,20 @@ Status.im extensions bounty
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/morelazers/ethdenver-paypic
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/paypic-ethdenver-2019-submission/484af4a597d143c181df5f151e01ad7d/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, status-im
+- **Kauri original hash:** QmVhWG35rwYcERoYAcedQue2yJM21WowqTvGETRYe88unx
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

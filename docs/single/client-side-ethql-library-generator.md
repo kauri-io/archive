@@ -9,6 +9,8 @@ some_url:
 
 # Client-Side EthQL Library Generator
 
+![](https://ipfs.infura.io/ipfs/QmZP61xH2YWo8orkRmeQA2Qi6nZ52d2zCfNUYPG1L1Qei7)
+
 
 
 ## Project Name
@@ -66,6 +68,20 @@ Open
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/ryanchristo/lil-buidl
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/client-side-ethql-library-generator/1a7dffd63e6f44eaa35bd7772133156b/a
+- **Kauri original author:** Scott Street (@sprusr)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-infura-2019
+- **Kauri original hash:** Qmceoq4iPeexpzycvDvMUaKryq8j1kgKY8j3Rhm6DptqyC
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

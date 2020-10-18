@@ -9,6 +9,8 @@ some_url:
 
 # Updating and Testing a Raffle Contract
 
+![](https://ipfs.infura.io/ipfs/QmV28QePVWhtb7FLYjMEkTvjVJyL6xGT9Sch1QRVFU9mTb)
+
 
 Over on the Bitfalls website there’s a couple of great tutorials*(1)* for learning Solidity and Ethereum. The tutorials guide readers through the making of a Raffle. Now, the code is not meant to be bullet proof, but as a software tester by day the ‘gaps’ piqued my interest.
 
@@ -66,15 +68,15 @@ The Remix UI was updated mid 2019 so may have a different look compared to other
 
 To the top-left, change the Compiler version to read ```0.4.26+commit.4563``` as from version 0.5.0 there were breaking changes to the Solidity codebase. This is also above the 0.4.20 compiler version we stated in the contract code, so the code will compile just fine.
 
-![Choose the Solidity environment and Compiler version](https://api.kauri.io:443/ipfs/QmYAyGgbR1BRn4m9Zoz5C1XnXNZFqFqKfAw6yqKn6oiPiH)
+![Choose the Solidity environment and Compiler version](https://ipfs.infura.io/ipfs/QmYAyGgbR1BRn4m9Zoz5C1XnXNZFqFqKfAw6yqKn6oiPiH)
 
 In Remix, click on the ‘File explorers’ icon, create a new file and call it `Blocksplit.sol`, then paste the updated contract code into the file and save it. 
 
-![Create a new file for the contract code](https://api.kauri.io:443/ipfs/QmT6WoJnxpp3LiHoTqDq5L4tKyp1tGgWihn2VXFhi5AhFP)
+![Create a new file for the contract code](https://ipfs.infura.io/ipfs/QmT6WoJnxpp3LiHoTqDq5L4tKyp1tGgWihn2VXFhi5AhFP)
 
 Now click on the ‘Solidity compiler’ icon and hit ‘Compile Blocksplit.sol’
 
-![Compile the contract code](https://api.kauri.io:443/ipfs/QmNhYhhLneoMxypHH4vbuxiMMBwwakExUSopi72Y5UWibu)
+![Compile the contract code](https://ipfs.infura.io/ipfs/QmNhYhhLneoMxypHH4vbuxiMMBwwakExUSopi72Y5UWibu)
 
 Finally, click the ‘Deploy & Run Transactions’ icon, we’ll use this tab to deploy and test our contract. We’ll deploy to the Ropsten test network and to do so we need to change a few things before we hit Deploy.
 
@@ -84,16 +86,16 @@ Finally, click the ‘Deploy & Run Transactions’ icon, we’ll use this tab to
 
 Now hit the orange ‘deploy’ button to deploy the contract to Ropsten, accepting the MetaMask transaction window when it pops-up. This is charging the cost of writing to the blockchain.
 
-![Deploy the contract to Ropsten](https://api.kauri.io:443/ipfs/QmUxxmKgkgzmsi12hVT9t1q4zoJ2Ry4CVVvUrZTAuVS5M9)
+![Deploy the contract to Ropsten](https://ipfs.infura.io/ipfs/QmUxxmKgkgzmsi12hVT9t1q4zoJ2Ry4CVVvUrZTAuVS5M9)
 
 ### Check the Deployed Contract and Interface
 Now we’ve deployed the contract we’ll have a set of buttons that provide an interface to the contract elements, shown under ‘Deployed Contracts’. Click the arrow next to the contract name to show the set of buttons that give us an interface to the contract.
 
-![View the contract elements](https://api.kauri.io:443/ipfs/QmQv3Bb3JvR7FQWpfwurNcoVENQYFXhJsZVVbd6dphK5ET)
+![View the contract elements](https://ipfs.infura.io/ipfs/QmQv3Bb3JvR7FQWpfwurNcoVENQYFXhJsZVVbd6dphK5ET)
 
 Next to the contract name is also the contract address that can be copied and searched for on [Etherscan against the Ropsten network](https://ropsten.etherscan.io). Copy the address shown and look up the Etherscan record. Between Etherscan and MetaMask we can readily see how the transaction details match up.
 
-![Matching transaction details](https://api.kauri.io:443/ipfs/QmP9dSP56KVwA8kQfMFbNYkfn9pw45KsVCtEyhy5zJEDFu)
+![Matching transaction details](https://ipfs.infura.io/ipfs/QmP9dSP56KVwA8kQfMFbNYkfn9pw45KsVCtEyhy5zJEDFu)
 
 We can see that the ‘From’ address, Contract Creator address and the address we used in MetaMask all match. This shows us how organisations can deploy a contract, then use the `msg.sender = owner` code pattern to assign the ability to perform certain actions only to a given address; in this case the one that deployed the contract.
 
@@ -115,7 +117,7 @@ To play we need to switch to an alternate account in MetaMask, so we’re acting
 
 After a few seconds MetaMask will bring up a prompt stating the transaction went through. If we check the contract again on Etherscan, we’ll see it now has a second transaction worth 0.1 ETH from the address we’re using for Player One.
 
-![Player One Played](https://api.kauri.io:443/ipfs/QmP63d3Mqkazwcnma1ak2BrDsRjtm9Qp9gJsj2CUu3z3fL)
+![Player One Played](https://ipfs.infura.io/ipfs/QmP63d3Mqkazwcnma1ak2BrDsRjtm9Qp9gJsj2CUu3z3fL)
 
 If you now enter `0` in the field next to ‘players’ it will return the address of Player One. This is because we declared `address[] public players;` at the start of our contract then ` players.push(_participant);` in the `play()` function - which takes an address (as we tested above), then pushes it onto the `players` array.
 
@@ -133,18 +135,18 @@ Now in Etherscan we can see:
 - two transactions of 0.1 ETH which are the raffle ‘plays’
 - one transaction between these that are the possibly unwanted pressing of ‘draw’ by a player
 
-![Two Plays and one Draw](https://api.kauri.io:443/ipfs/QmbQdQnAHCS1p5G4i8NRdGHKbUH5s4UpPbdeHZNmcCSMon)
+![Two Plays and one Draw](https://ipfs.infura.io/ipfs/QmbQdQnAHCS1p5G4i8NRdGHKbUH5s4UpPbdeHZNmcCSMon)
 
 Both of the above can be proven using Etherscan’s logs:
 - Click on the ‘Txn hash’ for the draw (0 ETH transaction)
 - At the bottom of the page that opens, click on ‘Click to see More’
 - Under ‘Input Data’ check to see it says ‘Function: draw() ***’
 
-![Draw made by Player One](https://api.kauri.io:443/ipfs/QmSaSdL1gpVfGrwVuGWzwTqz5V3KUovxP7eP2RjGLwqsNN)
+![Draw made by Player One](https://ipfs.infura.io/ipfs/QmSaSdL1gpVfGrwVuGWzwTqz5V3KUovxP7eP2RjGLwqsNN)
 
 Repeat the steps above to check one of the Plays made by either player.
 
-![Play made by a Player](https://api.kauri.io:443/ipfs/QmUtWb2tQoAmh8w1vEGYWMWV7sNoUVnPDezUSGiEKwC4D4)
+![Play made by a Player](https://ipfs.infura.io/ipfs/QmUtWb2tQoAmh8w1vEGYWMWV7sNoUVnPDezUSGiEKwC4D4)
 
 However, we may have another potential issue. In the `draw()` function we have the line of `players.length--;` which with the line of code above it is a way to remove the winner from the list of players (so they don’t become winner number 2 as well as winner number 1, fair enough). We can test this too by entering a `0` or a `1` in the field next to ‘players’ and seeing what’s returned. We expect two player’s addresses but for index `1` we should get ‘0x0000000000000…’ which tells us Player One got removed from the `players[]` array (because when I tested, Player One won. It may be Player Two for you). OK, the code works, but the change suggested above might prevent this if we feel it’s an issue.
 
@@ -155,11 +157,11 @@ Go ahead and hit `draw()` for a second time, then refresh the Etherscan page for
 
 That proves the ` charity.transfer(address(this).balance);` line in `draw()` must have worked – but where’s the transaction?
 
-![End of the test run](https://api.kauri.io:443/ipfs/QmNqvj5U3E5HqZ9yAJYgEJPshKKb3EELXm3A37B9qqMqXF)
+![End of the test run](https://ipfs.infura.io/ipfs/QmNqvj5U3E5HqZ9yAJYgEJPshKKb3EELXm3A37B9qqMqXF)
 
 You’ll notice there’s a new tab in Etherscan called ‘Internal Txns’, our `transfer` of 0.2 ETH is recorded in there as it occurs as part of the code in the function, not a call from outside. The balance is sent to the address that was defined under the `charity` variable.
 
-![Transfer of balance to contract owner](https://api.kauri.io:443/ipfs/QmTCt13MnMgZj6whCmR2THuW5tyHUMdw6BJkibjkWTfs45)
+![Transfer of balance to contract owner](https://ipfs.infura.io/ipfs/QmTCt13MnMgZj6whCmR2THuW5tyHUMdw6BJkibjkWTfs45)
 
 ### Conclusion
 We’ve seen that at every step of the way we can control how the contract is deployed, deploy it to a non-live blockchain such as the Ropsten Testnet, then carefully test out the contract functionality. Remix and Etherscan combined provide us with a host of features and information to allow us to test our code and check the results.
@@ -178,4 +180,18 @@ Mark
 1) Tutorials: https://bitfalls.com/2018/03/31/solidity-development-crash-course-building-blockchain-raffle/ and https://bitfalls.com/2018/04/05/solidity-development-crash-course-finishing-raffle-project/
 
 2) Brave Browser: https://brave.com/CYR315 (referral link)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/updating-and-testing-a-raffle-contract/c0525a7f8f554071bd5db03d8dd7dce8/a
+- **Kauri original author:** Mark Crowther (@mark-crowther)
+- **Kauri original Publication date:** 2019-06-27
+- **Kauri original tags:** bitfalls, etherscan, testing, brave, solidity, remix
+- **Kauri original hash:** QmcFwmbAK4pHds3vCfAGnB3WKGKUK8JqkNctL86qvsXso2
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

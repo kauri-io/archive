@@ -60,3 +60,17 @@ https://github.com/chanmathew/cdp-rebalancer
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cdp-rebalance/d54e57b71c59441a92cb26c99c9d0a0d/a
+- **Kauri original author:** Jacob Wright (@jacob-wright)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, zerion, makerdao
+- **Kauri original hash:** QmPwktmiWNiHzLKyzaLJ9gc4Q1tmmAKnPTWpmarkiv9h8r
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

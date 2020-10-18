@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Blockchain for Trekkies🖖 &mdash; Kauri</title>
+    <title>Blockchain for Trekkies🖖 &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1048,7 +1051,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1059,23 +1062,32 @@
                 <div id="content"><h1 id="blockchain-for-trekkies">Blockchain for Trekkies🖖</h1>
 <p>Hey Trekkies! I’m hoping to help bridge the gaps between Star Trek and Blockchain once and for all. Before I continue with this guide, I will need to do a quick refresher of an old episode and also outline an assumption so I can make an accurate Trekkie analogy for Blockchains.</p>
 <p>Refresher: In Season 1 Episode 5 “The Enemy Within” the crew found a Unicorn Dog dog that was able to duplicate (the duplicate was an opposite to the original but that’s not so relevant to helping me explain blockchain so let’s ignore that).
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/QmZ8kGK991JWqtNi2qKCRRFynMzDgxepzyTw1M3XHufhCT" />
+<img alt="" src="https://ipfs.infura.io/ipfs/QmZ8kGK991JWqtNi2qKCRRFynMzDgxepzyTw1M3XHufhCT" />
 Spock hodling a Unicorn Dog</p>
 <p>Assumption: The supply of Unicorn Dogs never run out. The difficulty to find a new duplicate Unicorn Dog is proportional to the resources put into finding the next Unicorn Dog (referred to as mining in Blockchain).</p>
 <p>There’s also some simplifications (both for Unicorn Dogs and Blockchain) so I can avoid going on tangents that only get interesting once you dig deeper into Blockchain/Unicorn Dogs. Okay! Now we can begin to explain Blockchain for Trekkies. Imagine a mad scientist called Satoshi created the first ever Unicorn Dog (he also released the recipe on how he did it), this would be what we refer to as the Genesis Unicorn Dog, or the Genesis Block in Blockchain terms. The Genesis Unicorn Dog was so happy to be created that he gave Satoshi 50 Bitcoins that didn’t have any value at the time but Satoshi said thank you anyway.</p>
 <p>After the Genesis Unicorn Dog a new Unicorn Dog is found every ~10 minutes (~15 seconds in the Ethereum universe). Satoshi didn’t have to look very hard to find the next one 10 minutes later because there were very little resources put into trying to find it. When Satoshi found the next Unicorn Dog (the 2nd block in the blockchain) he took it back to the Genesis Unicorn Dog and he wrote the Bitcoin transactions that happened between the Genesis Unicorn Dog and the 2nd Unicorn Dog on its collar the for anyone to see. In exchange for finding it and taking it back to the previously found Unicorn Dog, the Unicorn Dog gave Satoshi 50 Bitcoins.</p>
 <p>A few people noticed this happening and also thought it’d be fun to find the Unicorn Dogs so they joined in, and it became a little bit more difficult to find them. After a while a lot of people joined in in finding the Unicorn Dogs and telling everyone which Bitcoin transactions had been made between the last Unicorn Dog and the latest one found so it could be included on the collar of the next. To try visualize this here’s a picture:
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQUDXAJafmACBGsqbscxMT7FNbk17Rdvo5v7D8PvBDNzy" /></p>
+<img alt="" src="https://ipfs.infura.io/ipfs/QmQUDXAJafmACBGsqbscxMT7FNbk17Rdvo5v7D8PvBDNzy" /></p>
 <p>Unicorn dogs love having as many friends as possible so once you find a new Unicorn Dog and put it in the line they will be happy sitting in that spot forever, linking to all the transactions behind them.</p>
 <p>But since Satoshi made the recipe for Unicorn Dogs open to everyone it means that anyone can fork the genetics of the Unicorn Dog and they will still happily sit in front of the last Unicorn dog (would be known as a soft or hard fork). However, if they’re too different then they’re incompatible (a hard fork) with the other Unicorn Dogs and will have to start a new line where the Bitcoins they give are no longer the same as the other Unicorn Dogs (we can think of them as Litecoin in this example), while the old line can continue if people find those Unicorn Dogs better/cuter. Here’s a small visual:
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQPAzbtN4BSwD2fpE3wcs36qwjCBzg5WwukgoEVC3mnXi" /></p>
+<img alt="" src="https://ipfs.infura.io/ipfs/QmQPAzbtN4BSwD2fpE3wcs36qwjCBzg5WwukgoEVC3mnXi" /></p>
 <p>Unicorn Dog genetic hard fork. *Indicates genetically modified.
 You can also have scenarios where someone tricks the people looking for Unicorn Dogs by putting in more than 51% of the current resources of the people looking for Unicorn Dogs without showing anyone. This is known as a 51% attack and can allow the attacker to double-spend the Unicorn Dogs Bitcoins. Here’s a visual:
-<img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmcqg1kYpgDaYBBkQZnoe6AhYjLAEQWUV1pL7vFATxBxeR" /></p>
+<img alt="" src="https://ipfs.infura.io/ipfs/Qmcqg1kYpgDaYBBkQZnoe6AhYjLAEQWUV1pL7vFATxBxeR" /></p>
 <p>Remember that the Unicorn Dogs always want to be in the longest line of Unicorn Dogs for them to be happy. This is why it’s important that the amount of people looking for Unicorn Dogs (mining) so that the amount of resources needed to attack the network is much more costly and it’s more secure.</p>
 <p>Now if you’re wondering, ‘who owns the Unicorn Dogs (essentially the Bitcoin network) and how do I get more information on Blockchain and Bitcoin?’ No one owns the Unicorn Dogs, they’re decentralized. As for finding more information on Bitcoin as a beginner, I would recommend starting by starting out on unbiased resources such as Wikipedia and go from there. I’ve skipped a few important details, such as difficulty change intervals, halvings and how mining works, but hopefully it’s a good start into the Trekkie world of Blockchain!</p>
 <p>Always be critical of anything/anyone that might potentially be biased. Live long and prosper 🖖 #ShatnerHODL</p>
-<p>Note: No Unicorn Dogs were harmed in the making of this Trekkie Blockchain guide. Also, check out @ethbounties on Twitter if you’re looking from some decentralized bounties.</p></div>
+<p>Note: No Unicorn Dogs were harmed in the making of this Trekkie Blockchain guide. Also, check out @ethbounties on Twitter if you’re looking from some decentralized bounties.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/blockchain-for-trekkies/ed9690f8d50442378cbadb217ea2705c/a</li>
+<li><strong>Kauri original author:</strong> Mattias (@mat7ias)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-16</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmYYTXTgxwaXC7rHcpt9DJxbj7eduH9uSHiwQF5DKuZgkv</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../buidl-foode-team-ethdenver-2019/" title="BUIDL FoodE Team EthDenver 2019"><span>Previous</span></a></div>

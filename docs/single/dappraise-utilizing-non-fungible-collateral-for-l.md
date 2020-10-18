@@ -167,3 +167,17 @@ https://docs.google.com/spreadsheets/d/1aHiNuIlz7wv0DaZ56mk26uctlY4NzojMaACUQFcQ
 Our next steps are to build out this project to integrate with the dharmas/swap relayers to allow individuals to execute the coin trades necessary to execute these loans. We
 're super proud of the idea of combining the prediction market in to the loaning mechanism. 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dappraise-utilizing-non-fungible-collateral-for-l/f498a856b40047bdad6db727a037c5fc/a
+- **Kauri original author:** C (@calvin)
+- **Kauri original Publication date:** 2018-10-12
+- **Kauri original tags:** none
+- **Kauri original hash:** QmehA4ScS6i7EUuKKYvUUWHUzMoB9prEbtYX9mrJLKhP6i
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

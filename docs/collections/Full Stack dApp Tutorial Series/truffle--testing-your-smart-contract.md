@@ -92,7 +92,7 @@ contract('Bounties', function(accounts) {
 
 Your bounties.js file should look as follows:
 
-![](https://api.beta.kauri.io:443/ipfs/QmcFV9NNxnKaxa2kGxj3kRpC59Yhf9TCmqVcHvidRudjxb)
+![](https://ipfs.infura.io/ipfs/QmcFV9NNxnKaxa2kGxj3kRpC59Yhf9TCmqVcHvidRudjxb)
 
 At this point, we have the basic skeleton of our test file and we can test everything is set up correctly by executing the following:
 
@@ -194,7 +194,7 @@ Object.assign(exports, {
 });
 ```
 
-![](https://api.beta.kauri.io:443/ipfs/QmWaFwv1udeBqcEwHixre55igXssD9RaLNPeuQyvirwsmX)
+![](https://ipfs.infura.io/ipfs/QmWaFwv1udeBqcEwHixre55igXssD9RaLNPeuQyvirwsmX)
 
 The above extract takes a promise as its first argument, which would be a web3 transaction, and an assertion fail message as the next. It wraps the promise in a try and catches the error,  if the promise fails it checks if the error message contains the string **"revert”**.
 
@@ -392,6 +392,20 @@ You can find the [complete bounties.js test file here for reference]  (https://g
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/truffle:-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-05-02
+- **Kauri original tags:** testing, tutorial, truffle, solidity
+- **Kauri original hash:** QmehCtt8tfEjFhUnwaGE1SDcaVsuBcUaiud4rfVkNEKhfV
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Clearmatics - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/Qma93g8Xe5Y1FztmsqFK4e1m3VwTgQCY8zhM5yNYSuoCDx)
+
 
 ## Company/Project Name and Description
 
@@ -72,6 +74,20 @@ We will judge bounty submissions based on the criteria used at ETHSF (Technical,
 ## Contact Information
 
 Christophe MacIntosh - cm@clearmatics.com
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/clearmatics-sponsor-bounty-at-ethdenver-2019!/b278d667893c4ef98441b2ccc3a62b6d/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmUStRptiSPXzE5MCFAibwXDKgww37AguNkUt2Ld1vYpbM
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

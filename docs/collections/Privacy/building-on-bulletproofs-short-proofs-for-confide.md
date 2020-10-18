@@ -9,6 +9,8 @@ some_url:
 
 # Building on Bulletproofs - Short Proofs for Confidential Transactions
 
+![](https://ipfs.infura.io/ipfs/QmQ4nfToCaGt1qbEqhG66fEn6jicpycAdcg2orVsd4YMk7)
+
 
 This article was original published by [Cathie Yun](https://medium.com/@cathieyun) on [Medium](https://medium.com/@cathieyun/building-on-bulletproofs-2faa58af0ba8) special thanks to Cathie for allowing us to import to Kauri
 
@@ -77,7 +79,7 @@ Notation: vectors are written in bold, such as
 
 ### Range Proof
 
-![](https://api.kauri.io:443/ipfs/QmY2aD3SW4GP4tj9Cyiokpbu5U266eVCuK9Swk68gGgFi9)
+![](https://ipfs.infura.io/ipfs/QmY2aD3SW4GP4tj9Cyiokpbu5U266eVCuK9Swk68gGgFi9)
 
 We’d like to make a proof of the following statement: 
 `0 ≤ v < 2^n`
@@ -100,7 +102,7 @@ We know that if this is true, then
 `4`
  bits long, if it is actually in range:
 
-![](https://api.kauri.io:443/ipfs/QmZSBFVC4DUkdGv9Eb8e1kP3SB9NuRgc6NBZQKMSXh5KqT)
+![](https://ipfs.infura.io/ipfs/QmZSBFVC4DUkdGv9Eb8e1kP3SB9NuRgc6NBZQKMSXh5KqT)
 
 We would like to represent this claim in the form of an inner product because of the extremely efficient inner product proof that Bulletproof introduces, which we will talk about in the next section.
 First, let’s name the bit representation of 
@@ -109,7 +111,7 @@ First, let’s name the bit representation of
 `v_bits`
  .
 
-![](https://api.kauri.io:443/ipfs/QmV7kWunAYa8BP1ox36ULbMyqVXEdb9KsMwd4Ppk39ibbp)
+![](https://ipfs.infura.io/ipfs/QmV7kWunAYa8BP1ox36ULbMyqVXEdb9KsMwd4Ppk39ibbp)
 
  
 `v`
@@ -134,7 +136,7 @@ Also, we need to make sure that
 `-1000`
  … that would be bad!) We can do that by adding check 2 in the figure below.
 
-![](https://api.kauri.io:443/ipfs/QmWEuTnjF6wkfCyYH79fs6VQ7NEDNKBQX4DjLzbVt4cQXX)
+![](https://ipfs.infura.io/ipfs/QmWEuTnjF6wkfCyYH79fs6VQ7NEDNKBQX4DjLzbVt4cQXX)
 
 Next, we combine these two statements using challenge scalars, and add blinding factors to them. The math behind this is not difficult — just tedious — and ends up giving us an inner product statement in the form of 
 `c = <a, b>`
@@ -161,7 +163,7 @@ An inner product proof is a proof that
  .
 This may be a helpful visual for what an inner product is:
 
-![](https://api.kauri.io:443/ipfs/Qmf2J3gk51gm4HrhUu4JAoPnczXGuNVLGL1DJD5aQaYumK)
+![](https://ipfs.infura.io/ipfs/Qmf2J3gk51gm4HrhUu4JAoPnczXGuNVLGL1DJD5aQaYumK)
 
 Naively, a prover could prove this to the verifier by sending over 
 `a`
@@ -209,7 +211,7 @@ So if we started with the original
 `lo`
  half:
 
-![](https://api.kauri.io:443/ipfs/QmdbiBHZ1Fgp6f82A3xqspvFPFU7SqRH514DDr6BgYhs2k)
+![](https://ipfs.infura.io/ipfs/QmdbiBHZ1Fgp6f82A3xqspvFPFU7SqRH514DDr6BgYhs2k)
 
 And then, we get a random challenge scalar 
 `x`
@@ -229,7 +231,7 @@ And then, we get a random challenge scalar
 `c’ = <a’, b’>`
  .
 
-![](https://api.kauri.io:443/ipfs/QmVMtrjNthPCfuQWGv6HbLRBEim79DRmH7DUYr5QMmU8q1)
+![](https://ipfs.infura.io/ipfs/QmVMtrjNthPCfuQWGv6HbLRBEim79DRmH7DUYr5QMmU8q1)
 
 When doing the math to expand 
 `c’`
@@ -247,7 +249,7 @@ When doing the math to expand
 `R`
  :
 
-![](https://api.kauri.io:443/ipfs/QmarBi4vZbwTHj3mAKF85mthDQJGkT88uM8NpFkeAGr3ij)
+![](https://ipfs.infura.io/ipfs/QmarBi4vZbwTHj3mAKF85mthDQJGkT88uM8NpFkeAGr3ij)
 
 In each round, the prover sends 
 `L`
@@ -274,7 +276,7 @@ After
 `a’, b’, c’`
  to the verifier.
 
-![](https://api.kauri.io:443/ipfs/QmZfd7TyKc82MAjTfBA3LQfoKDNWocumKMHbzjLszkkpd8)
+![](https://ipfs.infura.io/ipfs/QmZfd7TyKc82MAjTfBA3LQfoKDNWocumKMHbzjLszkkpd8)
 
 The verifier now has scalars 
 `a’, b’, c’`
@@ -320,12 +322,12 @@ To see the math behind the aggregated proof, see our
 ### Constraint System Proof
 A constraint system is a collection of two kinds of constraints:
 
-![](https://api.kauri.io:443/ipfs/QmYPXwC8Yp2kTdQx6zytZxCD1K7zvEc7hhDx2TZtTvM118)
+![](https://ipfs.infura.io/ipfs/QmYPXwC8Yp2kTdQx6zytZxCD1K7zvEc7hhDx2TZtTvM118)
 
 Constraint systems are very powerful because they can represent any efficiently verifiable program. A zero knowledge constraint system proof is a proof that all of the constraints in a constraint system are satisfied by certain secret inputs, without revealing what those secret inputs are.
 For example, we can make a set of constraints (a “gadget”) that enforces that some outputs are a valid permutation of some inputs. Let’s call this a shuffle gadgets. In a simple shuffle gadget with only two inputs and two outputs, we could represent the possible states as the following:
 
-![](https://api.kauri.io:443/ipfs/Qma7fA1LsWyG2kh53X32rezYG436S5eq3NiEhaGMPwTibF)
+![](https://ipfs.infura.io/ipfs/Qma7fA1LsWyG2kh53X32rezYG436S5eq3NiEhaGMPwTibF)
 
 If we get a random scalar 
 `x`
@@ -340,7 +342,7 @@ If we get a random scalar
  in any order.
 When we implement this 2-shuffle gadget in our constraint system, it looks like this:
 
-![](https://api.kauri.io:443/ipfs/QmW7VCxDfLYSwK9J4MLWyniEYQeVeQBrfGzU8QYqnmHGyB)
+![](https://ipfs.infura.io/ipfs/QmW7VCxDfLYSwK9J4MLWyniEYQeVeQBrfGzU8QYqnmHGyB)
 
 In line 6, we get our challenge scalar 
 `x`
@@ -368,15 +370,15 @@ The goal of a Confidential Assets scheme is to make transactions in which the as
 Cloak is focused on one thing: proving that some number of values with different asset types is correctly transferred from inputs to outputs. Cloak ensures that values are balanced per asset type (so that one type is not transmuted to any other), that quantities do not overflow the group order (in other words, negative quantities are forbidden) and that both quantities and asset types are kept secret. Cloak does not specify how the transfers are authenticated or what kind of ledger represents those transfers: these are left to be defined in a protocol built around Cloak.
 Cloak builds a constraint system using a collection of gadgets like “shuffle”, “merge”, “split” and “range proof” all combined together under a single gadget called a “cloaked transaction”. The layout of all the gadgets is determined only by the number of inputs and outputs and not affected by actual values of the assets. This way, all transactions of the same size are indistinguishable. For example, this is what a 3 input 3 output cloak transaction looks like to a verifier or a viewer of the blockchain:
 
-![](https://api.kauri.io:443/ipfs/QmP8ZDWxkJdzZz85Xkp2wV1Tmkf5g8CXbcDsXYPPNtPCib)
+![](https://ipfs.infura.io/ipfs/QmP8ZDWxkJdzZz85Xkp2wV1Tmkf5g8CXbcDsXYPPNtPCib)
 
 This is what a 3 input 3 output cloak transaction would look like to a prover trying to make a proof of validity for a transaction with an input of $5, ¥3, $4 and an output of ¥3, $6, $3. Notice how the assets of the same type ($) are grouped, merged together, and then split and rearranged into the target amounts:
 
-![](https://api.kauri.io:443/ipfs/QmRs2sv8cRefVwVCyyqUTEKgJYMDtHy6xQZjaPYWjuBw2D)
+![](https://ipfs.infura.io/ipfs/QmRs2sv8cRefVwVCyyqUTEKgJYMDtHy6xQZjaPYWjuBw2D)
 
 Cloak turns out to be surprisingly efficient: compared to a single-asset transaction (such as the Confidential Transactions proposal for Bitcoin) where only range proofs are necessary, the additional constraints and gadgets needed to support the issued assets add less than 20% of the multipliers. And thanks to the inner product proof, the impact on the proof size is close to zero. This is an illustration of the number of multipliers required by each gadget in the Cloak protocol:
 
-![](https://api.kauri.io:443/ipfs/QmU7Vu6SWxCxye7Gbkv2sVhbAFBq5pxnsLpNQpFUoZm4QJ)
+![](https://ipfs.infura.io/ipfs/QmU7Vu6SWxCxye7Gbkv2sVhbAFBq5pxnsLpNQpFUoZm4QJ)
 
 To learn more about Cloak, check out 
 [its specification](https://github.com/interstellar/spacesuit/blob/main/spec.md)
@@ -392,7 +394,7 @@ ZkVM is still being developed, and you can follow along with progress in the ope
 
 ### Summary
 
-![](https://api.kauri.io:443/ipfs/QmWbfc3pPFfLCTwxEmJcLxVfe4oNrtwXtrgSs7FFPSjk3R)
+![](https://ipfs.infura.io/ipfs/QmWbfc3pPFfLCTwxEmJcLxVfe4oNrtwXtrgSs7FFPSjk3R)
 
 Hopefully this post has helped you understand how the Bulletproofs zero knowledge proof protocol works, as well as what we’ve been building over that protocol. This just scratches the surface; I encourage you to read more in our notes and dive into our repo if you have more interest!
 
@@ -401,3 +403,17 @@ I worked with Henry de Valence and Oleg Andreev to understand and implement the 
 [protocol research team](https://interstellar.com/protocol)
  at Interstellar is currently designing and implementing ZkVM.
 Thanks to Benedikt Bünz for answering all our questions about the Bulletproofs paper! Also, thanks to Andrew Poelstra for his feedback on this writeup.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-on-bulletproofs-short-proofs-for-confide/40506709dca64369b4a133a2c91c27ae/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** bulletproofs, privacy, cryptography, zero-knowledge-proofs
+- **Kauri original hash:** QmRBshyREWhybPCkZaDFuYkP2qrZQLhY3ZBhXKnKW7xufo
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

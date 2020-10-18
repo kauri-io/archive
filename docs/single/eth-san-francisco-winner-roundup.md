@@ -12,7 +12,7 @@ some_url:
 
 Another month, another awesome ETH Global hackathon; this time in the capital of tech, San Francisco.  On October 5th, over 1000 hackers congregated on the 100 year old Palace of Fine Arts, where they could listen to high quality talks and dicussions from the likes of Vitalik Buterin and Kevin Owocki whilst building cutting edge decentralized applications on the Ethereum platform.
 
-![](https://api.beta.kauri.io:443/ipfs/QmdF4CUQZS8knyg8U17Zec6XE4vFWwB8YgbuyCLPA2cb3v)
+![](https://ipfs.infura.io/ipfs/QmdF4CUQZS8knyg8U17Zec6XE4vFWwB8YgbuyCLPA2cb3v)
 
 The winning DApps from this leg were as varied and interesting as ever, with many utilising libraries and products developed by sponsoring projects.
 
@@ -42,7 +42,7 @@ The CryptoPay members believe that there is still a lot to be done before blockc
 
 [Github](https://github.com/cryptoPay-ETHSF)
 
-![](https://api.beta.kauri.io:443/ipfs/QmT7XVCqK3YTnVaYwKgWc8KiurMW3fVUXKbrCgkML13Zpn)
+![](https://ipfs.infura.io/ipfs/QmT7XVCqK3YTnVaYwKgWc8KiurMW3fVUXKbrCgkML13Zpn)
 
 ## SplitterConverter
 
@@ -82,7 +82,7 @@ Following on from the work done at ETH Berlin, Vlad Zamfir and friends continued
 
 [Github](https://github.com/smarx/ethshardingpoc)
 
-![](https://api.beta.kauri.io:443/ipfs/QmUDCH7Ac5Fa3d5Xnz7abD6Q4BE3CqJ7evbxyvnHLe7Wfd)
+![](https://ipfs.infura.io/ipfs/QmUDCH7Ac5Fa3d5Xnz7abD6Q4BE3CqJ7evbxyvnHLe7Wfd)
 
 ## Safu
 
@@ -110,7 +110,20 @@ SayToshi provides a way for crypto influencers to make money by essentially allo
 
 [Smart Contracts Github](https://github.com/nemild/TweEthContracts)
 
-![](https://api.beta.kauri.io:443/ipfs/QmPNnv4rLMe29B29nWfVSAhmdoaK3DLFm2eYgZ9YVXkBRM)
+![](https://ipfs.infura.io/ipfs/QmPNnv4rLMe29B29nWfVSAhmdoaK3DLFm2eYgZ9YVXkBRM)
 
 ## Attribution
 - Palace of Fine Arts Photo - By King of Hearts [CC BY-SA 4.0  (https://creativecommons.org/licenses/by-sa/4.0)], from Wikimedia Commons_
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-san-francisco-winner-roundup/a1ba2aed040b4fa5b24c73f53a8fe8d3/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2018-12-20
+- **Kauri original tags:** ETHGLOBAL, ETHSANFRANCISCO
+- **Kauri original hash:** QmWJgEBjaFXHck6RpesvppX1mdEoKV2QnjKq741xEVAZtZ
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

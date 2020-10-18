@@ -9,6 +9,8 @@ some_url:
 
 # Defi and Opfi lending and borrowing platforms (Users perspective)
 
+![](https://ipfs.infura.io/ipfs/Qmf3q8Rs6LFW13qfd2rQPQYYsrEmbfcKKkrEoB2PGjoF3c)
+
 
 Introduction
 This article discusses some of the defi and opfi lending and borrowing services that I have tested and evaluated. It is not intended to be an exhaustive list, since there are so many products and services in the defi space, and is rapidly growing. There are different degrees of decentralisation, and transparency, but all of them make good use of smart contracts. Most of the dapps are running on the etherium platform, since they are the most mature of the smart contract platforms. But there are new ones being developed on platforms like EOS, IOST and other blockchains. This list is summarised, and I will probably drill down into more detail in future articles, and cover other related topics. If you are holding onto your coins like I do, there is really no good reason not to invest them, by staking or lending them out. You can decide to use variable rates which are determined by the market and fluctuate, or lock them in with fixed rates if you prefer (ex. 30 days, 60 days etc.). Also stable coins are a good way to hedge your risk against volatility, and the rates are much better than the traditional banks and trust companies (ex. 10-14% vs. 2%)
@@ -46,3 +48,16 @@ Conclusion
 I didn't cover all the services, since there are just too many, and new ones appearing all the time. So, I only chose the ones to talk about that I like the best . For example, I didn't cover Maker DAO since it is only for borrowing, and is more complicated since you have to make sure that your loan doesn't get liquidated, since there is a penalty, and the stability fee is very high now (19%). I believe that you are better off using the services mentioned above for lending. 
 
 All the etherium based systems use Metamask, and the EOS ones use Scatter. So, you will have to get familiar with those apps if you want to use these services, with the exception of Celsius, which is the easiest to use (once you pass the identity verification process). I have tested all of these services and they all worked well for me. But that doesn't guarantee that you might not come across a bug. Most of the systems have technical support on telegram or discord, and some by email or phone. The more centralised systems tend to be the most responsive but not always. The user interfaces are pretty good, and the systems are always improving, and adding features. In my opinion, this area of crypto is the best reason for the institutional investors to get serious. Even though there are better rates, there are always risks involved. In my opinion, the missing link right now is insurance for things like hacking smart contracts, for example. I am currently following a couple of projects that plan to offer this service, but they aren't quite there yet. I plan to test and evaluate them as soon as they are ready for prime time. In any case, its good to put your money to work for you while you are waiting for the big gain
+
+
+---
+
+- **Kauri original link:** https://kauri.io/defi-and-opfi-lending-and-borrowing-platforms-(us/6012ca70153c4bb2af8b7849bcb6909f/a
+- **Kauri original author:** Fred Blauer (@fblauer)
+- **Kauri original Publication date:** 2019-07-24
+- **Kauri original tags:** lending, open-finance, defi, finance
+- **Kauri original hash:** QmRVanWSDWKvD1dDyV5squjQxJsQyA2anSz77PAS7Tmy8e
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

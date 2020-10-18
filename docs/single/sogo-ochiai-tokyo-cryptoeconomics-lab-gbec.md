@@ -9,6 +9,8 @@ some_url:
 
 # Sogo Ochiai - Tokyo - Cryptoeconomics Lab, GBEC
 
+![](https://ipfs.infura.io/ipfs/QmfArG4iGv6YNsNCKAo5SWmuYQbe5ac6JSqy625Nqxh6Q6)
+
 
 _Ahead of devcon, Kauri is interviewing local community members in Japan. We hope you readers will learn more about the local industry and blockchain activity. There will also be some gems from our interviews that hopefully give you some ideas of how to see Japan from a local perspective_
 
@@ -20,7 +22,7 @@ We use OVM (optimistic virtual machine) on layer 2 with some security guarantees
 
 Enterprise companies in Japan love rust, so there is a big community here in Tokyo. 
 
-![](https://api.kauri.io:443/ipfs/QmRrdwx8L8CDahWaupyuX39f4HsXdBKtZKT8Jvqbo2jq6A)
+![](https://ipfs.infura.io/ipfs/QmRrdwx8L8CDahWaupyuX39f4HsXdBKtZKT8Jvqbo2jq6A)
 
 ###How is the blockchain community in Tokyo?
 
@@ -50,4 +52,18 @@ Devcon - Osaka - talk about using Rust to implement OVM and the various benefits
 
 We are holding a layer2 and business event with Karl Floersch and top researchers in the space - https://www.eventbrite.com/e/layer2-and-business-with-protocol-researchers-and-devs--tickets-74235734079
 
-![](https://api.kauri.io:443/ipfs/QmXj3ohVejfJoz5rDYHZ87tkeiyucHYjamo1hzuMaWYR2y)
+![](https://ipfs.infura.io/ipfs/QmXj3ohVejfJoz5rDYHZ87tkeiyucHYjamo1hzuMaWYR2y)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sogo-ochiai-tokyo-cryptoeconomics-lab-gbec/cc8c66b15db04754a9b4fb997d8402fb/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-10-02
+- **Kauri original tags:** cryptoeconomics-lab, japan, devcon
+- **Kauri original hash:** QmZwG65kABcKqAhPkRs9ZQVgjSyuB6AqpLcULYvFRjbSu1
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

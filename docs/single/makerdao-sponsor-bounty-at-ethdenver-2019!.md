@@ -9,6 +9,8 @@ some_url:
 
 # MakerDAO - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmdkiZ5AgUcu7JVBXugYkVhqEu2nWLcvVveffgpNaNB12E)
+
 
 ## Company/Project Name and Description
 
@@ -48,6 +50,20 @@ Be amazing.
 ## Contact Information
 
 Richard Brown - rich@makerdao.com
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/makerdao-sponsor-bounty-at-ethdenver-2019!/1aa7db4858614e21b0446a03680b9846/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-14
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmV95qQKPFmys7aGEyh2a1dsGCKCZjfWURGvbZzRUXDSro
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

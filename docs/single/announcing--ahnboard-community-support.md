@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmbQoDoVn34EaTzv9K38fx3Jx2p3RW9bmPpciq8TQZkk14)
+![](https://ipfs.infura.io/ipfs/QmbQoDoVn34EaTzv9K38fx3Jx2p3RW9bmPpciq8TQZkk14)
 
 We started Ahnboard with a simple mission: to onboard every day users to a new way of thinking. This takes many obvious forms: onboarding flow within a dApp, in-app tooltips, incentivization & rewards programs, abstraction, and more (we’re actively developing these now, launching very soon 😉).
 
@@ -47,3 +47,17 @@ DApps: if you’re a bit overloaded on the support side, feel free to direct you
 We’re launching our dApp adoption platform soon! 
 [Sign-up](https://airtable.com/shrTRaAnm4vCZWSHl)
  to be the first to receive product updates 🚀
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/announcing:-ahnboard-community-support/4967666e9f0e4e7f99e6327ef95ab0d3/a
+- **Kauri original author:** Ahnboard.io (@ahnboard-io)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** ux, onboarding
+- **Kauri original hash:** Qmb5a8PoKPJLHQBaHai86BsVqHvcpWaC8TEPyXSTNpcxGS
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

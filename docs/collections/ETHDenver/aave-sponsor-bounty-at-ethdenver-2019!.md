@@ -9,6 +9,8 @@ some_url:
 
 # Aave - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmNovhX1GdqCcWp6crLVQDAXTW5YpDYgUShAD7VtfLCaLc)
+
 
 ## Company/Project Name and Description
 
@@ -62,5 +64,19 @@ Feasibility and originality
 ## Contact Information
 
 Maria Magenes - maria@aave.com
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/aave-sponsor-bounty-at-ethdenver-2019!/31d67441cffc4f4aa83901a82ccac7ac/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmWSumuroND1YdSLneDzPNvXV6jzkecvtPYZmu3VLXkfmu
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # Accelerating DApp Development with Ethers.js
 
+![](https://ipfs.infura.io/ipfs/QmNu48A22GJW66ZdT3crjycakHZYKx5HE2LSBgB1opgDLH)
+
 
 Today's decentralized application stack often consists of a front end, smart contracts, and a framework to interact with the blockchain. Developers often use [Web3.js](https://github.com/ethereum/web3.js/) for interaction with the Ethereum blockchain; however, Web3.js is large, its documentation needs improvement, and is difficult to maintain. [Ethers.js](https://github.com/ethers-io/ethers.js/) is an alternative library that offers all the features of Web3.js in a smaller, well-tested package.
 
@@ -206,3 +208,16 @@ Rerun the application with `ng serve --open` and you should have a basic, but fu
 In this tutorial, we created a dapp that creates a wallet, sends a transaction, and interacts with a smart contract. Using Ethers.js, we can interact with the Ethereum blockchain with ease and expand to more complex use cases. Further improvements could be to create a better design, add more wallet integrations, and a separation of concerns between the wallet and contract component. With this demo app, you can now include a wallet app by just including the wallet web component in your dapp.
 
 Ethers.js is a powerful tool and a strong alternative to web3 for dApp development. The small compact library makes creating dApps a breeze, taking all the heavy lifting off of the developer's shoulders and making it easier to focus on the smart contract or website design. For more information on Ethers.js, checkout out the [documentation](https://docs.ethers.io/ethers.js/html/index.html). You can find the final codebase on the master branch [here](https://github.com/jacobcreech/Ethersjs-example).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/accelerating-dapp-development-with-ethers.js/805715d4e66440d996fee0930a6d0fbc/a
+- **Kauri original author:** Jacob Creech (@jacobcreech)
+- **Kauri original Publication date:** 2019-05-18
+- **Kauri original tags:** ethereum, dapp, ethers-js
+- **Kauri original hash:** QmYfNZ7xzemxVkuxnP9pU33uoP49j45RCrqj5JpaiWe5Xg
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

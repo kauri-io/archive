@@ -9,6 +9,8 @@ some_url:
 
 # Nomad Mobile
 
+![](https://ipfs.infura.io/ipfs/QmTEhwWrD1FZLmRaokaTwAvJY7mAuVMUWm7WrEbciTeY82)
+
 
 ### Project Name
 Nomad Mobile
@@ -43,6 +45,20 @@ Impact
 ### A link to all your source code on a public repo (i.e. Github)
 https://gitlab.com/minds/nomad-mobile
 https://rinkeby.etherscan.io/address/0x0093b9e1fcd792b9876a2281af876de50595d24c -> usernames contract
-![](https://api.kauri.io:443/ipfs/QmbscY4uNWmiX5H3ipbt4wV6NhTqSQ36hstBvQho8dbvxL)
-![](https://api.kauri.io:443/ipfs/QmUGvwnYKqZ7TZFx22CzDWLFyXdLGyRDTt5u7sKDqiqjd3) -> Console log demonstrating working DAT protocol
+![](https://ipfs.infura.io/ipfs/QmbscY4uNWmiX5H3ipbt4wV6NhTqSQ36hstBvQho8dbvxL)
+![](https://ipfs.infura.io/ipfs/QmUGvwnYKqZ7TZFx22CzDWLFyXdLGyRDTt5u7sKDqiqjd3) -> Console log demonstrating working DAT protocol
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nomad-mobile/c55775aa47f44f46a13483b1278d2da5/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmWCEpTvy8c9HZ6J4nRifkjXZt8DBgbSBE58tji9boF7Ho
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

@@ -35,3 +35,17 @@ You can find all the information and tutorials on how to build on Aragon in the 
 - **Aragon CLI** - Aragon CLI is a tool for creating, testing and publishing Aragon applications.
     - [Getting started guide](https://hack.aragon.org/docs/cli-usage.html)
     - [Github Repository](https://github.com/aragon/aragon-cli)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/build-on-aragon/35357041f8774dc785ae79989b0f0711/a
+- **Kauri original author:** null (@sinamahmoodi)
+- **Kauri original Publication date:** 2018-09-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmeCSKaxLsiM2FhPTKYb8LdmSm6NhskdEWwpB2nvcgjdYE
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

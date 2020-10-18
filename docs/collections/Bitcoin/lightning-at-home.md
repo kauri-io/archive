@@ -9,6 +9,8 @@ some_url:
 
 # Lightning at Home
 
+![](https://ipfs.infura.io/ipfs/QmPcnhR3FBRoLGSJZRvhns7iMPAKmWarSC1KjjvtHmeneN)
+
 
 _This article originally appeared on [radar.tech](https://wiki.ion.radar.tech/tutorials/nodes/lighting-at-home)_
 
@@ -26,15 +28,15 @@ When you [download Bitcoin Core](https://bitcoin.org/en/download), you'll be pro
 * OSX `~/Library/Application\ Support/Bitcoin`
 * Windows `C:\Users\<username>\AppData\Roaming\Bitcoin`
 
-![](https://api.kauri.io:443/ipfs/QmPDatbhjAjA29QSCSpLkGpmf3tPTGJXuCJ5oSorrGWZQw)
+![](https://ipfs.infura.io/ipfs/QmPDatbhjAjA29QSCSpLkGpmf3tPTGJXuCJ5oSorrGWZQw)
 
 Start! You'll see this screen on startup below, and it can take some time to migrate to the status screen. Don't be discouraged if it hangs while working slowly in the background. You can always check debug.log to see the details.
 
-![](https://api.kauri.io:443/ipfs/QmZtpyaGZV9veotVP7nAotLddkXhqakdTXshR5aumZVNux)
+![](https://ipfs.infura.io/ipfs/QmZtpyaGZV9veotVP7nAotLddkXhqakdTXshR5aumZVNux)
 
 Wait... Depending on your computer, internet connection, or external hard drive, this can take anywhere from a few hours to a week.
 
-![](https://api.kauri.io:443/ipfs/QmNUqgePHZCvx1jMwAdnWupKZwDycyX2GRP9FJf7aqxXdN)
+![](https://ipfs.infura.io/ipfs/QmNUqgePHZCvx1jMwAdnWupKZwDycyX2GRP9FJf7aqxXdN)
 ### Configure Bitcoin to work with LND
 
 Running Bitcoin Core does not open certain connections for LND by default. Bitcoin Core uses a file called `bitcoin.conf` that contains settings that allow the software to talk with LND. For those familiar with editing `bitcoin.conf`here is what's needed:
@@ -62,12 +64,12 @@ Another way is to download the bitcoin.conf provided below. You can open it in a
 
 We have to ensure this configuration file is in the correct directory for Bitcoin Core to find it. Start by going to your bitcoin directory.
 
-![](https://api.kauri.io:443/ipfs/QmYQ6BaQp8S5dM5irfMejbwTU5GE8EeJJi2WGHTxdM3XFq)
+![](https://ipfs.infura.io/ipfs/QmYQ6BaQp8S5dM5irfMejbwTU5GE8EeJJi2WGHTxdM3XFq)
 
 
 Add `bitcoin.conf` to that directory.
 
-![](https://api.kauri.io:443/ipfs/QmY2JeKPe4MYrXfY7ySa4YeFbXbW7WUfa7edr88vwiUy8o)
+![](https://ipfs.infura.io/ipfs/QmY2JeKPe4MYrXfY7ySa4YeFbXbW7WUfa7edr88vwiUy8o)
 Restart Bitcoin Core. It should now be able to connect to LND once we have both running.
 
 ### Download LND
@@ -79,13 +81,13 @@ Restart Bitcoin Core. It should now be able to connect to LND once we have both 
 
 In this example, we'll download the the latest release. Select the correct version for your operating system.
 
-![](https://api.kauri.io:443/ipfs/QmTSiWiKxpA4rvbyfZ4exzV4Hm82zmH71jX3WJH6r4n2gJ)
+![](https://ipfs.infura.io/ipfs/QmTSiWiKxpA4rvbyfZ4exzV4Hm82zmH71jX3WJH6r4n2gJ)
 The download directory should include both `lnd` and `lncli`
 
 * `lnd`: Runs the daemon
 * `lncli`: Interacts with the daemon
 
-![](https://api.kauri.io:443/ipfs/QmcDYhS2nAXdBnwVPcEsFzbpWH5BGrXKpuNihCCzP3mGEt)
+![](https://ipfs.infura.io/ipfs/QmcDYhS2nAXdBnwVPcEsFzbpWH5BGrXKpuNihCCzP3mGEt)
 ### Start LND
 
 For those familiar with editing `lnd.conf`here is what's needed:
@@ -109,7 +111,7 @@ Another way is to add it into the command used to run LND. This is where you'll 
 * Press Enter
 * Keep this terminal window open
 
-![](https://api.kauri.io:443/ipfs/QmZj5kiXeyZEoYf1ZrApYpxNAXzdWGnRp9rNLiZpFJcwmy)
+![](https://ipfs.infura.io/ipfs/QmZj5kiXeyZEoYf1ZrApYpxNAXzdWGnRp9rNLiZpFJcwmy)
 Here is a summary of what each of those flags mean:
 
 * `--bitcoin.active` connects to the bitcoin chain \(instead of litecoin\)
@@ -133,7 +135,7 @@ Now you have LND up and running, it's time to set up a wallet.
 * LND will ask if you have a passphrase. You can enter 'n' here, or enter a passphrase for extra security \(your password unlocks your wallet, whereas your passphrase is used for encryption and decryption\).
 * Save your seed phrase! This is necessary for recovering your on-chain wallet if LND is lost or uninstalled.
 
-![](https://api.kauri.io:443/ipfs/QmTauds5mudLToAJs2Fh121PbUiKPWBhwDZBbCt5hzJNhR)
+![](https://ipfs.infura.io/ipfs/QmTauds5mudLToAJs2Fh121PbUiKPWBhwDZBbCt5hzJNhR)
 ### Verify LND's connection
 
 Once you've created your wallet we need to check that everything is working. We'll use a command called `getinfo` to see our node's information.
@@ -143,7 +145,7 @@ Run your first command!
 * drag `lncli` into the terminal
 * type `getinfo`
 
-![](https://api.kauri.io:443/ipfs/QmcniSCQTz1TZLMhZerrr2TotE4kN4UXT1bbDPyLrKBdf1)
+![](https://ipfs.infura.io/ipfs/QmcniSCQTz1TZLMhZerrr2TotE4kN4UXT1bbDPyLrKBdf1)
 
 And you're off!
 
@@ -157,11 +159,11 @@ Download Zap wallet: [https://zap.jackmallers.com/](https://zap.jackmallers.com/
 
 Create a new wallet.
 
-![](https://api.kauri.io:443/ipfs/Qmer72Z8VKdbxuQYYjXjJTWSF45iRPkTYGqceiJe1Z6V7o)
+![](https://ipfs.infura.io/ipfs/Qmer72Z8VKdbxuQYYjXjJTWSF45iRPkTYGqceiJe1Z6V7o)
 
 Connect your own node.
 
-![](https://api.kauri.io:443/ipfs/QmNcjnY5SMM5i1zMp5ws1JvoSYqQcahpZU1HmTywZG1TNa)
+![](https://ipfs.infura.io/ipfs/QmNcjnY5SMM5i1zMp5ws1JvoSYqQcahpZU1HmTywZG1TNa)
 
 #### Connection details \(default\):
 
@@ -178,11 +180,11 @@ Connect your own node.
   * TLS Certificate: `C:\Users\<username>\AppData\Roaming\Lnd\tls.cert`
   * Macaroon: `C:\Users\<username>\AppData\Roaming\Lnd\data\chain\bitcoin\mainnet\admin.macaroon`
 
-![](https://api.kauri.io:443/ipfs/QmVYJbNDxhBckaUi5KGJmGxHz45rnLEQ7HtgBffiBXqT6E)
+![](https://ipfs.infura.io/ipfs/QmVYJbNDxhBckaUi5KGJmGxHz45rnLEQ7HtgBffiBXqT6E)
 
 You're connected!
 
-![](https://api.kauri.io:443/ipfs/QmWXpcGW6N115ivR3xM9uuj767TFHY6RKCUE9D6R8xKFbx)
+![](https://ipfs.infura.io/ipfs/QmWXpcGW6N115ivR3xM9uuj767TFHY6RKCUE9D6R8xKFbx)
 
 ### Post Setup
 
@@ -197,4 +199,17 @@ You'll have to make sure that you start both pieces of software again, and unloc
   * `lnd unlock`
   * or unlock with zap wallet
 
-![](https://api.kauri.io:443/ipfs/QmfSTG3Z17fyz8TBtf6ouUTdzujA7CMCuKAhUyoRtbM7f3)
+![](https://ipfs.infura.io/ipfs/QmfSTG3Z17fyz8TBtf6ouUTdzujA7CMCuKAhUyoRtbM7f3)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/lightning-at-home/f4b1817865f3475099d5fb60a013878b/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-30
+- **Kauri original tags:** lightning, bitcoin
+- **Kauri original hash:** Qmdoe1oVryX5MkPPQVNNfFtaDFPFv2WiVWZRbr28fWHnX1
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

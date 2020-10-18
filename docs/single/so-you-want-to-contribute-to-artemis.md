@@ -10,7 +10,7 @@ some_url:
 # So you want to contribute to Artemis?
 
 
-![](https://api.beta.kauri.io:443/ipfs/Qma22aVM17Sv7F9vjAYq4TgMt2ofjRKzmzUDQi8FYJWTcv)
+![](https://ipfs.infura.io/ipfs/Qma22aVM17Sv7F9vjAYq4TgMt2ofjRKzmzUDQi8FYJWTcv)
 
 > _Artemis is an [Ethereum 2.0](https://github.com/ethereum/eth2.0-specs) client being built in Java by the [PegaSys](https://pegasys.tech/) R&D team. We’d love for you to get involved!_
 
@@ -28,7 +28,7 @@ Don’t be shy about jumping onto our [Gitter channel](https://gitter.im/PegaSys
 ## 2. Fork the repo
 To make pull requests, you’ll need a copy of the Artemis repo under your own Github account. Simply visit the [main Artemis page](https://github.com/PegaSysEng/artemis/) in your browser and click the “Fork” button at the top right.
 
-![](https://api.beta.kauri.io:443/ipfs/Qmb6S47s4kjT55WpjSgv3a96Rm463C3Qm4SB8L2dBeu2xp)
+![](https://ipfs.infura.io/ipfs/Qmb6S47s4kjT55WpjSgv3a96Rm463C3Qm4SB8L2dBeu2xp)
  
 ## 3. Make a local copy
 You’ll also need a local version to work on. In the below, `NAME` is your Github username. At your command line, do the following:
@@ -100,13 +100,13 @@ A “pull request” asks the maintainers of the repository to pull in your code
 
 When you push a branch to your own Github/artemis repo and then visit the page in your browser, you should see a banner like this one (only with your name and branch name).
 
- ![](https://api.beta.kauri.io:443/ipfs/QmckcRcvkqPdNd8XjaVtn9NvLYTtTFuapZBbtUsqqNKcn2)
+ ![](https://ipfs.infura.io/ipfs/QmckcRcvkqPdNd8XjaVtn9NvLYTtTFuapZBbtUsqqNKcn2)
 
 Clicking on the green button allows you to review the code changes and to complete the template commit message. If you want to make further updates, you can simply make more commits to your branch by going back to step #5 (you can do this before or after creating the PR).
 
 On your first commit, you will be asked to sign the [Contributor License Agreement](https://gist.github.com/rojotek/978b48a5e8b68836856a8961d6887992) to confirm that you are fully on-board with the open source nature of this project. Just click the link and follow the instructions.
 
- ![](https://api.beta.kauri.io:443/ipfs/Qmaa5hzHHfWudcW6fjL12rs6LCMvhjiVQ9G6Vk2F9PEYh7)
+ ![](https://ipfs.infura.io/ipfs/Qmaa5hzHHfWudcW6fjL12rs6LCMvhjiVQ9G6Vk2F9PEYh7)
 
 And that’s it! Some automatic checks are run, then one of the team will review your PR. There maybe some Q&A and perhaps some updates. Finally, your PR will be merged, and you’ll be Ethereum 2.0 Core Dev 😃.
 
@@ -120,3 +120,17 @@ And that’s it! Some automatic checks are run, then one of the team will review
 ***
 
 _[Ben Edgington](https://twitter.com/benjaminion_xyz), on behalf of the PegaSys Ethereum 2.0 implementation team. Thanks to [Jonny Rhea](https://twitter.com/JonnyRhea) for getting this article started!_
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/so-you-want-to-contribute-to-artemis/43989eea892f4b15b1937990b354502d/a
+- **Kauri original author:** Ben Edgington (@benjaminion)
+- **Kauri original Publication date:** 2019-02-01
+- **Kauri original tags:** Ethereum
+- **Kauri original hash:** QmYj17xq3Cb65eSgpU5VR2aAbd8paFq1VE3njNs7f6Md72
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

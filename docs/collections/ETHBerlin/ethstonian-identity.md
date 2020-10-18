@@ -14,7 +14,7 @@ A very useful solidity library for verifying signatures made by the Estonian Dig
 
 https://devpost.com/software/ethstonia-identity
 
-![](https://api.beta.kauri.io:443/ipfs/QmNkNMFCdW4h1D1G9dtCRbbUXC4Qwx167Xbv1wbL2HbNsh)
+![](https://ipfs.infura.io/ipfs/QmNkNMFCdW4h1D1G9dtCRbbUXC4Qwx167Xbv1wbL2HbNsh)
 
 #### Inspiration
 Identity and KYC/AML are the biggest problems in Blockchain right now. The Estonian government issues an eResidency card to all humans. This card has a private key build in for signing stuff in a legally binding manner.
@@ -98,3 +98,16 @@ more-math
 
 #### Try it out
 [GitHub Repo](https://github.com/LogvinovLeon/estid-sig)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethstonian-identity/5b76e878edb04eee914b17e5e45b0f62/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmWpoqmKyRJDZnV6N7dmotRKh4TjnJXcGiJYgCPmPT7Ezn
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

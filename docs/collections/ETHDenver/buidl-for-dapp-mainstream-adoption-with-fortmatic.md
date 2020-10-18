@@ -9,18 +9,20 @@ some_url:
 
 #  BUIDL for dApp mainstream adoption with Fortmatic at ETHDenver 2019
 
+![](https://ipfs.infura.io/ipfs/QmW17LnEYhV57hwV9PgMf3r3KnxD9pHHqVi17kgrxsGx8C)
+
 
 Hello, ETHDenver hackers! 👋 from all at
 [Fortmatic](https://fortmatic.com/)
 who are thrilled to meet you in a few days! This is a significant event and milestone for Fortmatic, as ETHDenver will be their first public debut.
 
-![](https://api.kauri.io:443/ipfs/QmT8M1Qz1e6MTZHY8saTKH3Aga1dXC1nEkGjvUtT6xnfCX)
+![](https://ipfs.infura.io/ipfs/QmT8M1Qz1e6MTZHY8saTKH3Aga1dXC1nEkGjvUtT6xnfCX)
 
 After many months of hard-work, the team has built an amazing product that allows end-users to directly interact with dApps, without having to download any browser extensions or 3rd party mobile apps. All of this will be available for developers by adding a couple lines of code, without having to change any existing Web3 implementation!
 
 ### How does it work?
 
-![](https://api.kauri.io:443/ipfs/QmRQdYDB11umANbpvsXcBANxRS37SZXAMnNe4tcCcjjLbB)
+![](https://ipfs.infura.io/ipfs/QmRQdYDB11umANbpvsXcBANxRS37SZXAMnNe4tcCcjjLbB)
 
 #### For dApp users:
 
@@ -59,3 +61,17 @@ and follow our updates on
 . Feel free to hang out with us in our
 [Discord Channel](https://discordapp.com/invite/JqrDbRB)
 too — don’t hesitate to reach out and ask us anything!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buidl-for-dapp-mainstream-adoption-with-fortmatic/5ce02c1566f44fc09bc471bd6e3fdbd6/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-02-14
+- **Kauri original tags:** ethdenver, hackathons
+- **Kauri original hash:** QmYGcENrC1QHPjNDPUeA7CE8aaqpKjGfUzWg4SHH1tzMQj
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

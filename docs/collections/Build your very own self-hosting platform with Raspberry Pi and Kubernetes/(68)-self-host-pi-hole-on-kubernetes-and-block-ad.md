@@ -9,6 +9,8 @@ some_url:
 
 # (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level
 
+![](https://ipfs.infura.io/ipfs/QmbJb9BztkrFe8ejvxSjkYxwLH79oA7388GEHLQPbqkwnC)
+
 
 <br />
 
@@ -30,7 +32,7 @@ some_url:
 
 Pi Hole is a network-wide ad blocker. In a typical home environment, this can cut out almost all ads to all devices in your home, without having to install an ad blocker on every single device. Technically Pi-Hole acts as a DNS sinkhole which filters out unwanted results using a blacklist domains list. Pi-Hole also offers a great admin interface to configure and analyse your network traffic (DNS, DHCP, Black/White list, regex, etc.).
 
-![](https://api.kauri.io:443/ipfs/QmWNdkLpvCo2aHjAL3k45vndybyv6u1aM5wTZw9UgeXZsB)
+![](https://ipfs.infura.io/ipfs/QmWNdkLpvCo2aHjAL3k45vndybyv6u1aM5wTZw9UgeXZsB)
 
 In this new article, we will learn how to deploy Pi-Hole on a Kubernetes self-hosting platform.
 
@@ -341,3 +343,17 @@ If you configured Pi-Hole to be used as DHCP server, you need to go to **Setting
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(68)-self-host-pi-hole-on-kubernetes-and-block-ad/5268e3daace249aba7db0597b47591ef/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-07-29
+- **Kauri original tags:** self-hosting, kubernetes, pi-hole, dns, ad-blocker, dhcp
+- **Kauri original hash:** QmcxZpL77o7Dpkz2xrNpdgUzGUyEc2UvqoM3dafKNcE5K1
+- **Kauri original checkpoint:** unknown
+
+
+

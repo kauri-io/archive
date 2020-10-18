@@ -44,3 +44,17 @@ Poa, Dai, Wyre
 [https://github.com/muggledai](https://github.com/muggledai)
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-2019:-muggledai/b3450be8d04c429fb38d8a9b81f42bf3/a
+- **Kauri original author:** Moyukh Sen (@moyukh-sen)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, wyre, poa, bounty-makerdao
+- **Kauri original hash:** QmWfL45qgEAh2PE9jyheSudL5yTa6QrRh7cPPMGcpijEEB
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -11,3 +11,16 @@ some_url:
 
 
 undefined
+
+
+---
+
+- **Kauri original link:** https://kauri.io/new-topic-requests-and-moderator-onboarding-proce/a38f4088c7c04e449644d6f25e28bd49/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2018-05-21
+- **Kauri original tags:** none
+- **Kauri original hash:** QmcyDf69c5v1dNfHUhqN4ccekVmvZLgrK2PbGbF2po57iW
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -67,7 +67,7 @@ Commands:
 ```
 The **truffle init** command sets up a truffle project with the standard project directory structure:
 
-![](https://api.beta.kauri.io:443/ipfs/QmZkbLeZiw7CNh9VFg2cLXhRuM1MYrg5whCnGmXHr5ZHVV)
+![](https://ipfs.infura.io/ipfs/QmZkbLeZiw7CNh9VFg2cLXhRuM1MYrg5whCnGmXHr5ZHVV)
 
 * **contracts/**: store original codes of the smart contract. We will place our Bounties.sol file here.
 * **migrations/**: instructions for deploying the smart contract(s) in the “contracts” folder.
@@ -79,7 +79,7 @@ The **truffle init** command sets up a truffle project with the standard project
 
 Now let's create a Bounties.sol file in the contracts folder and copy the contents of [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol) which we previously developed.
 
-![](https://api.beta.kauri.io:443/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB)
+![](https://ipfs.infura.io/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB)
 
 ### Compile
 
@@ -97,7 +97,7 @@ That's it! The 2 smart contracts in the **contracts** folder:
 
 We’re both compiled and the artifacts were written to *./build/contracts*
 
-![](https://api.beta.kauri.io:443/ipfs/QmTApNdhmZ7wxd2HwvZN9ynHcjFuqXhUkuTBF8y5NmwqNL)
+![](https://ipfs.infura.io/ipfs/QmTApNdhmZ7wxd2HwvZN9ynHcjFuqXhUkuTBF8y5NmwqNL)
 
 If you review the **Bounties.json** file, you will find it is similar to the output we got when we manually compiled our Bounties.sol smart contract the previous article. It stores the ABI and also the bytecode for deployment and linking, however, this truffle artifact contains additional features that make interacting with and deploying smart contracts using truffle a smoother experience. You can read more about the [truffle-artifactor here.](https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-artifactor)
 
@@ -191,7 +191,7 @@ module.exports = function(deployer) {
   deployer.deploy(Bounties);
 };
 ```
-![](https://api.beta.kauri.io:443/ipfs/QmV88d8DHY1dt9gXi4rDdDHpokts3HixjfW695kisLQJUU)
+![](https://ipfs.infura.io/ipfs/QmV88d8DHY1dt9gXi4rDdDHpokts3HixjfW695kisLQJUU)
 
 2. Update the **truffle.js** configuration file with the following extract:
 ```
@@ -207,7 +207,7 @@ module.exports = {
 ```
 This tells truffle that the default development environment to deploy to is located at **host: localhost port: 8545** this is the address of our ganache-cli local development environment.
 
-![](https://api.beta.kauri.io:443/ipfs/QmQJthzhQYDNWRyahwkvqQc929ZpE9pXe94bvyiC6RUcKy)
+![](https://ipfs.infura.io/ipfs/QmQJthzhQYDNWRyahwkvqQc929ZpE9pXe94bvyiC6RUcKy)
 
 That's it, Truffle is now configured to deploy to your local ganache-cli development environment.
 
@@ -414,11 +414,11 @@ If you do not already have an Infura account, the first thing you need to do is 
 
 Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.
 
-![](https://api.beta.kauri.io:443/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
+![](https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
 
 Once your project is created, select the environment we will be deploying to, in this case **Rinkeby**, from the *Endpoint* drop down and copy the endpoint URL for future reference:
 
-![](https://api.beta.kauri.io:443/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
+![](https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
 
 Make sure you save this token and keep it private!
 
@@ -453,13 +453,13 @@ In the BIP39 Mnemonic code form:
 3. Click the “Generate” button to generate the mnemonic
 4. Copy and save the mnemonic located in the field “BIP39”, **remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
+![](https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
 
 5. Scroll down the page to the *Derived Addresses* section and copy and save the *Address* this will be your Ethereum deployment account.
 
 **NOTE: Your private key will be displayed here, please keep this private.**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
+![](https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
 
 Above the address we’ll be using is: **0x56fB94c8C667D7F612C0eC19616C39F3A50C3435**
 
@@ -471,7 +471,7 @@ First let's create a `secrets.json` file, this file will store your mnemonic and
 
 **NOTE: Remember not to check this file into any public repository!**
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23)
+![](https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23)
 
 Next in the `truffle.js` configuration file add the following lines to define HDWalletProvider and load our mnemonic from our `secrets.json` file:
 ```
@@ -496,7 +496,7 @@ Here we define a provider, which instantiates a HDWalletProvider for the **Rinke
 
 We also set the network ID of the environment, in this case we set it to 4 which is **Rinkeby**.
 
-![](https://api.beta.kauri.io:443/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct)
+![](https://ipfs.infura.io/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct)
 
 #### Fund Your Account
 
@@ -508,17 +508,17 @@ To request ETH from the faucet we need to complete the following steps:
 
 2. Copy the link to the social media post
 
-![](https://api.beta.kauri.io:443/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
+![](https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
 
 3. Paste the link into the [*Rinkeby* ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent
 
-![](https://api.beta.kauri.io:443/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
+![](https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
 
 4. Check the Rinkeby etherscan for the status of the transaction
 
  [https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)
 
-![](https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
+![](https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
 
 **Deploy**
 
@@ -620,6 +620,20 @@ Later in the series, we’ll discuss how to write tests within the Truffle frame
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/truffle:-smart-contract-compilation-and-deploymen/cbc38bf09088426fbefcbe7d42ac679f/a
+- **Kauri original author:** Josh Cassidy (@joshorig)
+- **Kauri original Publication date:** 2019-05-03
+- **Kauri original tags:** tutorial, truffle, solidity
+- **Kauri original hash:** QmUWtmaoH8TpTS8xFcKyuMVuLry9Lk5UYdCsJXcbo138Q1
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

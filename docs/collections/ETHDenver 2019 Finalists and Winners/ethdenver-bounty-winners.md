@@ -9,6 +9,8 @@ some_url:
 
 # ETHDenver Bounty Winners
 
+![](https://ipfs.infura.io/ipfs/QmasVtEduHTbTsTybWU2a1ixoYN6LS5tivZd1qtzk9obD2)
+
 
 In addition to the main finalists and winners were the picks of the bounty sponsors.
 
@@ -281,3 +283,17 @@ Best powered by [EthQL](https://kauri.io/article/795fbac6a6f243ef890965428e2e404
 
 - [Client-side EthQL library](https://kauri.io/article/1a7dffd63e6f44eaa35bd7772133156b/v1/client-side-ethql-library-generator)
 - [Eth Dev tools](https://kauri.io/article/03a1ce4d66aa47e2a935f7d65f936371/v1/eth-dev-tools)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethdenver-bounty-winners/f4f31c650bd349f198b2aaf80a41ebed/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-03-01
+- **Kauri original tags:** ethdenver, hackathons
+- **Kauri original hash:** QmTqr3KnwvhRkGtdq56SpnAwzhATGMkxaBEhTjNMKfj5sv
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

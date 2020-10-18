@@ -205,3 +205,17 @@ We'll be writing a tutorial on using the implementation in the next few weeks, s
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tokens-owning-tokens:-erc998-and-composables/9a8ed83233e0433e95f95f9547f27085/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-04
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbLLE5RqkgnhRMQd5NpQ2L2pJzxiBKg5Cx6xYjMUvNJHp
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

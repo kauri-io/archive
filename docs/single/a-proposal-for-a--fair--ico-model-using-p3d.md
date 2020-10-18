@@ -9,6 +9,8 @@ some_url:
 
 # A Proposal For a ‘Fair’ ICO Model Using P3D
 
+![](https://ipfs.infura.io/ipfs/QmVY7Bf2fvon5pXinQcKBMkbQmtm8uS3LhwFJun7sqbU7k)
+
 
 
 ---
@@ -46,7 +48,7 @@ It’s little wonder the SEC are cracking down on ICO funding with figures like 
 
 #### Increased sell pressure on ETH
 
-![](https://api.beta.kauri.io:443/ipfs/QmajdCYjgp1shv2aq6EdrxsV7JVbeh2ZPLhJ2LgnipWbuw)
+![](https://ipfs.infura.io/ipfs/QmajdCYjgp1shv2aq6EdrxsV7JVbeh2ZPLhJ2LgnipWbuw)
 
 It’s undeniable that ICO projects are selling the ETH they raised in their respective token sales. Indeed there’s no reason why they shouldn’t — after all, isn’t that the entire point of an ICO, raising funds for a project?
 
@@ -69,7 +71,7 @@ Is there a way to alleviate some of these problems that doesn’t involve interf
 
 ### A Fairer ICO Model Using P3D
 
-![](https://api.beta.kauri.io:443/ipfs/QmQJNy2qGcz3fiVHubMqyJEvCjR3biVRNtG6GeYPomDWLp)
+![](https://ipfs.infura.io/ipfs/QmQJNy2qGcz3fiVHubMqyJEvCjR3biVRNtG6GeYPomDWLp)
 
 Consider the Refund Line feature mentioned above. If ICO investors were ultimately refunded the ETH they sent to an ICO, then that’s investor protection already taken care of. With that in mind, we move onto the ICO structure.
 
@@ -101,3 +103,17 @@ In the event of an exit scam, the worst case scenario is that investors are refu
 While this model doesn’t completely remove all of the problems seen in the current ICO structure, it certainly lessens the impact of them. It is impossible to eliminate sell pressure on ETH as a result of fundraising, but this model sees a much more gradual effect. It’s also extremely difficult — without the interference from a centralized body or the implementation of some sort of governance system — to prevent exit scams, but this model sees investors ultimately refunded, lessening the blow.
 
 As mentioned above, this is all theoretical. Indeed it is an idealistic solution to a very real problem that currently affects Ethereum, and at the very least it might start a discussion on other possible solutions to this issue.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-proposal-for-a--fair--ico-model-using-p3d/4bff915da5b24cda94ae5545fadec546/a
+- **Kauri original author:** Chris Bridgett (@idleincomechris)
+- **Kauri original Publication date:** 2018-11-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmSvSV3PvuNhjWrnnMokQEyVX5pJJpEdn31HRNH9pW2wq3
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide
 
+![](https://ipfs.infura.io/ipfs/Qmf38iLbTvFqmagCFcVdvXfw8QMoVP99dQ2rDEGXr7PiSB)
+
 
 Whether you are a developer, tech enthusiast or enterprise, iExec offers one of the most complete and simple-to-use decentralized oracle solutions. This guide will show you how to start feeding Web 2.0 API data into your Ethereum smart contract in no time. For a general overview of what a decentralized oracle is and why it is needed, have a look at our previous article:
 
@@ -109,7 +111,7 @@ That’s it for the prerequisites, that’s a one shot install. Next part is abo
 
 Now let’s initialize our new price-feed oracle project:
 
-![](https://api.kauri.io:443/ipfs/Qma1Djst8y5thvKFvHpZBxiwuomQxBKzrP8Byy7thLNrQw)
+![](https://ipfs.infura.io/ipfs/Qma1Djst8y5thvKFvHpZBxiwuomQxBKzrP8Byy7thLNrQw)
 
 ```
 mkdir price-feed  #new folder
@@ -122,7 +124,7 @@ The last command will create an Ethereum wallet.
 
 **Important**: choose a password and save it (you will need it after).
 
-![](https://api.kauri.io:443/ipfs/QmT7JKod4t8Zag7kpwRutjLvL4RWqJyZUgioF22f8p5a9a)
+![](https://ipfs.infura.io/ipfs/QmT7JKod4t8Zag7kpwRutjLvL4RWqJyZUgioF22f8p5a9a)
 
 Great! Now that you have a wallet (it is saved as a .json file in your machine user folder. ex: ) let’s get some ETH to interact with the Ethereum Blockchain, and some RLC to interact with the iExec’s platform.
 
@@ -146,7 +148,7 @@ iexec wallet show --chain kovan
 
 Let’s go over the [Kovan Faucet Gitter](https://gitter.im/kovan-testnet/faucet), sign in to Gitter and copy-paste your wallet address in the discussion.
 
-![](https://api.kauri.io:443/ipfs/QmWQVJvHP7wxvWRi9X58RqEFt6d2w9fRwcfN5nKcXR9vzt)
+![](https://ipfs.infura.io/ipfs/QmWQVJvHP7wxvWRi9X58RqEFt6d2w9fRwcfN5nKcXR9vzt)
 
 Paste your wallet address on the chatbox to receive 3.0 Kovan ETH.
 
@@ -234,7 +236,7 @@ iexec app deploy --chain kovan  #that is a blockchain transaction
 
 Congrats! Your Price-Feed App is now deployed on the iExec platform.
 
-![](https://api.kauri.io:443/ipfs/QmbpEfN9nt7Vyh5d7VEQTuj8SpaS3pU8TSMV99jLPqcYio)
+![](https://ipfs.infura.io/ipfs/QmbpEfN9nt7Vyh5d7VEQTuj8SpaS3pU8TSMV99jLPqcYio)
 
 Finally, let’s publish sell orders for your application, so iExec platform users are able to use your application at the price you write on the orders:
 
@@ -270,7 +272,7 @@ cd smart-contract # move back to the smart-contract folder
 MNEMONIC=<YOUR_PRIVATE_KEY> ./node_modules/.bin/truffle migrate --network kovan # Deploy your smart contract to the Blockchain
 ```
 
-![](https://api.kauri.io:443/ipfs/QmXGPhn8fYCYyi2ctznrCXmpAtPFwhyTvh2Zwtq8F21aHw)
+![](https://ipfs.infura.io/ipfs/QmXGPhn8fYCYyi2ctznrCXmpAtPFwhyTvh2Zwtq8F21aHw)
 
 Great, your DOracle smart contract is now deployed on Kovan testnet blockchain. How about feeding it with the ETH/USD price?
 
@@ -315,3 +317,17 @@ If you liked it, then you definitely want to learn more about our dev training r
 [Decentralized Oracles: Get Started & Earn RLC](https://medium.com/iex-ec/decentralized-oracles-get-started-earn-rlc-6064aa95a2f9)
 
 Bear in mind that the dev team is reachable on [Slack](http://slack.iex.ec), [Gitter](https://gitter.im/iExecBlockchainComputing/Lobby), and [Telegram](https://t.me/iexec_discussion).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-build-a-decentralized-oracle-on-ethereum-a/980d76e9595d401c8fac6af3045033d4/a
+- **Kauri original author:** Julien Béranger (@julienbrg)
+- **Kauri original Publication date:** 2019-08-01
+- **Kauri original tags:** ethereum, oracles, data, web3, iexec, docker
+- **Kauri original hash:** QmQ5E4VfM9VZU6zDuzNtdNpzBfduaGgHpnWQmcpjQssyce
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

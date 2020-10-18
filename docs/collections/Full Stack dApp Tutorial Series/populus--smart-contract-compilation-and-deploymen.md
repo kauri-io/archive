@@ -186,7 +186,7 @@ Using your text editor of choice, add this solidity contract to the contracts/ f
 ```
 $ populus compile 
 ```
-![](https://api.beta.kauri.io:443/ipfs/QmaZ4Cqew26sJ2gYzMiSpNhEd6Qjw7KDZKCKv9muomWvTn)
+![](https://ipfs.infura.io/ipfs/QmaZ4Cqew26sJ2gYzMiSpNhEd6Qjw7KDZKCKv9muomWvTn)
 
 Here you can see that our Bounties.sol contract was found and compiled. When you first initialize a new Populus project, you will find a Greeter.sol and its test python files. I removed those files for this demo and will only focus on the Bounties.sol contract shown above. 
 
@@ -215,7 +215,7 @@ $ populus chain new newchain
 This command creates a genesis.json (the local chains genesis block), an ethereum account with balance, and two bash scripts: 'init_chain.sh' and 'run_chain.sh'. 
 
 Directory view of the generated directory and associated files: 
-![](https://api.beta.kauri.io:443/ipfs/QmbUkwdXJYuAVPEb9J5mWBA4NTz1dKRhs5FUYuuLxg9q73)
+![](https://ipfs.infura.io/ipfs/QmbUkwdXJYuAVPEb9J5mWBA4NTz1dKRhs5FUYuuLxg9q73)
 
 Using this feature, new developers do not yet need to delve into the intricacies of the the 'genesis.json' file. Likewise, more experienced developers can use the chain command to generate a 'genesis.json' file and then modify it as they see fit. 
 
@@ -277,7 +277,7 @@ $ populus deploy --chain newchain Bounties --no-wait-for-sync
 We use the deploy argument along with a few additional optional arguments that selects our local chain, 'newchain', and the smart contract we want to deploy, 'Bounties.' We use the '—no-wait-for-sync' option because on our local chain we've already initalized a genesis block that endows our generated coinbase account with the test ether we need to successfully deploy. 
 
 Your expected output should be similar to the below: 
-![](https://api.beta.kauri.io:443/ipfs/QmSDtESrzDSKDajQ5mSfqcL1GNE5DRELtDSndMZdm398ZJ)
+![](https://ipfs.infura.io/ipfs/QmSDtESrzDSKDajQ5mSfqcL1GNE5DRELtDSndMZdm398ZJ)
 
 ### Testing your smart contracts 
 
@@ -290,3 +290,17 @@ $ py.test tests/
 If you experience errors, there are a few things to be aware of here. Initially, I experienced errors here related to the 'project.json' file that is required to be in the default project directory (in our example: './testproject/'). The file we need appears in './../venv/lib/python3.6/site-packages/populus/assets/defaults.v8.config.json'. Copy this file into your default populus directory (in our example: 'testproject/') and rename it to 'project.json'. For more information on this issue and solution, see: https://github.com/ethereum/populus/issues/431 
 
 The following guide will discuss the Populus testing process in greater detail. 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/populus:-smart-contract-compilation-and-deploymen/21b6d5256bcd4a0bb23c84c75c1b1f76/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2018-09-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmVjoEZBCgXZWVkG6ajnCfYDvT3BhSkJYhdtjoGJ3YcNG6
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Language and understandable writing
 
+![](https://ipfs.infura.io/ipfs/QmTBaWxjsGDdHzubBKxU3zPmKYEhQK9tUNBVphNSmgVrQW)
+
 
 I appreciate that not everyone who writes documentation is a native
 English speaker, or even if they are, may not understand the best way to write clearly and concisely. Many native English speakers had our last
@@ -112,3 +114,17 @@ OK, I feel like I probably have to add my key, but it kind of sounds like it's o
 > Add your key
 
 Right nice and clear, I should add my key.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/language-and-understandable-writing/01db62a1bdf54c4b99a852fe9700e930/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-11-18
+- **Kauri original tags:** grammar, languages, documentation, writing
+- **Kauri original hash:** QmXtom1AiaxVLYAnY5ofkv3Lr33ed2hMQUTU4PufAL1A3w
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

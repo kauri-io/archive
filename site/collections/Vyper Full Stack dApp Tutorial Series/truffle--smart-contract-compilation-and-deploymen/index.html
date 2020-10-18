@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Truffle Smart Contract Compilation & Deployment &mdash; Kauri</title>
+    <title>Truffle Smart Contract Compilation & Deployment &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -664,8 +667,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -764,10 +767,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1049,7 +1052,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1094,7 +1097,7 @@ Commands:
   Test contracts: truffle test
 </code></pre>
 <p>The <code>truffle init</code> command sets up a truffle project with the standard project directory structure:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmZkbLeZiw7CNh9VFg2cLXhRuM1MYrg5whCnGmXHr5ZHVV" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZkbLeZiw7CNh9VFg2cLXhRuM1MYrg5whCnGmXHr5ZHVV" /></p>
 <ul>
 <li><strong>contracts/</strong>: store original codes of the smart contract. We will place our Bounties.vy file here.</li>
 <li><strong>migrations/</strong>: instructions for deploying the smart contract(s) in the <strong>contracts</strong> folder.</li>
@@ -1104,7 +1107,7 @@ Commands:
 </ul>
 <p><strong>Note For Windows Users</strong>: The <strong>truffle.js</strong> configuration file is not created. Whenever the tutorial updates <strong>truffle.js</strong>, apply the changes to the <strong>truffle-config.js</strong> file instead.</p>
 <p>Create a <strong>Bounties.vy</strong> file in the <strong>contracts</strong> folder and copy the contents of <a href="https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy">Bounties.vy</a> which we previously developed.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB" /></p>
 <h3 id="compile">Compile</h3>
 <p>We’re now ready to compile our smart contract.</p>
 <pre><code class="language-shell">$ truffle compile
@@ -1115,7 +1118,7 @@ Compiling ./contracts/Bounties.vy...
 Writing artifacts to ./build/contracts
 </code></pre>
 <p>That's it! The 2 smart contracts in the <strong>contracts</strong> folder were both compiled and the artifacts written to <strong>./build/contracts</strong>.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmTApNdhmZ7wxd2HwvZN9ynHcjFuqXhUkuTBF8y5NmwqNL" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTApNdhmZ7wxd2HwvZN9ynHcjFuqXhUkuTBF8y5NmwqNL" /></p>
 <p>The <strong>Bounties.json</strong> file stores the ABI and also the bytecode for deployment and linking, however, this truffle artifact contains additional features that make interacting with and deploying smart contracts using truffle a smoother experience. You can read more about the <a href="https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-artifactor">truffle-artifactor here</a>.</p>
 <h3 id="deployment">Deployment</h3>
 <h4 id="development-blockchain-ganache-cli">Development Blockchain: Ganache-CLI</h4>
@@ -1194,7 +1197,7 @@ module.exports = function(deployer) {
   deployer.deploy(Bounties);
 };
 </code></pre>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmV88d8DHY1dt9gXi4rDdDHpokts3HixjfW695kisLQJUU" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV88d8DHY1dt9gXi4rDdDHpokts3HixjfW695kisLQJUU" /></p>
 <p>Update the <strong>truffle-config.js</strong> configuration file with the following extract:</p>
 <pre><code class="language-javascript">module.exports = {
   networks: {
@@ -1207,7 +1210,7 @@ module.exports = function(deployer) {
 };
 </code></pre>
 <p>This tells truffle that the default development environment to deploy to is located at <code>localhost:8545</code>, this is the address of our ganache-cli local development environment.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQJthzhQYDNWRyahwkvqQc929ZpE9pXe94bvyiC6RUcKy" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQJthzhQYDNWRyahwkvqQc929ZpE9pXe94bvyiC6RUcKy" /></p>
 <p>That's it, Truffle is now configured to deploy to your local ganache-cli development environment.</p>
 <h4 id="deploy">Deploy</h4>
 <p>To deploy run the <code>truffle migrate</code> command:</p>
@@ -1346,9 +1349,9 @@ truffle(development)&gt; { tx:
 <p>In order to send transactions to a public network, you need access to a network node. <a href="https://infura.io">Infura</a> is a public hosted Ethereum node cluster, which provides access to its nodes via an API</p>
 <p>If you do not already have an Infura account, <a href="https://infura.io/register">register for an account</a>.</p>
 <p>Once logged in, create a new project to generate a project ID, this allows you to track the usage of each individual dApp you deploy.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
 <p>Once your project is created, select the environment to deploy to, in this case <strong>Rinkeby</strong>, from the <em>Endpoint</em> drop down and copy the endpoint URL for future reference:</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
 <p>Make sure you save this token and keep it private!</p>
 <h4 id="hdwallet-provider">HDWallet Provider</h4>
 <p>Infura, for security reasons, does not manage your private keys. We need to add the <a href="https://github.com/trufflesuite/truffle-hdwallet-provider">Truffle HDWallet Provider</a> so that Truffle can sign deployment transactions before sending them to an Infura node.</p>
@@ -1365,17 +1368,17 @@ truffle(development)&gt; { tx:
 <li>Click the “Generate” button to generate the mnemonic</li>
 <li>Copy and save the mnemonic located in the field “BIP39”, <strong>remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts</strong></li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
 <ol>
 <li>Scroll down the page to the <em>Derived Addresses</em> section and copy and save the <em>Address</em> this is your Ethereum deployment account.</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
 <p>Above the address we are using is: <strong>0x56fB94c8C667D7F612C0eC19616C39F3A50C3435</strong></p>
 <h4 id="configure-truffle-for-rinkeby">Configure Truffle For Rinkeby</h4>
 <p>Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the <strong>Rinkeby</strong> environment. To do this we will need to edit the <strong>truffle.js</strong> configuration file.</p>
 <p>First let's create a <strong>secrets.json</strong> file, this file stores your mnemonic and Infura API key so the HDWallet provider can load it.</p>
 <p><strong>NOTE: Remember not to check this file into any public repository!</strong></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
 <p>Next in the <strong>truffle.js</strong> configuration file add the following lines to define HDWalletProvider and load our mnemonic from our <strong>secrets.json</strong> file:</p>
 <pre><code class="language-javascript">const HDWalletProvider = require('truffle-hdwallet-provider');
 const fs = require('fs');
@@ -1396,7 +1399,7 @@ if (fs.existsSync('secrets.json')) {
 <li><strong>network endpoint:</strong> The http endpoint of the required network</li>
 </ol>
 <p>We also set the network ID of the environment, in this case we set it to 4 which is <strong>Rinkeby</strong>.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct" /></p>
 <h4 id="fund-your-account">Fund Your Account</h4>
 <p>We’re almost ready to deploy! We need to make sure we have enough funds in our account to complete the transaction. We can fund our <strong>Rinkeby</strong> test account using the <a href="https://faucet.rinkeby.io/">Rinkeby ETH faucet</a>.</p>
 <p>To request ETH from the faucet we need to complete the following steps:</p>
@@ -1404,16 +1407,16 @@ if (fs.existsSync('secrets.json')) {
 <li>Post publicly our Ethereum deployment address from one of the following social network accounts: Twitter, Google+ or Facebook, in this example we use Twitter</li>
 <li>Copy the link to the social media post</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
 <ol>
 <li>Paste the link into the <a href="https://faucet.rinkeby.io/">Rinkeby ETH faucet</a> and select the amount of ETH to send.</li>
 </ol>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
 <ol>
 <li>Check the Rinkeby etherscan for the status of the transaction.</li>
 </ol>
 <p><a href="https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435">https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS></a></p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
 <h4 id="deploy_1">Deploy</h4>
 <p>To deploy run the <code>truffle migrate</code> command whilst specifying the network to deploy to. The networks are defined in the <strong>truffle.js</strong> configuration file we configured earlier :</p>
 <pre><code class="language-shell">$ truffle migrate --network rinkeby
@@ -1486,7 +1489,16 @@ Summary
 <blockquote>
 <p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</p>
 <p>If you have found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right hand menu, and/or <a href="https://github.com/iamonuwa/Bounties">update the code</a></p>
-</blockquote></div>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle:-smart-contract-compilation-and-deploymen/1ac9d10358b94945b06b9c893cd5bfcf/a</li>
+<li><strong>Kauri original author:</strong> Onuwa Nnachi Isaac (@iamonuwa)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-29</li>
+<li><strong>Kauri original tags:</strong> smart-contract, truffle, vyper</li>
+<li><strong>Kauri original hash:</strong> QmVdaJPKMoyp2RVeoz2CGXFxWvH7JWvd5VbyPmqXbEhdkX</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../understanding-smart-contract-compilation-and-depl/" title="Understanding smart contract compilation and deployment"><span>Previous</span></a></div>

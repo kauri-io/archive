@@ -51,3 +51,17 @@ https://github.com/ziegfried/ethdenver
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/from-dev-to-production-multi-chain-environments-w/bd036d6f040d431dab5b4ebcd5311b04/a
+- **Kauri original author:** Jeff (@jwu)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ethfoundation, bounty-poa-2019
+- **Kauri original hash:** QmXhmM428jNquRFwabCeXWNNwuBkTqSY54Ry3SqgmVJYbm
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

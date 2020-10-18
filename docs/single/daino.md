@@ -64,3 +64,17 @@ DAIno is a chrome extension that adds a button to your social feed, allowing you
 - https://github.com/cavanmflynn/daino-backend
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/daino/35c4298c31e549fa9993844d35154325/a
+- **Kauri original author:** Beatrice Leung (@beatriceleung)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, poa, bounty-ideasbynature-2019, bounty-poa-2019
+- **Kauri original hash:** QmSnGteTEkLJm8cdvNj1yrgybxczfpUeJCyekT1MJASoX2
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

@@ -60,3 +60,16 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/androolloyd/daihard
+
+
+---
+
+- **Kauri original link:** https://kauri.io/daihard-groundhog-team/2c56254175fa4ef4be679bc84764dbfd/a
+- **Kauri original author:** Andrew Redden (@androolloyd)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, gnosissafe-bounty, makerdao-novel-lending
+- **Kauri original hash:** QmR6bNm8LzeBYgNp7ijkFNGZYRaGeQVDVZ9UXDvKLVePgN
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

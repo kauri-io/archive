@@ -75,3 +75,17 @@ Open
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ignition/6b73b0b4f02c481da2bafe2900ec0be2/a
+- **Kauri original author:** Carlos Buendia (@carlos-buendia1)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmbMyJcv4XEdBHX3CwUpEi6tXtLZqy8ngvzwx55TGU5TKm
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

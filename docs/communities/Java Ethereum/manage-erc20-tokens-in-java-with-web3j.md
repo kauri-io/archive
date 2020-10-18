@@ -9,6 +9,8 @@ some_url:
 
 # Manage ERC20 tokens in Java with Web3j
 
+![](https://ipfs.infura.io/ipfs/QmNbLGwKQ8CoXz6kk9TFaXWaHgeTK8dRvSLfTXzWUgZsYr)
+
 
 
 In this article, we learn how to manage [ERC20 (Fungible)](https://en.wikipedia.org/wiki/ERC-20) tokens in Java with the [Web3j](https://web3j.io/) library.
@@ -328,3 +330,16 @@ javaToken.transferEventFlowable(DefaultBlockParameterName.EARLIEST, DefaultBlock
 ![](https://i.imgur.com/9zomWIV.png)
 
 For more information about subscribing to events with Web3j, I highly recommend reading this article: [Interacting with an Ethereum Smart Contract in Java](https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/manage-erc20-tokens-in-java-with-web3j/d13e911bbf624108b1d5718175a5e0a0/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-08-20
+- **Kauri original tags:** erc20, ethereum, java, web3j, token
+- **Kauri original hash:** QmY6Ly3GGuMh5gLfNJcBZSPe37PzRdTmTP1tzFrGWXc2zQ
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

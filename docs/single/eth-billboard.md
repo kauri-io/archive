@@ -44,3 +44,17 @@ https://github.com/zappycode/ethbillboard
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-billboard/b4933342927a4d2d82ff4df007c9bc54/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-blocknative-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmVMsFxbQjAriNJs3VAJmQHf8PBtVueNX4iG443RHZ24cw
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

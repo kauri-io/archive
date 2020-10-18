@@ -60,3 +60,17 @@ https://github.com/kfichter/plasma-predicates/tree/ben
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/generalizing-plasma-contracts/5bd6c39b19494fcb97308971af88ea93/a
+- **Kauri original author:** Plasma Group (@plasma)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmbdYTdsXhAxr6rv2ZpuXvMMT8XxLY8rM37rW9ioJCTpjj
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

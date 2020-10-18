@@ -108,3 +108,16 @@ Similarly to the library above, the [Python API](https://github.com/makerdao/pym
 ### **Need help?**
 
 Contact integrate@makerdao.com or #dev channel on [chat.makerdao.com](https://chat.makerdao.com/)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/quick-guide-integrating-dai-or-mkr-tokens-in-wall/10158e201b024ffe99389879da006599/a
+- **Kauri original author:** David Utrobin (@davidutro)
+- **Kauri original Publication date:** 2019-02-06
+- **Kauri original tags:** EthDenver
+- **Kauri original hash:** QmcwQfK4GetU1BpqTZYiMKuLTodfL22F6B6WhkTTjz7QKN
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

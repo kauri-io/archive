@@ -16,7 +16,7 @@ some_url:
 **This is what Mintable does, as easily as possible.**
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmZq3dYZ448SmhKU8UyAqMaeZ4Ye4KJt5wAKLxNKLSn29m)
+![](https://ipfs.infura.io/ipfs/QmZq3dYZ448SmhKU8UyAqMaeZ4Ye4KJt5wAKLxNKLSn29m)
 
  
 _If you don’t know what ERC-721s are, here is a brief explainer…otherwise if you know about them, feel free to skip it._
@@ -24,7 +24,7 @@ _If you don’t know what ERC-721s are, here is a brief explainer…otherwise if
 
 ### What are ERC-721s
 
-![](https://api.beta.kauri.io:443/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
+![](https://ipfs.infura.io/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr)
 
 You can get these items, called ERC-721 Non-fungible Tokens, by interacting with different services/games on the blockchain. Every week multiple new games are released where items or objects are made as ERC-721 tokens for you to digitally own via your Ethereum address. Items like collectible cats, pokemon cards, baseball cards, trading card games, resource management games, etc.
 
@@ -41,7 +41,7 @@ Lets imagine you are traveling the world and have an ethereum wallet, like your 
 **You upload your passport photo as an image to a NFT.**
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
+![](https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
 
 You upload a picture of your passport, to a new NFT. This NFT is given to your ethereum address and you now own a token that has the special data you put on it. In this case its your passport.
 You did this so that:
@@ -85,14 +85,14 @@ You can:
 
 #### Manage any ERC-721 token
 
-![](https://api.beta.kauri.io:443/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
+![](https://ipfs.infura.io/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
 
 
 
 
  * Also browse within that contract for all its tokens
 
-![](https://api.beta.kauri.io:443/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7)
+![](https://ipfs.infura.io/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7)
 
 
 
@@ -101,7 +101,7 @@ You can:
 
  * Interact with the smart contract to transfer
 
-![](https://api.beta.kauri.io:443/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
+![](https://ipfs.infura.io/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
 
 
 
@@ -110,7 +110,7 @@ You can:
 
 #### Create a new ERC-721 with any data you want
 
-![](https://api.beta.kauri.io:443/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
+![](https://ipfs.infura.io/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
 
 
 
@@ -124,7 +124,7 @@ You can:
 ### Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
 Mintable has some high hopes and dreams, we hope we will achieve them all and we want you to be apart of it!
 
-![](https://api.beta.kauri.io:443/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)
+![](https://ipfs.infura.io/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)
 
 Our goals for Mintable:
 
@@ -155,3 +155,17 @@ discord:
 App: 
 [https://mintable.app](https://mintable.app)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/imagine-a-free-erc-721-manager-for-every-item-out/03b468526ca34341b6535f6d120a203d/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** QmcJqBLbUHNgDcyuaWWvxPjQUNjVmQQ26KNySrNQ57DXTH
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

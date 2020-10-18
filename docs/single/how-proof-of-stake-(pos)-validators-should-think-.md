@@ -46,3 +46,17 @@ I am an avid user of social media for personal use and I think it’s fun to int
 All of this is, of course, my opinion. I have supported major projects in the blockchain space with over a million users, but never in a situation where I was a validator in a PoS network. However, I feel some of the lessons learned from my experiences carry over and I am happy to expand on these ideas and grow them with the people doing the actual work.
 
 The most important thing that a PoS network validator must do outside of the technical functions of their job which preserve and grow their delegators funds is communicate as effectively as possible in the good times and the bad. Choosing the channels that best suit a business culture and sticking to them is more important than using any single support channel. Making sure that users and customers can get in touch with you and know what's happening with your business will in turn grow trust and loyalty over time which is better for everyone as we grow.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-proof-of-stake-(pos)-validators-should-think-/ef00dc8cd8b3432596e10e7c5855cc1c/a
+- **Kauri original author:** James Ryan Moreau (@jrmoreau)
+- **Kauri original Publication date:** 2019-06-21
+- **Kauri original tags:** customer-success, proof-of-stake, community, support
+- **Kauri original hash:** QmY8hXC3ZymUxfSf8FWv8Yr8MJFvPi7AC5w1cLu7c6aaq6
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

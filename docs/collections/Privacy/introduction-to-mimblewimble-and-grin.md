@@ -9,6 +9,8 @@ some_url:
 
 # Introduction to MimbleWimble and Grin
 
+![](https://ipfs.infura.io/ipfs/QmPY2duvgnnWPimVvpzdEbRKydCkLhmnbZ6ZnPLJaUCXgP)
+
 
 This article is originally part of the [grin documentation](https://github.com/mimblewimble/grin/blob/master/doc/intro.md)
 
@@ -463,3 +465,16 @@ blockchain. By using the addition properties of Elliptic Curve Cryptography, we'
 able to build transactions that are completely opaque but can still be properly
 validated. And by generalizing those properties to blocks, we can eliminate a large
 amount of blockchain data, allowing for great scaling and fast sync of new peers.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/introduction-to-mimblewimble-and-grin/433e9df1049d4862b908d5825f27dadb/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-23
+- **Kauri original tags:** grin, mimblewimble, privacy, privacy-blockchain, private-transactions, privacy-coin
+- **Kauri original hash:** Qme7REWspNKvDE7gVXKm7zgH82Psm4FokqhwCcW6kK373n
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -49,3 +49,17 @@ https://github.com/sidthekidder/nabu-project
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nabu:-education-incentivised/791d926441e141f49685722c5f34d8fe/a
+- **Kauri original author:** Siddhartha Sahai (@sidthekid)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, poa, bounty-impact
+- **Kauri original hash:** QmTLdkLigkBdcCdEaNgcNL7TDArJkAPYpqRtJm32AYZMPZ
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

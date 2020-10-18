@@ -9,6 +9,8 @@ some_url:
 
 # The Æternity blockchain with Emil Wagner
 
+![](https://ipfs.infura.io/ipfs/QmapwraHpvSpxJdEV1QXYoffHYowaqpvLs2qem9UXrb9yx)
+
 
 
 To match every article dismissing blockchain as a pointless technology that brings nothing new or useful is a project aiming to prove that statement wrong. I recently spoke with Emil Wagner, apps lead at æternity, one such project attempting just this by creating their own "blockchain operating system."
@@ -52,3 +54,17 @@ One of the criticisms of many blockchain projects and platforms is the lack of u
 #### The Roadmap
 
 As always with blockchain projects I encounter, details actual users are thin or scattered around multiple blogs and GitHub repositories. [the æternity roadmap](https://aeternity.com/#roadmap) is on track, their [GitHub](https://aeternity.com/#roadmap) full of repositories, and their [blog](https://blog.aeternity.com) flush with posts. If what you've read interests you, take a look around, make your own mind up and let me know your thoughts in the comments below.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-aeternity-blockchain-with-emil-wagner/b88cdf4cffed4e47aa920b6ea876479a/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-09-19
+- **Kauri original tags:** functional, blockchain, state, interview, -ternity
+- **Kauri original hash:** QmXnZnUu3kBezRm4FNdE8h4wXgD4Uf4x6ZfQvxtBLtvqP2
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

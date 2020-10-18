@@ -51,3 +51,16 @@ Simon and Daniel will be there over the weekend for any questions you have or pr
 ### Shift Scheduling & Volunteer Specific information
 
 We will finish the shift scheduling about 1 week prior to the event and you will receive it via e-mail together before the prep call on 29th. Special information like floorplans, etc. will be sent to volunteers before the event or handed out in our prep meeting on September 7th.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/volunteers/a578018f4fef4016aa950bae20496833/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmXUcf7vanD5YTwJDdmG4xrTQW2KLLqDsx5dfrcCokVvnr
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

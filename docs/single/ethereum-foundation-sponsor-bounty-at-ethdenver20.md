@@ -9,6 +9,8 @@ some_url:
 
 # Ethereum Foundation - Sponsor Bounty at ETHDenver2019!
 
+![](https://ipfs.infura.io/ipfs/QmWGrEubnKsnD4kQkee1rrDT2zSspfYiwhe6BKoqpryNUS)
+
 
 ## Company/Project Name and Description
 
@@ -39,6 +41,20 @@ Any of Technical Merit, Potential Usefulness, Quality of feedback provided, Orig
 ## Contact Information
 
 Albert Ni - albert@ethereum.org
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-foundation-sponsor-bounty-at-ethdenver20/3c7581f62c8b4babb78d3b133b415d60/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** Qme9hNcWM6jddHRnwu6ktf1gUyqcYhQxnv8dgucmRJxiGT
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

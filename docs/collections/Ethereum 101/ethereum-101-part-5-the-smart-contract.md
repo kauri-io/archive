@@ -177,3 +177,17 @@ From the [Embark documentation](https://embark.status.im/docs/), verbatim:
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-101-part-5-the-smart-contract/e4f66c6079e74a4a9b532148d3158188/a
+- **Kauri original author:** Wil Barnes (@wil)
+- **Kauri original Publication date:** 2019-02-13
+- **Kauri original tags:** smart-contract, ethereum, myetherwallet, vyper, solidity, remix
+- **Kauri original hash:** Qmd8HLf7TvMVXyT5URU62PjYc1hBvuR8EYViiRCVtc7PCg
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

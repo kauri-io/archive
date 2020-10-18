@@ -17,3 +17,16 @@ By Razvan Dinicut
 [GitHub](https://github.com/centrifuge/react-dapp-requirements)
 
 [TweetStream](https://github.com/rdinicut/tweet-stream)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/getting-started-with-web3-and-react/0da601617f444d99993dca80497d83ae/a
+- **Kauri original author:** Kendall Cole (@kendall)
+- **Kauri original Publication date:** 2018-09-14
+- **Kauri original tags:** none
+- **Kauri original hash:** QmTynRZGPGkfHUGojXeENk9CGD9Y7ah38YULhLtHqHMssf
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

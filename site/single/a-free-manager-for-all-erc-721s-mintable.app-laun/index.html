@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>A free manager for all ERC-721s — Mintable.app launches its Alpha on December 1st. &mdash; Kauri</title>
+    <title>A free manager for all ERC-721s — Mintable.app launches its Alpha on December 1st. &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1052,7 +1055,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1066,18 +1069,18 @@
 <em>If you don’t know what an ERC-721 is, you can check out our previous posts.</em>
  These ERC-721s are digital items that you can own in your Ethereum wallet. Since we have all these games/companies/items popping up, there needs to be an easy way to transfer, browse, interact with, and overall, manage your digital items. But there is no current solution to this! Where can you go to manage your assets? MyEtherWallet doesn’t support ERC-721s in depth, and if your a new person you don’t know how to use the ABI code to interact with a contract… So where do you manage your Etheremon/CryptoKitties/Gods Unchained cards?</p>
 <h3 id="mintableapp">Mintable.app</h3>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt" /></p>
 <p><a href="https://mintable.app">Mintable</a>
  is a dApp we’ve been building for the last 4 months. It’s a resource for anyone who owns ERC-721s to use freely. You can manage almost all of the ERC-721s out there. You can browse all the ERC-721s created on the blockchain. And it’s a free generator¹ that allows for you to create ANY ERC-721 you want, and have complete ownership and access to it, within 30 seconds.</p>
 <p><em>( ¹ Free during the alpha).</em></p>
 <h3 id="what-you-can-do-on-mintable">What You Can do on Mintable</h3>
 <p>You can:</p>
 <h4 id="manage-any-erc-721-token">Manage any ERC-721 token</h4>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR" /></p>
 <ul>
 <li>Also browse within that contract for all its tokens</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7" /></p>
 <ul>
 <li>
 <p>Mint new tokens for contracts you own or made on mintable</p>
@@ -1086,12 +1089,12 @@
 <p>Interact with the smart contract to transfer</p>
 </li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2" /></p>
 <ul>
 <li>Sell or collect the tokens to your profile (coming with beta and full launch)</li>
 </ul>
 <h4 id="create-a-new-erc-721-with-any-data-you-want">Create a new ERC-721 with any data you want</h4>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j" /></p>
 <ul>
 <li>
 <p>Create a smart contract on the blockchain with zero coding required</p>
@@ -1103,10 +1106,10 @@
 <p>You have complete ownership and get an email of the information</p>
 </li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7" /></p>
 <h3 id="mintable-launches-december-1st-and-will-hopefully-be-your-easiest-way-to-manage-erc-721s">Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s</h3>
 <p>Mintable has some high hopes and dreams, we hope we will achieve them all and we want you to be apart of it!</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW" /></p>
 <p>Our goals for Mintable:</p>
 <ul>
 <li>
@@ -1135,7 +1138,16 @@ Check out and make sure to favorite our site:
 </ul>
 <p>If you love NFTs join Mintable’s discord!
 discord: 
-<a href="https://discord.gg/fUEmc8d">https://discord.gg/fUEmc8d</a></p></div>
+<a href="https://discord.gg/fUEmc8d">https://discord.gg/fUEmc8d</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-free-manager-for-all-erc-721s-mintable.app-laun/f143252c80f044c5a5f0ce7a74ee1caf/a</li>
+<li><strong>Kauri original author:</strong> null (@null)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-05</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmfPptv6rNXDxcJW9jXcKbeH4Fuk2ro3ZCRzXbxChjzgPV</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../erebor-is-meta-mining-scaled-by-state-channel-for/" title="Erebor is meta mining scaled by state channel for other state channels"><span>Previous</span></a></div>

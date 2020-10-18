@@ -9,6 +9,8 @@ some_url:
 
 # Analyze Solidity Smart Contracts with Slither
 
+![](https://ipfs.infura.io/ipfs/QmPPsw3VodYCNmxVJE36RXKwmjfdqyTxue5WyJ3cZaYjBE)
+
 
 Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors, prints visual information about contract details, and provides an API to easily write custom analyses. Slither enables developers to find vulnerabilities, enhance their code comprehension, and quickly prototype custom analyses.
 
@@ -151,3 +153,16 @@ Feel free to stop by our [Slack channel](https://empireslacking.herokuapp.com) (
 * The [API documentation](https://github.com/trailofbits/slither/wiki/API-examples) describes the methods and objects available for custom analyses.
 
 * The [SlithIR documentation](https://github.com/trailofbits/slither/wiki/SlithIR) describes the SlithIR intermediate representation.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/analyze-solidity-smart-contracts-with-slither/4f4dcf7d105d4714b212a86da742baf6/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-28
+- **Kauri original tags:** smart-contracts, analysis, solidity
+- **Kauri original hash:** QmcgSkHeDCpzVgUjXGmcMQE19Uyv7gUBWyx1X9o2qN4uVf
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

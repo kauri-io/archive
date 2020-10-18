@@ -60,3 +60,16 @@ What your submission should have:
 - [DAOstack Hackers Kit](https://github.com/daostack/DAOstack-Hackers-Kit) - Complete "Hackers Kit" providing all the information and resources needed to start working with the DAOstack platform. For direct communication, you can [click here](https://discord.gg/WCYEvGA) to join to the DAOstack ETHBerlin Discord channel.
 
 - [Parity light.js](https://parity-js.github.io/light.js/getting-started/installation.html) - A high-level reactive JS library optimized for light clients.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/hackers/67e7676d2178467f8231ac65b11cec07/a
+- **Kauri original author:** null (@sinamahmoodi)
+- **Kauri original Publication date:** 2018-09-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmUDxvXA25wUFoXb5tuEKAdGD9nt5odNwrmQZZhQgGkanE
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

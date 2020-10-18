@@ -272,3 +272,17 @@ To read more about DApps, Blockchain and Web 3.0,
  or visit my site: 
 [Web3 Developer](https://web3developer.com/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sending-transactions-to-pantheon/8fab39d41b834c6ca127ee112af3d6c9/a
+- **Kauri original author:** Web3 Developer (@web3developer)
+- **Kauri original Publication date:** 2019-06-12
+- **Kauri original tags:** ethereum, blockchain, web3j, pantheon
+- **Kauri original hash:** QmZkvw7H6fuXLJdJj9GQHmxcZfeap5yrBAonfh6bUvJiKm
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

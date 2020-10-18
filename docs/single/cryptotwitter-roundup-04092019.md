@@ -13,7 +13,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmQjtD6mgU8V3DfYKBXeGo6Kc31foknZzNBjR5kNgJhxBQ)
+![](https://ipfs.infura.io/ipfs/QmQjtD6mgU8V3DfYKBXeGo6Kc31foknZzNBjR5kNgJhxBQ)
 
  
 **Anthony Sassano**
@@ -169,5 +169,19 @@ _most consumers will prioritize usability over ideals_
 [current functionality Bitcoin developers are working on.](https://twitter.com/francispouliot_/status/1114887826036920320)
  
 
-![](https://api.kauri.io:443/ipfs/QmSSMzK1ZWCXSYW31J8HuKNQLUMuJZfyCoU9bhGBU5cHyJ)
+![](https://ipfs.infura.io/ipfs/QmSSMzK1ZWCXSYW31J8HuKNQLUMuJZfyCoU9bhGBU5cHyJ)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cryptotwitter-roundup-04092019/7e74da559702421991d506a3c157ddf7/a
+- **Kauri original author:** Joseph Bender (@jdbender128)
+- **Kauri original Publication date:** 2019-04-11
+- **Kauri original tags:** cryptocurrency, ethereum, twitter, social, blockchain, bitcoin
+- **Kauri original hash:** QmSdgJS6jiWPEX5Fer581iy5fQv64hWYe2CpwPAdEJMjev
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
 

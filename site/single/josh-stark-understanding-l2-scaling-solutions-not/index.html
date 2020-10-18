@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Josh Stark - Understanding L2 scaling solutions [notes] &mdash; Kauri</title>
+    <title>Josh Stark - Understanding L2 scaling solutions [notes] &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -769,10 +772,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1054,7 +1057,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1063,6 +1066,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="josh-stark-understanding-l2-scaling-solutions-notes">Josh Stark - Understanding L2 scaling solutions [notes]</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK" /></p>
 <p><em>Josh Stark - L4, Counterfactual</em><br />
 <em>DEVCON 4 MainStage, October 31st 2018</em><br />
 <strong><em>Recording:</em></strong> Starts at 3 hours and 33 mins, https://slideslive.com/38911427/devcon4-day-1</p>
@@ -1095,7 +1099,7 @@ Fewer nodes, less decentralized, less secure… </p>
  - Do everything on top and leverage that base layer of security, retaining as many of those security properties as possible </p>
 <h2 id="layer-2-solutions">Layer 2 solutions</h2>
 <p><strong><em>Definition:</em></strong> Off chain techniques where a user does not have to trust a separate environment  </p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK" /></p>
 <ol>
 <li>Build apps where most of the “work” is done off-chain</li>
 <li>Only use layer 1 to build anchors that tie the off-chain environment to layer 1s security </li>
@@ -1153,7 +1157,16 @@ Pay out based on last transaction, which has been signed by both parties   </p>
 <li>Plasma Cash - NFTs which are traded but cannot use fractions</li>
 <li>Plasma Debit - Like cash, assets are NFTs but assets are also payment channels between user and master-validator</li>
 </ul>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmXmDuqP5eBbewstQRuNGr72HxacYx7RShrZkUerwABBSi" /></p></div>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXmDuqP5eBbewstQRuNGr72HxacYx7RShrZkUerwABBSi" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/josh-stark-understanding-l2-scaling-solutions-not/17fb968e07a14e05bb69e1e448741a7b/a</li>
+<li><strong>Kauri original author:</strong> Andreas Wallendahl (@andreaswallend1)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-10-31</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQ5S2j6qovQQmfRqE3ZZ6B2opAZbqJDesX8V1hxmwY2NM</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../building-a-dapp-with-the-rhombus-oracle/" title="Building a dapp with the Rhombus Oracle"><span>Previous</span></a></div>

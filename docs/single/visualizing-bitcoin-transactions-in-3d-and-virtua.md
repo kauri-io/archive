@@ -9,6 +9,8 @@ some_url:
 
 # Visualizing Bitcoin Transactions in 3D and Virtual Reality
 
+![](https://ipfs.infura.io/ipfs/QmNqLL6Soq597mA513EwerScJAShzm8fhjRpxvAaHE5NU3)
+
 
 
 ### Abstract
@@ -17,7 +19,7 @@ The image below shows some of the network of transactions linked to the
 [bitcoin pizza transaction](https://www.telegraph.co.uk/technology/2018/05/22/inside-story-behind-famous-2010-bitcoin-pizza-purchase-today/)
  . The red cubes are bitcoin addresses, blue spheres are bitcoin transactions and the arrows linking them are the movement of value:
 
-![](https://api.kauri.io:443/ipfs/QmRWQsoKyyox2u9Zt21RyRtVnDRy8o5SPXvjb69GqgFN2w)
+![](https://ipfs.infura.io/ipfs/QmRWQsoKyyox2u9Zt21RyRtVnDRy8o5SPXvjb69GqgFN2w)
 
 Academic research¹ suggests that viewing information in VR helps people to spot patterns. There is an open-source, multi-platform project called 
 [blockchain3d.info](https://blockchain3d.info/)
@@ -42,11 +44,11 @@ When dealing with fiat currency we are used to having bank transactions with a s
  .
 Imagine then explaining to a student how bitcoin value flows as inputs and outputs. In the image below, red cubes are addresses, blue spheres are transactions and the blue arrows show the flow of value for a single transaction:
 
-![](https://api.kauri.io:443/ipfs/QmPyzhGs7JnHtXwTwpfoiVXuoaXGefnYLseZUCJhxqRfnj)
+![](https://ipfs.infura.io/ipfs/QmPyzhGs7JnHtXwTwpfoiVXuoaXGefnYLseZUCJhxqRfnj)
 
 With the above in mind, we can examine a transaction like the one shown below. This transaction (the blue sphere) has just one input yet has many, many outputs. These form distinctive “flower” shapes:
 
-![](https://api.kauri.io:443/ipfs/QmUGUpaTN5TNWA43HCCoyJx3dhRNA4Xji6UCDZxPAGdZLj)
+![](https://ipfs.infura.io/ipfs/QmUGUpaTN5TNWA43HCCoyJx3dhRNA4Xji6UCDZxPAGdZLj)
 
 
 ### The Bitcoin Pizza Transaction
@@ -56,11 +58,11 @@ Early in 2018, the Google Cloud Platform team made bitcoin data available to the
 [famous bitcoin pizza transaction](https://www.telegraph.co.uk/technology/2018/05/22/inside-story-behind-famous-2010-bitcoin-pizza-purchase-today/)
  :
 
-![](https://api.kauri.io:443/ipfs/QmUUarBv2D3Rz53bojJD1ZjPNuAfLNfgSHQBHZ5UPaFFnZ)
+![](https://ipfs.infura.io/ipfs/QmUUarBv2D3Rz53bojJD1ZjPNuAfLNfgSHQBHZ5UPaFFnZ)
 
 We can explore that same pizza transaction further by looking at it in 3D:
 
-![](https://api.kauri.io:443/ipfs/QmbZYKqPpCQgNdthapEwAEy7WxzK3vPEaFKbeTiGC6Vrpv)
+![](https://ipfs.infura.io/ipfs/QmbZYKqPpCQgNdthapEwAEy7WxzK3vPEaFKbeTiGC6Vrpv)
 
 The application is interactive. We can “drill down” by clicking on addresses or transactions to display 
 _their_
@@ -89,3 +91,17 @@ The application and all the assets are open-source and available for you to down
 [1] See “Immersive and Collaborative Data Visualization Using Virtual Reality Platforms” 
 [https://arxiv.org/ftp/arxiv/papers/1410/1410.7670.pdf](https://arxiv.org/ftp/arxiv/papers/1410/1410.7670.pdf)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/visualizing-bitcoin-transactions-in-3d-and-virtua/ef32ddae59094e8b99c92131b9148200/a
+- **Kauri original author:** Kevin Small (@kevnsmall)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** 3d, visualization, data, virtual-reality, vr, bitcoin
+- **Kauri original hash:** QmYT13BAknz932omnmKhKoSfyY8ffKuJiAQGnt3wEGBiKG
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

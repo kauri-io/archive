@@ -48,7 +48,7 @@ Showcase and auction sites like OpenSea and Rarebits tend to have their own supp
 OpenSea: https://opensea.readme.io/docs/2-adding-metadata
 
 The following attributes are available, and will customize how your NFTs are displayed in the OpenSea store:
-![](https://api.beta.kauri.io:443/ipfs/QmceYfeyoZTKk3CbMZpbEMtMXafLE7poVc7sPrZe1i2XHH)
+![](https://ipfs.infura.io/ipfs/QmceYfeyoZTKk3CbMZpbEMtMXafLE7poVc7sPrZe1i2XHH)
 
 And an example:
 
@@ -67,7 +67,7 @@ And an example:
 
 Rarebits: https://docs.rarebits.io/v1.0/docs/listing-your-assets
 
-![](https://api.beta.kauri.io:443/ipfs/QmZkTCZcoGwZqsLfM3uXzPU6V1XKZqFNGbWXi8ehcQAC8E)
+![](https://ipfs.infura.io/ipfs/QmZkTCZcoGwZqsLfM3uXzPU6V1XKZqFNGbWXi8ehcQAC8E)
 
 And an example:
 
@@ -91,7 +91,7 @@ An important consideration for your NFT is where the metadata will be hosted, as
 So to minimize these possibilities, we suggest using a distributed storage solution like IPFS, and eventually Swarm.
 An easy way to upload content to IPFS is to use an app like https://globalupload.io/. 
 
-![](https://api.beta.kauri.io:443/ipfs/QmQPRcPf7SLhL2cZ2G6YutH7nHPZoZtosPJ8uzPhWbKc13)
+![](https://ipfs.infura.io/ipfs/QmQPRcPf7SLhL2cZ2G6YutH7nHPZoZtosPJ8uzPhWbKc13)
 
 This app allows you to just drag and drop a properly formatted .json file (using the standard), and will return a URL with the IPFS hash, which you can use in your token!
 
@@ -101,3 +101,16 @@ Your data in IPFS only exists as long as it is pinned (flagged for storage on an
 Another option for adding and storing metadata is to use Abacus Protocol: https://docs.abacusprotocol.com/tutorial, which is a method recommended by OpenSea.
 
 The metadata patterns for NFTs are still evolving (along with the storage options), and we'll continue to update this document as new options and best practices emerge.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/metadata-and-hosting-options/e931dca3476f49b4ba7433a747ab5022/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-03
+- **Kauri original tags:** none
+- **Kauri original hash:** QmRqANyoHAKLBLf4zXLeooYdvc9ehonw8YCCALzHBih44s
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

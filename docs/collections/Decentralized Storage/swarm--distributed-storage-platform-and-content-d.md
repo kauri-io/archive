@@ -9,6 +9,8 @@ some_url:
 
 # Swarm  Distributed Storage Platform and Content Distribution Service
 
+![](https://ipfs.infura.io/ipfs/QmSrXYRE3kieqVJgwqq72C4JavHKKXb7hQhKw9qbHApTR3)
+
 
 > Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum web3 stack
 
@@ -18,7 +20,7 @@ _This article originally appears in the Swarm [repository](https://github.com/et
 This guide walks you through understanding, installing, and using Swarm. It also explains how to contribute or ask for help. Swarm is in active development and it is untested in the wild, so use it at your own risk. To interact with Swarm, you will need to use the command line. If you are not comfortable using it, it might be worth to familiarise yourself [here](http://linuxcommand.org/lc3_lts0010.php) first.
 
 ### What is Swarm?
-![](https://api.kauri.io:443/ipfs/QmV2kyWHnJagmEsemH7ZzAg9YCVYE6vvgsHgMmqaUkttbX)
+![](https://ipfs.infura.io/ipfs/QmV2kyWHnJagmEsemH7ZzAg9YCVYE6vvgsHgMmqaUkttbX)
 
 Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum `web3` stack. The primary objective of Swarm is to provide a sufficiently decentralized and redundant store of Ethereum's public record, in particular to store and distribute dapp code and data as well as blockchain data. From an economic point of view, it allows participants to efficiently pool their storage and bandwidth resources in order to provide these services to all participants of the network, all while being incentivised by Ethereum.
 
@@ -37,7 +39,7 @@ Please refer to our [development roadmap](https://github.com/ethersphere/swarm/w
 
 Swarm is set out to provide base layer infrastructure for a new decentralised internet.
 Swarm is a peer-to-peer network of nodes providing distributed digital services by contributing resources (storage, message forwarding, payment processing) to each other. These contributions are accurately accounted for on a peer to peer basis, allowing nodes to trade resource for resource, but offering monetary compensation to nodes consuming less than they serve.
-![](https://api.kauri.io:443/ipfs/Qmdy3VB8srRFmpSTN2aUGUCVgHFT1dQmcfrTjoJJU1cYRr)
+![](https://ipfs.infura.io/ipfs/Qmdy3VB8srRFmpSTN2aUGUCVgHFT1dQmcfrTjoJJU1cYRr)
 
 The Ethereum Foundation operates a Swarm testnet that can be used to test out functionality in a similar manner to the Ethereum testnet (ropsten).
 Everyone can join the network by running the Swarm client node on their server, desktop, laptop or mobile device. See `Getting Started` for how to do this.
@@ -173,3 +175,16 @@ Special thanks
 * Community contributors for feedback and testing
 * Daniel Kalman, Benjamin Kampmann, Daniel Lengyel, Anand Jaisingh for contributing to the swarm websites
 * Felipe Santana, Paolo Perez and Paratii team for filming at the 2017 swarm summit and making the summit website
+
+
+---
+
+- **Kauri original link:** https://kauri.io/swarm:-distributed-storage-platform-and-content-d/0a733fa8a829458584d16abe37750041/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-13
+- **Kauri original tags:** ethereum, storage
+- **Kauri original hash:** Qmb41y76T4Z9ACcn3eGgdrPa9G6eTbeKkiQDFYC8k9kHdA
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

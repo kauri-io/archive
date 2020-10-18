@@ -9,6 +9,8 @@ some_url:
 
 # Best Monero Wallets (XMR Wallet)
 
+![](https://ipfs.infura.io/ipfs/QmUbtGvZYnRKv33SNmEfLiv3Q1hNijThde9yT9aSgtMuE2)
+
 
 Monero(XMR) is one of the top cryptocurrency focused on privacy and censorship-resistance. There are a lot of [crypto wallets](https://blog.coincodecap.com/tag/crypto-wallet/) support Monero, but we have picked the best Monero wallets for you. 
 
@@ -139,3 +141,17 @@ Let us know what you think about our best monero wallets list and which XMR wall
 *   [**Smart Contract Wallets**](https://blog.coincodecap.com/best-smart-contract-wallet/)
 *   **[BTC Wallets For Android](https://blog.coincodecap.com/best-btc-wallets-for-android/)**
 *   **[Hardware Wallets](https://blog.coincodecap.com/best-hardware-wallet-bitcoin/)**
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/best-monero-wallets-(xmr-wallet)/613df86e3cd445a3bbdee778b379e5d5/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** wallet, monero
+- **Kauri original hash:** QmQJwAKgva9pH3AiTvyS6muFrN5Dj9XobSmwDrbLDq5ALg
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

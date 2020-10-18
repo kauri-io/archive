@@ -54,3 +54,17 @@ https://github.com/scottrepreneur/pool-together
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/pooltogether.us/26f56112325149ef83755a603f2beef0/a
+- **Kauri original author:** Leighton Cusack (@lay2000lbs)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-rhombus-2019, bounty-impact, bounty-graph-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmXGiZxxkDLCCzfhq54XN5LDUUDmJXJnLeZpMSYJGsuuE1
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

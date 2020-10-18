@@ -97,3 +97,16 @@ That's it!! Your contract is now published. To apply this to our previous tutori
 ## Next Steps
 
 - <https://docs.zeppelinos.org/docs/mainnet>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos:-deployi/c6aadc15a87b403ca428602f4d6ea30e/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-06
+- **Kauri original tags:** smart-contract, zeppelinos, zeppelin, mainnet, deploy
+- **Kauri original hash:** QmXiCwMWGuLGWx6yW9srS66RDadcBuzjHdTosGGDcg7dSz
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

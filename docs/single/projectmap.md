@@ -9,6 +9,8 @@ some_url:
 
 # ProjectMap
 
+![](https://ipfs.infura.io/ipfs/QmPfbFgqByUeZxMVi9DhnwfkejpKA8p97exwmELoyS2WuP)
+
 
 
 ##Name
@@ -52,6 +54,20 @@ Impact
 ## Public Repo
 
 https://github.com/justinschuldt/project-map-browser
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/projectmap/cff659cda55242b3885242e97675fba9/a
+- **Kauri original author:** Kas Osterbuhr (@kaso)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, blocknative, mapping, crisis, portis, humanitarian
+- **Kauri original hash:** QmQZFbeuLEH2BwNBvppCDt6NZJbk2ustZCNXNi6mQyN7DJ
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

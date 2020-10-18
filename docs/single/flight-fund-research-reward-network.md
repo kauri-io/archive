@@ -50,3 +50,17 @@ https://github.com/feewet/lca-hub
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/flight-fund-research-reward-network/b73537efe4184e70a26f829914e99641/a
+- **Kauri original author:** Todd Youngblood (@function-xy)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** Qmd6ZaZwfwHJcVPpE99j4m5fTG6NhTTtNLfmbLs8CZfoQH
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

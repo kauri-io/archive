@@ -9,6 +9,8 @@ some_url:
 
 # (1/5) Getting started with Elastic Stack for monitoring on Kubernetes
 
+![](https://ipfs.infura.io/ipfs/Qmb41iri4YonbWVhjyNkuAanQJMGczpqeLKYjERh38HSUb)
+
 
 ### Introduction
 
@@ -343,3 +345,16 @@ In the following article, we will get started with the installation of ElasticSe
 
 <br />
 <br />
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(15)-getting-started-with-elastic-stack-for-monit/b3be4dbf895b433f93b3cb589d414988/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-10-19
+- **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat
+- **Kauri original hash:** QmT6U56B9Vh9VLmAKuHSTaCA1V7DhpH7ScQhaXr3yUQmmu
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

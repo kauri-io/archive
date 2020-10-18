@@ -9,6 +9,8 @@ some_url:
 
 # Sending Ethereum Transactions with Rust
 
+![](https://ipfs.infura.io/ipfs/QmYXZyX8WMuzYNwJaSYARjt6HnGgpCji47xZjZqPULNbk4)
+
 
 This tutorial walks you through the code required to send an Ethereum transaction within a Rust application.
 
@@ -350,3 +352,16 @@ In this tutorial we learned how to send a basic Ether value transfer transaction
 The full source code covered in this guide is available on GitHub [here](https://github.com/craigwilliams84/rust-ethereum/).
 
 This is just scratching the surface of Ethereum transaction sending, and in a future tutorial I will walk you through sending transactions that manipulate data within an Ethereum smart contract.  Watch this space!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sending-ethereum-transactions-with-rust/97c85229c66445759bb0ce642224d364/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-08-30
+- **Kauri original tags:** rust, ethereum, web3, transaction
+- **Kauri original hash:** QmQ8bHG3Z4AGH9fwDWCoKBUmA9htaCbzmBHxPhoD6EECBc
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Data Privacy with the NuCypher Network
 
+![](https://ipfs.infura.io/ipfs/QmWsMymRmjGBB1z3w8wb5CPwwgjWr6JDg4S4WsUiRhe3zq)
+
 
 > The NuCypher network uses the Umbral threshold proxy re-encryption scheme to provide cryptographic access controls for distributed apps and protocols.
 
@@ -66,3 +68,17 @@ https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf
 - [Local Development Fleet Testing](https://docs.nucypher.com/en/latest/demos/local_fleet_demo.html)
 - [Finnegan’s Wake Demo](https://docs.nucypher.com/en/latest/demos/finnegans_wake_demo.html)
 - [Heartbeat Demo](https://docs.nucypher.com/en/latest/demos/heartbeat_demo.html)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/data-privacy-with-the-nucypher-network/3a264ce066b04332b2e03ffa88af39e6/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** encryption, nucypher, privacy, proxy-re-encryption
+- **Kauri original hash:** QmTgEALiSyjafEdQ5FLzqqiZUuKWrXBJmnqoAqdPbiigVU
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

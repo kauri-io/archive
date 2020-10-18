@@ -9,6 +9,8 @@ some_url:
 
 # Simple Kotlin SpringBoot dApp utilizing web3j
 
+![](https://ipfs.infura.io/ipfs/QmPpiC3xjs1N1gs4GzucHSWnazPkEsj7dPKiw9PnUwYh22)
+
 
 Are you sick of web3js? I know I am!
 
@@ -16,7 +18,7 @@ We are still forced to use it on the frontend but that doesn't mean that our bac
 
 I want to introduce you to a great alternative that I've been using to write the backend of my dApps.
 
-![](https://api.kauri.io:443/ipfs/QmZS8mDt57Tb1cqNZ49oEQSNNMxZ8Xx2yXzvms6DnCKWjZ)![](https://api.kauri.io:443/ipfs/QmecvtMiuNTJXiWDuaEKmJLWXd1jjUND9MQGjXULghVdBk)![](https://api.kauri.io:443/ipfs/QmfWo2RhNPoU234Xpkee53pfRhTtYqBdoTJEXTf3vMNLbx)
+![](https://ipfs.infura.io/ipfs/QmZS8mDt57Tb1cqNZ49oEQSNNMxZ8Xx2yXzvms6DnCKWjZ)![](https://ipfs.infura.io/ipfs/QmecvtMiuNTJXiWDuaEKmJLWXd1jjUND9MQGjXULghVdBk)![](https://ipfs.infura.io/ipfs/QmfWo2RhNPoU234Xpkee53pfRhTtYqBdoTJEXTf3vMNLbx)
 
 First create a spring boot application: https://start.spring.io/ 
 
@@ -158,3 +160,16 @@ Hello There My Kotlin!
 What do you think? A good alternative to web3js or not really? Please leave your feedback and ask me any questions! If this is received well I'll make a full dapp with a frontend that builds on this!
 
 Also, am I doing something wrong? Please leave a comment for that as well :) I'm always looking to improve my Kotlin, Sprinboot, and Ethereum skills!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/simple-kotlin-springboot-dapp-utilizing-web3j/311e46faf254462f9755e245a48de0cb/a
+- **Kauri original author:** Hayder Sharhan (@hshar)
+- **Kauri original Publication date:** 2019-04-14
+- **Kauri original tags:** spring, web3j, kotlin, springboot
+- **Kauri original hash:** QmQMMMVQS3Hx83gQL8ULLY63qBpqnwLY2smRrgM19pdyzX
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

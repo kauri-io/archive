@@ -52,3 +52,17 @@ In Ethereum, [we have ERC-721](http://erc721.org/) , a token standard which is t
  _As a part of the crypto movement_  [#ShatnerHODL](https://shatnerhodl.com)  _my contribution to the community is this attempt to explain Ethereum, otherwise known as “what my mom does not understand I’m working on” for the Star Trek Fans. Let’s give this a shot, I reckon Trekkies will be easier to convince than Mom._ 
  _Disclaimer: this is a humoristic text — I actually know a bit more about Ethereum than this so don’t even try to attempt to factually correct me_ . **What I don’t know shit is about Star Trek but this is my 5th day down your rabbit hole, so BETTER APPRECIATE IT.** 
  **Helena Flack and Chelsea Palmer thanks for your proofreading and help!** 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-for-trekkies/def2b053db4f472d83e8dedec8357f49/a
+- **Kauri original author:** ShatnerHODL (@shatnerhodl)
+- **Kauri original Publication date:** 2018-11-13
+- **Kauri original tags:** none
+- **Kauri original hash:** QmUuBYNeHaUKg28aMwyugUXAWvVVqhuWwgKqR368wTmbzr
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

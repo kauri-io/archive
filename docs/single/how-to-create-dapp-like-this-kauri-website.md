@@ -11,3 +11,16 @@ some_url:
 
 
 abx
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-create-dapp-like-this-kauri-website/621c44d95f564384b00c5bddc728b3a1/a
+- **Kauri original author:** David  (@leong9898)
+- **Kauri original Publication date:** 2020-09-21
+- **Kauri original tags:** ethereum, dapp, blockchain, ipfs
+- **Kauri original hash:** QmVXnWkgwkTHCtZ4XDaCRCwsLPceiHR7XoJD4RTMFyLt6s
+- **Kauri original checkpoint:** unknown
+
+
+

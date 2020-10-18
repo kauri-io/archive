@@ -71,3 +71,16 @@ Depending on the state the contract is in, members can take actions to transitio
 ### Conclusion
 
 With active directory support and the permissions it brings, Azure's blockchain support aims itself at enterprise users looking to use Blockchain in their businesses. It offers graphical management of contracts and actions upon them, and a way to update and deploy them, again with permissions to determine who can take these actions. Its setup is not for the faint-hearted, but [sign up for a free trial](https://account.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https%3a%2f%2fazure.microsoft.com%2fen-gb%2fget-started%2fwelcome-to-azure%2f&l=en-gb&correlationId=06AC26C311DF6D6E0E532B7010B46CF4) to see if it suits your use-case.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/deploying-a-full-stack-dapp-to-microsoft-azure/d37518870cba4caeab6a95624254a6b8/a
+- **Kauri original author:** Sri Sanketh Uppalapati (@srisankethu)
+- **Kauri original Publication date:** 2019-08-16
+- **Kauri original tags:** dapp, blockchain, microsoft, azure
+- **Kauri original hash:** QmZADMyymaP9dZstE6NNMHjQEGL16y4oSX4Vw7sq2KD2fS
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

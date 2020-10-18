@@ -9,6 +9,8 @@ some_url:
 
 # Storj  Decentralized Cloud Object Storage
 
+![](https://ipfs.infura.io/ipfs/QmXS1sVX9Fyq3X137dW5KYw8hqtNwPyZLvkv9w3HwCytiA)
+
 
 > Storj is an open-source protocol and network for decentralized cloud object storage with client-side encryption
 
@@ -18,7 +20,7 @@ _This article originally appeared in the [Storj wiki](https://github.com/storj/s
 
 The `storj-sim` tool enables you to run all the components of the Storj network (Satellite, Storage Nodes, Console and Gateway) and test them on your local machine.
 
-![](https://api.kauri.io:443/ipfs/QmYvsEQznkm9cdkKh7Q1eQ9AdmqFEtREDswUbbKmnowGkQ)
+![](https://ipfs.infura.io/ipfs/QmYvsEQznkm9cdkKh7Q1eQ9AdmqFEtREDswUbbKmnowGkQ)
 
 In every day Storj usage, the Satellite, Storage Node, and Uplink are run
 on separate servers and computers, but for the purposes of the test network,
@@ -120,3 +122,16 @@ Please see the [Uplink CLI](https://github.com/storj/docs/blob/master/Uplink-CLI
 tutorial for how to upload and download data to the test network.
 
 Let's 'be the cloud' and decentralize all the things together!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/storj:-decentralized-cloud-object-storage/a585dad1cd354e49994f3235452a8bb1/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-15
+- **Kauri original tags:** storage
+- **Kauri original hash:** QmYvQt1cw5iUPULTdqu1s61dBm1uAoEZhKTurTWFL3DEcF
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

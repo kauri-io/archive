@@ -117,3 +117,17 @@ You can also:
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-monthly-report-october-2018/e9a33360b3444342abadca28cf85213e/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmNUqXvXCLWzevgRFbD6xRgR9UvtZPnLzFgvjo1TeyZwpu
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

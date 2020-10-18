@@ -9,6 +9,8 @@ some_url:
 
 # OpenZeppelin Part 5  There's More!
 
+![](https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG)
+
 
 ## There's More!
 
@@ -171,3 +173,16 @@ OpenZeppelin provides the user with a multitude of contracts to support the crea
 
 - [Documentation](https://openzeppelin.org/api/docs/learn-about-utilities.html)
 - [More examples](https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/mocks)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openzeppelin-part-5:-there-s-more!/83d04613ba4a4a428d941483fe4fc45c/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-03-19
+- **Kauri original tags:** smart-contract, openzeppelin, pay-ment, cryptography, zeppelin
+- **Kauri original hash:** QmZdmm3HfsgcPeFRubeC9fTt5wqjGf1AG8F5uE7b4s4bNs
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # ENS  Beginner's Guide
 
+![](https://ipfs.infura.io/ipfs/QmQeaL2TQP73ZY9vy4cf9BbbsSCeaDKjPMQTQ96RnuAFEV)
+
 
 ## ENS
 
@@ -226,4 +228,18 @@ We have only scratched the surface of ENS and its ability to improve user experi
 _How will you use ENS in your dapp?_
 
 **Thank you to [Nick Johnson](https://twitter.com/nicksdjohnson "Nick Johnson") for his great feedback.**
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ens:-beginner-s-guide/e7f098b57fd24afe9b70506517dd5a63/a
+- **Kauri original author:** Darren Langley (@darren-langley)
+- **Kauri original Publication date:** 2019-04-09
+- **Kauri original tags:** ethereum, ens
+- **Kauri original hash:** QmWsRZSizLAMLCYw1ttwwFvHELWQtC7nNHtd8iTeKYRnnc
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
 

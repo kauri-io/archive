@@ -9,12 +9,14 @@ some_url:
 
 # Secret Rock, Paper, Scissors
 
+![](https://ipfs.infura.io/ipfs/QmdwD7k9aeEfDVZQkLQb662ZWmhzayrDQjfkQuWF3ArQEK)
+
 
  
 _Demo and code for game using “secret state” on Ethereum and Enigma._
  
 
-![](https://api.beta.kauri.io:443/ipfs/QmX6aabfWEUxYYUrVzt6ta4RX3tpoT4xJDgBwk9b5n7f3y)
+![](https://ipfs.infura.io/ipfs/QmX6aabfWEUxYYUrVzt6ta4RX3tpoT4xJDgBwk9b5n7f3y)
 
 At Enigma, we’re always exploring new applications for our protocol and “ 
 [secret contracts](https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2)
@@ -55,7 +57,7 @@ Most games are played as “best out of three” or “best out of five” round
 _one_
  round of play (there are additional challenges when requiring more rounds, which we will discuss later).
 
-![](https://api.beta.kauri.io:443/ipfs/QmbdKgJ3X9X9yPCchKLFF3HAsXVTZWXcuYQkqC56B7hT9H)
+![](https://ipfs.infura.io/ipfs/QmbdKgJ3X9X9yPCchKLFF3HAsXVTZWXcuYQkqC56B7hT9H)
 
 
 ### User-flow for this demo:
@@ -192,7 +194,7 @@ So, if:
 > Many thanks to Loredana (Darth Vader / Robowars RPS) and reddit users ikirch and WhySoS3rious for their work on other RPS implementations that we were able to draw on for comparison. To be clear, we certainly are not criticizing these implementations, as the Raiden example is clearly intended to showcase Raiden, and the other two Ethereum-only samples work as intended with the tools available. However, they provide very useful foils as we unpack the different issues at play in even a simple RPS implementation.
 
 
-![](https://api.beta.kauri.io:443/ipfs/QmaQUr43FZ4YPZ1KhH3QZE3wPjaPdq6f7PJL8xG6L9eRGv)
+![](https://ipfs.infura.io/ipfs/QmaQUr43FZ4YPZ1KhH3QZE3wPjaPdq6f7PJL8xG6L9eRGv)
 
 
 #### Enigma is building the privacy layer for the decentralized web.
@@ -213,3 +215,17 @@ _, or_
 [join our developer forum](http://forum.enigma.co)
 
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/secret-rock-paper-scissors/468b49fcd2ef48feaada3a4399d0b2a6/a
+- **Kauri original author:** Ainsley Sutherland (@ainsleys)
+- **Kauri original Publication date:** 2019-01-30
+- **Kauri original tags:** Ethereum
+- **Kauri original hash:** QmP811S4h39chekN8uqsh5m6uZiH72H71CBYmcH8j1Svtw
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

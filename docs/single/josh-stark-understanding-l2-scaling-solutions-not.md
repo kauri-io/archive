@@ -9,6 +9,8 @@ some_url:
 
 # Josh Stark - Understanding L2 scaling solutions [notes]
 
+![](https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK)
+
 
 _Josh Stark - L4, Counterfactual_  
 _DEVCON 4 MainStage, October 31st 2018_  
@@ -48,7 +50,7 @@ We want to break that trade-off and there are two ways
 ## Layer 2 solutions
 **_Definition:_** Off chain techniques where a user does not have to trust a separate environment  
 
-![](https://api.beta.kauri.io:443/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK)
+![](https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK)
 
 1. Build apps where most of the “work” is done off-chain
 2. Only use layer 1 to build anchors that tie the off-chain environment to layer 1s security 
@@ -104,4 +106,18 @@ Same technique for payments can let us do arbitrary state updates rather than ju
  - Plasma Cash - NFTs which are traded but cannot use fractions
  - Plasma Debit - Like cash, assets are NFTs but assets are also payment channels between user and master-validator
 
-![](https://api.beta.kauri.io:443/ipfs/QmXmDuqP5eBbewstQRuNGr72HxacYx7RShrZkUerwABBSi)
+![](https://ipfs.infura.io/ipfs/QmXmDuqP5eBbewstQRuNGr72HxacYx7RShrZkUerwABBSi)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/josh-stark-understanding-l2-scaling-solutions-not/17fb968e07a14e05bb69e1e448741a7b/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2018-10-31
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQ5S2j6qovQQmfRqE3ZZ6B2opAZbqJDesX8V1hxmwY2NM
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

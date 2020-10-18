@@ -21,7 +21,7 @@ We want to make that easier and provide better recognition for community members
 ___
 
 <br>
-![](https://api.kauri.io:443/ipfs/QmUyNLUFWdqjhFNXWpykDpf6b8u5xEWnSEeu2JAXD2qo2Q)
+![](https://ipfs.infura.io/ipfs/QmUyNLUFWdqjhFNXWpykDpf6b8u5xEWnSEeu2JAXD2qo2Q)
 
 Many participants in Ethereum and wider Web3 communities are already creating great content aimed at onboarding the next wave of developers. You’ve told us, what’s missing are easy ways to collaborate on and coordinate these efforts, and clear incentive structures to reward these deeply valuable efforts. We aim to enable this collaboration, and enhance the visibility on these individual and group efforts so contributors and curators can get the recognition they deserve. 
 
@@ -59,5 +59,19 @@ ___
 And if you'd like to lead a Community, apply to our [Ambassador Program](https://kauri.io/article/2c51067790da43a2be61650d7c03bd68)! Ambassadors will receive up to **$3,000** in funding for content bounties, regular office hours with top teams from the ecosystem, and editorial help from the Kauri team.
 
 <br>
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/communities-for-defi-scaling-privacy-and-more/33d197077e5440d195a8ab76a7ba46d9/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-07-22
+- **Kauri original tags:** kauri, communities
+- **Kauri original hash:** QmTKBV3wR3y6h3ZG2udhvuPcYxRksnHBJK7Mv1C7pmBStT
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
 
 

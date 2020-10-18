@@ -9,6 +9,8 @@ some_url:
 
 # Uniswap  Protocol for automated token exchange
 
+![](https://ipfs.infura.io/ipfs/Qmdt5x7zcKbDghBhuguBTkQtvYJTGYbYRg1BjULT2Gzpxv)
+
 
 > Uniswap is a decentralized token exchange protocol that utilizes a "constant product market maker" model. This model allows defining the asset price based on the available staked liquidity of traded assets. There is no token to facilitate the exchange as ether is used as an intermediary of each trade. - Description from [ethhub.io](https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview)
 
@@ -57,7 +59,7 @@ Each exchange holds reserves of both ETH and its associated ERC20 token. Anyone 
 
 Exchange contracts are automated market makers between an ETH-ERC20 pair. Traders can swap between the two in either direction by adding to the liquidity reserve of one and withdrawing from the reserve of the other. Since ETH is a common pair for all ERC20 exchanges, it can be used as an intermediary allowing direct ERC20-ERC20 trades in a single transaction. Users can specify a recipient address if they want to receive purchased tokens at a different address from the one used to make a transaction. 
 
-![](https://api.kauri.io:443/ipfs/QmPpUpr9uaKBQyCzHrKj1HVzHgD4oLbm2iNKUDAX7hu9hn)
+![](https://ipfs.infura.io/ipfs/QmPpUpr9uaKBQyCzHrKj1HVzHgD4oLbm2iNKUDAX7hu9hn)
 
 Uniswap uses a "constant product" market making formula which sets the exchange rate based off of the relative size of the ETH and ERC20 reserves, and the amount with which an incoming trade shifts this ratio. Selling ETH for ERC20 tokens increases the size of the ETH reserve and decreases the size of the ERC20 reserve. This shifts the reserve ratio, increasing the ERC20 token's price relative to ETH for subsequent transactions. The larger a trade relative to the total size of the reserves, the more price slippage will occur. Essentially, exchange contracts use the open financial market to decide on the relative value of a pair and uses that as a market making strategy.  
 
@@ -82,5 +84,19 @@ The Uniswap frontend is an open source interface designed to improve user experi
 * [Uniswap.exchange](https://uniswap.exchange/swap)
 
 ##### 
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/uniswap:-protocol-for-automated-token-exchange/ec1b2b004813442a82a916b561efecfb/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-01
+- **Kauri original tags:** dex, open-finance
+- **Kauri original hash:** QmedkJDfkqAxf258gt2574aT3QHw89KDCgWnYKQ4eKfJJP
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
 
 

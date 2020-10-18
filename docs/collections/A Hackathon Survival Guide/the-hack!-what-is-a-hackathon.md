@@ -26,3 +26,17 @@ No! In fact, hackathons often need people who bring different skills. Whether yo
 
 ### Read and follow guidelines
 Hackathons often have guidelines for submissions and prizes, make sure you read and follow them to be considered. Another important aspect of a hackathon is a "code of conduct" that sets out how people are expected to behave to each other during the event. Make sure you read and follow it!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-hack!-what-is-a-hackathon/d56f7f8c59f945c1b08b67fb3ecab99e/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2020-01-14
+- **Kauri original tags:** hackathons
+- **Kauri original hash:** QmZrNnFTyLJ71o4uepYvT9jZ3TrfMsax8hTskpYYkb312X
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

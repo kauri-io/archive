@@ -9,6 +9,8 @@ some_url:
 
 # Clique  cross-client Proof-of-authority algorithm for Ethereum
 
+![](https://ipfs.infura.io/ipfs/QmU6GAqwt3zTT33fCrtnCrDCwzDWSJ3VcUVLtDWMRHkKgY)
+
 
 
 Most popular cryptocurrencies use Proof-of-work algorithms to achieve consensus. While some of them might eventually switch to Proof-of-stake, PoW is a standard for now. But there are other options. One of them is Proof-of-authority. Here, we will have a look at the general idea of the protocol, as well as one of the implementation called Clique, with its properties and current applications. We will also cover two testnets that currently implement Clique: Rinkeby and Görli.
@@ -42,3 +44,17 @@ There is also Görli, which is relatively new testnet but is rapidly growing in 
 This is just a short summary of what is PoA and how does Clique work. If you want more, you can check specs at the 
 [corresponding EIP](https://github.com/ethereum/EIPs/issues/225), or go 
 [straight to the sources](https://github.com/ethereum/go-ethereum/blob/master/consensus/clique/clique.go) of Geth. There are also sources available for [Nethermind](https://github.com/NethermindEth/nethermind/tree/master/src/Nethermind/Nethermind.Clique) and [Pantheon](https://github.com/PegaSysEng/pantheon/tree/master/consensus/clique/src/main/java/tech/pegasys/pantheon/consensus/clique) clients. You can also learn more about [Görli testnet](https://github.com/goerli/testnet).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/clique:-cross-client-proof-of-authority-algorithm/7f44cd9ea79043bc902070e6e6f3cf98/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2018-12-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmRX1RyhMr6gMhj6jn7tjVoMXKKZr2wCdqvc1JrEypKXny
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

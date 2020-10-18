@@ -42,3 +42,17 @@ Wait for approval, and check back to see if you got your reward!
 
 I hope this helps you navigate your way through the Devcash Bounty Platform. May you have good fortune in your bounty hunting!
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/hunt-bounties-on-the-devcash-bounty-platform/8980b81b337e489788a7734ed66e4753/a
+- **Kauri original author:** Antoine (@antron3000)
+- **Kauri original Publication date:** 2020-07-20
+- **Kauri original tags:** ethereum, bounty, devcash
+- **Kauri original hash:** Qma7HfjzN3XX3wFQryHMKao7viS3fNwwbYxahZWDxfYzZB
+- **Kauri original checkpoint:** unknown
+
+
+

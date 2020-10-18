@@ -9,6 +9,8 @@ some_url:
 
 # Kauri news - Writers, writers, writers
 
+![](https://ipfs.infura.io/ipfs/QmT5uKVboDXNQnSGbSWFM9m9mbE336CoX97fcVZyeRVFBm)
+
 
 ### Audio version of newsletter
 
@@ -90,3 +92,17 @@ We have mostly focussed on written content on our journey so far, but have discu
 Would you ever try this yourself?If you're interested in creating a live streaming setup, [we came across this great tutorial recently](https://dev.to/jeremycmorgan/getting-started-with-live-coding-pgf).
 
 We wonder if there would be any interest in live documenting or blog writing?
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri-news-writers-writers-writers/58a3c62a07404391a2e9b10ab1774652/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-12-18
+- **Kauri original tags:** news, writing, kauri
+- **Kauri original hash:** QmeeNT3vKKz17MsLduMbx6isiNtYQquMw3eJDpZYm2xNLg
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

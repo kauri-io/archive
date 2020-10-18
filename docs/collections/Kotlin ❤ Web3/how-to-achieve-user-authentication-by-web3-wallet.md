@@ -9,6 +9,8 @@ some_url:
 
 # How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin
 
+![](https://ipfs.infura.io/ipfs/QmYk4fGCrdGiv98vzR6BfbCpiLZdaZd3QJy5Lfq73qpzXD)
+
 
 One of the greatest things that a web3 enabled browser gives us is saying goodbye to our primal ways of authenticating users with a username & password combination. 
 
@@ -59,5 +61,19 @@ The frontend's bread and butter is here: https://github.com/hshar7/springsecurit
 
 ### Special Thanks
 To Callicoder for this tutorial series that taught me how to do spring security authentication using passwords. https://www.callicoder.com/spring-boot-spring-security-jwt-mysql-react-app-part-1/
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-achieve-user-authentication-by-web3-wallet/a7a3198e2673406aa730d41854871e1a/a
+- **Kauri original author:** Hayder Sharhan (@hshar)
+- **Kauri original Publication date:** 2019-08-19
+- **Kauri original tags:** jwt, web3j, kotlin, springboot
+- **Kauri original hash:** QmbBAwBTVkP2ggLEMHZwd8Lm5VcYRgiWXacQiKEJup68Eg
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

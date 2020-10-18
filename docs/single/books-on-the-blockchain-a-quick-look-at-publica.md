@@ -9,12 +9,14 @@ some_url:
 
 # Books on the Blockchain - A Quick Look at Publica
 
+![](https://ipfs.infura.io/ipfs/QmRQ63tMvo71XWVDbWyRik7rkBp7Uki3cpe7pRUM9LTq14)
+
 
 Taking book publishing onto the Blockchain is the idea of the Publica project. However, since the ICO in November 2017, and like many blockchain oriented projects attempting to shake up traditional spaces and come out of the late 2017 crypto crash, it’s a project that launched well, is backed by knowledgeable and capable staff - but that hasn’t been as successful as a more traditional approach might have been. That said, the ‘traditional’ nature of book publishing has been in the process of a complete shakeup for many years, so adding in a blockchain solution was a natural and logical next step.
 
 In the indie book publishing space there are now many alternatives to getting your book into brick-and-mortar shops, usually filled by publishers who were once the only pathway to authorial success. Today, tens of thousands of books are self-published by their authors every year, without ever coming near the traditional publishing houses. Books that cover a multitude of genres from fantasy, spy, thriller, adult, young adult, teen, cooking, car mechanics, computing and business to name a few. While high street shops like Barnes & Noble or Waterstones might be suffering, the market for books, particularly eBooks, has never been bigger. Whether readers are buying from the likes of Amazon or direct from an indie author - book sales are buoyant, despite the doom and gloom around book sales we often read about. In 2017, when Publica launched, the global publishing industry was estimated to be worth $261bn USD. Of this, books accounted for 46% or $121bn USD*(1)*. Not an insignificant market to chase even single digits percentage share of.
 
-![The Publica Book Shop](https://api.kauri.io:443/ipfs/QmNvuZAPT4DNpKYhjtMpx84LTGgBshajdesQFriFixwy5C)
+![The Publica Book Shop](https://ipfs.infura.io/ipfs/QmNvuZAPT4DNpKYhjtMpx84LTGgBshajdesQFriFixwy5C)
 
 Enter **Publica – ‘Blockchain for Publishing’**, as the site tells us. Publica offers two routes to publishing; a book ICO for funding new publications or direct publishing of already completed manuscripts. There’s a page on Medium that Publica keep up to date with the current Book ICOs*(2)* so they can be learned about and contributed to. There’s an online store*(3)* and a mobile app*(4)* where users can access the store of available books, the reader’s own library of owned works and the wallet in which the Pebble tokens are held. Imagine the Kindle or Apple Books store, with an appropriate reader with built in shop that also shows your balance of funds. That’s what Publica have – same idea, just using crypto and blockchain.
 
@@ -37,7 +39,7 @@ The entry point that Publica seem to promote most actively via their website*(6)
 ### Buying a Published Book
 When a published book is added to the Publica library, a reader simply has to view the library via the mobile app or online store, find a book they like and purchase it using PBL tokens stored in their connected wallet or due to a recent change, they can now pay with their credit card.
 
-![Screen shots from the Publica App](https://api.kauri.io:443/ipfs/QmSDmAuGRoSn5N8b1TxNoSDDdkLZ8hgHz6zgiwYrjxPrhy)
+![Screen shots from the Publica App](https://ipfs.infura.io/ipfs/QmSDmAuGRoSn5N8b1TxNoSDDdkLZ8hgHz6zgiwYrjxPrhy)
 
 ### Benefits over Traditional Publishing
 Two major benefits that are gained by using Publica are that authors acquire **Borderless Publishing and Censorship Resistance**. Never again can a book be banned from a given country and the contents of that book cannot be altered once published. Not even by Publica - this is a paradigm shift. Let's get this clear - **never in human history has this been the case and could fundamentally shift the way publishing works.**
@@ -91,3 +93,16 @@ Mark
 7.	ForkDelta: https://forkdelta.app/#!/trade/PBL-ETH. Bilaxy: https://bilaxy.com/exchange#symbol=213
 
 _Disclosure: I published my debut novel, [The Hannover Game](https://shop.publica.com/catalog/category/crime-detective), on Publica and hold a small amount of PBL on 0x8756dE484c0eEF4E46E6EE55a50206b89120a938_
+
+
+---
+
+- **Kauri original link:** https://kauri.io/books-on-the-blockchain-a-quick-look-at-publica/31abb57ad45f4744a41e8713fdd78b32/a
+- **Kauri original author:** Mark Crowther (@mark-crowther)
+- **Kauri original Publication date:** 2019-06-27
+- **Kauri original tags:** publica, ethereum, ebooks, solidity
+- **Kauri original hash:** Qmad7FXKbpWRYxbazHHLnAJ6kqSi1fomJPjy85GsA6nLpH
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

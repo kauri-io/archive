@@ -46,3 +46,17 @@ https://github.com/oojr/ethdenver-point-of-sale
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/xdai-point-of-sale/234a92e4ae0e475db263374284ac2a55/a
+- **Kauri original author:** Olajide Ogundipe (@olajide-ogundipe)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, poa, infura, portis, burner-wallet
+- **Kauri original hash:** QmNcUCAmspcjiPXzx8prcDVkR1RN3eroBGX7UrZBLpCBAR
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

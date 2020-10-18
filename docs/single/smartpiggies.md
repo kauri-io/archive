@@ -9,6 +9,8 @@ some_url:
 
 # SmartPiggies
 
+![](https://ipfs.infura.io/ipfs/QmeQ251Mvko1qbcMd377uTh9WnRXqWCKD2i6EkDtcD19QR)
+
 
 
 ## Project Name
@@ -98,6 +100,20 @@ Maker
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/smartpiggies/smartpiggies
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smartpiggies/06b31a287ddf407e98e31893994bad31/a
+- **Kauri original author:** Michael Arief (@mikearief)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, bounty-chainlink-2019, bounty-makerdao, bounty-zeppelin-2019, bounty-zerion-2019
+- **Kauri original hash:** QmU2STSN8ts5jV1xp4ESFu6xAwthvJuTtGod4MxTzPptLg
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

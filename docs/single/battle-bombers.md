@@ -9,6 +9,8 @@ some_url:
 
 # Battle Bombers
 
+![](https://ipfs.infura.io/ipfs/QmaV4VHxEctn9RNABPKiNYQ9b3xSPWvW7ovYpvPaPT2LN8)
+
 
 
   
@@ -43,9 +45,23 @@ Meerkat for Push Notifications
 https://github.com/FrankyAguilar/BattleBombers
 
 <p align="left">
-<img align="left" src="https://api.kauri.io:443/ipfs/QmWgFRtp9LKe1jq2UbuCyvjSo1NqAx1TsUJ1BCGDZZB5aS" alt="drawing" width="200"/> <img align="left" src="https://api.kauri.io:443/ipfs/QmT4z1CMH3jLbb4NzQH6UNQcp8XgVswD9Ekg8XzXMGiC1c" alt="drawing" width="200"/><img align="left" src="https://api.kauri.io:443/ipfs/QmaV4VHxEctn9RNABPKiNYQ9b3xSPWvW7ovYpvPaPT2LN8" alt="drawing" width="200"/><img align="left" src="https://api.kauri.io:443/ipfs/QmSoWXuzMkQ3YepKRYH8fWPpswFKYY4LnaQoQwCERpikY7" alt="drawing" width="200"/>
+<img align="left" src="https://ipfs.infura.io/ipfs/QmWgFRtp9LKe1jq2UbuCyvjSo1NqAx1TsUJ1BCGDZZB5aS" alt="drawing" width="200"/> <img align="left" src="https://ipfs.infura.io/ipfs/QmT4z1CMH3jLbb4NzQH6UNQcp8XgVswD9Ekg8XzXMGiC1c" alt="drawing" width="200"/><img align="left" src="https://ipfs.infura.io/ipfs/QmaV4VHxEctn9RNABPKiNYQ9b3xSPWvW7ovYpvPaPT2LN8" alt="drawing" width="200"/><img align="left" src="https://ipfs.infura.io/ipfs/QmSoWXuzMkQ3YepKRYH8fWPpswFKYY4LnaQoQwCERpikY7" alt="drawing" width="200"/>
 </p>
  <br/>
 
 <p align="centre"></p> 
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/battle-bombers/ce805bf2e6664b919b6a8eb150462d06/a
+- **Kauri original author:** Mark Pereira (@markp)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-salt-2019, bounty-celer-2019, bounty-ideasbynature-2019
+- **Kauri original hash:** QmdR5ukXkxFUECJ97Zqxqu1B8jmc5rhTdTLDuYjwiZm7Lg
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
 

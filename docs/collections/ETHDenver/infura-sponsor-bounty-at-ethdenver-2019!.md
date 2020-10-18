@@ -9,6 +9,8 @@ some_url:
 
 # Infura - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmccDbNYm9MTq9wTLM5yhSUKehYsbHcRYXPyF8pFxYHAT2)
+
 
 ## Company/Project Name and Description
 
@@ -38,5 +40,19 @@ We will be judging projects based on the originality of the project idea and the
 ## Contact Information
 
 Daniela Osorio - daniela.osorio@consensys.net
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/infura-sponsor-bounty-at-ethdenver-2019!/795fbac6a6f243ef890965428e2e4047/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** Qmc4Mtxn7inN1v3FffQp48NuuRSv97yVkP2LeZUSMRaZUm
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

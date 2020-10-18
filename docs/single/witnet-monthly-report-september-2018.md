@@ -93,3 +93,17 @@ Please let us know what you think of the recent developments by **sharing your t
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/witnet-monthly-report-september-2018/ef8f6acea5814f61aa7322cd7c041e18/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmZ25zY2gCBsFZbH77unSExV3BA57BZ5XtVnr8H4i44mH5
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

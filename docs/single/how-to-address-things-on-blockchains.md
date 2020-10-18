@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd)
+![](https://ipfs.infura.io/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd)
 
 Generally, 
 _addressing_
@@ -110,7 +110,7 @@ Variant #3 states:
 
 #### The annoying phenomenon of forks
 
-![](https://api.kauri.io:443/ipfs/QmemJWEq8wVcrj4nczn19tXzjh1NmMaE81WmmPxtpLUuLa)
+![](https://ipfs.infura.io/ipfs/QmemJWEq8wVcrj4nczn19tXzjh1NmMaE81WmmPxtpLUuLa)
 
 In the above illustration of a fork it’s visible that 
 _contract A_
@@ -153,7 +153,7 @@ c) Latest known hash:      0x3743...3348
 Variant 5: ethereum:0x89d2...0359?early-block-hash=0xd4e5...8fa3&recent-block-hash=0x3743...3348
 
 
-![](https://api.kauri.io:443/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd)
+![](https://ipfs.infura.io/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd)
 
 Revisiting the illustration from the beginning of this article we can unambiguously address 
 _contract A_
@@ -204,3 +204,17 @@ _ConsenSys AG_
  and 
 _atpar AG_
  . All opinions are his own an not opinions of the companies. No investment advice.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-address-things-on-blockchains/157c963a15e94c1a88c68da57afea09c/a
+- **Kauri original author:** Johannes Pfeffer (@oaeee)
+- **Kauri original Publication date:** 2019-04-25
+- **Kauri original tags:** addressing, ethereum, blockchain, fintech
+- **Kauri original hash:** QmdoHqTdCp76MdbsVc1fCg7zibTSFpoX4RRUrQrXswNgEV
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

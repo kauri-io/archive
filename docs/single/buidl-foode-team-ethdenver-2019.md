@@ -9,10 +9,12 @@ some_url:
 
 #  BUIDL FoodE Team EthDenver 2019
 
+![](https://ipfs.infura.io/ipfs/QmcD1acthe4S8KbGSe69BiUiMBmcwXjsMADR7bnhwN1f6B)
+
 
 
 ## BUIDL FOODE 
-![](https://api.kauri.io:443/ipfs/QmbF9B5L5hxRdudrdcNJAWNbMqd68Jmc8eQ6LNXUnBboqF)
+![](https://ipfs.infura.io/ipfs/QmbF9B5L5hxRdudrdcNJAWNbMqd68Jmc8eQ6LNXUnBboqF)
 
 ## Open source Decentralized Ecommerce system for any food products, which aims to put more transparency on where your food comes from. 
 
@@ -51,5 +53,19 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/pablobrand/BUIDLFoodE
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buidl-foode-team-ethdenver-2019/89b99aa9160d4c888ef82ed69193db2e/a
+- **Kauri original author:** Pablo Brandenburg (@pablodapp)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** chainlink, ethdenver-2019-submission, wyre, dapp, buidl, impact, portis
+- **Kauri original hash:** Qmb2ZGy1hwd7Q5WUmpvuyK4y96DumLkj9knKxFXEjVSWuW
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

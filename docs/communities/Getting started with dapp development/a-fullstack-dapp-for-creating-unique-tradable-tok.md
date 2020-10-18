@@ -9,10 +9,12 @@ some_url:
 
 # A fullstack dapp for creating unique tradable tokens
 
+![](https://ipfs.infura.io/ipfs/QmNjnYYhPUgHDpyJqxx6EsC8N1C89ww3nKyfLKxahSgmEt)
+
 
 > This dapp implements is a Crypto-collectible game built on top of the ERC-721 standard for creating unique tokens.. This tutorial is intended to be followed using the online IDE available at [studio.ethereum.org](https://studio.ethereum.org), and selecting the "CryptoPizza" template.
 
-![Select CryptoPizza template](https://api.kauri.io:443/ipfs/QmYL7nkdTBNpsMSL1T4xQJP3g45j15pxg6EBHCrvXuTY7k)
+![Select CryptoPizza template](https://ipfs.infura.io/ipfs/QmYL7nkdTBNpsMSL1T4xQJP3g45j15pxg6EBHCrvXuTY7k)
 
 ### The smart contract
 
@@ -49,3 +51,16 @@ The `transferFrom` contract function is called by JavaScript when a user clicks 
 When the user clicks the _Eat_ button for an individual pizza, JavaScript calls the `burn` contract function that destroys the pizza at the specified id. The `burn` function uses the [`external`](https://solidity.readthedocs.io/en/v0.5.12/contracts.html#visibility-and-getters) function modifier, which makes the function part of the contract interface and can be called from other contracts.
 
 And that's all the code relevant to this dapp, there are other functions for glue code not included here. To see the dapp in action, click _Compile_, then _Deploy_ found under the disclosure triangle of the contract file, then open the _Preview_ tab to see the frontend of the dapp. Try creating one or more pizzas, then gifting them to other accounts (create new accounts from the _Default_ drop down), and eating them 😋.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-fullstack-dapp-for-creating-unique-tradable-tok/2519d02a7a5244949dc12737817f5798/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-10-17
+- **Kauri original tags:** smart-contract, cryptoeconomics, erc-20, token-standard, erc721, token
+- **Kauri original hash:** QmebE6jmLLMF69UUejCMJqd5vCTeF3zzKiyZizWGbHmMMm
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

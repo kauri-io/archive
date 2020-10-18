@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib)
+![](https://ipfs.infura.io/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib)
 
  
 _This article is for you if you’re curious about the design problems in the blockchain space. If you don’t have a writer on your team, or you’re looking to improve your blockchain product’s onboarding UX. If you’re thinking about the challenge of getting your product into more hands than the existing, tech-savvy blockchain community. Or all of the above._
@@ -55,7 +55,7 @@ _Dogecorp_
 But I’m getting carried away…
 This article isn’t about explaining blockchain — and just as well because I’m not nearly qualified enough to do that. Let’s get back on track.
 
-![](https://api.kauri.io:443/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF)
+![](https://ipfs.infura.io/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF)
 
 
 ### Wallet signature request messages
@@ -64,7 +64,7 @@ This article isn’t about explaining blockchain — and just as well because I�
 Wallet signature requests are some of the first things you come across when starting out with dApps. They are a crucial part of the decentralized “logging in” process.
 With some dApps, all you need is a wallet to access it. No account, no usernames, no passwords, no personal data stored by the dApp at all! A lot of the time you can enhance your experience by adding data afterwards, but it’s not a prerequisite for access.
 
-![](https://api.kauri.io:443/ipfs/QmaXnEgycRXh71AGkiyWDGpEcfswDusZsc16cZJDubS2y3)
+![](https://ipfs.infura.io/ipfs/QmaXnEgycRXh71AGkiyWDGpEcfswDusZsc16cZJDubS2y3)
 
 Your wallet is your ticket to the blockchain party. It grants you access to a website’s blockchain features.
 So for example, if you head to 
@@ -76,7 +76,7 @@ _As a side note, I’m not sure signing is the best analogy for this. It sounds 
  
 Whether or not you agree with the metaphor, the importance of this verification step is without doubt. Yet the message is often complete gibberish, leading to unnecessary points of friction and confusion.
 
-![](https://api.kauri.io:443/ipfs/QmYEi527roKZNZpsbcpzt8z9nDZzU8ba811v3R3yowXRRT)
+![](https://ipfs.infura.io/ipfs/QmYEi527roKZNZpsbcpzt8z9nDZzU8ba811v3R3yowXRRT)
 
 This is often the last step (hurdle?) in logging in, so it’s crucial. I think it’s time we started caring more about what it says.
 
@@ -169,10 +169,10 @@ __
 **Be creative**
  It’s a good opportunity to show off your brand style or tone of voice. Take a look at CrytpoKitties to see what I mean.
 
-![](https://api.kauri.io:443/ipfs/QmVTRSBWYgQ9fAaFE9Lt728iKdFss6poPKVTybEahWK4LH)
+![](https://ipfs.infura.io/ipfs/QmVTRSBWYgQ9fAaFE9Lt728iKdFss6poPKVTybEahWK4LH)
 
 
-![](https://api.kauri.io:443/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh)
+![](https://ipfs.infura.io/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh)
 
 
 ### What does this advice look like?
@@ -180,7 +180,7 @@ A good, but generic, message might look something like:
 > Hi there from {dApp name}! Sign this message to prove you have access to this wallet and we’ll log you in. This won’t cost you any Ether.To stop hackers using your wallet, here’s a unique message ID they can’t guess: d458fa15-dcab-4d85-a477–004d6febca12
 
 
-![](https://api.kauri.io:443/ipfs/QmTcm9uKVpYYcpxHgaGXuN5N2aE9mhF4i2U3H9cz2hBKCM)
+![](https://ipfs.infura.io/ipfs/QmTcm9uKVpYYcpxHgaGXuN5N2aE9mhF4i2U3H9cz2hBKCM)
 
 What this message does:
 
@@ -216,3 +216,17 @@ Blockchain is complicated and making it simple is even more complicated. So plea
 If you have any areas you’d like covered in a future issue, leave it in the comments or you can reach out to me on 
 [@ryancreatescopy](https://twitter.com/ryancreatescopy)
  on Twitter.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/writing-for-blockchain:-wallet-signature-request-/e46374ec0fbd4403ae9ea351580caa4d/a
+- **Kauri original author:** Ryan Cordell (@rcordell)
+- **Kauri original Publication date:** 2019-04-30
+- **Kauri original tags:** metamask, ux, usability, blockchain, content
+- **Kauri original hash:** Qmf11neYJNAJWJgWEzXkAfe2cngRjaUgExyBmEiqdkXEJm
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # EVM package deployment with ZeppelinOS - Part III  Linking to mainnet
 
+![](https://ipfs.infura.io/ipfs/QmQUpQndFnhaYe7NChTVA8mxuvS8nWRU521YtrRawfqHvx)
+
 
 ### Pulling it all together
 
@@ -219,3 +221,17 @@ or follow me on [Twitter](https://twitter.com/dennisonbertram).
 
 _Thanks to [Santiago Palladino](https://twitter.com/smpalladino) for
 reading early drafts and providing feedback._
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-iii:-/28d6318d3afb483286aec2243cffd8a3/a
+- **Kauri original author:** Dennison Bertram (@dennisonbertram1)
+- **Kauri original Publication date:** 2019-03-07
+- **Kauri original tags:** zeppelinos
+- **Kauri original hash:** Qmcs4J3y2HuWT7b3LgRrdRKooYQ4ccNKvEEFKyyKuFf8vS
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

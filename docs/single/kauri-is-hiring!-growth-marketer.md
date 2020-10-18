@@ -37,3 +37,16 @@ We are a ConsenSys funded venture, one of the largest blockchain technology and 
 - Content development and content marketing experience, especially if technical.
 
 **Please apply by emailing andreas@kauri.io with your resume and a brief note on why you are interested in joining Kauri**
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri-is-hiring!-growth-marketer/1565d0ef913f4031a59ca33251860ebe/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-08-29
+- **Kauri original tags:** marketing, jobs, kauri, growth
+- **Kauri original hash:** QmfNWePeXxvx476M3aYFQPP22U9CvFn2cPpsf32uA7pS86
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

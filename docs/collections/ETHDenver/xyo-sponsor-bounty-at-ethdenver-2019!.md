@@ -9,6 +9,8 @@ some_url:
 
 # XYO - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmR3Z276dxaT6rPuzQYRvMz6QQEcvvawt2RGhcH3qcNPkT)
+
 
 ## Company/Project Name and Description
 
@@ -43,5 +45,19 @@ User interfaces will have consistency with XYO network design standards from Web
 ## Contact Information
 
 Bryce Paul - bryce@xyo.network
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/xyo-sponsor-bounty-at-ethdenver-2019!/6ee2ef1828dd482582eafd2bfe930b64/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmNqwKrKFXVnnccsQ5vQUETZ5bCwEKukSZnCKThdUpqB45
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

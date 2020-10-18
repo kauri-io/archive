@@ -9,6 +9,8 @@ some_url:
 
 # Will the Opera web3 wallet drive adoption?
 
+![](https://ipfs.infura.io/ipfs/Qmd41sDHv8oh4RJSiepaoFmSZFJjES1343jxux9ZymMcuB)
+
 
 A year or so ago I wanted to replace Google Chrome as my main browser. Why? First I was unsure and uncomfortable with the potential amount of data shared with Google. Second Chrome now reminds me too much of Internet Explorer in the 90s and early 2000s, where certain websites and features would only work in one browser, going against the entire concept of an "open internet".
 
@@ -28,11 +30,11 @@ First, disable Metamask, depending on the dapp you want to use, there may not be
 
 Enable the wallet in the desktop settings:
 
-![Enable wallet in desktop](https://api.kauri.io:443/ipfs/QmW3wgUM8zXFKJtA8rFBQpgrmqE5tWPEiZvCUdF6cKJhcf)
+![Enable wallet in desktop](https://ipfs.infura.io/ipfs/QmW3wgUM8zXFKJtA8rFBQpgrmqE5tWPEiZvCUdF6cKJhcf)
 
 And mobile:
 
-![Enable wallet in Android](https://api.kauri.io:443/ipfs/QmUd1a8pBBqyqnHNwfgrySwiEymRdhkdSbY1W9xh5jc664)
+![Enable wallet in Android](https://ipfs.infura.io/ipfs/QmUd1a8pBBqyqnHNwfgrySwiEymRdhkdSbY1W9xh5jc664)
 
 You can restore from an existing wallet by clicking _Restore from Backup_ and using your mnemonic phrase.
 
@@ -40,11 +42,11 @@ The mobile version of the wallet serves as the canonical wallet, and to have a w
 
 I did have some initial issues connecting the wallet, but updates seem to have resolved this.
 
-![Connect Android and Desktop wallet](https://api.kauri.io:443/ipfs/QmWR8i8pbSDwkp7BttXohJVoKJUavcftqwCvyGG7ai4uET)
+![Connect Android and Desktop wallet](https://ipfs.infura.io/ipfs/QmWR8i8pbSDwkp7BttXohJVoKJUavcftqwCvyGG7ai4uET)
 
 There are a handful of settings for the wallet, all of which you find in the mobile version, for example, changing the network you connect to.
 
-![Wallet settings](https://api.kauri.io:443/ipfs/QmcGZEv8YT4dyfyF263zyhR4Q2pETETZHzAj5TwjJentK9)
+![Wallet settings](https://ipfs.infura.io/ipfs/QmcGZEv8YT4dyfyF263zyhR4Q2pETETZHzAj5TwjJentK9)
 
 ### Using the wallet
 
@@ -52,8 +54,22 @@ The wallet generally notifies you when you visit a web3 enabled website and trig
 
 Here's an example of creating an account with CryptoKitties:
 
-![Using the wallet](https://api.kauri.io:443/ipfs/QmRnQMBE8YVT1znfcqZof8JTZTiwZrE3RufH2Ei3RZXobs)
+![Using the wallet](https://ipfs.infura.io/ipfs/QmRnQMBE8YVT1znfcqZof8JTZTiwZrE3RufH2Ei3RZXobs)
 
 ### What's next
 
 The Opera wallet is limited but easy to use. It's [coming to iOS soon](https://blogs.opera.com/mobile/2019/03/opera-touch-ios-crypto-wallet/), and I hope for multiple account support. [Opera isn't the most popular browser with 3% of internet users](https://en.wikipedia.org/wiki/Usage_share_of_web_browsers), but that's still a lot of people, and maybe it's enough (combined with Brave users) to attract more mainstream users to web3 and dapps. What do you think?
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/will-the-opera-web3-wallet-drive-adoption/2cfdfa427d324b57b2afd034f3cfb145/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-04-24
+- **Kauri original tags:** opera, ux, wallet, ui, browser, web3
+- **Kauri original hash:** QmNVKDtvLqK5x23XuU6Qxgh7n6Pmuj8ZoAbt9MJHh1kLDk
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

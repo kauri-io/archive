@@ -9,6 +9,8 @@ some_url:
 
 # ERC-721 Non-Fungible Token Standard
 
+![](https://ipfs.infura.io/ipfs/QmcGSuCmQPfGWD838Bu8GMJU2QRauEsBUR9DkdGE6BiJkH)
+
 
 ### Simple Summary
 
@@ -445,3 +447,17 @@ XXXXERC721, by William Entriken -- a scalable example implementation
 ### Copyright
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/erc-721-non-fungible-token-standard/b382103e9496409c90c495f35940887e/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-16
+- **Kauri original tags:** ethereum, erc-721, token-standard, eip, erc721
+- **Kauri original hash:** QmXuHPSA4YpuECHUkieZaxXneNDXVoXSEd7NPBAY1nXi1y
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

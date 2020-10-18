@@ -84,3 +84,16 @@ We'd love to hear from you! If you have content to add to Kauri, here's how:
 
 * [Want to share your Ethereum knowledge? We're looking for articles](https://beta.kauri.io/article/b5c15961f13d4112bc82f6edb6fd3a75) , and thanks to an Ethereum Foundation grant, you will be paid for your knowledge
 * [Want to import your content from Medium? We have an importer that helps](https://beta.kauri.io/article/15673b4f86da49f5aed621696499c662/v2/kauri-importer-guidelines)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/april-25th-2019-newsletter/81555225559743089665e46d2619037a/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-04-26
+- **Kauri original tags:** newsletter, kauri, updates
+- **Kauri original hash:** QmTYTZYJoExtoGKqJM2KRarB6Ju5eWybC1a3EzR4qegWzL
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

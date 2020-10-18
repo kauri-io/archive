@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>How to test Ethereum smart contracts from Java &mdash; Kauri</title>
+    <title>How to test Ethereum smart contracts from Java &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -666,8 +669,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -766,10 +769,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1051,7 +1054,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1068,21 +1071,30 @@
 <h3 id="theres-a-library-for-that">There’s a library for that</h3>
 <p>All these moving parts scream out for a bit of tooling, so we wrapped it all up into a nice library called <a href="https://github.com/web3j/web3j-unit">web3j-unit</a>. It allows you to write tests in Java, and automatically start and interact with a local Ethereum node. This node is started by the web3j-unit library and managed behind the scenes. </p>
 <p>Rather than figuring out how to install, configure and run a local Ethereum node, this is now fully automated. You don’t even need to know there is one running. And when the tests have finished, the node is automatically terminated with nothing left behind unintentionally. </p>
-<p><img alt="Easily test Ethereum smart contracts using Web3j-unit" src="https://api.kauri.io:443/ipfs/QmPWzjAnYFEnagm5Mj2R4puXAdJmYDGkTcHKAiu2Xtik8D" /></p>
+<p><img alt="Easily test Ethereum smart contracts using Web3j-unit" src="https://ipfs.infura.io/ipfs/QmPWzjAnYFEnagm5Mj2R4puXAdJmYDGkTcHKAiu2Xtik8D" /></p>
 <p>What makes the above otherwise simple test special is the @EVMTest class annotation you see on line 11. This highlights the test for our web3j-unit library to pick up, and lets us create and inject the required Web3j instance, in addition to a transaction manager and gas calculator. On the annotation itself you’ll notice the type parameter. This defines which type of node will get started, with current support for Geth, Besu and our embedded EVM implementation we’ll cover below. </p>
 <p>With these injected you have a preconfigured and good to go connection to the Ethereum blockchain. We’re off to a great start with web3j-unit as it’s never been easier to test and interact with Ethereum smart contracts from Java. </p>
-<p><img alt="EVM + JVM = true" src="https://api.kauri.io:443/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU" /></p>
+<p><img alt="EVM + JVM = true" src="https://ipfs.infura.io/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU" /></p>
 <h3 id="running-evm-code-in-the-jvm">Running EVM code in the JVM</h3>
 <p>Wouldn’t it be nice if you could deploy and interact with Solidity smart contracts within the Java process you’re already running? Instead of dockerized nodes, just a library you can directly interact with? </p>
 <p>This is what we’re currently developing in the <a href="https://github.com/web3j/web3j-evm">web3j-evm</a> library, and it brings with it several benefits. </p>
 <p>Firstly, there is no need to start a docker image, which improves upon startup time and communication lag. Instead, just use the @EVMTest annotation with the default type = NodeType.EMBEDDED. </p>
 <p>Secondly, because we now run the Solidity bytecode within an EVM running inside the JVM, we don’t need to cross process boundaries. This lets us inspect all the details of what’s happening within your smart contract, which is great for providing context and debugging tools. </p>
-<p><img alt="Stepping through EVM byte code for that true low level experience" src="https://api.kauri.io:443/ipfs/QmTmfTszpp1FbCp4VZLPak1RZju5o9YK85DTNZzUF75M3t" /></p>
+<p><img alt="Stepping through EVM byte code for that true low level experience" src="https://ipfs.infura.io/ipfs/QmTmfTszpp1FbCp4VZLPak1RZju5o9YK85DTNZzUF75M3t" /></p>
 <p>The above gif is showing an early demo of this in action, where we’re stepping through the individual EVM opcodes that are executed as part of normal contract deployment and interaction. While this might be a bit low level, it does show the potential for higher-level tools. We’ll be sharing more details on this as it becomes available.</p>
 <h3 id="testing-against-testnets">Testing against testnets</h3>
 <p>While the @EVMTest annotation lets you get up and running with local Ethereum nodes from a single annotation, we also want you to just as easily get going on a testnet. There are times when testing your contracts on a testnet makes more sense than simply within an isolated local node, especially when doing integration testing. </p>
 <p>But there are additional things needed when using a testnet, specifically a prefunded wallet address and somewhere you can connect. Sure, it isn’t that difficult getting free test Ether, but it does bring with it some additional steps we’d like to eliminate. </p>
-<p>We’ll return with more on this as well when we have something to offer around the tooling of this in the near future, but the idea is to extend the @EVMTest annotation with additional types covering these. </p></div>
+<p>We’ll return with more on this as well when we have something to offer around the tooling of this in the near future, but the idea is to extend the @EVMTest annotation with additional types covering these. </p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-test-ethereum-smart-contracts-from-java/b1d2293f5c4442f1bafbb4eee2ce45d6/a</li>
+<li><strong>Kauri original author:</strong> Christian Felde (@cfelde)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-10</li>
+<li><strong>Kauri original tags:</strong> ethereum, developer-tool, java, developer-experience</li>
+<li><strong>Kauri original hash:</strong> QmbcT79uFqLxEzzCYQcG9AqhEbB5aKfiSsjornPncJoNUW</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../../Documentation%20and%20technical%20communication/why-write-documentation/" title="Why write documentation"><span>Previous</span></a></div>

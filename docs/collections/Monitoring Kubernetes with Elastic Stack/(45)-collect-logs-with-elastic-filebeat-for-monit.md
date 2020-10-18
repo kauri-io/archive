@@ -9,6 +9,8 @@ some_url:
 
 # (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes
 
+![](https://ipfs.infura.io/ipfs/QmZcCzNro3rnKo22XsMSmVRdxwj1jybedy9SHgQhPVHmpt)
+
 
 
 In the next section of this series, we are now going to install [**Filebeat**](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html), it is a lightweight agent to collect and forward log data to ElasticSearch within the k8s environment (node and pod logs). Moreover, specific [modules](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html) can be configured to parse and visualise logs format coming from common applications or system (databases, message bus).
@@ -337,3 +339,16 @@ In the following article, we will learn how to install and configure APM:
 
 <br />
 <br />
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(45)-collect-logs-with-elastic-filebeat-for-monit/28b4930506794915be2559dc5ee4b0b1/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-09-03
+- **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, kibana, monitoring, filebeat
+- **Kauri original hash:** QmVco48xYKasdoCbEqsXNXXTQm2eEhMaJihMtvkDniuSxs
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

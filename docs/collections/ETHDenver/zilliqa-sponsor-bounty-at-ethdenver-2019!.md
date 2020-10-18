@@ -9,6 +9,8 @@ some_url:
 
 # Zilliqa - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/Qmc79a5i7zjzBkgXSJFyNFsdQcYCpTARoxcbDoysyzRr5t)
+
 
 ## Company/Project Name and Description
 
@@ -60,5 +62,19 @@ Zilliqa is a scalable smart contract platform that aims to tackle the congestion
 ## Contact Information
 
 Han Wen Chua - hanwen@zilliqa.com
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/zilliqa-sponsor-bounty-at-ethdenver-2019!/a4e7e6f812ab44aaab4c9d45317370e2/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmYN2RQBpUkyNKBbtKjzhfuXT3VTm2foXAxekSJqjJwMpf
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

@@ -9,6 +9,8 @@ some_url:
 
 # The Graph - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmT9k8Lwq6oMieV4AdQLT7NadajD9gNmEWcTC3oTMx8rkt)
+
 
 ## Company/Project Name and Description
 
@@ -53,6 +55,20 @@ The Graph team will look for the following when assessing your projects:
 ## Contact Information
 
 Yaniv Tal - yaniv@thegraph.com
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/the-graph-sponsor-bounty-at-ethdenver-2019!/4d7af74855534454a5d57ca98ab8432a/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-16
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmT2KUj5HGbFbJgkjcNsbrFkp4nVqjSAgibUsQSNkARi7g
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

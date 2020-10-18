@@ -9,6 +9,8 @@ some_url:
 
 # BUIDLing a Mesh of Humans
 
+![](https://ipfs.infura.io/ipfs/QmZfmfUxvYSYUGV382hHVwQyZar4DDL31ABkspjPjXRbSw)
+
 
 
 My background is in data science and product analytics, with an increasing interest towards data-driven product growth. Before joining Gitcoin, I worked as a data scientist in the health and wellness space, playing a variety of hats at companies both large and small.
@@ -51,4 +53,18 @@ Okay back to BUIDLing. See ya’ll around!
 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*91GgdFbhUB1Ggl_Mysnqog.png)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buidling-a-mesh-of-humans/950354a448a54d7c8e7448a7c0d93237/a
+- **Kauri original author:** Gitcoin (@gitcoin)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** Qme41NAjmmMCNsPbhrcUo8phGFajuh9KZDbBaK8gcekHhX
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

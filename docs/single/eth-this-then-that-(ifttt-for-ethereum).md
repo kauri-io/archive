@@ -51,3 +51,17 @@ https://github.com/eththisthenthat/if-be
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/eth-this-then-that-(ifttt-for-ethereum)/472179d37d274fb6b67f999a457d87b0/a
+- **Kauri original author:** John D. Storey (@johndanger)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-shapeshift-2019, bounty-ideasbynature-2019, bounty-blocknative-2019
+- **Kauri original hash:** QmZ19BmpxuWtU2jYMVhTvrfEVMUThwP4fAzGRSW2pnHjAR
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

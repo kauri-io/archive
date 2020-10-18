@@ -18,7 +18,7 @@ _If you don’t know what an ERC-721 is, you can check out our previous posts._
 
 ### Mintable.app
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt)
+![](https://ipfs.infura.io/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt)
 
  
 [Mintable](https://mintable.app)
@@ -32,14 +32,14 @@ You can:
 
 #### Manage any ERC-721 token
 
-![](https://api.beta.kauri.io:443/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
+![](https://ipfs.infura.io/ipfs/Qme1fZuoSbckm3ZPAJhiZtujsTbmZTzXsESvtV44cu4oWR)
 
 
 
 
  * Also browse within that contract for all its tokens
 
-![](https://api.beta.kauri.io:443/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7)
+![](https://ipfs.infura.io/ipfs/QmdP2XLwD9oQ4pmncr8BSK1eEHwEKHV87tn6QadCYWXKo7)
 
 
 
@@ -48,7 +48,7 @@ You can:
 
  * Interact with the smart contract to transfer
 
-![](https://api.beta.kauri.io:443/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
+![](https://ipfs.infura.io/ipfs/Qmb3iA92Ty1KKJyihoYptiMn6BjMSovn4STEAecc3Av7D2)
 
 
 
@@ -57,7 +57,7 @@ You can:
 
 #### Create a new ERC-721 with any data you want
 
-![](https://api.beta.kauri.io:443/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
+![](https://ipfs.infura.io/ipfs/QmZH3gZD5nATaGWrRkzriHXTLoF4RcK7yswMQADtwM7V9j)
 
 
 
@@ -68,13 +68,13 @@ You can:
 
  * You have complete ownership and get an email of the information
 
-![](https://api.beta.kauri.io:443/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
+![](https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7)
 
 
 ### Mintable Launches December 1st and will hopefully be your easiest way to manage ERC-721s
 Mintable has some high hopes and dreams, we hope we will achieve them all and we want you to be apart of it!
 
-![](https://api.beta.kauri.io:443/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)
+![](https://ipfs.infura.io/ipfs/QmXjjHgemofJ7dV4Qr3STLGpFua27BDjadDoZ1aDPsbDtW)
 
 Our goals for Mintable:
 
@@ -100,3 +100,17 @@ If you love NFTs join Mintable’s discord!
 discord: 
 [https://discord.gg/fUEmc8d](https://discord.gg/fUEmc8d)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-free-manager-for-all-erc-721s-mintable.app-laun/f143252c80f044c5a5f0ce7a74ee1caf/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2018-12-05
+- **Kauri original tags:** none
+- **Kauri original hash:** QmfPptv6rNXDxcJW9jXcKbeH4Fuk2ro3ZCRzXbxChjzgPV
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

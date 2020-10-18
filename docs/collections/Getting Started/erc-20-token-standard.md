@@ -9,6 +9,8 @@ some_url:
 
 # ERC-20 Token Standard
 
+![](https://ipfs.infura.io/ipfs/QmcGSuCmQPfGWD838Bu8GMJU2QRauEsBUR9DkdGE6BiJkH)
+
 
 ### Simple Summary
 
@@ -193,3 +195,17 @@ Historical links related to this standard:
 
 ### Copyright
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/erc-20-token-standard/d3e24cbf13fd4af9892773552555c480/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-16
+- **Kauri original tags:** erc20, ethereum, erc-20, token-standard, eip
+- **Kauri original hash:** QmVQvhwoyDrRYVTKS7PwwrtKE22yAKrNEA948JTQhKDTXk
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

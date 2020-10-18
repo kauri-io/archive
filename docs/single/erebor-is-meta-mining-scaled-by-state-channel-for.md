@@ -47,3 +47,17 @@ https://github.com/elevenbuckets/ETHDenver_2019_Erebor
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/erebor-is-meta-mining-scaled-by-state-channel-for/0427ea3098034ba686d59b7f2514df6d/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmWwsaptNrWcFViydQSDEtju5twXjq4nz322ec9QS9vC1z
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

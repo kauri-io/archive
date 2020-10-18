@@ -9,6 +9,8 @@ some_url:
 
 # Status.im - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmYi2ZzFQP11NiCmGM6JS9p5jjGeRcLJaHZDrBknjmRUrv)
+
 
 ## Company/Project Name and Description
 
@@ -41,3 +43,17 @@ Technical Merit, Wow-Factor & Creativity
 ## Contact Information
 
 Chris Hutchinson - chris.hutchinson@status.im
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/status.im-sponsor-bounty-at-ethdenver-2019!/1104543e976146e1989e774d84a95ed8/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-14
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmRdKUsfHWzgM1PrjMAJBZB5ucRdMwy4LEfysRU98F88wk
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

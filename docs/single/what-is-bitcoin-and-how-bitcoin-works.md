@@ -9,6 +9,8 @@ some_url:
 
 # What is Bitcoin and How Bitcoin Works?
 
+![](https://ipfs.infura.io/ipfs/QmdpG5yneQ3Tr44nYWJAhbpuKn1cTWACKW2MvDqD7dnTpZ)
+
 
 Let’s talk about Bitcoin today. I know the topic is a little hard to swallow, and there are tons of articles out there, but I will explain it like [John Oliver](https://www.youtube.com/user/LastWeekTonight). 
 
@@ -116,3 +118,17 @@ Here are some [common Bitcoin questions](https://blog.coincodecap.com/bitcoin-fo
 *   **[BTC Wallets For Android](https://blog.coincodecap.com/best-btc-wallets-for-android/)**
 *   **[Find a Bitcoin-ATM](https://blog.coincodecap.com/find-a-bitcoin-atm-near-me/)**
 *   **[Best hardware wallet to secure your bitcoin](https://blog.coincodecap.com/best-hardware-wallet-bitcoin/)**
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-is-bitcoin-and-how-bitcoin-works/359547ca842744f6bb213050a3abd635/a
+- **Kauri original author:** CoinCodeCap (@coincodecap__)
+- **Kauri original Publication date:** 2020-02-25
+- **Kauri original tags:** bitcoin
+- **Kauri original hash:** QmaNcqxDvYdo8YprD1utEQZX761UfD6RuL1HmGVUVmZZZQ
+- **Kauri original checkpoint:** unknown
+
+
+

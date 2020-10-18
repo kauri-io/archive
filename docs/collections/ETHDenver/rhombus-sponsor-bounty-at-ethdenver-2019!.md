@@ -9,6 +9,8 @@ some_url:
 
 # Rhombus - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/Qmcbj52UW1bhcUbm35MGjs7n5t38VJzov5MTqXF8YdmtMh)
+
 
 ## Company/Project Name and Description
 
@@ -46,5 +48,19 @@ Prizes will be awarded to the most interesting applications of our oracle feeds.
 ## Contact Information
 
 Doug von Kohorn - dougvk@gmail.com
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/rhombus-sponsor-bounty-at-ethdenver-2019!/74ed99544dc34542afccb51ac7532d3f/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmWmE7wtqjTcNzKhEgCC8e5CfTfVgcmyA181SvuKzT9JiH
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

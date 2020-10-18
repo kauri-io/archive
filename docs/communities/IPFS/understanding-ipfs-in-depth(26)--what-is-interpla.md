@@ -9,6 +9,8 @@ some_url:
 
 # Understanding IPFS in Depth(2/6)  What is InterPlanetary Linked Data(IPLD)?
 
+![](https://ipfs.infura.io/ipfs/Qmc1GPH8GCovRt8qZu9C2VrH571T9GrtXS7XuCnTYjwdsL)
+
 
 This article was first published on our open-source platform, [SimpleAsWater.com](https://simpleaswater.com/). If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out [SimpleAsWater](https://simpleaswater.com).
 
@@ -500,3 +502,16 @@ I hope you have learned a lot of thing from this post. In the next post, we will
 
 
 This article was first posted on [SimpleAsWater.com](https://simpleaswater.com/online-publishing-using-ipld/)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/understanding-ipfs-in-depth(26):-what-is-interpla/2de296caf9ac41f296484198e3350e8e/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-01-05
+- **Kauri original tags:** ipfs, simpleaswater, dag, linked-data, ipld
+- **Kauri original hash:** QmTUFxa1ExkdLDfFSUbLVcvvbzDNjmugJf8DFRpPdcUi8i
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

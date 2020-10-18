@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>An Introduction to Bonding Curves &mdash; Kauri</title>
+    <title>An Introduction to Bonding Curves &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -664,8 +667,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -764,10 +767,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1049,7 +1052,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1067,7 +1070,7 @@
 <h3 id="a-case-study-cryptokitties">A Case Study: Cryptokitties</h3>
 <p>Take the case of the most famous dApp, Cryptokitties. Cryptokitties is an interesting example, as it only provides a bonding curve for its rarest Gen 0 kitties. All other kitties are produced on the secondary market and not by the founding team themselves. This hybrid structure of the free market mediating the general supply of the “original” cryptokitties, and allowing the free market to dictate the value of different traits, different generations, etc., allows for a flexible framework for individuals to participate in. Thus, the low-end purchaser can still get their cheap Gen-4 kitties for 0.002 ETH, while the premium customer can bid for the rare Gen-0 kitties. This type of price curve allows for customer differentiation, providing different products with different prices such that the collective ecosystem can have aggregate network effects in terms of total participants of all shapes and sizes.</p>
 <p>This pricing also mediates the market price of secondary market Gen 0s - no individual would want to pay more for a lesser kitty. Gen-0 kitties also have a unique constraint on its bonding curve: a fixed supply. There will only ever be 50,000 Gen-0 kitties produced. This means that the bonding curve also has an asymptote, where the release of said tokens stops, regardless of the price you’re willing to pay to coerce a new Gen-0 kitty.</p>
-<p><img alt="Cryptokitties is one of the best examples of a price bonding curve" src="https://api.kauri.io:443/ipfs/QmdYY2q4fGsc9hSX8bm6aVeDJ25rS1NFNrYwsWgyrmFKGh" /></p>
+<p><img alt="Cryptokitties is one of the best examples of a price bonding curve" src="https://ipfs.infura.io/ipfs/QmdYY2q4fGsc9hSX8bm6aVeDJ25rS1NFNrYwsWgyrmFKGh" /></p>
 <p>Because of the immutability of releasing such a smart contract into the open public, the centralized entity that issued the contract is held to their promise, as if they deviate from the initial code for any unreasonable cause, they may torch their hard-earned committee and kill their revenue generating smart contract. If Cryptokitties were to try to print more than they stated, the community would call into question the scarcity of the ERC-721 tokens, and thus drop the value and willingness to pay for potential Cryptokitty customers.</p>
 <p>Cryptokitties also sets a price on its “siring” or “breeding” function, minting new cryptokitties from your existing cryptokitties.</p>
 <p>The cost of this breeding also sets a natural anchor for pricing of non-Gen 0 cryptokitties - if any “second-hand” (Gen &gt;=1) cryptokitty were offered at a price higher than the “newly bred” kitties, nobody would buy the second-hand ones, given equal or inferior attributes for these kitties.</p>
@@ -1079,7 +1082,7 @@
 <p>Dapper Labs, the team behind Cryptokitties, recently launched another game, Cheeze Wizards - in which the team created two different pricing curves: a flat and a linear curve. For its most basic Wizard, the entry price was 0.07 ETH. Thus, no matter how many people decided to purchase a Cheeze Wizard of this type, the price would remain constant.</p>
 <p>Meanwhile, there was an option for another type of Cheeze Wizard, for which each Wizard’s price was 0.01ETH higher than the one before it. This bonding curve would be described as a linear one, with the price being directly related to the level of adoption and demand. However, there’s an added element to this price curve - the “power attribute” of each Wizard is proportional to the price paid for it. This element combats the biggest issue with linearly-increasing bonding curves: a diminishing marginal incentive to participate.</p>
 <p>Typically, in a linear pricing curve, while each purchase equally increases the price for all participants (giving it an image of fairness), the earliest participants still have the highest potential returns, and the marginal percentage returns to the Nth customer are just 1/N, leading to a decay that makes it difficult to sustain sufficient network growth. The Cheeze Wizard set-up allows for later participants to be compensated in a different manner - a more powerful item.</p>
-<p><img alt="Cheeze Wizards" src="https://api.kauri.io:443/ipfs/QmYwoiSAL7qbcRj3ET85Mi9Gg2Cz4eiu7jGSXYyv5jDx7z" /></p>
+<p><img alt="Cheeze Wizards" src="https://ipfs.infura.io/ipfs/QmYwoiSAL7qbcRj3ET85Mi9Gg2Cz4eiu7jGSXYyv5jDx7z" /></p>
 <p>Few bonding curves in practice act as purely linear, often because the difficulty of bootstrapping a network often requires a greater “penalty” for being a late bird vs being an early bird.</p>
 <p>For example, during the ICO craze of 2017, many ICOs offered steep discounts for earlier participants (either based on hard caps, rounds, or time tranches). These discounts mimic the properties of bonding curves, except that the price of these tokens often occurred before any product or network was deliverable.</p>
 <h3 id="exponential">Exponential</h3>
@@ -1087,7 +1090,7 @@
 <p>In this 2^n example, with current ETH supply sitting at under 110 million, 2^27 would already be 134217728, so only 26 customers are even possible.</p>
 <p>Even if the common ratio of this exponential function is lower, or for linear pricing curves with a low slope, there is still a risk that the price can be unbounded, making it difficult to predict or project how adoption may continue beyond initial users.</p>
 <p>Speaking of Ponzi schemes, the Fomo3D dApp creates incentives to be the “last purchaser” of a key, making the value of holding the last key of a round worth the entire pot size, and all previous purchasers’ keys worthless. This creates a price curve in which there is no price (or even gas fees) that individuals should pay for certain keys. It creates a time frame in which an individual should not bid up and render their previous purchase worthless, and a huge bounty for individuals who can mine/clog the Ethereum network, or otherwise exploit the smart contract that mediates this function.</p>
-<p><img alt="Fomo3D saw a lot of activity in 2018, with a designed on-chain Ponzi-like scheme." src="https://api.kauri.io:443/ipfs/QmZcQaUEFqrSAYM47om7HRoN67s28D8zSEtfEi773dwsLR" /></p>
+<p><img alt="Fomo3D saw a lot of activity in 2018, with a designed on-chain Ponzi-like scheme." src="https://ipfs.infura.io/ipfs/QmZcQaUEFqrSAYM47om7HRoN67s28D8zSEtfEi773dwsLR" /></p>
 <p>Thus, on-chain bonding curves are not immune to exploits by default; developers must design them with care such that individuals can be confident in the way that they work - otherwise, their predictability, and their usability, may be significantly affected.</p>
 <p>All curves are nominal in nature, and if not denominated in a stablecoin, must be benchmarked to the growth of other things in the space. For example, if a pricing curve was <code>y = x^2</code>, with <code>X</code> being the price of ETH, but ETH fell to its square root at every time <code>t</code> in the future, then you’d have a fixed price in “real” fiat terms. Holding an asset early would’ve meant appreciating in ETH terms but no change or reward in real terms of USD.</p>
 <p>Consequently, as much as many staking mechanisms are promising high nominal interest rates, bonding curve growth must also be treated with a grain of salt in regards to whether or not their “advertised” growth is likely to come to fruition.</p>
@@ -1100,7 +1103,16 @@
 <p>The last type of bonding curve, which may be one that will become more popular in future projects, is a logistic curve. Logistic curves try to incorporate some features of both exponential and logarithmic functions. In terms of convexity, a logistic function is divided into three segments, an initial slow growth phase, a step-growth phase, and a second slow phase approaching a finite value. The first initial slow phase intentionally weeds out the short term opportunist, so that those just looking for short term speculative gains are deterred.</p>
 <p>However, the difficulty in growing ecosystems or communities is that nobody ever knows when hockey stick growth can or will happen. As a result, a bonding curve that can trigger the “fast growth phase” based on a certain set of network metrics on adoption, either directly on chain or through a governance vote, may be able to usher in the second phase - a rapid expansion to give a project a significant speed boost in growth. Once the network grows to a sustainable, significant level, the same mechanism can be used to taper the price increases, eventually reaching a finite redemption value.</p>
 <p>This type of pricing structure is particularly relevant for “completable projects”, for which further development or other growth is not necessary. Once a certain group or platform attains a critical level of users, it becomes an evergreen product, then the creators of the network can exit the project at a flat value, and allow others to build secondary, layer-two products on top of it.</p>
-<p>Overall, the importance of a well-designed bonding curve is made clearer by the increasing presence of DeFi applications that are slowly becoming more efficient in determining the time value of value locked in crypto networks. Bonding curves can help anchor or influence the “time value” of participation in the network, helping projects overcome the issues of initial hype and demand as well as sustaining continued support from their communities.</p></div>
+<p>Overall, the importance of a well-designed bonding curve is made clearer by the increasing presence of DeFi applications that are slowly becoming more efficient in determining the time value of value locked in crypto networks. Bonding curves can help anchor or influence the “time value” of participation in the network, helping projects overcome the issues of initial hype and demand as well as sustaining continued support from their communities.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/an-introduction-to-bonding-curves/f7853f4914bd42b6bee19758a97b42ee/a</li>
+<li><strong>Kauri original author:</strong> C (@calvin)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-04</li>
+<li><strong>Kauri original tags:</strong> bonding-curves, economics, dapp</li>
+<li><strong>Kauri original hash:</strong> QmRDsdAmGWUc1TBXvoypLSeLAEuk1FsyL3JcdihoqKJZ41</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../set-protocol--baskets-of-tokenized-assets/" title="Set Protocol Baskets of tokenized assets"><span>Previous</span></a></div>

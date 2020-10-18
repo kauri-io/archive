@@ -102,3 +102,17 @@ Prysmatic Labs has provided one such [entry point](https://github.com/prysmaticl
 
 <p>
 **Note:** Scaling Today is funded by the May 2018 Ethereum Grants Program. For more information visit: [scaling.today](https://scaling.today) 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/insight-1:-documentation/8ec51946d7104fe9a7ee12b3e85224f8/a
+- **Kauri original author:** Chris Spannos (@chris-spannos)
+- **Kauri original Publication date:** 2018-11-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbzdU5Kw47G8yx6UdFP9B4Ts1ZLPBUoV3ehdRQAXCFHP2
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

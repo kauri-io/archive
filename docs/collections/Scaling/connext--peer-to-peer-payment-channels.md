@@ -9,6 +9,8 @@ some_url:
 
 # Connext  Peer-to-Peer Payment Channels
 
+![](https://ipfs.infura.io/ipfs/QmW9QFTyAUnd4NwfNiehLpNQsow2e8W1sn2Aq6EVrzKDX9)
+
 
 > Connext is building open source, p2p micropayment infrastructure. Their first product uses payment channels on the Ethereum blockchain. Payment channels allow many off-chain transactions to be aggregated into a much smaller number of on-chain transactions.
 
@@ -375,3 +377,16 @@ This can be partly trust-minimized by allowing for conditional resolution of pay
 Our hub is currently operated by us (Connext) and is centralized off-chain similar to how 0x relayers like Radar Relay work. This means that our hub could be censored, DDoS’d or shut down, which would mean that our payment service could go offline.
 
 Hosting a hub is an interim solution to solve cheap, fast payments now while we work on building out the remaining pieces needed for a decentralized state channel network. We can fix our own centralization by allowing other Connext hubs (at that point, nodes) to be networked together, by making it easy for anyone to run a node, and by moving to sending state updates over some P2P messaging protocol rather than over https. These changes will require some quality of life improvements to our contract functions, however, so we expect to only start work on them after our next contract iteration is deployed.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/connext:-peer-to-peer-payment-channels/ea598e8c666c413e8df0a6dd106a1c28/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-13
+- **Kauri original tags:** scaling, state-channels
+- **Kauri original hash:** QmXNh3DMbGsymeorreYLeydbGoH9gbmxit2pmpcJVWC93r
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

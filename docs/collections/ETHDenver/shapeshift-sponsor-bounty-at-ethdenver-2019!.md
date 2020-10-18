@@ -9,6 +9,8 @@ some_url:
 
 # ShapeShift - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmZrtFfvrBgGocFdLPGybDrse5X1qt2Gcnfv2pR3N44ciF)
+
 
 ## Company/Project Name and Description
 
@@ -51,5 +53,19 @@ Submissions will be judged based on:
 ## Contact Information
 
 Lizzy - lizzy.fit@shapeshift.io
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/shapeshift-sponsor-bounty-at-ethdenver-2019!/0ce38ea26ee046beb0d6590a5b33207a/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmS5bVZUC1sP8VbAfYZai4H8vn5Tyc36uJgoUPwMnJfCv4
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
 
 

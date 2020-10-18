@@ -63,3 +63,17 @@ https://github.com/pranav-singhal/ethDenver
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cypherpress/0cb195dc659a4a80bfad006f8d423c0a/a
+- **Kauri original author:** null (@d4ea698dfcdf0addeaae77a2d6584f822738cf66)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-nucypher-2019, bounty-infura-2019
+- **Kauri original hash:** QmbLwmKoHhWdXv6vP9QgNufvoXQA85sFA4CkT4gZC1Kacj
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

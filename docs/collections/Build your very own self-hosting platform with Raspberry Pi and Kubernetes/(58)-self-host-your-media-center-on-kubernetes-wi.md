@@ -9,6 +9,8 @@ some_url:
 
 # (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
 
+![](https://ipfs.infura.io/ipfs/QmUMQnRmFtNMXkBfYQdjG9WMCpAof49zavMNJXYHSDSa2k)
+
 
 <br />
 
@@ -35,7 +37,7 @@ In the next article of this series, we will learn how to install and configure a
 - **TV Show/Movie Media Management:** We'll use Sonarr and Radarr to automate the media aggregation. It searches, launches downloads and renames files when they go out
 - **Media Center/Player:** Plex (server/player) will allow us to make our Media resources accessible from anywhere.
 
-![](https://api.kauri.io:443/ipfs/Qmex8bC6gLPAHCmtAc2EHe3jnUYjXoV9GA5SFQFcrboqCu)
+![](https://ipfs.infura.io/ipfs/Qmex8bC6gLPAHCmtAc2EHe3jnUYjXoV9GA5SFQFcrboqCu)
 
 <br />
 <br />
@@ -225,7 +227,7 @@ $ helm repo update
 <br />
 <br />
 
-![](https://api.kauri.io:443/ipfs/QmTp1hoJ558ZtTRXDtsmj6smFJLq2y6J8d7a5MD6gmPzfH)
+![](https://ipfs.infura.io/ipfs/QmTp1hoJ558ZtTRXDtsmj6smFJLq2y6J8d7a5MD6gmPzfH)
 
 <br />
 
@@ -350,7 +352,7 @@ Now Transmission and the Nginx Ingress routes are deployed, you should be able t
 <br />
 <br />
 
-![](https://api.kauri.io:443/ipfs/QmNsoV9jUjVJVz4dw9RVFUy8N6Q6rsZAHvHXk6aooMnZAZ)
+![](https://ipfs.infura.io/ipfs/QmNsoV9jUjVJVz4dw9RVFUy8N6Q6rsZAHvHXk6aooMnZAZ)
 
 <br />
 ### Torrent Providers Aggregator- Jackett over VPN
@@ -487,7 +489,7 @@ Go to Jackett on [http://media.192.168.0.240.nip.io/jackett](http://media.192.16
 <br />
 <br />
 
-![](https://api.kauri.io:443/ipfs/QmXrpHKsVCnsFQpzhprH1TYdBbyZaxssjy8hv34XkybULz)
+![](https://ipfs.infura.io/ipfs/QmXrpHKsVCnsFQpzhprH1TYdBbyZaxssjy8hv34XkybULz)
 
 <br />
 ### TV Show Library Management - Sonarr
@@ -598,7 +600,7 @@ Go to Sonarr on [http://media.192.168.0.240.nip.io/sonarr](http://media.192.168.
 <br />
 <br />
 
-![](https://api.kauri.io:443/ipfs/QmXoFr3jf7GxTXtg5ezY1RKbUDjNiGXBhF2cbwwFYetNSk)
+![](https://ipfs.infura.io/ipfs/QmXoFr3jf7GxTXtg5ezY1RKbUDjNiGXBhF2cbwwFYetNSk)
 
 <br />
 ### Movie Library Management - Radarr
@@ -701,7 +703,7 @@ Go to Radarr on [http://media.192.168.0.240.nip.io/radarr](http://media.192.168.
 <br />
 <br />
 
-![](https://api.kauri.io:443/ipfs/QmbASTjZAenaVQ3FGg9oGRSjo1PZVG5JwjjKkdRSFPzaEu)
+![](https://ipfs.infura.io/ipfs/QmbASTjZAenaVQ3FGg9oGRSjo1PZVG5JwjjKkdRSFPzaEu)
 
 <br />
 ### Media Server - Plex
@@ -857,3 +859,17 @@ In conclusion, you now have everything you need to automate and manage your Medi
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(58)-self-host-your-media-center-on-kubernetes-wi/8ec7c8c6bf4e4cc2a2ed563243998537/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-05-26
+- **Kauri original tags:** self-hosting, kubernetes, tv-show, k8s, plex, bittorrent, htpc
+- **Kauri original hash:** QmWcNJUeEMcNMrBb6CUqg6egT6tmsZWiaJSU3rPY3V5bL8
+- **Kauri original checkpoint:** unknown
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Reducing Mainnet Transactions with a Sidechain
 
+![](https://ipfs.infura.io/ipfs/QmZe6PFEZx9y9LAMSYDeYkeGWH73Nt9ZP2bpG69u8YGrDP)
+
 
 At Kauri, we think its important that article attribution is open and permanent on the immutable Ethereum blockchain, but we also believe that limiting the number of transactions that a user has to send when interacting with the platform is critical to a great user experience.  These two somewhat conflicting goals left us with a tricky dilemma; not requiring a transaction to be sent for every article that is published, but also providing a timestamped way to prove ownership on the Ethereum mainnet for every article.
 
@@ -19,7 +21,7 @@ To send a transaction, a gas fee must be paid in ether, which adds friction into
 
 Also, there is the issue of fluctuating gas costs during network congestion.  There are times when the cost of sending a transaction is significantly higher than average, such as during the infamous [CryptoKitties](https://www.cryptokitties.co/) network spike towards the end of 2017.  If / when this happens again, users of your application will probably see their transactions stuck in the mempool for hours or days, which could cause confusion and a negative perception of your application if they don't fully understand what's going on behind the scenes.  Experienced users will end up having to pay exorbitant fees to interact with your DApp, or will simply refuse to use it until the average gas price lowers to an acceptable amount.
 
-![](https://api.beta.kauri.io:443/ipfs/QmWiL7u78CTbQWegkyRwZV9d7eFiJWTgK6CRWqtUtVQe6A)
+![](https://ipfs.infura.io/ipfs/QmWiL7u78CTbQWegkyRwZV9d7eFiJWTgK6CRWqtUtVQe6A)
 _Peak Cryptokitties Network Congestion_
 
 The Ethereum space is quite unique in the software development space because of the fact that backend architecture decisions can significantly affect the overall UX of the entire application.
@@ -90,7 +92,7 @@ If you are unfamilar with the concept of Merkle Trees, its worth reading [this](
 
 Analogous to an operator in Plasma, the checkpointers job is to gather up all the sidechain articles that have not yet been committed to the mainchain and create a Merkle tree of these articles.  They must also publish a 'checkpoint document' to IPFS, which is essentially all the data required to reconstruct the Merkle tree, in order to create a Merkle proof.
 
-![](https://api.beta.kauri.io:443/ipfs/QmcxXuwa5jPdsQDZroZ2t3hvBE6cRXFPKMSFwbKbY5nZ1S)
+![](https://ipfs.infura.io/ipfs/QmcxXuwa5jPdsQDZroZ2t3hvBE6cRXFPKMSFwbKbY5nZ1S)
 
 ### Article Lifecycle
 
@@ -113,7 +115,7 @@ Analogous to an operator in Plasma, the checkpointers job is to gather up all th
 1. The smart contract verifies that the signature has been signed by a trusted checkpointer, the Merkle Root is stored, and an ArticlesCheckpointed event is emitted containing the Merkle Root and IPFS hash of the checkpoint document.
 1. The checkpointer listens for the ArticlesCheckpointed event, and sets the checkpoint IPFS hash on all sidechain articles included within the checkpoint (they are then considered 'checkpointed').
 
-![](https://api.beta.kauri.io:443/ipfs/QmeSS7priz6SfLW6Z93daCpVM8nQhZtaf6NUZdyZtgK51h)
+![](https://ipfs.infura.io/ipfs/QmeSS7priz6SfLW6Z93daCpVM8nQhZtaf6NUZdyZtgK51h)
 
 #### Proving Article Authorship
 
@@ -127,7 +129,7 @@ Analogous to an operator in Plasma, the checkpointers job is to gather up all th
 _Note: Steps 2 - 4 will generally be performed by the Kauri middleware on behalf of the user for efficiency, but this is not a necessity, and could be done in the browser._
 
 _Proving Authorship using Kauri Middleware to Generate Proof_
-![](https://api.beta.kauri.io:443/ipfs/QmX8xE4JyfjdkqL9vbsp9tQSVbA5KrRcxhFHhNKqGKthff)
+![](https://ipfs.infura.io/ipfs/QmX8xE4JyfjdkqL9vbsp9tQSVbA5KrRcxhFHhNKqGKthff)
 
 ### Automatic Checkpointing
 
@@ -143,7 +145,7 @@ This description assumes that it will always be a Kauri user that instigates the
 
 Having access to the checkpoint documents is vital in order to prove ownership of an article.  As mentioned earlier, this should therefore be pinned in multiple places, and the checkpointer should keep a backup, centralized copy in a database so that it can be re-added to IPFS if it somehow gets unpinned everywhere.  It would also be a good idea to provide a way for users to download all checkpoint documents for articles that they have written.  If they store these securely then article ownership can always be proven.  If even more decentralization is required, then a Kauri client could be created for running on a users desktop machine, which would constantly listen for ArticlesCheckpointed events, and store any checkpoint documents for articles that the user is interested in.
 
-![](https://api.beta.kauri.io:443/ipfs/QmVebkZqyx3DVhWGsgLAWwNPsuVSRp8YSedwv6CzX1cNRT)
+![](https://ipfs.infura.io/ipfs/QmVebkZqyx3DVhWGsgLAWwNPsuVSRp8YSedwv6CzX1cNRT)
 
 ### What Can Go Wrong?
 
@@ -168,3 +170,16 @@ The checkpointer actor does introduce a layer of trust.  The checkpointer(s) sho
 ## Thanks
 
 Thanks to the entire Kauri team, for helping with the design and suggesting edits to this article.  A special shoutout to Gregoire "Diagram Master" Jeanmart for producing the images in the article.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/reducing-mainnet-transactions-with-a-sidechain/a66d50655f8746edb7df90de4b8eb416/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2019-12-13
+- **Kauri original tags:** scaling, dapp, kauri, sidechain
+- **Kauri original hash:** QmdTJXDrQnFK4sSd4yHrKEbeuoShwgw2LnExttiw7TsPPs
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

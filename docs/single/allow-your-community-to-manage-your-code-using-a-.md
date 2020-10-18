@@ -55,3 +55,17 @@ https://www.dropbox.com/s/8hgb0t12emf4ogq/AutoPR-spedup.mp4?dl=0
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/allow-your-community-to-manage-your-code-using-a-/a20c2d43ab954852a48227c5dd4eed99/a
+- **Kauri original author:** David Conroy (@david-conroy)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ideasbynature-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmPpkpRDBDZmDCPViVNSK2iYfMQJDxns8s4BYT1Xw6gSSd
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

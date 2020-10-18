@@ -9,6 +9,8 @@ some_url:
 
 # Gamifying Crypto Assets with the ERC998 Composables Token Standard
 
+![](https://ipfs.infura.io/ipfs/QmcsGBpxZztnZbiAR3dUfzxHpZ9pVrYUU1Qt6SQTatVi2p)
+
 
 Assets can be complex. Take a house, for example; you're not just selling the ownership of the land it sits on, but also the physical attributes of the building - the foundation, the wood, the interior walls, the roof, the stairs. Sometimes, if you're selling a fully furnished house, that asset will also include expensive furniture pieces such as couches, dining tables, bed frames and more. When it comes to crypto,  attributing an ERC721 token to any non-fungible asset doesn't give you the space to interact with the asset in all the ways you possibly can. You'd be compressing all the pieces of the item into a single representation, and that representation often isn't accurate, nor helpful to you if you want to later pull them apart to sell them individually.
 
@@ -612,3 +614,16 @@ There’s some super cool projects that are already leveraging crypto composable
 3.  **[Mintable.app](https://mintable.app/)** → Similar to mokens.io, this project allows you to create your own ERC721 NFTs, browse others’, and organize them in a streamlined manner. It’s essentially an ERC721 manager for when in-game assets or other crypto collectibles start to become a little confusing to make sense of yourself. This includes, of course, management of ERC998 NFTs, and further down the line, a visualization of the ownership tree.
 
 To wrap up, ERC998 crypto composables are a new token standard that now allows you to do even more with your non-fungible tokens, and if moved into real-world verticals, can make our interactions with assets so much easier. They might seem complicated on the surface, but they’re not too hard to implement either, so do try it out and tinker with some of the smart contracts in this article!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/gamifying-crypto-assets-with-the-erc998-composabl/436178ce670d4a9e9ffbd9cb7a8476fd/a
+- **Kauri original author:** Ramy Zhang (@ramyjzhang)
+- **Kauri original Publication date:** 2019-08-08
+- **Kauri original tags:** cryptocurrency, erc20, ethereum, token-standard, erc721, erc998
+- **Kauri original hash:** QmSSnQKTqcirc1kJpibuxAuehQdfUcpYFyodZzjwagT1RV
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -9,8 +9,10 @@ some_url:
 
 # Frustrated by long transaction latency and high cost? Try Celer SDK!
 
+![](https://ipfs.infura.io/ipfs/QmbQtYwD1sfLDytDbG2HMpGgcVEskqEwPUKNG2cMVGBvG2)
 
-![](https://api.kauri.io:443/ipfs/QmbQtYwD1sfLDytDbG2HMpGgcVEskqEwPUKNG2cMVGBvG2)
+
+![](https://ipfs.infura.io/ipfs/QmbQtYwD1sfLDytDbG2HMpGgcVEskqEwPUKNG2cMVGBvG2)
 
 Dear ETHDenver hackers,
 
@@ -83,7 +85,7 @@ We'll be hosting a meetup with the Chainlink team the night before the hackathon
 
 Celer Network’s core engineers with Cnicorn T-shirts will present onsite to give instructions and answer questions at our booth @ETHDenver. You’re welcomed to join our [Discord](https://discord.gg/Trhab5w) and [Telegram](https://t.me/celernetwork) channel beforehand!
 
-![](https://api.kauri.io:443/ipfs/QmZrwYdPNKKnhjrmeSbxJ8PSmYnudQrfCpzwwG9WHvzSWZ)
+![](https://ipfs.infura.io/ipfs/QmZrwYdPNKKnhjrmeSbxJ8PSmYnudQrfCpzwwG9WHvzSWZ)
 
 To achieve the level of interaction engaging a larger number of users, simply tweaking the blockchain layer is not enough.
 **A layer-2 scalability platform that enables hyper-interactive applications is a must.**
@@ -95,4 +97,18 @@ To prepare for hackathon, some resources to help you get started:
 * Github: [https://github.com/celer-network](https://github.com/celer-network)
 
 Looking forward to building off-chain DApps and rocking the blockchain industry with you at ETHDenver!
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/frustrated-by-long-transaction-latency-and-high-c/b3df5963000f4d988e078b3df9e1f3d2/a
+- **Kauri original author:** Celer Network (@celer-network)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** ethdenver, mobile, sdk, hackathons
+- **Kauri original hash:** QmfYnopMkPZ5niQXpKcjHFDT9FkC7kNfVw6Htatjyq7rqP
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
 

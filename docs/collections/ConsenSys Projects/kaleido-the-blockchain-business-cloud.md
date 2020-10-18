@@ -9,6 +9,8 @@ some_url:
 
 # Kaleido - the Blockchain Business Cloud
 
+![](https://ipfs.infura.io/ipfs/QmUe9Avqsz9ADob9M1JNtZfnxnKyH5oaDq6EmFqg6ttQXe)
+
 
 Gartner's 2018 CIO Survey revealed that
 
@@ -105,3 +107,17 @@ export APIURL=\"https://console-ko.kaleido.io/api/v1\"
 
 - [Kaleido tutorial](https://docs.kaleido.io/developer-materials/api-101/)
 - [Kaleido Knowledge base](https://docs.kaleido.io/)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kaleido-the-blockchain-business-cloud/4bfbae2d64984868aaa65f115df0de49/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-03-01
+- **Kauri original tags:** cloud, ethereum, developer-tool, enterprise, infrastructure, kaleido
+- **Kauri original hash:** QmWB9JeC9vweE2wBQiVUUZT2kXi2fsnrMoo8xkCo8eZjJj
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

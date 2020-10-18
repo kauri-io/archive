@@ -9,6 +9,8 @@ some_url:
 
 # Zeppelin - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmQ66RaAMm71q8KoG9aScTks8c6Zbwo5rXpBxge5zds6rE)
+
 
 ## Company/Project Name and Description
 
@@ -77,5 +79,19 @@ ZEP Token private beta: https://blog.zeppelinos.org/announcing-the-zep-token-pri
 ## Contact Information
 
 Santiago Palladino - santiago@zeppelin.solutions
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/zeppelin-sponsor-bounty-at-ethdenver-2019!/63eaa33cf5b54a43a7591beea913f179/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmUftZcU6feZSgfornYAEyrgSB4QpRHebXtEwsE6EPy5hR
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
 
 

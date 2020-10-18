@@ -9,6 +9,8 @@ some_url:
 
 # Building Blocks  What makes a good EVM package?
 
+![](https://ipfs.infura.io/ipfs/QmTWpnTFavG5AnBgSnimrCLDwo6iQdLX9AuipPPBxfWnLe)
+
 
 A mental shortcut for thinking about [EVM packages](https://blog.zeppelinos.org/open-source-collaboration-in-the-blockchain-era-evm-packages/?utm_campaign=zos-technical-evmpackages&utm_medium=blog&utm_source=wordpress)
 is to compare them to a package manager such as NPM. Package managers
@@ -137,3 +139,17 @@ are linked manually after the compile process, are also not ideal EVM
 packages, as the ZeppelinOS system does not currently support linking to
 a Solidity library in an EVM package, although this will change in the
 future.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-blocks:-what-makes-a-good-evm-package/583aaad5aff749dab1edb80933350936/a
+- **Kauri original author:** Dennison Bertram (@dennisonbertram1)
+- **Kauri original Publication date:** 2019-03-07
+- **Kauri original tags:** zeppelinos, zeppelin-best-evm-package, packages, evm, solidity
+- **Kauri original hash:** QmXTgt4jdTo5EGJj3zyCA8eqtyCDheyoyooh5o7yj8bJuW
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

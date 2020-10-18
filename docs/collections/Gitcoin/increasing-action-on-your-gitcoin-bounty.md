@@ -9,6 +9,8 @@ some_url:
 
 # Increasing Action On Your Gitcoin Bounty
 
+![](https://ipfs.infura.io/ipfs/QmSTir4jr2Syv5MaQvkrCDCcki7ZNRBPPu5xgKLMJDXCyy)
+
 
 
 We see a lot of software development ‘first dates’ between contributors and maintainers here at Gitcoin. We’ve seen a lot of things go right, but we’ve also seen a lot of things that could be improved.
@@ -153,4 +155,18 @@ If you have anything you’ve tried that’s really help, please [get in touch o
 
 
 ![](https://cdn-images-1.medium.com/max/1600/1*91GgdFbhUB1Ggl_Mysnqog.png)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/increasing-action-on-your-gitcoin-bounty/4a504eff854e49f99d7872ece5abbf2c/a
+- **Kauri original author:** Gitcoin (@gitcoin)
+- **Kauri original Publication date:** 2018-10-26
+- **Kauri original tags:** none
+- **Kauri original hash:** QmQWrb96Vjc8jzDNBmDqJNADeWnVdNwx1p39xeyxJVoYSD
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
 

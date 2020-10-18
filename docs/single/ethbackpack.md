@@ -61,3 +61,17 @@ some_url:
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethbackpack/d3d2bcaa4e494319943cf7ff4a49e659/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-salt-2019, bounty-zeppelin-2019
+- **Kauri original hash:** QmVZALLQsy1M1SFVCQFbbzyTBsGkju5ANrG3vCYFh2nGM2
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

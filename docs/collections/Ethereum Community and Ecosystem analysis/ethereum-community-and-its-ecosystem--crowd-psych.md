@@ -9,6 +9,8 @@ some_url:
 
 # Ethereum community and its ecosystem  crowd psychology analysis part 2
 
+![](https://ipfs.infura.io/ipfs/Qmbcj5CCWhLeMjWt8Y147hyrYdDfUoFbpYKDtrvJtAh7bu)
+
 
 <FONT size="2pt">_Ethereum community and its ecosystem: crowd psychology analysis_<br/></FONT>
 
@@ -21,7 +23,7 @@ Is Ethereum an organized crowd? in the previous article we saw that one particul
 
 <u>A deliberately unstructured and disorganised movement</u><br/>
 
-![](https://api.kauri.io:443/ipfs/QmSP4tRADZJko9rhp5VuUw2aiK9tTWEJjfiiBpnjdPUqGt)<br/>
+![](https://ipfs.infura.io/ipfs/QmSP4tRADZJko9rhp5VuUw2aiK9tTWEJjfiiBpnjdPUqGt)<br/>
 
 It is a decentralised movement without leader, polymorph and very complex to analysis. The movement has no organizational structure and does not want to have one. It is experienced as a spontaneous movement by citizens. Every single group have their own claim, overall the whole political spectrum is represented but among the most activist groups, there is an over-representation of people from the extreme left, anarchists, libertarians, radical ecologists, moderate-income people, sovereignists and identity groups of the far right. The overall socio-economic characteristics of this movement are expressed by the following point:
 - Belong to the French **working and lower middle class** from small and mid size town located in the countryside.
@@ -34,7 +36,7 @@ These two groups share the same characteristic, they feel left alone, they think
 Social media  have played a major role in the formation of this movement from the beginning.<br/> The nature of theirs algorithms which are profit-oriented, are design to keep different segments of the population connected as long as possible so that, in return, they can capture theirs attentions and then provide to them the most accurate advertising package.<br/>These algorithms will always provide information about things they think you are interested in and suggest connecting to people with whom they think you have affinity. <br/>The secondary effect of theses algorithms is that they reinforces and reaffirms our conception of reality, of an event or of the world in general. Many voices have risen, in order to denounce the potential danger of these “private black boxes”, but nothing has been done so far to make them less opaque or less novice for society as a whole. <br/>Indeed how can these giant platform increased their profit without allowing an algorithm who optimize the advertising budget of their clients? <br/>How can business clients of these social media platform justify generous sales expectation if they can’t take advantage of these algorithms? <br/>Cul-de-sac, the snake is biting his tail.
 
 <u>Decade of unsolved frustration represented by a meme</u><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmScR4Werdz5T6pjdRMdyobaWkbbyBcAd1EgMiXkDc8WXk)<br/>
+![](https://ipfs.infura.io/ipfs/QmScR4Werdz5T6pjdRMdyobaWkbbyBcAd1EgMiXkDc8WXk)<br/>
 
 We can try to find someone to blame, but at the end of the day the yellow-vests movement is born out of decade of unsolved frustration. <br/>At the origin the pretext of this protest was because of a tax increased. The goal was to spread a meme via social networks. In order to bring awareness about the subject of loss of purchasing power caused by a new tax, every participants had to wear a security vests which by law is an obligation to carry at the back of his car. Some groups of yellow-vests have decided to increased the visibility of their meme by blocking all roundabout and road toll in France (40,000 roundabout or in average 1 for every French town).<br/>
 At its peak the movement managed to blocked 2000 roundabout, (5% of the entire territory), most of them located in the country side. While talking to each other and with peoples form different part of the society, lot of them **rediscovered the notion of citizenship, the notion of empathy and solidarity**, they have start to interact with others, created boundary and realized most of them suffered the same frustration. An **awakening of consciousness** was born.
@@ -45,7 +47,7 @@ However despite a fragile consensus found, everyone agree that the **movement is
 As the Italien philosopher _Giorgio Agamben_ illustrated in  <FONT size="2pt"> _“the spatialities of the camps”_</FONT>: at the beginning, a disorganized and decentralised network of crowds will always hesitate between **a revolt** (an individual and selfish act against the institution without the will to replace it), **a revolution** (political act against the institution in order to replace it by something else) or **a radical evolution** (political act against the institution in order to replace it by something new or better).
 
 <u>“Reverse panopticon”process </u><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmabWa2vD7WuKjB7fzaM8J7LLNriBXtjei6C53jcMK789P)
+![](https://ipfs.infura.io/ipfs/QmabWa2vD7WuKjB7fzaM8J7LLNriBXtjei6C53jcMK789P)
 
 The addition of confusing and contrasting informations created by an important decentralised and polymorph movement in one hand, the rise of the [“Sousveillance phenomenon”](“https://journals.openedition.org/terminal/1457”) by general citizens on the other hand, force policy and decision maker to make hastily decision (hence the very strict and authoritarian response to the problem in the context of the yellow vests). 
 This process can be interpreted as state paranoia or a **“reverse panopticon process”**: Due to an abundance of confusing and contradicting informations the governance body of a system is no longer capable to observe the participants with efficiency, thus assume they are constantly colluding to take over the power. 
@@ -59,10 +61,10 @@ Every week the “yellow vests” meme put pressure on the government by making 
 According to McDouglas, all the condition are meets to satisfied the basic element of a organized mass: A definite representation of the nature, the function, the performances and the demands of the mass and the relationship with other similar mass formations, and the comparative with each mass. By using this particular crowd psychology analysis one can observe that the yellow-vests movement have transform itself as an organized crowd located in one particular country (for now) because it has created a **dose of continuity**, has managed to define a **representation of his nature**, **of his function of a mass** and now have being capable to **put in relationship other mass of people**.<br/><br/>
 
 ### **The comparison with Ethereum**<br/><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmWWvu3wHNgRbEz4iV4FZxrFWuxWp1YBP8xmW3YVDgxkif)<br/><br/>
+![](https://ipfs.infura.io/ipfs/QmWWvu3wHNgRbEz4iV4FZxrFWuxWp1YBP8xmW3YVDgxkif)<br/><br/>
 
 <u>Decentralised and polymorph</u><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmZBsaTnoMf7pnRXvoaYwkZbSmRpciN9nabARV9CDdEZ8p)
+![](https://ipfs.infura.io/ipfs/QmZBsaTnoMf7pnRXvoaYwkZbSmRpciN9nabARV9CDdEZ8p)
 
 It is a difficult to identify this unconventional crowd: contrary to the yellow-vests movement, the Ethereum movement has started with a little group of people (a little crowd) mostly libertarian, crypto-anarchist, cypherpunk, liberal progressive young developer or entrepreneur.<br/> Ethereum has now evolved and the movement is significantly bigger. It is a crowd who regroup developers, entrepreneurs, engineers, designers, security experts, researchers, computer scientists, academicians, hackers, tech and computer savy enthusiasts, speculators, investor and market maker…. It is an international crowd, present on every single continent(apart from Antartica).<br/> Because of the pseudo anonymity nature of this mass, it is not possible to probe any particular socio-economic or political trend emerging from it.
 All we can tell, is it is a mass who have a small and concentrated group of influencer and decision making hubs (Vitalik,Vlad, Joe Lubin...). But despite what critic say, non of these influencer officially represent the movement and **non of them have authority or can control the movement entirely and constantly**.<br/>
@@ -74,12 +76,12 @@ Like for the yellow-vests, its decentralised and polymorph crowd and has generat
 They never played a massive role at the beginning when the movement was at the infancy but it has play a more significantly role during the ICO bubble. The huge return on investment prospect has propagated a wave of greed emotions through social network which helped the promotion of the Ethereum protocol and have attracted a new mass of people around the project.
 
 <u>The meme of the decentralised world computer</u><br/><br/>
-![](https://api.kauri.io:443/ipfs/QmdyK7rWhYgxPiQDTdXk1ah1YjPRQQi2UWgW1TQVEMizuu)
+![](https://ipfs.infura.io/ipfs/QmdyK7rWhYgxPiQDTdXk1ah1YjPRQQi2UWgW1TQVEMizuu)
 
 To some extent Ethereum is born out as a revolt against old systems that are not anymore working for everyone, and a collaborative effort to create something new and different of what bitcoin had offered. Ethereum was advertised as an open source, globally decentralised computing infrastructure that executes programs called smart contracts but in reality behind the Ethereum meme, each participants have different interpretations and representations of it.<br/> **Their is no one main ideology behind Ethereum** and power relationship between participant of the crowd are not hierarchical. At the beginning knowledge have mostly spread from the positive experience accumulated by active participants and then during the ICO bubble by various social media influencer rinding on the trend wave.<br/><br/>
 
 <u>If the protocol manage to maintain itself through time then the conditions for an organized crowd exist</u>
-![](https://api.kauri.io:443/ipfs/QmbxN4UstQFSibdraoTw6WKJyBCWmZP18NDvMyVd8pRXWe)
+![](https://ipfs.infura.io/ipfs/QmbxN4UstQFSibdraoTw6WKJyBCWmZP18NDvMyVd8pRXWe)
 The elements of continuity of the crowd is enable by the protocol itself **(sociotechnical protocol)** <FONT size="2pt">by Manuel Rolland</FONT>.<br/>The structure of the blockchain create an economical incentives to the participation. Every 10-15 second someone is allocating time, energy and resources to the network in order to get a reward, every 10-15 second the heart of the ethereum blockchain beats and somewhere around the globe, some people are trying to coordinate to make sure that the heartbeat continue. **Crypto-economics incentives have created a dose of continuity:** essential element for the formation of a crowd (cf McDougall). In addition, on average every 1-2 million blocks, other groups from the Ethereum crowd coordinate in order to implement technical updates. **Another dose of continuity is enable**.
 
 The difference with the yellow-vests is that the **elements of continuity** is generate by people who try to coordinate around the world with the help of peer to peer networks (and not just nationally via social media).
@@ -94,7 +96,7 @@ An other signal that the crowd around Ethereum is organised and therefore can id
 
 
 ### **Light-speed community vs Horse-speed Institution**<br/>
-![](https://api.kauri.io:443/ipfs/QmaxcVMHwsPie7Xe9GaG1cgmY7UZ66N6RVZAcYWXFYRB4H)
+![](https://ipfs.infura.io/ipfs/QmaxcVMHwsPie7Xe9GaG1cgmY7UZ66N6RVZAcYWXFYRB4H)
 
 To conclude this small study, I will tried to summarized and put into context an incredible visionary piece of thoughts that Vinay Gupta has produced [few years ago](https://drive.google.com/file/d/0B4w3Tams6OYoTE1TZS1jWnB4eTg/view)<FONT size="2pt">Vinay Gupta Oxford Democracy.</FONT><br/><br/>
 Technology provide us tools to shape or reshape society. It has now allow us to experiment with organizations (communities) and bureaucratic systems that are more horizontal while being able to deal with the limit of our modern communication system[ “by quantizing time”]( https://drive.google.com/file/d/0B4w3Tams6OYoTE1TZS1jWnB4eTg/view) <FONT size="2pt">Vinay Gupta Oxford Democracy.</FONT>
@@ -106,8 +108,22 @@ Because of the economic power, the social impact that a light-speed system can g
 We are witness a shift, a slow and gradual transfer of authority from the old system to the so-called Light-speed communities because of "the inability of horse-speed institutions to adapt to a light-speed society, because they are unable to modernize democracy with technological tools in tune with modern society ".
 
 ### **Towards the path of decentralized self-organization**<br/><br/>
-![](https://api.kauri.io:443/ipfs/QmdDe6t9FqrxdQZApnc46LrCWbvCHRYJGiqtPmiwmiK1ve)<br/>
+![](https://ipfs.infura.io/ipfs/QmdDe6t9FqrxdQZApnc46LrCWbvCHRYJGiqtPmiwmiK1ve)<br/>
 
 The crowd psychology approach from McDougall is teaching us that the crowd around Ethereum has past the stage of being a raw and disorganized crowd, now brings together all the conditions to be organised and therefore can establish itself as a community.
 I would argue in further articles that Ethereum also brings together all the conditions to become **a credible self-organised and decentralised community**. 
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-crowd-psych/99ccd629fce5482e8ddcb9e48d12bcb6/a
+- **Kauri original author:** Michael A (@silver84)
+- **Kauri original Publication date:** 2019-04-01
+- **Kauri original tags:** ethereum, ecosystem, community, analysis, governance
+- **Kauri original hash:** QmQHfGomouE2AMnebobRogsifiQ1y3f5MbaYfKAJhg7hu8
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
 

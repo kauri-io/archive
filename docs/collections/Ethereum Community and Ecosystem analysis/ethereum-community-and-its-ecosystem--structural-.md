@@ -9,6 +9,8 @@ some_url:
 
 # Ethereum community and its ecosystem  structural analysis
 
+![](https://ipfs.infura.io/ipfs/QmQEmpo9cVmrYfbxpUsKdWiubKNHJ18VJnX5dp3p7caphB)
+
 
  <FONT size="2pt">_Ethereum community and ecosystem: structural analysis_ </FONT>
 
@@ -30,7 +32,7 @@ This superstructure have been since re-evaluated by most of the actors in the Bi
 The idea behind this distinction is that there is a hierarchy among groups on the right of veto. Indeed mining pools have the power to choose the version of the protocol on behalf of it’s customer thus having more voting power than simple solo-miners. The same is true for services providers as they represented a large portion of the users of the protocol.<br/>
 The protocol cannot then generate it’s own autonomy just by the mechanism of it’s technology, it need to find a consensus among all the social actors who use the protocol, we are thus talking about a sociotechnical system.
 
-![](https://api.kauri.io:443/ipfs/Qmdur6FrkFMJDQYRNve4P5tcazMFZGCVzYxroGDiMoXYCj)
+![](https://ipfs.infura.io/ipfs/Qmdur6FrkFMJDQYRNve4P5tcazMFZGCVzYxroGDiMoXYCj)
 
 <u>Decentralised socio-technical protocol with his own Constitution</u><br/>
 
@@ -69,7 +71,7 @@ In the [(BIP 148)](https://github.com/bitcoin/bips/blob/master/bip-0148.mediawik
 They have signaled to the miners (executive body) that if some of them would not validated this rules [(BIP 148)](https://github.com/bitcoin/bips/blob/master/bip-0148.mediawiki) then miners would find themselves with two different constitutions (a chain split), and therefore face significant losses in monetary values.<br/>
 This collective power action coming from the judicial body has shown that the owners of full nodes have succeeded in defeating the plan to impose the change of the constitution in the favor of the executive body members (the miners).<br/>
 
-![](https://api.kauri.io:443/ipfs/QmTrQ6hiEY3qbUEFmfREzH4p1epN4evhYgknkQ6RHZnoL8)<br/>
+![](https://ipfs.infura.io/ipfs/QmTrQ6hiEY3qbUEFmfREzH4p1epN4evhYgknkQ6RHZnoL8)<br/>
 
 <u>The De Filippi and Loveluck superstructure adapted to the Ethereum Eco-system.</u><br/>
 In this thought exercises, I have tried to transfer the subdivisions modeled by De Filippi and applied it to the Ethereum ecosystem.<br/>
@@ -84,10 +86,23 @@ They are the speculators, investor and market maker of the world who bring resou
 They are the individual or group of people who use the tools and services enable by the Ethereum platform.<br/>
 We can distinguished 3 categories of users: actives users, non-profit actives users, for-profit actives-users and passive users. The first category actively interact and use the protocol, the last category use only services provided by the first category. In the blockchain world users have a reel influence on governance as they decide what type of software implementation they want to use (full node owners).<br/><br/>
 
-![](https://api.kauri.io:443/ipfs/QmYqKQHe82SMNXZNFcPjH8efzgpSUHXSiTeNnxhHPhDf3G)
+![](https://ipfs.infura.io/ipfs/QmYqKQHe82SMNXZNFcPjH8efzgpSUHXSiTeNnxhHPhDf3G)
 
 
 It would be interesting to found out if other members of this community have others categories or subcategories proposal or even have another definition of the superstructure than the one proposed by De Filippi and Loveluck.<br/>
 Like Vlad Zamfir {EthCC2 governance panel}  I also believe that the identification of stakeholders groups is very important for the governance of the Ethereum blockchain and for the developpement of legal and political voices representative of the different stakeholder groups.<br/>
 Once the community managed to form a consensus on this matter* then we will also need to identified what their opinion are.<br/>
 <FONT size="2pt">*(which is likely to evolve with time as the time as the protocol and the socio-demography of the participants)</FONT>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem:-structural-/9a486bc098674bb6b70408334947eb93/a
+- **Kauri original author:** Michael A (@silver84)
+- **Kauri original Publication date:** 2019-03-20
+- **Kauri original tags:** ethereum, ecosystem, community, analysis, governance
+- **Kauri original hash:** QmSYQLabVMGf1oXuu1bsXRQGjq4Xx5MEfAktYg48SGmfhQ
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

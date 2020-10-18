@@ -19,7 +19,7 @@ Over the past few weeks something interesting has been going on in the Banking w
 [“Banks are under attack](http://tomloverro.com/post/102797126721/banking-is-under-attack-heres-a-screenshot-of)
  ” wrote RRE Ventures Tom Loverro recently. Banks like Citi and Wells Fargo are getting unbundled by the FinTech startups. The traditional business models of Banks has been threatened. Their monopoly on the way customers conduct business is being questioned.
 
-![](https://api.kauri.io:443/ipfs/QmapkRLv5Bc2Mtb5wDx9BPrZ7qdAJNUE5VduUXxdfAFTfF)
+![](https://ipfs.infura.io/ipfs/QmapkRLv5Bc2Mtb5wDx9BPrZ7qdAJNUE5VduUXxdfAFTfF)
 
  
 [FinTech startups are giving a tough time to the Banks](http://ikajo.com/how-nimble-fintech-startups-are-giving-a-hard-time-to-banks-networks.html)
@@ -55,7 +55,7 @@ Not to be left behind, as Jamie Dimond articulated to his shareholders, Banks ar
 
  *  **Invest in FinTech Startups** — Banks like JP Morgan has been leading this initiative. Notable JPM investments are Square, Motif Investing and Can Capital. Apart from the above, JPM has been noticeably absent or refrained from investing in the crypto currency or digital currency area.
 
-![](https://api.kauri.io:443/ipfs/QmfUs2WYcsZ5H7zJHCrfv8H8aL1tncWLSv5iV6TuD7ka8P)
+![](https://ipfs.infura.io/ipfs/QmfUs2WYcsZ5H7zJHCrfv8H8aL1tncWLSv5iV6TuD7ka8P)
 
 
 
@@ -85,7 +85,7 @@ _Source :_
 
  *  **Build Human Centric APIs and Microservices** — Humanize data. Banks are drowning in data which is growing at a rate which they are unable to control. Proliferation of the channels and a wave of new ways to Bank has increased the difficulty level by several manifolds. The waves are yet to hit the shore since IoT and wearables are yet to become mainstream. Data is the new oil and its the core to how they can differentiate themselves in the market place. The need of the hour is to give more context and meaning to the data by building API based Banking apps and microservices which are easy to scale and flexible to build and deliver rapidly.
 
-![](https://api.kauri.io:443/ipfs/QmPLBaHSopgGCK7rDxRL4NhyjRXEa9GspxFnrySkWCbyui)
+![](https://ipfs.infura.io/ipfs/QmPLBaHSopgGCK7rDxRL4NhyjRXEa9GspxFnrySkWCbyui)
 
  
 _Source :_
@@ -107,7 +107,7 @@ What do you think?
 
 Do share your thoughts below as comments.
 
-![](https://api.kauri.io:443/ipfs/QmY9UdkQXTwKDj1M5re3Fs1AfZTDtmKb2KsgFAHGWwdM79)
+![](https://ipfs.infura.io/ipfs/QmY9UdkQXTwKDj1M5re3Fs1AfZTDtmKb2KsgFAHGWwdM79)
 
  
 _Ramesh Babu is a veteran data evangelist and analytics thought leader, he champions the Analytics, Blockchain, Data themes for customers globally._
@@ -124,3 +124,17 @@ _, Blog :_
  
 [Disclaimer](http://blog.allformz.com/about/)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-eat-a-bank-one-business-at-a-time/8531b641bbb34e73ad9d54c876ef3c86/a
+- **Kauri original author:** Ramesh Babu (@rameshbabu)
+- **Kauri original Publication date:** 2019-02-27
+- **Kauri original tags:** digital, fintech, banking
+- **Kauri original hash:** QmbKAaqH5pFvpZrtLUfEeiazcKWnXbAUEAFxmj9pd93ZcF
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

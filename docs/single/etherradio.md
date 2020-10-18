@@ -63,3 +63,17 @@ https://github.com/Dziubutkus/etherradio
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/etherradio/c95eac6849ab438e91ae72de13ea4197/a
+- **Kauri original author:** Kareem (@kareem9000)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, impact, bounty-portis-2019, portis
+- **Kauri original hash:** QmVTaGXa4zNmHatbUNjp2f522Dz8oJud1hxGLf9K88toQK
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

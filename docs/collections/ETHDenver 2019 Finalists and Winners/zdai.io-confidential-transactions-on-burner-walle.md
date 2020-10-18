@@ -68,3 +68,17 @@ Impact
 - Burner wallet with privacy features: https://github.com/poma/burner-wallet
 - Worked public version of Wallet: [zDai.io](zDai.io)
 - All in one place with demo, tech details and our long story: https://github.com/skywinder/zDai-ETHDenver
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/zdai.io-confidential-transactions-on-burner-walle/4c026927f1cc4ed29d5a0e95ba3afbf8/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ethfoundation, bounty-impact, bounty-makerdao, bounty-poa-2019
+- **Kauri original hash:** QmYPBcmeTpYPSFERXefbXcdQCTkraJiFLB7yt8J8yjzGdi
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

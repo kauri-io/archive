@@ -253,3 +253,16 @@ func main() {
 You can find the code and articles in github at
 
 `https://github.io/DaveAppleton/testEnvArticle`
+
+
+---
+
+- **Kauri original link:** https://kauri.io/sending-transactions-on-geth-s-simulated-backend/282ffccc00104339823222f239d949ee/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-10-01
+- **Kauri original tags:** ethereum, geth, testing
+- **Kauri original hash:** QmTmmYK6DdTkpbBtgv5HjCVFkfK8XDnctAXW12Z8vQR8Yd
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

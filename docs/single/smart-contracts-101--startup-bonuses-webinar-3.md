@@ -30,3 +30,17 @@ Finally, BlockTEST blockchain engineer Prateek Adhikaree guided the audience thr
 ### Stay tuned for the BlockTEST Education Series
 
 #### Our webinars will continue with a set of videos focused on educating the blockchain community. Keep up at academy.blocktest.com!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/smart-contracts-101:-startup-bonuses-webinar-3/b6982cd0a2694852b6638a67d570936e/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** smart-contract, blockchain
+- **Kauri original hash:** QmcTGJnEjjGvH7RVq2Hpc8VUWWwyetpXDGp9VJU8bZWJRY
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

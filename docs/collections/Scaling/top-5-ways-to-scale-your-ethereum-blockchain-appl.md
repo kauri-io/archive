@@ -9,6 +9,8 @@ some_url:
 
 # Top 5 ways to scale your Ethereum blockchain application (dApp)
 
+![](https://ipfs.infura.io/ipfs/QmX77iTZW68cU9Eozxhmc55eTTpPnUsjUyjJExP2wfvCGv)
+
 
 ***General article outlining the relative trade-offs of existing solutions for scaling solutions on the Ethereum. If you would like to contribute tutorials or how to's for scalability solutions please reach out [@kauri_io](https://twitter.com/kauri_io) or [@AndreasWallend1](https://twitter.com/andreaswallend1) and we will feature your project in kauri's scalability collection!***
 
@@ -45,7 +47,7 @@ Summary of scalability solutions that can be implemented today to scale transact
 
 ### Trade-offs of scalability solutions
 
-![](https://api.kauri.io:443/ipfs/QmWesgCWeUdKkMLdqWukkf1zn1jEbz51XGvingwMxuvn1x)
+![](https://ipfs.infura.io/ipfs/QmWesgCWeUdKkMLdqWukkf1zn1jEbz51XGvingwMxuvn1x)
 
 ## Description and implementation of scalability solutions
 
@@ -107,7 +109,7 @@ Bridge (or relay) relays information from side chain running its own consensus a
 
 ### Plasma chains
 
-![](https://api.kauri.io:443/ipfs/QmQWgWLpbFW1uHVoV1UXjk8VDZyfrMVXCviowoFv5872tb)
+![](https://ipfs.infura.io/ipfs/QmQWgWLpbFW1uHVoV1UXjk8VDZyfrMVXCviowoFv5872tb)
 
 #### Overview
 - Initialize the Plasma blockchain. Write the contracts, submit it to the root blockchain
@@ -127,6 +129,20 @@ Bridge (or relay) relays information from side chain running its own consensus a
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/top-5-ways-to-scale-your-ethereum-blockchain-appl/7ccaaa2fe7f344d5bf53807cb5c01530/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-04-23
+- **Kauri original tags:** scaling, dapp, payment-channels, meta-transactions, state-channels, plasma, sidechain
+- **Kauri original hash:** QmXvT3gP4bEUtJmTzp6tpGRx7FR2BrAXkNWQATQyYFWn5C
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

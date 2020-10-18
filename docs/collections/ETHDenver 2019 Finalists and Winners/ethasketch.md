@@ -9,8 +9,10 @@ some_url:
 
 # EthASketch
 
+![](https://ipfs.infura.io/ipfs/QmRQyt2sfib3NAXHy7WjxyCd5ZcSXontkjQ1Pfz5WKgpWz)
 
-![Plotter Main Page](https://api.kauri.io:443/ipfs/QmPpwMcHAQtTEPdeGo2BwMw9nVFz3UQFjRatUhTrNc6TDB)
+
+![Plotter Main Page](https://ipfs.infura.io/ipfs/QmPpwMcHAQtTEPdeGo2BwMw9nVFz3UQFjRatUhTrNc6TDB)
 ## Project Name
 EthASketch
 
@@ -36,9 +38,9 @@ View the sketch site live at: https://iainnash.github.io/ethasketch/
 
 Below is a view of the plotter controller:
 
-![Plotter controller](https://api.kauri.io:443/ipfs/Qmar6SWwC4HdPU2nJFtPt5iDS4jvkMewECG6xCXrJm274F)
+![Plotter controller](https://ipfs.infura.io/ipfs/Qmar6SWwC4HdPU2nJFtPt5iDS4jvkMewECG6xCXrJm274F)
 
-![Full view](https://api.kauri.io:443/ipfs/QmVKzd3YhmvP5Ft26VHUxfbCyN4X4SyuFC6dtSQxuqUfdV)
+![Full view](https://ipfs.infura.io/ipfs/QmVKzd3YhmvP5Ft26VHUxfbCyN4X4SyuFC6dtSQxuqUfdV)
 
 ## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 * The Graph API (for the live data fetch in web3)
@@ -66,6 +68,20 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 * The Graph API Subgraph: https://github.com/iainnash/plotterlinewriter-graph
 * Main EthASketch Project Repo: https://github.com/iainnash/ethasketch
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethasketch/eceee829d2184dbf990b21e630be5b15/a
+- **Kauri original author:** iain nash (@iain)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-chainlink-2019, bounty-graph-2019, bounty-ideasbynature-2019, bounty-fortmatic-2019
+- **Kauri original hash:** QmeTqStNx1CoersQirXbE8FvAHmH9xzARtxxE2sH7aTJGu
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

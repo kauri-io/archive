@@ -9,6 +9,8 @@ some_url:
 
 # Raiden  Generalized State Channels 
 
+![](https://ipfs.infura.io/ipfs/QmYbLBgSUCpsVJgaXFVPpJZ2eudGtqsDjEYim1cGxZamen)
+
 
 > The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token.
 
@@ -533,3 +535,17 @@ Afterwards you can check your events and you should find an
 
 According to the rules from above, you should try the same with
 different amounts, `3`, `6`, `7`, ... -- have fun\!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/raiden:-generalized-state-channels/e875bf0e94444f86b3dcdebc730f6c7f/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-17
+- **Kauri original tags:** scaling, state-channels
+- **Kauri original hash:** QmXFVT3xcJpu2ZjihyY7v6dACnRWjgnMujoFKVYNCmbBwy
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

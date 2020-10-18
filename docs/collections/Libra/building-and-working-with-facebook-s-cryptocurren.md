@@ -9,6 +9,8 @@ some_url:
 
 # Building and Working with Facebook’s Cryptocurrency Libra
 
+![](https://ipfs.infura.io/ipfs/QmQ6Ja45gL89wV6vxiiqtBGzyShj3Q4LCe7bphvBjWLLoM)
+
 
 _EDIT: I work at ConsenSys Academy, creating educational content similar to this. I teach developers and non-developers on how to use the Ethereum Blockchain. If you enjoy this content on Libra and want to learn more about blockchain, I highly recommend you sign up for [the Developer Program On-Demand.](https://learn.consensys.net/catalog/info/id:141?utm_source=kauri&utm_medium=post&utm_campaign=libra)_
 
@@ -20,21 +22,21 @@ We don't know for now, but in this post, we take a quick look through the gettin
 
 ### Setup
 
-![](https://api.kauri.io:443/ipfs/QmVQ4zYoysUEc4bB1U59eVBF284NVT7hEbBhCiFVQmV9Zo)
+![](https://ipfs.infura.io/ipfs/QmVQ4zYoysUEc4bB1U59eVBF284NVT7hEbBhCiFVQmV9Zo)
 
 We followed [the setup instructions in the documentation](https://developers.libra.org/docs/my-first-transaction#clone-and-build-libra-core) on macOS which worked with out any issues and downloaded any dependencies missing from our local system.
 
 We noticed that Libra is using [rocksdb](https://rocksdb.org) for storage, which is unsurprising as it's a popular option and also created by Facebook. There are other dependencies, mostly used for cryptography and storage, you can see the full list in the various _Cargo.toml_ files in the repository. Which also shows that most of Libra is written in Rust. Interestingly we noticed that Libra uses the [Rust Bitcoin hashes](https://github.com/rust-bitcoin/bitcoin_hashes) project for hashing, plus a handful of Parity labs modules.
 
-![](https://api.kauri.io:443/ipfs/QmYkHTwBEuNrEJD9VpPJySN5VRPbvm9naoioQ3We2tQCr7)
+![](https://ipfs.infura.io/ipfs/QmYkHTwBEuNrEJD9VpPJySN5VRPbvm9naoioQ3We2tQCr7)
 
-![](https://api.kauri.io:443/ipfs/QmVeFKQwJoKAGzmPbqx8ZwbbiJkKzhYCc5Vke7n1cRATab)
+![](https://ipfs.infura.io/ipfs/QmVeFKQwJoKAGzmPbqx8ZwbbiJkKzhYCc5Vke7n1cRATab)
 
 ### Build and connect
 
 After setup, [you can build the CLI client and connect to the testnet](https://developers.libra.org/docs/my-first-transaction#build-libra-cli-client-and-connect-to-the-testnet). This takes some time and uses a reasonable amount of your computer resources, but again completed with no issues. At the end of the build process, your local machine connects to a validator node and provides you with an interface to the node.
 
-![](https://api.kauri.io:443/ipfs/QmQ8yfWSAaw9VcfQgAEFzBe6QdyJrVtaKLXM9s8VoN2789)
+![](https://ipfs.infura.io/ipfs/QmQ8yfWSAaw9VcfQgAEFzBe6QdyJrVtaKLXM9s8VoN2789)
 
 [Next, we tried creating accounts](https://developers.libra.org/docs/my-first-transaction#create-alice-s-and-bob-s-account), which worked fine. There are three main functions: `account`, `query`, `transfer`; all of which are relatively self-explanatory. In this step of the tutorial, we create two accounts, each of which has their own index and hex address. You can use the index value instead of the address in other CLI commands to reference the account you want to interact with.
 
@@ -42,11 +44,11 @@ After setup, [you can build the CLI client and connect to the testnet](https://d
 
 [Next, we add Libra coins using a time-honored faucet](https://developers.libra.org/docs/my-first-transaction#add-libra-coins-to-alice-s-and-bob-s-accounts). We noticed that the testnet faucet has a limit of 5 requests per minute, which is not realistic for a real-world payment option, hopefully, this is just testnet rate limiting.
 
-![](https://api.kauri.io:443/ipfs/QmUtmEMhSd97NF7s7fqAfNJuZuMix3kgW8DGLAKCaYM4XY)
+![](https://ipfs.infura.io/ipfs/QmUtmEMhSd97NF7s7fqAfNJuZuMix3kgW8DGLAKCaYM4XY)
 
 At this point, we also noticed that using the `query account_state 0` command returned a couple of interesting field values, including a `Blockchain version` value, a "sequence number" (kind of like a nonce). The account also had a state before we have yet pushed the account values to the blockchain. This is different from Ethereum or Bitcoin and means that either account generation must also have an event which pings testnet or that if it's a valid account number, Libra returns its balance as "none", but validates it's a compliant address.
 
-![](https://api.kauri.io:443/ipfs/QmbbYY1b1iv2WgH8oAM4ZBDSVTJ1PpjC5dmAMvRwTU1ayi)
+![](https://ipfs.infura.io/ipfs/QmbbYY1b1iv2WgH8oAM4ZBDSVTJ1PpjC5dmAMvRwTU1ayi)
 
 _Update 1: [Reading the technical whitepaper](chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://developers.libra.org/docs/assets/papers/the-libra-blockchain.pdf) found this:_
 
@@ -66,3 +68,17 @@ _"All data in the Libra Blockchain is stored in a single versioned database. A v
 What's most interesting about Libra is that we're seeing how another set of engineers maybe not so steeped in the crypto-world would build a blockchain. That's not to say their choices are better or worse, but it's interesting.
 
 Who knows what Facebook (sorry Libra's) aim with this new crypto currency is, but in the meantime, if you're working on a DeFi project, it may be a well engineered solution that's worth investigating.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/building-and-working-with-facebook-s-cryptocurren/cc41c516e62a4ca593f5ecdd86bdf299/a
+- **Kauri original author:** Coogan (@cooganb)
+- **Kauri original Publication date:** 2019-07-02
+- **Kauri original tags:** blockchain, facebook, libra, tutorial
+- **Kauri original hash:** Qmb3gGNy79daQzJKy2Vy5Gk4rimPsRUfZqoFmbsifUnQZV
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

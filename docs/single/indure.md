@@ -9,10 +9,12 @@ some_url:
 
 # indure
 
+![](https://ipfs.infura.io/ipfs/QmThyq1M81wJ6sgf2LsAv1h491QhJNhaaSbUf9urdPvfJV)
 
 
 
-![](https://api.kauri.io:443/ipfs/QmX7voJ7MzfVm1HXkzh8LN4VwxE1MdjmFBFfDUgYbFB2Rg)
+
+![](https://ipfs.infura.io/ipfs/QmX7voJ7MzfVm1HXkzh8LN4VwxE1MdjmFBFfDUgYbFB2Rg)
 
 ## Project Name -
 
@@ -72,6 +74,20 @@ Ideas By Nature
 
 https://github.com/angularityio/indure
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/indure/f2e82cbb198e4d5dbd40e495c7036bf8/a
+- **Kauri original author:** Alexandra Gardner (@gardnera)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-ideasbynature-2019
+- **Kauri original hash:** QmQrZTywBPH9L2PPyPP6pqx8hTLCwdoU9soMMRxni653s7
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
 
 
 

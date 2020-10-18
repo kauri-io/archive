@@ -61,3 +61,17 @@ Demo for the BuffiDai network: https://merchant3.com
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/merchant-gateway-for-xdai-buffidai-and-other-burn/10b8d5df6e4d4eda8a80d3965a4b8def/a
+- **Kauri original author:** Brian Wheeler (@bwheeler96)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-makerdao
+- **Kauri original hash:** QmVmswEyNdAoNLzUKsoQbBGvAwRiphL5XZnjSpYcL6imLX
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

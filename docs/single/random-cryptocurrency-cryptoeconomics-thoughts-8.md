@@ -35,7 +35,7 @@ Crypto-forecasters and pundits now will best be judged by the pathing they forec
 Vitalik Non-giver of Ether:
 ‏”Blockchains are NOT about cutting computational costs (at least relative to centralized servers). Blockchains are about incurring a sacrifice in the form of INCREASED computational costs to achieve a *decrease* in *social costs*.”
 
-![](https://api.kauri.io:443/ipfs/QmaKDcksXsfjFQsb99ZdxobUXigzwKqFvUXHsvjTPNRi4p)
+![](https://ipfs.infura.io/ipfs/QmaKDcksXsfjFQsb99ZdxobUXigzwKqFvUXHsvjTPNRi4p)
 
 Our beloved VB makes a great point: crypto is about trading off one social thing for another — e.g. pay miners/stakepools to mine/stakehold coinz/reach consensus and receive social consensus (as BFT-enforced money) in return. In other words, crypto is about you and me reaching a commonised (consensual) agreement about how we want to share our resources, by deciding how much of one we are willing to ‘offer up’ to the common pool so that we all generate a derived good that we can then share in the benefits of. It may cost a Serenity network a bunch of bonded Ethers (sunk cost or locked cost) so as to generate a beacon+validator nest of chains, but in return we all get a scalable cryptocurrency/a decentralised/distributed ledger of ‘the truth’.
 This kind of ‘offer up your personal goods so as to generate a shared/social good that is more than the sum of its parts’ requires a degree of thinking about altruism: am I better off keeping my own Ethers to myself, or do I benefit more (immediately or eventually, directly or peripherally) by staking/bonding them to the beacon chain? This is almost a textbook game theory Nash equilibria/payoff mechanism — what will each participant view as the optimal (Nash equilibrium) strategy?
@@ -60,3 +60,17 @@ Being software, crypto coin projects cannot escape the ‘easy exit’ dynamics 
 Another way to consider the ‘no single coin will dominate’ argument: if it were true that one single, Lindy-confirmed, Schelling-confirmed, currency was sufficient, then the mass of billions of humans throughout history over the past ten millennia would have converged on gold as this single money/currency, years ago, and no USD, no Euro, no GBP, would have arisen to spite gold.
 It may be that in the blockchain/cryptocurrency future, there is no Schelling/Lindy coin that predominates. The future may always be an ‘enforced’ multicoin universe.
 Disclaimers: just my ideas about possible scenarios for near-term future. This is not investment advice. I’m ego-driven, clueless and biased, so do your own thinking. I’m not qualified, I have no special privileged position to drive my insight, I’m a nobody, is what you should assume about me and what I say here.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/random-cryptocurrency-cryptoeconomics-thoughts-8/739f29e6e0a143c2b5b90be1c03cb7ec/a
+- **Kauri original author:** blacque64 (@blacque)
+- **Kauri original Publication date:** 2019-05-20
+- **Kauri original tags:** cryptocurrency, ethereum, cryptoeconomics, blockchain, bitcoin
+- **Kauri original hash:** QmXduL1NprqMXq9hQGqRXd8fBg1ZVx3i4rqEqAWf46egxE
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

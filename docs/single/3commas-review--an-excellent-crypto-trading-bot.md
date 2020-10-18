@@ -10,7 +10,7 @@ some_url:
 # 3commas Review  An Excellent Crypto Trading Bot
 
 
-![](https://api.kauri.io:443/ipfs/QmYtGSFS7Jiy5TpbG4e8uHtYyxYmXg6WmLiaDJTmRU3pdG)
+![](https://ipfs.infura.io/ipfs/QmYtGSFS7Jiy5TpbG4e8uHtYyxYmXg6WmLiaDJTmRU3pdG)
 
 [Automated trading](https://coincodecap.com/category/trading-automation) bots offer the best value for independent traders. They can be customized, linked to several exchanges, and potentially work 24/7 year-round. In this article, we will review [3commas](https://3commas.io/?utm_source=coincodecap.com), one of the well regarded of crypto trading bot service. 
 
@@ -134,3 +134,16 @@ It is safe to say that if you are thinking about [trading](https://blog.coincode
 *   **[Multi-Exchange Crypto Trading Platforms Features](https://blog.coincodecap.com/multi-exchange-crypto-trading-platforms-features/)**
 
 If you want to learn more about the Crypto ecosystem, sign up for the weekly newsletter.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/3commas-review:-an-excellent-crypto-trading-bot/e1ee369e02ff4498b74b82704c98f432/a
+- **Kauri original author:** CoinCodeCap (@coincodecap)
+- **Kauri original Publication date:** 2020-02-18
+- **Kauri original tags:** trading
+- **Kauri original hash:** QmUQK15R1dciTwdgFtvzSPjRXaFg8CBExFZQfHRbDJanx9
+- **Kauri original checkpoint:** Qma2aV5PPySCW9L7Kq4keavdYrNwBXHSztgC8cFdaNFtFE
+
+
+

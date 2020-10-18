@@ -9,6 +9,8 @@ some_url:
 
 # (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications
 
+![](https://ipfs.infura.io/ipfs/QmNij6VSLpX25UNBJaPm4FowsaLMqPE5yyRQh92Zv3GmpZ)
+
 
 <br />
 
@@ -741,3 +743,17 @@ $ sudo rm -rf /var/lib/rancher
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(38)-install-and-configure-a-kubernetes-cluster-w/418b3bc1e0544fbc955a4bbba6fff8a9/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-07-29
+- **Kauri original tags:** self-hosting, kubernetes, raspberrypi, k3s, arm, helm
+- **Kauri original hash:** QmVS3NcroS9ejgVStad3pcPjjrQMxf6XUfVrQwHQB5U6gM
+- **Kauri original checkpoint:** unknown
+
+
+

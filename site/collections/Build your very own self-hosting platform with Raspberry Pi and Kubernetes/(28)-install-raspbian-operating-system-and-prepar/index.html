@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>(2/8) Install Raspbian Operating-System and prepare the system for Kubernetes &mdash; Kauri</title>
+    <title>(2/8) Install Raspbian Operating-System and prepare the system for Kubernetes &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> Kauri</a>
+                    <a href="../../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -670,8 +673,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -770,10 +773,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1055,7 +1058,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> Kauri</a>
+                <a href="../../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1064,6 +1067,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="28-install-raspbian-operating-system-and-prepare-the-system-for-kubernetes">(2/8) Install Raspbian Operating-System and prepare the system for Kubernetes</h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma6gsqaPkdAEKDzke9N7DTHXKKGRnU2RD7sH7tXdLSUjt" /></p>
 <p><br /></p>
 <h4 id="this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes">This article is part of the series <a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c">Build your very own self-hosting platform with Raspberry Pi and Kubernetes</a></h4>
 <ol>
@@ -1109,7 +1113,7 @@
 </table>
 <p><br />
 We are using a Portable SSD connected to the master node and exposed to the worker via NFS to store the volume data.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmfAnBjKB9hj2CMikh4c5TVKHLoKABBS5B5yQbSRRXyAtZ" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfAnBjKB9hj2CMikh4c5TVKHLoKABBS5B5yQbSRRXyAtZ" /></p>
 <p><br /></p>
 <p><strong>Notes:</strong></p>
 <ul>
@@ -1132,8 +1136,8 @@ We are using a Portable SSD connected to the master node and exposed to the work
 <p><strong>4. Use Etcher and flash the image on the SD card</strong></p>
 <p>Download <a href="https://www.balena.io/etcher/">Etcher</a> to flash OS images to SD cards &amp; USB drives, safely and easily.</p>
 <p>Launch Etcher, select first the image extracted of Raspbian, select the Media (SD card) and click on Flash.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmbq9nv6BGxLcBmLvYAQ8fqCGHRcZewPN8DqSRBJDaHmXm" /></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmSGCN8edA61AuuhTAhAKoa61XmmvUtzCvTGBQsxtyPHBB" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmbq9nv6BGxLcBmLvYAQ8fqCGHRcZewPN8DqSRBJDaHmXm" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSGCN8edA61AuuhTAhAKoa61XmmvUtzCvTGBQsxtyPHBB" /></p>
 <p><strong>5. Once flashed, navigate to the folder /boot of the SD card and create an empty file <code>ssh</code></strong></p>
 <p>Adding the file named <code>ssh</code> onto the boot partition enables SSH by default.</p>
 <pre><code class="language-shell">$ cd /media/&lt;USER_ID&gt;/boot
@@ -1147,7 +1151,7 @@ $ touch ssh
 <p>After you power up each device, we will attempt to connect from our local machine to the node via SSH. If you are under Linux or MacOS, toy only need to open a new terminal. For Microsoft Windows users, you can download and use <a href="https://www.putty.org">Putty</a> as SSH client.</p>
 <p><strong>1. Determine the device IP address</strong></p>
 <p>Your network router probably assigns an arbitrary IP address when a device tries to join the network via DHCP. To find the address attributed to the device, you can check either on your router admin panel (usually http://192.168.0.1 assuming your local network is 192.168.0.x) or via a tool like <a href="https://angryip.org">angryip</a>.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmaGAcRkvbdsco79EDf49rfXzZzJs3c4RSxCHJnT4m5PBw" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaGAcRkvbdsco79EDf49rfXzZzJs3c4RSxCHJnT4m5PBw" /></p>
 <p><em>E.g. Virgin Media Hub</em></p>
 <p>In my case, the device named <em>raspberrypi</em> (hostname) is assigned to the IP address <strong>192.168.0.22</strong>.</p>
 <p><strong>2. Connect via SSH to the machine</strong></p>
@@ -1395,7 +1399,16 @@ pi@kube-worker1:~ $ sudo chown -R pi:pi /mnt/ssd/
 <p>To conclude, we now have three secured, up-to-date and operational machines to build a Kubernetes cluster and easily self-host and maintain applications at home!</p>
 <p>In the <a href="https://kauri.io/install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a">next chapter</a>, we will see how to install Kubernetes with <a href="https://k3s.io">Rancher <strong>k3s</strong></a> on those three machines and deploy the necessary tools such as Package Manager (helm), Proxy and Load Balancer, Certificate Manager, etc. to safely and efficiently deploy our applications.</p>
 <p><br />
-<br /></p></div>
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/(28)-install-raspbian-operating-system-and-prepar/7df2a9f9cf5f4f6eb217aa7223c01594/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-03-31</li>
+<li><strong>Kauri original tags:</strong> self-hosting, kubernetes, raspberrypi, raspbian</li>
+<li><strong>Kauri original hash:</strong> QmXT3ezdnGNLW5oYqoLjdvGvR3t3jhdcrM95KHqBe31bBV</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../%2818%29-build-your-very-own-self-hosting-platform-wi/" title="(1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction"><span>Previous</span></a></div>

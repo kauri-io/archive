@@ -33,7 +33,7 @@ Mats Julian Olsen, Fredrik Haga
 A hosted Postgres database with real-time Ethereum data that you can query with SQL. Smart contract data is decoded with ABI’s so the table columns are named after the parameters in the Solidity code. What we have added for the hackathon is price data from the CoinCap API - meaning that you can easily get USD value of tokens flowing through dApps. 
 Login to [https://metabase.duneanalytics.com/collection/43](https://metabase.duneanalytics.com/collection/43) with email ethdenver@dune.demo and password Tk?ttN8CmSwAu5 and look at a few queries.
 
-![](https://api.kauri.io:443/ipfs/QmSpCqJj3LMXgsJkpv3fK2VJH92xmx5CY6BRXHsAzTAxvP)
+![](https://ipfs.infura.io/ipfs/QmSpCqJj3LMXgsJkpv3fK2VJH92xmx5CY6BRXHsAzTAxvP)
 
 USD value of loan repayments on Dharma for different tokens
 
@@ -53,5 +53,19 @@ Shapeshift bounty 1: CoinCap API
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/duneanalytics/dune-coincapper
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-smart-contract-data-with-tokenusd-prices/551ac5d48be34043a59977d6f57e268d/a
+- **Kauri original author:** Fredrik Haga (@hagaetc)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, shapeshift
+- **Kauri original hash:** QmaKfjRFvEtXGiStQLBBP8qYkXJ3TGrNTL2TBPmz7eWXEL
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
 
 

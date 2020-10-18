@@ -9,6 +9,8 @@ some_url:
 
 # 3Box - Social profiles for  web3 applications
 
+![](https://ipfs.infura.io/ipfs/QmXDGDWxxnGaCoD8o6sMS3kJUe3PApo9fSDzdjrGmC5eQW)
+
 
 3Box provides social infrastructure to power decentralized applications and networks. [Ethereum Profiles](http://3box.io) allow users to create a rich social presence that unites and gives them control over their data and experiences on the decentralized web. These built on our [distributed social databases](https://github.com/uport-project/3box) that let developers store and access information in users' profiles, making distributed data infrastructure and sharing information between dapps much simpler. 
 
@@ -111,3 +113,16 @@ Our mission is to enable anyone to create trust and connection online, and we do
 ### Chat with us
 
 Stop by our [Discord Community](https://discord.gg/3fzMe8x) for support, the latest news, or good conversation about our latest `#book-club` reading.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/3box-social-profiles-for-web3-applications/204bee70b23549f2acdc873d265d98f8/a
+- **Kauri original author:** Danny Zuckerman (@dazuck)
+- **Kauri original Publication date:** 2019-01-04
+- **Kauri original tags:** Ethereum
+- **Kauri original hash:** QmWu8CSSGU9rkLefQicihztTsTQeWXgAxQVwoZbiAnBNUN
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

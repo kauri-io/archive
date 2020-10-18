@@ -280,3 +280,17 @@ Un autre choix que j'ai fait est d'utiliser la distribution Linux Ubuntu comme s
 J'ai choisi un utilitaire de service système pour Windows, n'offrant aucune alternative, et j'ai passé en revue les aspects SSH de ce système d'exploitation. Encore une fois, ces articles s'approcheraient de nouveautés si je devais aborder tous les aspects du logiciel sur toutes les plates-formes. Je présente mes excuses à ceux qui voulaient plus de détails. S'il vous plaît laissez un commentaire si vous avez des questions sur ces choses.
 
 Cela a certainement été un long voyage. Je sais que tout est un peu ambitieux, en particulier pour ceux qui ont une technique moins technique. J'espère que vous avez pu suivre ces instructions et vous retrouver avec votre propre nœud Ethereum distant, en vous y connectant avec MetaMask via un tunnel SSH sécurisé. Si vous avez des questions ou avez besoin d'aide pour le processus, laissez un commentaire ici. Je serais heureux d'aider.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/utilisez-votre-noeud-ethereum-distant-en-utilisan/86aee595a3244883b5fef18be4df67dc/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-08-15
+- **Kauri original tags:** metamask, geth, ssh-tunnel
+- **Kauri original hash:** QmasbpNK8aNkCA3EGhV5ptDSVM1AThSrUA6EHCLXMHYSyG
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

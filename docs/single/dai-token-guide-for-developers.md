@@ -186,3 +186,16 @@ In this guide, we briefly discussed the technical details of the Dai token contr
 
 *   Contact integrations team - integrate@makerdao.com
 *   Rocket chat - #dev channel
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dai-token-guide-for-developers/9ef53381beb14100a2af9817e22bd812/a
+- **Kauri original author:** David Utrobin (@davidutro)
+- **Kauri original Publication date:** 2019-02-06
+- **Kauri original tags:** EthDenver
+- **Kauri original hash:** QmSaUhdXJehs4N3zcygCEFrAMijXCFsDMihxhm7frsqm5u
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

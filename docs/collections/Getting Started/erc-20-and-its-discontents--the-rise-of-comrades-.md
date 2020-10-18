@@ -158,3 +158,16 @@ ERC-777 defines the entire lifecycle of a token, including the minting (4), send
 2.  <https://github.com/ethereum/EIPs/issues/777>
 3.  <https://github.com/0xjac/ERC777>
 4.  <https://eips.ethereum.org/EIPS/eip-777>
+
+
+---
+
+- **Kauri original link:** https://kauri.io/erc-20-and-its-discontents:-the-rise-of-comrades-/7f05b8f63ca24a8e83d73a1075571f8d/a
+- **Kauri original author:** Shayan Shokrgozar (@transcendent)
+- **Kauri original Publication date:** 2019-10-20
+- **Kauri original tags:** erc20, erc777
+- **Kauri original hash:** QmTkxC73vyvfza9TwuzVebjAPWYVPyd9uy5Zy9Z5Rd9GE7
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

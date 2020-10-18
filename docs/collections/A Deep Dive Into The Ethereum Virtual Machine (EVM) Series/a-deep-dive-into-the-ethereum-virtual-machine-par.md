@@ -9,6 +9,8 @@ some_url:
 
 # A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages
 
+![](https://ipfs.infura.io/ipfs/QmUMhcFK1M1iCoT5cuFc77xBkouQis2kkQ4HoWmDvZhPLN)
+
 
 ## The EVM and High-Level Smart Contract Programming Languages
 
@@ -258,3 +260,17 @@ The nature of the EVM and how it is built on a blockchain present a host of bene
 
 * [IELE: An Intermediate-Level Blockchain Language Designed
 and Implemented Using Formal Semantics](https://www.ideals.illinois.edu/bitstream/handle/2142/100319/paper.pdf?sequence=2&isAllowed=y)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-par/7a04c82396fd416892e07db4915eb233/a
+- **Kauri original author:** Adrian Hacker (@adrian-h)
+- **Kauri original Publication date:** 2020-02-17
+- **Kauri original tags:** bytecode, languages, execution-model, evm, ethereum-virtual-machine
+- **Kauri original hash:** QmRGEyz8vPwBgpVoGskB17VYrPosERLfbY6JkUAuDTpDsg
+- **Kauri original checkpoint:** QmZdtBB4fpmwj59DYo9qNeuTBKYDHwcKWapbYa5WAtrFdn
+
+
+

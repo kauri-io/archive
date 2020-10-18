@@ -9,6 +9,8 @@ some_url:
 
 # Vyper.fun  Learn Vyper by building a Pokemon Game
 
+![](https://ipfs.infura.io/ipfs/Qmbie7w7s5Hgcj4om3LatPK31rPpPmVtHHGqgbLbSBCyTv)
+
 
 Last month, I started exploring DeFi.
 
@@ -46,3 +48,16 @@ As we are still working to build the website there are a lot of **ways you can c
 4. You can support us by contributing to our [Gitcoin grant](https://gitcoin.co/grants/1122/vyperfun).
 
 You can follow our updates on our [Gitter channel](https://gitter.im/vyper-fun/lobby) and [twitter](https://twitter.com/VyperFun).
+
+
+---
+
+- **Kauri original link:** https://kauri.io/vyper.fun:-learn-vyper-by-building-a-pokemon-game/2d7b7e234bb14af0be2b48fce2116db5/a
+- **Kauri original author:** Vaibhav Saini (@vasa)
+- **Kauri original Publication date:** 2020-09-25
+- **Kauri original tags:** smart-contract, ethereum, defi, tutorial, vyper
+- **Kauri original hash:** Qmf26UrKzp361HF8kdEaJXjPwNthYipbTHn39QFPBp1Azq
+- **Kauri original checkpoint:** unknown
+
+
+

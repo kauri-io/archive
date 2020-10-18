@@ -24,3 +24,17 @@ Got a comment?  Check out our [Gitter Channel](https://gitter.im/SecurEth_Guidel
 
 Copyright and related rights waived via [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/secureth-guidelines-getting-started/791ef4c00e924247921e98c95efbdd73/a
+- **Kauri original author:** Rex Hygate (@rhygate)
+- **Kauri original Publication date:** 2019-06-06
+- **Kauri original tags:** guidelines
+- **Kauri original hash:** QmeTR5PeYx6dCHiaWodQoSXDDF3CiMiDi8Wr2p9f6gSYic
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

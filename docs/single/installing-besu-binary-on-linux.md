@@ -9,6 +9,8 @@ some_url:
 
 # Installing Besu binary on Linux
 
+![](https://ipfs.infura.io/ipfs/QmTpqQxw6J2L5CiaxdGM4iK98rzwpPkKFmrc3FXv7t5gMU)
+
 
 Ever gotten a "`besu command not found`" on your terminal? Well, read on...
 
@@ -103,3 +105,16 @@ Get more information on Besu here:
 [Wiki](https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu)  
 [Jira](https://jira.hyperledger.org/projects/BESU/issues)  
 [Web](https://pegasys.tech/solutions/hyperledger-besu/)  
+
+
+---
+
+- **Kauri original link:** https://kauri.io/installing-besu-binary-on-linux/e00df6efcb644e07ab44df169d9375e9/a
+- **Kauri original author:** Felipe Faraggi (@felipefaraggi)
+- **Kauri original Publication date:** 2020-02-26
+- **Kauri original tags:** linux, besu, tutorial
+- **Kauri original hash:** QmZeKXuj998XoXt8Lfm5eMhrk7XcHKdnY3WDQZthoZqU8u
+- **Kauri original checkpoint:** unknown
+
+
+

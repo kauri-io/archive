@@ -9,6 +9,8 @@ some_url:
 
 # Filecoin  Peer-to-Peer Storage Network and Payment Protocol
 
+![](https://ipfs.infura.io/ipfs/Qmb8EnK8rPmsxDhcQdcA3CPDBqxwnzgL52m88YhJyhq4kx)
+
 
 > Filecoin is a decentralized storage network that turns cloud storage into an algorithmic market. The
 market runs on a blockchain with a native protocol token (also called “Filecoin”), which miners earn
@@ -245,3 +247,16 @@ The Filecoin Project is dual-licensed under Apache 2.0 and MIT terms:
 [3]: https://github.com/RichardLitt/standard-readme
 [4]: https://golang.org/doc/install
 [5]: https://www.rust-lang.org/en-US/install.html
+
+
+---
+
+- **Kauri original link:** https://kauri.io/filecoin:-peer-to-peer-storage-network-and-paymen/6de951ef66854422b8a4803fb1ab419d/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-05-13
+- **Kauri original tags:** storage
+- **Kauri original hash:** QmQnWbEzcPkKZdFVDkrZUpEwMpZEFj14ZeZTovmmyoGody
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # Nethereum - An open source .NET integration library for blockchain
 
+![](https://ipfs.infura.io/ipfs/QmYcHxEctVpBA1jv46b2GjDw3YSKXK3c1Sqi37xrDBThCp)
+
 
 Nethereum is the .Net integration library for Ethereum, simplifying the
 access and smart contract interaction with Ethereum nodes both public or
@@ -86,3 +88,17 @@ And then you can use the Ethereum API via Nethereum to interact with accounts an
 
 - [Read the Nethereum Getting Started guide](https://nethereum.readthedocs.io/en/latest/getting-started/)
 - [The full Nethereum documentation](https://nethereum.readthedocs.io/en/latest/)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/nethereum-an-open-source-.net-integration-library/d15dfd4903f149cdb84b3ce666103b52/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-03-01
+- **Kauri original tags:** ethereum, developer-tool, library, enterprise, -net, sdk
+- **Kauri original hash:** QmesGverX11X7QwdUAGeJVWBkb8x3LLaD58UoDtSAPp9ec
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

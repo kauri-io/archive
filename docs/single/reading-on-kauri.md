@@ -28,13 +28,13 @@ You can search titles and body text for articles using the search bar at the top
 
 ### Navigate article
 
-![Article outline](https://api.kauri.io:443/ipfs/QmWL1KAfwSw1EpyttFaWhvazUq6FYk2orfF4JEt7ar53T9)
+![Article outline](https://ipfs.infura.io/ipfs/QmWL1KAfwSw1EpyttFaWhvazUq6FYk2orfF4JEt7ar53T9)
 
 On the top right of each article is an outline that helps you jump between sub-sections of an article.
 
 ### Find more to read
 
-[Find more to read](https://api.kauri.io:443/ipfs/QmfTirVTGFDTceSJwWaDw3bL21p6bgJMwzfMPTeDzzjZ42)
+[Find more to read](https://ipfs.infura.io/ipfs/QmfTirVTGFDTceSJwWaDw3bL21p6bgJMwzfMPTeDzzjZ42)
 
 At the bottom of each article are two sections to help you find more great content to read.
 
@@ -50,18 +50,32 @@ You can add articles to your bookmarks or a collection by clicking the buttons u
 
 <!-- IMAGES -->
 
-![Add from article screen](https://api.kauri.io:443/ipfs/QmYagBBnsExvmcgPEWejKgk9oKsCp9bnUE5uxF5T91Z8Ys)
+![Add from article screen](https://ipfs.infura.io/ipfs/QmYagBBnsExvmcgPEWejKgk9oKsCp9bnUE5uxF5T91Z8Ys)
 
-![Add from listing screen](https://api.kauri.io:443/ipfs/QmNdMyHrMT8sdu3aK7drzxDJetnVBnh4h29tUfjR1EmrG6)
+![Add from listing screen](https://ipfs.infura.io/ipfs/QmNdMyHrMT8sdu3aK7drzxDJetnVBnh4h29tUfjR1EmrG6)
 
 ### Upvote or downvote
 
-![Upvote and downvote](https://api.kauri.io:443/ipfs/QmNWewKWHyEfPcAB2undCZ2sjvcFAMkLh1cBQpVx6BtpeP)
+![Upvote and downvote](https://ipfs.infura.io/ipfs/QmNWewKWHyEfPcAB2undCZ2sjvcFAMkLh1cBQpVx6BtpeP)
 
 If you loved what a writer had to say, or if you think there's room for improvement, then on the right hand side of an article you can find up and down arrows to show your opinion. If you think an article needs improvement, add a comment below, or suggest a change using the suggest feature mentioned above.
 
 ### Share an article
 
-![Social media share icons](https://api.kauri.io:443/ipfs/QmP89w17sbQSJsTHrVNtXuW2ypx37pnhrGZYqSdbY5BXeV)
+![Social media share icons](https://ipfs.infura.io/ipfs/QmP89w17sbQSJsTHrVNtXuW2ypx37pnhrGZYqSdbY5BXeV)
 
 Below the voting arrows are widgets to share an article to social networks. Share far and wide!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/reading-on-kauri/1c08250d4c4f4c4eb84d5c064541fd3c/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-12-19
+- **Kauri original tags:** kauri, reading, share
+- **Kauri original hash:** QmXs1BAARe92e2mgUtNVaLoZmytPR89Xj4wR18tUynmyhU
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

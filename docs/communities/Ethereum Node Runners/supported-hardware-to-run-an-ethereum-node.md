@@ -9,6 +9,8 @@ some_url:
 
 # Supported hardware to run an Ethereum node
 
+![](https://ipfs.infura.io/ipfs/QmetjL9y6fKb32rtJQkZKdN6kvbYjUA1BqWNW3JhHVUaDp)
+
 
 *This document is a draft, you can contribute to it using the button "Suggest Edit"*
 
@@ -60,4 +62,18 @@ TBD
 #### Storage
 
 - [Samsung SSD T5 (500GB)](https://www.amazon.com/Samsung-T5-Portable-SSD-MU-PA500B/dp/B073GZBT36)
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/supported-hardware-to-run-an-ethereum-node/d92a52587a4e4f439354e9fe3b231352/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-12-18
+- **Kauri original tags:** ethereum, nodes, raspberrypi, sync, hardware
+- **Kauri original hash:** QmT8mJMwU87nQH65sh1pEEt3nDopVpwiPSfWM6joddZiBE
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

@@ -9,6 +9,8 @@ some_url:
 
 # (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes
 
+![](https://ipfs.infura.io/ipfs/Qma6gsqaPkdAEKDzke9N7DTHXKKGRnU2RD7sH7tXdLSUjt)
+
 
 <br />
 
@@ -41,7 +43,7 @@ Our cluster will be composed of three machines (I might use the terms _device_, 
 <br />
 We are using a Portable SSD connected to the master node and exposed to the worker via NFS to store the volume data.
 
-![](https://api.kauri.io:443/ipfs/QmfAnBjKB9hj2CMikh4c5TVKHLoKABBS5B5yQbSRRXyAtZ)
+![](https://ipfs.infura.io/ipfs/QmfAnBjKB9hj2CMikh4c5TVKHLoKABBS5B5yQbSRRXyAtZ)
 
 <br />
 
@@ -73,9 +75,9 @@ Download [Etcher](https://www.balena.io/etcher/) to flash OS images to SD cards 
 
 Launch Etcher, select first the image extracted of Raspbian, select the Media (SD card) and click on Flash.
 
-![](https://api.kauri.io:443/ipfs/Qmbq9nv6BGxLcBmLvYAQ8fqCGHRcZewPN8DqSRBJDaHmXm)
+![](https://ipfs.infura.io/ipfs/Qmbq9nv6BGxLcBmLvYAQ8fqCGHRcZewPN8DqSRBJDaHmXm)
 
-![](https://api.kauri.io:443/ipfs/QmSGCN8edA61AuuhTAhAKoa61XmmvUtzCvTGBQsxtyPHBB)
+![](https://ipfs.infura.io/ipfs/QmSGCN8edA61AuuhTAhAKoa61XmmvUtzCvTGBQsxtyPHBB)
 
 **5. Once flashed, navigate to the folder /boot of the SD card and create an empty file `ssh`**
 
@@ -100,7 +102,7 @@ After you power up each device, we will attempt to connect from our local machin
 
 Your network router probably assigns an arbitrary IP address when a device tries to join the network via DHCP. To find the address attributed to the device, you can check either on your router admin panel (usually http://192.168.0.1 assuming your local network is 192.168.0.x) or via a tool like [angryip](https://angryip.org).
 
-![](https://api.kauri.io:443/ipfs/QmaGAcRkvbdsco79EDf49rfXzZzJs3c4RSxCHJnT4m5PBw)
+![](https://ipfs.infura.io/ipfs/QmaGAcRkvbdsco79EDf49rfXzZzJs3c4RSxCHJnT4m5PBw)
 
 _E.g. Virgin Media Hub_
 
@@ -479,3 +481,17 @@ In the [next chapter](https://kauri.io/install-and-configure-a-kubernetes-cluste
 
 <br />
 <br />
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(28)-install-raspbian-operating-system-and-prepar/7df2a9f9cf5f4f6eb217aa7223c01594/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-03-31
+- **Kauri original tags:** self-hosting, kubernetes, raspberrypi, raspbian
+- **Kauri original hash:** QmXT3ezdnGNLW5oYqoLjdvGvR3t3jhdcrM95KHqBe31bBV
+- **Kauri original checkpoint:** unknown
+
+
+

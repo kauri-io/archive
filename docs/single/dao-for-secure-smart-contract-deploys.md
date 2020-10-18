@@ -50,3 +50,17 @@ Chainlink - used for importing GitHub Checks data into the smart contract, as on
 https://github.com/itstehkman/DeployerDAO
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/dao-for-secure-smart-contract-deploys/d136d4ed652a4f8db279f552796b9df5/a
+- **Kauri original author:** Kareem Moussa (@kareemmoussa)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, security, dao, bounty-chainlink-2019, bounty-zeppelin-2019, governance
+- **Kauri original hash:** QmUNsfdGCDEgDezQDorhArB1rLTuMb3vg2FGSgupFMmWkm
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

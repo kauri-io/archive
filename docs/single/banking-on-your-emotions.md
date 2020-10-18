@@ -28,7 +28,7 @@ Does this means that the banks have failed to live up to their customer’s expe
 > How to eat a bank — one business at a time
 
 
-![](https://api.kauri.io:443/ipfs/QmRc9LegnECrNGSJt7TmYM3qvHQwfb5yWMkekGAWSWk8Nu)
+![](https://ipfs.infura.io/ipfs/QmRc9LegnECrNGSJt7TmYM3qvHQwfb5yWMkekGAWSWk8Nu)
 
 We saw 
 [Facebook doing it with its deep payments integration](https://techcrunch.com/2017/01/12/what-facebooks-european-payment-license-could-mean-for-banks/)
@@ -49,7 +49,7 @@ According to a
 [Bain’s study](https://www.cnbc.com/2018/03/06/amazon-could-become-the-third-biggest-us-bank-if-it-wants-to-bain-study.html)
  , without doing anything spectacular, with its current member base, it is estimated that Amazon could become the third largest bank in the US if it wants to be. It goes on to say that Amazon’s banking services could grow to more than 70 million U.S. consumer relationships over roughly five years, rivaling Wells Fargo.
 
-![](https://api.kauri.io:443/ipfs/QmP3ZPqo9zP1pLzB8TsxXYuLqrqs33EqxfZ7RUkjeuTwdy)
+![](https://ipfs.infura.io/ipfs/QmP3ZPqo9zP1pLzB8TsxXYuLqrqs33EqxfZ7RUkjeuTwdy)
 
 With Whole Foods acquisition to cover the last mile for Amazon Fresh and the recent announcement of its foray into the health care insurance business in a partnership with JPMorgan Chase, and Warren Buffett’s Berkshire Hathaway, the checking account is certainly a deep thought-out strategy.
 
@@ -75,3 +75,17 @@ _Twitter —_
   
 [@rameshbabua](https://twitter.com/rameshbabua)
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/banking-on-your-emotions/2d23c1a8e4814901ba6e8cf41e683c00/a
+- **Kauri original author:** Ramesh Babu (@rameshbabu)
+- **Kauri original Publication date:** 2019-02-27
+- **Kauri original tags:** digital, fintech, banking
+- **Kauri original hash:** QmPwJwSBU5owGgJnDrEuRkuQAVR3JSwZ5cYNNJPLmssJyR
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

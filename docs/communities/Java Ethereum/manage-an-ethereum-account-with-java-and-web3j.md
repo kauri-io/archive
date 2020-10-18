@@ -9,6 +9,8 @@ some_url:
 
 # Manage an Ethereum account with Java and Web3j
 
+![](https://ipfs.infura.io/ipfs/QmTyEg3Lq2Bf2anauJnHcGtHiAJZ71kAbY2quL7jXZeWkh)
+
 
 **Other articles in this series:**
 
@@ -455,3 +457,16 @@ To send a transaction between two accounts, Web3j can generate a transaction oje
 - [Interacting with an Ethereum Smart Contract in Java](https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e)
 - [Listening for Ethereum Smart Contract Events in Java](https://kauri.io/article/760f495423db42f988d17b8c145b0874)
 - [Using Pantheon, the Java Ethereum Client with Linux](https://kauri.io/article/276dd27f1458443295eea58403fd6965)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2020-05-01
+- **Kauri original tags:** ethereum, java, balance, web3j, account
+- **Kauri original hash:** QmevjY4PmnL2qAc4W6Ev7gWWiPYri4hn2FjXn2AYPoaM62
+- **Kauri original checkpoint:** unknown
+
+
+

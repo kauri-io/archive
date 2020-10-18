@@ -9,6 +9,8 @@ some_url:
 
 # Using Besu, the Java Ethereum Client with Windows
 
+![](https://ipfs.infura.io/ipfs/QmVmDUj7JVJDfMFmdqqCvQxAzG8XFznDfN6gQ8pWKN7AaD)
+
 
 ![Toolbelt: Besu included!](https://i.imgur.com/9aae8yO.jpg)
 Original photo by [Jesse Orrico](https://unsplash.com/@jessedo81?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
@@ -186,3 +188,17 @@ That request should return the following result:
 ```
 
 Find more information in the [Besu documentation](http://besu.hyperledger.org/).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/using-besu-the-java-ethereum-client-with-windows/8ed3a9dac7e044f9b6b45491fcef0df5/a
+- **Kauri original author:** Felipe Faraggi (@felipefaraggi)
+- **Kauri original Publication date:** 2019-11-22
+- **Kauri original tags:** ethereum, java, besu, windows
+- **Kauri original hash:** QmVa2sBYF7APnQqYjP2gRffPQmW75YMPcimA6TVSTyAAPL
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

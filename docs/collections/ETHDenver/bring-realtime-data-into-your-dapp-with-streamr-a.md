@@ -9,6 +9,8 @@ some_url:
 
 # Bring Realtime Data into your DApp with Streamr at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmcvDh4PbC822pR2Mq5Ds3oC9Emvrc9jgwa5wwrBJnfjQt)
+
 
 Streamr is creating an open source platform for the free and fair exchange of the world’s realtime data. Their blockchain-backed data Marketplace and powerful tools put your data back where it belongs.
 
@@ -31,3 +33,17 @@ For practical tutorial content, try one of the [Streamr tutorials](https://strea
 Streamr have four team members at ETHDenver, with talks and workshops on the schedule, [read their blog post](https://medium.com/streamrblog/ethdenver-streamr-2019-8c3806b703cf) to find out more.
 
 You can also ask and answer questions in their [Telegram channel](https://t.me/streamrdata).
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/bring-realtime-data-into-your-dapp-with-streamr-a/4ddcc10ac04c41d79531c159cbd875bc/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** realtime, dapp, data, streamr, ethdenver, hackathons
+- **Kauri original hash:** QmRxQKrQTcB8dHykUwGUMKdYLCFNqTXsgRrCzX77uyqRXP
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

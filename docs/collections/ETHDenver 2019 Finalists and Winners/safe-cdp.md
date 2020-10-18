@@ -64,3 +64,17 @@ https://github.com/derekchiang/safe-cdp
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/safe-cdp/c590a19769d7414f99077b590a7ec218/a
+- **Kauri original author:** Derek Chiang (@derekchiang)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-makerdao, bounty-zerion-2019
+- **Kauri original hash:** Qmb4PVPCvQSQZxuQFcsQKr1xJbQWXh8f1rcVpAuZRVEVyc
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

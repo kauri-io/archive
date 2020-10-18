@@ -9,6 +9,8 @@ some_url:
 
 # Rhombus has your oracle needs covered at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmcMLJ4e2nCJDywXK6s9skcjUtSjcw19ztfvoFbedEQ4UH)
+
 
 ### New Releases
 
@@ -57,11 +59,24 @@ The first 15 projects that register with us and commit to using a Rhombus oracle
 
 Rhombus provides the most reliable and efficient oracle platform on the market today. We connect your smart contract with real-world metrics. Access custom off-chain computing and the industry's highest-grade security. No matter what data your decentralized application needs, Rhombus has you covered.
 
-![](https://api.beta.kauri.io:443/ipfs/QmduH1ACwpF6gu6BGyK48jNSJd2eW1FVLBLBHfTVN7Wi6G)
+![](https://ipfs.infura.io/ipfs/QmduH1ACwpF6gu6BGyK48jNSJd2eW1FVLBLBHfTVN7Wi6G)
 
 
 ### Learn more
 
 To understand the Rhombus API, read about our activation/delivery methods, and explore detailed examples with code, please visit http://docs.rhombus.network/#rhombus-api-reference
 
-![](https://api.beta.kauri.io:443/ipfs/QmQ1GHzPr1vwTr2t6xxNHw2ZbqQ2X8XbmuMmeaascz32oi)
+![](https://ipfs.infura.io/ipfs/QmQ1GHzPr1vwTr2t6xxNHw2ZbqQ2X8XbmuMmeaascz32oi)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/rhombus-has-your-oracle-needs-covered-at-ethdenve/e407aed4ec014b0797232b796e892707/a
+- **Kauri original author:** Kenny Chandrasekera (@kenny-chandrasekera)
+- **Kauri original Publication date:** 2019-02-15
+- **Kauri original tags:** dapp, oracles, hackathons
+- **Kauri original hash:** QmVQsuuzYWuuWj1X7zL9i6hWKrJAGGuXajjybQ2QY6LZd4
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

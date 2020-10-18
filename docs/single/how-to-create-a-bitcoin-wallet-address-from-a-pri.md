@@ -14,7 +14,7 @@ some_url:
 ----
 
 
-![](https://api.beta.kauri.io:443/ipfs/Qmbzq8wFSvgiJZTY8XKYBt9bzWCSnJmGsGR232Wtk44aMS)
+![](https://ipfs.infura.io/ipfs/Qmbzq8wFSvgiJZTY8XKYBt9bzWCSnJmGsGR232Wtk44aMS)
 
 In 
 [the previous article](https://medium.freecodecamp.org/how-to-generate-your-very-own-bitcoin-private-key-7ad0f4936e6c)
@@ -99,7 +99,7 @@ SHA-256 and RIPEMD-160 are two hash functions, and again, we won’t go into the
 `453233600a96384bb8d73d400984117ac84d7e8b`
  .
 
-![](https://api.beta.kauri.io:443/ipfs/QmSSGzBbPBp1QsTypEYbE9o5Sv6s9WmkPMtjHMaarfkKm5)
+![](https://ipfs.infura.io/ipfs/QmSSGzBbPBp1QsTypEYbE9o5Sv6s9WmkPMtjHMaarfkKm5)
 
 Here’s how we encrypt the public key in Python:
 
@@ -135,7 +135,7 @@ To calculate the checksum of the key, we need to apply SHA-256 twice and then ta
 `512f43c4`
  (note that 4 bytes is 8 hex digits).
 
-![](https://api.beta.kauri.io:443/ipfs/QmXFeBtrFx3tjimVkCySq8T8whREL9NvbUXqx64b3kMcAF)
+![](https://ipfs.infura.io/ipfs/QmXFeBtrFx3tjimVkCySq8T8whREL9NvbUXqx64b3kMcAF)
 
 The code to calculate an address checksum is the following:
 
@@ -188,7 +188,7 @@ What we get is
 `17JsmEygbbEUEpvt4PFtYaTeSqfb9ki1F1`
  , a compressed Bitcoin wallet address.
 
-![](https://api.beta.kauri.io:443/ipfs/QmfSVZwHq9DKyaA2aCre37seyd4qiV4D9SUzo8rVimmzsq)
+![](https://ipfs.infura.io/ipfs/QmfSVZwHq9DKyaA2aCre37seyd4qiV4D9SUzo8rVimmzsq)
 
 
 ### Conclusion
@@ -206,7 +206,7 @@ The wallet key generation process can be split into four steps:
 Depending on the form of public key (full or compressed), we get different addresses, but both are perfectly valid.
 Here’s the full algorithm for the uncompressed public key:
 
-![](https://api.beta.kauri.io:443/ipfs/QmUbtbDaxnBNy4o8a8p4ZwBpU9Sq7gMhsmqodgUw8S8EyL)
+![](https://ipfs.infura.io/ipfs/QmUbtbDaxnBNy4o8a8p4ZwBpU9Sq7gMhsmqodgUw8S8EyL)
 
 If you want to play with the code, I published it to the 
 [Github repository](https://github.com/Destiner/blocksmith)
@@ -215,4 +215,18 @@ If you want to play with the code, I published it to the
 ----
 
 I also post random thoughts about crypto on  [Twitter](https://twitter.com/DestinerX), so you might want to check it out.
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/how-to-create-a-bitcoin-wallet-address-from-a-pri/ffe6e5525f2c43ed81e89af3c22228d8/a
+- **Kauri original author:** Timur Badretdinov (@destiner)
+- **Kauri original Publication date:** 2018-11-29
+- **Kauri original tags:** none
+- **Kauri original hash:** QmapZoJSXZJCo8YbLAW5qeeNQRtaw1HgbYBGjGfPPiDXGL
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
 

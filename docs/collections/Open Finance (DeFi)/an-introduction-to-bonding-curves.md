@@ -28,7 +28,7 @@ Take the case of the most famous dApp, Cryptokitties. Cryptokitties is an intere
 
 This pricing also mediates the market price of secondary market Gen 0s - no individual would want to pay more for a lesser kitty. Gen-0 kitties also have a unique constraint on its bonding curve: a fixed supply. There will only ever be 50,000 Gen-0 kitties produced. This means that the bonding curve also has an asymptote, where the release of said tokens stops, regardless of the price you’re willing to pay to coerce a new Gen-0 kitty.
 
-![Cryptokitties is one of the best examples of a price bonding curve](https://api.kauri.io:443/ipfs/QmdYY2q4fGsc9hSX8bm6aVeDJ25rS1NFNrYwsWgyrmFKGh)
+![Cryptokitties is one of the best examples of a price bonding curve](https://ipfs.infura.io/ipfs/QmdYY2q4fGsc9hSX8bm6aVeDJ25rS1NFNrYwsWgyrmFKGh)
 
 Because of the immutability of releasing such a smart contract into the open public, the centralized entity that issued the contract is held to their promise, as if they deviate from the initial code for any unreasonable cause, they may torch their hard-earned committee and kill their revenue generating smart contract. If Cryptokitties were to try to print more than they stated, the community would call into question the scarcity of the ERC-721 tokens, and thus drop the value and willingness to pay for potential Cryptokitty customers.
 
@@ -52,7 +52,7 @@ Meanwhile, there was an option for another type of Cheeze Wizard, for which each
 
 Typically, in a linear pricing curve, while each purchase equally increases the price for all participants (giving it an image of fairness), the earliest participants still have the highest potential returns, and the marginal percentage returns to the Nth customer are just 1/N, leading to a decay that makes it difficult to sustain sufficient network growth. The Cheeze Wizard set-up allows for later participants to be compensated in a different manner - a more powerful item.
 
-![Cheeze Wizards](https://api.kauri.io:443/ipfs/QmYwoiSAL7qbcRj3ET85Mi9Gg2Cz4eiu7jGSXYyv5jDx7z)
+![Cheeze Wizards](https://ipfs.infura.io/ipfs/QmYwoiSAL7qbcRj3ET85Mi9Gg2Cz4eiu7jGSXYyv5jDx7z)
 
 Few bonding curves in practice act as purely linear, often because the difficulty of bootstrapping a network often requires a greater “penalty” for being a late bird vs being an early bird.
 
@@ -68,7 +68,7 @@ Even if the common ratio of this exponential function is lower, or for linear pr
 
 Speaking of Ponzi schemes, the Fomo3D dApp creates incentives to be the “last purchaser” of a key, making the value of holding the last key of a round worth the entire pot size, and all previous purchasers’ keys worthless. This creates a price curve in which there is no price (or even gas fees) that individuals should pay for certain keys. It creates a time frame in which an individual should not bid up and render their previous purchase worthless, and a huge bounty for individuals who can mine/clog the Ethereum network, or otherwise exploit the smart contract that mediates this function.
 
-![Fomo3D saw a lot of activity in 2018, with a designed on-chain Ponzi-like scheme.](https://api.kauri.io:443/ipfs/QmZcQaUEFqrSAYM47om7HRoN67s28D8zSEtfEi773dwsLR)
+![Fomo3D saw a lot of activity in 2018, with a designed on-chain Ponzi-like scheme.](https://ipfs.infura.io/ipfs/QmZcQaUEFqrSAYM47om7HRoN67s28D8zSEtfEi773dwsLR)
 
 Thus, on-chain bonding curves are not immune to exploits by default; developers must design them with care such that individuals can be confident in the way that they work - otherwise, their predictability, and their usability, may be significantly affected.
 
@@ -95,3 +95,16 @@ However, the difficulty in growing ecosystems or communities is that nobody ever
 This type of pricing structure is particularly relevant for “completable projects”, for which further development or other growth is not necessary. Once a certain group or platform attains a critical level of users, it becomes an evergreen product, then the creators of the network can exit the project at a flat value, and allow others to build secondary, layer-two products on top of it.
 
 Overall, the importance of a well-designed bonding curve is made clearer by the increasing presence of DeFi applications that are slowly becoming more efficient in determining the time value of value locked in crypto networks. Bonding curves can help anchor or influence the “time value” of participation in the network, helping projects overcome the issues of initial hype and demand as well as sustaining continued support from their communities.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/an-introduction-to-bonding-curves/f7853f4914bd42b6bee19758a97b42ee/a
+- **Kauri original author:** C (@calvin)
+- **Kauri original Publication date:** 2019-06-04
+- **Kauri original tags:** bonding-curves, economics, dapp
+- **Kauri original hash:** QmRDsdAmGWUc1TBXvoypLSeLAEuk1FsyL3JcdihoqKJZ41
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

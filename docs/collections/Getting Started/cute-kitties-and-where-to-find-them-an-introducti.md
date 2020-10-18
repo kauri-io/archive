@@ -87,3 +87,16 @@ Historically, game publishers were a centralized authority that owned the object
 ### ERC-1155, the Future?
 
 While ERC-721 allows for a new class of assets to exist and give collectors the opportunity to collect digital items, it has some limitation. For this reason, developers have proposed [ERC-1155](https://github.com/ethereum/eips/issues/1155), perhaps the topic for an upcoming article.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/cute-kitties-and-where-to-find-them-an-introducti/028ff6bf2fa0432191371e6d39398ba6/a
+- **Kauri original author:** Shayan Shokrgozar (@transcendent)
+- **Kauri original Publication date:** 2019-03-12
+- **Kauri original tags:** erc721, nft
+- **Kauri original hash:** QmYVfsjo9GmxR9BTRyRBYKrqjgLxgWtpwEv9i5XLtNkVz7
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

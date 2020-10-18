@@ -9,6 +9,8 @@ some_url:
 
 # Chainlink - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmcdSiuTZ3x9aHapCsbmoJEmPC4Gn1PLjMdXcXELARPEEQ)
+
 
 ## Company/Project Name and Description
 
@@ -46,6 +48,20 @@ Most compelling, ready to use and creative.
 ## Contact Information
 
 Adelyn Zhou - adelyn@smartcontract.com
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/chainlink-sponsor-bounty-at-ethdenver-2019!/9c67f8cfcd6f4872a2827249db718521/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmfLQn9kHU6rSBM8ZcRPZx1P9Kh6NSgxJ4C9k3LixcQNXQ
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

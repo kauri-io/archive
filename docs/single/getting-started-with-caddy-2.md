@@ -90,7 +90,7 @@ The only thing is, your domain does not point to the server. I chose to use Clou
 
 You can test it from any web browser by typing your domain (e.g. `https://www.example.com`) in the address bar
 
-![](https://api.kauri.io:443/ipfs/QmdQB4T1QLqBPnURtGVYWXagYudzwK4PtB1SSEToEnL9PN)
+![](https://ipfs.infura.io/ipfs/QmdQB4T1QLqBPnURtGVYWXagYudzwK4PtB1SSEToEnL9PN)
 
 ** Really simple file server **
 
@@ -159,13 +159,13 @@ reverse_proxy localhost:8001
 
 starting both the server and caddy you can now access your server on both ports 8001 and on 2020
 
-![](https://api.kauri.io:443/ipfs/QmZ5dS3ZiqB9DP6BbSaoRT48gpDqT5HQbGEk6feWQNcZFp)
+![](https://ipfs.infura.io/ipfs/QmZ5dS3ZiqB9DP6BbSaoRT48gpDqT5HQbGEk6feWQNcZFp)
 
-![](https://api.kauri.io:443/ipfs/QmaMLGzN7Fa9Vpv6uSpVPjUYAA9uuxnwrfNemnj5QUpGvq)
+![](https://ipfs.infura.io/ipfs/QmaMLGzN7Fa9Vpv6uSpVPjUYAA9uuxnwrfNemnj5QUpGvq)
 
 You can also query the admin interface on port 2019
 
-![](https://api.kauri.io:443/ipfs/QmaxP6jxuCnGx3mwSuJMLnJe54eTKPXfTxPK5LT9Q2nDE9)
+![](https://ipfs.infura.io/ipfs/QmaxP6jxuCnGx3mwSuJMLnJe54eTKPXfTxPK5LT9Q2nDE9)
 
 **Mix and Match **
 
@@ -231,4 +231,18 @@ Compiling is fast and easy, configuration is equally simple. It is not just that
 There is a lot of power under the hood that I have not even tried yet - from the full power of Caddy files and using the API through to templates and extension modules.
 
 I know I will get there soon but no promised deadlines.
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/getting-started-with-caddy-2/6391aa56db3143ab989590f060f722a8/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2020-06-25
+- **Kauri original tags:** reverse-proxy, caddy, web-server
+- **Kauri original hash:** QmPFTeaN7gh6Rzwyu6SSqrn47MUGxFyR9nL87An6VW9CPy
+- **Kauri original checkpoint:** unknown
+
+
 

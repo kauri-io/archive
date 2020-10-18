@@ -9,6 +9,8 @@ some_url:
 
 # Consuming Ethereum Events To Kotlin Service Using Eventeum
 
+![](https://ipfs.infura.io/ipfs/QmXxTyEzKzE5N4n5noD6BsavXNXDTxhDN5wsUqSHmy3edB)
+
 
 It might be hard to roll your own implementation of a resilient web3 event consumer! You should if you have the time for it, but if you want something reliable and open source take a look at [Eventeum](https://github.com/ConsenSys/eventeum)
 
@@ -180,3 +182,16 @@ class BigIntegerSerializer: KSerializer<BigInteger> {
 ```
 
 Now kick off your application and let the service do its job! Let me know if you have any questions, happy to help!
+
+
+---
+
+- **Kauri original link:** https://kauri.io/consuming-ethereum-events-to-kotlin-service-using/c890f33e17b54d8d95ed99b932245df4/a
+- **Kauri original author:** Hayder Sharhan (@hshar)
+- **Kauri original Publication date:** 2020-02-17
+- **Kauri original tags:** eventeum, kafka, kotlin, event-listener, springboot
+- **Kauri original hash:** QmapWMcbKKQAqk4eHUbcU49nyBJwTWFJcXrmEPtYw2nwxQ
+- **Kauri original checkpoint:** QmZdtBB4fpmwj59DYo9qNeuTBKYDHwcKWapbYa5WAtrFdn
+
+
+

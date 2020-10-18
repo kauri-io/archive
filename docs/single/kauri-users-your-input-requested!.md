@@ -9,6 +9,8 @@ some_url:
 
 # Kauri Users, your input requested!
 
+![](https://ipfs.infura.io/ipfs/QmVynYRFAMQbfuCwD1yVGA1Gez4uWexwYEcaJqraL9Z3po)
+
 
 Dear Kauri users, 
 
@@ -22,6 +24,20 @@ The aim of the survey is to help us to frame the next phase of our platform and 
 
 Best,
 Andreas
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/kauri-users-your-input-requested!/14f2219883484b4f80fb3befc624a604/a
+- **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
+- **Kauri original Publication date:** 2019-08-29
+- **Kauri original tags:** kauri, survey, writers
+- **Kauri original hash:** QmX1tvx5v4g8ZYsoe9jCNhbBZjZH8tpuYZ4GEQRt8kZCAf
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
 
 
 

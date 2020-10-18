@@ -9,8 +9,10 @@ some_url:
 
 # Spin.FM  Decentralized Partying
 
+![](https://ipfs.infura.io/ipfs/QmVYrXtAA4nAbWAiDwuYPbtmi8xKJtvNTugEjoSuVHzQz3)
 
-![](https://api.kauri.io:443/ipfs/QmVYrXtAA4nAbWAiDwuYPbtmi8xKJtvNTugEjoSuVHzQz3)
+
+![](https://ipfs.infura.io/ipfs/QmVYrXtAA4nAbWAiDwuYPbtmi8xKJtvNTugEjoSuVHzQz3)
 ## Project Name
 Spin.fm
 
@@ -49,7 +51,21 @@ Important: You MUST add a tag (at the top, under Title) for each bounty you'd li
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/netus-io/spin-fm/
 
-![](https://api.kauri.io:443/ipfs/QmUGoZmjgxP4hV7RxVYqd1QSkk1rtzARd9iPkNd6RNd3gn)
-![](https://api.kauri.io:443/ipfs/QmUC7gQKi6evTMRwK5zHnSxR8XvApJ7LGyu9RmfsbhoPHX)
+![](https://ipfs.infura.io/ipfs/QmUGoZmjgxP4hV7RxVYqd1QSkk1rtzARd9iPkNd6RNd3gn)
+![](https://ipfs.infura.io/ipfs/QmUC7gQKi6evTMRwK5zHnSxR8XvApJ7LGyu9RmfsbhoPHX)
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/spin.fm:-decentralized-partying/a8f1b12e984949b08323522a54cf189f/a
+- **Kauri original author:** Juliana Mei (@julianapeace)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, zepkit, poa, zeppelin, portis
+- **Kauri original hash:** QmbHY7oVhb5GiQymRWfQSEoFC39AZk1zjSonJoYvkyLds8
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
 
 

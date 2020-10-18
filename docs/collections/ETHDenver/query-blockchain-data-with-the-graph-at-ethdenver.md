@@ -9,6 +9,8 @@ some_url:
 
 # Query Blockchain Data with The Graph at ETHDenver
 
+![](https://ipfs.infura.io/ipfs/QmS5viWdLcxuP881xPrjRtjty8U53sbJxpSdjsWRa8dyce)
+
 
 The Graph is a decentralized protocol for indexing and querying data from blockchains, starting with Ethereum. It makes it possible to query data that is difficult or impossible to query directly by using a GraphQL interface.
 
@@ -42,3 +44,17 @@ Read [the project documentation](https://thegraph.com/docs/define-a-subgraph#ins
 ### Need Help
 
 If you need help with The Graph, they have a [discord](https://discord.gg/vtvv7FP) and [telegram](http://t.me/graphprotocol) channel. You can also search [the GitHub repository](https://github.com/graphprotocol/graph-cli) for any related issues.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/query-blockchain-data-with-the-graph-at-ethdenver/10cd2a6e80f04cb9a5bbc06a15348722/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-02-08
+- **Kauri original tags:** data, ethdenver, hackathons, querying
+- **Kauri original hash:** QmR47Y88jZFd8A5UV7cwSJoBCgynNAJqHLD3vHDKaLUDYf
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

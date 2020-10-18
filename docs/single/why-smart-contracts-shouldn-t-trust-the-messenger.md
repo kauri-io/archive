@@ -99,3 +99,17 @@ Smart contract platforms grant us much power to create entirely new ways of doin
  *  [Follow @witnet_io on Twitter](https://twitter.com/witnet_io) 🐦
 
  *  [Discover other Witnet community channels](https://witnet.io/#/contact) 👥
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/why-smart-contracts-shouldn-t-trust-the-messenger/9d97c9aa9bff4424ad47a803f02ace86/a
+- **Kauri original author:** Witnet (@witnet)
+- **Kauri original Publication date:** 2018-11-20
+- **Kauri original tags:** none
+- **Kauri original hash:** QmNYEL7chi5g57YV8oySeZvSGD2xMXu21LhehsZSSjzQWS
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

@@ -69,13 +69,13 @@ https://kovan.etherscan.io/address/0x17d9486dcd19981b42a3214ba97d1e1f130e801a#co
 On this page you will find the ABI. You can access the contract from myCrypto. Select the Kovan network and "interact with contracts" from the tools menu.
 
 ![
-](https://api.kauri.io:443/ipfs/QmcqRJYhzsjZYqJd3cQhx2pnMkEeJP6pvZbT6MGrzwZT5U)
+](https://ipfs.infura.io/ipfs/QmcqRJYhzsjZYqJd3cQhx2pnMkEeJP6pvZbT6MGrzwZT5U)
 
 Paste the address of the contract (see above) as the address, and paste the ABI that you got from etherscan into the large text box.
 
 Clicking the access button, you will see that you can now call the wotVal function - but you are asked for an account with which to access it (e.g. Metamask). 
 
-![](https://api.kauri.io:443/ipfs/Qmf25PRUaybpgmcfiSFa4YohjFDg9mccKwEWAnn2B8hYhD)
+![](https://ipfs.infura.io/ipfs/Qmf25PRUaybpgmcfiSFa4YohjFDg9mccKwEWAnn2B8hYhD)
 
 Using one of these would allow you to transact with the contract (i.e. bump the value of `val`) but you cannot read the return value.
 
@@ -104,7 +104,7 @@ Let's have a look at the ABI that we pasted. It defines how we interact with the
 
 If we change constant to `true` and stateMutability to `view` and paste the new ABI into myCrypto, we now get a big READ button instead of an offer to use a wallet. Depending on how many people call the transaction, your reply probably won't be 9 but you do get a response. Do note however, that calling the function multiple times always results in the same answer because the changes when you bump `val` are not persistent.
 
-![](https://api.kauri.io:443/ipfs/QmRMsvV2VkvHe5cGWPfCQj4HGsbLmn2rrzAuS8AkLqn5GL)
+![](https://ipfs.infura.io/ipfs/QmRMsvV2VkvHe5cGWPfCQj4HGsbLmn2rrzAuS8AkLqn5GL)
 
 This means that you can use exactly the same mechanism to read the reply from javascript using either the web3 call method or by using a modified ABI, or similar methods from Go, Python etc.
 
@@ -119,3 +119,17 @@ This means that your base contract is usually accessed via its fallback function
 Say, for example, you had released an ERC20 token but wanted to upgrade it to an ERC777 or some other kind of token. When you wrote the ERC20 you would not know all the ERC777 functions. You would rely on the fallback function to act as a catch-all and pass everything on to the business logic contract.
 
 Since we do not know in advance which function are going to be constant and which are not, we need to be able to treat functions as constant as required. The investigations here proved that this is possible.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/getting-return-values-from-a-solidity-transaction/ea44be3e30264e0ea116c7ec0621bb51/a
+- **Kauri original author:** Dave Appleton (@daveappleton)
+- **Kauri original Publication date:** 2019-06-21
+- **Kauri original tags:** transaction, solidity
+- **Kauri original hash:** QmNTMTdRP1L1fqequEDtA56gwAmgTVxJos6qp7CwbUjHiX
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

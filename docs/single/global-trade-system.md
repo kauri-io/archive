@@ -52,3 +52,17 @@ https://github.com/ethdenver-gts
 
 
 
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/global-trade-system/1c3815e333ce46f3b8cdbfb2c605620c/a
+- **Kauri original author:** Piotr Adamczyk (@imxeno)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-fortmatic-2019
+- **Kauri original hash:** QmUFVuD4nq5obhmbnLmw79J4H64pYrZQcTjzBkhwgXpTbg
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

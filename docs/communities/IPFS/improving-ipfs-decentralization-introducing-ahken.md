@@ -9,6 +9,8 @@ some_url:
 
 # Improving IPFS Decentralization - Introducing Ahken
 
+![](https://ipfs.infura.io/ipfs/QmaQz2W93AqWXT4qYKAPn1aGJkC1KrtaUTscfZJcqMNbfV)
+
 
 ## The IPFS Elephant-In-The-Room
 IPFS is a popular peer-to-peer protocol for storing and sharing data in a distributed fashion, and is heavily used behind the scenes in Ethereum applications.  It is often claimed that storing important dApp data in IPFS is a silver bullet that inherently makes the data decentralized and accessible, but is this really the case? 
@@ -62,3 +64,17 @@ Its very raw and bare bones right now (ie. its not fully working and ready to be
 
 ## Let Me Know Your Thoughts!
 Like I said previously, this project is in its very early stages so it would be great to hear some feedback around if you think it's a good or terrible idea (or if something similar already exists)!  Get in touch on twitter [@craig_williams1](https://twitter.com/craig_williams1), or post a comment here.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/improving-ipfs-decentralization-introducing-ahken/012d5a2f2f2f4ab8ba1872248f8ff631/a
+- **Kauri original author:** Craig Williams (@craig)
+- **Kauri original Publication date:** 2018-12-20
+- **Kauri original tags:** IPFS, AHKEN
+- **Kauri original hash:** QmbYYPiuXkqqiVJ78VVYYNGuyJ8kD7T7U5gHPA9MbY5Vcz
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

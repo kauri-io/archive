@@ -9,6 +9,8 @@ some_url:
 
 # Managing storage in a Java application with IPFS
 
+![](https://ipfs.infura.io/ipfs/QmVGsfP47b62S9Xs4R4xiiTwFAwFD3sySBhbL5BLChqr5f)
+
 
 
 In this article, we learn how to interact with **[IPFS](https://ipfs.io/) (InterPlanetary File System)** in Java using the official [**java-ipfs-http-client library**](https://github.com/ipfs/java-ipfs-http-client). This library connects to an IPFS node and wraps most of the operations offered by the [HTTP API](https://docs.ipfs.io/reference/api/http/).
@@ -542,3 +544,17 @@ peers.forEach(multihash ->
 -   [Introduction to IPFS (by Consensys)](https://medium.com/@ConsenSys/an-introduction-to-ipfs-9bba4860abd0)
 -   [IPFS Introduction by Example (by Christian Lundkvist)](http://whatdoesthequantsay.com/2015/09/13/ipfs-introduction-by-example)
 -   [The definitive guide to publishing content on the decentralized web (by Textile)](https://medium.com/textileio/the-definitive-guide-to-publishing-content-on-ipfs-ipns-dfe751f1e8d0)
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/managing-storage-in-a-java-application-with-ipfs/3e8494f4f56f48c4bb77f1f925c6d926/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-08-14
+- **Kauri original tags:** java, ipfs, ipns
+- **Kauri original hash:** QmPT2DAEUBhFeshVdjwgG77GRQCPiAfSJCReqMTPu82BSp
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

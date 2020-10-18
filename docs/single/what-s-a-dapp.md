@@ -11,7 +11,7 @@ some_url:
 
 
 
-![](https://api.kauri.io:443/ipfs/QmPECU3eqxmehu83htefTGAnqhxLdUqJwkRTHLNhGSBccv)
+![](https://ipfs.infura.io/ipfs/QmPECU3eqxmehu83htefTGAnqhxLdUqJwkRTHLNhGSBccv)
 
  
 _This article was originally published on_
@@ -51,3 +51,17 @@ DApp development is growing rapidly but is also still in a very early phase. The
  
 _App via Pexels_
  
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/what-s-a-dapp/b2354657098e4affa3c021d2a0210215/a
+- **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
+- **Kauri original Publication date:** 2019-03-11
+- **Kauri original tags:** dapp, blockchain
+- **Kauri original hash:** QmdCBBx6esQ68fNetboxYT3WKusVUM2rykEtrjeidqewUk
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

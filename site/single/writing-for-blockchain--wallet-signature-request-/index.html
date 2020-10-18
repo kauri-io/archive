@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Writing for blockchain wallet signature request messages &mdash; Kauri</title>
+    <title>Writing for blockchain wallet signature request messages &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -768,10 +771,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1053,7 +1056,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1062,7 +1065,7 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="writing-for-blockchain-wallet-signature-request-messages">Writing for blockchain  wallet signature request messages</h1>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib" /></p>
 <p><em>This article is for you if you’re curious about the design problems in the blockchain space. If you don’t have a writer on your team, or you’re looking to improve your blockchain product’s onboarding UX. If you’re thinking about the challenge of getting your product into more hands than the existing, tech-savvy blockchain community. Or all of the above.</em></p>
 <p>I’m Ryan, Lead UX content designer for the 
 <a href="https://consensys.design/design-system">Rimble</a>
@@ -1099,14 +1102,14 @@ One example might be
  needed because the code says that if you pay x Ether, you’ll get Y Dogecoin. And that code can’t be refuted.
 But I’m getting carried away…
 This article isn’t about explaining blockchain — and just as well because I’m not nearly qualified enough to do that. Let’s get back on track.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF" /></p>
 <h3 id="wallet-signature-request-messages">Wallet signature request messages</h3>
 <blockquote>
 <p>Caveat #1: I’ll be talking about signature request messages in the context of logging in or accessing a dApp on the Ethereum blockchain, not when they’re used for verifying a smart contract transaction (that’ll come later).</p>
 </blockquote>
 <p>Wallet signature requests are some of the first things you come across when starting out with dApps. They are a crucial part of the decentralized “logging in” process.
 With some dApps, all you need is a wallet to access it. No account, no usernames, no passwords, no personal data stored by the dApp at all! A lot of the time you can enhance your experience by adding data afterwards, but it’s not a prerequisite for access.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmaXnEgycRXh71AGkiyWDGpEcfswDusZsc16cZJDubS2y3" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaXnEgycRXh71AGkiyWDGpEcfswDusZsc16cZJDubS2y3" /></p>
 <p>Your wallet is your ticket to the blockchain party. It grants you access to a website’s blockchain features.
 So for example, if you head to 
 <a href="https://explorer.bounties.network/explorer">The Bounties Network</a>
@@ -1114,7 +1117,7 @@ So for example, if you head to
 That’s why we have signature request messages when logging in to a dApp. They’re essentially a security precaution and a bit like that bank verification modal you sometimes get when you pay for stuff online. In a decentralized world, we don’t need the bank. You can verify yourself using your wallet. So dApps ask you to sign a message in your wallet to prove you have access and aren’t someone acting fraudulently with someone else’s wallet/funds.</p>
 <p><em>As a side note, I’m not sure signing is the best analogy for this. It sounds contractual, scary and there’s no signature in the traditional pen-and-ink sense, but the metaphors of blockchain is most certainly an article for another time.</em></p>
 <p>Whether or not you agree with the metaphor, the importance of this verification step is without doubt. Yet the message is often complete gibberish, leading to unnecessary points of friction and confusion.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmYEi527roKZNZpsbcpzt8z9nDZzU8ba811v3R3yowXRRT" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYEi527roKZNZpsbcpzt8z9nDZzU8ba811v3R3yowXRRT" /></p>
 <p>This is often the last step (hurdle?) in logging in, so it’s crucial. I think it’s time we started caring more about what it says.</p>
 <h3 id="content-for-signature-request-messages">Content for signature request messages</h3>
 <blockquote>
@@ -1183,14 +1186,14 @@ __
  . Just make sure you explain why you’re including a random string of data — to keep their wallet safe and stop hackers.</p>
 <p><strong>Be creative</strong>
  It’s a good opportunity to show off your brand style or tone of voice. Take a look at CrytpoKitties to see what I mean.</p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmVTRSBWYgQ9fAaFE9Lt728iKdFss6poPKVTybEahWK4LH" /></p>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVTRSBWYgQ9fAaFE9Lt728iKdFss6poPKVTybEahWK4LH" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh" /></p>
 <h3 id="what-does-this-advice-look-like">What does this advice look like?</h3>
 <p>A good, but generic, message might look something like:</p>
 <blockquote>
 <p>Hi there from {dApp name}! Sign this message to prove you have access to this wallet and we’ll log you in. This won’t cost you any Ether.To stop hackers using your wallet, here’s a unique message ID they can’t guess: d458fa15-dcab-4d85-a477–004d6febca12</p>
 </blockquote>
-<p><img alt="" src="https://api.kauri.io:443/ipfs/QmTcm9uKVpYYcpxHgaGXuN5N2aE9mhF4i2U3H9cz2hBKCM" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTcm9uKVpYYcpxHgaGXuN5N2aE9mhF4i2U3H9cz2hBKCM" /></p>
 <p>What this message does:</p>
 <ul>
 <li>
@@ -1229,7 +1232,16 @@ I hope you give this a go — I’d love to see more informative, helpful and hu
 <p>Blockchain is complicated and making it simple is even more complicated. So please let me know if you found this useful or if you spot any mistakes.
 If you have any areas you’d like covered in a future issue, leave it in the comments or you can reach out to me on 
 <a href="https://twitter.com/ryancreatescopy">@ryancreatescopy</a>
- on Twitter.</p></div>
+ on Twitter.</p>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/writing-for-blockchain:-wallet-signature-request-/e46374ec0fbd4403ae9ea351580caa4d/a</li>
+<li><strong>Kauri original author:</strong> Ryan Cordell (@rcordell)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-30</li>
+<li><strong>Kauri original tags:</strong> metamask, ux, usability, blockchain, content</li>
+<li><strong>Kauri original hash:</strong> Qmf11neYJNAJWJgWEzXkAfe2cngRjaUgExyBmEiqdkXEJm</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul></div>
                 <footer>
     <div class="footer-buttons">
         <div class="previous"><a href="../what-are-the-risksrewards-associated-with-leverag/" title="What are the risks/rewards associated with leveraging?"><span>Previous</span></a></div>

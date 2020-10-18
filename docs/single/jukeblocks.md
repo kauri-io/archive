@@ -9,6 +9,8 @@ some_url:
 
 # JukeBlocks
 
+![](https://ipfs.infura.io/ipfs/QmTAyuQHiDt4ToEwJreEboAvEdgB47caEKd5tq4NUYjQ2c)
+
 
 
 ## Project Name
@@ -59,6 +61,20 @@ some_url:
 
 <div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/emgYHPgGXHY" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/jukeblocks/33ff68626283451496d06400c9b193f0/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission
+- **Kauri original hash:** QmZBKVXdtFB2cDj6HT2pNxKU9zrCpBYhR3q9MrYWgbEwuR
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

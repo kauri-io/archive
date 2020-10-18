@@ -10,7 +10,7 @@ some_url:
 # Publishing to the Decentralized Web with Android, Ethereum, and IPFS
 
 
-![](https://api.kauri.io:443/ipfs/QmR33xfXcZ49mqZwHt1XY5SNC32BhzSdHEMDN7sGVoSwRi)
+![](https://ipfs.infura.io/ipfs/QmR33xfXcZ49mqZwHt1XY5SNC32BhzSdHEMDN7sGVoSwRi)
 ###What happens when you combine Android, the world's most popular mobile operating system, with the newest, user-empowering, decentralized web technologies?
 Perhaps the above question is a bit premature. After all, the decentralized web, or 
 [Web 3.0](https://medium.com/r/?url=http%3A%2F%2Fgavwood.com%2Fweb3lt.html)
@@ -21,7 +21,7 @@ For the past two years, much of my informal research has been motivated by the b
 **if I could create a prototype that demonstrates the power of the combination of Android and Web 3.0, maybe that process would produce some interesting insight into the future of the internet…**
  
 
-![](https://api.kauri.io:443/ipfs/QmUmnYekYBJmcP6r8XohAawNXCv1tpjSQLiG3qcE7K3sMy)
+![](https://ipfs.infura.io/ipfs/QmUmnYekYBJmcP6r8XohAawNXCv1tpjSQLiG3qcE7K3sMy)
 
 So I created 
 [Ether Cyrcus](https://medium.com/r/?url=http%3A%2F%2Fcyrcus.net)
@@ -253,3 +253,17 @@ As you see in the examples above, when administrators of important software can 
 If you would like to hear more about publishing to Web 3.0, or the future of the fully decentralized dapp stack utilizing Ethereum, keep an eye out for future articles and reach out to me in the comments or on twitter 
 [@cvoell](https://medium.com/r/?url=https%3A%2F%2Ftwitter.com%2Fcvoell)
  .
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/publishing-to-the-decentralized-web-with-android-/4f32c0417fe54011b73b3e3fa5da72c6/a
+- **Kauri original author:** Cameron Voell (@cvoell)
+- **Kauri original Publication date:** 2019-03-13
+- **Kauri original tags:** ethereum, dapp, ipfs, android
+- **Kauri original hash:** QmRARLekJibMDgioiwebkNFxFBjUsezqRaZr4aTcqCQrWB
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

@@ -9,6 +9,8 @@ some_url:
 
 # (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data
 
+![](https://ipfs.infura.io/ipfs/QmaRtE99DKhycBBsY3Y7EzCEhmmAxmAS7rhDJy8jxmrt4Y)
+
 
 
 ### ElasticSearch cluster
@@ -694,3 +696,16 @@ In the following article, we will learn how to install and configure Metricbeat:
 
 <br />
 <br />
+
+
+---
+
+- **Kauri original link:** https://kauri.io/(25)-install-elasticsearch-and-kibana-to-store-an/e5b86351f38940b8a071267062f052cb/a
+- **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
+- **Kauri original Publication date:** 2019-09-03
+- **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat
+- **Kauri original hash:** QmfKVBGkSynBiN9MpK6AfxPhTF6P9k24yy78KSW8iJBmsQ
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

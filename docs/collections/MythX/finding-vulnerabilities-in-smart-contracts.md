@@ -9,6 +9,8 @@ some_url:
 
 # Finding Vulnerabilities in Smart Contracts
 
+![](https://ipfs.infura.io/ipfs/QmcAFocEnAuZMe1bckBs3cDeesoFPybTMkamgTidPqhUZo)
+
 
 Smart contracts are increasingly complex programs that often hold and manage large amounts of assets. Getting their business logic right is challenging and developers should use tools to analyze their smart contracts before deploying them.
 Starting with the mother of all smart contract hacks — the infamous DAO attack — we have seen a number of high-profile hacks over the last years that resulted in tens of millions of dollars in damages. The majority of these hacks were pulled off by locating holes in smart contracts that left them vulnerable to exploitation.
@@ -140,3 +142,17 @@ In subsequent posts, we will cover some more advanced techniques (e.g.,
 _within less than a second_
  . Stay tuned for more!
 Thanks to Rocky Bernstein, Maria Christakis, Joran Honig, Everett Muzzy, and Gerhard Wagner for feedback on drafts of this article.
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/finding-vulnerabilities-in-smart-contracts/b34134b451b04911ba7295df4b86a234/a
+- **Kauri original author:** MythX (@mythx)
+- **Kauri original Publication date:** 2019-04-02
+- **Kauri original tags:** fuzzing, security, smart-contracts
+- **Kauri original hash:** QmTBZYkFXytfbcCnbWVy3BH8Um3umKmJUn1VqhgSQCZnYC
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

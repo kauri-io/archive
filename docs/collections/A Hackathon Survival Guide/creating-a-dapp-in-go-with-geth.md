@@ -9,6 +9,8 @@ some_url:
 
 # Creating a DApp in Go with Geth
 
+![](https://ipfs.infura.io/ipfs/QmfCaFUvx94wo9BD1HvntsbxbiaLcDZCSHJpQt3dT7GCoU)
+
 
 Go Ethereum (or Geth) is the official Go implementation of the Ethereum protocol. The [Go Ethereum GitHub repository](https://github.com/ethereum/go-ethereum) holds source code for the Geth Ethereum client and other tools and libraries for developing DApps (decentralized applications).
 
@@ -89,7 +91,7 @@ To keep this guide straightforward, we use the Ethereum API gateways provided by
 
 The newly created project should look like this:
 
-![New project on Infura.io](https://api.beta.kauri.io:443/ipfs/QmSXXdatWZMkp63Hu4BYtgmNHTp75TD3Mm2BGxauFBhkYT)
+![New project on Infura.io](https://ipfs.infura.io/ipfs/QmSXXdatWZMkp63Hu4BYtgmNHTp75TD3Mm2BGxauFBhkYT)
 
 We'll come back to this later when we've deployed the smart contract.
 
@@ -484,7 +486,7 @@ We also don't want to send the value of `answer` to the contract as plain text, 
 
 See an example of this at [`0x445d51fc29741b261f392936970b3c842e922dec841023ca40e248b9d3a2ba19`](https://rinkeby.etherscan.io/tx/0x445d51fc29741b261f392936970b3c842e922dec841023ca40e248b9d3a2ba19) on the Rinkeby network.
 
-![Answer stored as plain text](https://api.beta.kauri.io:443/ipfs/QmNZf2x1NDCWzSWvqus3dDeDmcUtp4U4GVpH6pKR9m8Z3z)
+![Answer stored as plain text](https://ipfs.infura.io/ipfs/QmNZf2x1NDCWzSWvqus3dDeDmcUtp4U4GVpH6pKR9m8Z3z)
 
 To get around this, we do two things:
 
@@ -728,3 +730,16 @@ Our DApp doesn't know if a transaction is completed or not. That's why we need s
 Our user can't just run the DApp, and it works. They need to specify a keystore file, and make sure that they have a deployed contract ready to interact with. We can correct this by adding to our CLI options that allow the user to enter values that configure these parameters.
 
 Our DApp assumes that the user who runs it is the same person who (1) deploys the contract, and (2) answers the question. Ideally, the DApp that deploys the contract and the DApp that interacts with the contract should be separate.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/creating-a-dapp-in-go-with-geth/60a36c1b17d645939f63415218dc24f9/a
+- **Kauri original author:** Zed (@zed)
+- **Kauri original Publication date:** 2019-02-03
+- **Kauri original tags:** Golang, Go-programming-language, DApp, Geth
+- **Kauri original hash:** QmNwRw3MevQE5zb8fPYiDgg4y2nSfUbkDmW4X8sGZQKxv8
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

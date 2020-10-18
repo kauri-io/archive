@@ -14,7 +14,7 @@ some_url:
 
 Welcome to one of the most exciting areas in computer programming. The potential growth of the blockchain field is matched only by the professional development of those engaged in it. Why? To understand decentralized application (dapp) development, you can touch upon any (or all!) of the following fields:
 
-![Blockchain can intersect many industries](https://api.kauri.io:443/ipfs/QmR1wbox467mGa8FFXPfHraNUZyKUpJzSbVcoYinvYXhzD)
+![Blockchain can intersect many industries](https://ipfs.infura.io/ipfs/QmR1wbox467mGa8FFXPfHraNUZyKUpJzSbVcoYinvYXhzD)
 [Source: Taylor Pearson](https://twitter.com/TaylorPearsonMe/status/923998769045127168)
 
 If this is overwhelming, that’s okay! You can jump right into the fire and start hacking. Here are a few pointers before you start diving into resources, repositories, and documentation.
@@ -120,3 +120,16 @@ Twitter:
 -   [Unconfirmed](https://unconfirmed.libsyn.com/)
 -   [Epicenter](https://epicenter.tv/)
 -   [11:FS Blockchain Insider](https://bi.11fs.com/)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/tips-for-starting-dapp-development/a6f8cae18e574e1595bd870010100c80/a
+- **Kauri original author:** Coogan (@cooganb)
+- **Kauri original Publication date:** 2020-02-03
+- **Kauri original tags:** getting-started, dapp
+- **Kauri original hash:** QmYA4YEm6i1JcFXiV4aZQgjZtVE64LiNWWeqmitd135PG3
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
+

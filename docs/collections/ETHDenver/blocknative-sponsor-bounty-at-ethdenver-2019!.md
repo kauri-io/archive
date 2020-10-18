@@ -9,6 +9,8 @@ some_url:
 
 # Blocknative - Sponsor Bounty at ETHDenver 2019!
 
+![](https://ipfs.infura.io/ipfs/QmZRqAb8Coq6NpnJVinttMaedDDY5TWH9goFgeswdKfbyD)
+
 
 ## Company/Project Name and Description
 
@@ -102,4 +104,18 @@ We’ll judge based on technicality
 Sarah Marshall - sarah@blocknative.com
 
 Note - All submissions may be featured in future blog posts
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/blocknative-sponsor-bounty-at-ethdenver-2019!/80219f341f3742b7b1529a3494d38576/a
+- **Kauri original author:** Bufficorn (@bufficorn)
+- **Kauri original Publication date:** 2019-02-12
+- **Kauri original tags:** sponsor-bounty, ethdenver-2019
+- **Kauri original hash:** QmVwE3qme1z7dGFoAW29vy1A3b6eB8EsFNWWfoDBfueyjN
+- **Kauri original checkpoint:** Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g
+
+
 

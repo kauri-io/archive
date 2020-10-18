@@ -17,3 +17,16 @@ By Benjamin Bollen (OpenST)
 [PDF](https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/metablockchains-on-ethereum/OpenST-Metablockchains-to-scale-DApps.pdf)
 
 [Keynote](https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/metablockchains-on-ethereum/OpenST-Metablockchains-to-scale-DApps.key)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/running-meta-blockchains-on-ethereum-to-scale-dap/c9bd76f7cd2548a4882f286dcc5b4364/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2018-09-18
+- **Kauri original tags:** none
+- **Kauri original hash:** QmYtBjtYQy4UgcD7SCRL2c2QN2hK9SLdP4R6irGJEotbWU
+- **Kauri original checkpoint:** QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv
+
+
+

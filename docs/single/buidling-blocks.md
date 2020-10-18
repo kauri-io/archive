@@ -10,7 +10,7 @@ some_url:
 # BUIDLing Blocks
 
 
-![](https://api.kauri.io:443/ipfs/QmW3p9RTuNjLaKp4mWYriEi662AdvRFLuzWijD66g4zpZq)
+![](https://ipfs.infura.io/ipfs/QmW3p9RTuNjLaKp4mWYriEi662AdvRFLuzWijD66g4zpZq)
 
 ## Project Name
 **BUIDLing Blocks** - http://buidlingblocks.infiniteinternet.ca
@@ -53,6 +53,20 @@ We're submitting our app to the Fortmatic user-friendly DApps using Fortmatic fo
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/drewstaylor/buidlingblocks
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buidling-blocks/ec7c65bbd56842d88db5fdfdea9aae20/a
+- **Kauri original author:** Drew Taylor (@drewtaylor)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-fortmatic-2019
+- **Kauri original hash:** QmctShJHwK53JAAwn4qngmrXzw21ffWB8wnHN9DTqhngfo
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
 
 
 

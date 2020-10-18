@@ -9,6 +9,8 @@ some_url:
 
 # Share your knowledge at ETHDenver to build a better ecosystem
 
+![](https://ipfs.infura.io/ipfs/QmegHwDichPfP5Jqq2aFq3fGakARVXFA4LyfiXVTU7Lzn5)
+
 
 2019 is Kauri’s second attendance at [ETHDenver](https://www.ethdenver.com) and we couldn’t be more excited. The level of knowledge sharing, collaboration, and community involvement we experienced at last year’s event was phenomenal. New and experienced, young and old, everyone was involved and welcome. The tools, libraries, and best practices in development in the years prior were on display, and everyone came away with a better understanding of how to use them to their advantage.
 
@@ -43,3 +45,17 @@ We’re thankful for those who’ve contributed and followed our progress from o
 If you haven't already, join us by **[APPLYING](https://www.ethdenver.com/)** for ETHDenver today. Applications close January 31st.
 
 See you at the hackathon!
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/share-your-knowledge-at-ethdenver-to-build-a-bett/27dd1da338a24c0b979c39f1ee12aaf7/a
+- **Kauri original author:** Chris Ward (@chrischinchilla)
+- **Kauri original Publication date:** 2019-01-28
+- **Kauri original tags:** EthDenver, hackathons
+- **Kauri original hash:** Qma9nB83spGrsE3Qv19PdSwuEbCWyckQyd6XtzGfA1QVvG
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
+
+
+

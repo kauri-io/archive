@@ -9,6 +9,8 @@ some_url:
 
 # BuffiOS xDai-based p2p lending platform
 
+![](https://ipfs.infura.io/ipfs/QmRwX2bpBdFeaj9JKC8rgxbfWpvzqZZHfWgbWwDNmjFot9)
+
 
 
 
@@ -49,6 +51,20 @@ POA Network Bounty 1, Maker DAO Bounty 2
 
 ## A link to all your source code on a public repo (i.e. Github)
 https://github.com/BaldyAsh/ETHDenver-BuffiOS
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/buffios-xdai-based-p2p-lending-platform/b69a10fed7e84c50a6d592934dd282bf/a
+- **Kauri original author:** null (@03c47a4ee673b49850faefa8e83cfaf707946a46)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-open, bounty-makerdao, bounty-poa-2019
+- **Kauri original hash:** QmeiMrDVvYaCYwscNDtzuxEcH51ekVfyxQTutMAtWr651h
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
 
 
 

@@ -101,7 +101,7 @@ This is a step-by-step guide of Ethereum on ARM image installation for the Raspb
 - USB C power adapter
 - Ethernet cable
 
-![](https://api.kauri.io:443/ipfs/QmNsFNp2rUMSXQrDcdv2Yqr9RE8cAs4przQPhwvG7YzE6e)
+![](https://ipfs.infura.io/ipfs/QmNsFNp2rUMSXQrDcdv2Yqr9RE8cAs4przQPhwvG7YzE6e)
 _Necessary hardware (Raspberry Pi 4)_
 
 ### Installation steps
@@ -162,7 +162,7 @@ And that's it. Easy! isn't it?
 
 Note: **If you have a Windows desktop you can use Balena Etcher to flash the MicroSD
 
-![](https://api.kauri.io:443/ipfs/QmWEFd3wErZ9n3qiS7LzBUbjkkXr9mUeyoh6pXdNeaD5m2)
+![](https://ipfs.infura.io/ipfs/QmWEFd3wErZ9n3qiS7LzBUbjkkXr9mUeyoh6pXdNeaD5m2)
 _Etcher main menu_
 
 #### First connection
@@ -281,13 +281,27 @@ CURRENT: 000137ab
 
 ### Addendum. Some pictures of the installation
 
-![](https://api.kauri.io:443/ipfs/QmXpnWXgyTMFt59hKg2VwyJeKtVN4hJrBKqCwYP1ZCxQt2)
+![](https://ipfs.infura.io/ipfs/QmXpnWXgyTMFt59hKg2VwyJeKtVN4hJrBKqCwYP1ZCxQt2)
 _Power consumption during sync_
 
-![](https://api.kauri.io:443/ipfs/QmaT3sC8YwUre7diBw6qYoZFh15xGSk2YfaXUToZbjb8jZ)
+![](https://ipfs.infura.io/ipfs/QmaT3sC8YwUre7diBw6qYoZFh15xGSk2YfaXUToZbjb8jZ)
 _It is very important to connect the SSD to the blue USB port_
 
-![](https://api.kauri.io:443/ipfs/QmfBY1D7G8B2JyxY7x93GFtnJsLvrUcVU8LmUyHvjEwUSQ)
+![](https://ipfs.infura.io/ipfs/QmfBY1D7G8B2JyxY7x93GFtnJsLvrUcVU8LmUyHvjEwUSQ)
 _Try to get a case with a cooler kit_
 
 Follow us on https://twitter.com/EthereumOnARM
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/ethereum-on-arm.-turn-your-arm-device-into-a-full/e7b2625208af4382acf070fa8068502b/a
+- **Kauri original author:** Ethereum on ARM (@ethonarm)
+- **Kauri original Publication date:** 2020-02-10
+- **Kauri original tags:** ethereum, geth, lighhouse, nodes, parity, nethermind, prysm
+- **Kauri original hash:** QmZTNJsu4FLaptWqevBwHuqAozNTzAmZaV1gmB7ZbhVFRX
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+
+

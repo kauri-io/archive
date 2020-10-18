@@ -25,7 +25,7 @@ https://get.status.im/user/0x04250ddab0885dc96eaec49b3f890fde7f104dfe4dbddeaaf7c
 Wel-fair provides a marketplace where underprivileged citizens can fulfill government-specified bounties and get rewarded for their contributions in the form of welfare benefits. By re-directing part of its local community service budget, the government can incentivize lower-income communities to fulfill tasks such as park services, construction and security. Onboarding citizens onto a BloomID will also cut down high recurring admin cost in eligibility certification and issuance. 
 
 Check out this video https://vimeo.com/317769979 for an overview. 
-![](https://api.kauri.io:443/ipfs/QmbiSmFVPUr9wV6J4E7NY25qgtkUZeYMTFwrTjc1F8QfL7)
+![](https://ipfs.infura.io/ipfs/QmbiSmFVPUr9wV6J4E7NY25qgtkUZeYMTFwrTjc1F8QfL7)
 Rest of presentation at https://docs.google.com/presentation/d/1DJIH1oEwKnVUTLGUEbh1pb_Y35Qyr1l7Otp8I_QHG6k/edit?usp=sharing
 ## Describe your tech stack (e.g., protocols, languages, API’s, etc.)
 Protocols: Ethereum test network
@@ -51,4 +51,18 @@ Zeppelin - Bounty 2 Overview: Best usage of Zeppelin tools (OpenZeppelin & Zeppe
 ## A link to all your source code on a public repo (i.e. Github)
 
 https://github.com/oasisethdenver2019/Wel-Fair
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/wel-fair/76125c8a2dd543eb8fa2076a46be56f3/a
+- **Kauri original author:** null (@null)
+- **Kauri original Publication date:** 2019-02-17
+- **Kauri original tags:** ethdenver-2019-submission, bounty-rhombus-2019, bounty-impact, bounty-zeppelin-2019, bounty-bloom-2019, bounty-thegraph-2019, bounty-xyo-2019
+- **Kauri original hash:** QmW5soQasvsduVHAGphFieCRfxsWvqu6HDceWb481YomP5
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
 

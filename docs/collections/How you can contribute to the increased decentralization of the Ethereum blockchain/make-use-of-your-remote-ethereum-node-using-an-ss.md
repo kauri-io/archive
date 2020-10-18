@@ -9,6 +9,8 @@ some_url:
 
 # Make use of your remote Ethereum node using an SSH tunnel and MetaMask
 
+![](https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw)
+
 
 In the [first part](https://kauri.io/article/c287fe53de9b4073a18065443253a86d/v1/how-to-install-and-synchronize-your-own-remote-ethereum-node) of this series we learned how to install and synchronize a `geth` node with the Ethereum blockchain on a Linux Virtual Private Server (VPS). In this second part we explore _secure_ remote access to this Ethereum node via MetaMask.We also cover how to make everything survive crashes and shutdowns.
 
@@ -231,3 +233,16 @@ Another choice I made was to use the Ubuntu Linux distribution as the operating 
 I chose a system service utility for Windows, offering no alternatives, and glossed over the SSH aspects on that OS. Again, these articles would verge on novella length if I were to go into every aspect of all of the software on all of the platforms. I apologize to those who wanted more detail. Please leave a comment if you have questions on these things.
 
 This has definitely been a long journey. I know it's all a bit ambitious, especially for those with a less technical bent. I hope you were able to follow these instructions and end up with your own remote Ethereum node, connecting to it with MetaMask through a secure SSH tunnel. If you have any questions or need any help with the process, please leave a comment here. I'd be happy to help.
+
+
+---
+
+- **Kauri original link:** https://kauri.io/make-use-of-your-remote-ethereum-node-using-an-ss/348d6c66da2949978c85bf2cd913d0ac/a
+- **Kauri original author:** Daniel Ellison (@zigguratt)
+- **Kauri original Publication date:** 2019-05-16
+- **Kauri original tags:** metamask, ethereum, geth, blockchain, infura, ssh-tunnel, tutorial
+- **Kauri original hash:** QmZ9pjYPzvUSNSWjtCyvAr4fUTUmsbZAPxnQ4vzr1QjiNg
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+
+

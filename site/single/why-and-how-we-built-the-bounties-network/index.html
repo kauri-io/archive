@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>Why and How We Built the Bounties Network &mdash; Kauri</title>
+    <title>Why and How We Built the Bounties Network &mdash; kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/v4-shims.css">
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    <link rel="stylesheet" href="../../css/extra.css">
     <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -26,7 +29,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> Kauri</a>
+                    <a href="../.." class="site-name"> kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -661,8 +664,8 @@
     <li class="toctree-l2"><a class="nav-item" href="../metadata-and-hosting-options/">Metadata and Hosting Options</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-san-francisco-winner-roundup/">ETH San Francisco Winner Roundup</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../publishing-to-the-decentralized-web-with-android-/">Publishing to the Decentralized Web with Android, Ethereum, and IPFS</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../clique--cross-client-proof-of-authority-algorithm/">Clique  cross-client Proof-of-authority algorithm for Ethereum</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../introduction-to-pantheon-the-java-ethereum-client/">Introduction to Pantheon — The Java Ethereum Client</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../mining-with-pantheon/">Mining with Pantheon</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../gran-fondo/">Gran Fondo</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../brave-and-binance-browser-scandal/">Brave and binance browser scandal</a></li>
@@ -761,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../watchtower-implementation-for-plasma/">Watchtower Implementation for Plasma</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../los-8-mejores-wallets-para-tus-criptomonedas/">Los 8 mejores wallets para tus criptomonedas</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../thought-piece-of-making-the-dark-web3-universe-li/">Thought piece of making the dark web3 universe light</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../paypic-ethdenver-2019-submission/">PayPic - ETHDenver 2019 Submission</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../client-side-ethql-library-generator/">Client-Side EthQL Library Generator</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box-builders-series--how-to-integrate-with-profi/">3Box Builders Series  How to Integrate with Profiles</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../spin.fm--decentralized-partying/">Spin.FM  Decentralized Partying</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../poap-submission/">POAP SUBMISSION</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/">Claiming your DNS on ENS via Web (3/3  The code)</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../dharma--a-generic-protocol-for-tokenized-debt-iss/">Dharma  A Generic Protocol for  Tokenized Debt Issuance</a></li>
@@ -1051,7 +1054,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> Kauri</a>
+                <a href="../.." class="site-name"> kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1060,14 +1063,14 @@
 </ul>
 </nav>
                 <div id="content"><h1 id="why-and-how-we-built-the-bounties-network">Why and How We Built the Bounties Network</h1>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx" /></p>
 <p>We began building the Bounties Network in early 2017, and quickly realized that whether it was social media, bugs, or code, across different platforms, there was a very good reason for a standard to exist across all variations.
 Enter, <a href="https://github.com/Bounties-Network/StandardBounties">StandardBounties</a>: a community driven implementation for bounties on Ethereum, which is a collaborative effort among freelancing &amp; incentivization platforms that rely on Ethereum.</p>
 <p>Although data storage was (and still is) extremely expensive on the Ethereum Mainnet, we used IPFS to store the data pertaining to bounty specifications and submissions in a decentralized manner. This meant that any platform or user on Ethereum can easily access all relevant data, thereby avoiding a replication of the walled-garden architectures we saw with existing freelancing platforms in the web2.0 world.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmbYiX4PG72KaMDxkBiYVTJ7iotZ29aB5HLJzotmC9MMGa" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbYiX4PG72KaMDxkBiYVTJ7iotZ29aB5HLJzotmC9MMGa" /></p>
 <p>Because most users aren’t comfortable interacting with smart contracts through command line tools, we realized the need to build a front-end interface — a <strong>Bounties Explorer</strong>. This would serve as an open-source, generalized platform for bounties across Ethereum, which could provide a reference client for new developers building on StandardBounties, as well as a website which end-users could employ to quickly begin <strong>building a world on bounties.</strong></p>
 <p>In the interest of building the system to be as decentralized as possible, we wanted the Bounties Explorer to be a fat client, one which managed as much logic in the front-end as possible,  <strong>so there would be no need for a back-end server at all.</strong> This meant the Bounties Explorer could be deployed &amp; accessed using decentralized storage services like IPFS and Swarm, and would only rely on data stored on the Ethereum network (along with those storage services). And to make it even easier for Ethereum novices, we also deployed it using existing web server practises to the beta.bounties.network domain.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmThyoeDYkU4ncUxvR2kXkckHqArU9zDiZbmKt4xQnVfJK" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmThyoeDYkU4ncUxvR2kXkckHqArU9zDiZbmKt4xQnVfJK" /></p>
 <p>Over time, as the Bounties Network grew and began being used to pay out real bounties to developers, writers, and creators in the ecosystem, we ran into some technical challenges. Because we didn’t cache any data off-chain, the entire state of the bounties registry, including all bounties and submissions on the network, needed to be loaded from the blockchain on page-load, which not only provided a diminished user experience for our users (through some really awful load times), but also added an undue load on <a href="https://infura.io">Infura</a>, through the substantial number of <em>eth_calls</em> required to pull all the data. Because the data was stored in IPFS, we didn’t have access to search functionality, pagination for quicker response times, analytics processing, and more. 
 <em>We sincerely thank <a href="https://infura.io/%5C">Infura</a> for their support in happily scaling their server infrastructure as usage of the Bounties Network and other Ethereum applications continues to grow.</em></p>
 <p>To solve all these issues, we’ve decided to transition to an architecture which  <strong>does</strong> use some off-chain caching to improve user experiences, without sacrificing the open nature of the Bounties Network, and maintaining the interoperability benefits we were initially seeking.</p>
@@ -1080,7 +1083,7 @@ Enter, <a href="https://github.com/Bounties-Network/StandardBounties">StandardBo
 <p>We also wanted to make it easy to filter, parse, and explore the data. As a result, the API we built returns a combination of everything written in IPFS and the on-chain contract, in addition to providing stats, profile data, searching, and more. It also provides all the endpoints necessary to build a reliable, fast, and stable bounties site (think bounties around stack overflow questions, translations, design, etc.).</p>
 <h4 id="structured-data-to-build-open-analytics-tools-for-the-community-to-participate-in">Structured data to build open analytics tools for the community to participate in</h4>
 <p>We found it crucial to build the API to work in realtime and be as fail proof as possible. In order to accomplish this, we had to put a stable, solid architecture together.</p>
-<p><img alt="" src="https://api.beta.kauri.io:443/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu" /></p>
 <p>All the services we built are containerized using <a href="https://www.docker.com">docker</a>, and managed by <a href="http://kubernetes.io">kubernetes</a>. Containerization makes it easy for us to build multiple systems with a clear and distinct separation of concerns. Also, it allows for easy testing, deployment repeatability, simple local setup (one command runs everything), and scaling. For example, kubernetes integrates with AWS and provides auto-scaling if server loads increase, and will automatically restart failed containers. This automatic restart helps with error management and also helps to simplify the codebase.</p>
 <p>Next, we chose to build a contract subscriber and a bounties subscriber as two separate services. The contract subscriber listens directly to the ethereum contract for any new emitted events. When an event emits, it immediately grabs the relevant data and puts it into a job queue (SQS). The bounties subscriber listens to the job queue and writes to the database. Separating out the two jobs was an easy choice for a number of reasons:</p>
 <ol>
@@ -1099,6 +1102,15 @@ Enter, <a href="https://github.com/Bounties-Network/StandardBounties">StandardBo
 <li>Join our <a href="https://join.slack.com/t/bountiesnetwork/shared_invite/enQtMzA2Mjk3MzAzODQwLTZjN2UxMmU5MWYxZTVmMmM4OGNjZDRiMDgwYTVhOTIwYmQ4MjVlMjNkZjYzOTE4MWI4OTFhOWE4ZTUzN2MyNWY">Bounties Slack community</a></li>
 <li><a href="http://eepurl.com/dpTC-5">sign up to learning sessions</a></li>
 <li><a href="https://twitter.com/ethbounties">follow us on Twitter</a> to see what we’re up to!</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original link:</strong> https://kauri.io/why-and-how-we-built-the-bounties-network/1d5500b865fe4e2fa0b06e535216d233/a</li>
+<li><strong>Kauri original author:</strong> Will Villanueva (@will)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-30</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQdKQKTXeaH9R5G5rtf6BvyuKHvFEzPe983haPVtWBPFN</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
 </ul></div>
                 <footer>
     <div class="footer-buttons">

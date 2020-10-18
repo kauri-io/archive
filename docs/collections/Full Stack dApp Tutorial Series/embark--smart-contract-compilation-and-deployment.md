@@ -83,7 +83,7 @@ App ready at dapp-series-bounties
 
 The **embark new** command sets up an embark project with the standard project directory structure:
 
-![](https://api.beta.kauri.io:443/ipfs/QmfK33bTriMgaSKKCikPQTTaR5oMA7Na4daWtKBxzSnKWU)
+![](https://ipfs.infura.io/ipfs/QmfK33bTriMgaSKKCikPQTTaR5oMA7Na4daWtKBxzSnKWU)
 
 * **app/**: store the webapp code for our dApp here, we won’t be focusing on the webapp until later in the series
 * **config/**: configuration files for embark components
@@ -99,7 +99,7 @@ The **embark new** command sets up an embark project with the standard project d
 
 Now let's create a Bounties.sol file in the contracts folder and copy the contents of [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol) which we previously developed.
 
-![](https://api.beta.kauri.io:443/ipfs/QmXxac4JwMSQRXF1JtJF1xM1NmYeQ3FRDUN8URUv2hxBw9)
+![](https://ipfs.infura.io/ipfs/QmXxac4JwMSQRXF1JtJF1xM1NmYeQ3FRDUN8URUv2hxBw9)
 
 ### Deployment
 
@@ -203,7 +203,7 @@ Now back in your project directory:
 1. Restart the simulator embark simulator
 2. Run embark embark run
 
-![](https://api.beta.kauri.io:443/ipfs/QmS2XbJ9aUAG9PzvFp89q4E71MusuCuRiuWPr3jSGmDfrE)
+![](https://ipfs.infura.io/ipfs/QmS2XbJ9aUAG9PzvFp89q4E71MusuCuRiuWPr3jSGmDfrE)
 
 The above image shows the embark dashboard, we can see from the “contracts” section that our Bounties.sol contract has been deployed and now has a contract address of:
 
@@ -213,13 +213,13 @@ Embark both compiles and deploys contracts with the embark run command. The buil
 
 Bounties.sol was compiled and the artifact were written to *./dist/contracts*
 
-![](https://api.beta.kauri.io:443/ipfs/QmTocEvJBkEwxceFdDxr1FWcQC6sMp5oMscyfFzKn3ndSJ)
+![](https://ipfs.infura.io/ipfs/QmTocEvJBkEwxceFdDxr1FWcQC6sMp5oMscyfFzKn3ndSJ)
 
 If you review the **Bounties.json** file, you will find it is similar to the output we got when we manually compiled our Bounties.sol smart contract the previous article. It stores the ABI and also the bytecode for deployment and linking, however, this embark artifact contains additional features that make interacting with and deploying smart contracts using embark a smoother experience.
 
 As mentioned earlier, embark keeps a `chains.json` configuration file which tracks deployed contracts across environments. Once a deployment is complete this file is updated automatically by embark:
 
-![](https://api.beta.kauri.io:443/ipfs/QmXMBM1mYnkqUUuJQgGxiHc5mkaqEJGnWw57iMWq9peZHs)
+![](https://ipfs.infura.io/ipfs/QmXMBM1mYnkqUUuJQgGxiHc5mkaqEJGnWw57iMWq9peZHs)
 
 ### Interacting with our contract
 
@@ -234,7 +234,7 @@ Since embark 3.1 uses web3.js 1.0 our syntax for issuing a bounty is:
 Bounties.methods.issueBounty("some requirements",1691452800).send({value: 1000000, gas: 3000000})
 ```
 
-![](https://api.beta.kauri.io:443/ipfs/QmUJoMdKAp4ZsJVKs3jJ1BiD9CPdEJBKW6TubNSkKCCTvx)
+![](https://ipfs.infura.io/ipfs/QmUJoMdKAp4ZsJVKs3jJ1BiD9CPdEJBKW6TubNSkKCCTvx)
 
 The image above shows the output of the `issueBounty` function in the embark console. The output logs part of the transaction receipt. We can see from that status `0x1` thats the transaction was successful.
 
@@ -260,11 +260,11 @@ If you do not already have an Infura account, the first thing you need to do is 
 
 Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.
 
-![](https://api.beta.kauri.io:443/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
+![](https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8)
 
 Once your project is created, select the environment we will be deploying to, in this case **Rinkeby**, from the *Endpoint* drop down and copy the endpoint URL for future reference:
 
-![](https://api.beta.kauri.io:443/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
+![](https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p)
 
 Make sure you save this token and keep it private!
 
@@ -285,13 +285,13 @@ In the BIP39 Mnemonic code form:
 3. Click the “Generate” button to generate the mnemonic
 4. Copy and save the mnemonic located in the field “BIP39”, **remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
+![](https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg)
 
 5. Scroll down the page to the *Derived Addresses* section and copy and save the *Address* this will be your Ethereum deployment account.
 
 **NOTE: Your private key will be displayed here, please keep this private.**
 
-![](https://api.beta.kauri.io:443/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
+![](https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7)
 
 Above the address we’ll be using is: **0x56fB94c8C667D7F612C0eC19616C39F3A50C3435**
 
@@ -303,7 +303,7 @@ First lets create a `secrets.json` file, this file will store your mnemonic and 
 
 *NOTE: Remember not to check this file into any public repository!*
 
-![](https://api.beta.kauri.io:443/ipfs/QmeUy9K6wfHzssQKDyhZaHJtiTgiQabmJixgGFU2gV8LKE)
+![](https://ipfs.infura.io/ipfs/QmeUy9K6wfHzssQKDyhZaHJtiTgiQabmJixgGFU2gV8LKE)
 
 Next, in the `config/contracts.js` configuration file add the following lines to load our mnemonic and api key from our `secrets.json` file:
 ```
@@ -313,7 +313,7 @@ if (fs.existsSync('secrets.json')) {
   secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
 }
 ```
-![](https://api.beta.kauri.io:443/ipfs/QmfFc9fSZM9bvwYxGYQkaoeqUdpCmUj3TBLJHEDZz5MV9y)
+![](https://ipfs.infura.io/ipfs/QmfFc9fSZM9bvwYxGYQkaoeqUdpCmUj3TBLJHEDZz5MV9y)
 
 Add the following extract to the the config/contracts.js file:
 
@@ -338,7 +338,7 @@ Here we define a new environment **rinkeby** which:
 3. Since infura uses https, we define the protocol to be used
 4. Sets the type of the endpoint to **rpc**
 
-![](https://api.beta.kauri.io:443/ipfs/QmYbBD7eqMbWWW6CCuQeRS9XboWPWR1EMEdkjgZpYhB8vY)
+![](https://ipfs.infura.io/ipfs/QmYbBD7eqMbWWW6CCuQeRS9XboWPWR1EMEdkjgZpYhB8vY)
 
 #### Fund Your Account
 
@@ -350,17 +350,17 @@ To request ETH from the faucet we need to complete the following steps:
 
 2. Copy the link to the social media post
 
-![](https://api.beta.kauri.io:443/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
+![](https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy)
 
 3. Paste the link into the [*Rinkeby* ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent
 
-![](https://api.beta.kauri.io:443/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
+![](https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK)
 
 4. Check the Rinkeby etherscan for the status of the transaction
 
  [https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)
 
-![](https://api.beta.kauri.io:443/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
+![](https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6)
 
 **Deploy**
 
@@ -369,7 +369,7 @@ To deploy simply run the `embark run` command whilst specifying the environment 
 ```
 $ embark run rinkeby
 ```
-![](https://api.beta.kauri.io:443/ipfs/QmVFcL9Lu7F3EGi9etEEUJeFXKKVs8qwbFKwHmB84Kajvf)
+![](https://ipfs.infura.io/ipfs/QmVFcL9Lu7F3EGi9etEEUJeFXKKVs8qwbFKwHmB84Kajvf)
 
 And that's it! We have now finally deployed our Bounties.sol contract to the public testnet environment Rinkeby
 .
@@ -380,6 +380,20 @@ Later in the series, we’ll discuss how to write tests within the Embark framew
 
 
 
+
+
+
+
+
+
+---
+
+- **Kauri original link:** https://kauri.io/embark:-smart-contract-compilation-and-deployment/13758d60f21648a1897fad1fa5b78237/a
+- **Kauri original author:** null (@iurimatias)
+- **Kauri original Publication date:** 2018-09-19
+- **Kauri original tags:** none
+- **Kauri original hash:** QmauEoEghUu7BXmah9cJEBamHwhoN9PQmbRpWAUBEMQqmu
+- **Kauri original checkpoint:** QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo
 
 
 

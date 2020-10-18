@@ -9,6 +9,8 @@ some_url:
 
 # OpenZeppelin Part 3  Token Standards
 
+![](https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG)
+
 
 ## Token Standards
 
@@ -102,3 +104,16 @@ For more examples of how to use ERC20 and ERC721 inheritable features check out 
 
 - [ERC721](https://github.com/search?q=import+%22openzeppelin-solidity%2Fcontracts%2Ftoken%2FERC721%22&type=Code)
 - [ERC20](https://github.com/search?utf8=%E2%9C%93&q=import+%22openzeppelin-solidity%2Fcontracts%2Ftoken%2FERC20%22&type=Code)
+
+
+---
+
+- **Kauri original link:** https://kauri.io/openzeppelin-part-3:-token-standards/cbd1b524cd284bf6ae6ab76e71f5ea56/a
+- **Kauri original author:** Juliette Rocco (@jmrocco)
+- **Kauri original Publication date:** 2019-02-28
+- **Kauri original tags:** erc20, smart-contract, openzeppelin, zeppelin, erc721, token
+- **Kauri original hash:** QmPEgopHVfZtSdyBrmqoPWMNWrN8LZpBxbnGLciErLNZjT
+- **Kauri original checkpoint:** QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h
+
+
+

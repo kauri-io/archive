@@ -233,3 +233,16 @@ As you can see, the "memory" element has been ignored, which corresponds to the 
 Please consider send some support
 
 `0x8bb38C74B8aaf929201f013C9ECc42b750E562c6`
+
+
+---
+
+- **Kauri original link:** https://kauri.io/jjmr007deploying-and-verifying-a-contract-using-r/d558124dde9c4b759d223cd9a7240e62/a
+- **Kauri original author:** Julio Moros (@jjmr007)
+- **Kauri original Publication date:** 2020-03-21
+- **Kauri original tags:** smart-contract, etherscan, libraries, verify, remix, deploy
+- **Kauri original hash:** QmZZfSwczQvdjW7MzyZJQeCv9hjxeD4Gsm9Fcs24rXLG6C
+- **Kauri original checkpoint:** unknown
+
+
+
