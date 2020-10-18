@@ -6,6 +6,7 @@ theme:
         - yaml
         - solidity
         - go
+        - rust
 extra_css:
     - css/extra.css
 nav:

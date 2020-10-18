@@ -95,6 +95,7 @@
                            "        - yaml\n" +
                            "        - solidity\n" +
                            "        - go\n" +
+                           "        - rust\n" +
                            "extra_css:\n" +
                            "    - css/extra.css\n" +
                            "nav:\n" +
