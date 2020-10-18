@@ -38,7 +38,7 @@ A function or variable declared as `internal` is only visible to the contract th
 
 For example with `data` of the `C` contract marked as `internal` or `private`:
 
-```solidity
+```
 pragma solidity >=0.4.0 <0.7.0;
 
 contract C {
@@ -63,7 +63,7 @@ return c.data();
 
 A function or variable declared as `public` is part of the contract interface, and are accessible to all other contracts. The EVM also generates a getter function for public state variables automatically. For example, by marking `data` as `public`, the `Caller` contract can "get" the value via a convenience function:
 
-```solidity
+```
 pragma solidity >=0.4.0 <0.7.0;
 
 contract C {
@@ -82,7 +82,7 @@ A function (not variable) declared as `external` is only part of the contract in
 
 For example, assigning `get()` to `localData` results in an error, using it within `Caller` does not:
 
-```solidity
+```
 pragma solidity >=0.4.0 <0.7.0;
 
 contract SimpleStorage {
@@ -107,7 +107,7 @@ _Read more details about visibility [in the documentation](https://solidity.read
 
 Getter functions operate similarly to other programming languages and provide a convenience function to access the value of a public state variable. You access the value from the getter function by creating an instance of the contract that provides the variable in the calling contract. For example:
 
-```solidity
+```
 pragma solidity >=0.4.0 <0.7.0;
 
 contract C {
@@ -128,7 +128,7 @@ Like other languages, Solidity doesn't provide any special functionality for set
 
 A function declared `view` promises not to modify state. A function declared `pure` promises not to modify or read from state. When compiling the contract, the compiler throws an error if a function marked `view` or `pure` does not meet this promise. For example:
 
-```solidity
+```
 pragma solidity >=0.5.0 <0.7.0;
 
 contract C {
@@ -172,7 +172,7 @@ A blockchain is essentially an immutable ledger of events, and this isn't too di
 
 With a Solidity smart contract, you first define the data structure of the event you want to emit and then emit it. For example:
 
-```solidity
+```
 pragma solidity >=0.4.21 <0.7.0;
 
 contract ClientReceipt {
@@ -208,7 +208,7 @@ You can think of [libraries](https://solidity.readthedocs.io/v0.5.15/v0.5.12/con
 
 Here's an abstracted example of a library definition, and a contract that uses it:
 
-```solidity
+```
 pragma solidity >=0.4.22 <0.7.0;
 
 
@@ -238,7 +238,7 @@ contract C {
 
 And an example of `using A for B`:
 
-```solidity
+```
 pragma solidity >=0.4.16 <0.7.0;
 
 

@@ -68,7 +68,7 @@ npm install zos-lib --save
 
 Open your project in a text editor of your choice (I'm using Atom) and create a new file called _MyToken.sol_ under the _contracts_ folder.
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 import "openzeppelin-eth/contracts/token/ERC20/ERC20.sol";

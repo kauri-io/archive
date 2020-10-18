@@ -80,7 +80,7 @@ This basic algorithm can be improved easily by developing new techniques for sel
 To illustrate how this works in practice let’s look at the following simple smart contract written in the Solidity programming language:
 
 
-```solidity
+```
 contract Foo {
   function Bar(int256 a, int256 b, int256 c) returns (int256) {
     int256 d = b + c;

@@ -76,7 +76,7 @@ If you only use the directive, Solium disables all rules for the marked code. If
 
 - Disable linting on a specific line
 
-```solidity
+```
 contract Foo {
 	/* solium-disable-next-line */
 	function() {
@@ -90,7 +90,7 @@ contract Foo {
 
 - Disable linting on entire file
 
-```solidity
+```
 /* solium-disable */
 
 contract Foo {

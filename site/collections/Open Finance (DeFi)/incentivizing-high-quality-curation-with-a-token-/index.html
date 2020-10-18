@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Incentivizing high-quality curation with a Token-Curated Registry &mdash; kauri.io</title>
+    <title>Incentivizing high-quality curation with a Token-Curated Registry &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -763,10 +764,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1058,7 +1059,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1094,7 +1095,7 @@
 <li>the percent of the stake that goes to the listee or the challenger in case of a challenge</li>
 <li>the percent of votes that form vote quorum</li>
 </ul>
-<pre><code class="language-solidity">constructor(
+<pre><code>constructor(
     address _token,
     uint256 _deposit,
     uint256 _applyStageLength,
@@ -1120,7 +1121,7 @@
 <li>kicked out</li>
 </ul>
 <p>To keep track of the current stage of each movie in the listing, we need to create a <code>Stage</code> enumerator, as well as <code>Movie</code> structure:</p>
-<pre><code class="language-solidity">enum Status { Applied, Challenged, Listed, Kicked }
+<pre><code>enum Status { Applied, Challenged, Listed, Kicked }
 
 struct Movie {
     address producer;
@@ -1134,14 +1135,14 @@ Movie[] public movies;
 </code></pre>
 <p>Behind each TCR is an ERC20 token. The token is used for staking during proposing and challenging, and to determine the voting power of the voters.</p>
 <p>When a producer proposes a new movie for inclusion in the list, we create a new <code>Movie</code> object with the status “Applied”:</p>
-<pre><code class="language-solidity">function propose(string calldata _title) external {
+<pre><code>function propose(string calldata _title) external {
     // Require proposing deposit
     token.transferFrom(msg.sender, address(this), deposit);
     movies.push(Movie(msg.sender, _title, now, 0, Status.Applied));
 }
 </code></pre>
 <p>For challenging, we need a <code>Challenge</code> structure, which we use mostly to distribute voting rewards.</p>
-<pre><code class="language-solidity">struct Challenge {
+<pre><code>struct Challenge {
     address challenger;
     mapping(address =&gt; bool) tokensClaimed;
     uint256 totalTokens;
@@ -1152,7 +1153,7 @@ Movie[] public movies;
 Challenge[] public challenges;
 </code></pre>
 <p>When a challenger appears, we need to update the status of the proposal, as well as initiate the <code>Challenge</code> object.</p>
-<pre><code class="language-solidity">function challenge(uint256 _index) external {
+<pre><code>function challenge(uint256 _index) external {
     require(_index &lt; movies.length);
     require(movies[_index].status == Status.Listed ||
         movies[_index].status == Status.Applied &amp;&amp; movies[_index].lastUpdated + applyStageLength &gt;= now);
@@ -1174,7 +1175,7 @@ Challenge[] public challenges;
 <p>Voting happens via <a href="https://en.wikipedia.org/wiki/Commitment_scheme">commit-reveal scheme</a>. Token holders <em>commit</em> by staking the tokens along with the hash of their vote, and then <em>reveal</em> their choice and receive their tokens back.</p>
 <p>For each vote, we create a <code>Vote</code> object. We will use it later to calculate voter rewards.</p>
 <p>When the votes are revealed, we tally them so we can calculate the output of the voting later.</p>
-<pre><code class="language-solidity">struct Vote {
+<pre><code>struct Vote {
     bytes32 hash;
     uint256 weight;
     bool accept;
@@ -1216,7 +1217,7 @@ function getHash(uint256 _index, bool _vote, bytes32 _salt) pure public returns(
 </code></pre>
 <p>After the vote is finished, we need to get the result. We calculate the share of the tokens used to vote “Accept” and compare the value to the percent of votes required to reach the quorum. If there were enough votes supporting the inclusion, we mark it as “Listed”. Otherwise, we mark it as “Kicked”.</p>
 <p>Based on the outcome, we need to compensate either producer or challenger by returning their original stake as well as part of the stake of their opponent. Everything else goes to the voters based on their impact.</p>
-<pre><code class="language-solidity">function resolve(uint256 _index) external {
+<pre><code>function resolve(uint256 _index) external {
     require(_index &lt; movies.length);
     require(movies[_index].status == Status.Challenged);
     require(movies[_index].lastUpdated + voteCommitStageLength + voteRevealStageLength &lt; now);
@@ -1241,7 +1242,7 @@ function getHash(uint256 _index, bool _vote, bytes32 _salt) pure public returns(
 }
 </code></pre>
 <p>Finally, let’s allow voters to receive their reward in case they ended up in a majority. For that, we compare their votes with the winning outcome. If they match, we reward voters based on their voting weight, i.e., how many tokens they staked during voting.</p>
-<pre><code class="language-solidity">function claimReward(uint256 _challengeIndex) external {
+<pre><code>function claimReward(uint256 _challengeIndex) external {
     require(_challengeIndex &lt; challenges.length); // There was a challenge
 
     Challenge storage challengeInstance = challenges[_challengeIndex];

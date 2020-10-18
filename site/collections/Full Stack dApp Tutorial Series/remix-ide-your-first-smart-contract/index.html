@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Remix IDE - Your first smart contract &mdash; kauri.io</title>
+    <title>Remix IDE - Your first smart contract &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -761,10 +762,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1056,7 +1057,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1079,20 +1080,20 @@
 <p>In Remix, create a new file by selecting the "+" icon in the upper left-hand corner. Name the file: <em>Bounties.sol</em></p>
 <p><img alt="The Remix file explorer" src="https://ipfs.infura.io/ipfs/QmSZV9mbP1LUsdimZvoRxwxs3D2fmV4kJx3zWZix5X8bes" /></p>
 <p>In the first line of our Solidity Smart Contract, we tell the compiler which version of Solidity to use:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 </code></pre>
 <p>This line says Solidity compiler version 0.5.0 and above, up to version 0.6.0, can compile the code. The ^ character limits the compiler version up to the next breaking change, being 0.6.0.</p>
 <p>To create the contract class, we add the following:</p>
-<pre><code class="language-solidity">contract Bounties {
+<pre><code>contract Bounties {
 
 }
 </code></pre>
 <p>Next, we add a constructor so that our contract can be instantiated:</p>
-<pre><code class="language-solidity">constructor() public {}
+<pre><code>constructor() public {}
 </code></pre>
 <p>At this stage, we have the basic skeleton of a Smart Contract, and we can now test it compiles in the Remix IDE.</p>
 <p>Your <em>Bounties.sol</em> file should look like this:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 contract Bounties {
 
@@ -1108,10 +1109,10 @@ contract Bounties {
 <p>What are state variables in Solidity? A smart contract instance can maintain a state, which the EVM keeps in a storage area. This state consists of one or more variables of the solidity types. These state variables can only be modified via a function call invoked within a transaction.</p>
 <p><a href="http://solidity.readthedocs.io/en/latest/types.html">You can see a full list of solidity types in the solidity types documentation</a></p>
 <p>First, let's declare an enum which we use to keep track of a bounties state:</p>
-<pre><code class="language-solidity">enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
+<pre><code>enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
 </code></pre>
 <p>Next, we define a struct which defines the data held about an issued bounty:</p>
-<pre><code class="language-solidity">struct Bounty {
+<pre><code>struct Bounty {
  address issuer;
  uint deadline;
  string data;
@@ -1121,11 +1122,11 @@ contract Bounties {
 </code></pre>
 <p>What is a struct? Structs allow us to define custom composite types which allow us to aggregate/organise data.</p>
 <p>Now, let's define an array where we store data about each issued bounty:</p>
-<pre><code class="language-solidity">Bounty[] public bounties;
+<pre><code>Bounty[] public bounties;
 </code></pre>
 <h4 id="issue-bounty-function">Issue Bounty Function</h4>
 <p>Now that we have declared our state variables we can now add functions to allow users to interact with our smart contract</p>
-<pre><code class="language-solidity">function issueBounty(
+<pre><code>function issueBounty(
     string memory _data,
     uint64 _deadline
 )
@@ -1144,19 +1145,19 @@ public payable hasValue() validateDeadline(_deadline) returns (uint)
 <p>We define the visibility of this function as <code>public</code>.Read more about <a href="https://solidity.readthedocs.io/en/latest/contracts.html#visibility-and-getters">solidity function visibility</a></p>
 <p>In order to send ETH to our contract we need to add the payable keyword to our function. Without this payable keyword, the contract will reject all attempts to send ETH to it via this function.</p>
 <p>The body of our function has two lines:</p>
-<pre><code class="language-solidity">bounties.push(Bounty(msg.sender, _deadline, _data,
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data,
 BountyStatus.CREATED, msg.value));
 </code></pre>
 <p>First, we insert a new Bounty struct to out bounties array, setting the BountyStatus to CREATED.</p>
 <p>In Solidity, <code>msg.sender</code> is automatically set as the address of the sender, and <code>msg.value</code> is set to the amount of Weis ( 1 ETH = 1000000000000000000 Weis).</p>
 <p>We set the <code>msg.sender</code> as the issuer and the <code>msg.value</code> as the bounty amount.</p>
-<pre><code class="language-solidity">return (bounties.length - 1);
+<pre><code>return (bounties.length - 1);
 </code></pre>
 <h3 id="validation-with-modifiers">Validation with Modifiers</h3>
 <p>Modifiers in Solidity allow you to attach additional pieces of code to run before or after the execution of a function. It is a common practice in Solidity to use modifiers to perform argument validation for functions.</p>
 <h3 id="validate-deadline">Validate Deadline</h3>
 <p><code>validateDeadline(_deadline)</code> is added to ensure the deadline argument is in the future; it should not be possible for a user to issue a bounty with a deadline in the past.</p>
-<pre><code class="language-solidity">modifier validateDeadline(uint _newDeadline) {
+<pre><code>modifier validateDeadline(uint _newDeadline) {
  require(_newDeadline &gt; now);
  _;
 }
@@ -1164,7 +1165,7 @@ BountyStatus.CREATED, msg.value));
 <p>We use the <code>modifier</code> keyword to declare a modifier, modifiers like functions can receive arguments of their own.</p>
 <p>The position of the <code>_;</code> symbol is key within a modifier. This body of the function modified is inserted where this symbol appears.</p>
 <p>The <code>validateDeadline</code> modifier essentially says, execute this line:</p>
-<pre><code class="language-solidity">require(_newDeadline &gt; now);
+<pre><code>require(_newDeadline &gt; now);
 </code></pre>
 <p>Then execute the main function.</p>
 <p>For validation, the <code>require</code> keyword allows you to set conditionals If they are not met, the execution is halted, reverted, and remaining gas returned to the user.</p>
@@ -1175,7 +1176,7 @@ BountyStatus.CREATED, msg.value));
 <h4 id="has-value">Has Value</h4>
 <p><code>hasValue()</code> is added to ensure <code>msg.value</code> is a non zero value. Even though as previously discussed, the <code>payable</code> keyword ensures <code>msg.value</code> is set, it can still be sent as zero.</p>
 <p>Similar to <code>validateDeadline</code> we use <code>require</code> to ensure <code>msg.value</code> input is valid e.g <code>&gt;0</code></p>
-<pre><code class="language-solidity">modifier hasValue() {
+<pre><code>modifier hasValue() {
  require(msg.value &gt; 0);
  _;
 }
@@ -1188,7 +1189,7 @@ BountyStatus.CREATED, msg.value));
 <p>Read more about <a href="https://solidity.readthedocs.io/en/latest/contracts.html#events">solidity events here</a>.</p>
 <p>Since when issuing a bounty, we change the state of our <em>Bounties.sol</em> contract, we issue a <code>BountyIssued</code> event.
 First, we need to declare our event:</p>
-<pre><code class="language-solidity">event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
+<pre><code>event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
 </code></pre>
 <p>Our <code>BountyIssued</code> event emits the following information about the bounty data stored:</p>
 <ul>
@@ -1198,12 +1199,12 @@ First, we need to declare our event:</p>
 <li><em>data:</em> The requirements of the bounty as a string</li>
 </ul>
 <p>Then in our <code>issueBounty</code> function, we need to emit the <code>BountyIssued</code> event:</p>
-<pre><code class="language-solidity">bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
 *emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);*
 return (bounties.length - 1);
 </code></pre>
 <p>Now that we have added our <code>issueBounty</code> function our <em>Bounties.sol</em> file should look like the following:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 /**
 * @title Bounties
 * @author Joshua Cassidy- &lt;joshua.cassidy@consensys.net&gt;

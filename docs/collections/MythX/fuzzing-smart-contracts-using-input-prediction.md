@@ -26,7 +26,7 @@ Grey-box fuzzers are able to achieve high code coverage even for complex code wi
 ### Motivating Example
 Let’s go back to the smart contract from the previous post (written in the Solidity programming language) to illustrate a limitation in state-of-the-art grey-box fuzzers.
 
-```solidity
+```
 contract Foo {
   function Bar(int256 a, int256 b, int256 c) returns (int256) {
     int256 d = b + c;

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../img/favicon.ico">
-    <title>jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan &mdash; kauri.io</title>
+    <title>jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../.." class="site-name"> kauri.io</a>
+                    <a href="../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -757,10 +758,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../eth-pages/">ETH Pages</a></li>
@@ -1052,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../.." class="site-name"> kauri.io</a>
+                <a href="../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1202,7 +1203,7 @@ etc</p>
 <p><strong>N° 11</strong> On the <a href="https://etherscan.io/verifyContract-solc-json?a=0xc3369Fc35273271daFaE85fc3D96d1f4232B82cf&amp;c=v0.5.13%2bcommit.5b0b510c&amp;lictype=3">Etherscan</a>, page which is waiting for us, we click the "Browse" button and select the "StandardJsonInput.json" file that we created. Then "Click Upload selected file".</p>
 <p><strong>N° 12</strong> Generally the construction arguments of our contract are automatically uploaded by Etherscan. If this is not the case, it is possible to use the web3 tool of the Remix console to calculate this parameter. For more information it is good to consult the <a href="https://web3js.readthedocs.io/en/v1.2.4/web3-eth-abi.html#encodeparameters">documentation</a> of how web3 can encode parameters under the abi protocol, and the <a href="https://solidity.readthedocs.io/en/v0.5.13/abi-spec.html#argument-encoding">solidity</a> documentation about argument coding, but as an example:</p>
 <p>Suppose we want to code the parameters of the constructor:</p>
-<pre><code class="language-solidity">constructor (string memory _access, uint256 code) public {
+<pre><code>constructor (string memory _access, uint256 code) public {
         
     password = _access;
     ID = code;

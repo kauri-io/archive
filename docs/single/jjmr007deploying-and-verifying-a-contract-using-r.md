@@ -209,7 +209,7 @@ The generated json file is of one single chain usually quite long. At this point
 
 Suppose we want to code the parameters of the constructor:
 
-```solidity
+```
 constructor (string memory _access, uint256 code) public {
         
 	password = _access;

@@ -92,7 +92,7 @@ $ npm install openzeppelin-solidity --save-exact
 
 3. Create a contract file `./contacts/BridgeToken.sol` containing
 
-```solidity
+```
 // BridgeToken.sol
 pragma solidity ^0.5.8;
 

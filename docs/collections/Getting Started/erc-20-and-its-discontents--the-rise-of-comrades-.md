@@ -54,7 +54,7 @@ The authors of the protocol had a choice between either making the protocol more
 
 The code below is a basic example of an ERC-777 contract, from <https://github.com/ethereum/EIPs/blob/master/EIPS/eip-777.md>:
 
-```solidity
+```
 interface ERC777Token {
     function name() external view returns (string memory);
     function symbol() external view returns (string memory);

@@ -32,7 +32,7 @@ The Ethereum foundation has a process for suggesting modifications to the Ethere
 
 Here is a basic example of an ERC-721 contract, borrowed from <https://gist.github.com/aunyks/2d148a77150247f6f9745286ff46fc53#file-erc721-definitions-sol>:
 
-```solidity
+```
 contract ERC721 {
    // ERC20 compatible functions
    function name() constant returns (string name);

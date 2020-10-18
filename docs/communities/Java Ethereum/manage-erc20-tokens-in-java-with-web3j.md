@@ -60,7 +60,7 @@ $ npm install openzeppelin-solidity --save-exact
 
 The smart contract inherits all the functionality and rules from the reusable OpenZeppelin contract `ERC20Mintable`. We only need to configure the following constant variables as below:
 
-```solidity
+```
 // JavaToken.sol
 pragma solidity ^0.5.8;
 

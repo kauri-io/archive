@@ -46,7 +46,7 @@ OpenZeppelin provides different contracts to assist with creating and interactin
 - **safeERC20**: Forces transfers and approvals to succeed or the transaction reverts.
 - **TokenTimelock**: To release tokens after a specified timeout. Useful in an Escrow situation.
 
-```solidity
+```
 pragma solidity ^ 0.5.2;
 
 import "openzeppelin-solidity/contracts/token/ERC20/ERC20-option-you-choose.sol";
@@ -66,7 +66,7 @@ OpenZeppelin provides contracts for creating and interacting with an ERC721 toke
 - **ERC721Mintable**: Allows anyone with the minter role to mint tokens aka create tokens.
 - **ERC721Pausable**: Allows anyone with the pauser role to freeze the transfer of tokens to and from users.
 
-```solidity
+```
 pragma solidity ^ 0.5 .2;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721-option-you-choose.sol";
@@ -82,7 +82,7 @@ To use any of the features from the token library, import them at the top of you
 
 **Note**: You can have multiple inheritances but they must all be for the same standard of token.
 
-```solidity
+```
 pragma solidity ^ 0.5 .2;
 
 import "openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol";

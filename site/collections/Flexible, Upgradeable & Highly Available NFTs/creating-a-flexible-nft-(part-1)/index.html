@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Creating a Flexible NFT (Part 1) &mdash; kauri.io</title>
+    <title>Creating a Flexible NFT (Part 1) &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -757,10 +758,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1052,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1132,7 +1133,7 @@ Compiling ./contracts/Sample.sol...
 <p>Rename <em>contracts/Sample.sol</em> to <em>contracts/Token.sol</em> or whatever you want to call your NFT and change the content inside to reflect the change.</p>
 <pre><code class="language-bash">mv ./contracts/Sample.sol ./contracts/Token.sol
 </code></pre>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 /**
  * The Token contract does this and that...
@@ -1142,7 +1143,7 @@ contract Token {
 }
 </code></pre>
 <p>Import the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/token/ERC721">open zeppelin ERC-721 library</a>, add it to the contract class, then alter the constructor:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 import &quot;../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol&quot;;
 
 /**
@@ -1158,7 +1159,7 @@ contract Token is ERC721Full {
 <p>Create a file called <em>/contracts/Metadata.sol</em> and add the contract basics:</p>
 <pre><code class="language-bash">touch ./contracts/Metadata.sol
 </code></pre>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
 */
@@ -1170,7 +1171,7 @@ contract Metadata {
 <pre><code class="language-bash">mkdir ./contracts/helpers
 touch ./contracts/helpers/strings.sol
 </code></pre>
-<pre><code class="language-solidity">/*
+<pre><code>/*
  * @title String &amp; slice utility library for Solidity contracts.
  * @author Nick Johnson &lt;arachnid@notdot.net&gt;
  */
@@ -1235,7 +1236,7 @@ library strings {
 }
 </code></pre>
 <p>Import the library into <em>Metadata.sol</em> and use the strings library for all types:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
 */
@@ -1247,14 +1248,14 @@ contract Metadata {
 }
 </code></pre>
 <p>Add the <code>tokenURI</code> function that accepts a <code>uint256 tokenId</code> and returns a <code>string</code> to <em>Metadata.sol</em> inside the contract definition:</p>
-<pre><code class="language-solidity">function tokenURI(uint _tokenId) public pure returns (string memory _infoUrl) {
+<pre><code>function tokenURI(uint _tokenId) public pure returns (string memory _infoUrl) {
     string memory base = &quot;https://domain.com/metadata/&quot;;
     string memory id = uint2str(_tokenId);
     return base.toSlice().concat(id.toSlice());
 }
 </code></pre>
 <p>Add the function <code>uint2str</code> modified from <a href="https://github.com/oraclize">oraclize</a>:</p>
-<pre><code class="language-solidity">function uint2str(uint i) internal pure returns (string memory) {
+<pre><code>function uint2str(uint i) internal pure returns (string memory) {
     if (i == 0) return &quot;0&quot;;
     uint j = i;
     uint length;
@@ -1278,7 +1279,7 @@ function toBytes(uint256 x) public pure returns (bytes memory b) {
 </code></pre>
 <p>This code takes a number and converts it into the UTF8 string value of that number. You can see the part that says <code>48 + i % 10</code>, that's where the magic happens. The modulo operation (<code>%</code>) converts the number to a single digit, and adds it to 48, which is where <a href="https://www.utf8-chartable.de/unicode-utf8-table.pl?utf8=dec">the number characters begin inside of UTF8 character encoding</a>.</p>
 <p>Run <code>yarn compile</code> to make sure there are no errors. Your final <em>Metadata.sol</em> should look like this:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
 */
@@ -1320,7 +1321,7 @@ contract Metadata {
 </code></pre>
 <h3 id="step-4-add-metadata-to-erc-721">Step 4: Add Metadata to ERC-721</h3>
 <p>Import the <em>Metadata.sol</em> contract into the header of your ERC-721 token contract, add a new parameter to the contract called <code>metadata</code>, and set the parameter with the constructor</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 import &quot;../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol&quot;;
 import &quot;./Metadata.sol&quot;;
 
@@ -1337,12 +1338,12 @@ contract Token is ERC721Full {
 }
 </code></pre>
 <p>Add a <code>tokenURI</code> function that hands the call to the metadata contract. We're handing off the call because we want that function to be upgradeable in the future.</p>
-<pre><code class="language-solidity">function tokenURI(uint _tokenId) external view returns (string memory _infoUrl) {
+<pre><code>function tokenURI(uint _tokenId) external view returns (string memory _infoUrl) {
     return metadata.tokenURI(_tokenId);
 }
 </code></pre>
 <p>Run <code>truffle compile</code> to make sure there are no errors. Your token contract should look like the below:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 import &quot;../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol&quot;;
 import &quot;./Metadata.sol&quot;;
 
@@ -1616,7 +1617,7 @@ Compiling zeppelin-solidity/contracts/token/ERC721/ERC721Full.sol...
 <h3 id="step-7-make-migration-for-updates">Step 7: Make Migration for Updates</h3>
 <p>If you change your schema, or endpoints, or the <code>tokenURI</code> standard changes, you need to update your migration contract. Let's make a migration file that we can run for that need.</p>
 <p>Inside <em>Token.sol</em> import the <em>Ownable.sol</em> contract from open-zeppelin, inherit it in your token, and define your contract as <code>Ownable</code>. Then add a function that can update the <code>metadata</code> contract address and restrict the access with the <code>onlyOwner</code> modifier. We're referring to <code>metadata</code> as the type <code>Metadata</code> but for all practical purposes this is just an <code>address</code>.</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 import &quot;../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol&quot;;
 import &quot;../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
 import &quot;./Metadata.sol&quot;;
@@ -1718,7 +1719,7 @@ Saving artifacts...
 <p>This only runs <strong>from</strong> (<code>-f</code>) migration number 3 <strong>until</strong> (<code>--to</code>) migration 3 (i.e., it only runs migration 3)</p>
 <h3 id="step-8-update-erc-721-and-tests">Step 8: Update ERC-721 and Tests</h3>
 <p>Since we want to mint tokens, let's add a public function for minting to our Token contract and protect it with the <code>onlyOwner</code> modifier:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 import &quot;../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol&quot;;
 import &quot;../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
 import &quot;./Metadata.sol&quot;;

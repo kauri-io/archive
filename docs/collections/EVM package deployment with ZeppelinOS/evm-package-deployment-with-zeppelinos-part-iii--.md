@@ -57,7 +57,7 @@ As you will not be able to publish your NPM package under that name, be
 sure to reference the module name according to the name you gave your
 NPM package.
 
-```solidity
+```
 pragma solidity >=0.4.24 <>0.6.0;
 import "zos-linkedlist/contracts/LinkedList.sol";
 //The NPM package name will have it's own folder under modules

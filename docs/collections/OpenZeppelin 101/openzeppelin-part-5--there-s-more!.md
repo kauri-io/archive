@@ -23,7 +23,7 @@ Within the cryptography folder are two contracts to help with security:
 - _ECDSA.sol_ : This contract helps you to manage and recover your ECDSA signatures (Elliptic Curve Digital Signature Algorithm).
 - _MerkleProof.sol_ : Functions to verify Merkle proofs. Merkle proofs make sure that data is in the Merkle tree.
 
-```solidity
+```
 pragma solidity ^0.5.2;
 
 import "openzeppelin-solidity/contracts/cryptography/ECDSA.sol";
@@ -63,7 +63,7 @@ Earlier in the series we introduced token standards. In this tutorial, we are go
 - **ERC165** : Supports interface detection using a lookup table.
 - **ERC165Checked** : Simplifies the process of checking if a contract supports the interface you want to use.
 
-```solidity
+```
 pragma solidity ^0.5.2;
 
 import "openzeppelin-solidity/contracts/introspection/ERC165.sol";
@@ -88,7 +88,7 @@ Lifecycle contains a single contract called _Pausable.sol_ which allows child co
 - _Math.sol_ : Assorted math operations.
 - _SafeMath.sol_ : Math operations that protect your contract from overflow errors.
 
-```solidity
+```
 pragma solidity ^0.5.2;
 
 import "openzeppelin-solidity/contracts/math/SafeMath.sol";

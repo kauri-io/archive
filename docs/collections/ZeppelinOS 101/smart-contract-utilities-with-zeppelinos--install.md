@@ -83,7 +83,7 @@ first-project
 
 Inside the _contracts_ folder create a new file called _FirstContract.sol_. This is going to be our smart contract. In this file write the following:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 import "zos-lib/contracts/Initializable.sol";
@@ -234,7 +234,7 @@ Our tests performed the way we wanted to, thus we can now go and update the cont
 
 Update your contract to look like the following:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 import "zos-lib/contracts/Initializable.sol";
@@ -263,7 +263,7 @@ Updating our contract, we added a new function that increases `year` and `age` b
 
 **Note**: ZeppelinOS allows you to add functions, variables, etc when you update. To preserve functionality, all new variables must be below your existing ones.
 
-```solidity
+```
 contract MyContract1.0 {
   uint256 public a;
   uint256 public b;

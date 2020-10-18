@@ -55,7 +55,7 @@ The parameters of TCR are:
 -   the percent of the stake that goes to the listee or the challenger in case of a challenge
 -   the percent of votes that form vote quorum
 
-```solidity
+```
 constructor(
 	address _token,
 	uint256 _deposit,
@@ -84,7 +84,7 @@ Movies in the registry pass through the different stages:
 
 To keep track of the current stage of each movie in the listing, we need to create a `Stage` enumerator, as well as `Movie` structure:
 
-```solidity
+```
 enum Status { Applied, Challenged, Listed, Kicked }
 
 struct Movie {
@@ -102,7 +102,7 @@ Behind each TCR is an ERC20 token. The token is used for staking during proposin
 
 When a producer proposes a new movie for inclusion in the list, we create a new `Movie` object with the status “Applied”:
 
-```solidity
+```
 function propose(string calldata _title) external {
 	// Require proposing deposit
 	token.transferFrom(msg.sender, address(this), deposit);
@@ -112,7 +112,7 @@ function propose(string calldata _title) external {
 
 For challenging, we need a `Challenge` structure, which we use mostly to distribute voting rewards.
 
-```solidity
+```
 struct Challenge {
 	address challenger;
 	mapping(address => bool) tokensClaimed;
@@ -126,7 +126,7 @@ Challenge[] public challenges;
 
 When a challenger appears, we need to update the status of the proposal, as well as initiate the `Challenge` object.
 
-```solidity
+```
 function challenge(uint256 _index) external {
 	require(_index < movies.length);
 	require(movies[_index].status == Status.Listed ||
@@ -153,7 +153,7 @@ For each vote, we create a `Vote` object. We will use it later to calculate vote
 
 When the votes are revealed, we tally them so we can calculate the output of the voting later.
 
-```solidity
+```
 struct Vote {
 	bytes32 hash;
 	uint256 weight;
@@ -199,7 +199,7 @@ After the vote is finished, we need to get the result. We calculate the share of
 
 Based on the outcome, we need to compensate either producer or challenger by returning their original stake as well as part of the stake of their opponent. Everything else goes to the voters based on their impact.
 
-```solidity
+```
 function resolve(uint256 _index) external {
 	require(_index < movies.length);
 	require(movies[_index].status == Status.Challenged);
@@ -227,7 +227,7 @@ function resolve(uint256 _index) external {
 
 Finally, let’s allow voters to receive their reward in case they ended up in a majority. For that, we compare their votes with the winning outcome. If they match, we reward voters based on their voting weight, i.e., how many tokens they staked during voting.
 
-```solidity
+```
 function claimReward(uint256 _challengeIndex) external {
 	require(_challengeIndex < challenges.length); // There was a challenge
 

@@ -138,7 +138,7 @@ We're all set and ready to go! First, we write the smart contract:
 1.  Create a new folder in the project directory and name it `quiz`.
 2.  In it, create a file named `quiz.sol` and add the following code:
 
-```solidity
+```
 pragma solidity >=0.5.2 <0.6.0;
 
 contract Quiz {

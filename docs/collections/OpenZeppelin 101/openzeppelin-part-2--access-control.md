@@ -26,7 +26,7 @@ OpenZeppelin provides two contracts: _Ownable.sol_ and _Roles.sol_ for access co
 
 Ownership is the most basic form of access control. It's the best method to use when you have one administrative user. To incorporate ownership, add an import statement at the beginning of your contract.
 
-```solidity
+```
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 ```
 
@@ -36,7 +36,7 @@ The default owner of the contract is the `msg.sender` of the contract. You can c
 
 Ownable contracts have an `is Ownable` statement. To specify which functions you only want the administrator to have access to, add `onlyOwner`.
 
-```solidity
+```
 pragma solidity ^ 0.5.2;
 
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
@@ -61,7 +61,7 @@ Access control is also utilized through the _contracts/access/Roles.sol_ contrac
 
 Add `import "openzeppelin-solidity/contracts/access/Roles.sol";` to the top of your contract. Create your different roles `Role private "your_Role"`. A require statement in your function states which users have access to it.
 
-```solidity
+```
 pragma solidity ^ 0.5.2;
 
 import "openzeppelin-solidity/contracts/access/Roles.sol";

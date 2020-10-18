@@ -63,7 +63,7 @@ OpenZeppelin is now installed. The library of contracts are stored in the _node_
 
 To use the library, add an import statement at the beginning of the contract specifying which one you want to use.
 
-```solidity
+```
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 ```
 

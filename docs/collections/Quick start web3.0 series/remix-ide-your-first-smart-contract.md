@@ -32,7 +32,7 @@ In Remix, create a new file by selecting the "+" icon in the upper left-hand cor
 
 In the first line of our Solidity Smart Contract, we tell the compiler which version of Solidity to use:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 ```
 
@@ -40,7 +40,7 @@ This line says Solidity compiler version 0.5.0 and above, up to version 0.6.0, c
 
 To create the contract class, we add the following:
 
-```solidity
+```
 contract Bounties {
 
 }
@@ -48,7 +48,7 @@ contract Bounties {
 
 Next, we add a constructor so that our contract can be instantiated:
 
-```solidity
+```
 constructor() public {}
 ```
 
@@ -56,7 +56,7 @@ At this stage, we have the basic skeleton of a Smart Contract, and we can now te
 
 Your _Bounties.sol_ file should look like this:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 contract Bounties {
@@ -83,13 +83,13 @@ What are state variables in Solidity? A smart contract instance can maintain a s
 
 First, let's declare an enum which we use to keep track of a bounties state:
 
-```solidity
+```
 enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
 ```
 
 Next, we define a struct which defines the data held about an issued bounty:
 
-```solidity
+```
 struct Bounty {
  address issuer;
  uint deadline;
@@ -103,7 +103,7 @@ What is a struct? Structs allow us to define custom composite types which allow 
 
 Now, let's define an array where we store data about each issued bounty:
 
-```solidity
+```
 Bounty[] public bounties;
 ```
 
@@ -111,7 +111,7 @@ Bounty[] public bounties;
 
 Now that we have declared our state variables we can now add functions to allow users to interact with our smart contract
 
-```solidity
+```
 function issueBounty(
     string memory _data,
     uint64 _deadline
@@ -139,7 +139,7 @@ In order to send ETH to our contract we need to add the payable keyword to our f
 
 The body of our function has two lines:
 
-```solidity
+```
 bounties.push(Bounty(msg.sender, _deadline, _data,
 BountyStatus.CREATED, msg.value));
 ```
@@ -150,7 +150,7 @@ In Solidity, `msg.sender` is automatically set as the address of the sender, and
 
 We set the `msg.sender` as the issuer and the `msg.value` as the bounty amount.
 
-```solidity
+```
 return (bounties.length - 1);
 ```
 
@@ -162,7 +162,7 @@ Modifiers in Solidity allow you to attach additional pieces of code to run befor
 
 `validateDeadline(_deadline)` is added to ensure the deadline argument is in the future; it should not be possible for a user to issue a bounty with a deadline in the past.
 
-```solidity
+```
 modifier validateDeadline(uint _newDeadline) {
  require(_newDeadline > now);
  _;
@@ -175,7 +175,7 @@ The position of the `_;` symbol is key within a modifier. This body of the funct
 
 The `validateDeadline` modifier essentially says, execute this line:
 
-```solidity
+```
 require(_newDeadline > now);
 ```
 
@@ -197,7 +197,7 @@ If the `deadline > now` continue and execute function body, else revert and refu
 
 Similar to `validateDeadline` we use `require` to ensure `msg.value` input is valid e.g `>0`
 
-```solidity
+```
 modifier hasValue() {
  require(msg.value > 0);
  _;
@@ -219,7 +219,7 @@ Read more about [solidity events here](https://solidity.readthedocs.io/en/latest
 Since when issuing a bounty, we change the state of our _Bounties.sol_ contract, we issue a `BountyIssued` event.
 First, we need to declare our event:
 
-```solidity
+```
 event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
 ```
 
@@ -232,7 +232,7 @@ Our `BountyIssued` event emits the following information about the bounty data s
 
 Then in our `issueBounty` function, we need to emit the `BountyIssued` event:
 
-```solidity
+```
 bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
 *emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);*
 return (bounties.length - 1);
@@ -240,7 +240,7 @@ return (bounties.length - 1);
 
 Now that we have added our `issueBounty` function our _Bounties.sol_ file should look like the following:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 /**
 * @title Bounties

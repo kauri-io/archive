@@ -42,7 +42,7 @@ Let’s look at the following smart contract (written in the Solidity programmin
 `Bar`
  fail.
 
-```solidity
+```
 contract Foo {
   int256 private x;
   int256 private y;

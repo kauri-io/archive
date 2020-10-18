@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>OpenZeppelin Part 2 Access Control &mdash; kauri.io</title>
+    <title>OpenZeppelin Part 2 Access Control &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -757,10 +758,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1052,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1069,12 +1070,12 @@
 <p>OpenZeppelin provides two contracts: <em>Ownable.sol</em> and <em>Roles.sol</em> for access control. Both methods are useful in different scenarios depending on how restrictive you want the contract to be.</p>
 <h4 id="ownership">Ownership</h4>
 <p>Ownership is the most basic form of access control. It's the best method to use when you have one administrative user. To incorporate ownership, add an import statement at the beginning of your contract.</p>
-<pre><code class="language-solidity">import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+<pre><code>import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
 </code></pre>
 <p>Importing the <em>Ownable.sol</em> contract allows you to use functions such as <code>transferOwnership(address newOwner)</code> to transfer ownership to different users and <code>renounceOwnership()</code> to renounce ownership of the contract all together. Keep in mind that once a contract is renounced it cannot be claimed again.</p>
 <p>The default owner of the contract is the <code>msg.sender</code> of the contract. You can change the owner in the <em>Ownable.sol</em> file.</p>
 <p>Ownable contracts have an <code>is Ownable</code> statement. To specify which functions you only want the administrator to have access to, add <code>onlyOwner</code>.</p>
-<pre><code class="language-solidity">pragma solidity ^ 0.5.2;
+<pre><code>pragma solidity ^ 0.5.2;
 
 import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
 
@@ -1093,7 +1094,7 @@ contract MyContract is Ownable {
 <h4 id="roles">Roles</h4>
 <p>Access control is also utilized through the <em>contracts/access/Roles.sol</em> contract. This contract allows you to assign roles to different users as well as control who can use certain functions. This is the best method when you have a multiple of users with varying levels of authority.</p>
 <p>Add <code>import "openzeppelin-solidity/contracts/access/Roles.sol";</code> to the top of your contract. Create your different roles <code>Role private "your_Role"</code>. A require statement in your function states which users have access to it.</p>
-<pre><code class="language-solidity">pragma solidity ^ 0.5.2;
+<pre><code>pragma solidity ^ 0.5.2;
 
 import &quot;openzeppelin-solidity/contracts/access/Roles.sol&quot;;
 

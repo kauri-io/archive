@@ -1,12 +1,11 @@
-site_name: kauri.io
+site_name: archive.kauri.io
 theme:
     name: ivory
     highlightjs: true
     hljs_languages:
         - yaml
         - solidity
-extra:
-    logo: 'kauri.png'
+        - go
 extra_css:
     - css/extra.css
 nav:
@@ -613,10 +612,10 @@ nav:
         - Step by step guide “Claim your DNS domain on ENS”: 'single/step-by-step-guide-"claim-your-dns-domain-on-ens".md'
         - Blockchain Powered by AI: 'single/blockchain-powered-by-ai.md'
         - Osuke Sudo - Tokyo - LayerX, blockchain.tokyo: 'single/osuke-sudo-tokyo-layerx-blockchain.tokyo.md'
+        - A proper examination of ERC-721s. What are ERC-721s and what is their potential?: 'single/a-proper-examination-of-erc-721s.-what-are-erc-72.md'
         - UpTown : 'single/uptown.md'
         - (SAMPLE SUBMISSION) The only TCR working as intended!: 'single/(sample-submission)-the-only-tcr-working-as-inten.md'
         - 3Box.js  7 Use Cases for Social Dapps: 'single/3box.js--7-use-cases-for-social-dapps.md'
-        - A proper examination of ERC-721s. What are ERC-721s and what is their potential?: 'single/a-proper-examination-of-erc-721s.-what-are-erc-72.md'
         - Transactions With a Button Click Event using EthJs: 'single/transactions-with-a-button-click-event-using-ethj.md'
         - Ethereum 101 - Часть 1 - Что такое Ethereum?: 'single/ethereum-101-chast-1-chto-takoe-ethereum.md'
         - ETH Pages: 'single/eth-pages.md'
@@ -1394,10 +1393,10 @@ plugins:
             step-by-step-guide-"claim-your-dns-domain-on-ens"/02de92af458b488a98379870ae9a91ae/a: 'single/step-by-step-guide-"claim-your-dns-domain-on-ens".md'
             blockchain-powered-by-ai/076f7740bae44f5983d406d7a7c785e5/a: 'single/blockchain-powered-by-ai.md'
             osuke-sudo-tokyo-layerx-blockchain.tokyo/371428400af6444eb854ba21ecf43147/a: 'single/osuke-sudo-tokyo-layerx-blockchain.tokyo.md'
+            a-proper-examination-of-erc-721s.-what-are-erc-72/ecd47323706d4d7db1abc55a4aa6071b/a: 'single/a-proper-examination-of-erc-721s.-what-are-erc-72.md'
             uptown/5bc0603263a745aab70373b319622abc/a: 'single/uptown.md'
             (sample-submission)-the-only-tcr-working-as-inten/d8fc42c737104ed2b177db338d3b01c3/a: 'single/(sample-submission)-the-only-tcr-working-as-inten.md'
             3box.js:-7-use-cases-for-social-dapps/ba17ec11c71a4a1b918ca030b4f09e4d/a: 'single/3box.js--7-use-cases-for-social-dapps.md'
-            a-proper-examination-of-erc-721s.-what-are-erc-72/ecd47323706d4d7db1abc55a4aa6071b/a: 'single/a-proper-examination-of-erc-721s.-what-are-erc-72.md'
             transactions-with-a-button-click-event-using-ethj/3020865569a84394abc7e6aa2cf0838c/a: 'single/transactions-with-a-button-click-event-using-ethj.md'
             ethereum-101-chast-1-chto-takoe-ethereum/ad4ff9164fc04320a55de6d774d300e0/a: 'single/ethereum-101-chast-1-chto-takoe-ethereum.md'
             eth-pages/73af293d7bd94579b450299892771e9b/a: 'single/eth-pages.md'

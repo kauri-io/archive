@@ -58,7 +58,7 @@ Authentication is pretty simple in an application; you compare the `rootOwner` t
 
 From the EIP:
 
-```solidity
+```
 address rootOwner = address(rootOwnerOf(_tokenId));
 require(rootOwner == msg.sender ||
   isApprovedForAll(rootOwner,msg.sender) ||
@@ -67,7 +67,7 @@ require(rootOwner == msg.sender ||
 
 You can also transfer an entire composable system from one `rootOwner` to another by using the different `approve` ERC721 functions like below:
 
-```solidity
+```
 function approve(address _approved, uint256 _tokenId) external {
   address rootOwner = address(rootOwnerOf(_tokenId));
   require(rootOwner == msg.sender || isApprovedForAll(rootOwner,msg.sender));
@@ -88,7 +88,7 @@ For bottom-up composables, if the `rootOwnerOf` call for the parent token (the E
 
 This is what the `rootOwnerOfChild` logic looks like:
 
-```solidity
+```
 // Logic for calling rootOwnerOfChild for a tokenId
 address tokenOwner = ownerOf(tokenId);
 address childContract = address(this);
@@ -123,7 +123,7 @@ If you don't know whether a contract has any of these functions, you have to com
 
 Here is the complete ERC998ERC721 top-down interface:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 /// @title ERC998ERC721 Top-Down Composable Non-Fungible Token
@@ -280,7 +280,7 @@ If the ERC20 contract doesn't support the ERC223 standard, then similar to ERC99
 
 Here is the complete ERC998ERC20 top-down interface:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 /// @title ERC998ERC20 Top-Down Composable Non-Fungible Token
@@ -385,7 +385,7 @@ Similar to the previously detailed implementations, the `tokenOwner` returns an 
 
 Here is the complete ERC998ERC721 bottom-up interface:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 /// @title ERC998ERC721 Bottom-Up Composable Non-Fungible Token
@@ -503,7 +503,7 @@ The same specifications apply to all other transfer functions.
 
 Here is the complete ERC998ERC721 bottom-up interface:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 /// @title ERC998ERC20 Bottom-Up Composable Fungible Token

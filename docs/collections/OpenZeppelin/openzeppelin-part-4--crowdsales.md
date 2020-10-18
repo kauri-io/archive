@@ -36,7 +36,7 @@ Keep these conversions in mind when working with math in contracts, because it's
 
 In the price category we have one contract, _IncreasingPriceCrowdsale.sol_ This allows you over a set period of time to have the price of your tokens increase.
 
-```solidity
+```
 pragma solidity ^0.5.2;
 
 import "../crowdsale/price/IncreasingPriceCrowdsale.sol";
@@ -71,7 +71,7 @@ Emission refers to the process of how the token reaches the buyer. The default m
 - _MintedCrowdsale.sol_: The crowdsale contract mints tokens when purchased. This is a way to ensure that excess tokens are not created as well as control how many tokens are in circulation.
 - _AllowanceCrowdsale.sol_: Another wallet grants the crowdsale contract tokens to sell. With this method, you need to ensure that you approve the allowance using the ERC20 `approve()` function otherwise your contract will never receive the tokens.
 
-```solidity
+```
 pragma solidity ^ 0.5.2;
 
 import "openzeppelin-solidity/contracts/crowdsale/emission/emission-you-choose.sol";
@@ -90,7 +90,7 @@ Validation contains contracts that add more customization to your crowdsale. The
 - _WhitelistedCrowdsale.sol_: Only people on the whitelist can buy tokens and thus you can sell to a more selective group of buyers.
 - _TimedCrowdsale.sol_: Your crowdsale has an opening and closing time.
 
-```solidity
+```
 pragma solidity ^ 0.5 .2;
 
 import "openzeppelin-solidity/contracts/crowdsale/validation/validation-you-choose.sol";
@@ -108,7 +108,7 @@ The most important part of the crowdsale is when the tokens are released to the 
 - _PostDeliveryCrowdsale.sol_: Tokens are distributed after the crowdsale is over. Buyers use the `withdrawToken()` function to obtain the tokens.
 - _RefundableCrowdsale.sol_: If the minimum goal of the crowdsale is not reached, users use the `claimRefund()` function to get their Ether back.
 
-```solidity
+```
 pragma solidity ^ 0.5 .2;
 
 import "openzeppelin-solidity/contracts/crowdsale/distribution/distribution-you-choose.sol";
@@ -124,7 +124,7 @@ Crowdsales don't have to be complex to write and using OpenZeppelin can help inc
 
 **Note**: You can use more than one crowdsale feature. They each have to have an import statement as well as separated by a comma.
 
-```solidity
+```
 pragma solidity ^ 0.5 .2;
 
 import "openzeppelin-solidity/contracts/crowdsale/distribution/PostDeliveryCrowdsale.sol";

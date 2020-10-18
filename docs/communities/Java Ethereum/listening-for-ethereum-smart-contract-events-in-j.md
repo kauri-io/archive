@@ -67,7 +67,7 @@ Both defining and emitting and event within your Ethereum smart contracts are on
 
 #### Defining
 
-```solidity
+```
 event Notarized(address indexed notary, string documentHash)
 ```
 
@@ -75,7 +75,7 @@ In this example we defined an event with the name `Notarized`, with an indexed a
 
 #### Emitting
 
-```solidity
+```
 function notarizeDocument(string _documentHash) public {
         emit Notarized(msg.sender, _documentHash);
 }

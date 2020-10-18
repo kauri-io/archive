@@ -37,7 +37,7 @@ To show how to use the methods above, this tutorial uses the following Smart Con
 
 _DocumentRegistry.sol_
 
-```solidity
+```
 pragma solidity ^0.5.6;
 
 

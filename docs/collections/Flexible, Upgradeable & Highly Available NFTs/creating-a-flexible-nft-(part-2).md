@@ -473,7 +473,7 @@ When we deployed our Token we used a metadata endpoint that returned `https://do
 
 Thankfully we built in that ability, and a migration. Inside the _Metadata.sol_ contract update the URI with our netlify subdomain:
 
-```solidity
+```
 function tokenURI(uint _tokenId) public pure returns (string memory _infoUrl) {
     string memory base = "https://block-workshop.netlify.com/metadata/";
     string memory id = uint2str(_tokenId);

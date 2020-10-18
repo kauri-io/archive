@@ -25,7 +25,7 @@ This specific post aims to reveal some of the magic happening behind the scenes,
 To explain how Mythril works we will need to start with symbolic execution, the core technique used in Mythril Classic. If you are already comfortable with the general idea of symbolic execution, then this post will recap already familiar concepts.
 I think the easiest way to explain symbolic execution is by applying it and graphically showing what happens during execution. To help with that, we’ll be using the following solidity function as a target of our analysis.
 
-```solidity
+```
 function execute(uint256 input) public (uint256){
    uint memory result = 0;
    if (input > 10) {

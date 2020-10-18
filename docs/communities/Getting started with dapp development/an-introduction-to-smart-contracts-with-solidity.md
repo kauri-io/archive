@@ -26,7 +26,7 @@ The Solidity code below sets the value of a variable and exposes it for other co
 
 #### Storage Example
 
-```solidity
+```
 pragma solidity >=0.4.0 <0.7.0;
 
 contract SimpleStorage {

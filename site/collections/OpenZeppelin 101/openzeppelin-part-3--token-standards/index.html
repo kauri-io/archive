@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>OpenZeppelin Part 3 Token Standards &mdash; kauri.io</title>
+    <title>OpenZeppelin Part 3 Token Standards &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -757,10 +758,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1052,7 +1053,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1085,7 +1086,7 @@
 <li><strong>safeERC20</strong>: Forces transfers and approvals to succeed or the transaction reverts.</li>
 <li><strong>TokenTimelock</strong>: To release tokens after a specified timeout. Useful in an Escrow situation.</li>
 </ul>
-<pre><code class="language-solidity">pragma solidity ^ 0.5.2;
+<pre><code>pragma solidity ^ 0.5.2;
 
 import &quot;openzeppelin-solidity/contracts/token/ERC20/ERC20-option-you-choose.sol&quot;;
 
@@ -1102,7 +1103,7 @@ contract ERC20Contract is ERC20-option-you-choose {
 <li><strong>ERC721Mintable</strong>: Allows anyone with the minter role to mint tokens aka create tokens.</li>
 <li><strong>ERC721Pausable</strong>: Allows anyone with the pauser role to freeze the transfer of tokens to and from users.</li>
 </ul>
-<pre><code class="language-solidity">pragma solidity ^ 0.5 .2;
+<pre><code>pragma solidity ^ 0.5 .2;
 
 import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721-option-you-choose.sol&quot;;
 
@@ -1113,7 +1114,7 @@ contract ERC721Contract is ERC721-option-you-choose {
 <h3 id="usage">Usage</h3>
 <p>To use any of the features from the token library, import them at the top of your contract. <code>import "openzeppelin-solidity/contracts/token/chosen standard"</code>. This allows you to inherit its functions into your contract.</p>
 <p><strong>Note</strong>: You can have multiple inheritances but they must all be for the same standard of token.</p>
-<pre><code class="language-solidity">pragma solidity ^ 0.5 .2;
+<pre><code>pragma solidity ^ 0.5 .2;
 
 import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol&quot;;
 import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721Burnable.sol&quot;;

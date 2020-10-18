@@ -31,7 +31,7 @@
       const redirect = slugify(article.title, {lower: true}).replace(/[\']/g,'-').substring(0, 49) + "/" + article.id + "/a"
       const author = article.contributors[0].name +" (@"+article.contributors[0].username+")"
       const datePublication = article.datePublished.split("T")[0]
-      let content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##') : ""
+      let content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##').replace(/```solidity/g, "```") : ""
       let background =  (article.attributes && article.attributes.background) ? article.attributes.background : undefined;
 
 
@@ -87,15 +87,14 @@
     utils.deleteFile(conf)
     utils.createFile(baseDir + "/CNAME", "archive.kauri.io")
     utils.createFile(baseDir + "/index.md", "#hello")
-    utils.createFile(conf, "site_name: kauri.io\n" +
+    utils.createFile(conf, "site_name: archive.kauri.io\n" +
                            "theme:\n" +
                            "    name: ivory\n" +
                            "    highlightjs: true\n" +
                            "    hljs_languages:\n" +
                            "        - yaml\n" +
                            "        - solidity\n" +
-                           "extra:\n" +
-                           "    logo: 'kauri.png'\n" +
+                           "        - go\n" +
                            "extra_css:\n" +
                            "    - css/extra.css\n" +
                            "nav:\n" +

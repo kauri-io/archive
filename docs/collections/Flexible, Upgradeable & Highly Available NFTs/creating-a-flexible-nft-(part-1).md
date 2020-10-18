@@ -114,7 +114,7 @@ Rename _contracts/Sample.sol_ to _contracts/Token.sol_ or whatever you want to c
 mv ./contracts/Sample.sol ./contracts/Token.sol
 ```
 
-```solidity
+```
 pragma solidity ^0.5.0;
 
 /**
@@ -127,7 +127,7 @@ contract Token {
 
 Import the [open zeppelin ERC-721 library](https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/token/ERC721), add it to the contract class, then alter the constructor:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 
@@ -149,7 +149,7 @@ Create a file called _/contracts/Metadata.sol_ and add the contract basics:
 touch ./contracts/Metadata.sol
 ```
 
-```solidity
+```
 pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
@@ -166,7 +166,7 @@ mkdir ./contracts/helpers
 touch ./contracts/helpers/strings.sol
 ```
 
-```solidity
+```
 /*
  * @title String & slice utility library for Solidity contracts.
  * @author Nick Johnson <arachnid@notdot.net>
@@ -234,7 +234,7 @@ library strings {
 
 Import the library into _Metadata.sol_ and use the strings library for all types:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
@@ -249,7 +249,7 @@ contract Metadata {
 
 Add the `tokenURI` function that accepts a `uint256 tokenId` and returns a `string` to _Metadata.sol_ inside the contract definition:
 
-```solidity
+```
 function tokenURI(uint _tokenId) public pure returns (string memory _infoUrl) {
     string memory base = "https://domain.com/metadata/";
     string memory id = uint2str(_tokenId);
@@ -259,7 +259,7 @@ function tokenURI(uint _tokenId) public pure returns (string memory _infoUrl) {
 
 Add the function `uint2str` modified from [oraclize](https://github.com/oraclize):
 
-```solidity
+```
 function uint2str(uint i) internal pure returns (string memory) {
     if (i == 0) return "0";
     uint j = i;
@@ -287,7 +287,7 @@ This code takes a number and converts it into the UTF8 string value of that numb
 
 Run `yarn compile` to make sure there are no errors. Your final _Metadata.sol_ should look like this:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 /**
 * Metadata contract is upgradeable and returns metadata about Token
@@ -333,7 +333,7 @@ contract Metadata {
 
 Import the _Metadata.sol_ contract into the header of your ERC-721 token contract, add a new parameter to the contract called `metadata`, and set the parameter with the constructor
 
-```solidity
+```
 pragma solidity ^0.5.0;
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 import "./Metadata.sol";
@@ -353,7 +353,7 @@ contract Token is ERC721Full {
 
 Add a `tokenURI` function that hands the call to the metadata contract. We're handing off the call because we want that function to be upgradeable in the future.
 
-```solidity
+```
 function tokenURI(uint _tokenId) external view returns (string memory _infoUrl) {
     return metadata.tokenURI(_tokenId);
 }
@@ -361,7 +361,7 @@ function tokenURI(uint _tokenId) external view returns (string memory _infoUrl) 
 
 Run `truffle compile` to make sure there are no errors. Your token contract should look like the below:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 import "./Metadata.sol";
@@ -670,7 +670,7 @@ If you change your schema, or endpoints, or the `tokenURI` standard changes, you
 
 Inside _Token.sol_ import the _Ownable.sol_ contract from open-zeppelin, inherit it in your token, and define your contract as `Ownable`. Then add a function that can update the `metadata` contract address and restrict the access with the `onlyOwner` modifier. We're referring to `metadata` as the type `Metadata` but for all practical purposes this is just an `address`.
 
-```solidity
+```
 pragma solidity ^0.5.0;
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
@@ -795,7 +795,7 @@ This only runs **from** (`-f`) migration number 3 **until** (`--to`) migration 3
 
 Since we want to mint tokens, let's add a public function for minting to our Token contract and protect it with the `onlyOwner` modifier:
 
-```solidity
+```
 pragma solidity ^0.5.0;
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721Full.sol";
 import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";

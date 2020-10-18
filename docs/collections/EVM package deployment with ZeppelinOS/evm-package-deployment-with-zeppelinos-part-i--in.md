@@ -270,7 +270,7 @@ If you're interested in an excellent tutorial about building a linked
 list in Solidity, I highly recommend Austin Thomas Griffith's "[Linked Lists inSolidity](https://medium.com/coinmonks/linked-lists-in-solidity-cfd967af389b)",
 which I used as a starting point for the following code:
 
-```solidity
+```
 pragma solidity >=0.4.24 &lt;0.6.0;
 
 import "zos-lib/contracts/Initializable.sol";
@@ -335,7 +335,7 @@ contract LinkedList is Initializable{
 
 On line 3, we're importing:
 
-```solidity
+```
 import "zos-lib/contracts/Initializable.sol";
 ```
 

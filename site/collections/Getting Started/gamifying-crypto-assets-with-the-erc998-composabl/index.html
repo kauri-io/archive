@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <title>Gamifying Crypto Assets with the ERC998 Composables Token Standard &mdash; kauri.io</title>
+    <title>Gamifying Crypto Assets with the ERC998 Composables Token Standard &mdash; archive.kauri.io</title>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -18,6 +18,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/solidity.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
     <script>
         hljs.initHighlightingOnLoad();
     </script> 
@@ -29,7 +30,7 @@
             <div class="home">
                 <div class="title">
                     <button class="hamburger"></button>
-                    <a href="../../.." class="site-name"> kauri.io</a>
+                    <a href="../../.." class="site-name"> archive.kauri.io</a>
                 </div>
                 <div class="search">
                     <div role="search">
@@ -764,10 +765,10 @@
     <li class="toctree-l2"><a class="nav-item" href="../../../single/step-by-step-guide-%22claim-your-dns-domain-on-ens%22/">Step by step guide “Claim your DNS domain on ENS”</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/blockchain-powered-by-ai/">Blockchain Powered by AI</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/osuke-sudo-tokyo-layerx-blockchain.tokyo/">Osuke Sudo - Tokyo - LayerX, blockchain.tokyo</a></li>
+    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/uptown/">UpTown</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/%28sample-submission%29-the-only-tcr-working-as-inten/">(SAMPLE SUBMISSION) The only TCR working as intended!</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/3box.js--7-use-cases-for-social-dapps/">3Box.js  7 Use Cases for Social Dapps</a></li>
-    <li class="toctree-l2"><a class="nav-item" href="../../../single/a-proper-examination-of-erc-721s.-what-are-erc-72/">A proper examination of ERC-721s. What are ERC-721s and what is their potential?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/transactions-with-a-button-click-event-using-ethj/">Transactions With a Button Click Event using EthJs</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/ethereum-101-chast-1-chto-takoe-ethereum/">Ethereum 101 - Часть 1 - Что такое Ethereum?</a></li>
     <li class="toctree-l2"><a class="nav-item" href="../../../single/eth-pages/">ETH Pages</a></li>
@@ -1059,7 +1060,7 @@
         <main>
             <div class="home-top">
                 <button class="hamburger"></button>
-                <a href="../../.." class="site-name"> kauri.io</a>
+                <a href="../../.." class="site-name"> archive.kauri.io</a>
             </div>
             <div id="main">
                 <nav class="breadcrumbs">
@@ -1101,13 +1102,13 @@
 <p><strong>Authentication</strong> is important when you need to limit who or which contracts can execute specific actions. In top-down and bottom-up composables that use ERC721 tokens, the <code>rootOwner</code> is the address that "owns" the entire system of composables. For example, for a top-down token, the <code>rootOwner</code> is the one who holds the largest ERC998 basket that contains all the other children inside it. For a bottom-up token, the <code>rootOwner</code> is the one who holds the cube to which the bottom-up ERC998 composables are attached.
 Authentication is pretty simple in an application; you compare the <code>rootOwner</code> to the <code>msg.sender</code>, whom is the user making the current call to the contract (and thus the owner of the contract at the time of deployment), as well as what's returned by <code>getApproved(tokenId)</code> and <code>isApprovedForAll(rootOwner, msg.sender)</code>.</p>
 <p>From the EIP:</p>
-<pre><code class="language-solidity">address rootOwner = address(rootOwnerOf(_tokenId));
+<pre><code>address rootOwner = address(rootOwnerOf(_tokenId));
 require(rootOwner == msg.sender ||
   isApprovedForAll(rootOwner,msg.sender) ||
   getApproved(tokenId) == msg.sender;
 </code></pre>
 <p>You can also transfer an entire composable system from one <code>rootOwner</code> to another by using the different <code>approve</code> ERC721 functions like below:</p>
-<pre><code class="language-solidity">function approve(address _approved, uint256 _tokenId) external {
+<pre><code>function approve(address _approved, uint256 _tokenId) external {
   address rootOwner = address(rootOwnerOf(_tokenId));
   require(rootOwner == msg.sender || isApprovedForAll(rootOwner,msg.sender));
 
@@ -1123,7 +1124,7 @@ function getApproved(uint256 _tokenId) public view returns (address)  {
 <p><em>Traversal</em> is another important concept that plays an important role when the composable system gets more complex. If you have lots of nested ERC998 composables of different types, one parenting the other, it can be hard to keep track of who the original <code>rootOwner</code> was. The functions <code>rootOwnerOf(uint256 _tokenId)</code> and <code>rootOwnerOfChild(address _childContract, uint256 _childTokenId)</code> can retrieve the <code>rootOwner</code> in both top-down and bottom-up composables.</p>
 <p>For bottom-up composables, if the <code>rootOwnerOf</code> call for the parent token (the ERC721 cube) passes, then what's returned is the true <code>rootOwner</code> of the composable tree. If it fails, then you have to call <code>rootOwnerOfChild</code> instead to find its parent, which gives you the true <code>rootOwner</code> if it passes. If that still fails, then the address of whoever owns that token is the <code>rootOwner</code>.</p>
 <p>This is what the <code>rootOwnerOfChild</code> logic looks like:</p>
-<pre><code class="language-solidity">// Logic for calling rootOwnerOfChild for a tokenId
+<pre><code>// Logic for calling rootOwnerOfChild for a tokenId
 address tokenOwner = ownerOf(tokenId);
 address childContract = address(this);
 bytes32 rootOwner = ERC998ERC721(tokenOwner).rootOwnerOfChild(childContract, tokenId);
@@ -1142,7 +1143,7 @@ bytes32 rootOwner = ERC998ERC721(tokenOwner).rootOwnerOfChild(childContract, tok
 <p>The first 4 bytes returned by <code>rootOwnerOf</code> is a "magic value", which is essentially something that gives contracts a way to show each other what interfaces they support. In this case, it's the magic value <code>0xcd740db5</code>, which denotes an ERC998 interface. The last 20 bytes of the returned value is the actual <code>rootOwner</code> address. The magic value ensures that even if you call <code>rootOwnerOf</code> on a contract that doesn't have that function, you'll still receive a valid returned value. The same goes for <code>rootOwnerOfChild</code> and <code>ownerOfChild</code> functions.</p>
 <p>If you don't know whether a contract has any of these functions, you have to compare the first 4 bytes returned to the ERC998 magic value <code>0xcd740db5</code>.</p>
 <p>Here is the complete ERC998ERC721 top-down interface:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 /// @title ERC998ERC721 Top-Down Composable Non-Fungible Token
 /// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
@@ -1293,7 +1294,7 @@ interface ERC998ERC721TopDown {
 <p>Use the <code>transfer(address _to, uint256 _value, bytes _data)</code> function on the ERC223 contract, where the <code>bytes _data</code> argument contains the integer value of the top-down composable receiver's token ID.
 If the ERC20 contract doesn't support the ERC223 standard, then similar to ERC998ERC20, call the <code>approve</code> function in the ERC20 contract to approve the top-down composable as an owner, then call <code>getERC20(address _from, uint256 _tokenId, address _erc20Contract, uint256 _value)</code> on the top-down composable contract so the tokens may be transferred.</p>
 <p>Here is the complete ERC998ERC20 top-down interface:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 /// @title ERC998ERC20 Top-Down Composable Non-Fungible Token
 /// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
@@ -1390,7 +1391,7 @@ interface ERC998ERC20TopDown {
 <p>You use this function to get the address and <code>tokenId</code> of the token's parent if it exists. If the boolean <code>isParent</code> (which is one of the outputs of the <code>tokenOwnerOf</code> function) returns true, then the <code>tokenOwner</code> is the parent ERC721's address. If it returns false, then the address returned is a user address.</p>
 <p>Similar to the previously detailed implementations, the <code>tokenOwner</code> returns an ERC998 magic value in the first four bytes, whereas the last 20 bytes contain the token owner address.</p>
 <p>Here is the complete ERC998ERC721 bottom-up interface:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 /// @title ERC998ERC721 Bottom-Up Composable Non-Fungible Token
 /// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
@@ -1499,7 +1500,7 @@ interface ERC998ERC721BottomUp {
 </ol>
 <p>The same specifications apply to all other transfer functions.</p>
 <p>Here is the complete ERC998ERC721 bottom-up interface:</p>
-<pre><code class="language-solidity">pragma solidity ^0.5.0;
+<pre><code>pragma solidity ^0.5.0;
 
 /// @title ERC998ERC20 Bottom-Up Composable Fungible Token
 /// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md

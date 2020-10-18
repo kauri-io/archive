@@ -42,7 +42,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 **Every ERC-721 compliant contract must implement the `ERC721` and `ERC165` interfaces** (subject to "caveats" below):
 
-```solidity
+```
 pragma solidity ^0.4.20;
 
 /// @title ERC-721 Non-Fungible Token Standard
@@ -156,7 +156,7 @@ interface ERC165 {
 
 A wallet/broker/auction application MUST implement the **wallet interface** if it will accept safe transfers.
 
-```solidity
+```
 /// @dev Note: the ERC-165 identifier for this interface is 0x150b7a02.
 interface ERC721TokenReceiver {
     /// @notice Handle the receipt of an NFT
@@ -177,7 +177,7 @@ interface ERC721TokenReceiver {
 
 The **metadata extension** is OPTIONAL for ERC-721 smart contracts (see "caveats", below). This allows your smart contract to be interrogated for its name and for details about the assets which your NFTs represent.
 
-```solidity
+```
 /// @title ERC-721 Non-Fungible Token Standard, optional metadata extension
 /// @dev See https://eips.ethereum.org/EIPS/eip-721
 ///  Note: the ERC-165 identifier for this interface is 0x5b5e139f.
@@ -221,7 +221,7 @@ This is the "ERC721 Metadata JSON Schema" referenced above.
 
 The **enumeration extension** is OPTIONAL for ERC-721 smart contracts (see "caveats", below). This allows your contract to publish its full list of NFTs and make them discoverable.
 
-```solidity
+```
 /// @title ERC-721 Non-Fungible Token Standard, optional enumeration extension
 /// @dev See https://eips.ethereum.org/EIPS/eip-721
 ///  Note: the ERC-165 identifier for this interface is 0x780e9d63.
