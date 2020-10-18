@@ -1,1 +1,0 @@
-{"timestamp":"2020-10-18T17:03:48.750+0000","status":500,"error":"Internal Server Error","message":"Request processing failed; nested exception is net.consensys.mahuta.core.exception.TimeoutException: Exception while fetching file from IPFS [id: {}]","path":"/ipfs/Qmex8bC6gLPAHCmtAc2EHe3jnUYjXoV9GA5SFQFcrboqCu"}
