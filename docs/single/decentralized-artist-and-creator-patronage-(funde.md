@@ -53,7 +53,7 @@ We set out to create a censorship-free platform for artists and creators of all 
 ---
 
 - **Kauri original title:** Decentralized Artist and Creator Patronage (FundEm)
-- **Kauri original link:** https://kauri.io/decentralized-artist-and-creator-patronage-(funde/f3af35ac48164a8ebee7762e9e659547/a
+- **Kauri original link:** https://kauri.io/decentralized-artist-and-creator-patronage-fundem/f3af35ac48164a8ebee7762e9e659547/a
 - **Kauri original author:** Dan Mowchan (@danmowchan)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, zepkit, ipfs, bounty-skale-2019, bounty-zeppelin-2019, react

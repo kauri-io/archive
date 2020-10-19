@@ -118,7 +118,7 @@ Beam is offering these properties and more. Hopefully other cryptocurrencies wil
 ---
 
 - **Kauri original title:** The Secure Bulletin Board System (SBBS) implementation in Beam
-- **Kauri original link:** https://kauri.io/the-secure-bulletin-board-system-(sbbs)-implement/cc964fc41c434ed3a51cafab51ebbc2c/a
+- **Kauri original link:** https://kauri.io/the-secure-bulletin-board-system-sbbs-implementat/cc964fc41c434ed3a51cafab51ebbc2c/a
 - **Kauri original author:** Beni Issembert (@bissembert)
 - **Kauri original Publication date:** 2019-06-23
 - **Kauri original tags:** beam, mimblewimble, privacy, privacy-blockchain

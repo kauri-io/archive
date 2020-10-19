@@ -84,7 +84,7 @@ Above
 ---
 
 - **Kauri original title:** Stash (IPFS Browser Integration)
-- **Kauri original link:** https://kauri.io/stash-(ipfs-browser-integration)/f04371889c1b4419b03f89b8fd391dfc/a
+- **Kauri original link:** https://kauri.io/stash-ipfs-browser-integration/f04371889c1b4419b03f89b8fd391dfc/a
 - **Kauri original author:** Nico Valencia (@nicovalencia)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, usability, ipfs, impact, bounty-ideasbynature-2019, sponsor-bounty, bounty-mainframe-2019

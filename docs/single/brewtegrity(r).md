@@ -55,7 +55,7 @@ https://cryptocatalyst-d5ebc.firebaseapp.com
 ---
 
 - **Kauri original title:** Brewtegrity®
-- **Kauri original link:** https://kauri.io/brewtegrity(r)/7666cf2baf724e58b461f2638376ece9/a
+- **Kauri original link:** https://kauri.io/brewtegrityr/7666cf2baf724e58b461f2638376ece9/a
 - **Kauri original author:** Mitchell Valentine (@aimingqi)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, usability, impact, zeppelin, portis, 4ideas-by-nature

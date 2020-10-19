@@ -556,7 +556,7 @@ Let's add it to rarebits too.
 ---
 
 - **Kauri original title:** Creating a Flexible NFT (Part 2)
-- **Kauri original link:** https://kauri.io/creating-a-flexible-nft-(part-2)/85f570393e1448a7a94e2eab1bae6e48/a
+- **Kauri original link:** https://kauri.io/creating-a-flexible-nft-part-2/85f570393e1448a7a94e2eab1bae6e48/a
 - **Kauri original author:** Billy Rennekamp (@okwme)
 - **Kauri original Publication date:** 2019-06-25
 - **Kauri original tags:** netlify, metadata, lambda, upgradeable, serverless, truffle, nft

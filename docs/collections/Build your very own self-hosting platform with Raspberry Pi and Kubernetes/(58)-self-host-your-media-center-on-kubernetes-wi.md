@@ -865,7 +865,7 @@ In conclusion, you now have everything you need to automate and manage your Medi
 ---
 
 - **Kauri original title:** (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
-- **Kauri original link:** https://kauri.io/(58)-self-host-your-media-center-on-kubernetes-wi/8ec7c8c6bf4e4cc2a2ed563243998537/a
+- **Kauri original link:** https://kauri.io/58-self-host-your-media-center-on-kubernetes-with/8ec7c8c6bf4e4cc2a2ed563243998537/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-05-26
 - **Kauri original tags:** self-hosting, kubernetes, tv-show, k8s, plex, bittorrent, htpc

@@ -376,7 +376,7 @@ You can also install and configure your custom server to easily and safely acces
 ---
 
 - **Kauri original title:** (7/8) Self-host your password manager with Bitwarden
-- **Kauri original link:** https://kauri.io/(78)-self-host-your-password-manager-with-bitward/b2187730d4294626b28d1d938057e2e0/a
+- **Kauri original link:** https://kauri.io/78-self-host-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-04-01
 - **Kauri original tags:** self-hosting, kubernetes, password-manager, bitwarden

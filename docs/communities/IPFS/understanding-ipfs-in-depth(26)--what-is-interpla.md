@@ -507,7 +507,7 @@ This article was first posted on [SimpleAsWater.com](https://simpleaswater.com/o
 ---
 
 - **Kauri original title:** Understanding IPFS in Depth(2/6)  What is InterPlanetary Linked Data(IPLD)?
-- **Kauri original link:** https://kauri.io/understanding-ipfs-in-depth(26):-what-is-interpla/2de296caf9ac41f296484198e3350e8e/a
+- **Kauri original link:** https://kauri.io/understanding-ipfs-in-depth26:-what-is-interplane/2de296caf9ac41f296484198e3350e8e/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-05
 - **Kauri original tags:** ipfs, simpleaswater, dag, linked-data, ipld

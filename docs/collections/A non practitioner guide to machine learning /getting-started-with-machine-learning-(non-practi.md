@@ -36,7 +36,7 @@ More articles (more supervised learning, unsupervised and reinforcement learning
 ---
 
 - **Kauri original title:** Getting Started With Machine Learning (Non practitioner guide)
-- **Kauri original link:** https://kauri.io/getting-started-with-machine-learning-(non-practi/b92d356410cb4ffd9e11e15726972ab7/a
+- **Kauri original link:** https://kauri.io/getting-started-with-machine-learning-non-practit/b92d356410cb4ffd9e11e15726972ab7/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2019-11-07
 - **Kauri original tags:** artificial-intelligence, machine-learning, python, anaconda

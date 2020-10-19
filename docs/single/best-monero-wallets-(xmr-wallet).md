@@ -147,7 +147,7 @@ Let us know what you think about our best monero wallets list and which XMR wall
 ---
 
 - **Kauri original title:** Best Monero Wallets (XMR Wallet)
-- **Kauri original link:** https://kauri.io/best-monero-wallets-(xmr-wallet)/613df86e3cd445a3bbdee778b379e5d5/a
+- **Kauri original link:** https://kauri.io/best-monero-wallets-xmr-wallet/613df86e3cd445a3bbdee778b379e5d5/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18
 - **Kauri original tags:** wallet, monero

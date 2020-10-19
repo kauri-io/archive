@@ -356,7 +356,7 @@ You can also download the [Android](https://play.google.com/store/apps/details?i
 ---
 
 - **Kauri original title:** (4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox
-- **Kauri original link:** https://kauri.io/(48)-deploy-nextcloud-on-kuberbetes:-the-self-hos/f958350b22794419b09fc34c7284b02e/a
+- **Kauri original link:** https://kauri.io/48-deploy-nextcloud-on-kuberbetes:-the-self-hoste/f958350b22794419b09fc34c7284b02e/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-03-31
 - **Kauri original tags:** self-hosting, nextcloud, kubernetes, dropbox, open-source, file-hosting, helm

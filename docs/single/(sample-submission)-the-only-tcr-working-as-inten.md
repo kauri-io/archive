@@ -59,7 +59,7 @@ github.com/TCRParty
 ---
 
 - **Kauri original title:** (SAMPLE SUBMISSION) The only TCR working as intended!
-- **Kauri original link:** https://kauri.io/(sample-submission)-the-only-tcr-working-as-inten/d8fc42c737104ed2b177db338d3b01c3/a
+- **Kauri original link:** https://kauri.io/sample-submission-the-only-tcr-working-as-intende/d8fc42c737104ed2b177db338d3b01c3/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-gridplus-2019, bounty-shapeshift-2019, bounty-salt-2019, bounty-aave-2019

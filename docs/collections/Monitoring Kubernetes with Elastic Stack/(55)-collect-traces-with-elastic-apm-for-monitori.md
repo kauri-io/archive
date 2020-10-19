@@ -327,7 +327,7 @@ Hopefully, this series of articles helped you understand how to deploy a monitor
 ---
 
 - **Kauri original title:** (5/5) Collect traces with Elastic APM for monitoring Kubernetes 
-- **Kauri original link:** https://kauri.io/(55)-collect-traces-with-elastic-apm-for-monitori/bbbc0af03721495b886567ce6af6c59e/a
+- **Kauri original link:** https://kauri.io/55-collect-traces-with-elastic-apm-for-monitoring/bbbc0af03721495b886567ce6af6c59e/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-04-15
 - **Kauri original tags:** kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat
