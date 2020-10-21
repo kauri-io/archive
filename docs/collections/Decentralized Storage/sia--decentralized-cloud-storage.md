@@ -406,7 +406,7 @@ _, by Nebulous Inc., is a blockchain-based decentralized cloud storage platform.
 ---
 
 - **Kauri original title:** Sia  Decentralized Cloud Storage
-- **Kauri original link:** https://kauri.io/sia:-decentralized-cloud-storage/c9958fbe0a7f4a2abb6e25ad37ee1107/a
+- **Kauri original link:** https://kauri.io/sia-decentralized-cloud-storage/c9958fbe0a7f4a2abb6e25ad37ee1107/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-14
 - **Kauri original tags:** storage

@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Aragon Apps  Finance
-- **Kauri original link:** https://kauri.io/aragon-apps:-finance/365a28db0a9143e8901efe0337db81e0/a
+- **Kauri original link:** https://kauri.io/aragon-apps-finance/365a28db0a9143e8901efe0337db81e0/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

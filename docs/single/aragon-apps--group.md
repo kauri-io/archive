@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Aragon Apps  Group
-- **Kauri original link:** https://kauri.io/aragon-apps:-group/d75f0cc82ca74a83abce18b034822bd7/a
+- **Kauri original link:** https://kauri.io/aragon-apps-group/d75f0cc82ca74a83abce18b034822bd7/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

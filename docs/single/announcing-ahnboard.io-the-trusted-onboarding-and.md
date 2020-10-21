@@ -48,7 +48,7 @@ https://twitter.com/ahnboard
 ---
 
 - **Kauri original title:** Announcing Ahnboard.io — The Trusted Onboarding & Support Platform for Decentralized Applications
-- **Kauri original link:** https://kauri.io/announcing-ahnboard.io-the-trusted-onboarding-and/16746f95a2a949f8b6420ed17d940e0c/a
+- **Kauri original link:** https://kauri.io/announcing-ahnboardio-the-trusted-onboarding-and-/16746f95a2a949f8b6420ed17d940e0c/a
 - **Kauri original author:** Ahnboard.io (@ahnboard-io)
 - **Kauri original Publication date:** 2018-12-03
 - **Kauri original tags:** none

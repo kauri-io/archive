@@ -168,7 +168,7 @@ _to chat and say hi!_
 ---
 
 - **Kauri original title:** 3Box.js  7 Use Cases for Social Dapps
-- **Kauri original link:** https://kauri.io/3box.js:-7-use-cases-for-social-dapps/ba17ec11c71a4a1b918ca030b4f09e4d/a
+- **Kauri original link:** https://kauri.io/3boxjs-7-use-cases-for-social-dapps/ba17ec11c71a4a1b918ca030b4f09e4d/a
 - **Kauri original author:** Danny Zuckerman (@dazuck)
 - **Kauri original Publication date:** 2018-12-14
 - **Kauri original tags:** none

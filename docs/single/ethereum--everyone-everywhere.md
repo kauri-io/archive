@@ -22,7 +22,7 @@ By Andy Tudhope (Status)
 ---
 
 - **Kauri original title:** Ethereum  Everyone, Everywhere
-- **Kauri original link:** https://kauri.io/ethereum:-everyone-everywhere/81d50568edd34130b3c7bee8be1be7c0/a
+- **Kauri original link:** https://kauri.io/ethereum-everyone-everywhere/81d50568edd34130b3c7bee8be1be7c0/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17
 - **Kauri original tags:** none

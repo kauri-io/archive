@@ -53,7 +53,7 @@ We’re launching our dApp adoption platform soon!
 ---
 
 - **Kauri original title:** Announcing  Ahnboard Community Support
-- **Kauri original link:** https://kauri.io/announcing:-ahnboard-community-support/4967666e9f0e4e7f99e6327ef95ab0d3/a
+- **Kauri original link:** https://kauri.io/announcing-ahnboard-community-support/4967666e9f0e4e7f99e6327ef95ab0d3/a
 - **Kauri original author:** Ahnboard.io (@ahnboard-io)
 - **Kauri original Publication date:** 2019-03-19
 - **Kauri original tags:** ux, onboarding

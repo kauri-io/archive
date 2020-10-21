@@ -106,7 +106,7 @@ Contact integrate@makerdao.com or #dev channel on chat.makerdao.com
 ---
 
 - **Kauri original title:** Keepers on MakerDAO  Resources 
-- **Kauri original link:** https://kauri.io/keepers-on-makerdao:-resources/b5c74816b2034971aec5add073ae16c5/a
+- **Kauri original link:** https://kauri.io/keepers-on-makerdao-resources/b5c74816b2034971aec5add073ae16c5/a
 - **Kauri original author:** David Utrobin (@davidutro)
 - **Kauri original Publication date:** 2019-02-06
 - **Kauri original tags:** EthDenver

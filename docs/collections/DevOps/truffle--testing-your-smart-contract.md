@@ -401,7 +401,7 @@ You can find the [complete bounties.js test file here for reference]  (https://g
 ---
 
 - **Kauri original title:** Truffle  Testing your smart contract
-- **Kauri original link:** https://kauri.io/truffle:-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a
+- **Kauri original link:** https://kauri.io/truffle-testing-your-smart-contract/f95f956261494090be1aaa8227464773/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-05-02
 - **Kauri original tags:** testing, tutorial, truffle, solidity

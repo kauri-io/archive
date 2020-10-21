@@ -102,7 +102,7 @@ For more examples of using _Ownable.sol_ and _Roles.sol_ check out the following
 ---
 
 - **Kauri original title:** OpenZeppelin Part 2  Access Control
-- **Kauri original link:** https://kauri.io/openzeppelin-part-2:-access-control/6816abb97f104026a946ba65968eefe6/a
+- **Kauri original link:** https://kauri.io/openzeppelin-part-2-access-control/6816abb97f104026a946ba65968eefe6/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-19
 - **Kauri original tags:** smart-contract, openzeppelin, ownership, zeppelin, access-control

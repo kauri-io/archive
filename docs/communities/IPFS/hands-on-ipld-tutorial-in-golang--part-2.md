@@ -233,7 +233,7 @@ Vaibhav Saini is Co-founder of [TowardsBlockchain](https://signy.io?ref=kauri), 
 ---
 
 - **Kauri original title:** Hands-on IPLD Tutorial in Golang  PART 2
-- **Kauri original link:** https://kauri.io/hands-on-ipld-tutorial-in-golang:-part-2/5fa2dc4be27b433d86d571ba857ab02d/a
+- **Kauri original link:** https://kauri.io/hands-on-ipld-tutorial-in-golang-part-2/5fa2dc4be27b433d86d571ba857ab02d/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-16
 - **Kauri original tags:** merkle-trees, ipfs, simpleaswater, golang, dag, ipld

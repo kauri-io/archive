@@ -419,7 +419,7 @@ Thanks for reading ;)
 ---
 
 - **Kauri original title:** Understanding IPFS in Depth(1/6)  A Beginner to Advanced Guide
-- **Kauri original link:** https://kauri.io/understanding-ipfs-in-depth16:-a-beginner-to-adva/14d7b8a17652428f8c48d5a088a7a400/a
+- **Kauri original link:** https://kauri.io/understanding-ipfs-in-depth16-a-beginner-to-advan/14d7b8a17652428f8c48d5a088a7a400/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-13
 - **Kauri original tags:** multiformats, filecoin, ipfs, simpleaswater, libp2p, guide, ipld

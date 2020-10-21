@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** FAQ  Interest
-- **Kauri original link:** https://kauri.io/faq:-interest/de0fcf5202a04b3fb1afd6a5260ca712/a
+- **Kauri original link:** https://kauri.io/faq-interest/de0fcf5202a04b3fb1afd6a5260ca712/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

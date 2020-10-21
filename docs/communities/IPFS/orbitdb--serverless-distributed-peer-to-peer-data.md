@@ -480,7 +480,7 @@ Is this guide missing something you'd like to understand or found an error? Plea
 ---
 
 - **Kauri original title:** OrbitDB  Serverless, Distributed, Peer-to-Peer Database
-- **Kauri original link:** https://kauri.io/orbitdb:-serverless-distributed-peer-to-peer-data/6ae5ffa612044a09be856ff390ce6990/a
+- **Kauri original link:** https://kauri.io/orbitdb-serverless-distributed-peer-to-peer-datab/6ae5ffa612044a09be856ff390ce6990/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-16
 - **Kauri original tags:** database, storage

@@ -297,7 +297,7 @@ Follow us on https://twitter.com/EthereumOnARM
 ---
 
 - **Kauri original title:** Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card
-- **Kauri original link:** https://kauri.io/ethereum-on-arm.-turn-your-arm-device-into-a-full/e7b2625208af4382acf070fa8068502b/a
+- **Kauri original link:** https://kauri.io/ethereum-on-arm-turn-your-arm-device-into-a-full-/e7b2625208af4382acf070fa8068502b/a
 - **Kauri original author:** Ethereum on ARM (@ethonarm)
 - **Kauri original Publication date:** 2020-02-10
 - **Kauri original tags:** ethereum, geth, lighhouse, nodes, parity, nethermind, prysm

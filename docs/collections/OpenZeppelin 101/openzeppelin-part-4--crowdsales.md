@@ -148,7 +148,7 @@ For examples of how to use OpenZeppelin Crowdsale contracts use the following li
 ---
 
 - **Kauri original title:** OpenZeppelin Part 4  Crowdsales
-- **Kauri original link:** https://kauri.io/openzeppelin-part-4:-crowdsales/f7287d9006e346f2a628fad7132ff19c/a
+- **Kauri original link:** https://kauri.io/openzeppelin-part-4-crowdsales/f7287d9006e346f2a628fad7132ff19c/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-02-28
 - **Kauri original tags:** smart-contract, openzeppelin, zeppelin, crowdsale, token

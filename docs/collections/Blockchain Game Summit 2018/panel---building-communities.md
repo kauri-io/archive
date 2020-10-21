@@ -26,7 +26,7 @@ Moderator : Anne Puck - Blockchain Initiative Manager - ubisoft
 ---
 
 - **Kauri original title:** Panel   Building Communities
-- **Kauri original link:** https://kauri.io/panel-:-building-communities/5fb79064840e4d0a895c3f8bab149a61/a
+- **Kauri original link:** https://kauri.io/panel--building-communities/5fb79064840e4d0a895c3f8bab149a61/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-10-08
 - **Kauri original tags:** none

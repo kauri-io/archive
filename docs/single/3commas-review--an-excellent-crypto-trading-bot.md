@@ -139,7 +139,7 @@ If you want to learn more about the Crypto ecosystem, sign up for the weekly new
 ---
 
 - **Kauri original title:** 3commas Review  An Excellent Crypto Trading Bot
-- **Kauri original link:** https://kauri.io/3commas-review:-an-excellent-crypto-trading-bot/e1ee369e02ff4498b74b82704c98f432/a
+- **Kauri original link:** https://kauri.io/3commas-review-an-excellent-crypto-trading-bot/e1ee369e02ff4498b74b82704c98f432/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18
 - **Kauri original tags:** trading

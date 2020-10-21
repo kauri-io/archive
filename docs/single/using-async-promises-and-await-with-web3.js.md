@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Using async Promises and await with Web3.js
-- **Kauri original link:** https://kauri.io/using-async-promises-and-await-with-web3.js/aa6db277c68c4a2ea1b60871d6cbac70/a
+- **Kauri original link:** https://kauri.io/using-async-promises-and-await-with-web3js/aa6db277c68c4a2ea1b60871d6cbac70/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

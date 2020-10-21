@@ -81,7 +81,7 @@ Documentation and Next Steps:
 ---
 
 - **Kauri original title:** OpenZeppelin Part 1  Introductory
-- **Kauri original link:** https://kauri.io/openzeppelin-part-1:-introductory/c3ef30099d1e404180067ed4f656aad2/a
+- **Kauri original link:** https://kauri.io/openzeppelin-part-1-introductory/c3ef30099d1e404180067ed4f656aad2/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-11
 - **Kauri original tags:** smart-contract, openzeppelin, zeppelin, solidity

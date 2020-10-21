@@ -134,7 +134,7 @@ It’s a super breeding edge version and it is highly likely that many things ar
 ---
 
 - **Kauri original title:** Claiming your DNS on ENS via Web (3/3  The code)
-- **Kauri original link:** https://kauri.io/claiming-your-dns-on-ens-via-web-33:-the-code/3bb9fee637a540d7b1e027cba121ab14/a
+- **Kauri original link:** https://kauri.io/claiming-your-dns-on-ens-via-web-33-the-code/3bb9fee637a540d7b1e027cba121ab14/a
 - **Kauri original author:** Makoto Inoue (@makoto)
 - **Kauri original Publication date:** 2018-10-30
 - **Kauri original tags:** none

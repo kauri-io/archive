@@ -123,7 +123,7 @@ You can also:
 ---
 
 - **Kauri original title:** Team Insights  Mario, Full Stack Dev and Scrum Master
-- **Kauri original link:** https://kauri.io/team-insights:-mario-full-stack-dev-and-scrum-mas/b8ea113a329c4cb08c233e9b5ba0004b/a
+- **Kauri original link:** https://kauri.io/team-insights-mario-full-stack-dev-and-scrum-mast/b8ea113a329c4cb08c233e9b5ba0004b/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19
 - **Kauri original tags:** none

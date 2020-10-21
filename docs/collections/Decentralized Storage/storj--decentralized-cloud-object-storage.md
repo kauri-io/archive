@@ -127,7 +127,7 @@ Let's 'be the cloud' and decentralize all the things together!
 ---
 
 - **Kauri original title:** Storj  Decentralized Cloud Object Storage
-- **Kauri original link:** https://kauri.io/storj:-decentralized-cloud-object-storage/a585dad1cd354e49994f3235452a8bb1/a
+- **Kauri original link:** https://kauri.io/storj-decentralized-cloud-object-storage/a585dad1cd354e49994f3235452a8bb1/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-15
 - **Kauri original tags:** storage

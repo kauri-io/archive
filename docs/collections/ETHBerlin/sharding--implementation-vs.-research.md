@@ -18,7 +18,7 @@ By Raul Jordan
 ---
 
 - **Kauri original title:** Sharding  Implementation vs. Research
-- **Kauri original link:** https://kauri.io/sharding:-implementation-vs.-research/b3002a822403473b9a36326be719d49f/a
+- **Kauri original link:** https://kauri.io/sharding-implementation-vs-research/b3002a822403473b9a36326be719d49f/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18
 - **Kauri original tags:** none

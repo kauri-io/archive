@@ -114,7 +114,7 @@ You can also:
 ---
 
 - **Kauri original title:** Team Insights  James, Witnet’s Community Lead
-- **Kauri original link:** https://kauri.io/team-insights:-james-witnet-s-community-lead/006712c0472d4071851a0de5f15dc35e/a
+- **Kauri original link:** https://kauri.io/team-insights-james-witnet-s-community-lead/006712c0472d4071851a0de5f15dc35e/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20
 - **Kauri original tags:** none

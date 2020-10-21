@@ -108,7 +108,7 @@ Prysmatic Labs has provided one such [entry point](https://github.com/prysmaticl
 ---
 
 - **Kauri original title:** Insight   1  Documentation
-- **Kauri original link:** https://kauri.io/insight-1:-documentation/8ec51946d7104fe9a7ee12b3e85224f8/a
+- **Kauri original link:** https://kauri.io/insight-1-documentation/8ec51946d7104fe9a7ee12b3e85224f8/a
 - **Kauri original author:** Chris Spannos (@chris-spannos)
 - **Kauri original Publication date:** 2018-11-06
 - **Kauri original tags:** none

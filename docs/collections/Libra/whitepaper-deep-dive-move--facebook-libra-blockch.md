@@ -338,7 +338,7 @@ Thank you so much for your time reading. Feel free to share this with someone wh
 ---
 
 - **Kauri original title:** Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language
-- **Kauri original link:** https://kauri.io/whitepaper-deep-dive-move:-facebook-libra-blockch/aaff5b1d82dd46b9a8668ec983a71548/a
+- **Kauri original link:** https://kauri.io/whitepaper-deep-dive-move-facebook-libra-blockcha/aaff5b1d82dd46b9a8668ec983a71548/a
 - **Kauri original author:** Lee Ting Ting (@tina1998612)
 - **Kauri original Publication date:** 2019-06-19
 - **Kauri original tags:** cryptocurrency, ethereum, blockchain, facebook, community, bitcoin, technical-analysis

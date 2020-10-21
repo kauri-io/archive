@@ -76,7 +76,7 @@ Use it to help make your products real too. Let’s make security top of mind, a
 ---
 
 - **Kauri original title:** MythX is real.
-- **Kauri original link:** https://kauri.io/mythx-is-real./3206b1e377b14cf6954b1061c5bd585c/a
+- **Kauri original link:** https://kauri.io/mythx-is-real/3206b1e377b14cf6954b1061c5bd585c/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-02
 - **Kauri original tags:** mythx, security, smart-contracts, diligence

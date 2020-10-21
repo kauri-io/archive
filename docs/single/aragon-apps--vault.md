@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Aragon Apps  Vault
-- **Kauri original link:** https://kauri.io/aragon-apps:-vault/4dfae13082b142abb5b9824f22c3cbca/a
+- **Kauri original link:** https://kauri.io/aragon-apps-vault/4dfae13082b142abb5b9824f22c3cbca/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

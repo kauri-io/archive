@@ -117,7 +117,7 @@ The Stampery team has also been involved in the development of [Aragon](https://
 ---
 
 - **Kauri original title:** Introducing Witnet  smart contracts with real power!
-- **Kauri original link:** https://kauri.io/introducing-witnet:-smart-contracts-with-real-pow/422d877072e941a58081dd6df36275d3/a
+- **Kauri original link:** https://kauri.io/introducing-witnet-smart-contracts-with-real-powe/422d877072e941a58081dd6df36275d3/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13
 - **Kauri original tags:** none

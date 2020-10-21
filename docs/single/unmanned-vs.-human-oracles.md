@@ -96,7 +96,7 @@ Smart contracts are key to not only the future of Ethereum, but that of the cryp
 ---
 
 - **Kauri original title:** Unmanned vs. Human Oracles
-- **Kauri original link:** https://kauri.io/unmanned-vs.-human-oracles/f1a6b5651969494fa592ca44573d5a7b/a
+- **Kauri original link:** https://kauri.io/unmanned-vs-human-oracles/f1a6b5651969494fa592ca44573d5a7b/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19
 - **Kauri original tags:** none

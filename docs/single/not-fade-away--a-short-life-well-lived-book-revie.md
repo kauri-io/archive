@@ -62,7 +62,7 @@ The chapter that took me the longest to read was the last one. It's no surprise 
 ---
 
 - **Kauri original title:** Not Fade Away  A Short Life Well Lived  Book Review 
-- **Kauri original link:** https://kauri.io/not-fade-away:-a-short-life-well-lived-book-revie/1cdfddc8d55d4c17bcf2ddfe3465723d/a
+- **Kauri original link:** https://kauri.io/not-fade-away-a-short-life-well-lived-book-review/1cdfddc8d55d4c17bcf2ddfe3465723d/a
 - **Kauri original author:** Christopher Robison (@cbobrobison)
 - **Kauri original Publication date:** 2018-11-30
 - **Kauri original tags:** none

@@ -252,7 +252,7 @@ The Filecoin Project is dual-licensed under Apache 2.0 and MIT terms:
 ---
 
 - **Kauri original title:** Filecoin  Peer-to-Peer Storage Network and Payment Protocol
-- **Kauri original link:** https://kauri.io/filecoin:-peer-to-peer-storage-network-and-paymen/6de951ef66854422b8a4803fb1ab419d/a
+- **Kauri original link:** https://kauri.io/filecoin-peer-to-peer-storage-network-and-payment/6de951ef66854422b8a4803fb1ab419d/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-13
 - **Kauri original tags:** storage

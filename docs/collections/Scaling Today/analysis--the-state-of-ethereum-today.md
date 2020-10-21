@@ -85,7 +85,7 @@ To get to that point, the Ethereum blockchain community has been building softwa
 ---
 
 - **Kauri original title:** Analysis  The State of Ethereum Today
-- **Kauri original link:** https://kauri.io/analysis:-the-state-of-ethereum-today/47bcc11830a6425d94434cc60e6b86ec/a
+- **Kauri original link:** https://kauri.io/analysis-the-state-of-ethereum-today/47bcc11830a6425d94434cc60e6b86ec/a
 - **Kauri original author:** Chris Spannos (@chris-spannos)
 - **Kauri original Publication date:** 2018-11-06
 - **Kauri original tags:** none

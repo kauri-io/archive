@@ -142,7 +142,7 @@ _Ramesh Babu is a veteran data evangelist and analytics thought leader, he champ
 ---
 
 - **Kauri original title:** Blockchain   Separating the Hope from Hype
-- **Kauri original link:** https://kauri.io/blockchain-:-separating-the-hope-from-hype/60b740262a0042a29285e4fab9b92800/a
+- **Kauri original link:** https://kauri.io/blockchain--separating-the-hope-from-hype/60b740262a0042a29285e4fab9b92800/a
 - **Kauri original author:** Ramesh Babu (@rameshbabu)
 - **Kauri original Publication date:** 2019-02-27
 - **Kauri original tags:** blockchain

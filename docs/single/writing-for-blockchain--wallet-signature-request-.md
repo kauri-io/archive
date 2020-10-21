@@ -222,7 +222,7 @@ If you have any areas you’d like covered in a future issue, leave it in the co
 ---
 
 - **Kauri original title:** Writing for blockchain  wallet signature request messages
-- **Kauri original link:** https://kauri.io/writing-for-blockchain:-wallet-signature-request-/e46374ec0fbd4403ae9ea351580caa4d/a
+- **Kauri original link:** https://kauri.io/writing-for-blockchain-wallet-signature-request-m/e46374ec0fbd4403ae9ea351580caa4d/a
 - **Kauri original author:** Ryan Cordell (@rcordell)
 - **Kauri original Publication date:** 2019-04-30
 - **Kauri original tags:** metamask, ux, usability, blockchain, content

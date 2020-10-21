@@ -53,7 +53,7 @@ You can follow our updates on our [Gitter channel](https://gitter.im/vyper-fun/l
 ---
 
 - **Kauri original title:** Vyper.fun  Learn Vyper by building a Pokemon Game
-- **Kauri original link:** https://kauri.io/vyper.fun:-learn-vyper-by-building-a-pokemon-game/2d7b7e234bb14af0be2b48fce2116db5/a
+- **Kauri original link:** https://kauri.io/vyperfun-learn-vyper-by-building-a-pokemon-game/2d7b7e234bb14af0be2b48fce2116db5/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-09-25
 - **Kauri original tags:** smart-contract, ethereum, defi, tutorial, vyper

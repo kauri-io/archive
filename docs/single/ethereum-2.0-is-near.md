@@ -31,7 +31,7 @@ Thus, the Ethereum network will pay its users to keep their coins and serve as v
 ---
 
 - **Kauri original title:** Ethereum 2.0 is near
-- **Kauri original link:** https://kauri.io/ethereum-2.0-is-near/5e15f17aa52146c8b41fc088d6458964/a
+- **Kauri original link:** https://kauri.io/ethereum-20-is-near/5e15f17aa52146c8b41fc088d6458964/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-03
 - **Kauri original tags:** ethereum, ether

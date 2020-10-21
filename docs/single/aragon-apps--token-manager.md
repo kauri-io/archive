@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Aragon Apps  Token Manager
-- **Kauri original link:** https://kauri.io/aragon-apps:-token-manager/b3057e9fc0d142ef80b581c4e0e3d480/a
+- **Kauri original link:** https://kauri.io/aragon-apps-token-manager/b3057e9fc0d142ef80b581c4e0e3d480/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

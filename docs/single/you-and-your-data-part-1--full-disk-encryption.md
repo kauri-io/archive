@@ -123,7 +123,7 @@ _That’s all for this edition — @ us on_ [Twitter](https://twitter.com/denver
 ---
 
 - **Kauri original title:** You & Your Data, Part 1  Full Disk Encryption
-- **Kauri original link:** https://kauri.io/you-and-your-data-part-1:-full-disk-encryption/41424d8691a84350a43b43530da27ad1/a
+- **Kauri original link:** https://kauri.io/you-and-your-data-part-1-full-disk-encryption/41424d8691a84350a43b43530da27ad1/a
 - **Kauri original author:** Artlimber (@artlimber)
 - **Kauri original Publication date:** 2018-11-30
 - **Kauri original tags:** none

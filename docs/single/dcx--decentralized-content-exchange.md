@@ -51,7 +51,7 @@ https://github.com/362E/DCX.git
 ---
 
 - **Kauri original title:** DCX  Decentralized Content Exchange
-- **Kauri original link:** https://kauri.io/dcx:-decentralized-content-exchange/f37292faddde42a1b20a270b38a82c88/a
+- **Kauri original link:** https://kauri.io/dcx-decentralized-content-exchange/f37292faddde42a1b20a270b38a82c88/a
 - **Kauri original author:** aditya shanker (@aditya-shanker)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission

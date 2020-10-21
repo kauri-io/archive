@@ -99,7 +99,7 @@ You can also:
 ---
 
 - **Kauri original title:** Team Insights  Tomás, Full Stack Developer
-- **Kauri original link:** https://kauri.io/team-insights:-tomas-full-stack-developer/8fe1b34829d84092aef16d3911a6ddb6/a
+- **Kauri original link:** https://kauri.io/team-insights-tomas-full-stack-developer/8fe1b34829d84092aef16d3911a6ddb6/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19
 - **Kauri original tags:** none

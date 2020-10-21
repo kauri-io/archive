@@ -53,7 +53,7 @@ https://github.com/odyssy-automaton/od-sls-svgflatr
 ---
 
 - **Kauri original title:** Gittron.me
-- **Kauri original link:** https://kauri.io/gittron.me/4b50294bfe4949e484ba4478e775136d/a
+- **Kauri original link:** https://kauri.io/gittronme/4b50294bfe4949e484ba4478e775136d/a
 - **Kauri original author:** Dekan Brown (@dekanbrown)
 - **Kauri original Publication date:** 2019-02-19
 - **Kauri original tags:** ethdenver-2019-submission

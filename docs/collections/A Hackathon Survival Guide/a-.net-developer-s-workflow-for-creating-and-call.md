@@ -267,7 +267,7 @@ Thanks to
 ---
 
 - **Kauri original title:** A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts
-- **Kauri original link:** https://kauri.io/a-.net-developer-s-workflow-for-creating-and-call/7df58e34248a4153b9a5f1b0c0eb54f3/a
+- **Kauri original link:** https://kauri.io/a-net-developer-s-workflow-for-creating-and-calli/7df58e34248a4153b9a5f1b0c0eb54f3/a
 - **Kauri original author:** Kevin Small (@kevnsmall)
 - **Kauri original Publication date:** 2019-11-13
 - **Kauri original tags:** csharp, dotnet, visual-studio-code, nethereum, visual-studio

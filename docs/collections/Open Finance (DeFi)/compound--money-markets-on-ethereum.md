@@ -370,7 +370,7 @@ For a full implementation with more nuanced borrow and withdraw amounts ( mainta
 ---
 
 - **Kauri original title:** Compound  Money markets on Ethereum
-- **Kauri original link:** https://kauri.io/compound:-money-markets-on-ethereum/33e45b49f47f42228d3c35726a341a1b/a
+- **Kauri original link:** https://kauri.io/compound-money-markets-on-ethereum/33e45b49f47f42228d3c35726a341a1b/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-08
 - **Kauri original tags:** lending, open-finance

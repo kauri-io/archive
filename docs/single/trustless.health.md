@@ -52,7 +52,7 @@ ___
 ---
 
 - **Kauri original title:** Trustless.Health
-- **Kauri original link:** https://kauri.io/trustless.health/e129ae9b7863409e86ce18dbaf905d30/a
+- **Kauri original link:** https://kauri.io/trustlesshealth/e129ae9b7863409e86ce18dbaf905d30/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-nucypher-2019

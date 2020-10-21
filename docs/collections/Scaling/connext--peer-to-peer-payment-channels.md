@@ -382,7 +382,7 @@ Hosting a hub is an interim solution to solve cheap, fast payments now while we 
 ---
 
 - **Kauri original title:** Connext  Peer-to-Peer Payment Channels
-- **Kauri original link:** https://kauri.io/connext:-peer-to-peer-payment-channels/ea598e8c666c413e8df0a6dd106a1c28/a
+- **Kauri original link:** https://kauri.io/connext-peer-to-peer-payment-channels/ea598e8c666c413e8df0a6dd106a1c28/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-13
 - **Kauri original tags:** scaling, state-channels

@@ -76,7 +76,7 @@ some_url:
 ---
 
 - **Kauri original title:** Insight   2  Teams
-- **Kauri original link:** https://kauri.io/insight-2:-teams/2acb2237f9e1403b9d1a956456ba1dea/a
+- **Kauri original link:** https://kauri.io/insight-2-teams/2acb2237f9e1403b9d1a956456ba1dea/a
 - **Kauri original author:** Chris Spannos (@chris-spannos)
 - **Kauri original Publication date:** 2018-11-06
 - **Kauri original tags:** none

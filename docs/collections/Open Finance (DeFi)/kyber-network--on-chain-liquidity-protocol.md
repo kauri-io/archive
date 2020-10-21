@@ -42,7 +42,7 @@ Happy building!
 ---
 
 - **Kauri original title:** Kyber Network  On-chain liquidity protocol
-- **Kauri original link:** https://kauri.io/kyber-network:-on-chain-liquidity-protocol/9f81242a0dac4e0d91807f30312f0d0e/a
+- **Kauri original link:** https://kauri.io/kyber-network-on-chain-liquidity-protocol/9f81242a0dac4e0d91807f30312f0d0e/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-08
 - **Kauri original tags:** dex, open-finance

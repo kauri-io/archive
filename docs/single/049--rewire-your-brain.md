@@ -27,7 +27,7 @@ Thank You Alta Mira
 ---
 
 - **Kauri original title:** 049  Rewire Your Brain
-- **Kauri original link:** https://kauri.io/049:-rewire-your-brain/87c7f848fd014bb48171b42be1474a38/a
+- **Kauri original link:** https://kauri.io/049-rewire-your-brain/87c7f848fd014bb48171b42be1474a38/a
 - **Kauri original author:** null (@pk)
 - **Kauri original Publication date:** 2018-12-02
 - **Kauri original tags:** none

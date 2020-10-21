@@ -33,7 +33,7 @@ Check out our fourth Startup Bonuses Webinar, featuring BlockTEST’s developer 
 ---
 
 - **Kauri original title:** SMART CONTRACTS 102  STARTUP BONUSES WEBINAR  4
-- **Kauri original link:** https://kauri.io/smart-contracts-102:-startup-bonuses-webinar-4/ec36a7f55626415aa4090ede176ecdb3/a
+- **Kauri original link:** https://kauri.io/smart-contracts-102-startup-bonuses-webinar-4/ec36a7f55626415aa4090ede176ecdb3/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11
 - **Kauri original tags:** smart-contract, blockchain

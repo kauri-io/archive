@@ -249,7 +249,7 @@ Vouching is useful to ensure the authenticity of a package. Anyone can create an
 ---
 
 - **Kauri original title:** Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching
-- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos:-linking/01f3c20ef0cc4614b4b1a1f9b1927cdb/a
+- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos-linking-/01f3c20ef0cc4614b4b1a1f9b1927cdb/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-08
 - **Kauri original tags:** smart-contract, zeppelinos, linking, zeppelin, publishing

@@ -213,7 +213,7 @@ Ethers.js is a powerful tool and a strong alternative to web3 for dApp developme
 ---
 
 - **Kauri original title:** Accelerating DApp Development with Ethers.js
-- **Kauri original link:** https://kauri.io/accelerating-dapp-development-with-ethers.js/805715d4e66440d996fee0930a6d0fbc/a
+- **Kauri original link:** https://kauri.io/accelerating-dapp-development-with-ethersjs/805715d4e66440d996fee0930a6d0fbc/a
 - **Kauri original author:** Jacob Creech (@jacobcreech)
 - **Kauri original Publication date:** 2019-05-18
 - **Kauri original tags:** ethereum, dapp, ethers-js

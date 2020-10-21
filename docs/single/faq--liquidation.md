@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** FAQ  Liquidation
-- **Kauri original link:** https://kauri.io/faq:-liquidation/6f2f23ba9116491a916898bb012d05e3/a
+- **Kauri original link:** https://kauri.io/faq-liquidation/6f2f23ba9116491a916898bb012d05e3/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

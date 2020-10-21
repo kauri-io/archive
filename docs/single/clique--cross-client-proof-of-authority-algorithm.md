@@ -50,7 +50,7 @@ This is just a short summary of what is PoA and how does Clique work. If you wan
 ---
 
 - **Kauri original title:** Clique  cross-client Proof-of-authority algorithm for Ethereum
-- **Kauri original link:** https://kauri.io/clique:-cross-client-proof-of-authority-algorithm/7f44cd9ea79043bc902070e6e6f3cf98/a
+- **Kauri original link:** https://kauri.io/clique-cross-client-proof-of-authority-algorithm-/7f44cd9ea79043bc902070e6e6f3cf98/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2018-12-19
 - **Kauri original tags:** none
