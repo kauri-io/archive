@@ -92,7 +92,7 @@ DAppBoard is focusing on building tools to store, explore and explain data that 
 ---
 
 - **Kauri original title:** DAppBoard BI-Weekly Recap 1
-- **Kauri original link:** https://kauri.io/dappboard-bi-weekly-recap-1/df2a3a2892664c5991fe73d9bb79fc05/a
+- **Kauri original link:** https://kauri.io/dappboard-biweekly-recap-1/df2a3a2892664c5991fe73d9bb79fc05/a
 - **Kauri original author:** DAppBoard Team (@dappboard-team)
 - **Kauri original Publication date:** 2018-12-05
 - **Kauri original tags:** none

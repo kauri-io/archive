@@ -55,7 +55,7 @@ https://github.com/frameloss/ethdenver2019
 ---
 
 - **Kauri original title:** Geth RPC-API Attack Logger
-- **Kauri original link:** https://kauri.io/geth-rpc-api-attack-logger/737d186d4a074d6d8a696ab75805cc14/a
+- **Kauri original link:** https://kauri.io/geth-rpcapi-attack-logger/737d186d4a074d6d8a696ab75805cc14/a
 - **Kauri original author:** Todd Garrison (@frameloss)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission

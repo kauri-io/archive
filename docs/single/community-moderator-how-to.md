@@ -50,7 +50,7 @@ For collections, go to the collection page and select “Update Collection”. M
 ---
 
 - **Kauri original title:** Community Moderator How-To
-- **Kauri original link:** https://kauri.io/community-moderator-how-to/603248a7cede4ebdac53daeb54cbc622/a
+- **Kauri original link:** https://kauri.io/community-moderator-howto/603248a7cede4ebdac53daeb54cbc622/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-07-08
 - **Kauri original tags:** kauri, communities

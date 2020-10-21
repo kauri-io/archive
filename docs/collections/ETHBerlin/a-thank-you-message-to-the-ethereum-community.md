@@ -18,7 +18,7 @@ By Aya Miyaguchi (Ethereum Foundation)
 ---
 
 - **Kauri original title:** A Thank-You Message to the Ethereum Community
-- **Kauri original link:** https://kauri.io/a-thank-you-message-to-the-ethereum-community/4e9186353fd848c68c3887effa298d9a/a
+- **Kauri original link:** https://kauri.io/a-thankyou-message-to-the-ethereum-community/4e9186353fd848c68c3887effa298d9a/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17
 - **Kauri original tags:** none

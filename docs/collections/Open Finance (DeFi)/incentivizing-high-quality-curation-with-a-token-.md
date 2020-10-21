@@ -356,7 +356,7 @@ TCRs is a broad topic that goes beyond technical specifics. If you want to learn
 ---
 
 - **Kauri original title:** Incentivizing high-quality curation with a Token-Curated Registry
-- **Kauri original link:** https://kauri.io/incentivizing-high-quality-curation-with-a-token-c/5d256b3a16c3430080718f29d6758366/a
+- **Kauri original link:** https://kauri.io/incentivizing-highquality-curation-with-a-tokencur/5d256b3a16c3430080718f29d6758366/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2019-05-18
 - **Kauri original tags:** cryptoeconomics, solidity

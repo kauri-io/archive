@@ -98,7 +98,7 @@ Please let us know if you have any questions or comments below. You can
 ---
 
 - **Kauri original title:** Witnet Must-Reads Digest
-- **Kauri original link:** https://kauri.io/witnet-must-reads-digest/877c1197cd1541d8ad88c1b570fb8def/a
+- **Kauri original link:** https://kauri.io/witnet-mustreads-digest/877c1197cd1541d8ad88c1b570fb8def/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-20
 - **Kauri original tags:** none

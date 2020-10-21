@@ -19,7 +19,7 @@ Alexender Casassovici - Co-founder, CEO - Azarus
 ---
 
 - **Kauri original title:** Nano-challenges on EOS
-- **Kauri original link:** https://kauri.io/nano-challenges-on-eos/ae54c6016a534576983248d726a72f0c/a
+- **Kauri original link:** https://kauri.io/nanochallenges-on-eos/ae54c6016a534576983248d726a72f0c/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04
 - **Kauri original tags:** none

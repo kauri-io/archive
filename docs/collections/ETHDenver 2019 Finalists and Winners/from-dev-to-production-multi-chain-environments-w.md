@@ -57,7 +57,7 @@ https://github.com/ziegfried/ethdenver
 ---
 
 - **Kauri original title:** From Dev to Production Multi-chain Environments with Splunk
-- **Kauri original link:** https://kauri.io/from-dev-to-production-multi-chain-environments-wi/bd036d6f040d431dab5b4ebcd5311b04/a
+- **Kauri original link:** https://kauri.io/from-dev-to-production-multichain-environments-wit/bd036d6f040d431dab5b4ebcd5311b04/a
 - **Kauri original author:** Jeff (@jwu)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-ethfoundation, bounty-poa-2019

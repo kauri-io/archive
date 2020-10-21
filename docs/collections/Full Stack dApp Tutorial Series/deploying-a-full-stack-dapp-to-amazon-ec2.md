@@ -282,7 +282,7 @@ const ipfs = new IPFS({ provider: 'username:password@kaleidoIPFSUrl', protocol: 
 ---
 
 - **Kauri original title:** Deploying a full-stack dApp to Amazon EC2
-- **Kauri original link:** https://kauri.io/deploying-a-full-stack-dapp-to-amazon-ec2/26165036e74b44a69e6aeb2137c71d54/a
+- **Kauri original link:** https://kauri.io/deploying-a-fullstack-dapp-to-amazon-ec2/26165036e74b44a69e6aeb2137c71d54/a
 - **Kauri original author:** Mulili Nzuki (@mulili)
 - **Kauri original Publication date:** 2019-09-27
 - **Kauri original tags:** ethereum, dapp, ec2, kaleido, aws

@@ -257,7 +257,7 @@ If you don’t understand anything or learn anything about smart contracts, you 
 ---
 
 - **Kauri original title:** Open-Zeppelin Escrow Smart contract
-- **Kauri original link:** https://kauri.io/open-zeppelin-escrow-smart-contract/ef4c7847d2844f88b3dab887b79b72e5/a
+- **Kauri original link:** https://kauri.io/openzeppelin-escrow-smart-contract/ef4c7847d2844f88b3dab887b79b72e5/a
 - **Kauri original author:** Coinmonks (@coinmonks)
 - **Kauri original Publication date:** 2018-12-06
 - **Kauri original tags:** none

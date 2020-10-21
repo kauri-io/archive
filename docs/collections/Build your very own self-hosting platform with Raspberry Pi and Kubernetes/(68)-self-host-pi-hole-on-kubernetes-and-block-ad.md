@@ -349,7 +349,7 @@ If you configured Pi-Hole to be used as DHCP server, you need to go to **Setting
 ---
 
 - **Kauri original title:** (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level
-- **Kauri original link:** https://kauri.io/68-self-host-pi-hole-on-kubernetes-and-block-ads-a/5268e3daace249aba7db0597b47591ef/a
+- **Kauri original link:** https://kauri.io/68-selfhost-pihole-on-kubernetes-and-block-ads-and/5268e3daace249aba7db0597b47591ef/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-07-29
 - **Kauri original tags:** self-hosting, kubernetes, pi-hole, dns, ad-blocker, dhcp

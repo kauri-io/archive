@@ -123,7 +123,7 @@ IPFS is a system that allows the web to be more reliable and robust than what we
 ---
 
 - **Kauri original title:** Peer-to-peer hypermedia with IPFS
-- **Kauri original link:** https://kauri.io/peer-to-peer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a
+- **Kauri original link:** https://kauri.io/peertopeer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-19
 - **Kauri original tags:** server, ipfs, web, peer2peer

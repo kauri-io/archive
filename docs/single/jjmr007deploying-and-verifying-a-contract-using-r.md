@@ -238,7 +238,7 @@ Please consider send some support
 ---
 
 - **Kauri original title:** jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan
-- **Kauri original link:** https://kauri.io/jjmr007deploying-and-verifying-a-contract-using-re/d558124dde9c4b759d223cd9a7240e62/a
+- **Kauri original link:** https://kauri.io/jjmr007deployingandverifyingacontractusingremixand/d558124dde9c4b759d223cd9a7240e62/a
 - **Kauri original author:** Julio Moros (@jjmr007)
 - **Kauri original Publication date:** 2020-03-21
 - **Kauri original tags:** smart-contract, etherscan, libraries, verify, remix, deploy

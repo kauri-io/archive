@@ -487,7 +487,7 @@ In the [next chapter](https://kauri.io/install-and-configure-a-kubernetes-cluste
 ---
 
 - **Kauri original title:** (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes
-- **Kauri original link:** https://kauri.io/28-install-raspbian-operating-system-and-prepare-t/7df2a9f9cf5f4f6eb217aa7223c01594/a
+- **Kauri original link:** https://kauri.io/28-install-raspbian-operatingsystem-and-prepare-th/7df2a9f9cf5f4f6eb217aa7223c01594/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-03-31
 - **Kauri original tags:** self-hosting, kubernetes, raspberrypi, raspbian

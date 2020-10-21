@@ -58,7 +58,7 @@ https://github.com/oasisethdenver2019/Wel-Fair
 ---
 
 - **Kauri original title:** Wel-fair
-- **Kauri original link:** https://kauri.io/wel-fair/76125c8a2dd543eb8fa2076a46be56f3/a
+- **Kauri original link:** https://kauri.io/welfair/76125c8a2dd543eb8fa2076a46be56f3/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-rhombus-2019, bounty-impact, bounty-zeppelin-2019, bounty-bloom-2019, bounty-thegraph-2019, bounty-xyo-2019

@@ -362,7 +362,7 @@ Vaibhav is the Co-founder of [TowardsBlockchain](https://towardsblockchain.com),
 ---
 
 - **Kauri original title:** Hands-on IPLD Tutorial in Golang
-- **Kauri original link:** https://kauri.io/hands-on-ipld-tutorial-in-golang/d1e5568bc5204ec4a81b9e7249bb3fe9/a
+- **Kauri original link:** https://kauri.io/handson-ipld-tutorial-in-golang/d1e5568bc5204ec4a81b9e7249bb3fe9/a
 - **Kauri original author:** Vaibhav Saini (@vasa)
 - **Kauri original Publication date:** 2020-01-13
 - **Kauri original tags:** ipfs, simpleaswater, golang, dag, tutorial, ipld

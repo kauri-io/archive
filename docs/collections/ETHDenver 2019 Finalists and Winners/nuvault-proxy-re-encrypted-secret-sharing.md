@@ -61,7 +61,7 @@ https://github.com/MichaelDanko/NuVault/
 ---
 
 - **Kauri original title:** NuVault - Proxy Re-Encrypted Secret Sharing
-- **Kauri original link:** https://kauri.io/nuvault-proxy-re-encrypted-secret-sharing/356ea0cee96c4aafadf72b9c6ef52dad/a
+- **Kauri original link:** https://kauri.io/nuvault-proxy-reencrypted-secret-sharing/356ea0cee96c4aafadf72b9c6ef52dad/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-nucypher-2019, bounty-aave-2019

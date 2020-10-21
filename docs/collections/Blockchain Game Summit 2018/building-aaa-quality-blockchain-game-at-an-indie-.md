@@ -18,7 +18,7 @@ Ben Heidorn - CTO - Blockade Games/Neon District
 ---
 
 - **Kauri original title:** Building AAA-Quality Blockchain Game at an Indie Studio
-- **Kauri original link:** https://kauri.io/building-aaa-quality-blockchain-game-at-an-indie-s/91bc8a4e323347d4a3f60780370e69d1/a
+- **Kauri original link:** https://kauri.io/building-aaaquality-blockchain-game-at-an-indie-st/91bc8a4e323347d4a3f60780370e69d1/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-10-04
 - **Kauri original tags:** none

@@ -18,7 +18,7 @@ With Jorge Izquierdo and Aron Fischer
 ---
 
 - **Kauri original title:** On-Chain Governance Panel
-- **Kauri original link:** https://kauri.io/on-chain-governance-panel/cdbfafd32fcc4bcbaa08f0abb6372316/a
+- **Kauri original link:** https://kauri.io/onchain-governance-panel/cdbfafd32fcc4bcbaa08f0abb6372316/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-09-18
 - **Kauri original tags:** none

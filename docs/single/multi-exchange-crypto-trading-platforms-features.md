@@ -96,7 +96,7 @@ If you want to learn more about the Crypto ecosystem, sign up for the weekly new
 ---
 
 - **Kauri original title:** Multi-Exchange Crypto Trading Platforms Features
-- **Kauri original link:** https://kauri.io/multi-exchange-crypto-trading-platforms-features/389cd3cade874025bd737c71e878df4f/a
+- **Kauri original link:** https://kauri.io/multiexchange-crypto-trading-platforms-features/389cd3cade874025bd737c71e878df4f/a
 - **Kauri original author:** CoinCodeCap (@coincodecap)
 - **Kauri original Publication date:** 2020-02-18
 - **Kauri original tags:** cryptocurrency, crypto-trading
