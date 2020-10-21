@@ -95,7 +95,7 @@ If you need help, please contact us on Telegram at t.me/b0xNet. Direct any techn
 ---
 
 - **Kauri original title:** Bzx - the Decentralized Margin Lending Protocol at ETHDenver
-- **Kauri original link:** https://kauri.io/bzx-the-decentralized-margin-lending-protocol-at-/77dd7d47505c42948f1f585761221fac/a
+- **Kauri original link:** https://kauri.io/bzx-the-decentralized-margin-lending-protocol-at-e/77dd7d47505c42948f1f585761221fac/a
 - **Kauri original author:** KyleKistner (@bzx)
 - **Kauri original Publication date:** 2019-02-11
 - **Kauri original tags:** protocol, margin-lending, ethdenver, hackathons

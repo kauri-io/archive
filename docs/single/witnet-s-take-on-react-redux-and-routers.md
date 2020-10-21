@@ -79,7 +79,7 @@ The containers themselves can handle their internal state as they wish. However,
 ---
 
 - **Kauri original title:** Witnet’s Take on React, Redux, and Routers 
-- **Kauri original link:** https://kauri.io/witnet-s-take-on-react-redux-and-routers/2995d69b766c46c38154e96ce7ff8814/a
+- **Kauri original link:** https://kauri.io/witnets-take-on-react-redux-and-routers/2995d69b766c46c38154e96ce7ff8814/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19
 - **Kauri original tags:** none

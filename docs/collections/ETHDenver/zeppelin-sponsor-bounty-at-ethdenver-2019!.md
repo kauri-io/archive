@@ -87,7 +87,7 @@ Santiago Palladino - santiago@zeppelin.solutions
 ---
 
 - **Kauri original title:** Zeppelin - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/zeppelin-sponsor-bounty-at-ethdenver-2019!/63eaa33cf5b54a43a7591beea913f179/a
+- **Kauri original link:** https://kauri.io/zeppelin-sponsor-bounty-at-ethdenver-2019/63eaa33cf5b54a43a7591beea913f179/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

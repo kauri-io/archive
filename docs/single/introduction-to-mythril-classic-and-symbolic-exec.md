@@ -170,7 +170,7 @@ Thanks to
 ---
 
 - **Kauri original title:** Introduction to Mythril Classic and Symbolic Execution
-- **Kauri original link:** https://kauri.io/introduction-to-mythril-classic-and-symbolic-exec/36e41e821089493b9e8997c251d68ef2/a
+- **Kauri original link:** https://kauri.io/introduction-to-mythril-classic-and-symbolic-execu/36e41e821089493b9e8997c251d68ef2/a
 - **Kauri original author:** MythX (@mythx)
 - **Kauri original Publication date:** 2019-04-02
 - **Kauri original tags:** mythril, symbolic-execution, security, smart-contracts

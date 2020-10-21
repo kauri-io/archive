@@ -27,7 +27,7 @@ Greenhouse is a free platform for developers to optimize their smart contracts t
 ---
 
 - **Kauri original title:** Accelerating Enterprise Blockchain Adoption With Greenhouse
-- **Kauri original link:** https://kauri.io/accelerating-enterprise-blockchain-adoption-with-/716034f75cdc4da7b9afa5bdeb7a27a8/a
+- **Kauri original link:** https://kauri.io/accelerating-enterprise-blockchain-adoption-with-g/716034f75cdc4da7b9afa5bdeb7a27a8/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11
 - **Kauri original tags:** blockchain, enterprise

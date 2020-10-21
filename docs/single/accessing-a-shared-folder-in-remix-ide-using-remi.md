@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Accessing a shared folder in Remix IDE using Remixd
-- **Kauri original link:** https://kauri.io/accessing-a-shared-folder-in-remix-ide-using-remi/545e03ea5e304dd68ddecd5488f26fbf/a
+- **Kauri original link:** https://kauri.io/accessing-a-shared-folder-in-remix-ide-using-remix/545e03ea5e304dd68ddecd5488f26fbf/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

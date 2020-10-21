@@ -134,7 +134,7 @@ The post [Sandcastle, our Latest R&D Pre-Alpha Release, Brings SQL to Ethereum S
 ---
 
 - **Kauri original title:** Sandcastle, our Latest R&D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts
-- **Kauri original link:** https://kauri.io/sandcastle-our-latest-randd-pre-alpha-release-bri/9c9decae6eb34414a6c91cca3b60b6c8/a
+- **Kauri original link:** https://kauri.io/sandcastle-our-latest-randd-pre-alpha-release-brin/9c9decae6eb34414a6c91cca3b60b6c8/a
 - **Kauri original author:** PegaSys (@pegasys)
 - **Kauri original Publication date:** 2019-05-21
 - **Kauri original tags:** smart-contract, ethereum, sql

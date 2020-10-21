@@ -503,7 +503,7 @@ Now that we have done it the hard way, the next part of the series will look at 
 ---
 
 - **Kauri original title:** Understanding smart contract compilation and deployment
-- **Kauri original link:** https://kauri.io/understanding-smart-contract-compilation-and-depl/973c5f54c4434bb1b0160cff8c695369/a
+- **Kauri original link:** https://kauri.io/understanding-smart-contract-compilation-and-deplo/973c5f54c4434bb1b0160cff8c695369/a
 - **Kauri original author:** Josh Cassidy (@joshorig)
 - **Kauri original Publication date:** 2019-05-02
 - **Kauri original tags:** smart-contract, ethereum, abi, deploy, solidity

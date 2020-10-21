@@ -358,7 +358,7 @@ Thanks for checking out this tutorial, see you in the next one!
 ---
 
 - **Kauri original title:** Building a Decentralized Comment Section with 3Box
-- **Kauri original link:** https://kauri.io/building-a-decentralized-comment-section-with-3bo/8c85ac6937d5481ca485ec2ee2be178d/a
+- **Kauri original link:** https://kauri.io/building-a-decentralized-comment-section-with-3box/8c85ac6937d5481ca485ec2ee2be178d/a
 - **Kauri original author:** Kelvin Fichter (@kfichter)
 - **Kauri original Publication date:** 2020-02-04
 - **Kauri original tags:** 3box, ethereum, plugin, tutorial, decentralized

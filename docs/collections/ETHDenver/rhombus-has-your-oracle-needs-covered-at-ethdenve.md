@@ -72,7 +72,7 @@ To understand the Rhombus API, read about our activation/delivery methods, and e
 ---
 
 - **Kauri original title:** Rhombus has your oracle needs covered at ETHDenver
-- **Kauri original link:** https://kauri.io/rhombus-has-your-oracle-needs-covered-at-ethdenve/e407aed4ec014b0797232b796e892707/a
+- **Kauri original link:** https://kauri.io/rhombus-has-your-oracle-needs-covered-at-ethdenver/e407aed4ec014b0797232b796e892707/a
 - **Kauri original author:** Kenny Chandrasekera (@kenny-chandrasekera)
 - **Kauri original Publication date:** 2019-02-15
 - **Kauri original tags:** dapp, oracles, hackathons

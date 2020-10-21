@@ -156,7 +156,7 @@ https://ethereum.github.io/yellowpaper/paper.pdf
 ---
 
 - **Kauri original title:** Ethereum 101 - Part 4 - Accounts, Transactions, and Messages
-- **Kauri original link:** https://kauri.io/ethereum-101-part-4-accounts-transactions-and-mes/7e79b6932f8a41a4bcbbd194fd2fcc3a/a
+- **Kauri original link:** https://kauri.io/ethereum-101-part-4-accounts-transactions-and-mess/7e79b6932f8a41a4bcbbd194fd2fcc3a/a
 - **Kauri original author:** Wil Barnes (@wil)
 - **Kauri original Publication date:** 2019-02-13
 - **Kauri original tags:** smart-contract, ethereum, 101, web3, state, message, transaction

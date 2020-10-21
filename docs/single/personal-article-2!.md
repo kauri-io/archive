@@ -16,7 +16,7 @@ Now self published!
 ---
 
 - **Kauri original title:** Personal article 2!
-- **Kauri original link:** https://kauri.io/personal-article-2!/97f35ae3e3444ef284667a25264d590e/a
+- **Kauri original link:** https://kauri.io/personal-article-2/97f35ae3e3444ef284667a25264d590e/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2018-08-31
 - **Kauri original tags:** none

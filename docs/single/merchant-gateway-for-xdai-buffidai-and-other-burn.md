@@ -67,7 +67,7 @@ Demo for the BuffiDai network: https://merchant3.com
 ---
 
 - **Kauri original title:** Merchant Gateway for xDai, BuffiDai, and other burner wallet currencies
-- **Kauri original link:** https://kauri.io/merchant-gateway-for-xdai-buffidai-and-other-burn/10b8d5df6e4d4eda8a80d3965a4b8def/a
+- **Kauri original link:** https://kauri.io/merchant-gateway-for-xdai-buffidai-and-other-burne/10b8d5df6e4d4eda8a80d3965a4b8def/a
 - **Kauri original author:** Brian Wheeler (@bwheeler96)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-makerdao

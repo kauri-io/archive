@@ -137,7 +137,7 @@ You can also:
 ---
 
 - **Kauri original title:** Enabling networks to become cross-chain with Witnet
-- **Kauri original link:** https://kauri.io/enabling-networks-to-become-cross-chain-with-witn/3d109c86ee4849ad95516ea071fda33a/a
+- **Kauri original link:** https://kauri.io/enabling-networks-to-become-cross-chain-with-witne/3d109c86ee4849ad95516ea071fda33a/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-13
 - **Kauri original tags:** none

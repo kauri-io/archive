@@ -255,7 +255,7 @@ _Polymath Network (Polymath) is a decentralized platform that makes it easy to c
 ---
 
 - **Kauri original title:** Create Your Own Security Token Offering (STO) with Polymath
-- **Kauri original link:** https://kauri.io/create-your-own-security-token-offering-sto-with-/09cbe603311f49b0852dc71121ab6825/a
+- **Kauri original link:** https://kauri.io/create-your-own-security-token-offering-sto-with-p/09cbe603311f49b0852dc71121ab6825/a
 - **Kauri original author:** Charles St.Louis (@cpstl)
 - **Kauri original Publication date:** 2018-12-17
 - **Kauri original tags:** none

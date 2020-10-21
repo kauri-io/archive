@@ -39,7 +39,7 @@ You can also ask and answer questions in their [Telegram channel](https://t.me/s
 ---
 
 - **Kauri original title:** Bring Realtime Data into your DApp with Streamr at ETHDenver
-- **Kauri original link:** https://kauri.io/bring-realtime-data-into-your-dapp-with-streamr-a/4ddcc10ac04c41d79531c159cbd875bc/a
+- **Kauri original link:** https://kauri.io/bring-realtime-data-into-your-dapp-with-streamr-at/4ddcc10ac04c41d79531c159cbd875bc/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-02-08
 - **Kauri original tags:** realtime, dapp, data, streamr, ethdenver, hackathons

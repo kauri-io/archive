@@ -98,7 +98,7 @@ _Please note this post is not an endorsement of Monero by Coinbase. All opinions
 ---
 
 - **Kauri original title:** A beginner’s guide to Monero
-- **Kauri original link:** https://kauri.io/a-beginner-s-guide-to-monero/b0da5ffc94fb4fb894741839aa2fa616/a
+- **Kauri original link:** https://kauri.io/a-beginners-guide-to-monero/b0da5ffc94fb4fb894741839aa2fa616/a
 - **Kauri original author:** Linda Xie (@ljxie)
 - **Kauri original Publication date:** 2019-05-03
 - **Kauri original tags:** privacy

@@ -55,7 +55,7 @@ Additionally, if you're interested in leading a Community, apply to our [Ambassa
 ---
 
 - **Kauri original title:** Kauri Communities are Live!
-- **Kauri original link:** https://kauri.io/kauri-communities-are-live!/a0538d95b0714f1cbced50d77180b99b/a
+- **Kauri original link:** https://kauri.io/kauri-communities-are-live/a0538d95b0714f1cbced50d77180b99b/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-07-18
 - **Kauri original tags:** kauri, communities

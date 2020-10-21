@@ -103,7 +103,7 @@ Thank you cards address: [Kudos me](https://gitcoin.co/kudos/marketplace/) @0x2e
 ---
 
 - **Kauri original title:** Ethereum community and its ecosystem  Networks Visualisation Analysis
-- **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem-networks-vis/cd37b69782ee45d6a96caa6e1ab43f42/a
+- **Kauri original link:** https://kauri.io/ethereum-community-and-its-ecosystem-networks-visu/cd37b69782ee45d6a96caa6e1ab43f42/a
 - **Kauri original author:** Michael A (@silver84)
 - **Kauri original Publication date:** 2019-03-20
 - **Kauri original tags:** ethereum, ecosystem, community, analysis, governance

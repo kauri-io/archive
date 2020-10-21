@@ -353,7 +353,7 @@ Find me on
 ---
 
 - **Kauri original title:** How to Code Your Own Confidential Token on Ethereum
-- **Kauri original link:** https://kauri.io/how-to-code-your-own-confidential-token-on-ethere/b699361c8f7b4671aca588f1213e87bd/a
+- **Kauri original link:** https://kauri.io/how-to-code-your-own-confidential-token-on-ethereu/b699361c8f7b4671aca588f1213e87bd/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-04-17
 - **Kauri original tags:** privacy, aztec, zero-knowledge-proofs, confidential-transactions

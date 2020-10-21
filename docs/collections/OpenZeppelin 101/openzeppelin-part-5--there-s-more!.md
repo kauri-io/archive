@@ -178,7 +178,7 @@ OpenZeppelin provides the user with a multitude of contracts to support the crea
 ---
 
 - **Kauri original title:** OpenZeppelin Part 5  There's More!
-- **Kauri original link:** https://kauri.io/openzeppelin-part-5-there-s-more!/83d04613ba4a4a428d941483fe4fc45c/a
+- **Kauri original link:** https://kauri.io/openzeppelin-part-5-theres-more/83d04613ba4a4a428d941483fe4fc45c/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-19
 - **Kauri original tags:** smart-contract, openzeppelin, pay-ment, cryptography, zeppelin

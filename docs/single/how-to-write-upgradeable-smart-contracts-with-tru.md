@@ -394,7 +394,7 @@ Find me on [Twitter](https://twitter.com/PaulRBerg) or [Keybase](https://keybase
 ---
 
 - **Kauri original title:** How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0
-- **Kauri original link:** https://kauri.io/how-to-write-upgradeable-smart-contracts-with-tru/315cbd6c71574e2686e15f0a20003089/a
+- **Kauri original link:** https://kauri.io/how-to-write-upgradeable-smart-contracts-with-truf/315cbd6c71574e2686e15f0a20003089/a
 - **Kauri original author:** Paul Berg (@paulrberg-old-account)
 - **Kauri original Publication date:** 2019-02-16
 - **Kauri original tags:** ethereum, truffle

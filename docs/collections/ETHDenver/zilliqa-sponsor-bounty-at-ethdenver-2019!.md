@@ -70,7 +70,7 @@ Han Wen Chua - hanwen@zilliqa.com
 ---
 
 - **Kauri original title:** Zilliqa - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/zilliqa-sponsor-bounty-at-ethdenver-2019!/a4e7e6f812ab44aaab4c9d45317370e2/a
+- **Kauri original link:** https://kauri.io/zilliqa-sponsor-bounty-at-ethdenver-2019/a4e7e6f812ab44aaab4c9d45317370e2/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

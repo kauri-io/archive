@@ -30,7 +30,7 @@ Watch this post for updates to our involvement with Season of Docs and how to ge
 ---
 
 - **Kauri original title:** Google's Season of Docs - Fostering open source collaboration with technical writers
-- **Kauri original link:** https://kauri.io/google-s-season-of-docs-fostering-open-source-col/b2c15b0fc0ef49dfa4f4656590398d55/a
+- **Kauri original link:** https://kauri.io/googles-season-of-docs-fostering-open-source-colla/b2c15b0fc0ef49dfa4f4656590398d55/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-04-23
 - **Kauri original tags:** documentation, hackathons, community

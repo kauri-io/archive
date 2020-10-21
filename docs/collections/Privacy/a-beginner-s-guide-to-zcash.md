@@ -124,7 +124,7 @@ _Disclaimer: I own Zcash._
 ---
 
 - **Kauri original title:** A beginner’s guide to Zcash
-- **Kauri original link:** https://kauri.io/a-beginner-s-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a
+- **Kauri original link:** https://kauri.io/a-beginners-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a
 - **Kauri original author:** Linda Xie (@ljxie)
 - **Kauri original Publication date:** 2019-05-03
 - **Kauri original tags:** privacy

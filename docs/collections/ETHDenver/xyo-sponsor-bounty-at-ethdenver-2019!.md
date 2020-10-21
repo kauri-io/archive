@@ -53,7 +53,7 @@ Bryce Paul - bryce@xyo.network
 ---
 
 - **Kauri original title:** XYO - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/xyo-sponsor-bounty-at-ethdenver-2019!/6ee2ef1828dd482582eafd2bfe930b64/a
+- **Kauri original link:** https://kauri.io/xyo-sponsor-bounty-at-ethdenver-2019/6ee2ef1828dd482582eafd2bfe930b64/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

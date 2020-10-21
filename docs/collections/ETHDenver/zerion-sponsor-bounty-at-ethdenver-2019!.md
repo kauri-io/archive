@@ -83,7 +83,7 @@ Alexey Bashlykov - Alexey@zerion.io
 ---
 
 - **Kauri original title:** Zerion - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/zerion-sponsor-bounty-at-ethdenver-2019!/c62ff43313974b97bfea7b4b05016717/a
+- **Kauri original link:** https://kauri.io/zerion-sponsor-bounty-at-ethdenver-2019/c62ff43313974b97bfea7b4b05016717/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

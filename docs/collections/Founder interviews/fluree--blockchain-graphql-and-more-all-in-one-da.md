@@ -99,7 +99,7 @@ I was also unable to test anything like performance or reliability metrics of Fl
 ---
 
 - **Kauri original title:** Fluree  Blockchain, GraphQL, and more all in one database
-- **Kauri original link:** https://kauri.io/fluree-blockchain-graphql-and-more-all-in-one-dat/0dfaad0705ab49cfb97a7d3564dce236/a
+- **Kauri original link:** https://kauri.io/fluree-blockchain-graphql-and-more-all-in-one-data/0dfaad0705ab49cfb97a7d3564dce236/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-09-11
 - **Kauri original tags:** database, graphql, scalability, sparkql

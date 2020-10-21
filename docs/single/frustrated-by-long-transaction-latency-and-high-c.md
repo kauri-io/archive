@@ -104,7 +104,7 @@ Looking forward to building off-chain DApps and rocking the blockchain industry 
 ---
 
 - **Kauri original title:** Frustrated by long transaction latency and high cost? Try Celer SDK!
-- **Kauri original link:** https://kauri.io/frustrated-by-long-transaction-latency-and-high-c/b3df5963000f4d988e078b3df9e1f3d2/a
+- **Kauri original link:** https://kauri.io/frustrated-by-long-transaction-latency-and-high-co/b3df5963000f4d988e078b3df9e1f3d2/a
 - **Kauri original author:** Celer Network (@celer-network)
 - **Kauri original Publication date:** 2019-02-08
 - **Kauri original tags:** ethdenver, mobile, sdk, hackathons

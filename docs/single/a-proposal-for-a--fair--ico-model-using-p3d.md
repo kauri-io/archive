@@ -109,7 +109,7 @@ As mentioned above, this is all theoretical. Indeed it is an idealistic solution
 ---
 
 - **Kauri original title:** A Proposal For a ‘Fair’ ICO Model Using P3D
-- **Kauri original link:** https://kauri.io/a-proposal-for-a--fair--ico-model-using-p3d/4bff915da5b24cda94ae5545fadec546/a
+- **Kauri original link:** https://kauri.io/a-proposal-for-a-fair-ico-model-using-p3d/4bff915da5b24cda94ae5545fadec546/a
 - **Kauri original author:** Chris Bridgett (@idleincomechris)
 - **Kauri original Publication date:** 2018-11-29
 - **Kauri original tags:** none

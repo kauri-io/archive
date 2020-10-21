@@ -67,7 +67,7 @@ If you have an application that needs privacy and anonymity, then Loki is a new 
 ---
 
 - **Kauri original title:** True anonymity, privacy, and SNApps with Simon Harman of Loki
-- **Kauri original link:** https://kauri.io/true-anonymity-privacy-and-snapps-with-simon-harm/8726f589aba948c5a7ab1def1a13a264/a
+- **Kauri original link:** https://kauri.io/true-anonymity-privacy-and-snapps-with-simon-harma/8726f589aba948c5a7ab1def1a13a264/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-09-16
 - **Kauri original tags:** privacy, anonymity

@@ -59,7 +59,7 @@ Advancements in both smart contract complexity and computation power vastly incr
 ---
 
 - **Kauri original title:** SKALE Labs - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/skale-labs-sponsor-bounty-at-ethdenver-2019!/124b019c56b5406f89dc6a29ceb320e5/a
+- **Kauri original link:** https://kauri.io/skale-labs-sponsor-bounty-at-ethdenver-2019/124b019c56b5406f89dc6a29ceb320e5/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-14
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

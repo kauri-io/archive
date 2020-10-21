@@ -362,7 +362,7 @@ Happy building! ⚒️
 ---
 
 - **Kauri original title:** 3Box Builders Series  How to Integrate with Profiles
-- **Kauri original link:** https://kauri.io/3box-builders-series-how-to-integrate-with-profil/389cbed20fc8404ebf631634153dc76f/a
+- **Kauri original link:** https://kauri.io/3box-builders-series-how-to-integrate-with-profile/389cbed20fc8404ebf631634153dc76f/a
 - **Kauri original author:** Danny Zuckerman (@dazuck)
 - **Kauri original Publication date:** 2019-05-04
 - **Kauri original tags:** 3box, data, buidl

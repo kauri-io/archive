@@ -359,7 +359,7 @@ That's it! We deployed and updated our contract on our local test network!
 ---
 
 - **Kauri original title:** Smart Contract Utilities with ZeppelinOS  Installation and Use
-- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos-installa/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a
+- **Kauri original link:** https://kauri.io/smart-contract-utilities-with-zeppelinos-installat/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a
 - **Kauri original author:** Juliette Rocco (@jmrocco)
 - **Kauri original Publication date:** 2019-03-19
 - **Kauri original tags:** smart-contract, zeppelinos, upgrade, zeppelin, deploy

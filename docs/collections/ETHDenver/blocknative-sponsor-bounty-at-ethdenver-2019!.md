@@ -111,7 +111,7 @@ Note - All submissions may be featured in future blog posts
 ---
 
 - **Kauri original title:** Blocknative - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/blocknative-sponsor-bounty-at-ethdenver-2019!/80219f341f3742b7b1529a3494d38576/a
+- **Kauri original link:** https://kauri.io/blocknative-sponsor-bounty-at-ethdenver-2019/80219f341f3742b7b1529a3494d38576/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

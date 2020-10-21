@@ -71,7 +71,7 @@ https://github.com/openrelayxyz/cryptocattle
 ---
 
 - **Kauri original title:** CryptoCattle  Like Kitties, but Beefier!
-- **Kauri original link:** https://kauri.io/cryptocattle-like-kitties-but-beefier!/1d85cb754b1c4c13b819351287a27fab/a
+- **Kauri original link:** https://kauri.io/cryptocattle-like-kitties-but-beefier/1d85cb754b1c4c13b819351287a27fab/a
 - **Kauri original author:** Beth Van Horn (@evanhorn)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-zeppelin-2019

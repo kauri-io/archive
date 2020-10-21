@@ -50,7 +50,7 @@ Related Link :
 ---
 
 - **Kauri original title:** Why Microsoft could become a force to reckon with in Machine Learning
-- **Kauri original link:** https://kauri.io/why-microsoft-could-become-a-force-to-reckon-with/c84bc659ef3e48d282070f6e1543d948/a
+- **Kauri original link:** https://kauri.io/why-microsoft-could-become-a-force-to-reckon-with-/c84bc659ef3e48d282070f6e1543d948/a
 - **Kauri original author:** Ramesh Babu (@rameshbabu)
 - **Kauri original Publication date:** 2019-02-27
 - **Kauri original tags:** analytics, machine-learning, big-data

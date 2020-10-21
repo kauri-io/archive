@@ -57,7 +57,7 @@ _App via Pexels_
 ---
 
 - **Kauri original title:** WHAT’S A DAPP?
-- **Kauri original link:** https://kauri.io/what-s-a-dapp/b2354657098e4affa3c021d2a0210215/a
+- **Kauri original link:** https://kauri.io/whats-a-dapp/b2354657098e4affa3c021d2a0210215/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11
 - **Kauri original tags:** dapp, blockchain

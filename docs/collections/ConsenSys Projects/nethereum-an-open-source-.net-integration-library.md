@@ -94,7 +94,7 @@ And then you can use the Ethereum API via Nethereum to interact with accounts an
 ---
 
 - **Kauri original title:** Nethereum - An open source .NET integration library for blockchain
-- **Kauri original link:** https://kauri.io/nethereum-an-open-source-net-integration-library-/d15dfd4903f149cdb84b3ce666103b52/a
+- **Kauri original link:** https://kauri.io/nethereum-an-open-source-net-integration-library-f/d15dfd4903f149cdb84b3ce666103b52/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-03-01
 - **Kauri original tags:** ethereum, developer-tool, library, enterprise, -net, sdk

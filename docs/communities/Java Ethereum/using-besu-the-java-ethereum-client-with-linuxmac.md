@@ -234,7 +234,7 @@ Find more information in the [Besu documentation](http://besu.hyperledger.org/).
 ---
 
 - **Kauri original title:** Using Besu, the Java Ethereum Client with Linux/MacOS
-- **Kauri original link:** https://kauri.io/using-besu-the-java-ethereum-client-with-linuxmac/276dd27f1458443295eea58403fd6965/a
+- **Kauri original link:** https://kauri.io/using-besu-the-java-ethereum-client-with-linuxmaco/276dd27f1458443295eea58403fd6965/a
 - **Kauri original author:** Felipe Faraggi (@felipefaraggi)
 - **Kauri original Publication date:** 2019-11-22
 - **Kauri original tags:** ethereum, pegasys, java, installation, client, pantheon, besu

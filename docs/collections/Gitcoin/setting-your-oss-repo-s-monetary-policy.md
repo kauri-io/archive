@@ -65,7 +65,7 @@ I’m curious to hear how the above affects how contributors are motivated to wo
 ---
 
 - **Kauri original title:** Setting your OSS repo’s monetary policy
-- **Kauri original link:** https://kauri.io/setting-your-oss-repo-s-monetary-policy/b0f233605054472fb7766ff0bdce4d6e/a
+- **Kauri original link:** https://kauri.io/setting-your-oss-repos-monetary-policy/b0f233605054472fb7766ff0bdce4d6e/a
 - **Kauri original author:** Gitcoin (@gitcoin)
 - **Kauri original Publication date:** 2018-10-26
 - **Kauri original tags:** none

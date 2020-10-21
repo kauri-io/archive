@@ -351,7 +351,7 @@ If you have any question or suggestion, please feel free to comment below or sug
 ---
 
 - **Kauri original title:** Predict cryptocurrency prices with Tensorflow as binary classification problem
-- **Kauri original link:** https://kauri.io/predict-cryptocurrency-prices-with-tensorflow-as-/badf8853afb9404196bd8b5cbeec61a2/a
+- **Kauri original link:** https://kauri.io/predict-cryptocurrency-prices-with-tensorflow-as-b/badf8853afb9404196bd8b5cbeec61a2/a
 - **Kauri original author:** Davide Scalzo (@davidescalzo)
 - **Kauri original Publication date:** 2019-10-22
 - **Kauri original tags:** cryptocurrency, artificial-intelligence, machine-learning, tensorflow, python

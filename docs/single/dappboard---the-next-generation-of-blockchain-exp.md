@@ -68,7 +68,7 @@ _You can find out more at_
 ---
 
 - **Kauri original title:** Ðappboard   The next generation of blockchain explorer
-- **Kauri original link:** https://kauri.io/dappboard--the-next-generation-of-blockchain-expl/2609365a787b452e9881c90c46b9a6f9/a
+- **Kauri original link:** https://kauri.io/dappboard--the-next-generation-of-blockchain-explo/2609365a787b452e9881c90c46b9a6f9/a
 - **Kauri original author:** Aimable Dusingizimana (@aimable-dusingizimana)
 - **Kauri original Publication date:** 2018-12-05
 - **Kauri original tags:** none

@@ -51,7 +51,7 @@ Jesse Leimgruber - jesse@bloom.co
 ---
 
 - **Kauri original title:** Bloom - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/bloom-sponsor-bounty-at-ethdenver-2019!/954924cc48304c63a6d9f06f8299ac90/a
+- **Kauri original link:** https://kauri.io/bloom-sponsor-bounty-at-ethdenver-2019/954924cc48304c63a6d9f06f8299ac90/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-16
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

@@ -178,7 +178,7 @@ In the [second article](https://kauri.io/article/348d6c66da2949978c85bf2cd913d0a
 ---
 
 - **Kauri original title:** How to install and synchronize your own remote Ethereum node
-- **Kauri original link:** https://kauri.io/how-to-install-and-synchronize-your-own-remote-et/c287fe53de9b4073a18065443253a86d/a
+- **Kauri original link:** https://kauri.io/how-to-install-and-synchronize-your-own-remote-eth/c287fe53de9b4073a18065443253a86d/a
 - **Kauri original author:** Daniel Ellison (@zigguratt)
 - **Kauri original Publication date:** 2019-05-24
 - **Kauri original tags:** metamask, ethereum, geth, blockchain, infura, ssh-tunnel, tutorial

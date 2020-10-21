@@ -417,7 +417,7 @@ reading early drafts and providing feedback._
 ---
 
 - **Kauri original title:** EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract
-- **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-ii-de/077f5e1d62e147089f21f709f77d8ccb/a
+- **Kauri original link:** https://kauri.io/evm-package-deployment-with-zeppelinos-part-ii-dep/077f5e1d62e147089f21f709f77d8ccb/a
 - **Kauri original author:** Dennison Bertram (@dennisonbertram1)
 - **Kauri original Publication date:** 2019-03-07
 - **Kauri original tags:** zeppelinos

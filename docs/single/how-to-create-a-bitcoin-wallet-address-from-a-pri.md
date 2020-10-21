@@ -222,7 +222,7 @@ I also post random thoughts about crypto on  [Twitter](https://twitter.com/Desti
 ---
 
 - **Kauri original title:** How to create a Bitcoin wallet address from a private key
-- **Kauri original link:** https://kauri.io/how-to-create-a-bitcoin-wallet-address-from-a-pri/ffe6e5525f2c43ed81e89af3c22228d8/a
+- **Kauri original link:** https://kauri.io/how-to-create-a-bitcoin-wallet-address-from-a-priv/ffe6e5525f2c43ed81e89af3c22228d8/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2018-11-29
 - **Kauri original tags:** none

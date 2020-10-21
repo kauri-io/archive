@@ -286,7 +286,7 @@ Cela a certainement été un long voyage. Je sais que tout est un peu ambitieux,
 ---
 
 - **Kauri original title:** Utilisez votre nœud Ethereum distant en utilisant un tunnel SSH et MetaMask
-- **Kauri original link:** https://kauri.io/utilisez-votre-noeud-ethereum-distant-en-utilisan/86aee595a3244883b5fef18be4df67dc/a
+- **Kauri original link:** https://kauri.io/utilisez-votre-noeud-ethereum-distant-en-utilisant/86aee595a3244883b5fef18be4df67dc/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-08-15
 - **Kauri original tags:** metamask, geth, ssh-tunnel

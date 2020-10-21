@@ -43,7 +43,7 @@ Note that there are multiple ways to generate wallet credentials.  For more imfo
 ---
 
 - **Kauri original title:** Sending an Ether Transfer Transaction from One Account to Another in Web3j
-- **Kauri original link:** https://kauri.io/sending-an-ether-transfer-transaction-from-one-ac/4b90439223894d7da2ee3fcfef5fa49e/a
+- **Kauri original link:** https://kauri.io/sending-an-ether-transfer-transaction-from-one-acc/4b90439223894d7da2ee3fcfef5fa49e/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18
 - **Kauri original tags:** ethereum, java, ether, web3j, transaction

@@ -113,7 +113,7 @@ Same technique for payments can let us do arbitrary state updates rather than ju
 ---
 
 - **Kauri original title:** Josh Stark - Understanding L2 scaling solutions  notes 
-- **Kauri original link:** https://kauri.io/josh-stark-understanding-l2-scaling-solutions-not/17fb968e07a14e05bb69e1e448741a7b/a
+- **Kauri original link:** https://kauri.io/josh-stark-understanding-l2-scaling-solutions-note/17fb968e07a14e05bb69e1e448741a7b/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2018-10-31
 - **Kauri original tags:** none

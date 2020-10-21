@@ -56,7 +56,7 @@ Doug von Kohorn - dougvk@gmail.com
 ---
 
 - **Kauri original title:** Rhombus - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/rhombus-sponsor-bounty-at-ethdenver-2019!/74ed99544dc34542afccb51ac7532d3f/a
+- **Kauri original link:** https://kauri.io/rhombus-sponsor-bounty-at-ethdenver-2019/74ed99544dc34542afccb51ac7532d3f/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

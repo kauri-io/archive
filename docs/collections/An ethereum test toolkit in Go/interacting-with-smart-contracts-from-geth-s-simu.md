@@ -294,7 +294,7 @@ func main() {
 ---
 
 - **Kauri original title:** Interacting with smart contracts from GETH's Simulated Backend
-- **Kauri original link:** https://kauri.io/interacting-with-smart-contracts-from-geth-s-simu/350b689ea9cc43bdbeab18645d6d6a2a/a
+- **Kauri original link:** https://kauri.io/interacting-with-smart-contracts-from-geths-simula/350b689ea9cc43bdbeab18645d6d6a2a/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2019-09-14
 - **Kauri original tags:** ethereum, go-programming-language, geth, abigen, golang, testing, solidity

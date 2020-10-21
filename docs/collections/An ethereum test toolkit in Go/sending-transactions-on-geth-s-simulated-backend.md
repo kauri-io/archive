@@ -258,7 +258,7 @@ You can find the code and articles in github at
 ---
 
 - **Kauri original title:** Sending Transactions on GETH's Simulated Backend
-- **Kauri original link:** https://kauri.io/sending-transactions-on-geth-s-simulated-backend/282ffccc00104339823222f239d949ee/a
+- **Kauri original link:** https://kauri.io/sending-transactions-on-geths-simulated-backend/282ffccc00104339823222f239d949ee/a
 - **Kauri original author:** Dave Appleton (@daveappleton)
 - **Kauri original Publication date:** 2019-10-01
 - **Kauri original tags:** ethereum, geth, testing

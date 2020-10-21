@@ -138,7 +138,7 @@ Bridge (or relay) relays information from side chain running its own consensus a
 ---
 
 - **Kauri original title:** Top 5 ways to scale your Ethereum blockchain application (dApp)
-- **Kauri original link:** https://kauri.io/top-5-ways-to-scale-your-ethereum-blockchain-appl/7ccaaa2fe7f344d5bf53807cb5c01530/a
+- **Kauri original link:** https://kauri.io/top-5-ways-to-scale-your-ethereum-blockchain-appli/7ccaaa2fe7f344d5bf53807cb5c01530/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-04-23
 - **Kauri original tags:** scaling, dapp, payment-channels, meta-transactions, state-channels, plasma, sidechain

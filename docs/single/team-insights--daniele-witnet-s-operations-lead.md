@@ -117,7 +117,7 @@ You can now:
 ---
 
 - **Kauri original title:** Team Insights  Daniele, Witnet’s Operations Lead
-- **Kauri original link:** https://kauri.io/team-insights-daniele-witnet-s-operations-lead/3cae2d6cde3d4163a61ff26e7f3da6cb/a
+- **Kauri original link:** https://kauri.io/team-insights-daniele-witnets-operations-lead/3cae2d6cde3d4163a61ff26e7f3da6cb/a
 - **Kauri original author:** Witnet (@witnet)
 - **Kauri original Publication date:** 2018-11-19
 - **Kauri original tags:** none

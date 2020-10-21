@@ -235,7 +235,7 @@ _How will you use ENS in your dapp?_
 ---
 
 - **Kauri original title:** ENS  Beginner's Guide
-- **Kauri original link:** https://kauri.io/ens-beginner-s-guide/e7f098b57fd24afe9b70506517dd5a63/a
+- **Kauri original link:** https://kauri.io/ens-beginners-guide/e7f098b57fd24afe9b70506517dd5a63/a
 - **Kauri original author:** Darren Langley (@darren-langley)
 - **Kauri original Publication date:** 2019-04-09
 - **Kauri original tags:** ethereum, ens

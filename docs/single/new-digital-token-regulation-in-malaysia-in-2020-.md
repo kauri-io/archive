@@ -67,7 +67,7 @@ _Image by [beate bachmann](https://pixabay.com/users/spirit111-5026413/?utm_sour
 ---
 
 - **Kauri original title:** New Digital Token regulation in Malaysia  in 2020 - ICOs out, IEOs in
-- **Kauri original link:** https://kauri.io/new-digital-token-regulation-in-malaysia-in-2020-/83611f58e7534b1e8e53b3ed406d7fdc/a
+- **Kauri original link:** https://kauri.io/new-digital-token-regulation-in-malaysia-in-2020-i/83611f58e7534b1e8e53b3ed406d7fdc/a
 - **Kauri original author:** Zaim Bakar (@zaim)
 - **Kauri original Publication date:** 2020-01-30
 - **Kauri original tags:** ieo, ico, cryptoeconomics, defi, malaysia

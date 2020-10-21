@@ -106,7 +106,7 @@ discord:
 ---
 
 - **Kauri original title:** A free manager for all ERC-721s — Mintable.app launches its Alpha on December 1st.
-- **Kauri original link:** https://kauri.io/a-free-manager-for-all-erc-721s-mintableapp-launc/f143252c80f044c5a5f0ce7a74ee1caf/a
+- **Kauri original link:** https://kauri.io/a-free-manager-for-all-erc-721s-mintableapp-launch/f143252c80f044c5a5f0ce7a74ee1caf/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2018-12-05
 - **Kauri original tags:** none

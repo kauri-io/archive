@@ -56,7 +56,7 @@ Scott Gralnick - scott@portis.io
 ---
 
 - **Kauri original title:** Portis - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/portis-sponsor-bounty-at-ethdenver-2019!/9869c4b05df54c6c9ee84b58fa4b45a1/a
+- **Kauri original link:** https://kauri.io/portis-sponsor-bounty-at-ethdenver-2019/9869c4b05df54c6c9ee84b58fa4b45a1/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** ethereum, ux, usability, web3js, sponsor-bounty, ethdenver-2019

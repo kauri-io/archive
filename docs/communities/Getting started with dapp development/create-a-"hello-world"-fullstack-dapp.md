@@ -129,7 +129,7 @@ HelloWorld.prototype.update = function() {
 ---
 
 - **Kauri original title:** Create a "Hello World" fullstack dapp
-- **Kauri original link:** https://kauri.io/create-a-"hello-world"-fullstack-dapp/68fca74301814d09bfcc35e07ff30fbc/a
+- **Kauri original link:** https://kauri.io/create-a-hello-world-fullstack-dapp/68fca74301814d09bfcc35e07ff30fbc/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-12-06
 - **Kauri original tags:** smart-contract, ethereum, getting-started, dapp, web3js, on-boarding, solidity

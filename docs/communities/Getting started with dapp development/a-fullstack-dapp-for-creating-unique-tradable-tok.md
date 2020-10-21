@@ -56,7 +56,7 @@ And that's all the code relevant to this dapp, there are other functions for glu
 ---
 
 - **Kauri original title:** A fullstack dapp for creating unique tradable tokens
-- **Kauri original link:** https://kauri.io/a-fullstack-dapp-for-creating-unique-tradable-tok/2519d02a7a5244949dc12737817f5798/a
+- **Kauri original link:** https://kauri.io/a-fullstack-dapp-for-creating-unique-tradable-toke/2519d02a7a5244949dc12737817f5798/a
 - **Kauri original author:** Chris Ward (@chrischinchilla)
 - **Kauri original Publication date:** 2019-10-17
 - **Kauri original tags:** smart-contract, cryptoeconomics, erc-20, token-standard, erc721, token

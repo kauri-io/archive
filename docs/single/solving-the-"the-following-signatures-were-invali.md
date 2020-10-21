@@ -48,7 +48,7 @@ _Thanks to [Peter](https://askubuntu.com/users/606875/peter) and [dlopatin](http
 ---
 
 - **Kauri original title:** Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error
-- **Kauri original link:** https://kauri.io/solving-the-"the-following-signatures-were-invali/05b3ec26a2e548909fa2df0222d4f222/a
+- **Kauri original link:** https://kauri.io/solving-the-the-following-signatures-were-invalid-/05b3ec26a2e548909fa2df0222d4f222/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2020-02-10
 - **Kauri original tags:** apt, linux, apt-get

@@ -65,7 +65,7 @@ Are you interested in building a community of knowledge contributors for your op
 ---
 
 - **Kauri original title:** Kauri  The Knowledge Network for the Ethereum Ecosystem
-- **Kauri original link:** https://kauri.io/kauri-the-knowledge-network-for-the-ethereum-ecos/e6b0a7e5c4d74f1fa7ad0f4a82b225aa/a
+- **Kauri original link:** https://kauri.io/kauri-the-knowledge-network-for-the-ethereum-ecosy/e6b0a7e5c4d74f1fa7ad0f4a82b225aa/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-10-26
 - **Kauri original tags:** none

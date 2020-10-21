@@ -136,7 +136,7 @@ Check out our new explorer at:
 ---
 
 - **Kauri original title:** How to Get Server Side Rendering Benefits (Unfurling, Indexing, Search-ability) without Building…
-- **Kauri original link:** https://kauri.io/how-to-get-server-side-rendering-benefits-unfurli/936e38ed86f641cf9931e6d99f7ae9b1/a
+- **Kauri original link:** https://kauri.io/how-to-get-server-side-rendering-benefits-unfurlin/936e38ed86f641cf9931e6d99f7ae9b1/a
 - **Kauri original author:** Will Villanueva (@will)
 - **Kauri original Publication date:** 2018-11-30
 - **Kauri original tags:** none

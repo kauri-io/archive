@@ -92,7 +92,7 @@ While ERC-721 allows for a new class of assets to exist and give collectors the 
 ---
 
 - **Kauri original title:** Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens 
-- **Kauri original link:** https://kauri.io/cute-kitties-and-where-to-find-them-an-introducti/028ff6bf2fa0432191371e6d39398ba6/a
+- **Kauri original link:** https://kauri.io/cute-kitties-and-where-to-find-them-an-introductio/028ff6bf2fa0432191371e6d39398ba6/a
 - **Kauri original author:** Shayan Shokrgozar (@transcendent)
 - **Kauri original Publication date:** 2019-03-12
 - **Kauri original tags:** erc721, nft

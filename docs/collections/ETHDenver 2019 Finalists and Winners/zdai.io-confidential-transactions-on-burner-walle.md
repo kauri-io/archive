@@ -74,7 +74,7 @@ Impact
 ---
 
 - **Kauri original title:** zDai.io - confidential transactions on Burner wallet with zkSNARKs
-- **Kauri original link:** https://kauri.io/zdaiio-confidential-transactions-on-burner-wallet/4c026927f1cc4ed29d5a0e95ba3afbf8/a
+- **Kauri original link:** https://kauri.io/zdaiio-confidential-transactions-on-burner-wallet-/4c026927f1cc4ed29d5a0e95ba3afbf8/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-ethfoundation, bounty-impact, bounty-makerdao, bounty-poa-2019

@@ -376,7 +376,7 @@ Congratulations — you are mightily contributing to a decentralized web in the 
 ---
 
 - **Kauri original title:** Run an Ethereum node on Debian with an External SSD (Mar 2020)
-- **Kauri original link:** https://kauri.io/run-an-ethereum-node-on-debian-with-an-external-s/a73723dd2e924d8c948923709763f409/a
+- **Kauri original link:** https://kauri.io/run-an-ethereum-node-on-debian-with-an-external-ss/a73723dd2e924d8c948923709763f409/a
 - **Kauri original author:** William (@wschwab)
 - **Kauri original Publication date:** 2020-03-08
 - **Kauri original tags:** metamask, geth, nodes, swarm, systemd, debian

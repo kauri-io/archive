@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** What are the risks/rewards associated with leveraging?
-- **Kauri original link:** https://kauri.io/what-are-the-risksrewards-associated-with-leverag/1afc125f25b34c3dac3de8934671e833/a
+- **Kauri original link:** https://kauri.io/what-are-the-risksrewards-associated-with-leveragi/1afc125f25b34c3dac3de8934671e833/a
 - **Kauri original author:** null (@handsomecodemonkey)
 - **Kauri original Publication date:** 2018-05-10
 - **Kauri original tags:** none

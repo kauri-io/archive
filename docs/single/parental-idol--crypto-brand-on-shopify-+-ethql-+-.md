@@ -78,7 +78,7 @@ the 3D CAD file exported via autodesk and the ethql react app mounted on top of 
 ---
 
 - **Kauri original title:** Parental Idol  Crypto brand on Shopify + EthQL + deployed NFT + 3D printed design
-- **Kauri original link:** https://kauri.io/parental-idol-crypto-brand-on-shopify-+-ethql-+-d/fb8460251b7445839a24f6cb45315a91/a
+- **Kauri original link:** https://kauri.io/parental-idol-crypto-brand-on-shopify--ethql--depl/fb8460251b7445839a24f6cb45315a91/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, bounty-sendwyre, bounty-infura-2019

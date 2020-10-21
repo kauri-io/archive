@@ -155,7 +155,7 @@ I also post random thoughts about crypto on
 ---
 
 - **Kauri original title:** How to create an Ethereum wallet address from a private key
-- **Kauri original link:** https://kauri.io/how-to-create-an-ethereum-wallet-address-from-a-p/e464ca2b043a4d2e9e30b01b092dfa13/a
+- **Kauri original link:** https://kauri.io/how-to-create-an-ethereum-wallet-address-from-a-pr/e464ca2b043a4d2e9e30b01b092dfa13/a
 - **Kauri original author:** Timur Badretdinov (@destiner)
 - **Kauri original Publication date:** 2018-11-29
 - **Kauri original tags:** none

@@ -409,7 +409,7 @@ Thanks to Benedikt Bünz for answering all our questions about the Bulletproofs 
 ---
 
 - **Kauri original title:** Building on Bulletproofs - Short Proofs for Confidential Transactions
-- **Kauri original link:** https://kauri.io/building-on-bulletproofs-short-proofs-for-confide/40506709dca64369b4a133a2c91c27ae/a
+- **Kauri original link:** https://kauri.io/building-on-bulletproofs-short-proofs-for-confiden/40506709dca64369b4a133a2c91c27ae/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06
 - **Kauri original tags:** bulletproofs, privacy, cryptography, zero-knowledge-proofs

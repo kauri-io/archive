@@ -49,7 +49,7 @@ As we continue to expand into broader areas of open source, we had clear goals t
 ---
 
 - **Kauri original title:** Gitcoin’s Sprint To The Holidays
-- **Kauri original link:** https://kauri.io/gitcoin-s-sprint-to-the-holidays/7e32e1edd63d4dc4a86e763e1459fc4a/a
+- **Kauri original link:** https://kauri.io/gitcoins-sprint-to-the-holidays/7e32e1edd63d4dc4a86e763e1459fc4a/a
 - **Kauri original author:** Gitcoin (@gitcoin)
 - **Kauri original Publication date:** 2018-10-26
 - **Kauri original tags:** none

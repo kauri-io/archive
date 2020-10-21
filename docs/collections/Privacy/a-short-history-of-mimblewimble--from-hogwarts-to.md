@@ -171,7 +171,7 @@ We feel this is just the beginning. As the pseudonymously-dropped Bitcoin has sp
 ---
 
 - **Kauri original title:** A Short History of Mimblewimble  From Hogwarts to Mobile Wallets
-- **Kauri original link:** https://kauri.io/a-short-history-of-mimblewimble-from-hogwarts-to-/0302f63b51e04462bfb4ddfe9199b527/a
+- **Kauri original link:** https://kauri.io/a-short-history-of-mimblewimble-from-hogwarts-to-m/0302f63b51e04462bfb4ddfe9199b527/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-06-06
 - **Kauri original tags:** beam, mimblewimble

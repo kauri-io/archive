@@ -619,7 +619,7 @@ To wrap up, ERC998 crypto composables are a new token standard that now allows y
 ---
 
 - **Kauri original title:** Gamifying Crypto Assets with the ERC998 Composables Token Standard
-- **Kauri original link:** https://kauri.io/gamifying-crypto-assets-with-the-erc998-composabl/436178ce670d4a9e9ffbd9cb7a8476fd/a
+- **Kauri original link:** https://kauri.io/gamifying-crypto-assets-with-the-erc998-composable/436178ce670d4a9e9ffbd9cb7a8476fd/a
 - **Kauri original author:** Ramy Zhang (@ramyjzhang)
 - **Kauri original Publication date:** 2019-08-08
 - **Kauri original tags:** cryptocurrency, erc20, ethereum, token-standard, erc721, erc998

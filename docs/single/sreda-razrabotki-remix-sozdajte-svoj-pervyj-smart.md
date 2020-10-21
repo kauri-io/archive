@@ -949,7 +949,7 @@ event BountyIssued(
 ---
 
 - **Kauri original title:** Среда разработки Remix - создайте свой первый Smart Contract
-- **Kauri original link:** https://kauri.io/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/ac1bde5c6c5f48b786e1e17909da095a/a
+- **Kauri original link:** https://kauri.io/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart-/ac1bde5c6c5f48b786e1e17909da095a/a
 - **Kauri original author:** Alex D. (@alex-d)
 - **Kauri original Publication date:** 2019-05-31
 - **Kauri original tags:** ethereum, remix, solidity

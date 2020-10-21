@@ -277,7 +277,7 @@ Currently it is still quite a lengthy process, but it is cools to be able to cla
 ---
 
 - **Kauri original title:** Step by step guide “Claim your DNS domain on ENS”
-- **Kauri original link:** https://kauri.io/step-by-step-guide-"claim-your-dns-domain-on-ens"/02de92af458b488a98379870ae9a91ae/a
+- **Kauri original link:** https://kauri.io/step-by-step-guide-claim-your-dns-domain-on-ens/02de92af458b488a98379870ae9a91ae/a
 - **Kauri original author:** Makoto Inoue (@makoto)
 - **Kauri original Publication date:** 2018-10-30
 - **Kauri original tags:** none

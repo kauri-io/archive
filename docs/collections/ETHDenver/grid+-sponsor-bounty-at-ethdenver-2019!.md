@@ -46,7 +46,7 @@ Mark D'Agostino - mark@gridplus.io
 ---
 
 - **Kauri original title:** Grid+ - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/grid+-sponsor-bounty-at-ethdenver-2019!/3acbbc2faa314ca0ae6646a97e5408cf/a
+- **Kauri original link:** https://kauri.io/grid-sponsor-bounty-at-ethdenver-2019/3acbbc2faa314ca0ae6646a97e5408cf/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

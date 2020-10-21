@@ -291,7 +291,7 @@ __
 ---
 
 - **Kauri original title:** The Importance of Women in the Cryptocurrency Industry
-- **Kauri original link:** https://kauri.io/the-importance-of-women-in-the-cryptocurrency-ind/b8385b995e9544db9ce322ed20c6279a/a
+- **Kauri original link:** https://kauri.io/the-importance-of-women-in-the-cryptocurrency-indu/b8385b995e9544db9ce322ed20c6279a/a
 - **Kauri original author:** Beni Issembert (@bissembert)
 - **Kauri original Publication date:** 2019-06-23
 - **Kauri original tags:** cryptocurrency, privacy-blockchain, women

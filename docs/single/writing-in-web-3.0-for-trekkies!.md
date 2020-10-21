@@ -73,7 +73,7 @@ Congratulations, you are a kauri pioneer... let us know [@kauri_io] (https://twi
 ---
 
 - **Kauri original title:** Writing in web 3.0 for trekkies!
-- **Kauri original link:** https://kauri.io/writing-in-web-30-for-trekkies!/96cf28b0aaaf48479185b0a9310dd983/a
+- **Kauri original link:** https://kauri.io/writing-in-web-30-for-trekkies/96cf28b0aaaf48479185b0a9310dd983/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2018-11-13
 - **Kauri original tags:** none

@@ -48,7 +48,7 @@ Do propose updates if I'm missing any!
 ---
 
 - **Kauri original title:** Non-definitive list to Ethereum block explorers; not just Etherscan!
-- **Kauri original link:** https://kauri.io/non-definitive-list-to-ethereum-block-explorers-n/e6b81c07f6eb4c1fac417a4cbff7ddf0/a
+- **Kauri original link:** https://kauri.io/non-definitive-list-to-ethereum-block-explorers-no/e6b81c07f6eb4c1fac417a4cbff7ddf0/a
 - **Kauri original author:** Eric Juta (@ericjuta)
 - **Kauri original Publication date:** 2019-04-18
 - **Kauri original tags:** ethereum, poa, enjin, blockchain, etherescan, explorer

@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Implementer's Guide
-- **Kauri original link:** https://kauri.io/implementer-s-guide/63541bd7f64f4f8090977b3954b3cd43/a
+- **Kauri original link:** https://kauri.io/implementers-guide/63541bd7f64f4f8090977b3954b3cd43/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

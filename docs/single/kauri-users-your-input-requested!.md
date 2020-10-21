@@ -33,7 +33,7 @@ Andreas
 ---
 
 - **Kauri original title:** Kauri Users, your input requested!
-- **Kauri original link:** https://kauri.io/kauri-users-your-input-requested!/14f2219883484b4f80fb3befc624a604/a
+- **Kauri original link:** https://kauri.io/kauri-users-your-input-requested/14f2219883484b4f80fb3befc624a604/a
 - **Kauri original author:** Andreas Wallendahl (@andreaswallend1)
 - **Kauri original Publication date:** 2019-08-29
 - **Kauri original tags:** kauri, survey, writers

@@ -163,7 +163,7 @@ ERC-777 defines the entire lifecycle of a token, including the minting (4), send
 ---
 
 - **Kauri original title:** ERC-20 and Its Discontents  The Rise of Comrades ERC-777 & ERC-1820
-- **Kauri original link:** https://kauri.io/erc-20-and-its-discontents-the-rise-of-comrades-e/7f05b8f63ca24a8e83d73a1075571f8d/a
+- **Kauri original link:** https://kauri.io/erc-20-and-its-discontents-the-rise-of-comrades-er/7f05b8f63ca24a8e83d73a1075571f8d/a
 - **Kauri original author:** Shayan Shokrgozar (@transcendent)
 - **Kauri original Publication date:** 2019-10-20
 - **Kauri original tags:** erc20, erc777

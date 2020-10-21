@@ -363,7 +363,7 @@ Alex Attar
 ---
 
 - **Kauri original title:** Plapps and Predicates  Understanding the Generalized Plasma Architecture
-- **Kauri original link:** https://kauri.io/plapps-and-predicates-understanding-the-generaliz/d817df6443194a2684bee248a1a20cbd/a
+- **Kauri original link:** https://kauri.io/plapps-and-predicates-understanding-the-generalize/d817df6443194a2684bee248a1a20cbd/a
 - **Kauri original author:** Plasma Group (@plasma)
 - **Kauri original Publication date:** 2019-04-22
 - **Kauri original tags:** plapps, ethereum, scaling, predicates, layer-2, plasma, generalized-plasma

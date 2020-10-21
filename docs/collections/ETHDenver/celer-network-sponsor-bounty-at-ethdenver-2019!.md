@@ -63,7 +63,7 @@ Sirong Li - sli@celer.network
 ---
 
 - **Kauri original title:** Celer Network - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/celer-network-sponsor-bounty-at-ethdenver-2019!/c769a1d405544dc18ae17f9189349da6/a
+- **Kauri original link:** https://kauri.io/celer-network-sponsor-bounty-at-ethdenver-2019/c769a1d405544dc18ae17f9189349da6/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-16
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

@@ -227,7 +227,7 @@ _Disclaimer: Alethio has no preference or prejudice towards any of the projects 
 ---
 
 - **Kauri original title:** The DeFi Series — An overview of the ecosystem and major protocols
-- **Kauri original link:** https://kauri.io/the-defi-series-an-overview-of-the-ecosystem-and-/c4a236b658874fb78cff95a73e54a587/a
+- **Kauri original link:** https://kauri.io/the-defi-series-an-overview-of-the-ecosystem-and-m/c4a236b658874fb78cff95a73e54a587/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-04-25
 - **Kauri original tags:** ethereum, blockchain, makerdao, defi, decentralized-finance

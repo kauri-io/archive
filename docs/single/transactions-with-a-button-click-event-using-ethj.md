@@ -16,7 +16,7 @@ undefined
 ---
 
 - **Kauri original title:** Transactions With a Button Click Event using EthJs
-- **Kauri original link:** https://kauri.io/transactions-with-a-button-click-event-using-ethj/3020865569a84394abc7e6aa2cf0838c/a
+- **Kauri original link:** https://kauri.io/transactions-with-a-button-click-event-using-ethjs/3020865569a84394abc7e6aa2cf0838c/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2018-05-03
 - **Kauri original tags:** none

@@ -259,7 +259,7 @@ If you would like to hear more about publishing to Web 3.0, or the future of the
 ---
 
 - **Kauri original title:** Publishing to the Decentralized Web with Android, Ethereum, and IPFS
-- **Kauri original link:** https://kauri.io/publishing-to-the-decentralized-web-with-android-/4f32c0417fe54011b73b3e3fa5da72c6/a
+- **Kauri original link:** https://kauri.io/publishing-to-the-decentralized-web-with-android-e/4f32c0417fe54011b73b3e3fa5da72c6/a
 - **Kauri original author:** Cameron Voell (@cvoell)
 - **Kauri original Publication date:** 2019-03-13
 - **Kauri original tags:** ethereum, dapp, ipfs, android

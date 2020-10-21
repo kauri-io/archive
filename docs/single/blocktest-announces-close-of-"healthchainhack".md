@@ -72,7 +72,7 @@ As winners look forward to celebrating, and as
 ---
 
 - **Kauri original title:** BLOCKTEST ANNOUNCES CLOSE OF “HEALTHCHAINHACK”
-- **Kauri original link:** https://kauri.io/blocktest-announces-close-of-"healthchainhack"/f746d93a60b9431ea5fa5cdbf66640c0/a
+- **Kauri original link:** https://kauri.io/blocktest-announces-close-of-healthchainhack/f746d93a60b9431ea5fa5cdbf66640c0/a
 - **Kauri original author:** BlockTEST, LLC. (@blocktest-llc)
 - **Kauri original Publication date:** 2019-03-11
 - **Kauri original tags:** blockchain, healthcare

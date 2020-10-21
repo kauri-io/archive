@@ -632,7 +632,7 @@ You can now transfer BRT token between the mainchain and the sidechain:
 ---
 
 - **Kauri original title:** POA - Part 2 - Bridge assets between a sidechain and a mainchain
-- **Kauri original link:** https://kauri.io/poa-part-2-bridge-assets-between-a-sidechain-and-/19072f7340184628b47c0d86e7feac6d/a
+- **Kauri original link:** https://kauri.io/poa-part-2-bridge-assets-between-a-sidechain-and-a/19072f7340184628b47c0d86e7feac6d/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-01-21
 - **Kauri original tags:** poa, bridge, sidechain

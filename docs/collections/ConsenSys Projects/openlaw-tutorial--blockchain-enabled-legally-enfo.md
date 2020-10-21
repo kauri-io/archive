@@ -165,7 +165,7 @@ Since the law pervades every part of our life, as you can imagine, there are sev
 ---
 
 - **Kauri original title:** OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts
-- **Kauri original link:** https://kauri.io/openlaw-tutorial-blockchain-enabled-legally-enfor/3a4016d6e3bd4c1fbba839244f1802e8/a
+- **Kauri original link:** https://kauri.io/openlaw-tutorial-blockchain-enabled-legally-enforc/3a4016d6e3bd4c1fbba839244f1802e8/a
 - **Kauri original author:** Priyanka Desai (@priyanka-desai)
 - **Kauri original Publication date:** 2018-12-04
 - **Kauri original tags:** none

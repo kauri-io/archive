@@ -18,7 +18,7 @@ By Martin Koppelmann
 ---
 
 - **Kauri original title:** We're All In  Committed to a Decentralized Future
-- **Kauri original link:** https://kauri.io/we-re-all-in-committed-to-a-decentralized-future/63057379a2be4e96bd6330bb7826c41b/a
+- **Kauri original link:** https://kauri.io/were-all-in-committed-to-a-decentralized-future/63057379a2be4e96bd6330bb7826c41b/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17
 - **Kauri original tags:** none

@@ -28,7 +28,7 @@
     const parseArticle = article => {
       const title = (article.title) ? article.title.replace(/[\:\#\[\]]/g,' ') : ""
       const desc = (article.description) ? article.description.replace(/[\:\#\[\]]/g,'-') : ""
-      const redirect = slugify(article.title, {lower: true}).replace(/[\']/g,'-').replace(/[\(\)\.\:]/g, "").substring(0, 49) + "/" + article.id + "/a"
+      const redirect = slugify(article.title, {lower: true}).replace(/[^a-zA-Z0-9\-]/g, "").substring(0, 50) + "/" + article.id + "/a"
       const author = article.contributors[0].name +" (@"+article.contributors[0].username+")"
       const datePublication = article.datePublished.split("T")[0]
       let content = (article.content) ? ("\n" + JSON.parse(article.content).markdown).replace(/\n#/g,'\n##').replace(/```solidity/g, "```") : ""

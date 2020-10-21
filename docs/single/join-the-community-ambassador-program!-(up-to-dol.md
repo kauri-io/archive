@@ -86,7 +86,7 @@ If this sounds interesting, please [apply here](https://docs.google.com/forms/d/
 ---
 
 - **Kauri original title:** Join the Community Ambassador Program! (up to $3k in bounty funding)
-- **Kauri original link:** https://kauri.io/join-the-community-ambassador-program!-up-to-doll/2c51067790da43a2be61650d7c03bd68/a
+- **Kauri original link:** https://kauri.io/join-the-community-ambassador-program-up-to-dollar/2c51067790da43a2be61650d7c03bd68/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-08-12
 - **Kauri original tags:** kauri, community

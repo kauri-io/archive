@@ -63,7 +63,7 @@ Kate Garrigan - bounty@ideasbynature.com
 ---
 
 - **Kauri original title:** Ideas by Nature - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/ideas-by-nature-sponsor-bounty-at-ethdenver-2019!/31a15fa906424f9385d5141c9f2c375f/a
+- **Kauri original link:** https://kauri.io/ideas-by-nature-sponsor-bounty-at-ethdenver-2019/31a15fa906424f9385d5141c9f2c375f/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-12
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

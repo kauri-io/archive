@@ -58,7 +58,7 @@ https://github.com/smartcontractkit/bountibot
 ---
 
 - **Kauri original title:** Bountibot  rewarding GitHub Pull Requests for you and the rest of the OSS community
-- **Kauri original link:** https://kauri.io/bountibot-rewarding-github-pull-requests-for-you-/65ead2d82e104b94a1d3906f32aa6b8a/a
+- **Kauri original link:** https://kauri.io/bountibot-rewarding-github-pull-requests-for-you-a/65ead2d82e104b94a1d3906f32aa6b8a/a
 - **Kauri original author:** Dimitri Roche (@dimroc)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** chainlink, ethdenver-2019-submission, github

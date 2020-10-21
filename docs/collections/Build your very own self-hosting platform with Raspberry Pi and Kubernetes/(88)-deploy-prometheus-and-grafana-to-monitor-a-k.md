@@ -185,7 +185,7 @@ You can now finally enjoy a lot of pre-configured dashboards for your Kubernetes
 ---
 
 - **Kauri original title:** (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster
-- **Kauri original link:** https://kauri.io/88-deploy-prometheus-and-grafana-to-monitor-a-kub/186a71b189864b9ebc4ef7c8a9f0a6b5/a
+- **Kauri original link:** https://kauri.io/88-deploy-prometheus-and-grafana-to-monitor-a-kube/186a71b189864b9ebc4ef7c8a9f0a6b5/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-04-01
 - **Kauri original tags:** self-hosting, analytics, kubernetes, grafana, prometheus, monitoring

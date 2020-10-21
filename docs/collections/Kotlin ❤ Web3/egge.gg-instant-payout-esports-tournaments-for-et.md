@@ -66,7 +66,7 @@ This helps keep the transaction fees even cheaper for our users!
 ---
 
 - **Kauri original title:** EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019
-- **Kauri original link:** https://kauri.io/eggegg-instant-payout-esports-tournaments-for-eth/2d6aad56cc904756bbef18332efb00fc/a
+- **Kauri original link:** https://kauri.io/eggegg-instant-payout-esports-tournaments-for-ethd/2d6aad56cc904756bbef18332efb00fc/a
 - **Kauri original author:** Hayder Sharhan (@hshar)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission, blocknative, skale, esports, 4ideas-by-nature

@@ -336,7 +336,7 @@ Originally published by me at :
 ---
 
 - **Kauri original title:** Develop your ERC-20 Token — explained!
-- **Kauri original link:** https://kauri.io/develop-your-erc-20-token-explained!/e05b1433dfa6434dba2788df96f423e9/a
+- **Kauri original link:** https://kauri.io/develop-your-erc-20-token-explained/e05b1433dfa6434dba2788df96f423e9/a
 - **Kauri original author:** Hargobind Gupta (@hargobindgupta)
 - **Kauri original Publication date:** 2019-06-03
 - **Kauri original tags:** erc20, ethereum, blockchain, decentralized, hargobind, dlt, token

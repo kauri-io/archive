@@ -20,7 +20,7 @@ By Ameen Soleeimani, Janice Griffith, Brenna Sparks, Allie Even Knox, and Maria 
 ---
 
 - **Kauri original title:** Practical Use of Ethereum for the Sex Worker Community
-- **Kauri original link:** https://kauri.io/practical-use-of-ethereum-for-the-sex-worker-comm/07a1fe601ccc4c33a19d05d1b1942551/a
+- **Kauri original link:** https://kauri.io/practical-use-of-ethereum-for-the-sex-worker-commu/07a1fe601ccc4c33a19d05d1b1942551/a
 - **Kauri original author:** Kendall Cole (@kendall)
 - **Kauri original Publication date:** 2018-09-17
 - **Kauri original tags:** none

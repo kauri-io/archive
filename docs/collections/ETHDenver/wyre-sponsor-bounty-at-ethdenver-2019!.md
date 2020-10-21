@@ -57,7 +57,7 @@ Thomas Scaria - thomas@sendwyre.com
 ---
 
 - **Kauri original title:** Wyre - Sponsor Bounty at ETHDenver 2019!
-- **Kauri original link:** https://kauri.io/wyre-sponsor-bounty-at-ethdenver-2019!/73e4e05727084fbab8f387133f464fce/a
+- **Kauri original link:** https://kauri.io/wyre-sponsor-bounty-at-ethdenver-2019/73e4e05727084fbab8f387133f464fce/a
 - **Kauri original author:** Bufficorn (@bufficorn)
 - **Kauri original Publication date:** 2019-02-14
 - **Kauri original tags:** sponsor-bounty, ethdenver-2019

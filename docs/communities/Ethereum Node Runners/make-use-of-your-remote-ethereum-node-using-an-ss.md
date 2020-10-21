@@ -238,7 +238,7 @@ This has definitely been a long journey. I know it's all a bit ambitious, especi
 ---
 
 - **Kauri original title:** Make use of your remote Ethereum node using an SSH tunnel and MetaMask
-- **Kauri original link:** https://kauri.io/make-use-of-your-remote-ethereum-node-using-an-ss/348d6c66da2949978c85bf2cd913d0ac/a
+- **Kauri original link:** https://kauri.io/make-use-of-your-remote-ethereum-node-using-an-ssh/348d6c66da2949978c85bf2cd913d0ac/a
 - **Kauri original author:** Daniel Ellison (@zigguratt)
 - **Kauri original Publication date:** 2019-05-16
 - **Kauri original tags:** metamask, ethereum, geth, blockchain, infura, ssh-tunnel, tutorial

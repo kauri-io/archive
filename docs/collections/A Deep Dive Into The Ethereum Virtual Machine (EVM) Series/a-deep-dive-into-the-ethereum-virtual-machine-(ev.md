@@ -91,7 +91,7 @@ The newly generated block, a unique identifier, and the encapsulated and encrypt
 ---
 
 - **Kauri original title:** A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3  Execution Model of the EVM 
-- **Kauri original link:** https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-evm/ded63988153147348d7c9617b09135af/a
+- **Kauri original link:** https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-evm-/ded63988153147348d7c9617b09135af/a
 - **Kauri original author:** Adrian Hacker (@adrian-h)
 - **Kauri original Publication date:** 2020-02-17
 - **Kauri original tags:** ethereum, virtual-machine, execution-model, evm, ethereum-virtual-machine

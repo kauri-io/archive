@@ -180,7 +180,7 @@ Special thanks
 ---
 
 - **Kauri original title:** Swarm  Distributed Storage Platform and Content Distribution Service
-- **Kauri original link:** https://kauri.io/swarm-distributed-storage-platform-and-content-di/0a733fa8a829458584d16abe37750041/a
+- **Kauri original link:** https://kauri.io/swarm-distributed-storage-platform-and-content-dis/0a733fa8a829458584d16abe37750041/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-05-13
 - **Kauri original tags:** ethereum, storage
