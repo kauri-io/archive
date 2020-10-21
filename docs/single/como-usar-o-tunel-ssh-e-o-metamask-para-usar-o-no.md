@@ -232,7 +232,7 @@ Esta é definitivamente uma longa jornada. Eu sei que tudo isso é um pouco ambi
 ---
 
 - **Kauri original title:** Como usar o túnel SSH e o MetaMask para usar o nó remoto do Ethereum
-- **Kauri original link:** https://kauri.io/como-usar-o-tunel-ssh-e-o-metamask-para-usar-o-no-/b78fc3fef28d419db0d327840175b275/a
+- **Kauri original link:** https://kauri.io/como-usar-o-tunel-ssh-e-o-metamask-para-usar-o-no/b78fc3fef28d419db0d327840175b275/a
 - **Kauri original author:** Kauri Team (@kauri)
 - **Kauri original Publication date:** 2019-08-13
 - **Kauri original tags:** metamask, ethereum, geth, linux, ssh-tunnel, windows, macos

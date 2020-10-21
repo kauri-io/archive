@@ -323,7 +323,7 @@ Bear in mind that the dev team is reachable on [Slack](http://slack.iex.ec), [Gi
 ---
 
 - **Kauri original title:** How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide
-- **Kauri original link:** https://kauri.io/how-to-build-a-decentralized-oracle-on-ethereum-a-/980d76e9595d401c8fac6af3045033d4/a
+- **Kauri original link:** https://kauri.io/how-to-build-a-decentralized-oracle-on-ethereum-a/980d76e9595d401c8fac6af3045033d4/a
 - **Kauri original author:** Julien Béranger (@julienbrg)
 - **Kauri original Publication date:** 2019-08-01
 - **Kauri original tags:** ethereum, oracles, data, web3, iexec, docker

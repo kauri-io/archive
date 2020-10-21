@@ -82,7 +82,7 @@ At QuillHash, we understand the Potential of Blockchain and have a good team of 
 ---
 
 - **Kauri original title:** QuillHash Guide - Ethereum Blockchain Use Cases and Applications
-- **Kauri original link:** https://kauri.io/quillhash-guide-ethereum-blockchain-use-cases-and-/05e5b5275be9420b96cf1b879f255c47/a
+- **Kauri original link:** https://kauri.io/quillhash-guide-ethereum-blockchain-use-cases-and/05e5b5275be9420b96cf1b879f255c47/a
 - **Kauri original author:** null (@null)
 - **Kauri original Publication date:** 2019-08-24
 - **Kauri original tags:** ethereum, usability, defi

@@ -56,7 +56,7 @@ https://github.com/nucypher/vanguard
 ---
 
 - **Kauri original title:** Vanguard -- Zero Knowledge through Fully Homomorphic Encryption
-- **Kauri original link:** https://kauri.io/vanguard-zero-knowledge-through-fully-homomorphic-/a372f6705cdf4b578cfa345a5443a743/a
+- **Kauri original link:** https://kauri.io/vanguard-zero-knowledge-through-fully-homomorphic/a372f6705cdf4b578cfa345a5443a743/a
 - **Kauri original author:** John Pacific (@tuxxy)
 - **Kauri original Publication date:** 2019-02-17
 - **Kauri original tags:** ethdenver-2019-submission

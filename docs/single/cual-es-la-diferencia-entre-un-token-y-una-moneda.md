@@ -44,7 +44,7 @@ Y es una entiendad, en este caso una empresa que respalda cada token con oro rea
 ---
 
 - **Kauri original title:** ¿Cual es la diferencia entre un token y una moneda? ¿Tipos de tokens?
-- **Kauri original link:** https://kauri.io/cual-es-la-diferencia-entre-un-token-y-una-moneda-/82f328bb1a9345ae9383367b83103398/a
+- **Kauri original link:** https://kauri.io/cual-es-la-diferencia-entre-un-token-y-una-moneda/82f328bb1a9345ae9383367b83103398/a
 - **Kauri original author:** null (@ethernomics)
 - **Kauri original Publication date:** 2020-06-08
 - **Kauri original tags:** ethereum, token

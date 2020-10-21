@@ -91,7 +91,7 @@ Boomshakalaka your are now using an ipfs node and you can start interacted with 
 ---
 
 - **Kauri original title:** Interacting with the IPFS protocol  a tutorial for beginner 
-- **Kauri original link:** https://kauri.io/interacting-with-the-ipfs-protocol-a-tutorial-for-/9376ff63f19648f0b826ec23e9023b09/a
+- **Kauri original link:** https://kauri.io/interacting-with-the-ipfs-protocol-a-tutorial-for/9376ff63f19648f0b826ec23e9023b09/a
 - **Kauri original author:** Michael A (@silver84)
 - **Kauri original Publication date:** 2019-03-14
 - **Kauri original tags:** none

@@ -54,7 +54,7 @@ Thanks to Greg Jeanmart and his excellent article: [Manage An Ethereum Account w
 ---
 
 - **Kauri original title:** Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)
-- **Kauri original link:** https://kauri.io/creating-a-web3j-wallet-from-a-mnemonic-code-seed-/a33a03fb66d14920896bb3e7ab77fba7/a
+- **Kauri original link:** https://kauri.io/creating-a-web3j-wallet-from-a-mnemonic-code-seed/a33a03fb66d14920896bb3e7ab77fba7/a
 - **Kauri original author:** Craig Williams (@craig)
 - **Kauri original Publication date:** 2019-12-18
 - **Kauri original tags:** ethereum, java, wallet, web3j, mnemonic

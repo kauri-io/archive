@@ -52,7 +52,7 @@ The most important thing that a PoS network validator must do outside of the tec
 ---
 
 - **Kauri original title:** HOW PROOF OF STAKE (POS) VALIDATORS SHOULD THINK OF COMMUNITY AND SUPPORT
-- **Kauri original link:** https://kauri.io/how-proof-of-stake-pos-validators-should-think-of-/ef00dc8cd8b3432596e10e7c5855cc1c/a
+- **Kauri original link:** https://kauri.io/how-proof-of-stake-pos-validators-should-think-of/ef00dc8cd8b3432596e10e7c5855cc1c/a
 - **Kauri original author:** James Ryan Moreau (@jrmoreau)
 - **Kauri original Publication date:** 2019-06-21
 - **Kauri original tags:** customer-success, proof-of-stake, community, support
