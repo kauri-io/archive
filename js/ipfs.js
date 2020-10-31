@@ -11,7 +11,8 @@
   const fetch = require('node-fetch');
   const fs = require('fs');
 
-  const source = "/Users/gregjeanmart/workspace/ethereum/kauri/archive2/ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
+  const base = "/Users/gregjeanmart/workspace/ethereum/kauri/archive2"
+  const source = base + "/ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
   const folder = "content"
   const extension = "txt" // "png"
 
