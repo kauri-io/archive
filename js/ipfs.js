@@ -5,14 +5,14 @@
 
 
   // ####### IMPORT
-  const utils = require('./utils')
+  const utils = require('../js/utils')
   const request = require('request');
   const rp = require('request-promise');
   const fetch = require('node-fetch');
   const fs = require('fs');
 
-  const source = "ipfs.txt"
-  const folder = "images"
+  const source = "../ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
+  const folder = "content"
 
   utils.deleteFolder(folder)
   utils.createDirectory(folder)
@@ -24,6 +24,7 @@
     if(url == "") continue;
 
     const hash = url.substring(url.lastIndexOf('/') + 1)
+    console.log(hash)
     const path = folder + "/" + hash + ".png"
 
     const resp = await fetch(url);
