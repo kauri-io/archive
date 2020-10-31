@@ -13,6 +13,7 @@
 
   const source = "../ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
   const folder = "content"
+  const extension = "txt" // "png"
 
   utils.deleteFolder(folder)
   utils.createDirectory(folder)
@@ -24,12 +25,11 @@
     if(url == "") continue;
 
     const hash = url.substring(url.lastIndexOf('/') + 1)
-    console.log(hash)
-    const path = folder + "/" + hash + ".png"
+    const path = folder + "/" + hash + "." + extension
 
     const resp = await fetch(url);
-    const img = await resp.buffer();
-    utils.createFile(path, img)
+    const buf = await resp.buffer();
+    utils.createFile(buf, img)
 
     const body = await rp({
         method: 'POST',

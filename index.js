@@ -19,6 +19,7 @@
     const ipfs_content = "./ipfs/ipfs_content.txt"
     const baseDir = "./docs"
     const endpoint = "https://api.kauri.io/graphql"
+    const ipfs_endpoint = "https://api.kauri.io/ipfs/"
     const graphQLClient = new GraphQLClient(endpoint, { credentials: 'include', mode: 'cors' } )
 
     const articlesUsed = []
@@ -57,9 +58,9 @@
         utils.appendFile(ipfs_img, background)
         background = background.replace(/https\:\/\/api\.(beta\.)?kauri\.io(\:443)?\/ipfs\//g, "https://ipfs.infura.io/ipfs/")
       }
-      utils.appendFile(ipfs_content,  article.contentHash)
+      utils.appendFile(ipfs_content,  ipfs_endpoint + article.contentHash)
       if(article.checkpoint) {
-        utils.appendFile(ipfs_content,  article.checkpoint)
+        utils.appendFile(ipfs_content,  ipfs_endpoint + article.checkpoint)
       }
 
       const file = slugify(article.title, {lower: true}).replace(/[\:\#\']/g,'-').substring(0, 49) + ".md"
