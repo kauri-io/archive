@@ -190,7 +190,7 @@ You can now finally enjoy a lot of pre-configured dashboards for your Kubernetes
 - **Kauri original Publication date:** 2020-04-01
 - **Kauri original tags:** self-hosting, analytics, kubernetes, grafana, prometheus, monitoring
 - **Kauri original hash:** QmVCXG2Uum6gQkKbE1dQprGJ1NUmye7uTPvuiqojGDFupw
-- **Kauri original checkpoint:** unknown
+- **Kauri original checkpoint:** QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d
 
 
 

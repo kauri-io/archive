@@ -11,7 +11,7 @@
   const fetch = require('node-fetch');
   const fs = require('fs');
 
-  const source = "../ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
+  const source = "/Users/gregjeanmart/workspace/ethereum/kauri/archive2/ipfs/ipfs_content.txt" // "../ipfs/ipfs_img.txt"
   const folder = "content"
   const extension = "txt" // "png"
 
@@ -29,7 +29,7 @@
 
     const resp = await fetch(url);
     const buf = await resp.buffer();
-    utils.createFile(buf, img)
+    utils.createFile(path, buf)
 
     const body = await rp({
         method: 'POST',

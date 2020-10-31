@@ -58,7 +58,7 @@
         utils.appendFile(ipfs_img, background)
         background = background.replace(/https\:\/\/api\.(beta\.)?kauri\.io(\:443)?\/ipfs\//g, "https://ipfs.infura.io/ipfs/")
       }
-      utils.appendFile(ipfs_content,  ipfs_endpoint + article.contentHash)
+        utils.appendFile(ipfs_content,  ipfs_endpoint + article.contentHash)
       if(article.checkpoint) {
         utils.appendFile(ipfs_content,  ipfs_endpoint + article.checkpoint)
       }

@@ -467,7 +467,7 @@ To send a transaction between two accounts, Web3j can generate a transaction oje
 - **Kauri original Publication date:** 2020-05-01
 - **Kauri original tags:** ethereum, java, balance, web3j, account
 - **Kauri original hash:** QmevjY4PmnL2qAc4W6Ev7gWWiPYri4hn2FjXn2AYPoaM62
-- **Kauri original checkpoint:** unknown
+- **Kauri original checkpoint:** QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d
 
 
 

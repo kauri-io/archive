@@ -135,7 +135,7 @@ You can now:
 - **Kauri original Publication date:** 2020-05-03
 - **Kauri original tags:** ethereum, geth, sheet, monitoring, cronjob
 - **Kauri original hash:** QmYU9ZXxziht9pnLhFyRhzfkzf4tD1GmMEGCBaHtXX55id
-- **Kauri original checkpoint:** unknown
+- **Kauri original checkpoint:** QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d
 
 
 

@@ -381,7 +381,7 @@ Congratulations — you are mightily contributing to a decentralized web in the 
 - **Kauri original Publication date:** 2020-03-08
 - **Kauri original tags:** metamask, geth, nodes, swarm, systemd, debian
 - **Kauri original hash:** QmczpCVLAjrXRV7smmvCoNvhj7cx497QFk3dNWfBTXp7Ry
-- **Kauri original checkpoint:** unknown
+- **Kauri original checkpoint:** QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d
 
 
 
