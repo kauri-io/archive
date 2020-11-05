@@ -2,9 +2,8 @@ site_name: kauri.io
 site_url: https://kauri.io
 repo_url: https://github.com/kauri-io/archive
 google_analytics:
-  - UA-172017815-1
-  - auto
-#site_favicon:
+    - UA-172017815-1
+    - auto
 theme:
     name: ivory
     highlightjs: true
