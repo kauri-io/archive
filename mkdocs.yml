@@ -23,7 +23,7 @@ extra:
   article_nav_top: false
 markdown_extensions:
     - toc:
-        permalink: True
+        permalink: 
 nav:
     - Home: 'index.md'
     - Communities:
