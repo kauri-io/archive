@@ -21,6 +21,9 @@ theme:
 extra:
   logo: img/kauri.png
   article_nav_top: false
+markdown_extensions:
+    - toc:
+        permalink: True
 nav:
     - Home: 'index.md'
     - Communities:
@@ -905,7 +908,8 @@ nav:
         - DevCon 3 - Day One Streaming: 'single/devcon-3-day-one-streaming.md'
         - asdasd: 'single/asdasd.md'
 plugins:
-    - search
+    - search:
+        min_search_length: 3
     - redirects:
         redirect_maps:
             tips-for-starting-dapp-development/a6f8cae18e574e1595bd870010100c80/a: 'communities/Getting started with dapp development/tips-for-starting-dapp-development.md'
