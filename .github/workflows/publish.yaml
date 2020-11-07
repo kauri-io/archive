@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v1
-      - name: Install plugins
-        run: pip install mkdocs-windmill
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
