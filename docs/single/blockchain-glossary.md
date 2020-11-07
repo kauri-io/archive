@@ -220,7 +220,6 @@ Different categories of wallet exists:
 
 - Full-node or not: A wallet connected to a full node hosted by the owner will guarantee the legibility of the blockchain as full-nodes verify all transactions included in each block. If the wallet connects to a third-party node, wallet owners have to trust this provider.
 
----------------------------------------------------------------------
 
 
 
