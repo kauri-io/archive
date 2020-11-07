@@ -1,19 +1,23 @@
 site_name: kauri.io
 site_url: https://kauri.io
+site_description: Kauri - The community's knowledge network
 repo_url: https://github.com/kauri-io/archive
 google_analytics:
     - UA-172017815-1
-    - auto
+    - kauri.io
 theme:
-    name: ivory
+    name: windmill
     highlightjs: true
     hljs_languages:
         - yaml
-        - solidity
+#        - solidity
         - go
         - rust
+extra:
+  logo: img/kauri.png
+  article_nav_top: false
 extra_css:
-    - css/extra.css
+  - css/extra.css
 nav:
     - Home: 'index.md'
     - Communities:
