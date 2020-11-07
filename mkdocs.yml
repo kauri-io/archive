@@ -1,7 +1,8 @@
 site_name: kauri.io
 site_url: https://kauri.io
 site_description: Kauri - The community's knowledge network
-repo_url: https://github.com/kauri-io/archive
+repo_url: https://github.com/kauri-io/archive/
+edit_uri: edit/main/docs
 google_analytics:
     - UA-172017815-1
     - kauri.io
@@ -16,8 +17,6 @@ theme:
 extra:
   logo: img/kauri.png
   article_nav_top: false
-extra_css:
-  - css/extra.css
 nav:
     - Home: 'index.md'
     - Communities:
