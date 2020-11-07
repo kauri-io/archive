@@ -9,6 +9,9 @@ google_analytics:
 theme:
     name: null
     custom_dir: 'mkdocs_windmill/'
+    static_templates: [404.html]
+    search_index_only: true
+    include_search_page: true
     highlightjs: true
     hljs_languages:
         - yaml
