@@ -7,8 +7,8 @@
     // ipfs image, upload to infura
 
     // ####### IMPORT
-    const { community, collection, articles } = require('./js/gql_queries')
-    const utils = require('./js/utils')
+    const { community, collection, articles } = require('gql_queries')
+    const utils = require('utils')
     const { GraphQLClient } = require('graphql-request')
     const slugify = require('slugify')
 

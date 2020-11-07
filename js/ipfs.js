@@ -5,7 +5,7 @@
 
 
   // ####### IMPORT
-  const utils = require('../js/utils')
+  const utils = require('utils')
   const request = require('request');
   const rp = require('request-promise');
   const fetch = require('node-fetch');
