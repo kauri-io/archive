@@ -940,6 +940,7 @@ plugins:
             generate-a-java-wrapper-from-your-smart-contract/84475132317d4d6a84a2c42eb9348e4b/a: 'communities/Java Ethereum/generate-a-java-wrapper-from-your-smart-contract.md'
             manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a: 'communities/Java Ethereum/manage-an-ethereum-account-with-java-and-web3j.md'
             connecting-to-an-ethereum-client-with-java-eclipse/b9eb647c47a546bc95693acc0be72546/a: 'communities/Java Ethereum/connecting-to-an-ethereum-client-with-java-eclips.md'
+            article/b9eb647c47a546bc95693acc0be72546/connecting-to-an-ethereum-client-with-java-eclipse-and-web3j: 'communities/Java Ethereum/connecting-to-an-ethereum-client-with-java-eclips.md'
             run-an-ethereum-node-on-debian-with-an-external-ss/a73723dd2e924d8c948923709763f409/a: 'communities/Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-s.md'
             ethereum-node-runners/5d8e43807a79620001afd6b5/cm: 'communities/Ethereum Node Runners/run-an-ethereum-node-on-debian-with-an-external-s.md'
             ethereum-on-arm-turn-your-arm-device-into-a-full-e/e7b2625208af4382acf070fa8068502b/a: 'communities/Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full.md'
