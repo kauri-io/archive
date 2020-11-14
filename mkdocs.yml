@@ -1179,6 +1179,7 @@ plugins:
             nondefinitive-list-to-ethereum-block-explorers-not/e6b81c07f6eb4c1fac417a4cbff7ddf0/a: 'collections/Web3 Clients/non-definitive-list-to-ethereum-block-explorers-n.md'
             poa-tutorial-series/5c1265524f34080001c81c1b/c: 'collections/POA Tutorial series/poa-part-1-develop-and-deploy-a-smart-contract.md'
             poa-part-2-bridge-assets-between-a-sidechain-and-a/19072f7340184628b47c0d86e7feac6d/a: 'collections/POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-.md'
+            poa-part-2-bridge-assets-between-a-sidechain-and/19072f7340184628b47c0d86e7feac6d/a: 'collections/POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-.md'
             xdai/7834a00daa6f4b1ba7c90d76a7350dec/a: 'collections/POA Tutorial series/xdai.md'
             secureth/5ca220e83951aa00014a1336/c: 'collections/SecurEth/secureth-guidelines-introduction.md'
             tron-quickstart/86d71acb737444e390e3fbf9d461c36c/a: 'collections/Tron/tron-quickstart.md'
