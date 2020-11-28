@@ -4,7 +4,7 @@ summary: This article is part of the series Build your very own self-hosting pla
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-03-31
-some_url: 
+some_url:
 ---
 
 # (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes
@@ -248,16 +248,6 @@ cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
 ```
 
 <br />
-#### Firewall
-
-Switch Debian firewall to legacy config:
-
-```shell
-$ update-alternatives --set iptables /usr/sbin/iptables-legacy
-$ update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
-```
-
-<br />
 #### Restart and connect to the static IP with the new password and check the hostname.
 
 ```
@@ -280,6 +270,16 @@ Check if the hostname has been updated
 pi@kube-master:~ $ hostname
 
 kube-master
+```
+
+<br />
+#### Firewall
+
+Switch Debian firewall to legacy config:
+
+```shell
+$ sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+$ sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 ```
 
 <br />
@@ -493,6 +493,3 @@ In the [next chapter](https://kauri.io/install-and-configure-a-kubernetes-cluste
 - **Kauri original tags:** self-hosting, kubernetes, raspberrypi, raspbian
 - **Kauri original hash:** QmXT3ezdnGNLW5oYqoLjdvGvR3t3jhdcrM95KHqBe31bBV
 - **Kauri original checkpoint:** unknown
-
-
-

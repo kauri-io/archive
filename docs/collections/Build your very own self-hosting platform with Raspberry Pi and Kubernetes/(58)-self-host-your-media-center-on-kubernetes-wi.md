@@ -1,13 +1,13 @@
 ---
-title: (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
+title: (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett
 summary: This article is part of the series Build your very own self-hosting platform with Raspberry Pi and Kubernetes Introduction Install Raspbian Operating-System and
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-05-26
-some_url: 
+some_url:
 ---
 
-# (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
+# (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett
 
 ![](https://ipfs.infura.io/ipfs/QmUMQnRmFtNMXkBfYQdjG9WMCpAof49zavMNJXYHSDSa2k)
 
@@ -242,8 +242,8 @@ We first need to safely store our VPN Provider username and password into a [Kub
 
 ```
 $ kubectl create secret generic openvpn \
-    --from-literal username=<VPN_USERNAME> \
-    --from-literal password=<VPN_PASSWORD> \
+    --from-literal='username=<VPN_USERNAME>' \
+    --from-literal='password=<VPN_PASSWORD>' \
     --namespace media
 ```
 
@@ -864,13 +864,10 @@ In conclusion, you now have everything you need to automate and manage your Medi
 
 ---
 
-- **Kauri original title:** (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett 
+- **Kauri original title:** (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett
 - **Kauri original link:** https://kauri.io/58-selfhost-your-media-center-on-kubernetes-with-p/8ec7c8c6bf4e4cc2a2ed563243998537/a
 - **Kauri original author:** Grégoire Jeanmart (@gregjeanmart)
 - **Kauri original Publication date:** 2020-05-26
 - **Kauri original tags:** self-hosting, kubernetes, tv-show, k8s, plex, bittorrent, htpc
 - **Kauri original hash:** QmWcNJUeEMcNMrBb6CUqg6egT6tmsZWiaJSU3rPY3V5bL8
 - **Kauri original checkpoint:** unknown
-
-
-

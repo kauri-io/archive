@@ -4,7 +4,7 @@ summary: This article is part of the series Build your very own self-hosting pla
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-07-29
-some_url: 
+some_url:
 ---
 
 # (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications
@@ -326,7 +326,8 @@ To install MetalLB from Helm, you simply need to run the following command `helm
 - `--set configInline...`: to configures MetalLB in **Layer 2** mode (see [documentation](https://metallb.universe.tf/configuration/) for more details). The IPs range `192.168.0.240-192.168.0.250` is used to constitute a pool of virtual IP addresses.
 
 ```
-helm install metallb stable/metallb --namespace kube-system \
+$ helm repo add stable https://charts.helm.sh/stable 
+$ helm install metallb stable/metallb --namespace kube-system \
   --set configInline.address-pools[0].name=default \
   --set configInline.address-pools[0].protocol=layer2 \
   --set configInline.address-pools[0].addresses[0]=192.168.0.240-192.168.0.250
@@ -422,7 +423,7 @@ $ helm install cert-manager jetstack/cert-manager --namespace kube-system  --ver
 Check that all three cert-manager components are running.
 
 ```
-$ kubectl get pods -n kube-system -l app.kubernetes.io/instance=cert-manager -o wide 
+$ kubectl get pods -n kube-system -l app.kubernetes.io/instance=cert-manager -o wide
 
 NAME                                       READY   STATUS    RESTARTS   AGE   IP           NODE           NOMINATED NODE   READINESS GATES
 cert-manager-cainjector-6659d6844d-w9vrn   1/1     Running   0          69s   10.42.1.13   kube-worker1   <none>           <none>
@@ -603,7 +604,7 @@ This method will be used to declare persistent storage volume for each of our ap
 <br />
 **1. Install kubernetes-dashboard via the official "recommended" manifests file**
 
-Execute the following command and replace `<VERSION>` by the latest version (see [release page](https://github.com/kubernetes/dashboard/releases)) 
+Execute the following command and replace `<VERSION>` by the latest version (see [release page](https://github.com/kubernetes/dashboard/releases))
 
 _Tested with version: **v2.0.3**_
 
@@ -615,7 +616,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/<VERSI
 After a few seconds, you should see to pods running in the namespace `kubernetes-dashboard`.
 
 ```
-$ kubectl get pods -n kubernetes-dashboard 
+$ kubectl get pods -n kubernetes-dashboard
 
 NAME                                        READY   STATUS    RESTARTS   AGE
 dashboard-metrics-scraper-b68468655-jg6pz   1/1     Running   0          26m
@@ -699,7 +700,7 @@ Select "Token", copy/paste the token previously retrieved and click on "Sign in"
 
 Well done, you have now access to a nice web interface to visialise and manage all the Objects of your Kubernetes cluster (*you can switch namespace with the dropdown on the left menu*).
 
-![](https://i.imgur.com/Ky9zXpH.png) 
+![](https://i.imgur.com/Ky9zXpH.png)
 
 <br />
 <br />
@@ -755,6 +756,3 @@ $ sudo rm -rf /var/lib/rancher
 - **Kauri original tags:** self-hosting, kubernetes, raspberrypi, k3s, arm, helm
 - **Kauri original hash:** QmVS3NcroS9ejgVStad3pcPjjrQMxf6XUfVrQwHQB5U6gM
 - **Kauri original checkpoint:** QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d
-
-
-

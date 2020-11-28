@@ -4,7 +4,7 @@ summary: This article is part of the series Build your very own self-hosting pla
 authors:
   - Grégoire Jeanmart (@gregjeanmart)
 date: 2020-07-29
-some_url: 
+some_url:
 ---
 
 # (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level
@@ -46,7 +46,7 @@ In order to run entirely the tutorial, we will need:
 - Access to your router admin console to configure Pi-Hole as DNS or disable DHCP (replaced by Pi-Hole)
 
 
-<br /> 
+<br />
 <br />
 ### Namespace
 
@@ -167,7 +167,7 @@ Replace `<ADMIN_PASSWORD>` by the password of your choice. This password will be
 
 ```
 $ kubectl create secret generic pihole-secret \
-    --from-literal password=<ADMIN_PASSWORD> \
+    --from-literal='password=<ADMIN_PASSWORD>' \
     --namespace pihole
 ```
 
@@ -355,6 +355,3 @@ If you configured Pi-Hole to be used as DHCP server, you need to go to **Setting
 - **Kauri original tags:** self-hosting, kubernetes, pi-hole, dns, ad-blocker, dhcp
 - **Kauri original hash:** QmcxZpL77o7Dpkz2xrNpdgUzGUyEc2UvqoM3dafKNcE5K1
 - **Kauri original checkpoint:** unknown
-
-
-
