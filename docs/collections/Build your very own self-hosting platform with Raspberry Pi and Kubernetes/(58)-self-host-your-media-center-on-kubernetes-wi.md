@@ -357,7 +357,7 @@ Now Transmission and the Nginx Ingress routes are deployed, you should be able t
 <br />
 ### Torrent Providers Aggregator- Jackett over VPN
 
-[Jackett](https://github.com/Jackett/Jackett) is a Torrent Providers Aggregator which translates search queries from applications like Sonarr or Radarr into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. Because some Internet Providers might also block access to Torrent websites, I packaged a version of Jackett using a VPN connection (similar to _transmission-over-vpn_) accessible on [Docker hub - gjeanmart/jackettvpn:arm-latest](https://hub.docker.com/repository/docker/gjeanmart/jackettvpn).
+[Jackett](https://github.com/Jackett/Jackett) is a Torrent Providers Aggregator which translates search queries from applications like Sonarr or Radarr into tracker-site-specific http queries, parses the html response, then sends results back to the requesting software. Because some Internet Providers might also block access to Torrent websites, I packaged a version of Jackett using a VPN connection (similar to _transmission-over-vpn_) accessible on [Docker hub - gjeanmart/jackettvpn:latest-armhf](https://hub.docker.com/repository/docker/gjeanmart/jackettvpn).
 
 <br />
 **1. Write the Helm configuration**
@@ -373,7 +373,7 @@ replicaCount: 1
 
 image:
   repository: "gjeanmart/jackettvpn" # Special image to use Jackett over a VPN
-  tag: "arm-latest"
+  tag: "latest-armhf"
   pullPolicy: IfNotPresent
 
 env:
