@@ -29,7 +29,7 @@ The dApp will simply allow any user to issue a bounty in ETH
 
 1. You're a software engineer, hacker, etc. You understand systems and architecture and the fundamentals of software programming
 
-2. You understand the concepts of blockchain and have a basic knowledge of Ethereum. If not, watch the "Ethereum in 25 minutes" video below, read the [Ethereum whitepaper] (https://github.com/ethereum/wiki/wiki/White-Paper), and read the [ETH 101 Series] (https://beta.kauri.io/collection/5bb65f0f4f34080001731dc2/ethereum-101) 
+2. You understand the concepts of blockchain and have a basic knowledge of Ethereum. If not, watch the "Ethereum in 25 minutes" video below, read the [Ethereum whitepaper] (https://ethereum.org/en/whitepaper/), and read the [ETH 101 Series] (https://beta.kauri.io/collection/5bb65f0f4f34080001731dc2/ethereum-101) 
 
 ### Resources:
 
