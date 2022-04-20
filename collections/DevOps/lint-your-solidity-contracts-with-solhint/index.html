@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/DevOps/lint-your-solidity-contracts-with-solhint/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Lint your Solidity contracts with Solhint - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Lint your Solidity contracts with Solhint", url: "#_top", children: [
+              {title: "Installation", url: "#installation" },
+              {title: "Usage", url: "#usage" },
+              {title: "Configuration", url: "#configuration" },
+              {title: "Rules", url: "#rules" },
+              {title: "More details", url: "#more-details" },
+              {title: "IDE Integrations", url: "#ide-integrations" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="lint-your-solidity-contracts-with-solhint">Lint your Solidity contracts with Solhint<a class="headerlink" href="#lint-your-solidity-contracts-with-solhint" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXJRvZDVnQqrd1L8cQUdCXe1Kk8KrBVunZt4yHVmzqfPH" /></p>
+<p>Solhint is an open source project for linting <a href="http://solidity.readthedocs.io/en/develop/">Solidity</a> code. This project
+provides both <strong>Security</strong> and <strong>Style Guide</strong> validations.</p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h3>
+<p>You can install Solhint using <strong>npm</strong>:</p>
+<pre><code class="language-sh">npm install -g solhint
+
+## verify that it was installed correctly
+solhint -V
+</code></pre>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<p>For linting Solidity files you need to run Solhint with one or more <a href="https://en.wikipedia.org/wiki/Glob_(programming)">Globs</a> as arguments. For example, to lint all files inside <code>contracts</code> directory, you can do:</p>
+<pre><code class="language-sh">solhint &quot;contracts/**/*.sol&quot;
+</code></pre>
+<p>To lint a single file:</p>
+<pre><code class="language-sh">solhint contracts/MyToken.sol
+</code></pre>
+<p>Solhint command description:</p>
+<pre><code class="language-text">Usage: solhint [options] &lt;file&gt; [...other_files]
+
+Linter for Solidity programming language
+
+
+Options:
+
+  -V, --version                              output the version number
+  -f, --formatter [name]                     report formatter name (stylish, table, tap, unix)
+  -w, --max-warnings [maxWarningsNumber]     number of warnings to trigger nonzero
+  -c, --config [file_name]                   file to use as your .solhint.json
+  -q, --quiet                                report errors only - default: false
+  --ignore-path [file_name]                  file to use as your .solhintignore
+  -h, --help                                 output usage information
+
+
+
+Commands:
+
+  stdin [options]         put source code to stdin of this utility
+  init-config             create sample solhint config in current folder
+</code></pre>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h3>
+<p>You use a <code>.solhint.json</code> file to configure Solhint globally. This file has the following
+format:</p>
+<pre><code class="language-json">  {
+    &quot;extends&quot;: &quot;solhint:default&quot;,
+    &quot;plugins&quot;: [],
+    &quot;rules&quot;: {
+      &quot;avoid-throw&quot;: false,
+      &quot;avoid-suicide&quot;: &quot;error&quot;,
+      &quot;avoid-sha3&quot;: &quot;warn&quot;
+    }
+  }
+</code></pre>
+<p>To ignore files / folders that do not require validation you may use <code>.solhintignore</code> file. It supports rules in
+<code>.gitignore</code> format.</p>
+<pre><code class="language-text">node_modules/
+additional-tests.sol
+</code></pre>
+<h4 id="configure-linter-with-comments">Configure linter with comments<a class="headerlink" href="#configure-linter-with-comments" title="Permanent link"></a></h4>
+<p>You can use comments in the source code to configure solhint in a given line or file.</p>
+<p>For example, to disable all validations in the line following a comment:</p>
+<pre><code class="language-javascript">  // solhint-disable-next-line
+  uint[] a;
+</code></pre>
+<p>You can disable a single rule on a given line. For example, to disable validation of fixed compiler
+version in the next line:</p>
+<pre><code class="language-text">  // solhint-disable-next-line compiler-fixed, compiler-gt-0_4
+  pragma solidity ^0.4.4;
+</code></pre>
+<p>Disable validation on current line:</p>
+<pre><code class="language-text">  pragma solidity ^0.4.4; // solhint-disable-line
+</code></pre>
+<p>Disable validation of fixed compiler version validation on current line:</p>
+<pre><code class="language-text">  pragma solidity ^0.4.4; // solhint-disable-line compiler-fixed, compiler-gt-0_4
+</code></pre>
+<p>You can disable a rule for a group of lines:</p>
+<pre><code class="language-javascript">  /* solhint-disable avoid-throw */
+  if (a &gt; 1) {
+    throw;
+  }
+  /* solhint-enable avoid-throw */
+</code></pre>
+<p>Or disable all validations for a group of lines:</p>
+<pre><code class="language-javascript">  /* solhint-disable */
+  if (a &gt; 1) {
+    throw;
+  }
+  /* solhint-enable */
+</code></pre>
+<h3 id="rules">Rules<a class="headerlink" href="#rules" title="Permanent link"></a></h3>
+<h4 id="security-rules">Security Rules<a class="headerlink" href="#security-rules" title="Permanent link"></a></h4>
+<p><a href="https://github.com/protofire/solhint/blob/master/docs/rules.md#security-rules">Full list with all supported Security Rules</a></p>
+<h4 id="style-guide-rules">Style Guide Rules<a class="headerlink" href="#style-guide-rules" title="Permanent link"></a></h4>
+<p><a href="https://github.com/protofire/solhint/blob/master/docs/rules.md#style-guide-rules">Full list with all supported Style Guide Rules</a></p>
+<h4 id="best-practices-rules">Best Practices Rules<a class="headerlink" href="#best-practices-rules" title="Permanent link"></a></h4>
+<p><a href="https://github.com/protofire/solhint/blob/master/docs/rules.md#best-practise-rules">Full list with all supported Best Practices Rules</a></p>
+<h3 id="more-details">More details<a class="headerlink" href="#more-details" title="Permanent link"></a></h3>
+<ul>
+<li>Read the full <a href="https://protofire.github.io/solhint/">Solhint documentation</a>.</li>
+<li><a href="https://github.com/protofire/solhint/blob/master/ROADMAP.md">Roadmap</a>: The core project's roadmap - what the core team is looking to work on in the near future.</li>
+<li><a href="https://github.com/protofire/solhint/blob/master/CONTRIBUTING.md">Contributing</a>: The core Solhint team :heart: contributions. This describes how you can contribute to the Solhint Project.</li>
+<li><a href="https://github.com/protofire/solhint/blob/master/docs/shareable-configs.md">Shareable configs</a>: How to create and share your own configurations.</li>
+<li><a href="https://github.com/protofire/solhint/blob/master/docs/writing-plugins.md">Writing plugins</a>: How to extend Solhint with your own rules.</li>
+</ul>
+<h3 id="ide-integrations">IDE Integrations<a class="headerlink" href="#ide-integrations" title="Permanent link"></a></h3>
+<ul>
+<li><strong><a href="https://packagecontrol.io/search/solhint">Sublime Text 3</a></strong></li>
+<li><strong><a href="https://atom.io/packages/atom-solidity-linter">Atom</a></strong></li>
+<li><strong><a href="https://github.com/sohkai/syntastic-local-solhint">Vim</a></strong></li>
+<li><strong><a href="https://plugins.jetbrains.com/plugin/10177-solidity-solhint">JetBrains IDEA, WebStorm, CLion, etc.</a></strong></li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity">VS Code: Solidity by Juan Blanco</a></strong></li>
+<li><strong><a href="https://marketplace.visualstudio.com/items?itemName=kodebox.solidity-language-server">VS Code: Solidity Language Support by CodeChain.io</a></strong></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Lint your Solidity contracts with Solhint</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/lint-your-solidity-contracts-with-solhint/2ff86d30589b4832ad90f6c87c08fbea/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-05</li>
+<li><strong>Kauri original tags:</strong> linting, solhint, best-practise-</li>
+<li><strong>Kauri original hash:</strong> QmPZ2PzAwgAAamV6LXz4hHpLQaGyRgUaWpwhiEZSEaP17P</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../lint-your-solidity-contracts-with-ethlint/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../lint-your-solidity-contracts-with-ethlint/" class="btn btn-xs btn-link">
+        Lint your Solidity contracts with Ethlint
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Open%20Finance%20%28DeFi%29/incentivizing-high-quality-curation-with-a-token-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Open%20Finance%20%28DeFi%29/incentivizing-high-quality-curation-with-a-token-/" class="btn btn-xs btn-link">
+        Incentivizing high-quality curation with a Token-Curated Registry
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/DevOps/lint-your-solidity-contracts-with-solhint.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

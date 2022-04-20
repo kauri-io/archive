@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-set-up-a-simple-linux-firewall/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to set up a simple Linux firewall - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to set up a simple Linux firewall", url: "#_top", children: [
+              {title: "WAT FIREWAL?!", url: "#wat-firewal" },
+              {title: "Uncomplicated Firewall", url: "#uncomplicated-firewall" },
+              {title: "Back to the command line", url: "#back-to-the-command-line" },
+              {title: "Becoming an enabler", url: "#becoming-an-enabler" },
+              {title: "Allowing specific incoming traffic", url: "#allowing-specific-incoming-traffic" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-set-up-a-simple-linux-firewall">How to set up a simple Linux firewall<a class="headerlink" href="#how-to-set-up-a-simple-linux-firewall" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw" /></p>
+<p>This is the third part of a two part series. In the <a href="https://kauri.io/article/c287fe53de9b4073a18065443253a86d/v1/how-to-install-and-synchronize-your-own-remote-ethereum-nodes">first part</a> I described how to set up a remote Ethereum node. In the <a href="https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v1/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask">second part</a> I went over setting up an SSH tunnel and using it to access your node with MetaMask. In this article I cover why a Linux firewall is important and describe how to set one up on your remote <code>geth</code> node.</p>
+<h3 id="wat-firewal">WAT FIREWAL?!<a class="headerlink" href="#wat-firewal" title="Permanent link"></a></h3>
+<p>A firewall is a technology which blocks network traffic to or from a computer. At first that may seem counterproductive. But you can poke holes in your firewall to allow external entities to access the machine on specific ports. What the heck is a port, though? From <a href="https://en.wikipedia.org/wiki/Port_(computer_networking)">Wikipedia</a>:</p>
+<blockquote>
+<p>At the software level, within an operating system, a port is a logical construct that identifies a specific process or a type of network service. Ports are identified for each protocol and address combination by 16-bit unsigned numbers, commonly known as the port number.</p>
+</blockquote>
+<p>This means that each assigned port number has a specific meaning. There are two types of ports, TCP and UDP, but the difference between them is not pertinent to this article. You may already know that <a href="https://www.howtogeek.com/233383/why-was-80-chosen-as-the-default-http-port-and-443-as-the-default-https-port/">websites use TCP ports <code>80</code> and <code>443</code></a>. SSH uses TCP port <code>22</code> by default. Ethereum clients use these specific ports:</p>
+<ul>
+<li><code>30303</code> TCP: The network listening port</li>
+<li><code>30303</code> UDP: The network discovery port</li>
+<li><code>8545</code> TCP: The RPC port</li>
+</ul>
+<p>Since we use an SSH tunnel to communicate via RPC with our remote node, we will not be opening port <code>8545</code> on our firewall. This prevents any external entities from making RPC calls to your node. This is what we want. On the other hand, we <em>will</em> be opening port <code>22</code> so that our SSH tunnel will work.</p>
+<h3 id="uncomplicated-firewall">Uncomplicated Firewall<a class="headerlink" href="#uncomplicated-firewall" title="Permanent link"></a></h3>
+<p>There is a utility that ships with Ubuntu by default called the <a href="https://help.ubuntu.com/community/UFW">Uncomplicated Firewall</a> (UFW). It is ideal for securing your machine without having to know the gory details of <code>iptables</code>, filter tables, or rule chains. Firewalls are very complex things; having this tool to make them uncomplicated is quite a relief.</p>
+<h3 id="back-to-the-command-line">Back to the command line<a class="headerlink" href="#back-to-the-command-line" title="Permanent link"></a></h3>
+<p>As in previous articles we need to get ourselves to a command prompt. Go back to your Linode dashboard and make sure you're on the <em>Linodes</em> tab on the left. Click on the three dots to the right of name you gave the VPS that's running <code>geth</code>. Choose <em>Launch Console</em> from the dropdown menu. Once the terminal window appears and you've logged back in, you're ready to start.</p>
+<h3 id="becoming-an-enabler">Becoming an enabler<a class="headerlink" href="#becoming-an-enabler" title="Permanent link"></a></h3>
+<p>The first thing you should do once you're sitting at a command line is enable the UFW. Right away your computer is far more secure than it was a few seconds ago. Check the status to see what the firewall is doing. In the examples below I've included both the commands and their output for clarity.</p>
+<pre><code class="language-shell">$ sudo ufw enable
+Started bpfilter
+Firewall is active and enabled on system startup
+
+$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+</code></pre>
+<p>As you can see from the output of the <code>status</code> command, UFW is denying all incoming network traffic. This may seem overly restrictive, but it doesn't include responses to your own traffic. For example, if you request a web page with your browser, the website has to send you the HTML for your browser to display. So we're good.</p>
+<h3 id="allowing-specific-incoming-traffic">Allowing specific incoming traffic<a class="headerlink" href="#allowing-specific-incoming-traffic" title="Permanent link"></a></h3>
+<p>As discussed earlier, <code>geth</code> use specific ports in order to participate in the Ethereum network. Also, our SSH tunnel uses its own specific port. Type the following to allow SSH traffic through our firewall:</p>
+<pre><code class="language-shell">$ sudo ufw allow 22/tcp
+Rule added
+Rule added (v6)
+</code></pre>
+<p>The output indicates that the firewall has been configured properly, both for IPv4 and IPv6. If you don't know what those are, it's not important. Here's a <a href="https://mashable.com/2011/02/03/ipv4-ipv6-guide/">short guide</a> on the subject. Continue now to allow <code>geth</code> to communicate with the outside world.</p>
+<pre><code class="language-shell">$ sudo ufw allow 30303/tcp
+$ sudo ufw allow 30303/udp
+</code></pre>
+<p>Both of these commands will produce the same output as the previous command. Now when you ask for the status of the firewall you get a different answer.</p>
+<pre><code class="language-shell">$ sudo ufw status verbose
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW IN    Anywhere                  
+30303/tcp                  ALLOW IN    Anywhere                  
+30303/udp                  ALLOW IN    Anywhere                  
+22/tcp (v6)                ALLOW IN    Anywhere (v6)             
+30303/tcp (v6)             ALLOW IN    Anywhere (v6)             
+30303/udp (v6)             ALLOW IN    Anywhere (v6)             
+</code></pre>
+<p>That's it! Your computer is now sitting behind a firewall, only allowing the network traffic necessary to run <code>geth</code> and permitting you to access it via SSH.</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>The first version of this article was quite a bit longer and far more complicated. In discussions with peers (thanks, Evans!) I realized that using UFW instead of manually specifying firewall rules would make a more effective article.</p>
+<p>With your shiny new firewall, your remote Ethereum node is now much safer from malicious attack. Note: this is specific to running <code>geth</code>. If you have other services on the same machine you'll have to open the relevant ports or your services will cease to function after you activate this firewall. I hope this article helped you understand a little more clearly what a firewall is and how to set one up. If you have any questions please ask in the comments below.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to set up a simple Linux firewall</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-set-up-a-simple-linux-firewall/e56670e530d34b2d8917dc2d2e938666/a</li>
+<li><strong>Kauri original author:</strong> Daniel Ellison (@zigguratt)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-16</li>
+<li><strong>Kauri original tags:</strong> iptables, ethereum, geth, firewall, linux</li>
+<li><strong>Kauri original hash:</strong> QmRauq9Yw7J7qfbkXKTbKJVvBgCx7vMCxdETwTZYyuz8PX</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Decentralized%20Storage/swarm--distributed-storage-platform-and-content-d/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Decentralized%20Storage/swarm--distributed-storage-platform-and-content-d/" class="btn btn-xs btn-link">
+        Swarm  Distributed Storage Platform and Content Distribution Service
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-link">
+        Make use of your remote Ethereum node using an SSH tunnel and MetaMask
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-set-up-a-simple-linux-firewall.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

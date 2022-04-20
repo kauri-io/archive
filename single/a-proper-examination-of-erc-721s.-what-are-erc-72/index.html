@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/a-proper-examination-of-erc-721s.-what-are-erc-72/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A proper examination of ERC-721s. What are ERC-721s and what is their potential? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "A proper examination of ERC-721s. What are ERC-721s and what is their potential?", url: "#_top", children: [
+              {title: "What are Tokens?", url: "#what-are-tokens" },
+              {title: "So\u2026..What are NFTs/ERC-721s?", url: "#sowhat-are-nftserc-721s" },
+              {title: "An Real Example of NFTs", url: "#an-real-example-of-nfts" },
+              {title: "Current ERC-721s out there", url: "#current-erc-721s-out-there" },
+              {title: "Do you know what an ERC-721 is now?", url: "#do-you-know-what-an-erc-721-is-now" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="a-proper-examination-of-erc-721s-what-are-erc-721s-and-what-is-their-potential">A proper examination of ERC-721s. What are ERC-721s and what is their potential?<a class="headerlink" href="#a-proper-examination-of-erc-721s-what-are-erc-721s-and-what-is-their-potential" title="Permanent link"></a></h1>
+<p><strong>This is the beginning of a new series of educational material about ERC-721s (Non-fungible tokens) on the Ethereum blockchain.</strong></p>
+<p><em>These series are brought to you by</em></p>
+<p><a href="https://mintable.app">Mintable.app</a></p>
+<p><em>a free resource that lets you transfer/manage your ERC-721s safely and easily. (You can also do a lot more, like create any ERC-721 - which is currently free to do!)</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbHsPexACi5tf8yKutyYdLvKc8LzUgNLhnxcNVzeiJ1K8" /></p>
+<h3 id="what-are-tokens">What are Tokens?<a class="headerlink" href="#what-are-tokens" title="Permanent link"></a></h3>
+<p>The ethereum blockchain has many use cases, from a financial ledger that stores your balances, to a global computing machine that can operate like something similar to AWS/Google’s cloud.
+The one killer use case that came from Ethereum was these things called Tokens. ERC-20 tokens to be exact.
+My definition for an ERC-20 token is — 
+<em>“A piece of code uploaded to the Ethereum blockchain, that is formatted and structured in a universal manner, that has been voted on and accepted by the community as an ERC standard. This code holds a balance of every user who uses the contract, which represents their internal token balance.”</em></p>
+<p>These ERC-20 tokens are like special tokens you get at an arcade. Each arcade can make their own tokens, and each accepts their own. But each token is round, each token is made of metal, each token has 2 sides, 
+<em>each token…. has a standard format, do you see? This is the ERC-20 standard, a format to shape your coin so it can be accepted everywhere.</em></p>
+<p>On the blockchain, these tokens are just code, and this code that 
+<strong>my</strong>
+ arcade would write, or 
+<strong>your</strong>
+ arcade would write — should follow the same FORMAT. This format is the ERC-20 standard. This is all you need to know. We have formats in the Ethereum development community, and these formats dictate if your code is a token. If it follows one format, its one type of token, and if it follows another format, its another type of token.
+You probably already know what an ERC-20 token is, you probably own a few. These tokens are the popular coins you see/hear about like: BAT, OMG, TRX, 
+<em>the coins people are trading on exchanges.</em>
+ Just like how BAT is a different company/coin from OMG — ERC-721 tokens are the same way. My crypto Cat is mine, and its special, with its own name and color. Yours is different.
+This is why an ERC-20 token, is NOT the same as these new ERC-721 tokens, they are different formats for tokens.</p>
+<blockquote>
+<p>But what are these ERC-721 tokens then?? I get an ERC-20 is a token like BAT, or TRX that I can trade and has value! But how do I trade some digital cat?!</p>
+</blockquote>
+<p>Good question! (which we will discuss now, but if you want more info on ERC-20s, check out: 
+<a href="https://medium.com/@jgm.orinoco/understanding-erc-20-token-contracts-a809a7310aa5">https://medium.com/@jgm.orinoco/understanding-erc-20-token-contracts-a809a7310aa5</a>
+ )
+First, some definitions:</p>
+<ul>
+<li><strong>ERC-721/NFT</strong> — these terms are interchangeable. NFT stands for Non-fungible token, ERC-721 is a NFT on the ethereum blockchain. I use both, and they mean the same thing when I say ‘make a NFT’ or ‘manage an ERC-721’</li>
+</ul>
+<p><strong>Non-fungible token</strong>
+ — The word fungible means: “(especially of goods) being of such nature or kind as to be freely exchangeable or replaceable, in whole or in part, for another of like nature or kind.” so the word — 
+<strong>“non-fungible tokens” means tokens that do not have a set value, and are valued off personal, subjective facts.</strong></p>
+<blockquote>
+<p>Example: I value my grandmother’s clock at $5mil dollars, this is what makes it a non-fungible item, because to you it’s value could be worthless, therefore I cannot take my grandma’s clock to the grocery store and purchase my food with it</p>
+</blockquote>
+<ul>
+<li><strong>Metadata</strong> — Metadata is any data that can be stored on each token. We will get into this, but just know — metadata can be ANY data you want. A file, a word, an image, etc. etc.</li>
+</ul>
+<h3 id="sowhat-are-nftserc-721s">So…..What are NFTs/ERC-721s?<a class="headerlink" href="#sowhat-are-nftserc-721s" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTQi6NbAxSdKimGvbfUk9pV4C9s4tWjrBkCsfVpJHq6vr" /></p>
+<p>You can get these items, called ERC-721 Non-fungible Tokens, by interacting with different services/games on the blockchain. Every week multiple new games are released where items or objects are made as ERC-721 tokens for you to digitally own via your Ethereum address. Items like collectible cats, pokemon cards, baseball cards, trading card games, resource management games, etc.
+These are tokens on a smart contract, which is on the 
+<strong>GLOBAL</strong>
+ blockchain, which means, when you ‘get a token’ or ‘get a new item’ or ‘buy a cat’, you are 
+<em>ACTUALLY</em>
+ being transferred a digital item, that you have access to in your wallet. It becomes 
+<strong>YOURS</strong>
+ , no one can take it from you, unless they have your wallet keys. You have access to it, everywhere in the world, so long as you have internet and blockchain access.</p>
+<blockquote>
+<p>Example: Its 2025, the world is different. Security is tight and violence is rampant. You come over to hang out at my secure compound, so I create an ERC-721 with a special 6 hour access code on it. The code unlocks the gate to my compound. I transfer my access token to your wallet, when you get to my gate, you simply scan your wallet against my gate and it will open for you, allowing you into my compound and all while avoiding being eaten by zombies.</p>
+</blockquote>
+<h3 id="an-real-example-of-nfts">An Real Example of NFTs<a class="headerlink" href="#an-real-example-of-nfts" title="Permanent link"></a></h3>
+<p>To help wrap your mind about ERC-721s and NFTs (non-fungible tokens), I like to give this example.
+We know tokens are these digital tokens you own, and we can see that you own these tokens by looking at your address, like you can see you own money in the bank. Since its the blockchain, you can see your balance of tokens, 
+<em>anywhere in the world.</em></p>
+<p>A normal token, is just a token, think a digital coin. A coin doesn’t have a unique name for each coin, a coin doesn’t have an ID, its just a penny, and every penny is a penny.
+A NFT (note the word token here), is also a coin, but this coin has a USB chip in it, that holds data. So now when I give you a penny, it has a USB chip in it, that says my name, my phone number, and a message saying “Thanks for your lemonade, here is payment”.
+This is the special metadata that can be put on a NFT. This metadata can be ANYTHING.
+Lets imagine you are traveling the world and have an ethereum wallet, like your credit card or bank account, you will have it with you and have access. Since you know you have global access to the blockchain and NFT technology, you can take things a step further.</p>
+<p><strong>You upload your passport photo as the metadata on a NFT.</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUTQacVe5jGEKzAAdAk6Z3EXn9YcHfuhu6d4CdBCB2Td7" /></p>
+<p>You upload a picture of your passport, to a new NFT. This NFT is given to your ethereum address and you now own a token that has the special data you put on it. In this case it’s your passport.
+You did this so that:</p>
+<ul>
+<li>
+<p>Now you can access a picture of your passport, anywhere in the world, as long as you have blockchain access.</p>
+</li>
+<li>
+<p>You can verify that you are who you say you are, by using a KYC method built into blockchain services</p>
+</li>
+<li>
+<p>If you lose you passport, you have a copy that anyone can get access to
+(Note: Don’t actually do this. This is a horrible idea for security reasons — but this is a great example of showing ANYTHING can be used in someway with NFTS.)</p>
+<blockquote>
+<p>Why its a security risk: Anything you upload currently, can be seen on the blockchain. So if I uploaded my passport, then everyone in the world can view my passport and steal it. We at mintable are working on technology that removes this burden, so that you CAN upload sensitive data and its held privately.</p>
+</blockquote>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ99dNFrhdR7CiYycAVBN3KQD2Tx5hrnouXBDjQ2nozMt" /></p>
+<p>That’s one example of an NFT. It could be anything. It could be…</p>
+<ul>
+<li>
+<p>a newspaper clipping</p>
+</li>
+<li>
+<p>a patent you want to have public proof of display</p>
+</li>
+<li>
+<p>a deed to an item like a car, or house (flaw: needs government cooperation)</p>
+</li>
+<li>
+<p>a certificate of either qualification, or for rare items</p>
+</li>
+<li>
+<p>a digital item (video game item)</p>
+</li>
+<li>
+<p>A token for access (social clubs, or physical access)</p>
+</li>
+<li>
+<p>so much more…</p>
+</li>
+</ul>
+<h3 id="current-erc-721s-out-there">Current ERC-721s out there<a class="headerlink" href="#current-erc-721s-out-there" title="Permanent link"></a></h3>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/mLvFIUKYbUc" width="512"></iframe>
+
+<h4 id="gods-unchained-httpsgodsunchainedcom">Gods Unchained — https://godsunchained.com<a class="headerlink" href="#gods-unchained-httpsgodsunchainedcom" title="Permanent link"></a></h4>
+<p>Gods unchained is a trading card game. Each card has stats, and each card is an ERC-721 you own. You own token #555? Here are its stats: 
+<a href="https://api.godsunchained.com/card/5555">https://api.godsunchained.com/card/555</a></p>
+<pre><code>{&quot;name&quot;:&quot;Hades, Underworld Lord&quot;,&quot;image&quot;:&quot;https://api.godsunchained.com/v0/image/99?format=card&amp;quality=plain&quot;,&quot;description&quot;:&quot;Whenever another friendly creature dies, summon a random creature with the same Mana cost from your Void.&quot;,&quot;attributes&quot;:{&quot;attack&quot;:{&quot;Int64&quot;:7,&quot;Valid&quot;:true},&quot;god&quot;:&quot;death&quot;,&quot;health&quot;:{&quot;Int64&quot;:10,&quot;Valid&quot;:true},&quot;mana&quot;:8,&quot;proto&quot;:99,&quot;purity&quot;:628,&quot;rarity&quot;:&quot;legendary&quot;,&quot;tribe&quot;:{&quot;String&quot;:&quot;olympian&quot;,&quot;Valid&quot;:true}},&quot;external_url&quot;:&quot;https://godsunchained.com/card/555&quot;,&quot;background_color&quot;:&quot;FFFFFF&quot;
+</code></pre>
+<p>You can transfer that token, which means you have given away the card 
+<em>Hades Unworld Lord</em>
+ . You have complete ownership of this token, just like you do your BAT/OMG/TRX tokens.
+One thing you might ask is what is their value??
+They are non-fungible. The value is not set. The game might decide to only have 5 copies of the rarest card, so inherently if people buy these cards, that would be the most expensive, sense its the rarest. Besides this internal economic mechanism, there is little to incentivize a price market on some NFTs.</p>
+<h4 id="zombie-battleground-httpsloomgames">Zombie Battleground — https://loom.games/<a class="headerlink" href="#zombie-battleground-httpsloomgames" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV88SJcT51tNh8pTzT53AuaDCZppnnNeVnY53aZGAU6Dh" /></p>
+<p>Loom is similar to Gods Unchained. Its a trading card game, where each card is a ERC-721 token. So if you have token #500, thats the 500th card made, and it might be rare, or it might be common. Each card has its rarity, skills, and powers within the token. So when you transfer me token #500, you just gave me a card — that has special abilities — which I can now use to play the game with.</p>
+<h4 id="mlb-baseball-httpsmlbcryptobaseballcom">MLB Baseball — https://mlbcryptobaseball.com<a class="headerlink" href="#mlb-baseball-httpsmlbcryptobaseballcom" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf93zjtwGvN53F4S6WCHZetgb865UJWViskntT1toiT2i" /></p>
+<p>MLB baseball cards on the blockchain! What more do I need to say? Each card is a collectible baseball card, and you own it, as an ERC-721.</p>
+<h4 id="cryptokitties-httpcryptokittiescom">CryptoKitties — http://cryptokitties.com<a class="headerlink" href="#cryptokitties-httpcryptokittiescom" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY24yQcX8Kj3uvLHJhP46SPjnjDCjTakaeME3vyYvCiwL" /></p>
+<p>Cryptokitties was the creator of the ERC-721 idea/standard. They were the first to create a game using tokens that held special metadata corresponding to different cats. The way it works is simple — you have a token that has a random string of numbers as the metadata. So your token #1 has a name: Cat 1, and metadata: 32659154922846298626. This string of random numbers would represent special stats. So the first number is the color, and 3 = blue. Therefore, you have a blue cat.
+You’d then breed and sell the cats you got, that have rare genes (aka, rare random bytes of numbers).</p>
+<h4 id="decentraland-httpsdecentralandorg">Decentraland — https://decentraland.org/<a class="headerlink" href="#decentraland-httpsdecentralandorg" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQh9etKwG5gVxQvyW1xRw73LgZEn8aXbWcFfJj4cuXAJs" /></p>
+<p>Decentraland is the project behind an ERC-20 token you can trade, ERC-721 tokens that are assets, and a VR game you can play. Basically — in the game, it mimics real life in a VR setting, so that you have a shop, a house, land, a business, anything you want. The land is currently plots of land sold as ERC-721 tokens that you own. Pretty cool stuff.</p>
+<h3 id="do-you-know-what-an-erc-721-is-now">Do you know what an ERC-721 is now?<a class="headerlink" href="#do-you-know-what-an-erc-721-is-now" title="Permanent link"></a></h3>
+<blockquote>
+<p>If I asked you —you can create an ERC-721 contract that has as many tokens as you like, what would you put on these tokens?</p>
+<p>What would your answer be?</p>
+</blockquote>
+<p>I’m serious, think of an answer. Can you? Would you create a ERC-721 that has stats, so each token has special unique stats? That would be making a trading card game.
+Or if you could upload any file, what would you upload? Assume there is no limit and you can upload anything you want as a token. Could be a movie…. or maybe your a photographer and you upload a photo, so if you transfer that token, you have just 
+<em>sold</em>
+ your photo.
+You can put anything as the metadata on an ERC-721 — 
+<strong>what do you put?</strong></p>
+<p><em>Scalability and data storage are stored for another article….But we will get into these, trust me!</em></p>
+<p>If you love NFTs join Mintable’s discord!
+discord: 
+<a href="https://discord.gg/fUEmc8d">https://discord.gg/fUEmc8d</a></p>
+<p><a href="https://mintable.app">Mintable: Mintable.app</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> A proper examination of ERC-721s. What are ERC-721s and what is their potential?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-proper-examination-of-erc721s-what-are-erc721s-a/ecd47323706d4d7db1abc55a4aa6071b/a</li>
+<li><strong>Kauri original author:</strong> null (@null)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-05</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmRckns8NzA6bGFbTxo4nz1ouf3tb4ZSPhATr7uvtUkWYf</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../uptown/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../uptown/" class="btn btn-xs btn-link">
+        UpTown
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../osuke-sudo-tokyo-layerx-blockchain.tokyo/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../osuke-sudo-tokyo-layerx-blockchain.tokyo/" class="btn btn-xs btn-link">
+        Osuke Sudo - Tokyo - LayerX, blockchain.tokyo
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/a-proper-examination-of-erc-721s.-what-are-erc-72.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

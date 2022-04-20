@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Ethereum%20Node%20Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card", url: "#_top", children: [
+              {title: "Why running a full node?", url: "#why-running-a-full-node" },
+              {title: "Why ARM devices?", url: "#why-arm-devices" },
+              {title: "What is Ethereum on ARM", url: "#what-is-ethereum-on-arm" },
+              {title: "Supported devices (February 2020)", url: "#supported-devices-february-2020" },
+              {title: "Ethereum on ARM images", url: "#ethereum-on-arm-images" },
+              {title: "Main features", url: "#main-features" },
+              {title: "Software installed", url: "#software-installed" },
+              {title: "Equipment", url: "#equipment" },
+              {title: "Workshop. Raspberry Pi 4 image installation", url: "#workshop-raspberry-pi-4-image-installation" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-on-arm-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card">Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card<a class="headerlink" href="#ethereum-on-arm-turn-your-arm-device-into-a-full-ethereum-node-just-by-flashing-a-microsd-card" title="Permanent link"></a></h1>
+<p><strong>Ethereum on ARM</strong> is a project that provides custom Linux images for ARM devices that run Geth, Parity and Nethermind Ethereum clients as a boot service and automatically turns these ARM boards into a full Ethereum node.</p>
+<h3 id="why-running-a-full-node">Why running a full node?<a class="headerlink" href="#why-running-a-full-node" title="Permanent link"></a></h3>
+<p>You may ask yourself, why should I run a full Ethereum node? Well, probably, there is not a perfect answer to this question but this quote from Mastering Ethereum book is a good one: <em>“The health, resilience, and censorship resistance of blockchains depend on them having many independently operated and geographically dispersed full nodes. Each full node can help other new nodes obtain the block data to bootstrap their operation, as well as offering the operator an authoritative and independent verification of all transactions and contracts.”</em></p>
+<p>So, basically, what you are doing by running a full node is supporting the Ethereum network. Other possible reasons to run a node are: validate / send transactions without relying on third party services, host your own node infrastructure to develop Dapps or test eth2.0 implementations.</p>
+<h3 id="why-arm-devices">Why ARM devices?<a class="headerlink" href="#why-arm-devices" title="Permanent link"></a></h3>
+<p>Think about it, if you are going to run a full node, would you be willing to let your laptop or desktop running 24/7 for such a specific task? Would you buy an expensive server?. We did ask ourselves these questions when we first decided to run full nodes some years ago and came to the conclusion that <strong>ARM</strong> devices are the most convenient devices for doing so.</p>
+<p>Among other reasons:</p>
+<ul>
+<li><strong>Affordable</strong>: These boards are quite affordable, you can acquire all necessary hardware for less that $200</li>
+<li><strong>Eco Friendly</strong>: Power consumption is quite low compare to x86 computers</li>
+<li><strong>Efficient</strong>: The device is dedicated to this particular task (no graphical environments or other user tasks)</li>
+<li><strong>Small</strong>: It fits pretty much in any corner of your home or office</li>
+</ul>
+<h3 id="what-is-ethereum-on-arm">What is Ethereum on <strong>ARM</strong><a class="headerlink" href="#what-is-ethereum-on-arm" title="Permanent link"></a></h3>
+<p>Ethereum on ARM provides images to easily turn you <strong>ARM</strong> device into a full Ethereum node. Images take care of all necessary steps, from setting up the environment and formatting the SSD disk to installing and running the Ethereum software as well as synchronizing the blockchain.</p>
+<h3 id="supported-devices-february-2020">Supported devices (February 2020)<a class="headerlink" href="#supported-devices-february-2020" title="Permanent link"></a></h3>
+<ul>
+<li>Raspberry Pi 4 https://www.raspberrypi.org/products/raspberry-pi-4-model-b/ (4 GB RAM)</li>
+<li>NanoPC-T4 https://www.friendlyarm.com/index.php?route=product/product&amp;product_id=225</li>
+<li>RockPro64 https://www.pine64.org/rockpro64 (4 GB RAM)</li>
+</ul>
+<h3 id="ethereum-on-arm-images">Ethereum on ARM images<a class="headerlink" href="#ethereum-on-arm-images" title="Permanent link"></a></h3>
+<ul>
+<li>https://github.com/diglos/pi-gen (Raspberry Pi 4 32-bit)</li>
+<li>https://github.com/diglos/userpatches (NanoPC-T4 and RockPro64)</li>
+</ul>
+<h3 id="main-features">Main features<a class="headerlink" href="#main-features" title="Permanent link"></a></h3>
+<ul>
+<li>Support for Geth, Nethermind and Parity 1.0 clients</li>
+<li>Based on Armbian Ubuntu Bionic 18.04 and Raspbian Debian Buster</li>
+<li>Automatically resizes the SD card on first boot</li>
+<li>Partitions and formats the NVMe / USB3 SSD drive (in case is detected) and mount it as /home for storing the Ethereum blockchain under the ethereum user account</li>
+<li>Adds some swap memory (4GB) to prevent memory issues (applies only if a SSD drive is detected)</li>
+<li>Changes the hostname to something like “ethnode-e2a3e6fe” (HEX chunk based on the MAC hash)</li>
+<li>Runs Geth by default as a Systemd service in Light Server mode and starts syncing the Blockchain</li>
+<li>Watches the Ethereum client binary and respawns it in case it gets killed</li>
+<li>Includes an APT repository for upgrade Ethereum software through apt command</li>
+<li>Includes automatic upgrades through "Unattended upgrades" system (only 64 bit)</li>
+</ul>
+<h3 id="software-installed">Software installed<a class="headerlink" href="#software-installed" title="Permanent link"></a></h3>
+<h4 id="ethereum-10-clients">Ethereum 1.0 clients<a class="headerlink" href="#ethereum-10-clients" title="Permanent link"></a></h4>
+<ul>
+<li>Geth 1.9.10</li>
+<li>Parity 2.7.2</li>
+<li>Nethermind 1.5.8</li>
+</ul>
+<h4 id="ethereum-20-64-bit-only">Ethereum 2.0 (64-bit only)<a class="headerlink" href="#ethereum-20-64-bit-only" title="Permanent link"></a></h4>
+<ul>
+<li>Prysm 0.3.1</li>
+<li>Lighthouse 0.1.0</li>
+</ul>
+<h4 id="ethereum-ecosystem">Ethereum ecosystem<a class="headerlink" href="#ethereum-ecosystem" title="Permanent link"></a></h4>
+<ul>
+<li>Swarm: 0.5.5</li>
+<li>Raiden Network: 0.200.0~rc1</li>
+<li>IPFS: 0.4.23</li>
+<li>Status.im: 0.34.0~beta3</li>
+<li>Vipnode: 2.3</li>
+</ul>
+<h3 id="equipment">Equipment<a class="headerlink" href="#equipment" title="Permanent link"></a></h3>
+<ul>
+<li>Ethereum on ARM image (links above)</li>
+<li>Raspberry PI 4 / NanoPC-T4 / RockPro64</li>
+<li>Micro SD Card and SD Adaptor (for flashing the MicroSD)</li>
+<li>NVMe M.2 SSD (NanoPC-T4 / RockPro64) or an USB3 Disk (Raspberry Pi 4). We recommend at least 500GB. Keep in mind that without a SSD drive there’s absolutely no chance of syncing the Ethereum blockchain.</li>
+<li>An ethernet cable</li>
+<li>(Optional) 30303 Port forwarding. This is a recommended setting</li>
+<li>(Optional) USB keyboard, Monitor and HDMI cable</li>
+</ul>
+<h2 id="workshop-raspberry-pi-4-image-installation">Workshop. Raspberry Pi 4 image installation<a class="headerlink" href="#workshop-raspberry-pi-4-image-installation" title="Permanent link"></a></h2>
+<p>This is a step-by-step guide of Ethereum on ARM image installation for the Raspberry Pi 4.</p>
+<h3 id="hardware-used">Hardware used<a class="headerlink" href="#hardware-used" title="Permanent link"></a></h3>
+<ul>
+<li>Raspberry Pi 4 https://www.raspberrypi.org/products/raspberry-pi-4-model-b/</li>
+<li>Inateck Box https://www.inateck.com/fe2011-aluminum-2-5-hard-drive-enclosure.html</li>
+<li>Kingston A400 SSD SA400S37/480G https://www.kingston.com/es/ssd/a400-solid-state-drive?partnum=SA400S37/480G</li>
+<li>Micro SD Card</li>
+<li>GeepPi Acrylic Case https://www.amazon.com/GeeekPi-Acrylic-Raspberry-Cooling-Heatsinks/dp/B07TXSQ47L?ref_=ast_sto_dp</li>
+<li>USB C power adapter</li>
+<li>Ethernet cable</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNsFNp2rUMSXQrDcdv2Yqr9RE8cAs4przQPhwvG7YzE6e" />
+<em>Necessary hardware (Raspberry Pi 4)</em></p>
+<h3 id="installation-steps">Installation steps<a class="headerlink" href="#installation-steps" title="Permanent link"></a></h3>
+<h4 id="download-the-latest-ethereum-on-arm-image">Download the latest Ethereum on ARM <a href="https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip">image</a><a class="headerlink" href="#download-the-latest-ethereum-on-arm-image" title="Permanent link"></a></h4>
+<pre><code class="language-shell">[fernando@etherNode ~]$ wget https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip
+--2020-02-08 15:34:14--  https://ethraspbian.com/downloads/image_2019-12-20-EthRaspbian2.0-lite.zip
+Loaded CA certificate '/etc/ssl/certs/ca-certificates.crt'
+Resolving ethraspbian.com (ethraspbian.com)... 87.98.231.24
+Connecting to ethraspbian.com (ethraspbian.com)|87.98.231.24|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 574317534 (548M) [application/zip]
+Saving to: ‘image_2019-12-20-EthRaspbian2.0-lite.zip’
+
+image_2019-12-20-EthRaspbian2.0-lite.zip            100%[==================================================================================================================&gt;] 547,71M  11,3MB/s    in 48s
+
+2020-02-08 15:35:02 (11,4 MB/s) - ‘image_2019-12-20-EthRaspbian2.0-lite.zip’ saved [574317534/574317534]
+</code></pre>
+<h4 id="unzip-the-downloaded-file">Unzip the downloaded file<a class="headerlink" href="#unzip-the-downloaded-file" title="Permanent link"></a></h4>
+<pre><code class="language-shell">[fernando@etherNode ~]$ unzip image_2019-12-20-EthRaspbian2.0-lite.zip
+Archive:  image_2019-12-20-EthRaspbian2.0-lite.zip
+  inflating: 2019-12-20-EthRaspbian2.0-lite.img
+</code></pre>
+<h4 id="flash-the-uncompressed-image">Flash the uncompressed image<a class="headerlink" href="#flash-the-uncompressed-image" title="Permanent link"></a></h4>
+<p>We need to find the right block device in order to flash the  image</p>
+<pre><code class="language-shell">[fernando@etherNode ~]$ lsblk -P -M  -o PATH,MODEL
+PATH=&quot;/dev/sda&quot; MODEL=&quot;ST1000LM049-2GH172&quot;
+PATH=&quot;/dev/sda1&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/sda2&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/sdc&quot; MODEL=&quot;Micro_SD_M2&quot;
+PATH=&quot;/dev/sdc1&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1&quot; MODEL=&quot;CT500P1SSD8&quot;
+PATH=&quot;/dev/nvme0n1p1&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1p2&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1p3&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1p4&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1p5&quot; MODEL=&quot;&quot;
+PATH=&quot;/dev/nvme0n1p6&quot; MODEL=&quot;&quot;
+</code></pre>
+<p>In this case /dev/sdc is the MicroSD card. Other possible device is /dev/mmcblk0</p>
+<h4 id="flash-the-image-to-the-right-device">Flash the image to the right device<a class="headerlink" href="#flash-the-image-to-the-right-device" title="Permanent link"></a></h4>
+<pre><code class="language-shell">[fernando@etherNode ~]$ sudo dd bs=1M if=2019-12-20-EthRaspbian2.0-lite.img of=/dev/sdc conv=fdatasync status=progress
+2480930816 bytes (2,5 GB, 2,3 GiB) copied, 2 s, 1,2 GB/s
+2444+0 records in
+2444+0 records out
+2562719744 bytes (2,6 GB, 2,4 GiB) copied, 258,691 s, 9,9 MB/s
+</code></pre>
+<p>And that's it. Easy! isn't it?</p>
+<p>Note: **If you have a Windows desktop you can use Balena Etcher to flash the MicroSD</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWEFd3wErZ9n3qiS7LzBUbjkkXr9mUeyoh6pXdNeaD5m2" />
+<em>Etcher main menu</em></p>
+<h4 id="first-connection">First connection<a class="headerlink" href="#first-connection" title="Permanent link"></a></h4>
+<p>Using nmap you can easily find the local IP of your Raspi</p>
+<pre><code class="language-shell">[fernando@etherNode ~]$ sudo nmap -sn 172.16.10.0/24
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-02-08 16:05 CET
+Nmap scan report for www.adsl.vf (172.16.10.1)
+Host is up (0.0075s latency).
+MAC Address: B4:A5:EF:12:DE:30 (Sercomm)
+Nmap scan report for 172.16.10.2
+Host is up (0.010s latency).
+MAC Address: 00:11:32:16:FD:03 (Synology Incorporated)
+Nmap scan report for 172.16.10.154
+Host is up (0.0085s latency).
+MAC Address: B4:F1:DA:EA:0D:56 (LG Electronics (Mobile Communications))
+Nmap scan report for 172.16.10.157
+Host is up (0.0089s latency).
+MAC Address: 7C:2E:BD:5F:4C:21 (Google)
+Nmap scan report for 172.16.10.158
+Host is up (0.0033s latency).
+MAC Address: 14:49:E0:66:19:96 (Samsung Electro-mechanics(thailand))
+Nmap scan report for 172.16.10.163
+Host is up (0.0031s latency).
+MAC Address: DC:A6:32:45:32:F2 (Raspberry Pi Trading)
+Nmap scan report for 172.16.10.155
+Host is up.
+Nmap done: 256 IP addresses (7 hosts up) scanned in 28.26 seconds
+</code></pre>
+<p>The default user and password are ethereum::ethereum. The system will require a password change for security reasons so you will need to log in twice.</p>
+<pre><code class="language-shell">[fernando@etherNode ~]$ ssh 172.16.10.163 -l ethereum
+The authenticity of host '172.16.10.163 (172.16.10.163)' can't be established.
+ECDSA key fingerprint is SHA256:BPw2GzwtL/VCgyhkY3O//ZHl9ZP1w+42R9zOs4EtX/U.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '172.16.10.163' (ECDSA) to the list of known hosts.
+ethereum@172.16.10.163's password:
+X11 forwarding request failed on channel 1
+You are required to change your password immediately (administrator enforced)
+Linux ethnode-f33f31e5 4.19.75-v8+ #1270 SMP PREEMPT Tue Sep 24 18:59:17 BST 2019 aarch64
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb  8 15:10:05 2020 from 172.16.10.155
+WARNING: Your password has expired.
+You must change your password now and login again!
+Changing password for ethereum.
+Current password:
+New password:
+Retype new password:
+passwd: password updated successfully
+Connection to 172.16.10.163 closed.
+</code></pre>
+<h3 id="software-update">Software update<a class="headerlink" href="#software-update" title="Permanent link"></a></h3>
+<ol>
+<li>First run update-ethereum in order to get the latest software</li>
+</ol>
+<pre><code class="language-shell">fernando@ethnode-f33f31e5:~# sudo update-ethereum
+Hit:1 http://apt.ethraspbian.com buster InRelease
+Hit:2 http://raspbian.raspberrypi.org/raspbian buster InRelease
+Hit:3 http://apt.ethraspbian.com buster-security InRelease
+Hit:4 http://archive.raspberrypi.org/debian buster InRelease
+Hit:5 http://apt.ethraspbian.com buster-upgrades InRelease
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+raiden is already the newest version (0.200.0~rc1-0).
+status.im-node is already the newest version (0.34.0~beta3-0).
+vipnode is already the newest version (2.3-0).
+The following packages will be upgraded:
+  geth ipfs parity swarm
+4 upgraded, 0 newly installed, 0 to remove and 16 not upgraded.
+Need to get 50.8 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n]
+Get:1 http://apt.ethraspbian.com buster/main armhf geth armhf 1.9.10-0 [12.7 MB]
+Get:2 http://apt.ethraspbian.com buster/main armhf ipfs armhf 0.4.23-0 [14.4 MB]
+Get:3 http://apt.ethraspbian.com buster/main armhf parity armhf 2.7.2-0 [11.7 MB]
+Get:4 http://apt.ethraspbian.com buster/main armhf swarm armhf 0.5.5-0 [12.0 MB]
+Fetched 50.8 MB in 5s (10.3 MB/s)
+Reading changelogs... Done
+(Reading database ... 41579 files and directories currently installed.)
+Preparing to unpack .../geth_1.9.10-0_armhf.deb ...
+Unpacking geth (1.9.10-0) over (1.9.9-0) ...
+Preparing to unpack .../ipfs_0.4.23-0_armhf.deb ...
+Unpacking ipfs (0.4.23-0) over (0.4.22-0) ...
+Preparing to unpack .../parity_2.7.2-0_armhf.deb ...
+Unpacking parity (2.7.2-0) over (2.5.12-0) ...
+Preparing to unpack .../swarm_0.5.5-0_armhf.deb ...
+Unpacking swarm (0.5.5-0) over (0.5.4-0) ...
+Setting up parity (2.7.2-0) ...
+Setting up ipfs (0.4.23-0) ...
+Setting up geth (1.9.10-0) ...
+Setting up swarm (0.5.5-0) ...
+</code></pre>
+<ol>
+<li>Update Raspberry Pi kernel</li>
+</ol>
+<pre><code class="language-shell">fernando@ethnode-f33f31e5:~# sudo rpi-eeprom-update
+BOOTLOADER: up-to-date
+CURRENT: Tue 10 Sep 10:41:50 UTC 2019 (1568112110)
+ LATEST: Tue 10 Sep 10:41:50 UTC 2019 (1568112110)
+VL805: up-to-date
+CURRENT: 000137ab
+ LATEST: 000137ab
+</code></pre>
+<p><strong>You are now running a full Ethereum node (Geth) on your Raspberry Pi 4.</strong></p>
+<h3 id="addendum-some-pictures-of-the-installation">Addendum. Some pictures of the installation<a class="headerlink" href="#addendum-some-pictures-of-the-installation" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpnWXgyTMFt59hKg2VwyJeKtVN4hJrBKqCwYP1ZCxQt2" />
+<em>Power consumption during sync</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaT3sC8YwUre7diBw6qYoZFh15xGSk2YfaXUToZbjb8jZ" />
+<em>It is very important to connect the SSD to the blue USB port</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfBY1D7G8B2JyxY7x93GFtnJsLvrUcVU8LmUyHvjEwUSQ" />
+<em>Try to get a case with a cooler kit</em></p>
+<p>Follow us on https://twitter.com/EthereumOnARM</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum on ARM. Turn your ARM device into a full Ethereum node just by flashing a MicroSD card</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-on-arm-turn-your-arm-device-into-a-full-e/e7b2625208af4382acf070fa8068502b/a</li>
+<li><strong>Kauri original author:</strong> Ethereum on ARM (@ethonarm)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-10</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, lighhouse, nodes, parity, nethermind, prysm</li>
+<li><strong>Kauri original hash:</strong> QmZTNJsu4FLaptWqevBwHuqAozNTzAmZaV1gmB7ZbhVFRX</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-link">
+        Make use of your remote Ethereum node using an SSH tunnel and MetaMask
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../run-an-ethereum-node-on-debian-with-an-external-s/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../run-an-ethereum-node-on-debian-with-an-external-s/" class="btn btn-xs btn-link">
+        Run an Ethereum node on Debian with an External SSD (Mar 2020)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Ethereum Node Runners/ethereum-on-arm.-turn-your-arm-device-into-a-full.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-blocks--what-makes-a-good-evm-package/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building Blocks  What makes a good EVM package? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building Blocks  What makes a good EVM package?", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-blocks-what-makes-a-good-evm-package">Building Blocks  What makes a good EVM package?<a class="headerlink" href="#building-blocks-what-makes-a-good-evm-package" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTWpnTFavG5AnBgSnimrCLDwo6iQdLX9AuipPPBxfWnLe" /></p>
+<p>A mental shortcut for thinking about <a href="https://blog.zeppelinos.org/open-source-collaboration-in-the-blockchain-era-evm-packages/?utm_campaign=zos-technical-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">EVM packages</a>
+is to compare them to a package manager such as NPM. Package managers
+serve as convenient repositories for code that you can reuse and
+share with others. Indeed, when you use <code>zos link {packageName}</code>,
+ZeppelinOS will actually download code from NPM and save it directly
+into your <em>node_modules</em> folder. This is similar behavior to
+<code>npm install</code>, which is how you would install the
+<a href="https://github.com/OpenZeppelin/openzeppelin-solidity">openzeppelin-solidity</a>
+smart contracts.</p>
+<p>The difference when using <code>zos link {packageName}</code> to install EVM
+packages rather than <code>npm install</code> is that after downloading the
+package, ZeppelinOS checks the <em>zos.{network-name}.json</em> files
+to see if and where the code is already deployed on-chain. If the
+<strong>bytecode</strong> is already deployed, the <code>zos create</code> command will link it to
+your project by creating a <a href="https://blog.zeppelinos.org/the-transparent-proxy-pattern/"><em>transparent proxy</em></a>. In
+other words: instead of having to upload the logic contract's code to
+the blockchain, ZeppelinOS will reuse the existing instance, and just
+spin up a proxy that delegates all logic to it. Linking to on-chain
+code, rather than deploying entirely new contracts, can be a vastly less
+expensive operation, especially for cases that might end up deploying
+hundreds of instances of the same contract.</p>
+<p>Note that if you decide to write your own contracts <strong>extending</strong> from a
+base contract in an EVM package, ZeppelinOS will need to compile a
+completely new contract, extended from the downloaded Solidity source
+code. Publishing this code will essentially create a completely new
+logic contract that is now linkable itself. However, the gas savings
+from linking to an on-chain implementation during deployment will be
+lost.</p>
+<p>When considering what makes a good EVM package, it helps to first
+clarify what your goals are. In keeping with <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY programming principles</a>, we
+want to avoid rewriting code as much as possible to avoid the
+introduction of errors and improve code maintainability. Considering the
+level of danger that an error in smart contracts can expose users to,
+breaking a program down into smaller, isolated pieces of code can reduce
+a program's attack surface area, improve readability/maintainability,
+and, if individual pieces are themselves upgradable, create more robust
+and less brittle software.</p>
+<p>With DRY programming, we generally turn each particular task into its
+own function, and then rather than rewriting tasks, we reuse code via
+functions. When these functions are audited and well-tested, reusing
+them, rather than writing new implementations each time, allows
+developers to craft their contracts in a secure way. While
+theoretically, you could create an EVM package from a single function,
+in most cases this won't end up being very efficient in terms of gas
+deployment savings or for the organization of code. Instead, EVM
+packages are best built out of collections of functions that form a
+standalone contract.</p>
+<p>As you can rarely complete complicated tasks with a single function (we
+coding mortals anyway!), by grouping these functions together based on
+cohesive areas of functionality, you can build <strong>modular building blocks</strong>
+that can be used standalone or linked to as a part of something yet
+larger.</p>
+<p>As an example, <a href="https://github.com/OpenZeppelin/openzeppelin-eth">Zeppelin's OpenZeppelin-eth</a>
+implementation of the ERC20 standard is a concise collection of the
+functions and data definitions required to implement the functionality
+described by the <a href="https://eips.ethereum.org/EIPS/eip-20">EIP-20</a>.
+Standards such as this make good candidates for EVM packages, and they
+gather all of the functionality required for a particular goal into a
+concise collection. Functions related to the implementation requirements
+of ERC20 tokens can be found inside the ERC20 EVM package, and any
+project wishing to incorporate ERC20 tokens need only link to the
+deployed on-chain contract to implement a standards-compliant and secure
+ERC20 token.</p>
+<p>When building your own EVM packages, keep in mind how you might bundle
+together all the related functionality for a task, or implement a
+standalone standard by itself. The goal is to create a package that you
+might reuse any number of times for your own project and, optionally,
+share with a wider community of users. EVM packages should be
+self-contained, ready-to-go packs that don't need external supporting
+code to make them work.</p>
+<p>In building EVM packages, you may also find yourself wondering, <strong>Is this a Solidity library?</strong> Generally, we use libraries to help keep our
+code <a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY</a>, and
+the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/math/SafeMath.sol">OpenZeppelin-Solidity SafeMath</a>
+library is a good example of this. SafeMath allows us to safely perform
+arithmetic operations repeatedly but using a <strong>safe</strong> implementation that
+protects us from things like
+<a href="https://ethereumdev.io/safemath-protect-overflows/">overflow</a>, which
+can be exploited to do some <a href="https://medium.com/@blockchain101/beautychain-erc20-integer-overflow-bug-explained-c583adcd847e">nasty things</a>.
+As SafeMath is currently written, it is a library that has only internal
+functions, and as such will be embedded within the contract. At compile
+time, the SafeMath code is directly inserted into the user's Solidity
+code and compiled together as if it were one large contract, while <strong>EVM packages are designed to be used as external bytecode</strong>.</p>
+<p>While it is certainly possible to craft an EVM package that offers the
+functionality of a standard Solidity library, generally <strong>an EVM package will have its own storage and keep its own state</strong>. Contracts that make
+use of embedded libraries rather than link to them as an EVM package
+will also have an advantage in terms of gas cost. It is cheaper to call
+functions directly inside a contract than to call them externally. Thus,
+modifying SafeMath to work as an EVM package might save deployment gas
+costs (if you need to deploy many contracts), but the resulting smart
+contract could be significantly more expensive to interact with.</p>
+<p>For developers working on private networks or sidechains with different
+gas-cost dynamics, this may or may not be a relevant concern. Certainly,
+a theoretical use case for <em>libraries as EVM packages</em> could be a
+private network where gas costs are not a concern and smart contract
+libraries are required to use singular approved implementations.</p>
+<p>On a higher level, EVM packages are great for solving commonly occurring
+problems and simplifying the software development process. If you find
+yourself creating or using the same code over and over, or thinking,
+<strong>Hasn't someone already built this?</strong>, then your code might be a good
+candidate for creating an EVM package. Thoughtful developers may also
+want to <a href="https://guides.github.com/features/wikis/">include documentation</a> in their EVM
+packages or tests, to clarify what behavior is expected from the code
+and to make it easier and safer for the community to build on it. If you
+are developing your EVM package primarily for the community, nice
+documentation, sample usages, and a clear readme with a quick-start
+guide are always highly appreciated.</p>
+<p>Have a look at what some <a href="https://forum.zeppelin.solutions/t/list-of-evm-packages/90?utm_campaign=zos-technical-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">noteworthy projects are building</a>
+with EVM packages to get inspiration.</p>
+<p>Solidity libraries that are deployed separately and then linked at
+compile time (rather than having their code inlined by the compiler) or
+are linked manually after the compile process, are also not ideal EVM
+packages, as the ZeppelinOS system does not currently support linking to
+a Solidity library in an EVM package, although this will change in the
+future.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building Blocks  What makes a good EVM package?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-blocks-what-makes-a-good-evm-package/583aaad5aff749dab1edb80933350936/a</li>
+<li><strong>Kauri original author:</strong> Dennison Bertram (@dennisonbertram1)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-07</li>
+<li><strong>Kauri original tags:</strong> zeppelinos, zeppelin-best-evm-package, packages, evm, solidity</li>
+<li><strong>Kauri original hash:</strong> QmXTgt4jdTo5EGJj3zyCA8eqtyCDheyoyooh5o7yj8bJuW</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethlend-feedback/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethlend-feedback/" class="btn btn-xs btn-link">
+        ETHLend feedback
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../what-is-a-consensus-algorithm/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../what-is-a-consensus-algorithm/" class="btn btn-xs btn-link">
+        WHAT IS A CONSENSUS ALGORITHM?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-blocks--what-makes-a-good-evm-package.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

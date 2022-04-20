@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Eventeum/using-eventeum-to-build-a-java-smart-contract-dat/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Using Eventeum to Build a Java Smart Contract Data Cache - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Using Eventeum to Build a Java Smart Contract Data Cache", url: "#_top", children: [
+              {title: "Why would I want to do this?", url: "#why-would-i-want-to-do-this" },
+              {title: "Isn't that Centralization?", url: "#isnt-that-centralization" },
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "The Java Service", url: "#the-java-service" },
+              {title: "Testing the Service", url: "#testing-the-service" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="using-eventeum-to-build-a-java-smart-contract-data-cache">Using Eventeum to Build a Java Smart Contract Data Cache<a class="headerlink" href="#using-eventeum-to-build-a-java-smart-contract-data-cache" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYFxNNi9uce9UGSmTi12wEU8LmpfZs7tcT7fDEdhZRFtp" /></p>
+<p>In this tutorial, I am going to walk you through how to build a service that caches data emitted via smart contract events, so that this data can be consumed by other services in your system.</p>
+<h2 id="why-would-i-want-to-do-this">Why would I want to do this?<a class="headerlink" href="#why-would-i-want-to-do-this" title="Permanent link"></a></h2>
+<p>It all boils down to usability of your dApp.  Web3 applications with no middleware layer at all generally do not provide the kind of user experience that end users are familiar with in the traditional web2 world.  Operations such as complex searches across data stored within smart contract state are difficult to implement if your application relies on calls directly into smart contract functions.  Even if this is possible, the performance of obtaining this data via a database will be much higher than making smart contract calls to an Ethereum node.</p>
+<h2 id="isnt-that-centralization">Isn't that Centralization?<a class="headerlink" href="#isnt-that-centralization" title="Permanent link"></a></h2>
+<p>Its true that by adding a middleware layer into your dApp architecture, you are also adding a centralized point of failure into your application.  However, if you design your protocol layer in a way that does not inherently depend on these middleware services, then this may be a compromise that you're comfortable with.  Essentially, you're saying that "ok, my application frontend will not be usable if these services owned and managed by me go down, but all the information is freely available for anyone else to build their own frontend on top of the protocol, regardless of the middleware".  Even better, open source all your code so that other parties can run mirror deployments!</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h2>
+<p>To follow this guide, you should have some java experienced, along with having java, maven and docker installed on your machine.</p>
+<p>This tutorial follows on from the <a href="https://beta.kauri.io/article/90dc8d911f1c43008c7d0dfa20bde298">"Getting Started with Eventeum"</a> Kauri article.  This article walked you through getting Eventeum up and running, deploying a sample NameRegistry smart contract, and configuring Eventeum to listen to events for events emitted from the contract.</p>
+<p>For reference, the NameRegistry smart contract code is as below:</p>
+<pre><code>pragma solidity ^0.4.24;
+
+contract NamesRegistry {
+
+    struct Name {
+        string firstName;
+        string surname;
+    }
+
+    Name[] names;
+
+    function addName(string firstName, string surname) external {
+        names.push(Name(firstName, surname));
+
+        emit NameAdded(names.length - 1, firstName, surname);
+    }
+
+    event NameAdded(uint256 id, string firstName, string surname);
+}
+</code></pre>
+<p>As the Eventeum docker-compose file already contains an instance of MongoDB, we will use that for our data storage.</p>
+<h2 id="the-java-service">The Java Service<a class="headerlink" href="#the-java-service" title="Permanent link"></a></h2>
+<p>Eventeum has been configured to push smart contract event messages to a Kafka topic (other broadcast mechanisms are also supported), so we are going to build a service in Java that consumes messages from this topic, and store the name registry entries in a MongoDB database.  A simple REST endpoint will also be implemented that provides some basic search operations on this data.</p>
+<p>We will utilise Spring Boot libraries to write the minimum amount of code possible to achieve this task.  Not every single line of code will be described here (such as interfaces, domain objects and the pom.xml file), so it may be a good idea to take a look at the example project <a href="https://github.com/craigwilliams84/eventeum_caching_example">github repo</a>.</p>
+<h3 id="eventeum-dependency">Eventeum Dependency<a class="headerlink" href="#eventeum-dependency" title="Permanent link"></a></h3>
+<p>Will will reuse the message and domain objects from the Eventeum library, so we need to pull in the eventeum-core library from maven.  In your pom.xml, add:</p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;net.consensys.eventeum&lt;/groupId&gt;
+        &lt;artifactId&gt;eventeum-core&lt;/artifactId&gt;
+        &lt;version&gt;0.4.0-RELEASE&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>You must also add the Kauri bintray repository:</p>
+<pre><code>&lt;repository&gt;
+        &lt;id&gt;bintray-consensys-kauri&lt;/id&gt;
+        &lt;url&gt;https://consensys.bintray.com/kauri&lt;/url&gt;
+&lt;/repository&gt;
+</code></pre>
+<h3 id="consuming-from-the-kafka-topic">Consuming from the Kafka Topic<a class="headerlink" href="#consuming-from-the-kafka-topic" title="Permanent link"></a></h3>
+<pre><code>@Component
+public class KafkaEventeumConsumer {
+
+    private static final String NAME_ADDED_EVENT = &quot;NameAdded&quot;;
+
+    private NamesRegistryService namesRegistryService;
+
+    private Map&lt;String, Consumer&lt;ContractEventDetails&gt;&gt; consumers;
+
+    @Autowired
+    public KafkaEventeumConsumer(NamesRegistryService namesRegistryService) {
+        this.namesRegistryService = namesRegistryService;
+
+        consumers = new HashMap&lt;&gt;();
+
+        consumers.put(NAME_ADDED_EVENT, (contractEventDetails -&gt; {
+            namesRegistryService.storeFromContractEvent(contractEventDetails);
+        }));
+    }
+
+    @KafkaListener(topics = &quot;contract-events&quot;, groupId = &quot;eventeumExample&quot;)
+    public void consumeContractEvent(EventeumMessage&lt;ContractEventDetails&gt; message) {
+        final ContractEventDetails contractEventDetails = message.getDetails();
+        final String eventName = contractEventDetails.getName();
+
+        if (consumers.containsKey(eventName)) {
+            consumers.get(eventName).accept(contractEventDetails);
+        }
+    }
+}
+</code></pre>
+<p>This class utilises the <code>spring-kafka</code> library, and in particular, the <code>@KafkaListener</code> annotation, to define a method that will consume EventeumMessage objects from the <code>contract-events</code> topic.  If the received message is for an event named <code>NameAdded</code> (the name of the event specified in the smart contract), then the details about this event are passed to the <code>NameRegistryService</code>, in order to store the required data.</p>
+<p>Spring-boot will automatically assume that the Kafka broker is running on localhost if you don't specify an address in the properties file, so this works for us out of the box.</p>
+<p>One additional missing piece of the puzzle, is to configure the Kafka consumer to automatically deserialize from the Eventeum JSON message to the Java Object.  This can be achieved with some configuration code.  Note the <code>JsonDeserializer</code> passed to the <code>DefaultKafkaConsumerFactory</code>:</p>
+<pre><code>@EnableKafka
+@Configuration
+public class KafkaConfiguration {
+
+    @Value(&quot;${kafka.bootstrap.addresses}&quot;)
+    private String bootstrapAddresses;
+
+...
+
+    @Bean
+    public ConsumerFactory&lt;String, EventeumMessage&gt; consumerFactory() {
+        Map&lt;String, Object&gt; props = new HashMap&lt;&gt;();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddresses);
+        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+
+        return new DefaultKafkaConsumerFactory&lt;&gt;(props, null, new JsonDeserializer&lt;&gt;(EventeumMessage.class));
+    }
+
+...
+
+}
+</code></pre>
+<p>For reference, an example Eventeum JSON message looks like this:</p>
+<pre><code>{
+    &quot;id&quot;:&quot;unique-event-id&quot;,
+    &quot;type&quot;:&quot;CONTRACT_EVENT&quot;,
+    &quot;details&quot;:{
+        &quot;name&quot;:&quot;DummyEvent&quot;,
+        &quot;filterId&quot;:&quot;63da468c-cec6-49aa-bea4-eeba64fb1df4&quot;,
+        &quot;indexedParameters&quot;:[{&quot;type&quot;:&quot;bytes32&quot;,&quot;value&quot;:&quot;BytesValue&quot;},
+            {&quot;type&quot;:&quot;address&quot;,&quot;value&quot;:&quot;0x00a329c0648769a73afac7f9381e08fb43dbea72&quot;}],
+        &quot;nonIndexedParameters&quot;:[{&quot;type&quot;:&quot;uint256&quot;,&quot;value&quot;:10},
+            {&quot;type&quot;:&quot;string&quot;,&quot;value&quot;:&quot;StringValue&quot;}],
+        &quot;transactionHash&quot;:&quot;0xe4fd0f095990ec471cdf40638336a73636d2e88fc1a240c20b45101b9cce9438&quot;,
+        &quot;logIndex&quot;:0,
+        &quot;blockNumber&quot;:258,
+        &quot;blockHash&quot;:&quot;0x65d1956c2850677f75ec9adcd7b2cfab89e31ad1e7a5ba93b6fad11e6cd15e4a&quot;,
+        &quot;address&quot;:&quot;0x9ec580fa364159a09ea15cd39505fc0a926d3a00&quot;, 
+        &quot;status&quot;:&quot;UNCONFIRMED&quot;,
+        &quot;eventSpecificationSignature&quot;:&quot;0x46aca551d5bafd01d98f8cadeb9b50f1b3ee44c33007f2a13d969dab7e7cf2a8&quot;,
+        &quot;id&quot;:&quot;unique-event-id&quot;},
+        &quot;retries&quot;:0
+}
+</code></pre>
+<h3 id="the-namesregistryservice">The NamesRegistryService<a class="headerlink" href="#the-namesregistryservice" title="Permanent link"></a></h3>
+<p>The <code>NameRegistryService</code> is the bridge between the Kafka consumer and the MongoDB repository, along with providing methods to search the data stored in the database.  It is quite a simple class, and delegates most tasks to the <code>NamesRepository</code> (which is itself a simple <code>MongoRepository</code> interface).</p>
+<pre><code>@Service
+public class DbNamesRegistryService implements NamesRegistryService {
+
+    private NamesRepository repository;
+    private NameConverter&lt;ContractEventDetails&gt; converter;
+
+    @Autowired
+    public DbNamesRegistryService(NamesRepository repository,
+                                  NameConverter&lt;ContractEventDetails&gt; converter) {
+        this.repository = repository;
+        this.converter = converter;
+    }
+
+    @Override
+    public void storeFromContractEvent(ContractEventDetails contractEvent) {
+        final Name namedAccount = converter.convert(contractEvent);
+
+        repository.save(namedAccount);
+    }
+
+    @Override
+    public List&lt;Name&gt; searchBySurname(String surname) {
+        return repository.findBySurname(surname);
+    }
+
+    @Override
+    public List&lt;Name&gt; searchByFirstNameStartingWith(String startsWith) {
+        return repository.findByFirstNameStartingWith(startsWith);
+    }
+}
+</code></pre>
+<p>The interesting code is in the NameConverter implementation.  This class converts from a <code>ContractEventDetails</code> object, to a <code>Name</code> domain object which can then be stored in the <code>NameRepository</code>.  As of writing (version 0.4.0-RELEASE), a <code>ContractEventDetails</code> object contains the following fields (along with corresponding getters and setters):</p>
+<pre><code>private String name;
+private String filterId;
+private List&lt;EventParameter&gt; indexedParameters;
+private List&lt;EventParameter&gt; nonIndexedParameters;
+private String transactionHash;
+private BigInteger logIndex;
+private BigInteger blockNumber;
+private String blockHash;
+private String address;
+private ContractEventStatus status = ContractEventStatus.UNCONFIRMED;
+private String eventSpecificationSignature;
+private String networkName;
+</code></pre>
+<p>There are a number of fields that provide information on the transaction and block that an event belongs to, but the values that we are most interested in are the <code>indexedParameters</code> and <code>nonIndexedParameters</code>.  These are the parameter values of the emitted event.  </p>
+<h3 id="nameconverter">NameConverter<a class="headerlink" href="#nameconverter" title="Permanent link"></a></h3>
+<pre><code>@Component
+public class ContractEventToNamedAccountConverter implements NameConverter&lt;ContractEventDetails&gt; {
+
+    @Override
+    public Name convert(ContractEventDetails input) {
+        final Name namedAccount = new Name();
+
+        final List&lt;EventParameter&gt; eventParameters = input.getNonIndexedParameters();
+
+        namedAccount.setId(new BigInteger(eventParameters.get(0).getValueString()));
+        namedAccount.setFirstName(eventParameters.get(1).getValueString());
+        namedAccount.setSurname(eventParameters.get(2).getValueString());
+
+        return namedAccount;
+    }
+}
+</code></pre>
+<p>Parameters are included within the <code>ContractEventDetails</code> object in the order that they are declared in the smart contract code.  In our example, for the <code>NameAdded</code> event, id will be at index 0, firstName at index 1 and surname at index 2.  The converter calls the <code>getValueAsString</code> method of the EventParameter's,  setting the values on the <code>Name</code> object.  Note that in the case of the id field, the <code>String</code> is converted to a <code>BigInteger</code>.</p>
+<h3 id="rest-endpoint">REST Endpoint<a class="headerlink" href="#rest-endpoint" title="Permanent link"></a></h3>
+<p>In order to search the cached name registry data stored in mongoDB, and to test that everything is working correctly, a REST endpoint is included within the service.  This endpoint takes either a <code>firstNameStartsWith</code>or <code>surname</code> url parameter as input, to define the type of search that is to be performed. Spring makes it very simple to create a REST endpoint by adding a <code>@RestController</code> annotation to the class, along with a <code>@RequestMapping</code> annotation to methods that are to be triggered by the http request.  The <code>searchNames</code> method delegates to one of two <code>NameRegistryService</code> methods, depending on the arguments passed in.</p>
+<pre><code>@RestController
+@RequestMapping(&quot;name&quot;)
+public class RestEndpoint {
+
+    private NamesRegistryService namesRegistryService;
+
+    @Autowired
+    public RestEndpoint(NamesRegistryService namesRegistryService) {
+        this.namesRegistryService = namesRegistryService;
+    }
+
+    @RequestMapping(path = &quot;&quot;, method = RequestMethod.GET, produces = &quot;application/json&quot;)
+    public List&lt;Name&gt; searchNames(@RequestParam(required = false) String firstNameStartsWith,
+                                  @RequestParam(required = false) String surname) {
+        if (firstNameStartsWith != null) {
+            return namesRegistryService.searchByFirstNameStartingWith(firstNameStartsWith);
+        }
+
+        if (surname != null) {
+            return namesRegistryService.searchBySurname(surname);
+        }
+
+        throw new IllegalArgumentException(&quot;Search parameter not set&quot;);
+    }
+}
+</code></pre>
+<p>Thats pretty much it!  We should now have a working service that consumes events emitted from an Ethereum smart contract via a Kafka queue, and stores this event data in a database that can then be searched over more efficiently than via the smart contract directly...pretty sweet!!</p>
+<h2 id="testing-the-service">Testing the Service<a class="headerlink" href="#testing-the-service" title="Permanent link"></a></h2>
+<p>First, ensure that you have followed the <a href="https://beta.kauri.io/article/90dc8d911f1c43008c7d0dfa20bde298">getting started guide</a> to the end.</p>
+<p>Next,  clone the example github repo and run spring-boot application:</p>
+<pre><code>git clone https://github.com/craigwilliams84/eventeum_caching_example.git
+cd eventeum_caching_example
+mvn spring-boot:run
+</code></pre>
+<p>The caching service and Eventeum will now be connected to the same Kafka broker, so contract event messages pushed by Eventeum will be consumed by the service.</p>
+<p>Now add a bunch of sample users in remix (again, described in the getting started guide), and test out some searches in your browser by querying the REST endpoint (at http://localhost:8080/name).  If everything is working correctly you should get the correct results:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSrkLxGJBNRMF1DQhYSum9D29HghmEZXtfXfGmuFQhTXm" />
+<img alt="" src="https://ipfs.infura.io/ipfs/QmbZZFY5y9TGzBtAVTZ5ynxum4pPjiWqqNm3krwEWLZJWA" /></p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h2>
+<p>Congratulations!  You have just implemented a caching service that listens to events emitted from a smart contract (via Eventeum), and stores this data into a MongoDB database for easier querying in your dApp.  By depending on Eventeum for the Ethereum side of things, you did not have to actually write that much code, and have resiliency and failover resistance out of the box!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Using Eventeum to Build a Java Smart Contract Data Cache</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/using-eventeum-to-build-a-java-smart-contract-data/fe81ee9612eb4e5a9ab72790ef24283d/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-14</li>
+<li><strong>Kauri original tags:</strong> spring, eventeum, ethereum, java, event-listener</li>
+<li><strong>Kauri original hash:</strong> QmUvB15MzfQpJVM5eJ473ULnJWSVW2xPguvCJb1Vur6jVM</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Full%20Stack%20dApp%20Tutorial%20Series/full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Full%20Stack%20dApp%20Tutorial%20Series/full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-link">
+        Full Stack dApp Tutorial Series - Intro
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../listening-for-ethereum-transactions-with-eventeum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../listening-for-ethereum-transactions-with-eventeum/" class="btn btn-xs btn-link">
+        Listening for Ethereum Transactions with Eventeum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Eventeum/using-eventeum-to-build-a-java-smart-contract-dat.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

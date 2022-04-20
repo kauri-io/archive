@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/remix-ide-your-first-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Remix IDE - Your first smart contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Remix IDE - Your first smart contract", url: "#_top", children: [
+              {title: "Issuing a Bounty", url: "#issuing-a-bounty" },
+              {title: "Validation with Modifiers", url: "#validation-with-modifiers" },
+              {title: "Validate Deadline", url: "#validate-deadline" },
+              {title: "Deploy &amp; interact in Remix", url: "#deploy-interact-in-remix" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="remix-ide-your-first-smart-contract">Remix IDE - Your first smart contract<a class="headerlink" href="#remix-ide-your-first-smart-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNQCiD3aQgUrnRS7ApCEBY2ydXBoVvfjx2BjTnUh3vMvU" /></p>
+<p>The easiest place to start writing smart contracts in Solidity in with the <a href="https://remix.ethereum.org/">online Remix IDE.</a></p>
+<p>As it's an online IDE, no installation or development environment setup is required, you can navigate to the site and get started!</p>
+<p>Remix also provides good tools for debugging, static analysis, and deployment all within the online environment.</p>
+<p><a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract">You can find the source code used in this tutorial in this GitHub repository</a>.</p>
+<p>Before we get started, a quick reminder of what we are building: A dApp which allows any user to issue a bounty in ETH</p>
+<ul>
+<li>Any user with an Ethereum account can issue a bounty in ETH along with some requirements</li>
+<li>Any user can submit a fulfilment of the bounty along with some evidence</li>
+<li>The bounty issuer can accept a fulfilment which would result in the fulfiller being paid out</li>
+</ul>
+<p>In Remix, create a new file by selecting the "+" icon in the upper left-hand corner. Name the file: <em>Bounties.sol</em></p>
+<p><img alt="The Remix file explorer" src="https://ipfs.infura.io/ipfs/QmSZV9mbP1LUsdimZvoRxwxs3D2fmV4kJx3zWZix5X8bes" /></p>
+<p>In the first line of our Solidity Smart Contract, we tell the compiler which version of Solidity to use:</p>
+<pre><code>pragma solidity ^0.5.0;
+</code></pre>
+<p>This line says Solidity compiler version 0.5.0 and above, up to version 0.6.0, can compile the code. The ^ character limits the compiler version up to the next breaking change, being 0.6.0.</p>
+<p>To create the contract class, we add the following:</p>
+<pre><code>contract Bounties {
+
+}
+</code></pre>
+<p>Next, we add a constructor so that our contract can be instantiated:</p>
+<pre><code>constructor() public {}
+</code></pre>
+<p>At this stage, we have the basic skeleton of a Smart Contract, and we can now test it compiles in the Remix IDE.</p>
+<p>Your <em>Bounties.sol</em> file should look like this:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+contract Bounties {
+
+    constructor() public {}
+}
+</code></pre>
+<p>In Remix, select the "Compile" tab in the top right-hand side of the screen, and start the compiler by selecting the "Start to Compile" option.</p>
+<p><img alt="Compile tab in Remix" src="https://ipfs.infura.io/ipfs/QmfTNZVoHzTBWwF3Nz9Dd8jkYxqD3MTWzXJ4cq1A2oK8mT" /></p>
+<p>If everything is ok, you should see a green label with the name of your contract: "Bounties", this indicates the compilation was successful.</p>
+<h3 id="issuing-a-bounty">Issuing a Bounty<a class="headerlink" href="#issuing-a-bounty" title="Permanent link"></a></h3>
+<p>Now that we have the basic skeleton of our smart contract, we can start adding functions. First, we tackle allowing a user to issue a bounty.</p>
+<h4 id="declare-state-variables">Declare state variables<a class="headerlink" href="#declare-state-variables" title="Permanent link"></a></h4>
+<p>What are state variables in Solidity? A smart contract instance can maintain a state, which the EVM keeps in a storage area. This state consists of one or more variables of the solidity types. These state variables can only be modified via a function call invoked within a transaction.</p>
+<p><a href="http://solidity.readthedocs.io/en/latest/types.html">You can see a full list of solidity types in the solidity types documentation</a></p>
+<p>First, let's declare an enum which we use to keep track of a bounties state:</p>
+<pre><code>enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
+</code></pre>
+<p>Next, we define a struct which defines the data held about an issued bounty:</p>
+<pre><code>struct Bounty {
+ address issuer;
+ uint deadline;
+ string data;
+ BountyStatus status;
+ uint amount;
+}
+</code></pre>
+<p>What is a struct? Structs allow us to define custom composite types which allow us to aggregate/organise data.</p>
+<p>Now, let's define an array where we store data about each issued bounty:</p>
+<pre><code>Bounty[] public bounties;
+</code></pre>
+<h4 id="issue-bounty-function">Issue Bounty Function<a class="headerlink" href="#issue-bounty-function" title="Permanent link"></a></h4>
+<p>Now that we have declared our state variables we can now add functions to allow users to interact with our smart contract</p>
+<pre><code>function issueBounty(
+    string memory _data,
+    uint64 _deadline
+)
+
+public payable hasValue() validateDeadline(_deadline) returns (uint)
+{
+    bounties.push(Bounty(msg.sender, _deadline, _data,
+    BountyStatus.CREATED, msg.value));
+    return (bounties.length - 1);
+}
+</code></pre>
+<p>The function <code>issueBounty</code> receives a string memory <code>_data</code> and an integer <code>_deadline</code> as arguments (the requirements as a string, and the deadline as a UNIX timestamp)</p>
+<p>As of Solidity version, 0.5.0 explicit data location for all variables of struct, array or mapping types is now mandatory. Read more about <a href="https://solidity.readthedocs.io/en/v0.5.0/050-breaking-changes.html">Solidity 0.5.0 breaking changes here</a></p>
+<p>Since <code>string</code> is an array of bytes, we must explicitly specify the data location of the argument <code>_data</code>. We specify <code>memory</code> since we do not want to store this data when the transaction has completed.</p>
+<p>Solidity requires that you define the return type(s) We specify: <code>returns(uint)</code> Which means we are returning a uint (the array index of the bounty as the ID)</p>
+<p>We define the visibility of this function as <code>public</code>.Read more about <a href="https://solidity.readthedocs.io/en/latest/contracts.html#visibility-and-getters">solidity function visibility</a></p>
+<p>In order to send ETH to our contract we need to add the payable keyword to our function. Without this payable keyword, the contract will reject all attempts to send ETH to it via this function.</p>
+<p>The body of our function has two lines:</p>
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data,
+BountyStatus.CREATED, msg.value));
+</code></pre>
+<p>First, we insert a new Bounty struct to out bounties array, setting the BountyStatus to CREATED.</p>
+<p>In Solidity, <code>msg.sender</code> is automatically set as the address of the sender, and <code>msg.value</code> is set to the amount of Weis ( 1 ETH = 1000000000000000000 Weis).</p>
+<p>We set the <code>msg.sender</code> as the issuer and the <code>msg.value</code> as the bounty amount.</p>
+<pre><code>return (bounties.length - 1);
+</code></pre>
+<h3 id="validation-with-modifiers">Validation with Modifiers<a class="headerlink" href="#validation-with-modifiers" title="Permanent link"></a></h3>
+<p>Modifiers in Solidity allow you to attach additional pieces of code to run before or after the execution of a function. It is a common practice in Solidity to use modifiers to perform argument validation for functions.</p>
+<h3 id="validate-deadline">Validate Deadline<a class="headerlink" href="#validate-deadline" title="Permanent link"></a></h3>
+<p><code>validateDeadline(_deadline)</code> is added to ensure the deadline argument is in the future; it should not be possible for a user to issue a bounty with a deadline in the past.</p>
+<pre><code>modifier validateDeadline(uint _newDeadline) {
+ require(_newDeadline &gt; now);
+ _;
+}
+</code></pre>
+<p>We use the <code>modifier</code> keyword to declare a modifier, modifiers like functions can receive arguments of their own.</p>
+<p>The position of the <code>_;</code> symbol is key within a modifier. This body of the function modified is inserted where this symbol appears.</p>
+<p>The <code>validateDeadline</code> modifier essentially says, execute this line:</p>
+<pre><code>require(_newDeadline &gt; now);
+</code></pre>
+<p>Then execute the main function.</p>
+<p>For validation, the <code>require</code> keyword allows you to set conditionals If they are not met, the execution is halted, reverted, and remaining gas returned to the user.</p>
+<p>In general <code>require</code> should be used to validate user inputs, responses from external contracts, and state conditions before execution.</p>
+<p>You can read more about <a href="http://solidity.readthedocs.io/en/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions">assert, require, and revert here</a>.</p>
+<p>The modifier <code>validateDeadline</code> reads as follows:</p>
+<p>If the <code>deadline &gt; now</code> continue and execute function body, else revert and refund remaining gas to the caller.</p>
+<h4 id="has-value">Has Value<a class="headerlink" href="#has-value" title="Permanent link"></a></h4>
+<p><code>hasValue()</code> is added to ensure <code>msg.value</code> is a non zero value. Even though as previously discussed, the <code>payable</code> keyword ensures <code>msg.value</code> is set, it can still be sent as zero.</p>
+<p>Similar to <code>validateDeadline</code> we use <code>require</code> to ensure <code>msg.value</code> input is valid e.g <code>&gt;0</code></p>
+<pre><code>modifier hasValue() {
+ require(msg.value &gt; 0);
+ _;
+}
+</code></pre>
+<p><code>payable</code> is a pre-defined modifier in Solidity. It validates that ETH is sent when calling a function which requires the smart contract to be funded.</p>
+<p>You can read more about how modifiers can be used to restrict access and guard against incorrect usage in the <a href="https://solidity.readthedocs.io/en/latest/common-patterns.html?highlight=modifier#restricting-access">solidity documentation</a></p>
+<h4 id="issue-bounty-event">Issue Bounty Event<a class="headerlink" href="#issue-bounty-event" title="Permanent link"></a></h4>
+<p>It is best practice when modifying state in Solidity to emit an event. Events allow blockchain clients to subscribe to state changes and perform actions based on those changes.</p>
+<p>For example, a user interface showing a list of transfers in and out of an account, i.e., <a href="https://etherscan.io/address/0x69a70e299367ff4c3ba1fe8c93fbddd9b5b4771a">etherscan</a>, could listen to a "transfer" event to update the user on the latest transfers in and out of an account.</p>
+<p>Read more about <a href="https://solidity.readthedocs.io/en/latest/contracts.html#events">solidity events here</a>.</p>
+<p>Since when issuing a bounty, we change the state of our <em>Bounties.sol</em> contract, we issue a <code>BountyIssued</code> event.
+First, we need to declare our event:</p>
+<pre><code>event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
+</code></pre>
+<p>Our <code>BountyIssued</code> event emits the following information about the bounty data stored:</p>
+<ul>
+<li><em>bountyId:</em> The id of the issued bounty</li>
+<li><em>issuer:</em> The account of the user who issued the bounty</li>
+<li><em>amount:</em> The amount in Weis allocated to the bounty</li>
+<li><em>data:</em> The requirements of the bounty as a string</li>
+</ul>
+<p>Then in our <code>issueBounty</code> function, we need to emit the <code>BountyIssued</code> event:</p>
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+*emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);*
+return (bounties.length - 1);
+</code></pre>
+<p>Now that we have added our <code>issueBounty</code> function our <em>Bounties.sol</em> file should look like the following:</p>
+<pre><code>pragma solidity ^0.5.0;
+/**
+* @title Bounties
+* @author Joshua Cassidy- &lt;joshua.cassidy@consensys.net&gt;
+* @dev Simple smart contract which allows any user to issue a bounty in ETH linked to requirements
+* which anyone can fulfil by submitting the evidence of their fulfilment
+*/
+contract Bounties {
+    /*
+    * Enums
+    */
+    enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
+
+    /*
+    * Storage
+    */
+    Bounty[] public bounties;
+
+    /*
+    * Structs
+    */
+    struct Bounty {
+        address issuer;
+        uint deadline;
+        string data;
+        BountyStatus status;
+        uint amount; //in wei
+    }
+    /**
+    * @dev Contructor
+    */
+    constructor() public {}
+
+    /**
+    * @dev issueBounty(): instantiates a new bounty
+    * @param _deadline the unix timestamp after which fulfillments will no longer be accepted
+    * @param _data the requirements of the bounty
+    */
+    function issueBounty(
+    string memory _data,
+    uint64 _deadline
+    )
+    public
+    payable
+    hasValue()
+    validateDeadline(_deadline)
+    returns (uint)
+    {
+        bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+        emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);
+        return (bounties.length - 1);
+    }
+
+    /**
+    * Modifiers
+    */
+    modifier hasValue() {
+        require(msg.value &gt; 0);
+        _;
+    }
+    modifier validateDeadline(uint _newDeadline) {
+        require(_newDeadline &gt; now);
+        _;
+    }
+
+    /**
+    * Events
+    */
+    event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
+}
+</code></pre>
+<h3 id="deploy-interact-in-remix">Deploy &amp; interact in Remix<a class="headerlink" href="#deploy-interact-in-remix" title="Permanent link"></a></h3>
+<p>Now that we have our smart contract we can deploy to a local development blockchain running in the RemixIDE (browser), and test our <code>issueBounty</code> function.</p>
+<p>First, let's compile our <em>Bounties.sol</em> contract to ensure we have no errors. In Remix, select the "Compile" tab in the top right-hand side of the screen, and start the compiler by selecting the "Start to Compile" option.</p>
+<p>You will notice a few static analysis warnings in the static analysis tab of the IDE. Remix runs a set of static analysers to help avoid known security vulnerabilities and follow best practices. You can read more about <a href="https://remix-ide.readthedocs.io/en/latest/static_analysis.html">Remix Analysis here.</a> We can ignore these warnings for now and move on to deploying and interacting with our smart contract.</p>
+<p>In Remix, select the <code>Run</code> tab in the top right-hand side of the screen. Within the <code>Environment</code> dropdown section, select the <code>Javascript VM</code> option.</p>
+<p><img alt="Deploy and run panel in Remix" src="https://ipfs.infura.io/ipfs/QmeNPZCm5rQMKn9feQh9zAjoT8C62LYMySER91scTP56dK" /></p>
+<p>The "JavaScript VM" option, runs a Javascript VM blockchain within the browser, this allows you to deploy and send transactions to a blockchain within the RemixIDE in the browser. This is particularly useful for prototyping, especially since no dependencies are required to be installed locally. <a href="https://remix-ide.readthedocs.io/en/latest/run.html">You can read more about running transactions within Remix here</a>.</p>
+<p>Within the <code>Run</code> tab in Remix, with the <code>JavaScript VM</code> environment option selected. Click the <code>Deploy</code> button.</p>
+<p>This button executes a transaction to deploy the contract to the local blockchain environment running in the browser. We'll talk more about contract creation transactions later on in the series.</p>
+<p>Within the RemixIDE console, which is located directly below the editor panel, you will see the log output of the contract creation transaction.</p>
+<p><img alt="Log output in Remix" src="https://ipfs.infura.io/ipfs/QmcLv2bWgZHj4rggjwAgic99wivND9G7ZsmPqfH5iHfdrj" /></p>
+<p>The "green" tick indicates that the transaction itself was successful.</p>
+<p>Within the "Run" tab in Remix, we can now select our deployed Bounties contract so that we can invoke the <code>issueBounty</code> function. Under the "Deployed Contracts" section, we see a list of function which can be invoked on the deployed smart contract.</p>
+<p>Here we have the following options:</p>
+<ul>
+<li><code>issueBounty</code> the colour of this button "pink" indicates that invocation would result in a transaction</li>
+<li><code>bounties</code> the colour of this button "blue" indicates that invocation would result in a call</li>
+</ul>
+<p><img alt="Deploy and run panel in Remix" src="https://ipfs.infura.io/ipfs/QmRnPSACBzP561kkKNEa4G5jboPrWWQ9LdmVTHQbAEXjMf" /></p>
+<p>To invoke the <code>issueBounty</code> function, we need to first set the arguments in the "issueBounty" input box.</p>
+<p>Set the <code>string _data</code> argument to some string "some requirements" and set the <code>uint64 _deadline</code> argument to a UNIX timestamp in the future e.g. "1691452800" August 8th 2023.</p>
+<p>Since our <code>issueBounty</code> function is <code>payable</code> we must ensure <code>msg.value</code> is set, we do this by setting the values at the top of the "Run" tab with the RemixIDE.</p>
+<p>Here we have the following options:</p>
+<ul>
+<li><em>Environment:</em> As previously alluded to, sets the blockchain environment to interact with.</li>
+<li><em>Account:</em> Allows the selection of an account to send the transaction from, and also to see the amount of ETH available in each account.</li>
+<li><em>Gas Limit:</em> Set the max amount of gas used by execution of the transaction</li>
+<li><em>Value:</em> The amount to send in <code>msg.value</code> here you can also select the denomination in "Wei, Gwei, Finney and Ether"</li>
+</ul>
+<p>Go ahead and set "Value" to some number &gt; 0, but less than the current amount available in the selected account. In this example, we set it to <code>1 ETH</code></p>
+<p>Clicking the "issueBounty" button in the "Deployed Contracts" section, within the "Run" tab, sends a transaction invoking the <code>issueBounty</code> function, on the deployed <code>Bounties</code> contract.</p>
+<p>Within the console, you will see the log output of the issueBounty transaction.</p>
+<p><img alt="Console output in Remix" src="https://ipfs.infura.io/ipfs/QmXLonrP7pnMfW6BurbwavW6w28usWf8d66HDRnS4EnX4t" /></p>
+<p>The "Green" tick indicates the transaction was successful.</p>
+<p>The decoded output gives you the return value of the function call, here it is <code>0</code>.</p>
+<p>This should be the index of our "Bounty" data within the bounties array in our smart contract data store. We can double-check the storage was correct by invoking the "bounties" method in the "Deployed Contracts" section.</p>
+<p>Set the <code>uint256</code> argument of the bounties function to <code>0</code> and click the "blue" bounties button.</p>
+<p><img alt="Set arguments in Remix" src="https://ipfs.infura.io/ipfs/QmUPZF54AToDSsm8sMy3r9BueGKArPgHx3jRdU5vyqBbiG" /></p>
+<p>Here we confirm that the data inputs for our issuedBounty are retrieved correctly from the "bounties" array with deployed smart contracts storage.</p>
+<h4 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link"></a></h4>
+<p>Now that you have seen how to add a function to issue a bounty, try adding the following functions to the Bounties contract:</p>
+<ul>
+<li><code>fulfilBounty(uint _bountyId, string _data)</code> This function should store a fulfilment record attached to the given bounty. The <code>msg.sender</code> should be recorded as the fulfiller.</li>
+<li><code>acceptFulfilment(uint _bountyId, uint _fulfilmentId)</code> This function should accept the given fulfilment if a record of it exists against the given bounty. It should then pay the bounty to the fulfiller.</li>
+<li><code>function cancelBounty(uint _bountyId)</code> This function should cancel the bounty, if it has not already been accepted, and send the funds back to the issuer</li>
+</ul>
+<p><strong>Note</strong>: For <code>acceptFulfilment</code> you need to use the <code>address.transfer(uint amount)</code> function to send the ETH to the <code>fulfiller</code>. You can read more about the <a href="https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#address-related">address.transfer member here</a>.</p>
+<p>You can find the <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol">complete Bounties.sol file here for reference</a>.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li>Read the next guide: <a href="https://kauri.io/article/973c5f54c4434bb1b0160cff8c695369/understanding-smart-contract-compilation-and-deployment">Understanding smart contract compilation and deployment</a></li>
+<li>Learn more about Remix-IDE from the <a href="https://remix-ide.readthedocs.io/en/latest/">documentation</a> and <a href="https://github.com/ethereum/remix-ide">github</a></li>
+</ul>
+<blockquote>
+<p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</p>
+<p>If you have found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right-hand menu, and/or <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract">update the code</a></p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Remix IDE - Your first smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/remix-ide-your-first-smart-contract/124b7db1d0cf4f47b414f8b13c9d66e2/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-20</li>
+<li><strong>Kauri original tags:</strong> ethereum, remix, solidity</li>
+<li><strong>Kauri original hash:</strong> QmXczsudavLX1QxncEivoEsLTTc4CZEd7Wf4sJBXQPYS4j</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-link">
+        Understanding smart contract compilation and deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../tools-for-working-with-solidity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../tools-for-working-with-solidity/" class="btn btn-xs btn-link">
+        Tools for Working With Solidity
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/remix-ide-your-first-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

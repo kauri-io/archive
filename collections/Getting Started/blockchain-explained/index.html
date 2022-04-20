@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/blockchain-explained/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Blockchain Explained - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Blockchain Explained", url: "#_top", children: [
+              {title: "Overview", url: "#overview" },
+              {title: "Features", url: "#features" },
+              {title: "Drawbacks", url: "#drawbacks" },
+              {title: "Sybil Attack", url: "#sybil-attack" },
+              {title: "Denial-of-Service Attack", url: "#denial-of-service-attack" },
+              {title: "Scalability", url: "#scalability" },
+              {title: "Block content", url: "#block-content" },
+              {title: "Genesis block", url: "#genesis-block" },
+              {title: "Block generation", url: "#block-generation" },
+              {title: "Proof-of-Work", url: "#proof-of-work" },
+              {title: "Proof-of-Stake", url: "#proof-of-stake" },
+              {title: "Hashing", url: "#hashing" },
+              {title: "Immutability", url: "#immutability" },
+              {title: "Nodes", url: "#nodes" },
+              {title: "Mining node", url: "#mining-node" },
+              {title: "Full node", url: "#full-node" },
+              {title: "Light node", url: "#light-node" },
+              {title: "Web \u201cnode\u201d", url: "#web-node" },
+              {title: "Network", url: "#network" },
+              {title: "Peer discovery", url: "#peer-discovery" },
+              {title: "Blockchain download", url: "#blockchain-download" },
+              {title: "Sending a transaction", url: "#sending-a-transaction" },
+              {title: "Block propagation", url: "#block-propagation" },
+              {title: "Achieving consensus", url: "#achieving-consensus" },
+              {title: "Dealing with attacks", url: "#dealing-with-attacks" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="blockchain-explained">Blockchain Explained<a class="headerlink" href="#blockchain-explained" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWRdtskZTBhm39uQjaphrQcc4sXdTeUVuZ2s3ZWfdZ42m" /></p>
+<p>What is blockchain anyway? In this article, I will try to provide an in-depth yet simple to understand explanation. I will tell you about what is a blockchain, what features it has, which groups of users exist in blockchain network, and how they interact with each other.</p>
+<p><em>Note: this article mostly covers public blockchains, and of that public blockchains, it’s mostly about their use for cryptocurrencies. There are other uses of public blockchains, and there are also private blockchains. Private (or permissioned) blockchains have a similar structure, but different functions and mechanics.</em></p>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
+<p>The blockchain is just a bunch of blocks. Each block contains pieces of information. In cryptocurrencies, the information is usually a set of transactions. Each block is connected to the previous one.
+To date, the main usage of blockchain is cryptocurrencies. Cryptocurrency is an electronic cash system that runs without a central authority. Cryptocurrencies got adoption because they solved a problem of double-spending — a situation when a dishonest user of a decentralized cash system spends same coins twice. In Bitcoin, Ethereum, and other cryptocurrencies spending the same coins twice is almost impossible.
+The blockchain is a method of organizing and storing data. There are other methods, of course, though blockchain has several unique features.</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h3>
+<p>Why use blockchain? Why not use traditional storage methods, like SQL database or key-value storage? Blockchain provides 2 features that make it a great use for cryptocurrencies: it’s distributed and trustless.
+Even if a company uses data replication, it is usually 2–5 copies. In blockchain, the number of copies can be hundreds or thousands. In that way, the blockchain is 
+<strong>distributed</strong>
+ . The number of copies of Bitcoin ledger is equal to the number of full nodes. To wipe the information about transactions from existence, you need to delete it from each full node around the globe. To stop the blockchain, you can’t just hack the single computer or even a whole country. You need to break computers from different locations, running different operating systems and taking different security measures. Stopping the blockchain by hacking each full node is practically impossible.
+In PayPal, you believe that all transactions will complete and you’ll able to withdraw the money from your balance at any moment. In blockchain, you don’t need to trust any corporation. You don’t need to trust any particular user either. Instead, you believe that most of the users will behave honestly. In that sense, the blockchain is a 
+<strong>trustless</strong>
+ system. One of the features of trustless systems is fair rules for everyone. For example, PayPal is a monopoly in digital money, so it can increase the commission, lock your funds, and delay withdrawals. Basically, it can do everything with your money. In blockchain, no one has the power to make their own rules. Instead, it is driven by the majority and the free market.</p>
+<h3 id="drawbacks">Drawbacks<a class="headerlink" href="#drawbacks" title="Permanent link"></a></h3>
+<p>The blockchain is not a silver bullet, and it has its own drawbacks. Most of them are partially fixable and negligible, though some of them might become a problem.
+Note that this is just an overview of possible problems; the list is not exhaustive.</p>
+<h3 id="sybil-attack">Sybil Attack<a class="headerlink" href="#sybil-attack" title="Permanent link"></a></h3>
+<p>The first problem is a possibility of Sybil Attack. It is a situation where a single person controls few nodes and persuades another user that all these nodes belong to different users. Basically, when succeeded, this attack allows a user to block another user from the network completely. This can result in transaction censoring when the attacker can decide which transactions to show you and which not. An attacker can also block your transactions from the network by not broadcasting them to other users. It can lead to double-spending and can block you from the rest of the network. To protect from Sybil Attack, nodes can limit the outbound connections to one per subnet. Another way to mitigate attack is to look for nodes with suspiciously-low hashrate.</p>
+<h3 id="denial-of-service-attack">Denial-of-Service Attack<a class="headerlink" href="#denial-of-service-attack" title="Permanent link"></a></h3>
+<p>Another possible problem is a Denial-of-Service (DoS) attack. An attacker can overload a node by sending a lot of data to it. For example, it can send a really big block or transactions with scripts that take too long to execute. Bitcoin and other cryptocurrencies have some protection from DoS attacks. For example, many cryptocurrencies have a maximum possible block size.</p>
+<h3 id="scalability">Scalability<a class="headerlink" href="#scalability" title="Permanent link"></a></h3>
+<p>Public blockchain systems are hard to scale. Hard means neither easy nor impossible. It is not impossible, because there aren’t any technological barriers to increase the throughput of the network. It is not easy, because just increasing it would make the system more centralized. Increasing the capacity of the blockchain means increasing hardware requirements of running a full node, and that means fewer people want and be able to maintain nodes.
+It is a question of whether a blockchain should be hugely scalable in the first place. First, blockchain is not a silver bullet — no need to use it for everything, even if it’s related to money and finance. Second, blockchain can be scaled by off-chain solutions. For example, Bitcoin throughput can be increased via Lightning Network.</p>
+<h3 id="block-content">Block content<a class="headerlink" href="#block-content" title="Permanent link"></a></h3>
+<p>Each block is made of two parts: header and data.
+Block header is a metadata. Usually, it contains such information as block number, timestamp (the record of when the block was created), block hash, and nonce.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcM7hwg6HU9kzB3LgCXzdSAMqZQKegksTfBqSkHRAgz9Y" /></p>
+<p>Block data is a payload. It is the useful information that we need to store. The data usually contains multiple pieces of information that share the same structure. In Bitcoin, each block contains about a hundred of such pieces. Each piece is a transaction. To simplify, each transaction is sender address, recipient address, amount of transaction, and fee. In Ethereum, each transaction also contains “input data” field, which is used to pass data to smart contracts.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPLLGmY7T75rjGGHvbSEr71ZBE2xUqdDCGy3tnmdeLXtZ" /></p>
+<h3 id="genesis-block">Genesis block<a class="headerlink" href="#genesis-block" title="Permanent link"></a></h3>
+<p>Genesis block is the block number zero, the first block that is ever created in the blockchain. Genesis block is the same block as others, except it doesn’t have a link to the previous block.
+Genesis block in Bitcoin: 
+<a href="https://blockchain.info/block/000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f">Bitcoin Block #0</a>
+ .</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVfrPPnqYxzJahKTtmrfrDBoHWgpFTWfdEkwYHP6EtLxp" /></p>
+<h3 id="block-generation">Block generation<a class="headerlink" href="#block-generation" title="Permanent link"></a></h3>
+<p>The only way to add new information to the blockchain is to add a block to the end of it.
+The amount of added information is usually limited by software, otherwise, it may become bloated, and impossible for most of the users to keep the whole history of the blockchain. The general idea is to add new blocks in equal periods of time. Qualified users create blocks and send them to other network participants. If the block is valid, other users accept it. If it’s invalid, they ignore it and may punish block creator. The valid block propagates through the network in a few seconds.</p>
+<h3 id="proof-of-work">Proof-of-Work<a class="headerlink" href="#proof-of-work" title="Permanent link"></a></h3>
+<p>In proof-of-work (PoW) systems, adding new block is usually called “ 
+<strong>mining</strong>
+ ”. Each miner independently tries to find a valid hash with the desired difficulty. This difficulty is automatically defined by software to control the number of new blocks. The first miner who finds the correct hash becomes the creator of a new block.
+As more and more miners join the network, the total hash rate — the combined computing power of all miners — increases. If there would be no constraints, miners would find hashes, and therefore blocks, more and more often. But most of the coins seek constant rate of finding new blocks, so they change a difficulty of mining based on the hash rate.
+The difficulty tells users how many hashes miners should find to get a correct one. The higher the difficulty, the more hashes is required. The difficulty increases when the hash rate increases. In that way, mining difficulty counterbalances ever-increasing computing power of miners. The difficulty of the network is rebalanced based on how often new blocks are mined in past. In can readjust after each block or after several blocks. In Bitcoin, for example, the difficulty readjusts every 2016 blocks, which takes about 2 weeks.</p>
+<h3 id="proof-of-stake">Proof-of-Stake<a class="headerlink" href="#proof-of-stake" title="Permanent link"></a></h3>
+<p>In proof-of-stake (PoS), block producers are selected based on how many coins they have. This selection can be made randomly or by choosing those who get the most votes. The more coins you have, the higher the probability that you’ll be selected as the next producer or the bigger voting power you have. Selected producers then make blocks in specified time.
+To stop nodes from voting on wrong blocks, a punishment can be introduced. One way is to punish those nodes who vote on multiple blocks in the same round. Another way is to punish those nodes who voted for the unpopular choice, assuming that block that got few votes is incorrect.
+The process of staking can be delegated to other nodes. For example, if a user has a large number of coins, but he doesn’t want to or can’t vote regularly, he can delegate staking to another user. That user will have the voting power combined with the coins of the other user. After earning a profit, the delegate can then share part of his earnings. The whole process of delegation and sharing profits can be done automatically.</p>
+<h3 id="hashing">Hashing<a class="headerlink" href="#hashing" title="Permanent link"></a></h3>
+<p>The hash is like a footprint of a digital file. Different files produce different hashes, and equal files produce equal hashes. You can easily find a hash of each file, but it’s very hard to find the original file by its hash. Moreover, slightly different files produce very different hashes, so you can’t tell how different are two files based on their hashes.
+In blockchain, each block contains the hash of the previous block. That way, if some block will be changed even slightly, its hash will also change, and the hash of all subsequent blocks will change too.
+The hash of each transaction is based on the previous hash and the block data. It can also contain a timestamp. If blocks are created by mining, network difficulty and nonce are also included in the hash.</p>
+<h3 id="immutability">Immutability<a class="headerlink" href="#immutability" title="Permanent link"></a></h3>
+<p>Immutability means that something can’t be changed. When people say that blockchain is immutable, they mean that changing old blocks is impractical. If you change a transaction, the hash of this transaction will also change, which in turn will change the hash of the Merkle root, and that will change block’s hash. As each block keeps the hash of the previous block, all blocks that come after changed block will also become invalid.
+Imagine an attacker wants to change a transaction that was made 1 hour ago. The attacker will need to mine all blocks from the one that was changed to the latest one. Moreover, he will also need to mine all future blocks that will be created while he mines previous blocks.
+It is indeed possible to change even the earliest blocks, but it would require controlling more than a half of total mining power, hence the meaning of 51% attack. In general, the older the block, the less probable that an attacker will successfully change it. Merchants often wait for 6 blocks to ensure that they will get the money, hence the 6 confirmations rule.</p>
+<h3 id="nodes">Nodes<a class="headerlink" href="#nodes" title="Permanent link"></a></h3>
+<p>Nodes are computers that read and write to the blockchain. Different types of nodes have different roles and abilities.</p>
+<h3 id="mining-node">Mining node<a class="headerlink" href="#mining-node" title="Permanent link"></a></h3>
+<p>Mining nodes are nodes that produce blocks. They usually have huge computing resources. Miners usually don’t validate the blocks, as they don’t store the blockchain. To make new blocks, all they need is a set of recent transactions and a hash of the last block.</p>
+<h3 id="full-node">Full node<a class="headerlink" href="#full-node" title="Permanent link"></a></h3>
+<p>Full nodes are the nodes that store the entire copy of the blockchain. They validate the blocks that they receive, and propagate validated blocks to the network. They can also send their own transactions to the pool.</p>
+<h3 id="light-node">Light node<a class="headerlink" href="#light-node" title="Permanent link"></a></h3>
+<p>Light nodes don’t store the whole blockchain. They usually store block headers and a very small set of transactions. Light nodes can’t validate blocks and need to trust full nodes. Light nodes, however, can connect to other nodes, receive new blocks, and send the transactions.</p>
+<h3 id="web-node">Web “node”<a class="headerlink" href="#web-node" title="Permanent link"></a></h3>
+<p>Web nodes are not nodes at all. They are wallets that connect to the centralized servers. They don’t store any parts of the blockchain. Web wallets can’t connect to other nodes, receive blocks, or send the transactions. They can only ask a server to do that and expect that the server will provide correct information. They trust entirely to the server that they are connected to. Mobile wallets that don’t store blockchain data also belong there.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNMqRhHk3JyXgHvNtgrFwK8PAhL2yd2YQWhbfXEFmnTwW" /></p>
+<h3 id="network">Network<a class="headerlink" href="#network" title="Permanent link"></a></h3>
+<p>In decentralized systems, nodes come and go. There isn’t any guarantee that some particular node will be online today or tomorrow. That fact heavily affects the methods of connecting to and interacting with nodes.</p>
+<h3 id="peer-discovery">Peer discovery<a class="headerlink" href="#peer-discovery" title="Permanent link"></a></h3>
+<p>Peer discovery is a process of getting to know other network participants. When a user launches a node for the first time, it doesn’t have a track of peers to connect. To interact with the network, it should find peers and keep them in memory.
+There are several methods of discovering other peers, including hardcoded addresses, user input, DNS lookup, and others.
+The most primitive way is to connect to the addresses that are hardcoded in the wallet program. These addresses represent nodes that were initially set up by developers to grow the network in the first few days or weeks. While this is a simple method, it is usually not very spread in mature networks. For example, 
+<strong>hardcoded addresses</strong>
+ in Bitcoin is used only as a last resort, when other methods don’t work.
+Users can also 
+<strong>manually</strong>
+ provide the list of nodes they got elsewhere. A user can either write them into a text file, provide as command-line arguments, or enter them via the graphic user interface.
+Another method to discover peers is a 
+<strong>DNS lookup</strong>
+ . There are DNS servers that keep lists of nodes. These lists are updated by maintainers of these servers. Usually, there are several DNS servers so if one of the servers go down others will still be serving.
+Once a node found at least one peer, he can connect it. If the connection is successful, they can 
+<strong>exchange</strong>
+ information about peers that they collected.
+When discovered, node addresses are stored in a database to get them on the next computer launch. Nodes with newer client software version are preferred. Addresses of old, inactive nodes are removed.</p>
+<h3 id="blockchain-download">Blockchain download<a class="headerlink" href="#blockchain-download" title="Permanent link"></a></h3>
+<p>Once a node is connected to other peers, it can start to download a blockchain block by block.
+The first way to do that is to simply let the node to download the blocks from other peers. It can be slow because it depends not only on your Internet connection speed but also on how broad the bandwidth of the peers is. But it is a decentralized method, meaning that it doesn’t depend on a single site or server.
+Another way to download blockchain data is to download it from some external source on the Internet. It can be some random website, torrent file, or an archive sent to you by your friend. That might be faster than downloading it via p2p-connection, but it is also centralized and requires to trust the source that you download it from. Not only that, many links that once led to the blockchain archive might be dead by now.
+Whatever method the blockchain is downloaded, it should be validated, and that might take even longer time. The computer should validate each block from the genesis one. The validation process includes checking proof-of-work, ensuring that all transactions in a block are correct, checking that Merkle Tree root calculated correctly, etc. While the speed of downloading depends on bandwidth, the validation relies on the CPU power.
+Sometimes, it is possible to skip the process of the validation of the whole blockchain and just check those blocks that contain wallet transaction, i. e. transactions sent to or from the selected wallet. The availability of such light validation depends on the wallet software that you use.</p>
+<h3 id="sending-a-transaction">Sending a transaction<a class="headerlink" href="#sending-a-transaction" title="Permanent link"></a></h3>
+<p>When it comes to spreading new transactions and blocks, cryptocurrencies usually use something called 
+<strong>Gossip protocol</strong>
+ . It’s like many people spreading the gossip until everyone knows it.
+It starts with a node making a transaction to send money. After the transaction is signed, the node sends it to the neighbor nodes.
+When these nodes receive the transaction, they will check it. If the transaction is properly structured (has the correct format, has a signature, etc) and is not a double spend, they will, in turn, send it to their peers.
+Of course, a node might already have the transaction when its peer is trying to send it. Because of that, the nodes first send the hash of the transaction. If the receiving node has the transaction with that hash, it will not download it again. If the receiving node doesn’t have the transaction, it will download it and send it further.
+Eventually, all connected nodes, including miners, will receive the transaction.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR2vq4RYzdkDsgcdwFUob8XyT4DcFeHLSqpuMQoccMcXM" /></p>
+<h3 id="block-propagation">Block propagation<a class="headerlink" href="#block-propagation" title="Permanent link"></a></h3>
+<p>Miners and mining pools that actively make blocks collect all incoming transactions. It is economically viable for them to include as many transactions as possible in the next block because they will receive all transaction fees.
+After a miner or a mining pool found correct hash, he will send the block to his peers. After that, the process is the same as sending a transaction. Nodes that received the new block send it to their peers, and after some time, everyone has the block.
+In case of PoS systems, the process is almost the same. When it is time for a block producer to make a block, he collects all transactions, puts them into his block, and sends the block to the peers.</p>
+<h3 id="achieving-consensus">Achieving consensus<a class="headerlink" href="#achieving-consensus" title="Permanent link"></a></h3>
+<p>To work properly, a decentralized system like a cryptocurrency should constantly try to achieve a consensus. This basically means that each node should have the same set of blocks and transactions, which are stored in the same order.
+Most of the time, the consensus will be achieved without any problems. The correct transactions and blocks will spread, and incorrect ones will die off.
+However, it is possible that at some stage, two blocks will point to the same parent block. In other words, the chain will be forked in two chains. 
+<strong>Forks</strong>
+ can happen both in PoW and PoS systems. In proof-of-work chains, two miners can find a hash at the same time, and both will refer to the same block, the one that was mined before. In proof-of-stake, a block producer can pick an older, not the last block as its parent.
+To resolve a fork, the whole network should agree on which fork will become the main one and which will die. The rule of thumb is “the longest chain wins”. In PoS chain, that simply means that eventually, one fork will be longer than other, by at least one block, and all honest nodes and block producers will work on that fork, and drop the other one. In PoW chain, the “longest” usually means “more proof-of-work done”, so the fork that wins is not the one that has the biggest block number, but the one that more miners work on.</p>
+<h3 id="dealing-with-attacks">Dealing with attacks<a class="headerlink" href="#dealing-with-attacks" title="Permanent link"></a></h3>
+<p>But how to achieve consensus when there are fraudulent nodes try to overwrite the history or censor the network? There are three possible scenarios.
+First, an attacker doesn’t have a majority. The majority is either in mining rig (PoW) or coins (PoS). In that case, his possibilities are quite limited. He can try to conduct a 51% attack but has a high chance of failure. He is also risking wasting money on electricity, mining computers, or getting a stake by buying coins.
+Second, an attacker controls a majority. In that situation, he can pretty much control the network. However, even if some authority will control the network, it will likely to lose money. The beauty of cryptocurrencies is that they were built with game theory principles in mind. In cryptocurrencies, having power always means having something at stake. It can be GPUs, ASICs, staked coins, or something else. The attack will likely harm many network participants, and it will affect the price. Mining rigs and staked coins owned by the attacker will lose in value if will be valuable at all.
+It may be dangerous for someone to control the majority of power without even trying to make an attack. If the fact will become known, it will spread quickly and likely affect the price.
+Third, a majority of nodes behaves badly. In fact, the majority doesn’t even need to be coordinated by some person. Simply by behaving wrong, they would be unlikely to make a double spend, but they can stop the network. This is the very unlikely event, as the majority usually obey laws, though it is possible in theory. As in the second scenario, the misbehaving majority will likely be punished by market forces.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Blockchain Explained</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/blockchain-explained/d55684513211466da7f8cc03987607d5/a</li>
+<li><strong>Kauri original author:</strong> Timur Badretdinov (@destiner)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-29</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmWBJJJt641GFFPif6umEnYPSWgQR2qn24PnMNb2E4AjYt</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-link">
+        An Introduction to Smart Contracts with Solidity
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Bitcoin/lnd-overview-and-developer-guide/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Bitcoin/lnd-overview-and-developer-guide/" class="btn btn-xs btn-link">
+        LND Overview and Developer Guide
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/blockchain-explained.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Libra/building-and-working-with-facebook-s-cryptocurren/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building and Working with Facebook’s Cryptocurrency Libra - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building and Working with Facebook\u2019s Cryptocurrency Libra", url: "#_top", children: [
+              {title: "Setup", url: "#setup" },
+              {title: "Build and connect", url: "#build-and-connect" },
+              {title: "Add coins", url: "#add-coins" },
+              {title: "Submit transaction", url: "#submit-transaction" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-and-working-with-facebooks-cryptocurrency-libra">Building and Working with Facebook’s Cryptocurrency Libra<a class="headerlink" href="#building-and-working-with-facebooks-cryptocurrency-libra" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ6Ja45gL89wV6vxiiqtBGzyShj3Q4LCe7bphvBjWLLoM" /></p>
+<p><em>EDIT: I work at ConsenSys Academy, creating educational content similar to this. I teach developers and non-developers on how to use the Ethereum Blockchain. If you enjoy this content on Libra and want to learn more about blockchain, I highly recommend you sign up for <a href="https://learn.consensys.net/catalog/info/id:141?utm_source=kauri&amp;utm_medium=post&amp;utm_campaign=libra">the Developer Program On-Demand.</a></em></p>
+<p>Even though Facebook's name is hard to find on <a href="https://libra.org">the Libra website</a>, the long term plan is for it to integrate with their forthcoming <a href="https://newsroom.fb.com/news/2019/06/coming-in-2020-calibra/">Calibra wallet</a>, and then, the whole game plan might make more sense. For now, the intention of Libra appears to a global currency, maybe for those who have little access to banks, or maybe for the global citizens of Facebook.</p>
+<p>With partnerships with major "old finance" enterprises on board such as Mastercard, PayPal, Stripe and Visa, it's hard to know if Libra will be the injection that cryptocurrencies have always needed or the end of cryptocurrencies as we all know them.</p>
+<p>We don't know for now, but in this post, we take a quick look through the getting started guide for the project and what we can accomplish with it. This is early days for the project, and we tested quickly, so some details are missing.</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVQ4zYoysUEc4bB1U59eVBF284NVT7hEbBhCiFVQmV9Zo" /></p>
+<p>We followed <a href="https://developers.libra.org/docs/my-first-transaction#clone-and-build-libra-core">the setup instructions in the documentation</a> on macOS which worked with out any issues and downloaded any dependencies missing from our local system.</p>
+<p>We noticed that Libra is using <a href="https://rocksdb.org">rocksdb</a> for storage, which is unsurprising as it's a popular option and also created by Facebook. There are other dependencies, mostly used for cryptography and storage, you can see the full list in the various <em>Cargo.toml</em> files in the repository. Which also shows that most of Libra is written in Rust. Interestingly we noticed that Libra uses the <a href="https://github.com/rust-bitcoin/bitcoin_hashes">Rust Bitcoin hashes</a> project for hashing, plus a handful of Parity labs modules.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYkHTwBEuNrEJD9VpPJySN5VRPbvm9naoioQ3We2tQCr7" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVeFKQwJoKAGzmPbqx8ZwbbiJkKzhYCc5Vke7n1cRATab" /></p>
+<h3 id="build-and-connect">Build and connect<a class="headerlink" href="#build-and-connect" title="Permanent link"></a></h3>
+<p>After setup, <a href="https://developers.libra.org/docs/my-first-transaction#build-libra-cli-client-and-connect-to-the-testnet">you can build the CLI client and connect to the testnet</a>. This takes some time and uses a reasonable amount of your computer resources, but again completed with no issues. At the end of the build process, your local machine connects to a validator node and provides you with an interface to the node.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ8yfWSAaw9VcfQgAEFzBe6QdyJrVtaKLXM9s8VoN2789" /></p>
+<p><a href="https://developers.libra.org/docs/my-first-transaction#create-alice-s-and-bob-s-account">Next, we tried creating accounts</a>, which worked fine. There are three main functions: <code>account</code>, <code>query</code>, <code>transfer</code>; all of which are relatively self-explanatory. In this step of the tutorial, we create two accounts, each of which has their own index and hex address. You can use the index value instead of the address in other CLI commands to reference the account you want to interact with.</p>
+<h3 id="add-coins">Add coins<a class="headerlink" href="#add-coins" title="Permanent link"></a></h3>
+<p><a href="https://developers.libra.org/docs/my-first-transaction#add-libra-coins-to-alice-s-and-bob-s-accounts">Next, we add Libra coins using a time-honored faucet</a>. We noticed that the testnet faucet has a limit of 5 requests per minute, which is not realistic for a real-world payment option, hopefully, this is just testnet rate limiting.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUtmEMhSd97NF7s7fqAfNJuZuMix3kgW8DGLAKCaYM4XY" /></p>
+<p>At this point, we also noticed that using the <code>query account_state 0</code> command returned a couple of interesting field values, including a <code>Blockchain version</code> value, a "sequence number" (kind of like a nonce). The account also had a state before we have yet pushed the account values to the blockchain. This is different from Ethereum or Bitcoin and means that either account generation must also have an event which pings testnet or that if it's a valid account number, Libra returns its balance as "none", but validates it's a compliant address.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbbYY1b1iv2WgH8oAM4ZBDSVTJ1PpjC5dmAMvRwTU1ayi" /></p>
+<p><em>Update 1: <a href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://developers.libra.org/docs/assets/papers/the-libra-blockchain.pdf">Reading the technical whitepaper</a> found this:</em></p>
+<p><em>"The new account is created in the ledger state when a transaction sent from an existing account invokes the
+<code>create_account(a)</code> Move [ed: Libra’s blockchain VM language] instruction. This typically happens when a transaction attempts to send Libra to an account at address a that has not yet been created"</em></p>
+<p><em>Update 2: Blockchain Version seems more similar to block number. From the whitepaper:</em></p>
+<p><em>"All data in the Libra Blockchain is stored in a single versioned database. A version number is an unsigned 64-bit integer <strong>that corresponds to the number of transactions the system has executed."</strong></em></p>
+<h3 id="submit-transaction">Submit transaction<a class="headerlink" href="#submit-transaction" title="Permanent link"></a></h3>
+<p><a href="https://developers.libra.org/docs/my-first-transaction#submit-a-transaction">Next, we tried sending a transaction between accounts</a>. This step reintroduces the sequence value mentioned above, as you can query the sequence to understand the number of transactions on each account so far. Once you have submitted the transaction, you can query for the status to find out when the validator node has accepted it. You can also use a "blocking transfer" to only return to the client when a validator node has validated a transaction.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>What's most interesting about Libra is that we're seeing how another set of engineers maybe not so steeped in the crypto-world would build a blockchain. That's not to say their choices are better or worse, but it's interesting.</p>
+<p>Who knows what Facebook (sorry Libra's) aim with this new crypto currency is, but in the meantime, if you're working on a DeFi project, it may be a well engineered solution that's worth investigating.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building and Working with Facebook’s Cryptocurrency Libra</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-and-working-with-facebooks-cryptocurrency/cc41c516e62a4ca593f5ecdd86bdf299/a</li>
+<li><strong>Kauri original author:</strong> Coogan (@cooganb)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-02</li>
+<li><strong>Kauri original tags:</strong> blockchain, facebook, libra, tutorial</li>
+<li><strong>Kauri original hash:</strong> Qmb3gGNy79daQzJKy2Vy5Gk4rimPsRUfZqoFmbsifUnQZV</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../whitepaper-deep-dive-move--facebook-libra-blockch/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../whitepaper-deep-dive-move--facebook-libra-blockch/" class="btn btn-xs btn-link">
+        Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Flexible%2C%20Upgradeable%20%26%20Highly%20Available%20NFTs/creating-a-flexible-nft-%28part-2%29/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Flexible%2C%20Upgradeable%20%26%20Highly%20Available%20NFTs/creating-a-flexible-nft-%28part-2%29/" class="btn btn-xs btn-link">
+        Creating a Flexible NFT (Part 2)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Libra/building-and-working-with-facebook-s-cryptocurren.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

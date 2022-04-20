@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/installing-besu-binary-on-linux/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Installing Besu binary on Linux - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Installing Besu binary on Linux", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="installing-besu-binary-on-linux">Installing Besu binary on Linux<a class="headerlink" href="#installing-besu-binary-on-linux" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTpqQxw6J2L5CiaxdGM4iK98rzwpPkKFmrc3FXv7t5gMU" /></p>
+<p>Ever gotten a "<code>besu command not found</code>" on your terminal? Well, read on...</p>
+<p><a href="https://askubuntu.com/questions/6897/where-to-install-programs">Although there are many ways to install software</a> on a Linux machine, an accepted startard practice is to install on your <a href="https://unix.stackexchange.com/questions/36871/where-should-a-local-executable-be-placed">Linux user's <code>home/bin</code> folder</a>.
+The following will help you install <a href="http://besu.hyperledger.org/">Hyperledger Besu</a> on Ubuntu, and can be tweaked to many other distributions.</p>
+<blockquote>
+<p>The Java JDK is a requirement for running Besu. Make sure its already installed and higher than version 11 by typing <code>java --version</code>. If it isn't installed, follow <a href="https://www.oracle.com/java/technologies/javase-downloads.html">these install instructions</a> or type <code>sudo apt install default-jdk</code> into the terminal.</p>
+</blockquote>
+<ol>
+<li>
+<p>Download the latest binary from a trusted website (ie. <a href="https://pegasys.tech/solutions/hyperledger-besu/#downloads">the PegaSys website</a>).</p>
+</li>
+<li>
+<p>If it doesn't exist, make the home <code>bin</code> folder.</p>
+</li>
+</ol>
+<pre><code>cd ~
+mkdir bin
+</code></pre>
+<ol>
+<li>Move the binary to the bin folder.
+Remember to replace <binary-filename> with the name of the file you've downloaded from step 1.</li>
+</ol>
+<pre><code>cd ~
+cd Downloads
+mv &lt;binary-filename&gt; ~/bin
+</code></pre>
+<ol>
+<li>Untar/unzip the downloaded binary.
+Depending on which file type you've downloaded, choose the extraction type.</li>
+</ol>
+<blockquote>
+<p>If not present in your system, install unzip with <code>sudo apt-get install unzip</code>.</p>
+</blockquote>
+<p>Untar:</p>
+<pre><code>cd ~
+cd bin
+tar xf &lt;binary-filename&gt;.tar.gz
+</code></pre>
+<p>Unzip:</p>
+<pre><code>cd ~
+cd bin
+unzip &lt;binary-filename&gt;.zip
+</code></pre>
+<ol>
+<li>Rename the folder to <code>besu</code>.</li>
+</ol>
+<blockquote>
+<p>You may now remove the original tar/zip file.</p>
+</blockquote>
+<pre><code>mv &lt;besu-version&gt;/ besu
+</code></pre>
+<p>Your bin folder should look like this now:</p>
+<pre><code>~/tmp/bin
+$ tree -L 2
+.
+└── besu
+    ├── bin
+    ├── lib
+    ├── LICENSE
+    └── license-dependency.html
+</code></pre>
+<ol>
+<li>Add Besu to your PATH environment variable.
+Adding a binary to your PATH allows you to run the executable from any folder on your machine, without having to point to it directly at each call.</li>
+</ol>
+<p>Using your text editor of choice, add the following line to your <code>.bashrc</code> (or <code>.zshrc</code>, etc) file.</p>
+<pre><code>PATH=$PATH:~/bin/besu/bin
+</code></pre>
+<ol>
+<li>Restart your terminal.</li>
+</ol>
+<p>You should now be able to run Besu from any folder, open a terminal window and type <code>besu -h</code> and you will get the besu help output in the terminal.</p>
+<p>Get more information on Besu here:</p>
+<p><a href="http://besu.hyperledger.org/">Docs</a><br />
+<a href="https://github.com/hyperledger/besu">Code</a><br />
+<a href="https://pegasys.tech/solutions/hyperledger-besu/#downloads">Binaries</a><br />
+<a href="https://wiki.hyperledger.org/display/BESU/Hyperledger+Besu">Wiki</a><br />
+<a href="https://jira.hyperledger.org/projects/BESU/issues">Jira</a><br />
+<a href="https://pegasys.tech/solutions/hyperledger-besu/">Web</a>  </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Installing Besu binary on Linux</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/installing-besu-binary-on-linux/e00df6efcb644e07ab44df169d9375e9/a</li>
+<li><strong>Kauri original author:</strong> Felipe Faraggi (@felipefaraggi)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-26</li>
+<li><strong>Kauri original tags:</strong> linux, besu, tutorial</li>
+<li><strong>Kauri original hash:</strong> QmZeKXuj998XoXt8Lfm5eMhrk7XcHKdnY3WDQZthoZqU8u</li>
+<li><strong>Kauri original checkpoint:</strong> QmRG8ZzCupt9QRmCrcMhV5T9HWn64rzsCBaNQSt8Naq3dG</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-get-server-side-rendering-benefits-%28unfurl/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-get-server-side-rendering-benefits-%28unfurl/" class="btn btn-xs btn-link">
+        How to Get Server Side Rendering Benefits (Unfurling, Indexing, Search-ability) without Building…
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../communities-for-defi-scaling-privacy-and-more/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../communities-for-defi-scaling-privacy-and-more/" class="btn btn-xs btn-link">
+        Communities for DeFi, Scaling, Privacy and More
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/installing-besu-binary-on-linux.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

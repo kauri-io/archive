@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/witnet-s-take-on-react-redux-and-routers/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Witnet’s Take on React, Redux, and Routers - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Witnet\u2019s Take on React, Redux, and Routers", url: "#_top", children: [
+              {title: "After days of frustrations and many hours of discussions at Witnet Foundation we came up with a few conclusions on what our take on React + Redux + routers should be.", url: "#after-days-of-frustrations-and-many-hours-of-discussions-at-witnet-foundation-we-came-up-with-a-few-conclusions-on-what-our-take-on-react-redux-routers-should-be" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="witnets-take-on-react-redux-and-routers">Witnet’s Take on React, Redux, and Routers<a class="headerlink" href="#witnets-take-on-react-redux-and-routers" title="Permanent link"></a></h1>
+<hr />
+<h2 id="after-days-of-frustrations-and-many-hours-of-discussions-at-witnet-foundation-we-came-up-with-a-few-conclusions-on-what-our-take-on-react-redux-routers-should-be">After days of frustrations and many hours of discussions at <a href="https://medium.com/witnet">Witnet Foundation</a> we came up with a few conclusions on what our take on React + Redux + routers should be.<a class="headerlink" href="#after-days-of-frustrations-and-many-hours-of-discussions-at-witnet-foundation-we-came-up-with-a-few-conclusions-on-what-our-take-on-react-redux-routers-should-be" title="Permanent link"></a></h2>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/0*6oPjPw8RuuV-6m_d.png" /></p>
+<h4 id="react-apps-already-worked-pretty-decently-before-redux-came-and-stole-the-show">React apps already worked pretty decently before Redux came and stole the show<a class="headerlink" href="#react-apps-already-worked-pretty-decently-before-redux-came-and-stole-the-show" title="Permanent link"></a></h4>
+<p>React predates Redux by 2 years. A lot of solid apps were written with React way before Redux became popular or even before it was a thing at all. The idea of functional composable components is really powerful in itself.
+The thing is that React isn’t a framework per se. It won’t impose any opinion on how you have to structure your app, how your components are composed or what’s the role of whatever abstraction you want to build on top (containers, etc.)
+This can easily lead the naive React user to write spaghetti code. However, after several hours of frustrations, cursing and revelations, you will end up figuring out something that works for you.</p>
+<h4 id="redux-is-awesome-if-you-need-it-when-you-need-it-where-you-need-it">Redux is awesome (if you need it, when you need it, where you need it)<a class="headerlink" href="#redux-is-awesome-if-you-need-it-when-you-need-it-where-you-need-it" title="Permanent link"></a></h4>
+<p>Redux digs deeper into the waters of this sort of functional reactive programming. The cornerstone idea behind it design is centralizing the management of the application state, making the UI be a consequence of predictable states and deterministic mutations that take place by applying pure functions (reducers) on previous valid states.
+In other words: it acknowledges the app state as the single source of truth for what the UI must be showing at every time. As long as you honor this premise, you’ll be OK.
+Cool… but… wait. Not all apps are the same in terms of how the UI relates to the app state. Broadly speaking, there are two types of apps:</p>
+<ul>
+<li>
+<p>Type A: <strong>many states, few views</strong> .</p>
+</li>
+<li>
+<p>Type B: <strong>few states, many views</strong> .</p>
+</li>
+</ul>
+<p>(Of course there’s a whole spectrum between type A and B. But that area is scary. From our point of view, it’s a matter of time that you end up modeling your apps as one of those types.)</p>
+<p>Apps of type A are trivially implemented with Redux without any hassle, specially if they have a single view that renders many possible states.
+But type B is a little more tricky to translate into the Redux paradigm. It’s virtually impossible to create a 1:1 map between the state of your app and the view you are presented. In one way or another, you will need to pivot over some app state value in order to let the UI know which view to render. And that leads to what we consider the biggest pitfall when using Redux: polluting app state with routing info.</p>
+<h4 id="dont-write-your-own-router">Don’t write your own router<a class="headerlink" href="#dont-write-your-own-router" title="Permanent link"></a></h4>
+<p>Overloading your app state (the Redux store) with variables telling the UI what section of your app to render is a severe counter pattern. That’s exactly the role of a router. If you go down that road, you are probably overstepping the scope of your app and you’ll be writing your own router.
+Even worst, you could fall into the temptation of using the store to tell the UI what to render without isolating those variables into a single key in the Redux store. If your app is of type B, please refrain from doing that. For that type of apps, the store should be limited to work as an app data repository, not a UI state pseudo-router.
+We think this is a fact most React + Redux users have realized on their own after some time. But for whatever reason, it is often overlooked, undermentioned or intentionally neglected: most apps can’t rely on the store as a single source of truth for painting the UI.</p>
+<h4 id="separating-concerns-when-it-comes-to-sources-of-truth">Separating concerns when it comes to sources of truth<a class="headerlink" href="#separating-concerns-when-it-comes-to-sources-of-truth" title="Permanent link"></a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Separation_of_concerns">Separation of concerns</a>
+ has been a thing for decades for a number of good reasons.
+At this point, it becomes clear that there can’t be a single source of truth because there’s no single truth. Different aspects of our app (UI vs. data) have different requirements when it comes to maintaining and updating their state in a deterministic way.
+However, it’s true that routing info (UI state) can benefit from the nice features of Redux. That’s the case for 
+<a href="https://github.com/supasate/connected-react-router">connected-react-router</a>
+ . For example, time traveling with the Redux DevTools is a must for debugging stateful apps.</p>
+<h4 id="letting-the-router-do-what-it-knows-best">Letting the router do what it knows best<a class="headerlink" href="#letting-the-router-do-what-it-knows-best" title="Permanent link"></a></h4>
+<p>OK, I’ll buy it. Let’s use a Redux-aware router like 
+<a href="https://github.com/supasate/connected-react-router">connected-react-router</a>
+ . But… what if I try to navigate to a route that is incompatible with the current app state? I mean, what if the UI needs some variable in the store not to be null or undefined? We all know what happens when a “whatever is undefined” exception arises in the browser… JavaScript dies and the whole UI breaks.
+Well, that’s a no-problem for type B apps. This kind of apps should always render “empty UI states” when you navigate to a route that renders a view with no actual items to list or paint. Therefore, accidentally navigating to one of those routes will not break your app but instead show a user friendly message. Don’t panic. UX is safe and sound.</p>
+<h4 id="limiting-the-scope-of-the-app-wide-state-store">Limiting the scope of the app-wide state store<a class="headerlink" href="#limiting-the-scope-of-the-app-wide-state-store" title="Permanent link"></a></h4>
+<p>Another source of pollution for the app state is transitive data. Transitive data refers to information that is relevant to a single part of the app in a certain point in time. Its scope belongs and is specific to a certain transaction, process or flow that has an start and an end.
+For example: a form. The values entered by the user along a multi-step form are only relevant to the form itself. When it reaches the last step, some logic will be performed and some action will be dispatched, triggering a mutation on the app state. But then the form component will get unmounted by React and there’s no good reason to keep the entered data into the store. (Of course we could make the reducers clear out the form data from the store, but that’s simply unnecessary and introduces redundant “chore” code into our reducers, harming their clarity).</p>
+<p>It becomes evident that transitive data must be stored in the components themselves (namely, in their containers). This way, every component is responsible of wiping after itself, without running the risk of causing the app state to mutate in such a way that affects other components. It’s a matter of contention.
+This pattern stays in line with the original workflow of React: containers should pass as little data as needed to their contained components. In the same way, each container will pass each of its children components only the callback methods or promises they need to report transitive data to their parent.
+The containers themselves can handle their internal state as they wish. However, it’s a good idea to use some standard interface for them that somehow mimics the Redux model. 
+<a href="https://github.com/mobxjs/mobx">MobX</a>
+ is a good candidate for that, although lighter solutions can be trivially written from scratch.</p>
+<h4 id="the-conclusion-of-our-conclusions">The conclusion of our conclusions<a class="headerlink" href="#the-conclusion-of-our-conclusions" title="Permanent link"></a></h4>
+<p><a href="https://en.wikipedia.org/wiki/Drinking_the_Kool-Aid">Don’t drink the kool-aid</a>
+ . Use Redux and a router only for what they were thought for. They can interact and work together pretty nicely, but don’t try to mix them up just because you can.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Witnet’s Take on React, Redux, and Routers </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/witnets-take-on-react-redux-and-routers/2995d69b766c46c38154e96ce7ff8814/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-19</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qmb6kpk37iFmjjNNdkgBhqnZuTZsQMzQBVYSEBbUQD8Q2R</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../aragon-apps--group/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../aragon-apps--group/" class="btn btn-xs btn-link">
+        Aragon Apps  Group
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../witnet-monthly-report-august-2018/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../witnet-monthly-report-august-2018/" class="btn btn-xs btn-link">
+        Witnet Monthly Report — August 2018
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/witnet-s-take-on-react-redux-and-routers.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

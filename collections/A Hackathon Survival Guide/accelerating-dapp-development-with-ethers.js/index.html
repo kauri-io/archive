@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/accelerating-dapp-development-with-ethers.js/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Accelerating DApp Development with Ethers.js - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Accelerating DApp Development with Ethers.js", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Creating a Wallet", url: "#creating-a-wallet" },
+              {title: "Interacting with Smart Contracts", url: "#interacting-with-smart-contracts" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="accelerating-dapp-development-with-ethersjs">Accelerating DApp Development with Ethers.js<a class="headerlink" href="#accelerating-dapp-development-with-ethersjs" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNu48A22GJW66ZdT3crjycakHZYKx5HE2LSBgB1opgDLH" /></p>
+<p>Today's decentralized application stack often consists of a front end, smart contracts, and a framework to interact with the blockchain. Developers often use <a href="https://github.com/ethereum/web3.js/">Web3.js</a> for interaction with the Ethereum blockchain; however, Web3.js is large, its documentation needs improvement, and is difficult to maintain. <a href="https://github.com/ethers-io/ethers.js/">Ethers.js</a> is an alternative library that offers all the features of Web3.js in a smaller, well-tested package.</p>
+<p>In this tutorial, we use Angular 7.X and Ethers.js to create a simple wallet application and interact with a smart contract deployed on the Ethereum blockchain.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>First, install node.js and Angular. You can find the instructions below:</p>
+<ul>
+<li><a href="https://nodejs.org/en/">Nodejs</a></li>
+<li><a href="https://angular.io/guide/quickstart">Angular</a></li>
+</ul>
+<h4 id="creating-a-wallet-application">Creating a Wallet Application<a class="headerlink" href="#creating-a-wallet-application" title="Permanent link"></a></h4>
+<p>To get started, download the following initial <a href="https://github.com/jacobcreech/Ethersjs-initial-example">Angular application</a>. Make sure you are on the <code>initial</code> branch. To start, run.</p>
+<p><code>shell</code></p>
+<pre><code>git checkout -b initial
+npm install
+ng serve --open
+</code></pre>
+<p>Which greets you with the words "initial application" in your browser.</p>
+<p>Ethers.js follows the general standard of installing node packages, run the below to install it:</p>
+<p><code>shell</code></p>
+<pre><code>npm install --save ethers
+</code></pre>
+<p>Now everything is set up to work with Ethers.js.</p>
+<h3 id="creating-a-wallet">Creating a Wallet<a class="headerlink" href="#creating-a-wallet" title="Permanent link"></a></h3>
+<p>We first use Ethers.js to create a new wallet. Change <code>/src/app/wallet/wallet.component.html</code> to the following html:</p>
+<pre><code class="language-htt">&lt;div fxFlex=&quot;20&quot;&gt;&lt;/div&gt;
+&lt;div fxFlex=&quot;60&quot; class=&quot;wallet&quot;&gt;
+    &lt;button mat-raised-button color=&quot;primary&quot; (click)=&quot;onSubmit()&quot;&gt;Generate Wallet&lt;/button&gt;
+    &lt;p *ngIf=&quot;publickey&quot;&gt;Public Key: {{publickey}}&lt;/p&gt;
+    &lt;p *ngIf=&quot;privatekey&quot;&gt;Private Key: {{privatekey}}&lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+</code></pre>
+<p>To create a wallet, we use <code>wallet.createRandom()</code> to create a random public and private key. We can use this wallet for other actions, such as creating transactions.</p>
+<p>In <code>/src/app/wallet/wallet.component.ts</code>, change the <code>onSubmit() {}</code> function to the below:</p>
+<pre><code class="language-typescript">onSubmit() {
+    const randomWallet = ethers.Wallet.createRandom();
+    this.publickey = randomWallet.address;
+    this.privatekey = randomWallet.privateKey;
+    const wallet = new ethers.Wallet(this.privatekey);
+}
+</code></pre>
+<p>Before we can do anything with this wallet, we must first connect it to the Ethereum blockchain. We do this using the default web3 provider by Ethers.js.</p>
+<p>Update the <code>ngOnInit() {}</code> function in <code>wallet.component.ts</code> to the below:</p>
+<pre><code class="language-typescript">ngOnInit() {
+    this.provider = ethers.getDefaultProvider('homestead');;
+}
+</code></pre>
+<p>This code obtains the web3 connection provided by Metamask and makes it ready to use by Ethers.</p>
+<h4 id="sending-and-signing-transactions">Sending and Signing Transactions<a class="headerlink" href="#sending-and-signing-transactions" title="Permanent link"></a></h4>
+<p>Next, we create the ability to send a transaction with our application. Ethers.js provides the ability to edit any data within a transaction, such as gas limit and what address you are sending the transaction to. To send a transaction using the wallet, create a send transaction button that uses the <code>sendTransaction</code> method from Ethers.js, as well as some form fields for input on the transaction.</p>
+<p>Inside <code>/src/app/wallet/wallet.component.html</code> add the code below inside the two <code>&lt;div&gt;</code>'s</p>
+<pre><code class="language-html">&lt;form [formGroup]=&quot;transactionForm&quot; (ngSubmit)=&quot;sendTransaction(transactionForm.value)&quot;&gt;
+        &lt;mat-form-field appearance=&quot;outline&quot;&gt;
+        &lt;mat-label&gt;To&lt;/mat-label&gt;
+        &lt;input formControlName=&quot;toAddress&quot; matInput placeholder=&quot;0xAddress&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;mat-form-field appearance=&quot;outline&quot;&gt;
+        &lt;mat-label&gt;Amount&lt;/mat-label&gt;
+        &lt;input formControlName=&quot;etherAmount&quot; matInput placeholder=&quot;1&quot;&gt;
+        &lt;span matSuffix&gt;Ether&lt;/span&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-raised-button color=&quot;secondary&quot;&gt;Send Transaction&lt;/button&gt;
+    &lt;/form&gt;
+</code></pre>
+<p>In the <code>constructor</code> of the <code>wallet.component.ts</code> class, create the base form information.</p>
+<pre><code class="language-typescript">constructor(private fb: FormBuilder) {
+    this.transactionForm = fb.group({
+        'toAddress': [null],
+        'etherAmount': [null]
+    });
+}
+</code></pre>
+<p>To send a transaction, Ethers.js provides a <code>sendTransaction</code> method for all wallets. Add a <code>sendTransaction</code> method to the <code>wallet.component.ts</code> class, inputting the form.</p>
+<pre><code class="language-typescript">sendTransaction(form: any) {
+    let transaction = {
+        to: form.toAddress,
+        value: ethers.utils.parseEther(form.etherAmount)
+    }
+
+    this.wallet.sendTransaction(transaction)
+        .then((tx) =&gt; {
+            console.log(tx);
+        })
+}
+</code></pre>
+<p>We first create the transaction object, giving where the transaction is going in the <code>to</code> field. <code>value</code> denotes how much ether, in the units Wei by default, is sent to the address mentioned. We use the <code>parseEther</code> util provided by Ethers.js to convert from Ether to Wei. After creating the transaction object, we use our wallet to send the transaction. In this implementation, the console logs the transaction receipt.</p>
+<h3 id="interacting-with-smart-contracts">Interacting with Smart Contracts<a class="headerlink" href="#interacting-with-smart-contracts" title="Permanent link"></a></h3>
+<p>One of the novelties of Ethereum is the creation and use of smart contracts on the blockchain. Dapp development relies on interaction with smart contracts, and Ethers.js has a solution. With Ethers.js, you can interact with a smart contract to exchange tokens with two parties or play one of the many Dapp games.</p>
+<p>Take for example this <a href="https://ropsten.etherscan.io/address/0x8a32989b65186d3596251d7d7c8a427a26669354#code">Sample Contract</a>. This contract stores variables by adding it to the blockchain and can read all currently stored variables. Storing values on the Ethereum blockchain is useful for Dapp development, as the storage allows developers to reference variables for interactions such as storing signatures, or keeping track of cryptokittens up for trade. Interacting with this contract with Ethers.js, we create the ABI for it, found <a href="https://ropsten.etherscan.io/address/0x8a32989b65186d3596251d7d7c8a427a26669354#code">here</a>. ABI stands for Application Binary Interface. This interface defines functions found at a smart contract address, and you can use to call functions of a smart contract.</p>
+<pre><code class="language-typescript">let abi = [{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;add&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;getValues&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint256[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;constructor&quot;}];
+</code></pre>
+<p>We know the address of the contract is <code>0x8a32989b65186d3596251d7d7c8a427a26669354</code>. Using both of these and our wallet, we can create a contract object using Ethers. For example:</p>
+<pre><code class="language-typescript">let contractAddress = '0x8a32989b65186d3596251d7d7c8a427a26669354';
+
+let contract = new ethers.Contract(contractAddress, abi, wallet);
+</code></pre>
+<p>In the contract, we find both the add and <code>getValues</code> functions. To call these functions using Ethers, you call the functions listed in the ABI.</p>
+<pre><code class="language-typescript">await contract.add(&quot;Message&quot;);
+contract.getValues()
+        .then((result) =&gt; {
+        console.log(result);
+        });
+</code></pre>
+<p>We add this to our UI in the <code>wallet.component.html</code> class by adding an additional field and a <code>getValues</code> field:</p>
+<pre><code class="language-html">&lt;form [formGroup]=&quot;contractForm&quot; (ngSubmit)=&quot;addToContract(contractForm.value)&quot;&gt;
+        &lt;mat-form-field appearance=&quot;outline&quot;&gt;
+        &lt;mat-label&gt;Value&lt;/mat-label&gt;
+        &lt;input formControlName=&quot;value&quot; matInput placeholder=&quot;1&quot;&gt;
+        &lt;/mat-form-field&gt;
+        &lt;button mat-raised-button color=&quot;secondary&quot;&gt;Add to Contract&lt;/button&gt;
+&lt;/form&gt;
+&lt;button mat-raised-button color=&quot;primary&quot; (click)=&quot;getValues()&quot;&gt;Get Values&lt;/button&gt;
+&lt;p *ngIf=&quot;message&quot;&gt;Message: {{message}}&lt;/p&gt;
+</code></pre>
+<p>Add the code below to the <code>constructor</code>, and create the <code>getValues()</code> and <code>addToContract()</code> functions.</p>
+<pre><code class="language-typescript">constructor(private fb: FormBuilder) {
+        this.contractForm = fb.group({
+            'value': [null]
+        })
+        this.abi = [{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;add&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;getValues&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint256[]&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;constructor&quot;}];
+        this.contractAddress = &quot;0x8a32989b65186d3596251d7d7c8a427a26669354&quot;;
+    }
+
+addToContract(form: any) {
+            let contract = new ethers.Contract(this.contractAddress, this.abi, this.wallet);
+            contract.add(form.value);
+    }
+
+    getValues() {
+        let contract = new ethers.Contract(this.contractAddress, this.abi, this.wallet);
+        contract.getValues()
+                .then((result) =&gt; {
+                    this.message = result;
+                });
+    }
+</code></pre>
+<p>Rerun the application with <code>ng serve --open</code> and you should have a basic, but functioning wallet application.</p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>In this tutorial, we created a dapp that creates a wallet, sends a transaction, and interacts with a smart contract. Using Ethers.js, we can interact with the Ethereum blockchain with ease and expand to more complex use cases. Further improvements could be to create a better design, add more wallet integrations, and a separation of concerns between the wallet and contract component. With this demo app, you can now include a wallet app by just including the wallet web component in your dapp.</p>
+<p>Ethers.js is a powerful tool and a strong alternative to web3 for dApp development. The small compact library makes creating dApps a breeze, taking all the heavy lifting off of the developer's shoulders and making it easier to focus on the smart contract or website design. For more information on Ethers.js, checkout out the <a href="https://docs.ethers.io/ethers.js/html/index.html">documentation</a>. You can find the final codebase on the master branch <a href="https://github.com/jacobcreech/Ethersjs-example">here</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Accelerating DApp Development with Ethers.js</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/accelerating-dapp-development-with-ethersjs/805715d4e66440d996fee0930a6d0fbc/a</li>
+<li><strong>Kauri original author:</strong> Jacob Creech (@jacobcreech)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-18</li>
+<li><strong>Kauri original tags:</strong> ethereum, dapp, ethers-js</li>
+<li><strong>Kauri original hash:</strong> QmYfNZ7xzemxVkuxnP9pU33uoP49j45RCrqj5JpaiWe5Xg</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../nethereum-an-open-source-.net-integration-library/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../nethereum-an-open-source-.net-integration-library/" class="btn btn-xs btn-link">
+        Nethereum - An open source .NET integration library for blockchain
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../generate-a-java-wrapper-from-your-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../generate-a-java-wrapper-from-your-smart-contract/" class="btn btn-xs btn-link">
+        Generate a Java Wrapper from your Smart Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/accelerating-dapp-development-with-ethers.js.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

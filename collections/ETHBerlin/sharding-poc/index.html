@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/sharding-poc/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sharding PoC - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sharding PoC", url: "#_top", children: [
+              {title: "Setup", url: "#setup" },
+              {title: "Built With", url: "#built-with" },
+              {title: "Try it out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="sharding-poc">Sharding PoC<a class="headerlink" href="#sharding-poc" title="Permanent link"></a></h1>
+<p>While Casper FFG (the “friendly finality gadget,” a.k.a. Vitalik’s casper, which provides finality on top of the existing proof-of-work-based system) is the primary proof of concept candidate in the Shasper “Ethereum 2.0” roadmap, Vlad has been diligently at work for some time on his own Casper workstream, titled Casper CBC (“correct by construction”), which entirely replaces proof of work with a new, provably correct block proposal and fork choice scheme. Until now, that work has been largely theoretical and has consisted primarily of equations and diagrams (see the whitepaper, released last year). So it’s really exciting to see the rubber hit the road and to see some of these ideas be proven out in actual, running code, which is a lot easier for most developers to digest! - Lane "McShardface" Rettig</p>
+<p>https://devpost.com/software/ethshardingpoc</p>
+<p>This is a proof of concept for a sharded Ethereum blockchain, that supports multiple validators per shards, cross-shard messages and state updates to the EVM.</p>
+<p><code>simulator.py</code> simulates and provides a visualisation for this.</p>
+<h4 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h4>
+<pre><code>$ pipenv install
+$ pipenv shell
+</code></pre>
+<h4 id="built-with">Built With<a class="headerlink" href="#built-with" title="Permanent link"></a></h4>
+<ul>
+<li>python</li>
+</ul>
+<h4 id="try-it-out">Try it out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="https://github.com/smarx/ethshardingpoc">GitHub Repo</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Sharding PoC</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/sharding-poc/0193c7d7a1d34604880adedae157c09d/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmPp3WrJipiNYL4RmV1TBgZfTQ7K9j21S4E2t6rvrTE5tJ</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../good-badger/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../good-badger/" class="btn btn-xs btn-link">
+        Good Badger
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sputnik/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sputnik/" class="btn btn-xs btn-link">
+        Sputnik
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/sharding-poc.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

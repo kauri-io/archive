@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/POA%20Tutorial%20series/poa-part-2-bridge-assets-between-a-sidechain-and-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>POA - Part 2 - Bridge assets between a sidechain and a mainchain - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "POA - Part 2 - Bridge assets between a sidechain and a mainchain", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Requirements", url: "#requirements" },
+              {title: "Step 1: Deploy an ERC20 token called BRidge Token BRT on the mainchain (Rinkeby network)", url: "#step-1-deploy-an-erc20-token-called-bridge-token-brt-on-the-mainchain-rinkeby-network" },
+              {title: "Step 2: Initialise the monorepo tokenbridge", url: "#step-2-initialise-the-monorepo-tokenbridge" },
+              {title: "Step 3: Configure and Deploy the bridge contracts", url: "#step-3-configure-and-deploy-the-bridge-contracts" },
+              {title: "Step 4: Configure and deploy the Bridge Oracle", url: "#step-4-configure-and-deploy-the-bridge-oracle" },
+              {title: "Step 5: Configure and Deploy the bridge UI", url: "#step-5-configure-and-deploy-the-bridge-ui" },
+              {title: "References:", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain">POA - Part 2 - Bridge assets between a sidechain and a mainchain<a class="headerlink" href="#poa-part-2-bridge-assets-between-a-sidechain-and-a-mainchain" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbbW1gkfPqjgggfF96byCijSjT2QAeNwGkpj6yaHMNoT2" /></p>
+<p>This article is part of a <strong>POA tutorial series</strong>:</p>
+<ul>
+<li><a href="https://kauri.io/article/549b50d2318741dbba209110bb9e350e">POA - Part 1 - Develop and deploy a smart contract</a></li>
+<li><a href="https://kauri.io/article/19072f7340184628b47c0d86e7feac6d">POA - Part 2 - Bridge assets between a sidechain and a mainchain</a></li>
+<li>POA - Part 3 - Meta-transaction [Coming soon]</li>
+</ul>
+<hr />
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p><a href="https://bridge.poa.net/">The POA Bridge</a> is a solution to transfer asset tokens (Native and ERC20/ERC677 tokens) between two Ethereum chains. </p>
+<p>An asset token usually has two purposes:</p>
+<ul>
+<li>A monetary use where a token can be traded, exchanged or just kept as a long term investment</li>
+<li>An application use where a token can be employed on a Dapp (voting, stacking, playing, etc...)</li>
+</ul>
+<p>Both usages require different network properties to enable the best experience, the monetary use may need a strong  network security and liveness and an access to a large network of assets to facilitate trade while the application use needs faster and cheaper transactions for a better user experience.</p>
+<p>As part of the layer 2 scalability solutions, sidechain and bridges implement this paradigm of two chains for two usages and try to solve the scalability and UX issues due to the Ethereum mainnet being usually considered too slow (15 tx/sec) and too expensive on gas fees to enable a good user experience for most of the use cases (games or social apps). In this context, the general flow is the following:</p>
+<ol>
+<li>User buys token on the mainchain</li>
+<li>User transfers his tokens to the sidechain via the bridge (double representation: locked on the mainchain and minted on the sidechain)</li>
+<li>User uses the tokens in a fast and efficient way. Perhaps earn or lose some tokens from other users</li>
+<li>User decides to exit his tokens from the sidechain and transfer them back to the mainchain via the bridge (tokens unlocked on the mainchain and burned on the sidechain)</li>
+<li>User sells his tokens on the mainchain</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWH44b3xpJk1yEiLok7xPZw991J3SgxGaoQ6nj6a8GUhn" /></p>
+<p>In this tutorial, we will learn how to deploy a token on the two networks (RinkeBy network as mainchain and POA Sokol as sidechain) and then deploy and use the bridge (ERC20 to ERC20) to let a user transfers his assets from one network to another.</p>
+<hr />
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link"></a></h3>
+<p>In order to start, you will need the following programs installed on your machine:</p>
+<ul>
+<li>Git</li>
+<li>NodeJS/NPM</li>
+<li>Yarn</li>
+<li>Docker and Docker-Compose</li>
+<li><a href="https://metamask.io/">Metamask</a> (Browser extension)</li>
+<li><a href="https://truffleframework.com/">Truffle</a></li>
+</ul>
+<pre><code class="language-shell">$ npm install -g truffle
+
+$ truffle version
+Truffle v5.0.20 (core: 5.0.20)
+Solidity v0.5.0 (solc-js)
+Node v8.15.1
+Web3.js v1.0.0-beta.37
+</code></pre>
+<p><br /></p>
+<h3 id="step-1-deploy-an-erc20-token-called-bridge-token-brt-on-the-mainchain-rinkeby-network">Step 1: Deploy an ERC20 token called BRidge Token <code>BRT</code> on the mainchain (Rinkeby network)<a class="headerlink" href="#step-1-deploy-an-erc20-token-called-bridge-token-brt-on-the-mainchain-rinkeby-network" title="Permanent link"></a></h3>
+<ol>
+<li>Let's first create a project folder for our ERC20 <code>BRT</code> and initialize a Truffle project.</li>
+</ol>
+<pre><code class="language-shell">$ mkdir token
+$ cd token
+$ truffle init
+</code></pre>
+<p><br /></p>
+<ol>
+<li>Then we will install the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity">Open-Zeppelin Solidity library</a> which contains a lot of high-quality, fully tested and audited reusable smart contracts</li>
+</ol>
+<pre><code class="language-shell">$ npm init -y
+$ npm install openzeppelin-solidity --save-exact
+</code></pre>
+<p><br /></p>
+<ol>
+<li>Create a contract file <code>./contacts/BridgeToken.sol</code> containing</li>
+</ol>
+<pre><code>// BridgeToken.sol
+pragma solidity ^0.5.8;
+
+import &quot;openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol&quot;;
+
+contract BridgeToken is ERC20Mintable {
+    string public constant name = &quot;Bridge Token&quot;;
+    string public constant symbol = &quot;BRT&quot;;
+    uint8 public constant decimals = 18;
+}
+</code></pre>
+<p>That's it and a big Thanks to the Zeppelin team for all the work they done for Ethereum. Basically our smart contract inherits from <a href="https://openzeppelin.org/api/docs/token_ERC20_MintableToken.html">MintableToken</a> which offers all the ERC-20 standard functionalities as well as functions to mint tokens. We only need to specify our token name "Bridge Token", its symbol "BRT" and the number of decimals (divisibility).</p>
+<p>To make sure your smart contract compiles, you can execute the command <code>truffle compile</code>.</p>
+<p><br /></p>
+<ol>
+<li>Deploy the smart contract on the RinkeBy network</li>
+</ol>
+<p><em>Note:</em> Make sure the account used to deploy the contract is funded with RinkeBy ethers (see <a href="https://faucet.rinkeby.io/">faucet</a>).</p>
+<p>Once our smart contracts compile, we need to deploy it. To do so, we need first to complete the migration script, create a file <code>./migrations/2_deploy_contract.js</code></p>
+<pre><code class="language-javascript">// 2_deploy_contract.js
+const BridgeToken = artifacts.require(&quot;./BridgeToken.sol&quot;);
+
+module.exports = function(deployer, network, accounts) {
+    // Deploy the smart contract
+    deployer.deploy(BridgeToken, {from: accounts[0]}).then(function(instance) {
+        // Mint 100 tokens
+        return instance.mint(accounts[0], web3.utils.toBN(&quot;100000000000000000000&quot;), {from: accounts[0]});
+    }); 
+};
+</code></pre>
+<p>The migration script deploys the contract and additionally mint and distribute 100 BRT tokens to the deployer account.</p>
+<p>Next step consists in configuring a connection to the RinkeBy network in order to deploy a smart contract.</p>
+<p>Install the following dependencies (<a href="https://www.npmjs.com/package/dotenv">dotenv</a> to manage environment variables and <a href="https://github.com/trufflesuite/truffle-hdwallet-provider">truffle-hdwallet-provider</a> to sign transactions from an account derived from a mnemonic)</p>
+<pre><code class="language-shell">$ npm install --save dotenv truffle-hdwallet-provider
+</code></pre>
+<p>Create a file <code>./.env</code> to store some private information, we do not want to share anywhere (<strong>gitignore this file</strong>)</p>
+<ul>
+<li><a href="https://infura.io/">Infura</a> is a public gateway to Ethereum. If you don't already have an account, I recommend you to create one and past your API key (PROJECT ID) in this file.</li>
+<li>A mnemonic a 12 words phrase that symbolize a private key. You can find it in Metamask (<em>Settings / Reveal seed words</em>)</li>
+</ul>
+<pre><code>// .env
+INFURA_API_KEY=044443611111111e19e03433333309923
+MNEMONIC=twelve words you can find in metamask/settings/reveal seed words 
+</code></pre>
+<p>Finally let's configure the connection to the RinkeBy network. Edit the file <code>./truffle.js</code></p>
+<pre><code class="language-javascript">// truffle.js
+require('dotenv').config();
+const HDWalletProvider = require(&quot;truffle-hdwallet-provider&quot;);
+
+module.exports = {
+  networks: {
+    development: {
+      host: &quot;localhost&quot;,
+      port: 8545,
+      network_id: &quot;*&quot;
+    },
+    rinkeby: {
+        provider: new HDWalletProvider(process.env.MNEMONIC, &quot;https://rinkeby.infura.io/v3/&quot; + process.env.INFURA_API_KEY),
+        network_id: 4,
+        gas: 4500000
+    }
+  }
+};
+</code></pre>
+<p>To deploy the smart contracts on the RinkeBy network, run the command (this might take a little while) :</p>
+<pre><code class="language-shell">$ truffle migrate --network rinkeby
+
+Compiling your contracts...
+===========================
+&gt; Compiling ./contracts/BridgeToken.sol
+&gt; Compiling ./contracts/Migrations.sol
+&gt; Compiling openzeppelin-solidity/contracts/access/Roles.sol
+&gt; Compiling openzeppelin-solidity/contracts/access/roles/MinterRole.sol
+&gt; Compiling openzeppelin-solidity/contracts/math/SafeMath.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
+&gt; Artifacts written to /home/gjeanmart/workspace/tutorials/bridge_token/build/contracts
+&gt; Compiled successfully using:
+   - solc: 0.5.8+commit.23d335f2.Emscripten.clang
+
+
+Migrations dry-run (simulation)
+===============================
+&gt; Network name:    'rinkeby-fork'
+&gt; Network id:      4
+&gt; Block gas limit: 0x7244c0
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   &gt; block number:        4502550
+   &gt; block timestamp:     1559667907
+   &gt; account:             0xF0f15Cedc719B5A55470877B0710d5c7816916b1
+   &gt; balance:             33.578282390129999997
+   &gt; gas used:            246393
+   &gt; gas price:           2 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.000492786 ETH
+
+   -------------------------------------
+   &gt; Total cost:         0.000492786 ETH
+
+
+2_deploy_contract.js
+====================
+
+   Deploying 'BridgeToken'
+   -----------------------
+   &gt; block number:        4502552
+   &gt; block timestamp:     1559667919
+   &gt; account:             0xe9B0E206C8cA079bca49F0120abfD02760093612
+   &gt; balance:             99.996785462
+   &gt; gas used:            1607269
+   &gt; gas price:           2 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.003214538 ETH
+
+   -------------------------------------
+   &gt; Total cost:         0.003214538 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.003707324 ETH
+
+
+Starting migrations...
+======================
+&gt; Network name:    'rinkeby'
+&gt; Network id:      4
+&gt; Block gas limit: 0x724802
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   &gt; transaction hash:    0x44dbbf18d316adb29143d1b3341c1e28b297d144411ee98cb23017270f77b9ed
+   &gt; Blocks: 1            Seconds: 9
+   &gt; contract address:    0xAC96dc3AC9baB86c7d89a5868096394CB708a6a0
+   &gt; block number:        4502551
+   &gt; block timestamp:     1559667943
+   &gt; account:             0xF0f15Cedc719B5A55470877B0710d5c7816916b1
+   &gt; balance:             33.573547316129999997
+   &gt; gas used:            261393
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.00522786 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.00522786 ETH
+
+
+2_deploy_contract.js
+====================
+
+   Deploying 'BridgeToken'
+   -----------------------
+   &gt; transaction hash:    0x80dc122178131cbd040e90b667cc1d11a47d21abf8ebf17c80232b1c4c5f33df
+   &gt; Blocks: 2            Seconds: 21
+   &gt; contract address:    0x40A6a864133985E1146DDfEb48c7391CD07596F5
+   &gt; block number:        4502554
+   &gt; block timestamp:     1559667988
+   &gt; account:             0xF0f15Cedc719B5A55470877B0710d5c7816916b1
+   &gt; balance:             33.540261476129999997
+   &gt; gas used:            1622269
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.03244538 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.03244538 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.03767324 ETH
+
+</code></pre>
+<p>As a result, we can identify our Smart Contract <code>BridgeToken</code> as been deployed at the address <code>0x40A6a864133985E1146DDfEb48c7391CD07596F5</code> (see <a href="https://rinkeby.etherscan.io/address/0x40A6a864133985E1146DDfEb48c7391CD07596F5">block explorer</a>)</p>
+<p><br /></p>
+<h3 id="step-2-initialise-the-monorepo-tokenbridge">Step 2: Initialise the monorepo <code>tokenbridge</code><a class="headerlink" href="#step-2-initialise-the-monorepo-tokenbridge" title="Permanent link"></a></h3>
+<p>In this second step, we will initialise the GitHub mono-repository in order to install each component in the following steps.</p>
+<ol>
+<li>Clone the repo</li>
+</ol>
+<pre><code class="language-shell">$ cd ../
+$ git clone --recursive https://github.com/poanetwork/tokenbridge
+$ cd ./tokenbridge/
+</code></pre>
+<ol>
+<li>Install the depandancies</li>
+</ol>
+<pre><code class="language-shell">$ yarn install &amp;&amp; yarn install:deploy
+</code></pre>
+<p><br /></p>
+<h3 id="step-3-configure-and-deploy-the-bridge-contracts">Step 3: Configure and Deploy the bridge contracts<a class="headerlink" href="#step-3-configure-and-deploy-the-bridge-contracts" title="Permanent link"></a></h3>
+<p>In this third step, we will deploy the necessary contracts to enable a ERC20 to ERC20 bridge.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaVm2rdtf78fHsG7pRh2GYGXeRdos6tNkWrWtU2AZAT8w" /></p>
+<ol>
+<li>Go to the <code>contracts</code> folder</li>
+</ol>
+<pre><code class="language-shell">$ cd ./contracts/
+</code></pre>
+<p><br />
+2. Compile the smart contracts</p>
+<pre><code class="language-shell">$ npm run compile
+</code></pre>
+<p><br />
+3. Create a configuration file in <code>./deploy/.env</code></p>
+<p><em>Note 1</em> : the following properties to change</p>
+<ul>
+<li><code>PRIVATE_KEY</code> Account responsible for deploying, administrating the contracts and validating transfers</li>
+<li><code>ACCOUNT_ADMIN</code> Account responsible for deploying, administrating the contracts and validating transfers.</li>
+<li><code>ERC20_TOKEN_ADDRESS</code> Address of the ERC20 token deployed above.</li>
+</ul>
+<p><em>Note 2</em> : For the reason of the tutorial, we decided to simplify the configuration as much as possible (one account administrating and validating)</p>
+<p><em>Note 3</em> : Make sure the account <code>ACCOUNT_ADMIN</code> is funded with <strong>RinkeBy ethers</strong> and <strong>POA Sokol ethers</strong>.</p>
+<p><em>Note 4</em> : No block reward (rewardable token) has been configured.</p>
+<pre><code>BRIDGE_MODE=ERC_TO_ERC
+##BRIDGE_MODE=NATIVE_TO_ERC
+
+## If Home network does not support byzantium fork, should use contracts compiled for spuriousDragon
+##HOME_EVM_VERSION=spuriousDragon
+
+## If Foreign network does not support byzantium fork, should use contracts compiled for spuriousDragon
+##FOREIGN_EVM_VERSION=spuriousDragon
+
+DEPLOYMENT_ACCOUNT_PRIVATE_KEY=PRIVATE_KEY
+
+DEPLOYMENT_GAS_LIMIT_EXTRA=0.2
+HOME_DEPLOYMENT_GAS_PRICE=10000000000
+FOREIGN_DEPLOYMENT_GAS_PRICE=10000000000
+GET_RECEIPT_INTERVAL_IN_MILLISECONDS=3000
+
+BRIDGEABLE_TOKEN_NAME=&quot;Bridge Token&quot;
+BRIDGEABLE_TOKEN_SYMBOL=BRT
+BRIDGEABLE_TOKEN_DECIMALS=18
+
+HOME_RPC_URL=https://sokol.poa.network
+HOME_BRIDGE_OWNER=ACCOUNT_ADMIN
+HOME_VALIDATORS_OWNER=ACCOUNT_ADMIN
+HOME_UPGRADEABLE_ADMIN=ACCOUNT_ADMIN
+HOME_DAILY_LIMIT=30000000000000000000000000
+HOME_MAX_AMOUNT_PER_TX=1500000000000000000000000
+HOME_MIN_AMOUNT_PER_TX=500000000000000000
+HOME_REQUIRED_BLOCK_CONFIRMATIONS=1
+HOME_GAS_PRICE=1000000000
+
+BLOCK_REWARD_ADDRESS=0x0000000000000000000000000000000000000000
+
+FOREIGN_RPC_URL=https://rinkeby.infura.io
+FOREIGN_BRIDGE_OWNER=ACCOUNT_ADMIN
+FOREIGN_VALIDATORS_OWNER=ACCOUNT_ADMIN
+FOREIGN_UPGRADEABLE_ADMIN=ACCOUNT_ADMIN
+FOREIGN_DAILY_LIMIT=15000000000000000000000000
+FOREIGN_MAX_AMOUNT_PER_TX=750000000000000000000000
+FOREIGN_MIN_AMOUNT_PER_TX=500000000000000000
+FOREIGN_REQUIRED_BLOCK_CONFIRMATIONS=8
+FOREIGN_GAS_PRICE=10000000000
+##for bridge erc_to_erc and erc_to_native mode
+ERC20_TOKEN_ADDRESS=ERC20_TOKEN_ADDRESS
+## Only for for erc_to_erc mode
+ERC20_EXTENDED_BY_ERC677=false
+
+REQUIRED_NUMBER_OF_VALIDATORS=1
+##If several validators are used, list them separated by space without quotes
+##E.g. VALIDATORS=0x 0x 0x
+VALIDATORS=ACCOUNT_ADMIN
+##Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on home side, set to false otherwise
+HOME_REWARDABLE=false
+## Valid only for rewards on erc_to_native mode. Supported values are BRIDGE_VALIDATORS_REWARD and POSDAO_REWARD
+HOME_FEE_MANAGER_TYPE=
+##Set to ONE_DIRECTION or BOTH_DIRECTIONS if fee will be charged on foreign side, set to false otherwise
+FOREIGN_REWARDABLE=false
+##If HOME_REWARDABLE or FOREIGN_REWARDABLE set to true, list validators accounts were rewards should be transferred separated by space without quotes
+##E.g. VALIDATORS_REWARD_ACCOUNTS=0x 0x 0x
+VALIDATORS_REWARD_ACCOUNTS=0x
+
+## Fee to be taken for every transaction directed from the Home network to the Foreign network
+## E.g. 0.1% fee
+HOME_TRANSACTIONS_FEE=0.001
+## Fee to be taken for every transaction directed from the Foreign network to the Home network
+FOREIGN_TRANSACTIONS_FEE=0.001
+##for bridge native_to_erc, erc_to_erc mode
+DEPLOY_REWARDABLE_TOKEN=false
+DPOS_STAKING_ADDRESS=0x0000000000000000000000000000000000000000
+</code></pre>
+<p><br />
+4. Deploy the Bridge configuration</p>
+<pre><code class="language-shell">$ ./deploy.sh
+(...)
+Deployment has been completed.
+
+[   Home  ] HomeBridge: 0xc4e7cA947521f331969e41CC7c99ADa22F2C7F9C at block 9044640
+[   Home  ] ERC677 Bridgeable Token: 0xEa3acD04DdaF1F1A5Ae1B9f5f690123aA4E19B36
+[ Foreign ] ForeignBridge: 0xeb2dbC5AB9380A3517AcA9d8CA0c39873e569a93 at block 4503560
+[ Foreign ] ERC20 Token: 0x40A6a864133985E1146DDfEb48c7391CD07596F5
+Contracts Deployment have been saved to `bridgeDeploymentResults.json`
+{
+    &quot;homeBridge&quot;: {
+        &quot;address&quot;: &quot;0xc4e7cA947521f331969e41CC7c99ADa22F2C7F9C&quot;,
+        &quot;deployedBlockNumber&quot;: 9044640,
+        &quot;erc677&quot;: {
+            &quot;address&quot;: &quot;0xEa3acD04DdaF1F1A5Ae1B9f5f690123aA4E19B36&quot;
+        }
+    },
+    &quot;foreignBridge&quot;: {
+        &quot;address&quot;: &quot;0xeb2dbC5AB9380A3517AcA9d8CA0c39873e569a93&quot;,
+        &quot;deployedBlockNumber&quot;: 4503560
+    }
+}
+</code></pre>
+<p><strong>Save the JSON information above.</strong></p>
+<p><br /></p>
+<h3 id="step-4-configure-and-deploy-the-bridge-oracle">Step 4: Configure and deploy the Bridge Oracle<a class="headerlink" href="#step-4-configure-and-deploy-the-bridge-oracle" title="Permanent link"></a></h3>
+<ol>
+<li>Go to the `oracle folder</li>
+</ol>
+<pre><code class="language-shell">$ cd ../oracle
+</code></pre>
+<p><br />
+2. Create a configuration file in <code>./.env</code></p>
+<p><em>Note 1</em> : Open the saved JSON file <code>bridgeDeploymentResults.json</code> to get the home and foreign bridge contract address and deployment block numbers.</p>
+<pre><code class="language-javascript">{
+    &quot;homeBridge&quot;: {
+        &quot;address&quot;: &quot;0xc4e7cA947521f331969e41CC7c99ADa22F2C7F9C&quot;,
+        &quot;deployedBlockNumber&quot;: 9044640,
+        &quot;erc677&quot;: {
+            &quot;address&quot;: &quot;0xEa3acD04DdaF1F1A5Ae1B9f5f690123aA4E19B36&quot;
+        }
+    },
+    &quot;foreignBridge&quot;: {
+        &quot;address&quot;: &quot;0xeb2dbC5AB9380A3517AcA9d8CA0c39873e569a93&quot;,
+        &quot;deployedBlockNumber&quot;: 4503560
+    }
+}
+
+</code></pre>
+<p><em>Note 2</em> : the following properties to change</p>
+<ul>
+<li><code>PRIVATE_KEY</code> Account responsible for deploying, administrating the contracts and validating transfers</li>
+<li><code>ACCOUNT_ADMIN</code>  Account responsible for deploying, administrating the contracts and validating transfers</li>
+<li><code>ERC20_TOKEN_ADDRESS</code> Address of the ERC20 token deployed above.</li>
+</ul>
+<p><em>Note 3</em> : For the reason of the tutorial, we decided to simplify the configuration as much as possible (one account administrating and validating)</p>
+<p><em>Note 4</em> : Make sure the account <code>ACCOUNT_ADMIN</code> is funded with RinkeBy ethers and POA sokol ethers.</p>
+<pre><code>BRIDGE_MODE=ERC_TO_ERC
+HOME_POLLING_INTERVAL=5000
+FOREIGN_POLLING_INTERVAL=1000
+ALLOW_HTTP=yes
+HOME_RPC_URL=https://sokol.poa.network
+FOREIGN_RPC_URL=https://rinkeby.infura.io
+HOME_BRIDGE_ADDRESS=bridgeDeploymentResults.json / homeBridge / address
+FOREIGN_BRIDGE_ADDRESS=bridgeDeploymentResults.json / foreignBridge / address
+ERC20_TOKEN_ADDRESS=ERC20_TOKEN_ADDRESS
+
+VALIDATOR_ADDRESS=ACCOUNT_ADMIN
+VALIDATOR_ADDRESS_PRIVATE_KEY=PRIVATE_KEY
+
+HOME_GAS_PRICE_ORACLE_URL=https://gasprice.poa.network/
+HOME_GAS_PRICE_SPEED_TYPE=standard
+HOME_GAS_PRICE_FALLBACK=1000000000
+HOME_GAS_PRICE_UPDATE_INTERVAL=600000
+
+FOREIGN_GAS_PRICE_ORACLE_URL=https://gasprice.poa.network/
+FOREIGN_GAS_PRICE_SPEED_TYPE=standard
+FOREIGN_GAS_PRICE_FALLBACK=1000000000
+FOREIGN_GAS_PRICE_UPDATE_INTERVAL=600000
+
+QUEUE_URL=amqp://rabbit
+REDIS_URL=redis://redis:6379
+REDIS_LOCK_TTL=1000
+
+HOME_START_BLOCK=bridgeDeploymentResults.json / homeBridge / deployedBlockNumber
+FOREIGN_START_BLOCK=bridgeDeploymentResults.json / foreignBridge / deployedBlockNumber
+
+LOG_LEVEL=info
+MAX_PROCESSING_TIME=20000
+</code></pre>
+<p><br />
+3. Build and run the Bridge Oracle (using <a href="https://www.docker.com/">Docker</a> and Docker-compose)</p>
+<p>This docker package is composed of a Reddit database, Rabbit MQ broker and NodeJS workers.</p>
+<pre><code class="language-shell">$ docker-compose up --build
+</code></pre>
+<p><em>Use the flag <code>-d</code> to run the Bridge Oracle in the background (daemon)</em></p>
+<p><img alt="" src="https://imgur.com/Hgow8Fl.gif" /></p>
+<p><br /></p>
+<h3 id="step-5-configure-and-deploy-the-bridge-ui">Step 5: Configure and Deploy the bridge UI<a class="headerlink" href="#step-5-configure-and-deploy-the-bridge-ui" title="Permanent link"></a></h3>
+<p>Last step consist in deploying a User Interface to transfer tokens between the sidechain and the mainchain.</p>
+<ol>
+<li>Navigate to the folder <code>ui</code></li>
+</ol>
+<pre><code class="language-shell">$ cd ../ui
+</code></pre>
+<p><br />
+2. Create a configuration file in <code>./.env</code></p>
+<p><em>Note 1</em>: Open the saved JSON file <code>bridgeDeploymentResults.json</code> to get the home and foreign bridge contract address and deployment block numbers.</p>
+<pre><code class="language-javascript">{
+    &quot;homeBridge&quot;: {
+        &quot;address&quot;: &quot;0xc4e7cA947521f331969e41CC7c99ADa22F2C7F9C&quot;,
+        &quot;deployedBlockNumber&quot;: 9044640,
+        &quot;erc677&quot;: {
+            &quot;address&quot;: &quot;0xEa3acD04DdaF1F1A5Ae1B9f5f690123aA4E19B36&quot;
+        }
+    },
+    &quot;foreignBridge&quot;: {
+        &quot;address&quot;: &quot;0xeb2dbC5AB9380A3517AcA9d8CA0c39873e569a93&quot;,
+        &quot;deployedBlockNumber&quot;: 4503560
+    }
+}
+</code></pre>
+<pre><code>REACT_APP_HOME_BRIDGE_ADDRESS=bridgeDeploymentResults.json / homeBridge / address
+REACT_APP_FOREIGN_BRIDGE_ADDRESS=bridgeDeploymentResults.json / foreignBridge / address
+
+REACT_APP_HOME_HTTP_PARITY_URL=https://sokol.poa.network
+REACT_APP_FOREIGN_HTTP_PARITY_URL=https://rinkeby.infura.io/mew
+</code></pre>
+<p><br />
+3. Run Bridge UI</p>
+<pre><code class="language-shell">$ npm start
+</code></pre>
+<p><br />
+4. Open your Internet Browser, unlock Metamask on the Rinkeby network with the account used to deploy BRT token and go to <a href="http://localhost:3000/">http://localhost:3000/</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPNXRHicnw5ZVFiyiZVN7rDEwR8rtVtWsMYq1bLEMovor" /></p>
+<p>If you are on the RinkeBy network, you should see that you own 100 BRT token on the mainchain (RinkeBy) and 0 on the sidechain (POA Sokol)</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPbXEgc9q2xZ31hJjLJS4mvbFUy5fLj8SoFP89v25AMeq" /></p>
+<p>You can now transfer BRT token between the mainchain and the sidechain:</p>
+<p><img alt="" src="https://imgur.com/lPYryIU.gif" /></p>
+<p><br />
+<br /></p>
+<hr />
+<h3 id="references">References:<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://github.com/poanetwork/poa-bridge-contracts">poa-bridge-contracts GitHub</a></li>
+<li><a href="https://github.com/poanetwork/tokenbridge">token-bridge (monorepo) GitHub</a></li>
+<li><a href="https://medium.com/poa-network/introducing-the-erc20-to-erc20-tokenbridge-ce266cc1a2d0">Introducing the ERC20 to ERC20 TokenBridge</a> (November 2018)  </li>
+<li><a href="https://medium.com/poa-network/introducing-poa-bridge-and-poa20-55d8b78058ac">Introducing POA Bridge and POA20</a> (April 2018) </li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> POA - Part 2 - Bridge assets between a sidechain and a mainchain</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/poa-part-2-bridge-assets-between-a-sidechain-and-a/19072f7340184628b47c0d86e7feac6d/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-21</li>
+<li><strong>Kauri original tags:</strong> poa, bridge, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmZWFdH1EZodsLeXvHDhQSgfnTv5zvtYe4SwmXjBkJr7w3</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../xdai/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../xdai/" class="btn btn-xs btn-link">
+        xDai
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-link">
+        POA - Part 1 - Develop and deploy a smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/POA Tutorial series/poa-part-2-bridge-assets-between-a-sidechain-and-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

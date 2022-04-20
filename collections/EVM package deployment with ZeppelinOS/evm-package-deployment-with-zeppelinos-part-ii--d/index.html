@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--d/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract", url: "#_top", children: [
+              {title: "Testing and publishing", url: "#testing-and-publishing" },
+              {title: "The big time", url: "#the-big-time" },
+              {title: "NPM", url: "#npm" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="evm-package-deployment-with-zeppelinos-part-ii-deploying-and-testing-a-linkedlist-contract">EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract<a class="headerlink" href="#evm-package-deployment-with-zeppelinos-part-ii-deploying-and-testing-a-linkedlist-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbwrPpkqvZozPc7EdDPqWW3gfYhWeGwC3F44A7ss5NmQS" /></p>
+<h3 id="testing-and-publishing">Testing and publishing<a class="headerlink" href="#testing-and-publishing" title="Permanent link"></a></h3>
+<p>In this section, we'll make sure the contract we've deployed to our
+local network works by testing directly against it in Truffle Console.
+Once we're happy it works, we'll publish to the mainnet and create an
+EVM package for others to access.</p>
+<h4 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link"></a></h4>
+<p>Now that we have an instance of our contract, we're ready to test it
+directly in Truffle Console.</p>
+<pre><code class="language-shell">npx truffle console --network local
+</code></pre>
+<p>Again, the network argument tells Truffle to work with our local
+development network as defined in <em>truffle-config.js</em>.</p>
+<p>Create an instance of your contract object:</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList = await LinkedList.at('{your-contract-address}')
+</code></pre>
+<p>The "{your-contract-address}" is the address returned by the <code>zos create</code> command but also found in the <em>zos.dev-{some number here}.json</em> file. (This command should return a long output, which
+represents our contract object.)</p>
+<h4 id="now-for-the-fun">Now for the fun!<a class="headerlink" href="#now-for-the-fun" title="Permanent link"></a></h4>
+<p>Let's check the head of LinkedList:</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList.head()'0x0000000000000000000000000000000000000000000000000000000000000000'
+</code></pre>
+<p>There is no head yet, so this is the expected output. Let's add a node:</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList.addNode(&quot;Hello World!&quot;)
+</code></pre>
+<p>This should return a transaction object and logs. It's working! (Notice
+the transactions on the window where Ganache is running.)</p>
+<p>Let's check the head of the list again:</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList.head()
+'0xc08d91feb0d1e3c5808af107ca712c167f4998c4eac93670bc98cd627bf2c6d0'
+//the above long string is sample output, you will see something different
+</code></pre>
+<p>This should return a <code>bytes32</code> value as a string that represents the
+location of the "head" node stored in the LinkedList contract instance.
+Now try to return the value stored at this "head" node.</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList.nodes('0xc08d91feb0d1e3c5808af107ca712c167f4998c4eac93670bc98cd627bf2c6d0')
+[ '0x0000000000000000000000000000000000000000000000000000000000000000', Â 'Hello World!' ]
+</code></pre>
+<p>This should return the struct of our node, as expected. Note that the
+struct is returned in an array format. The first value is the value of
+the "next" node, and the second value is the data value of the "this"
+node.</p>
+<p>Finally, try "popping" the head off the list, and call <code>head()</code> again to
+check if your list is empty again.</p>
+<pre><code class="language-shell">truffle(local)&gt; myLinkedList.popHead()
+//This returns and prints a transaction
+
+truffle(local)&gt; myLinkedList.head()
+'0x0000000000000000000000000000000000000000000000000000000000000000'
+</code></pre>
+<p>It works!</p>
+<p>Of course, in the real world, during development you would want to build
+unit tests, not just manually test on the console. But for now, this is
+a good way to interact with your contract directly.</p>
+<h4 id="publishing-our-contract">Publishing our contract<a class="headerlink" href="#publishing-our-contract" title="Permanent link"></a></h4>
+<p>Great! So now that you have a contract, deployed it on your development
+network, created an instance of it, and tested it directly with Truffle
+Console, what's next? Publishing!</p>
+<p>Publishing your project takes the code you've written, packages it up,
+and publishes it to the network of your choosing where others can easily
+reuse it. In the same way that we created an instance of our contract,
+others can similarly create instances of your contract independently and
+reuse the code for their own projects.</p>
+<p>First, before publishing to a public network, let's try publishing to
+your local development blockchain.</p>
+<p>Open a new terminal window, navigate to your project directory, and type
+the following:</p>
+<pre><code class="language-shell">zos publish --network local
+</code></pre>
+<p>In your <em>zos.dev-{some number here}.json</em> file, you will see
+that you now have a <code>app</code>, <code>package</code> and <code>provider</code> fields with
+addresses pointing to their respective contracts.</p>
+<h3 id="the-big-time">The big time<a class="headerlink" href="#the-big-time" title="Permanent link"></a></h3>
+<p>Great! You've just published, but only to your local blockchain
+network, not to NPM, and not to the main Ethereum network. This means
+that so far, it's not useful, as no one can find it. What we need
+to do now is to publish to a real public network and then to NPM!</p>
+<h4 id="get-a-mnemonic-and-ether">Get a mnemonic (and ether!)<a class="headerlink" href="#get-a-mnemonic-and-ether" title="Permanent link"></a></h4>
+<p>To get started, you're going to need a new mnemonic to connect to a
+public blockchain. <strong>REMEMBER THIS IS NOT YOUR DEVELOPMENT MNEMONIC FROM GANACHE.</strong> If you use that, you will probably lose all your money.</p>
+<p>There are a number of different ways to get a mnemonic: some are more
+secure than others, and some are easier than others. For this tutorial,
+we'll use a simple and secure method: <a href="https://metamask.io/">MetaMask</a>,
+a browser plugin for Chrome, Firefox, Opera, and Brave. Another option
+would be to use <a href="https://www.myetherwallet.com/">MyEtherWallet</a>.</p>
+<p>During the MetaMask installation and setup process, you will be told at
+a certain point to save your mnemonic, a 12-word "secret phrase" that
+can be used to regenerate your entire wallet at any time in the future.
+This is the mnemonic you will need. <strong>COPY IT DOWN TO A SAFE PLACE</strong>, as
+you will need to copy it into your code. This is a good time to also
+fund your account with a small amount of ETH or test ETH. In the case of
+a test network such as Rinkeby, get test ETH from a
+<a href="https://faucet.rinkeby.io/">faucet</a>.</p>
+<p>Once MetaMask is installed and you've copied your mnemonic, you will
+need to create an account (and address) with MetaMask that you'll use as
+your "deployment address" as per the transparent proxy issue mentioned
+earlier. This can be the default account that MetaMask creates, or you
+can generate a new account to use specifically for deployment. Once you
+have this, you should load the account with some ETH for deployment.</p>
+<h4 id="a-note-on-safety">A note on safety<a class="headerlink" href="#a-note-on-safety" title="Permanent link"></a></h4>
+<p>As a personal preference, I tend to generate mnemonics and fund them
+with only enough ETH to complete whatever deployment or development task
+I'm working on. When I finish, I send whatever remains back to my
+personal account. It can be very easy to accidentally commit secret data
+to public GitHub accounts. Enterprising individuals have created scripts
+that specifically scan Git repos for mistakenly hardcoded private keys
+and mnemonics to steal users' funds. By limiting the amount of money you
+put on your address, you can limit your losses in the event your code
+(and mnemonic) ever inadvertently become public. Similarly, if you do
+use MetaMask to generate your mnemonic, be sure to reset it to a new
+account when you're done with development. <strong>Do not forget and mistakenly go forward using the MetaMask account you created for development as your main wallet.</strong></p>
+<h4 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h4>
+<p>If you open your <em>truffle-config.js</em> file, you will see that there is
+only your development blockchain under "local." You will need to add the
+network you wish to deploy to. (For more information about this, check
+out "<a href="https://docs.zeppelinos.org/docs/mainnet">Deploying to mainnet</a>.")</p>
+<p>Return to your code editor, open up <em>truffle-config.js</em>, and edit it
+to look like this:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+var HDWalletProvider = require(&quot;truffle-hdwallet-provider&quot;);
+
+var mnemonic =
+  &quot;Your Twelve Word Mnemonic&quot;;ï»¿
+
+module.exports = {
+  networks: {
+    local: {
+      host: &quot;localhost&quot;,
+      port: 9545,
+      gas: 5000000,
+      gasPrice: 5e9,
+      network_id: &quot;*&quot;
+    },
+    mainnet: {
+      provider: function() {
+        return new HDWalletProvider(
+          mnemonic,
+          &quot;https://mainnet.infura.io/v3/&lt;&lt;Your Infura API token&quot;,
+        );
+      },
+      gas: 200000000,
+      network_id: 1
+    },
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(
+          mnemonic,
+          &quot;https://rinkeby.infura.io/&lt;&lt;Your INFURA API TOKEN&gt;&gt;&quot;
+        );
+      },
+      gas: 5000000,
+      gasPrice: 5e9,
+      network_id: 3
+    }
+  }
+};
+</code></pre>
+<p>Notice that I'm including both the Ethereum mainnet and the Rinkeby
+test-net for convenience. Feel free to use either.</p>
+<p>You will need to install <a href="https://www.npmjs.com/package/truffle-hdwallet-provider">HDWalletProvider</a> for this to work.</p>
+<pre><code class="language-shell">npm install truffle-hdwallet-provider
+</code></pre>
+<p>HDWalletProvider gives you a JavaScript object that will behave like an
+Ethereum wallet connected to a network. It acts as a web3 provider, but
+it intercepts your transactions to sign them locally with the key
+derived from the mnemonic you entered. This way, you don't need to have
+your keys on your node and can just send the transaction to a public
+node. In this case, you will use Infura, a free service that acts as a
+gateway to the main Ethereum network. You will need an API token to
+connect, and can get that <a href="https://infura.io/">here</a> by signing up.</p>
+<p>Once you've signed up at Infura, found your token (you'll need to create
+a project and then copy-paste the endpoint), and deposited some ETH in
+your wallet, you now need to <strong>push</strong> your project to the mainnet before
+publishing. Use the address of the MetaMask account you created earlier
+as your <strong>from</strong> address:</p>
+<pre><code class="language-shell">zos push --network mainnet --from &lt;&lt;your from address&gt;&gt;
+</code></pre>
+<p>Now you can now proceed to publish.</p>
+<pre><code class="language-shell">zos publish --network mainnet --from &lt;&lt;your from address&gt;&gt;
+</code></pre>
+<h4 id="a-note-on-gas-and-deployment-troubleshooting">A note on gas and deployment troubleshooting<a class="headerlink" href="#a-note-on-gas-and-deployment-troubleshooting" title="Permanent link"></a></h4>
+<h5 id="gas-prices">Gas prices<a class="headerlink" href="#gas-prices" title="Permanent link"></a></h5>
+<p>Typically, gas prices for executing or deploying contracts on public
+networks can vary wildly at times, and figuring out the accurate cost of
+deployment can sometimes be a guessing game. As of ZeppelinOS 2.1.0, gas
+prices are automatically retrieved by ZeppelinOS from <a href="https://ethgasstation.info/">ETH Gas Station</a>.</p>
+<h5 id="deployment-troubleshooting">Deployment troubleshooting<a class="headerlink" href="#deployment-troubleshooting" title="Permanent link"></a></h5>
+<p>Depending on the state of the network you're deploying to, deployment
+can sometimes fail, but don't be discouraged. Most of the time it will
+be a question of gas price, the size of your contracts to deploy, and
+the address you're deploying from (check the HDWallet provider documents
+closely).</p>
+<p>One problem you can potentially run into is the following error
+message:</p>
+<pre><code class="language-shell">Error: Contract transaction couldn't be found after 50 blocks
+</code></pre>
+<p>To help get around this, you'll want to check out the
+<a href="https://docs.zeppelinos.org/docs/cli_publish.html">options</a> for the <code>zos publish</code> command and use the <code>--timeout flag</code>. The default timeout for
+each blockchain transaction is 600 seconds, but in some cases, you might
+need more. You can also try to raise your gas price to get picked up
+faster by miners. Expect a moderate amount of trial and error to get
+your settings right.</p>
+<pre><code class="language-shell">zos publish .... --timeout 6000 //just an example
+</code></pre>
+<p>Once you get your deployment to a public network such as the mainnet to
+succeed, you will find that a new file has been created for you:
+<em>zos.mainnet.json</em> (or <em>zos.{networkname}.json</em>). This file
+keeps track of your project contracts deployed on that particular
+network.</p>
+<p>Once you've been able to publish to the mainnet (or other public
+networks), you should see something similar to this:</p>
+<pre><code class="language-shell">Publishing project to mainnet…
+Deploying new App…
+Deployed App at 0x2f759.......
+Deploying new Package…
+Deployed Package 0x706........
+Adding new version…
+Deploying new ImplementationDirectory…
+Deployed ImplementationDirectory at 0x9ded..........
+Updated zos.mainnet.json
+</code></pre>
+<p>Whew! You did it! Congratulations are in order! If you want to see under
+the hood, have a look at your <em>zos.mainnet.json</em> file to see where
+everything is!</p>
+<h3 id="npm">NPM<a class="headerlink" href="#npm" title="Permanent link"></a></h3>
+<p>You have now deployed your EVM package to the mainnet, where anyone can
+access it. The final step is to add your EVM package to the NPM
+repository so others can find your package and install your code
+via <code>npm install</code>.</p>
+<p>At this point, if you haven't done so already, you will need to <a href="https://www.npmjs.com/signup">sign up for an NPM account</a>.</p>
+<p>Your NPM package should include the source code and compiled contracts
+as well as the ZeppelinOS configuration files. To do this, we'll need to
+add a top-level field to our <em>package.json</em>:</p>
+<pre><code class="language-json">{
+  …
+  &quot;files&quot;: [
+    &quot;build&quot;,
+    &quot;contracts&quot;,
+    &quot;test&quot;,
+    &quot;zos.json&quot;,
+    &quot;zos.*.json&quot;
+  ]
+}
+</code></pre>
+<p>Your <em>package.json</em> will look similar to this (customized for your
+project, of course):</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;linkedlist&quot;,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;On chain Solidity linked list&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo 'Error: no test specified' &amp;&amp; exit 1;&quot;
+  },
+  &quot;keywords&quot;: [&quot;Solidity&quot;, &quot;ethereum&quot;, &quot;linked&quot;, &quot;list&quot;],
+  &quot;author&quot;: &quot;Dennison Bertram&quot;,
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;dependencies&quot;: {
+    &quot;truffle-hdwallet-provider&quot;: &quot;0.0.6&quot;,
+    &quot;zos-lib&quot;: &quot;2.0.1&quot;
+  },
+  &quot;files&quot;: [&quot;build&quot;, &quot;contracts&quot;, &quot;test&quot;, &quot;zos.json&quot;, &quot;zos.*.json&quot;]
+}
+</code></pre>
+<p>The ZeppelinOS configuration files keep track of your contracts and the
+addresses where you have published them. This way, when someone installs
+your NPM package, ZeppelinOS already knows where the on-chain code is
+deployed and can link their project to your on-chain code. (This link
+does not affect your contract in any way; it just allows others to reuse
+your code via the ZeppelinOS system. They will still need to deploy
+their own instance of the code via the proxy system.)</p>
+<p>Now we just need to clean a few things up before we publish to NPM.</p>
+<p>Double-check the rest of your <em>package.json</em> fields to be sure they
+describe your package correctly. Feel free to remove the "main" field,
+if it is present, because for pure EVM packages, it doesn't serve a
+purpose. At this point, you can also delete your <em>zos.dev-{some number here}.json</em> file, as it describes your particular local test
+environment that others won't have access to.</p>
+<p>Once you're ready, do as follows:</p>
+<pre><code class="language-shell">npm login
+</code></pre>
+<p>And then publish:</p>
+<pre><code class="language-shell">npm publish
+</code></pre>
+<p>That's it! You've published your first EVM package! Others can link to
+your package via the following</p>
+<pre><code class="language-shell">zos link &lt;&lt;your-project-name&gt;&gt;
+</code></pre>
+<p>You should check to see if there isn't by chance already a package with
+the same name as your package. If there is, go back to your
+<em>package.json</em> file and change the "name" field to something else.
+Whatever name you decide to use, remember it, as that is the name people
+will need to use when they later type it:</p>
+<pre><code class="language-shell">npm install &lt;&lt;your-project-name&gt;&gt;
+</code></pre>
+<p><em>Thanks to <a href="https://twitter.com/smpalladino">Santiago Palladino</a> for
+reading early drafts and providing feedback.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/evm-package-deployment-with-zeppelinos-part-ii-dep/077f5e1d62e147089f21f709f77d8ccb/a</li>
+<li><strong>Kauri original author:</strong> Dennison Bertram (@dennisonbertram1)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-07</li>
+<li><strong>Kauri original tags:</strong> zeppelinos</li>
+<li><strong>Kauri original hash:</strong> QmNoTdvcTK3Cv43y8nFCzwzjcCaftGPa5bFY6jXfZAJJSi</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../evm-package-deployment-with-zeppelinos-part-iii--/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../evm-package-deployment-with-zeppelinos-part-iii--/" class="btn btn-xs btn-link">
+        EVM package deployment with ZeppelinOS - Part III  Linking to mainnet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../evm-package-deployment-with-zeppelinos-part-i--in/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../evm-package-deployment-with-zeppelinos-part-i--in/" class="btn btn-xs btn-link">
+        EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-ii--d.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ethereum-witnet/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum ❤ Witnet - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum \u2764 Witnet", url: "#_top", children: [
+              {title: "Ethereum bridges, a quick overview", url: "#ethereum-bridges-a-quick-overview" },
+              {title: "Ethereum bridges, in practice", url: "#ethereum-bridges-in-practice" },
+              {title: "Want to know more about the use cases of Witnet?", url: "#want-to-know-more-about-the-use-cases-of-witnet" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-witnet">Ethereum ❤ Witnet<a class="headerlink" href="#ethereum-witnet" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*6acpDniTjhGNx4y5OwQ7Ig.png" /></p>
+<p>Ethereum smart contract developers know that smart contracts are self-contained in their own supporting blockchain. Contracts have <strong>very little capability to interact with other blockchains, the Internet and the rest of the world</strong> .
+Currently, external information can only be fed into Ethereum contracts by <strong>trusted authorities</strong> (probably, the developer of the contract) who need to sign claims about the state of the world. These are called “ <strong>oracles</strong> ”.
+But <strong>relying on a single oracle completely defeats the point why smart contracts are used</strong> in the first place. It’s not “trustless” and leaves too much space to contestation, repudiation and tampering.</p>
+<blockquote>
+<p>Mission-critical smart contracts aren’t viable without decentralized and trustless oracles.</p>
+</blockquote>
+<p>That’s exactly why we started building <a href="https://witnet.io">Witnet</a> : a <strong>decentralized oracle network</strong> whose claims are reliable not because any kind of authority but because they’re made by combining all the claims coming from a number of anonymous players who are <strong>incentivized</strong> to be honest and <strong>compete</strong> against each other for <strong>rewards</strong> .
+Those rewards are paid by the requesting parties using the Witnet blockchain’s native token: <strong>Wit</strong> .
+Now you’ll be wondering: <strong>“If this Witnet thing has its own blockchain, how on Earth will Ethereum contracts interact with it?”</strong> </p>
+<h3 id="ethereum-bridges-a-quick-overview">Ethereum bridges, a quick overview<a class="headerlink" href="#ethereum-bridges-a-quick-overview" title="Permanent link"></a></h3>
+<p>The <a href="https://witnet.io/static/witnet-whitepaper.pdf">Witnet whitepaper</a> explains that Ethereum bridges are:</p>
+<blockquote>
+<p>“Witnet nodes which also run an Ethereum node, have full access to the Ethereum blockchain and have the capability to operate with ether and make contract calls”.</p>
+</blockquote>
+<p>In the Witnet ecosystem, Ethereum bridges are in charge of two missions:</p>
+<ul>
+<li>
+<p><strong>Requests introduction</strong> . Ethereum bridges monitor the Ethereum blockchain in search for Witnet requests codified inside transactions. When they find one of these, they read the payload and convert it into a valid Witnet request that they can broadcast to the Witnet network. In exchange for performing this work and spending their own Wits, bridges are rewarded by the Ethereum clients using ether (or any ERC20 token!)</p>
+</li>
+<li>
+<p><strong>Results reporting</strong> . Ethereum bridges are also in charge of reporting the results of those requests back to the originating contracts. In exchange for performing this work and spending their own ether, they are rewarded with Wit tokens that were allocated for such purpose in the request transaction.</p>
+</li>
+</ul>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*-Kua2raeFSgSfkMrfGgJ3w.png" /></p>
+<h3 id="ethereum-bridges-in-practice">Ethereum bridges, in practice<a class="headerlink" href="#ethereum-bridges-in-practice" title="Permanent link"></a></h3>
+<h4 id="an-example-use-case">An example use case<a class="headerlink" href="#an-example-use-case" title="Permanent link"></a></h4>
+<p>Let’s say Alice and Bob want to create a smart contract <strong>paying one or the other</strong> depending on how’s the weather like tomorrow at noon in London, UK.</p>
+<ul>
+<li>
+<p>If it’s sunny, the contract will transfer all available funds to Alice.</p>
+</li>
+<li>
+<p>If it rains, the contract will transfer all available funds to Bob.</p>
+</li>
+<li>
+<p>In any other case, the contract will split the funds and return them to Alice and Bob.
+All that Alice and Bob will need to do is writing an Ethereum smart contract that includes a <strong>Witnet request</strong> querying any publicly available weather API, extract the weather condition and report it. The request can even use <strong>several data sources</strong> and specify how to normalize and aggregate the results.
+For convenience, there’ll be a library that will allow Ethereum contract developers to <strong>build Witnet requests using Solidity</strong> inside their own projects and include them into their existing workflows thanks to <a href="http://truffleframework.com/">Truffle</a> .
+Then, when the Ethereum contract is deployed and funded, the “weather contract” will post the request and register itself to the <strong>Witnet Bridge Interface contract</strong> .</p>
+</li>
+</ul>
+<h4 id="the-witnet-bridge-interface-contract">The Witnet Bridge Interface contract<a class="headerlink" href="#the-witnet-bridge-interface-contract" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*Q5aHXJBGzibUo3f-wyt62g.png" /></p>
+<p>The <strong>WBI contract</strong> helps the bridge nodes <strong>discover new Witnet requests</strong> in the Ethereum blockchain without the need to interpret every transaction in the network. It also <strong>correlates the requests with the results</strong> and acts as a <strong>escrow for the rewards</strong> offered to the bridges.
+In their call to the WBI contract, Alice and Bob will <strong>attach enough ether to bear the cost of the Witnet request</strong> . They must also specify the Witnet <em>“replication factor”.</em> This is, how many witness nodes to employ for the request. The higher the replication factor, the greater the certainty but also the higher the price.
+The WBI contract will mantain an index of all the requests made through it so that when they get resolved it can route the results back to their requesting parties.
+Using the same <em>“miner selection algorithm”</em> explained in <a href="https://witnet.io/static/witnet-whitepaper.pdf">the Witnet whitepaper</a> , <strong>during each Witnet epoch</strong> (every 90 seconds) a different __ bridge node (an <strong>“eth-to-wit epoch leader”</strong> ) <strong>wins the right</strong> to self-assign all the unasigned requests, post them into the Witnet blockchain and claim the ether reward:</p>
+<ul>
+<li>
+<p>A bridge node <strong>realizes its leadership position</strong>  <em>(Witnet nodes can easily calculate if they’re leaders for the current block, but they can’t predict their leadership for future blocks)</em> .</p>
+</li>
+<li>
+<p>The bridge node then <strong>reads all the unassigned requests</strong> that have been posted to the WBI contract and __  <strong>“cross-post” them into the Witnet blockchain</strong> .</p>
+</li>
+<li>
+<p>As soon as the <strong>requests get included into a Witnet block</strong> , the node will be able to generate a <strong>“Proof of Inclusion”</strong> for each of them. These proofs irrefutably <strong>prove that the request was published in a certain block</strong> in a similar way to how Bitcoin’s SPV works for transactions.</p>
+</li>
+<li>
+<p>Finally, the bridge node makes a call to the WBI contract including both the <em>Proof of Inclusion</em> and a <em>Proof of Leadership</em> . The WBI contract <strong>internally verifies both proofs</strong> and, if valid, <strong>sends the ether reward</strong> to the contract caller.
+Now you’re surely wondering: <em>“</em>  <strong>How can an Ethereum smart contract verify transactions from other blockchains?</strong>  <em>Is that even possible?”.</em> 
+Sure it is! All thanks to block header relaying.</p>
+</li>
+</ul>
+<h4 id="block-header-relaying">Block header relaying<a class="headerlink" href="#block-header-relaying" title="Permanent link"></a></h4>
+<p>In order for the WBI contract to verify Witnet <em>Proofs of Inclusion</em> and <em>Proofs of Leadership</em> , <strong>it needs to be aware of all the Witnet blocks to date</strong> .
+That’s possible also thanks to bridge nodes. For every Witnet epoch, one bridge node <strong>wins the right to act as a block header relayer</strong> .
+Block header relayers are in charge of <strong>disclosing new Witnet blocks to the WBI</strong> contract. In doing so, <strong>they’ll get a percentage of the ether fees attached to all the eth-to-wit requests</strong> that ended up being published in that block.
+This scheme is expected to consume a significant amount of gas, as proof verification will likely require quite a bunch of hashing rounds. But it completely succeeds achieving its purpose of <strong>allowing the WBI contract to trustlessly verify that the request was published to Witnet</strong> by the contract caller.</p>
+<h4 id="reporting-the-results">Reporting the results<a class="headerlink" href="#reporting-the-results" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*l1HxRVdvKmpVq6uYGm2Y4Q.png" /></p>
+<p><strong>Once a request has been resolved</strong> by the Witnet decentralized oracle network, <strong>we get a single result value</strong> . To continue with the weather contract example, let’s say the result value is <em>“sunny”</em> .
+Again, using the same <em>“miner selection algorithm”</em> explained in <a href="https://witnet.io/static/witnet-whitepaper.pdf">the Witnet whitepaper</a> , <strong>during each Witnet epoch</strong> a different bridge node is elected as <strong>“wit-to-eth epoch leader”</strong> . It’ll be in charge of calling the WBI with the result value as a parameter.
+When calling the WBI, <strong>any competent bridge node holding epoch leadership</strong> should be able to provide the following parameters:</p>
+<ul>
+<li>
+<p><code>requestId</code> : the <strong>identifier of the request</strong> so that the WBI can correlate the result with the original request and report it to the requester.</p>
+</li>
+<li>
+<p><code>result</code> : the <strong>value returned by Witnet</strong> from resolving the request.</p>
+</li>
+<li>
+<p><code>proofOfLeadership</code> : proof that the <strong>reporting node holds epoch leadership</strong> .</p>
+</li>
+<li>
+<p><code>proofOfInclusion</code> : proof that <strong>the reported value was actually included in the Witnet blockchain</strong> as a result for the original request.
+As the WBI contract will be aware of all Witnet blocks to date, it’ll be capable of <strong>validating</strong> all those means of evidence. It’ll also <strong>ascertain</strong> without a doubt that the reported value is <strong>exactly the same as published in the Witnet blockchain</strong> .
+Then the WBI will use the <code>requestId</code> to <strong>look for the address of the requesting contract</strong> in an internal <code>mapping(uint =&gt; address)</code> and report the value ( <em>“sunny”</em> , in this case) to that contract address <strong><em>* by calling a <code>reportResultFromWitnet</code> function in the contract.
+The <code>reportResultFromWitnet</code> function will need to include a <code>require(msg.sender == WBI_ADDRESS)</code> guard so that </em>*only the WBI can call it</strong> . To keep gas consumption as low as possible for the bridge node, <strong>this function should just store the reported value</strong> and do nothing else.
+Then, there should be a <strong>separate function</strong> (let’s call it <code>triggerResolution</code> ) that either Alice or Bob should call to <strong>trigger the resolution</strong> of the contract, <strong>evalulate</strong> the reported result value and <strong>release the funds</strong> accordingly.
+If immediate or <strong>unmaned resolution</strong> of the contract is strictly required, the <code>reportResultFromWitnet</code> function can be written to directly call the <code>triggerResolution</code> function. However, this will increase gas consumption for the bridge node. Thus, if Alice and Bob designed their contract in this way, <strong>the ether reward attached to the Witnet request will need to be enough to compensate</strong> for the extra cost.
+ <strong>Question:</strong>  <em>What if the amount of ether that Alice and Bob attached to their Witnet request</em>  <strong>wasn’t enough to reward</strong>  <em>the three employed bridge nodes (eth-to-wit, block relayer and wit-to-eth) because of a sudden gas price rise or for any other reason?</em> 
+Don’t panic — the WBI contract will provide an <code>upgradeReward</code> function for <strong>increasing the reward at any time</strong> . Once this function is called providing enough funds, the escrowed reward will be released to the reporting <em>wit-to-eth</em> bridge node and the call to the <code>reportResultFromWitnet</code> function in Alice and Bob’s contract will finally progress just as expected.</p>
+<blockquote>
+<p>Boom. Ethereum contracts now have real power!</p>
+</blockquote>
+</li>
+</ul>
+<hr />
+<h3 id="want-to-know-more-about-the-use-cases-of-witnet">Want to know more about the use cases of Witnet?<a class="headerlink" href="#want-to-know-more-about-the-use-cases-of-witnet" title="Permanent link"></a></h3>
+<p>Don’t miss the next article in the series:
+You can also:</p>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum ❤ Witnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-witnet/8386be0c5e084542a11276fe13fa02c5/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-13</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQZEue9E7TwCaZ2Q8N19wm6KDEWqNmxpkXCJQcEQju4Du</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../uniswap-in-kauri/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../uniswap-in-kauri/" class="btn btn-xs btn-link">
+        Uniswap in Kauri
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../unmanned-vs.-human-oracles/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../unmanned-vs.-human-oracles/" class="btn btn-xs btn-link">
+        Unmanned vs. Human Oracles
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ethereum-witnet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

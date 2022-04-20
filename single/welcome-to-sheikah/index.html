@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/welcome-to-sheikah/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Welcome To Sheikah - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Welcome To Sheikah", url: "#_top", children: [
+              {title: "Sheikah", url: "#sheikah" },
+              {title: "Looking Ahead", url: "#looking-ahead" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="welcome-to-sheikah">Welcome To Sheikah<a class="headerlink" href="#welcome-to-sheikah" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*ed_0fAjVWPKQvkdWuu6DFQ.jpeg" /></p>
+<p>Hi there Witnet community! Welcome to our Witnet technology preview.
+Today, 
+<strong>we are unveiling our first prototype, a preview of early features we will implement into our desktop client, Sheikah.</strong></p>
+<p>As you may know, up until now smart contracts were completely isolated from the rest of the internet. This is called “the oracle problem.” With Witnet, this won’t be an issue anymore.</p>
+<p><strong>Witnet is a</strong> <a href="https://witnet.io/static/witnet-whitepaper.pdf">decentralized oracle network</a> <strong>that connects smart contracts to any online data source</strong>, such as sports results, stock prices, weather forecasts, other blockchains, or any type of data provided using an API.
+The protocol works thanks to a distributed network of nodes — called witnesses — who earn Wit tokens as a reward for retrieving data points and delivering them directly into the smart contracts. This, along with a network reputation protocol helps Witnet ensure more consistent data fidelity and quality for requesters. 
+<strong>Our technology will enable smart contracts to do complex, mission critical tasks that rely on external data for execution</strong>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZBYjc4SaDzw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3 id="sheikah">Sheikah<a class="headerlink" href="#sheikah" title="Permanent link"></a></h3>
+<p>Sheikah is a lightweight Electron app which will eventually serve as a full interface for the Witnet wallet, data requests, smart contracts, block explorer, and more. While the full Witnet testnet and subsequent main-net are yet-to-come on our development roadmap, 
+<strong>we wanted to give our community a good idea of what interacting with the Witnet decentralized oracle network</strong>
+ would feel like.
+Anyone can use the Sheikah technology preview. Having yarn and git installed are prerequisites for running the client. With those ready, 
+<strong>you only have to go to our</strong> <a href="https://github.com/witnet/sheikah">Github repo</a></p>
+<p><strong>and follow the instructions available at the Readme</strong>. Just a few simple command line prompts and you can be up and going with Sheikah.</p>
+<blockquote>
+<p>Please note there are several views within Sheikah which are not fully developed and are not yet clickable.</p>
+</blockquote>
+<h4 id="1-wallet">1. Wallet<a class="headerlink" href="#1-wallet" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*O2ZPvFKDdJE8HoH54Xesug.png" /></p>
+<p>Once Sheikah has finished compiling, you will be greeted with a welcome screen prompting you to create your wallet.
+To anyone who has used web or desktop wallets before, this will be a familiar process. We use a straightforward wallet creation process which includes generating a 12 word mnemonic seed phrase and password to generate the wallet and encrypt it locally.</p>
+<p>The wallet is not connected to a network yet, so we have created an option for you to create a wallet with pre-filled data, as you’ll see in the screenshot. This will give you some pre-filled fields and data points within the wallet screens so that you have a better idea of how the wallet will appear and function once connected to the network.</p>
+<p>Of course, security and safety are and will always be an utmost concern of ours, so we encourage the user to practice the safe keeping of their seed phrases and private keys. Like with other truly decentralized wallets and projects, we’ll never store your keys on our end and won’t be able to restore your account or help you do so if you lose access to your credentials.</p>
+<p>Once you create and verify your seed phrase and password, you will land in the wallet view of Sheikah. In the transactions tab, you’ll see a list of all transactions, incoming, outgoing, pending as well as any time-locked tokens you may be in possession of.</p>
+<p>You can also view your overall balance and addition details about Wit tokens which are vesting over time.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*eUkKafhVDQc5b6P6bqJiRw.gif" /></p>
+<p>With the receive tab section of the wallet, you are able to generate specific addresses within the payment request feature. These payment requests all generate unique public key addresses and store information locally about the type of request you’re making and its funding status.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*ChfRKyy0moNfJVyPjNHb_Q.png" /></p>
+<p>The send view is straightforward and standard as you’d expect. We allow you to label outgoing transactions as well to more easily keep track of them. You will be able to adjust your transaction fees as well from within this view.</p>
+<h4 id="2-data-requests">2. Data Requests<a class="headerlink" href="#2-data-requests" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*qsRZc-Ngelkzg2gj4_N91w.png" /></p>
+<p>In Sheikah, you are also able to create data requests, which means asking the Witnet decentralized oracle network for attestations to specific data points that you need for your smart contract. We will have templates available to users who wish to create standard data requests that have been proven and used by other reputable Witnet users.
+When launching a data request, you ask the network for trustless verification of the data point you’re interested in retrieving. This avoids feeding a smart contract data from a centralized provider, with the risks that entails.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*jag6YdVsb0VL1qV-GOWYBQ.jpeg" /></p>
+<p>Our code editor view here gives you an idea of what data requests would look like at their fundamental level. If you have ever written an API GET request, you will recognize our format here.
+The attestation logic allows you to verify across a single source or multiple sources. The number of sources being pulled from is entirely up to the users discretion.
+Delivery clauses allow you to specify how the data will be consumed. You will be able to send the data to an Ethereum smart contract, POST it to a URL, among many other options.</p>
+<h4 id="3-smart-contracts">3. Smart Contracts<a class="headerlink" href="#3-smart-contracts" title="Permanent link"></a></h4>
+<p>Witnet smart contracts are significantly simpler in terms of their capability compared to more popular smart contract platforms. They can receive tokens, and their programs determine the ability to spend those. For example, a group of people can lock tokens into a virtual safe (the smart contract) from which no one can spend until the outcome of some future real world event is known.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*OlufkemyNz-Wmy3SZ6PXdg.png" /></p>
+<p>The smart contract view has a variety of functionalities planned that will enable users to be able to easily build, customize, save and deploy their smart contracts to the Witnet blockchain.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*WJN7L1IXfm2yswzbFqAJZg.png" /></p>
+<p>One way we enable this is through having a “templates” tab, which allows users to select from popular or saved smart contract types such as multi-sig contracts or automatic API data payout contracts.
+In addition to this, you will see a GUI which enables intuitive build out of smart contract logic using a drop down interface.</p>
+<hr />
+<h3 id="looking-ahead">Looking Ahead<a class="headerlink" href="#looking-ahead" title="Permanent link"></a></h3>
+<p>We are very excited to share our technical preview with you and we hope you will play with it and give us your feedback. You can stay engaged with our development process by dropping into any of our social channels including Twitter, Telegram or on our Github.
+As stated in our public roadmap, we intend to have a 
+<strong>testnet ready for public use in Q1 2019</strong>
+ and will aim for a 
+<strong>main-net launch in late 2019</strong>
+ as well.</p>
+<h4 id="thank-you-for-dropping-by">Thank you for dropping by!<a class="headerlink" href="#thank-you-for-dropping-by" title="Permanent link"></a></h4>
+<p>Please let us know if you have any questions or comments below. You can 
+<a href="http://twitter.com/witnet_io">follow Witnet on Twitter</a>
+ and stay up to date on 
+<a href="http://medium.com/witnet">our blog</a>.</p>
+<hr />
+<h4 id="you-can-also">You can also:<a class="headerlink" href="#you-can-also" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Welcome To Sheikah</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/welcome-to-sheikah/8fbccefcf99044ae93fa76147f50991b/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmcABM6v2sV2D1EUC4U4UfWMjqcYafkRNGe9nkE4Um4D8u</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../team-insights--anler-functional-programmer/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../team-insights--anler-functional-programmer/" class="btn btn-xs btn-link">
+        Team Insights  Anler, Functional Programmer
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../nabu--education-incentivised/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../nabu--education-incentivised/" class="btn btn-xs btn-link">
+        NABU  Education Incentivised
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/welcome-to-sheikah.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

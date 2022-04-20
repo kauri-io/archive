@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/0x--peer-to-peer-exchange-protocol/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>0x  Peer-to-peer exchange protocol - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "0x  Peer-to-peer exchange protocol", url: "#_top", children: [
+              {title: "Build a Relayer", url: "#build-a-relayer" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="0x-peer-to-peer-exchange-protocol">0x  Peer-to-peer exchange protocol<a class="headerlink" href="#0x-peer-to-peer-exchange-protocol" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeM4VKZzMJL79gNpEAmUj57PzYq15bVc5DKdJYnfvvU89" /></p>
+<blockquote>
+<p>0x is an open protocol that facilitates peer-to-peer exchange of digital assets on the Ethereum blockchain. 0x is open source, free to use, and provides a drop-in exchange solution for developers to build on top of. Developers use 0x protocol to build decentralized exchanges (DEXs), marketplaces for digital collectibles, and to integrate exchange functionality into wallets. - Description from <a href="https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview">ethhub.io</a></p>
+</blockquote>
+<p><em>This article originally appeared in the <a href="https://0x.org/wiki#Build-A-Relayer">0x developer portal</a></em></p>
+<h2 id="build-a-relayer">Build a Relayer<a class="headerlink" href="#build-a-relayer" title="Permanent link"></a></h2>
+<p>A relayer is any party or entity which hosts an off-chain orderbook. They provide a way for users to add, remove and update this orderbook through an API, GUI or both. In doing so, relayers help traders discover counter-parties and ferry cryptographically signed orders between them. Once two parties agree on the terms of an order, the order is settled directly on the Ethereum blockchain via the 0x protocol smart contracts.</p>
+<h4 id="advantages-of-decentralized-exchange">Advantages of decentralized exchange<a class="headerlink" href="#advantages-of-decentralized-exchange" title="Permanent link"></a></h4>
+<p>There are many advantages to a decentralized exchange over centralized exchange. One of the largest problems with centralized Exchanges is that they must hold and secure the funds of all the traders on their platform. This causes there to be a single point of failure that if hacked or mismanaged, means that all these traders could lose their funds. Hundreds of millions have already been stolen in this way. With a decentralized exchange, traders do not need to deposit funds with a centralized entity, but instead can trade directly from their individual wallets (including hardware wallets!). This means the user is in control of their funds at all times, eliminating this single point of failure from the equation.</p>
+<h4 id="0x-protocol-overview">0x protocol overview<a class="headerlink" href="#0x-protocol-overview" title="Permanent link"></a></h4>
+<p>In 0x protocol, orders are transported off-chain over any arbitrary medium, massively reducing gas costs and reducing blockchain bloat. Relayers help broadcast orders and can choose to collect a fee each time they facilitate a transaction. Anyone can build a relayer.</p>
+<p>The simplest example of a relayer is a website allowing users to create, discover and fill orders. The relayer must build out a UI and host a backend database to provide this functionality.</p>
+<div align="center">
+    <img src="https://s3.eu-west-2.amazonaws.com/0x-wiki-images/relayer_diagram.png" style="padding-bottom: 20px; padding-top: 20px; max-width: 342px;" width="80%" />
+</div>
+
+<p>To simplify the process of interacting with the 0x protocol, we have written a Javascript/Typescript library called <a href="http://0x.org/docs/0x.js">0x.js</a>. This library helps relayers interact with the 0x protocol smart contracts through a higher-level, easier to use interface. It also provides many useful utilities for hashing, signing, validating, and serializing 0x orders. Additionally, we have built the <a href="https://github.com/0xproject/0x-launch-kit">0x-launch-kit</a>, an open-source, free-to-use API-only 0x relayer template that you can use as a starting point for your own project.</p>
+<p>Before getting started with <a href="http://0x.org/docs/0x.js">0x.js</a>, <a href="https://github.com/0xproject/0x-launch-kit">0x-launch-kit</a> or the 0x protocol, it is helpful to introduce a few concepts. There are two parties involved in every trade, a maker and a taker. The maker creates an order for an amount of TokenA in exchange for an amount of TokenB. The maker then submits these to a relayer. Takers discover orders via a relayer and fill them by sending them directly to the 0x protocol smart contracts. The 0x protocol smart contracts performs an atomic swap, exchanging the maker and taker tokens.</p>
+<h4 id="order">Order<a class="headerlink" href="#order" title="Permanent link"></a></h4>
+<p>Below is an interface description of the 0x protocol order format:</p>
+<pre><code class="language-typescript">interface Order {
+    senderAddress: string;
+    // Ethereum address of the Maker
+    makerAddress: string;
+    // Ethereum address of the Taker. If no address specified, anyone can fill the order.
+    takerAddress: string;
+    // How many ZRX the Maker will pay as a fee to the relayer
+    makerFee: BigNumber;
+    // How many ZRX the Taker will pay as a fee to the relayer
+    takerFee: BigNumber;
+    // The amount of an asset the Maker is offering to exchange
+    makerAssetAmount: BigNumber;
+    // The amount of an asset the Maker is willing to accept in return
+    takerAssetAmount: BigNumber;
+    // The identifying data about the asset the Maker is offering
+    makerAssetData: string;
+    // The identifying data about the asset the Maker is requesting in return
+    takerAssetData: string;
+    // A salt to guarantee OrderHash uniqueness. Usually a milisecond timestamp of when order was made
+    salt: BigNumber;
+    // The address of the 0x protocol exchange smart contract
+    exchangeAddress: string;
+    // The address (user or smart contract) that will receive the fees
+    feeRecipientAddress: string;
+    // When the order will expire (unix timestamp in seconds)
+    expirationTimeSeconds: BigNumber;
+}
+</code></pre>
+<p>It is a relayer's job to collect cryptographically signed versions of these orders into an off-chain database. This collection of orders is what we refer to as an orderbook. A relayer displays their orderbook to potential takers. The incentive here is for a relayer to collect fees from the orders they host. By specifying themselves as the fee recipient, relayers can earn fees in ZRX tokens.</p>
+<p>Check out this tutorial on how to <a href="https://0x.org/wiki#Create,-Validate,-Fill-Order">Create, Validate, and Fill Orders</a>. If you want to jump straight into a working relayer codebase, check out <a href="https://github.com/0xProject/0x-launch-kit/">0x-launch-kit</a>.</p>
+<p>If you want to take a deep-dive into the 0x protocol, take a look at the <a href="https://github.com/0xProject/0x-protocol-specification/blob/master/v2/v2-specification.md">0x Protocol Specification</a>.</p>
+<h4 id="relayer-strategies">Relayer strategies<a class="headerlink" href="#relayer-strategies" title="Permanent link"></a></h4>
+<p>The 0x protocol leaves room for some flexibility on how exactly relayers operate. There are a few different strategies relayers have employed so far, each with their respective advantages and drawbacks. You can read more about the different strategies in the <a href="https://0x.org/wiki#Matching">Relayer Strategies</a> section of the wiki to discover the strategy that suits your needs the best.</p>
+<h4 id="shared-liquidity">Shared liquidity<a class="headerlink" href="#shared-liquidity" title="Permanent link"></a></h4>
+<p>Because all relayers represent orders using the 0x protocol order format, an order created on one relayer (using the open-orderbook strategy) can be filled by users on another relayer. What this means is that rather than each relayer having a siloed liquidity pool, they can share orders to create a shared liquidity pool. New relayers can bootstrap their liquidity off of existing relayers, immediately becoming an interesting place to trade. It is important to note that fees always go to the relayer where the order was first submitted. We have defined a <a href="https://github.com/0xProject/standard-relayer-api">Standard Relayer API</a> to help relayers share liquidity and to simplify the integration process for market makers, providing a unified interface for them to build against.</p>
+<h4 id="pruning-your-orderbooks">Pruning your orderbooks<a class="headerlink" href="#pruning-your-orderbooks" title="Permanent link"></a></h4>
+<p>Over time, orders may expire, partially filled, cancelled or no longer fillable. It is best to keep your orderbook free of expired or unfillable orders. Iterating over the orderbook periodically and checking each order's validity is a simple way to accomplish this. For a more advanced and efficient approach, you could use an <a href="https://0x.org/wiki#0x-OrderWatcher">OrderWatcher</a>. <a href="https://github.com/0xProject/0x-launch-kit/">0x-launch-kit</a> is built using OrderWatcher out-of-the-box.</p>
+<h4 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h4>
+<p>Now that you have a high level idea of what a relayer does, it's time to get started learning how they work. Check out <a href="https://github.com/0xProject/0x-launch-kit/">0x-launch-kit</a> for a fully-working relayer example, or dive into the <a href="https://0x.org/wiki#Create,-Validate,-Fill-Order">Create, Validate, and Fill Orders</a> tutorial to master the basics of dealing with 0x orders. You may also want to decide on a <a href="https://0x.org/wiki#Open-Orderbook">Relayer Strategy</a>. We recommend the open orderbook strategy. If you're looking for more orders to add to your orderbook, take a look at the <a href="https://github.com/0xProject/standard-relayer-api">Standard Relayer API</a> and <a href="https://0x.org/docs/connect">0x Connect</a>. There are several relayers that have already implemented it and are broadcasting orders. Remember to keep your orderbook free of stale orders by using an <a href="https://0x.org/wiki#0x-OrderWatcher">OrderWatcher</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> 0x  Peer-to-peer exchange protocol</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/0x-peertopeer-exchange-protocol/81054d98abe9412d87f91cd86719e90f/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-08</li>
+<li><strong>Kauri original tags:</strong> dex, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmZB1EVYcW7gP3vHWjxWwuWgrf4E6dR9sHXmXtdQQEopHz</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../makerdao--decentralized-stablecoin-and-collateral/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../makerdao--decentralized-stablecoin-and-collateral/" class="btn btn-xs btn-link">
+        MakerDAO  Decentralized stablecoin and collateral loans
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../compound--money-markets-on-ethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../compound--money-markets-on-ethereum/" class="btn btn-xs btn-link">
+        Compound  Money markets on Ethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/0x--peer-to-peer-exchange-protocol.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

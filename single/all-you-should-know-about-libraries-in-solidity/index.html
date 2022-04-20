@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/all-you-should-know-about-libraries-in-solidity/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>All you should know about libraries in solidity - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "All you should know about libraries in solidity", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="all-you-should-know-about-libraries-in-solidity">All you should know about libraries in solidity<a class="headerlink" href="#all-you-should-know-about-libraries-in-solidity" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSdjNhBNvSRGsvmGFQXDeAnjzR64QPDcokdiGeLqYxeDN" /></p>
+<p>It’s very important to know about the libraries in solidity while writing Dapps. In simple words, a library is the reusable piece of code which is deployed once and shared many times.</p>
+<p>But libraries are not just limited to reusability, there are few other areas where ethereum developers are using the library feature. This post aims to touch all those topics starting from basics.</p>
+<p>Let’s start with a simple library for mathematical operation. The SafeMath library described below contains basic arithmetic operation which takes 2 unsigned integer as input and returns the arithmetic operation result.</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/sarveshgs/a84fe09edbe978dd8b7b79e346a12d88.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>library SafeMath {
+
+    function mul(uint256 num1, uint256 num2) internal pure returns (uint256) {
+        uint256 result = num1 * num2;
+        return result;
+    }
+
+
+    function div(uint256 num1, uint256 num2) internal pure returns (uint256) {
+        uint256 result = num1 / num2;
+        return result;
+    }
+
+
+    function sub(uint256 num1, uint256 num2) internal pure returns (uint256) {
+        uint256 result = num1 - num2;
+        return result;
+    }
+
+
+    function add(uint256 num1, uint256 num2) internal pure returns (uint256) {
+        uint256 result = num1 + num2;
+        return result;
+    }
+}
+
+</code></pre>
+<blockquote>
+<p>“Ideally, libraries are not meant to change state of contract, it should only be used to perform simple operations based on input and returns result”</p>
+</blockquote>
+<p>Before going in depth, let’s cover few prerequisite for better understanding:</p>
+<ul>
+<li>
+<p><strong>What is a contract in solidity?</strong> : Technically, smart contract is a basic building block of a Dapp. In ethereum, smart contract has address like external user account which can be used to make interaction with contract like calling method, sending ether etc. Each contract has these four properties:</p>
+</li>
+<li>
+<p>Nonce : It’s a count of number of transaction triggered from an account.</p>
+</li>
+<li>
+<p>Balance: It’s a number that tell about amount of ether this particular address holds</p>
+</li>
+<li>
+<p>Storage root: Contract can store data, it’s a root of tree which stores data from this contract</p>
+</li>
+<li>
+<p>Codehash : It’s hashed value of contract code.</p>
+</li>
+<li></li>
+</ul>
+<hr />
+<p><a href="https://solidity.readthedocs.io/en/v0.4.24/types.html?highlight=pure%20view#function-types">Function types</a></p>
+<p><strong>:</strong>
+ Solidity has following function types:</p>
+<ul>
+<li>
+<p>Internal: This type of function is only called from inside of contract</p>
+</li>
+<li>
+<p>External:This type of function is only called from outside of contract</p>
+</li>
+<li>
+<p>Public: This type of function is called from outside of contract as well inside.</p>
+</li>
+<li>
+<p>Pure: This kind of function neither reads nor write to storage of contract.</p>
+</li>
+<li>
+<p>View: This kind of function can only read from storage but can’t write from storage.</p>
+</li>
+<li>
+<p>Payable: A contract function can only accept ether if it’s marked as payable.</p>
+</li>
+</ul>
+<p><strong>How library works?</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXZF88bnHtvDVdC64rCuDMmvntCoZ55hpWxSb7rWFhqci" /></p>
+<p>In blockchain, transaction can change state of smart contract. There are various kinds of state change that can happen in a contract:</p>
+<ul>
+<li>
+<p>Sending ether: It will update balance of contract</p>
+</li>
+<li>
+<p>Changing data in contract: It will change storage root.</p>
+<blockquote>
+<p>“Whenever user sends a transaction to a smart contract which is internally using library contract then state change happens on smart contract not in library contract. This is possible with delegate call feature of EVM”</p>
+</blockquote>
+</li>
+</ul>
+<p><a href="http://solidity.readthedocs.io/en/develop/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries">Delegate Call:</a></p>
+<p>Paraphrased from the 
+<a href="http://solidity.readthedocs.io/en/develop/introduction-to-smart-contracts.html?highlight=delegatecall#delegatecall-callcode-and-libraries">solidity docs</a>
+ :</p>
+<p><em>“Delegatecall is identical to a message call apart from the fact that the code at the target address is executed in the context of the calling contract and</em>
+ msg.sender 
+<em>and</em>
+ msg.value 
+<em>do not change their values.</em></p>
+<p><em>This means that a contract can dynamically load code from a different address at runtime. Storage, current address and balance still refer to the calling contract, only the code is taken from the called address.”</em></p>
+<p>This low-level function has been very useful as it’s the backbone for implementing libraries.</p>
+<p><strong>Deployment of libraries:</strong></p>
+<p>Library deployment is a bit different from regular smart contract deployment. There are two scenarios in the library deployment:</p>
+<ul>
+<li>
+<p><strong>Embedded Library:</strong> If a smart contract is consuming a library which have only <strong>internal functions</strong> than EVM simply embeds library into the contract. Instead of using delegate call to call a function, it simply uses JUMP statement(normal method call). There is no need to separately deploy library in this scenario.</p>
+</li>
+<li>
+<p><strong>Linked Library :</strong> On the flip side, if a library contain <strong>public or external functions</strong> then library needs to be deployed. Deployment of library will generate unique address in blockchain. This address needs to be linked with calling contract.
+Let’s consider simple example to understand linked libraries.
+Below code snippet shows a ERC20 contract with transfer function. There are two methods in SafeMath library “sub” and “add” used in transfer function which are 
+<strong>external</strong>
+ .</p>
+</li>
+</ul>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/sarveshgs/81449a6389f6ddc2a63e185726a76d2d.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>pragma solidity ^0.4.23;
+
+import &quot;./SafeMath.sol&quot;;
+
+contract ERC20 {
+
+    using SafeMath for uint256;
+    mapping(address =&amp;gt; uint256) balances;
+
+    function transfer(address _to, uint256 _value) public returns (bool success) {
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+        balances[_to] = balances[_to].add(_value);
+        return true;
+    }
+}
+
+library SafeMath {
+
+    function mul(uint256 a, uint256 b) external pure returns (uint256) {
+        uint256 c = a * b;
+        assert(a == 0 || c / a == b);
+        return c;
+    }
+
+
+    function div(uint256 a, uint256 b) external pure returns (uint256) {
+        uint256 c = a / b;
+        return c;
+    }
+
+
+    function sub(uint256 a, uint256 b) external pure returns (uint256) {
+        assert(b &amp;lt;= a);
+        return a - b;
+    }
+
+
+    function add(uint256 a, uint256 b) external pure returns (uint256) {
+        uint256 c = a + b;
+        assert(c &amp;gt;= a);
+        return c;
+    }
+}
+
+</code></pre>
+<p>There are two interesting observations to make.</p>
+<ul>
+<li>SafeMath library has external functions.</li>
+<li>String given below is part of the bytecode generated after compilation of ERC20 contract. This bytes code contains reference of SafeMath <strong>SafeMath<strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong></strong>. This means that the bytes of ERC20 can’t be deployed before performing linkage step. Linking essentially means replacing library reference in the byte code with it’s address.
+0x608060405234801561001057600080fd5b50610343806100206000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063a9059cbb14610046575b600080fd5b34801561005257600080fd5b50610091600480360381019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506100ab565b604051808215151515815260200191505060405180910390f35b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205473__SafeMath<strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>__63b67d77c59091846040518363ffffffff167c0100000000000000000000000000000000000</li>
+</ul>
+<p><strong>How to link library contract during deployment?</strong></p>
+<ul>
+<li>
+<p>Deploy library : I have deployed SafeMath on ropsten and it’s address is <a href="https://ropsten.etherscan.io/address/0x40189fb71f54a3ad0370620dfb095382859eb095">0x40189fb71f54a3ad0370620dfb095382859eb095</a> </p>
+</li>
+<li>
+<p>Link deployed library with the contract. Below command can be used to link SafeMath library with ERC20 contract.</p>
+</li>
+</ul>
+<p><em>solc ERC20.sol — libraries “SafeMath:0x40189fb71f54a3ad0370620dfb095382859eb095” — bin</em></p>
+<p>After successful linking, SafeMath references will be removed from the bytecode and contract is ready for deployment.</p>
+<p><strong>‘Using for’ in library:</strong></p>
+<p>In solidity 
+<strong>using X for Y</strong>
+ directive means, library function of X is attached with type Y.
+For instance, 
+<strong>Using SafeMath for uint256</strong>
+ .
+SafeMath functions like add, sub, mul and div are now bound with type uint256.
+“One condition which should be taken care is, library functions will receive the object they are called on as their first parameter”</p>
+<p><strong>For example:</strong>
+ In ERC-20 contract mentioned above. Using for directive is using for SafeMath for type uint256.</p>
+<pre><code>using SafeMath for uint256;
+
+uint256 a = 10;
+uint256 b= 10;
+
+uint256 = a.add(b);
+</code></pre>
+<p>Here 
+<strong>add</strong>
+ function is available from SafeMath. SafeMath library functions are bound with uint256.
+Great!!! 🙌
+I hope, this article helped you to understand libraries in solidity.
+Happy Coding 😇</p>
+<p><a href="https://www.linkedin.com/in/jainsarvesh/">linkedin.com/in/jainsarvesh</a></p>
+<p><a href="https://medium.com/@sarvesh.sgsits">medium.com/@sarvesh.sgsits</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> All you should know about libraries in solidity</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/all-you-should-know-about-libraries-in-solidity/bb7efad0f7204a67aa6fa2b71b9641bc/a</li>
+<li><strong>Kauri original author:</strong> Sarvesh Jain (@sarveshgs)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-13</li>
+<li><strong>Kauri original tags:</strong> ethereum, library, evm, ethereum-virtual-machine, solidity</li>
+<li><strong>Kauri original hash:</strong> QmcdCUBdqznJAfEuC7Av5M34NeBiYULdnY4Y83AdYMLUMA</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/" class="btn btn-xs btn-link">
+        Среда разработки Remix - создайте свой первый Smart Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../learn-blockchain-or-create-your-first-blockchain-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../learn-blockchain-or-create-your-first-blockchain-/" class="btn btn-xs btn-link">
+        Learn Blockchain | Create Your First Blockchain | Blocks & Consensus
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/all-you-should-know-about-libraries-in-solidity.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

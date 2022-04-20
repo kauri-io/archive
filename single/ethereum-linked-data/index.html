@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ethereum-linked-data/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum Linked Data - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum Linked Data", url: "#_top", children: [
+              {title: "What data is available?", url: "#what-data-is-available" },
+              {title: "Where should I start?", url: "#where-should-i-start" },
+              {title: "How can I contribute?", url: "#how-can-i-contribute" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-linked-data">Ethereum Linked Data<a class="headerlink" href="#ethereum-linked-data" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPeSAtp7B3VVbZg6VWeyzSZXKzTa3pAx7AyqoJw7JHaTa" /></p>
+<p><strong>We are proud to announce today that Ethereum is now available as a Linked Data graph for free.</strong>
+ This is a side-product from our work at Alethio and we would like to share it with you.
+At alethio we’ve been collecting Ethereum data for over a year, now. We have populated the 
+<a href="https://ethon.consensys.net/">EthOn</a></p>
+<p><a href="https://github.com/ConsenSys/EthOn">ontology</a>
+ with actual chain data and would like to share the resulting data set with the community.
+Our hope is that you will explore the graph, play with it and extend it with meta-data. Think labels, smart contract types, relations to other Linked Data sets, such as 
+<a href="https://wiki.dbpedia.org/">DBPedia</a>
+ .</p>
+<h3 id="what-data-is-available">What data is available?<a class="headerlink" href="#what-data-is-available" title="Permanent link"></a></h3>
+<p>We are constantly updating the graph with new blocks from the Ethereum Foundation mainnet chain 
+<em>in real time</em>
+ . At the same time we’re backfilling the database with historical data (1M blocks to go).</p>
+<h3 id="where-should-i-start">Where should I start?<a class="headerlink" href="#where-should-i-start" title="Permanent link"></a></h3>
+<p>You can just try out the Example queries, read more about 
+<a href="https://media.consensys.net/ethon-introducing-semantic-ethereum-15f1f0696986">EthOn</a>
+ or start exploring the ontology with the tools below.</p>
+<ul>
+<li>
+<p><a href="https://linkeddata.aleth.io/examples">Example queries</a> </p>
+</li>
+<li>
+<p><a href="https://linkeddata.aleth.io/explore">Ethereum LinkedData explorer</a> </p>
+</li>
+<li>
+<p><a href="https://linkeddata.aleth.io/download">Download Ethereum as LinkedData</a> </p>
+</li>
+</ul>
+<h3 id="how-can-i-contribute">How can I contribute?<a class="headerlink" href="#how-can-i-contribute" title="Permanent link"></a></h3>
+<p>Your contribution is always welcome!
+First and foremost: 
+<strong>Tell us what you are doing with the data set</strong>
+ .
+But you can also contribute to 
+<a href="https://github.com/ConsenSys/EthOn">EthOn</a>
+ , help us enrich our data set and give us ideas on what to do with it. If you have interesting sets of triples to add to this service — we are happy to add them!
+The data set in this db is very large. We can’t support large aggregate queries without overloading or server. If you want to do analytic aggregate queries, please download the data and use a technology of your choice for it (e.g. 
+<a href="http://graphdb.ontotext.com">GraphDB</a>
+ or 
+<a href="http://sansa-stack.net/">SANSA</a>
+ ). We provide the service as-is — there are no guarantees for availability.</p>
+<p><em>We would like to thank the</em></p>
+<p><a href="https://www.ontotext.com/">Ontotext</a></p>
+<p><em>for sponsoring an enterprise license of their awesome</em></p>
+<p><a href="https://www.ontotext.com/products/graphdb/">GraphDB</a></p>
+<p><em>triple store!</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum Linked Data</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-linked-data/deb098bc90a049cc8a64fbd975bea6b2/a</li>
+<li><strong>Kauri original author:</strong> Alethio (@alethio)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-05</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qmcc3Awae9FHqsN7h1WDPsRtUJksmcXrko35VzVHzwcq3X</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../uport-appmanager--create-an-identity-for-your-app/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../uport-appmanager--create-an-identity-for-your-app/" class="btn btn-xs btn-link">
+        uPort AppManager  Create an identity for your app
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../what-is-bitcoin-and-how-bitcoin-works/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../what-is-bitcoin-and-how-bitcoin-works/" class="btn btn-xs btn-link">
+        What is Bitcoin and How Bitcoin Works?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ethereum-linked-data.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

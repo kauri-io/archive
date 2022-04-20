@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/smart-contracts-integration-with-nethereum/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smart contracts integration with Nethereum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Smart contracts integration with Nethereum", url: "#_top", children: [
+              {title: "Pre-Conditions", url: "#pre-conditions" },
+              {title: "Instantiating Web3 and the Account", url: "#instantiating-web3-and-the-account" },
+              {title: "Deploying the Contract", url: "#deploying-the-contract" },
+              {title: "Interacting with the Contract", url: "#interacting-with-the-contract" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="smart-contracts-integration-with-nethereum">Smart contracts integration with Nethereum<a class="headerlink" href="#smart-contracts-integration-with-nethereum" title="Permanent link"></a></h1>
+<p>The purpose of this article is to help .NET developers leverage  <a href="https://nethereum.com/">Nethereum</a>, An open source .NET integration library for blockchain.</p>
+<blockquote>
+<p>You can execute this tutorial as a <a href="https://nethereum.readthedocs.io/en/latest/Nethereum.Workbooks/docs/nethereum-smartcontrats-gettingstarted.workbook">workbook</a>, or download a simplified sample <a href="https://github.com/Nethereum/Nethereum.CQS.SimpleTokenTransfer">here</a></p>
+</blockquote>
+<p>The purpose of this sample is the following:</p>
+<ul>
+<li>
+<p>Understanding how to create contract deployment, function and event definitions to interact with a smart contracts</p>
+</li>
+<li>
+<p>Creating an account object using a private key, this will allow to sign transactions "offline".</p>
+</li>
+<li>
+<p>Deploying a smart contract (the sample provided is the standard ERC20 token contract)</p>
+</li>
+<li>
+<p>Making a call to a smart contract (in this scenario get the balance of an account)</p>
+</li>
+<li>
+<p>Sending a transaction to the smart contract (in this scenario transferring balance)</p>
+</li>
+<li>
+<p>Estimating the gas cost of a contract transaction</p>
+</li>
+<li>
+<p>Gas Price, Nonces and Sending Ether to smart contracts</p>
+</li>
+<li>
+<p>Signing online / offline transaction function messages and deployment messages</p>
+</li>
+<li>
+<p>Extension methods for Deployment and Function messages</p>
+</li>
+<li>
+<p>Retrieving the state of a smart contract from a previous block</p>
+</li>
+</ul>
+<h4 id="pre-conditions">Pre-Conditions<a class="headerlink" href="#pre-conditions" title="Permanent link"></a></h4>
+<p>In this tutorial we are going to interact with the ERC20 standard token contract. The smart contract provides a standard way to create a new token, transfer it to another account and query the balance of any account. This standard interface allows the interoperability of smart contracts providing the same signature and applications that integrate with it.</p>
+<p><img alt="Constructor, transfer, balance and event of ERC20" src="https://github.com/Nethereum/Nethereum.Workbooks/raw/master/docs/screenshots/simpleERC20.png" /></p>
+<p>A full sample of the smart contract can be found <a href="https://nethereum.readthedocs.io/en/latest/Nethereum.Workbooks/docs/StandardToken.sol">here</a></p>
+<p>First of all, we need to declare our namespaces, and contract definition to interact with the smart contract. In this scenario we are only interested in the Deployment, Transfer function and BalanceOf Function of the ERC20 smart contract.</p>
+<p>Add a reference to the nuget package "Nethereum.Web3"</p>
+<pre><code class="language-csharp">##r &quot;Nethereum.Web3&quot;
+</code></pre>
+<pre><code class="language-csharp">##r &quot;Nethereum.Accounts&quot;
+</code></pre>
+<pre><code class="language-csharp">using Nethereum.Web3;
+using Nethereum.ABI.FunctionEncoding.Attributes;
+using Nethereum.Contracts.CQS;
+using Nethereum.Util;
+using Nethereum.Web3.Accounts;
+using Nethereum.Hex.HexConvertors.Extensions;
+using Nethereum.Contracts;
+using Nethereum.Contracts.Extensions;
+using System.Numerics;
+</code></pre>
+<p>To deploy a contract we will create a class inheriting from the ContractDeploymentMessage, here we can include our compiled byte code and other constructor parameters.</p>
+<p>As we can see below the StandardToken deployment message includes the compiled bytecode of the ERC20 smart contract and the constructor parameter with the “totalSupply” of tokens.</p>
+<p>Each parameter is described with an attribute Parameter, including its name "totalSupply", type "uint256" and order.</p>
+<pre><code class="language-csharp">public class StandardTokenDeployment : ContractDeploymentMessage
+{
+
+            public static string BYTECODE = &quot;0x60606040526040516020806106f5833981016040528080519060200190919050505b80600160005060003373ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005081905550806000600050819055505b506106868061006f6000396000f360606040523615610074576000357c010000000000000000000000000000000000000000000000000000000090048063095ea7b31461008157806318160ddd146100b657806323b872dd146100d957806370a0823114610117578063a9059cbb14610143578063dd62ed3e1461017857610074565b61007f5b610002565b565b005b6100a060048080359060200190919080359060200190919050506101ad565b6040518082815260200191505060405180910390f35b6100c36004805050610674565b6040518082815260200191505060405180910390f35b6101016004808035906020019091908035906020019091908035906020019091905050610281565b6040518082815260200191505060405180910390f35b61012d600480803590602001909190505061048d565b6040518082815260200191505060405180910390f35b61016260048080359060200190919080359060200190919050506104cb565b6040518082815260200191505060405180910390f35b610197600480803590602001909190803590602001909190505061060b565b6040518082815260200191505060405180910390f35b600081600260005060003373ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005060008573ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925846040518082815260200191505060405180910390a36001905061027b565b92915050565b600081600160005060008673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600050541015801561031b575081600260005060008673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005060003373ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000505410155b80156103275750600082115b1561047c5781600160005060008573ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828282505401925050819055508273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a381600160005060008673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282825054039250508190555081600260005060008673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005060003373ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828282505403925050819055506001905061048656610485565b60009050610486565b5b9392505050565b6000600160005060008373ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000505490506104c6565b919050565b600081600160005060003373ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600050541015801561050c5750600082115b156105fb5781600160005060003373ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008282825054039250508190555081600160005060008573ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828282505401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a36001905061060556610604565b60009050610605565b5b92915050565b6000600260005060008473ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005060008373ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060005054905061066e565b92915050565b60006000600050549050610683565b9056&quot;;
+
+    public StandardTokenDeployment() : base(BYTECODE){}
+
+    [Parameter(&quot;uint256&quot;, &quot;totalSupply&quot;)]
+    public BigInteger TotalSupply { get; set; }
+}
+</code></pre>
+<p>We can call the functions of smart contract to query the state of a smart contract or do any computation, which will not affect the state of the blockchain.</p>
+<p>To do so we will need to create a class which inherits from "FunctionMessage". First we will decorate the class with a "Function" attribute, including the name and return type.</p>
+<p>Each parameter of the the function will be a property of the class, each of them decorated with the "Parameter" attribute, including the smart contract name, type and parameter order.</p>
+<p>For the ERC20 smart contract, the "balanceOf" function definition, provides the query interface to get the token balance of a given address. As we can see this function includes only one parameter "_owner", of the type "address".</p>
+<pre><code class="language-csharp">[Function(&quot;balanceOf&quot;, &quot;uint256&quot;)]
+public class BalanceOfFunction : FunctionMessage
+{
+    [Parameter(&quot;address&quot;, &quot;_owner&quot;, 1)]
+    public string Owner { get; set; }
+}
+</code></pre>
+<p>Another type of smart contract function will be correspondent to a transaction that will change the state of the smart contract (or smart contracts).</p>
+<p>For example The "transfer" function definition for the ERC20 smart contract, includes the parameters “_to” address parameter as a string, and the “_value” or TokenAmount we want to transfer.</p>
+<p>In a similar way to the "balanceOf" function, all the parameters include the solidity type, parameter name and parameter order.</p>
+<p>Note: When working with functions, it is very important to have the parameters types, and function name correct as all of these make the signature of the function.</p>
+<pre><code class="language-csharp">[Function(&quot;transfer&quot;, &quot;bool&quot;)]
+public class TransferFunction : FunctionMessage
+{
+    [Parameter(&quot;address&quot;, &quot;_to&quot;, 1)]
+    public string To { get; set; }
+
+    [Parameter(&quot;uint256&quot;, &quot;_value&quot;, 2)]
+    public BigInteger TokenAmount { get; set; }
+}
+</code></pre>
+<p>Finally smart contracts also have events. Events in smart contracts write the blockchain log, providing a way to retrieve further information of any smart contract interaction occurred.</p>
+<p>To create an Event definition, we need to create a class that inherits from IEventDTO, decorated with the Event attribute.</p>
+<p>The Transfer Event, similar to the Function it also includes the parameters with the name, order and type. But also a boolean value indicating if the parameter is indexed or not.</p>
+<p>Indexed parameters will allow us later on to query the blockchain for those values.</p>
+<pre><code class="language-csharp">[Event(&quot;Transfer&quot;)]
+public class TransferEventDTO : IEventDTO
+{
+    [Parameter(&quot;address&quot;, &quot;_from&quot;, 1, true)]
+    public string From { get; set; }
+
+    [Parameter(&quot;address&quot;, &quot;_to&quot;, 2, true)]
+    public string To { get; set; }
+
+    [Parameter(&quot;uint256&quot;, &quot;_value&quot;, 3, false)]
+    public BigInteger Value { get; set; }
+}
+</code></pre>
+<h4 id="instantiating-web3-and-the-account">Instantiating Web3 and the Account<a class="headerlink" href="#instantiating-web3-and-the-account" title="Permanent link"></a></h4>
+<p>A simple way to run this sample is to use one of the pre-configured private chains which can be found https://github.com/Nethereum/TestChains (Geth, Parity, Ganache) using the Account “0x12890d2cce102216644c59daE5baed380d84830c” with private key “0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7“, or alternatively use your own testchain with your own account / private key.</p>
+<p>To create an instance of web3 we first provide the url of our testchain and the private key of our account. When providing an Account instantiated with a  private key all our transactions will be signed by Nethereum.</p>
+<pre><code class="language-csharp">var url = &quot;http://localhost:8545&quot;;
+var privateKey = &quot;0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7&quot;;
+var account = new Account(privateKey);
+var web3 = new Web3(account, url);
+</code></pre>
+<h4 id="deploying-the-contract">Deploying the Contract<a class="headerlink" href="#deploying-the-contract" title="Permanent link"></a></h4>
+<p>The next step is to deploy our Standard Token ERC20 smart contract, in this scenario the total supply (number of tokens) is going to be 100,000.</p>
+<p>First we create an instance of the StandardTokenDeployment with the TotalSupply amount.</p>
+<pre><code class="language-csharp">var deploymentMessage = new StandardTokenDeployment
+{
+    TotalSupply = 100000
+};
+</code></pre>
+<p>Then we create a deployment handler using our contract deployment definition and simply deploy the contract using the deployment message. We are auto estimating the gas, getting the latest gas price and nonce so nothing else is set anything on the deployment message.</p>
+<p>Finally, we wait for the deployment transaction to be mined, and retrieve the contract address of the new contract from the receipt.</p>
+<pre><code class="language-csharp">var deploymentHandler = web3.Eth.GetContractDeploymentHandler&lt;StandardTokenDeployment&gt;();
+var transactionReceipt = await deploymentHandler.SendRequestAndWaitForReceiptAsync(deploymentMessage);
+var contractAddress = transactionReceipt.ContractAddress;
+</code></pre>
+<h4 id="interacting-with-the-contract">Interacting with the Contract<a class="headerlink" href="#interacting-with-the-contract" title="Permanent link"></a></h4>
+<p>Once we have deployed the contract, we can start interaction with the contract.</p>
+<h5 id="querying">Querying<a class="headerlink" href="#querying" title="Permanent link"></a></h5>
+<p>To retrieve the balance of an address we can create an instance of the BalanceFunction message and set the parameter as our account "Address", because we are the "owner" of the Token the full balance has been assigned to us.</p>
+<pre><code class="language-csharp">var balanceOfFunctionMessage = new BalanceOfFunction()
+{
+    Owner = account.Address,
+};
+
+var balanceHandler = web3.Eth.GetContractQueryHandler&lt;BalanceOfFunction&gt;();
+var balance = await balanceHandler.QueryAsync&lt;BigInteger&gt;(contractAddress, balanceOfFunctionMessage);
+</code></pre>
+<p>To retrieve the balance, we will create a QueryHandler and finally using our contract address and message retrieve the balance amount.</p>
+<h6 id="multiple-return-types-or-complex-objects">Multiple return types or complex objects<a class="headerlink" href="#multiple-return-types-or-complex-objects" title="Permanent link"></a></h6>
+<p>Functions of smart contracts can return one or multiple values in a single call. To decode the return values, we use a FunctionOutputDTO.</p>
+<p>Function outputs are classes which are decorated with a FunctionOutput attribute and implement the interface IFunctionOutputDTO.</p>
+<p>An example of this is the following implementation that can be used to return the single value of the Balance on the ERC20 smart contract.</p>
+<pre><code class="language-csharp"> [FunctionOutput]
+ public class BalanceOfOutputDTO : IFunctionOutputDTO
+ {
+      [Parameter(&quot;uint256&quot;, &quot;balance&quot;, 1)]
+      public BigInteger Balance { get; set; }
+ }
+</code></pre>
+<p>If we were going to return multiple values we could have something like:</p>
+<pre><code class="language-csharp"> [FunctionOutput]
+ public class BalanceOfOutputMultipleDTO : IFunctionOutputDTO
+ {
+      [Parameter(&quot;uint256&quot;, &quot;balance1&quot;, 1)]
+      public BigInteger Balance1 { get; set; }
+
+      [Parameter(&quot;uint256&quot;, &quot;balance2&quot;, 2)]
+      public BigInteger Balance2 { get; set; }
+
+      [Parameter(&quot;uint256&quot;, &quot;balance1&quot;, 3)]
+      public BigInteger Balance3 { get; set; }
+ }
+</code></pre>
+<p>When querying the chain we will use the following method instead:</p>
+<pre><code class="language-csharp">var balance = await balanceHandler.QueryDeserializingToObjectAsync&lt;BalanceOfOutputDTO&gt;( balanceOfFunctionMessage, contractAddress);
+</code></pre>
+<h5 id="querying-previous-state-of-the-smart-contract">Querying previous state of the smart contract<a class="headerlink" href="#querying-previous-state-of-the-smart-contract" title="Permanent link"></a></h5>
+<p>Another great feature of the Ethereum blockchain is the capability to retrieve the state of a smart contract from a previous block.</p>
+<p>For example, we could get the balance of the owner at the time of deployment by using the block number, in which the contract was deployed.</p>
+<pre><code class="language-csharp">var balance = await balanceHandler.QueryDeserializingToObjectAsync&lt;BalanceOfOutputDTO&gt;( balanceOfFunctionMessage, contractAddress, new Nethereum.RPC.Eth.DTOs.BlockParameter(transactionReceipt.BlockNumber));
+</code></pre>
+<h5 id="transfer">Transfer<a class="headerlink" href="#transfer" title="Permanent link"></a></h5>
+<p>Making a transfer will change, the state of the blockchain, so in this scenario we will need to create a TransactionHandler using the TransferFunction definition.</p>
+<p>In the transfer message, we will include the receiver address "To", and the "TokenAmount" to transfer.</p>
+<p>The final step is to Send the request wait for the receipt to be “mined” and included in the blockchain.</p>
+<p>Another option will be not to wait (poll) for the transaction to mined and just retrieve the transaction hash.</p>
+<pre><code class="language-csharp">var receiverAddress = &quot;0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe&quot;;
+var transferHandler = web3.Eth.GetContractTransactionHandler&lt;TransferFunction&gt;();
+var transfer = new TransferFunction()
+{
+    To = receiverAddress,
+    TokenAmount = 100
+};
+var transactionReceipt = await transferHandler.SendRequestAndWaitForReceiptAsync(contractAddress, transfer);
+</code></pre>
+<h6 id="transferring-ether-to-a-smart-contract">Transferring Ether to a smart contract<a class="headerlink" href="#transferring-ether-to-a-smart-contract" title="Permanent link"></a></h6>
+<p>A function or deployment transaction can send Ether to the smart contract. The FunctionMessage and DeploymentMessage have the property "AmountToSend".</p>
+<p>So if the "transfer" function accepts also Ether, we will set it this way.</p>
+<pre><code class="language-csharp">transfer.AmountToSend = Nethereum.Web3.Web3.Convert.ToWei(1);
+</code></pre>
+<p>The GasPrice is set in "Wei" which is the lowest unit in Ethereum, so in the scenario above we have converted 1 Ether to Wei.</p>
+<h6 id="gas-price">Gas Price<a class="headerlink" href="#gas-price" title="Permanent link"></a></h6>
+<p>Nethereum sets automatically the GasPrice if not provided by using the clients "GasPrice" call, which provides the average gas price from previous blocks.</p>
+<p>If you want to have more control of the GasPrice these can be set in both FunctionMessages and DeploymentMessages.</p>
+<pre><code class="language-csharp">  transfer.GasPrice =  Nethereum.Web3.Web3.Convert.ToWei(25, UnitConversion.EthUnit.Gwei);
+</code></pre>
+<p>The GasPrice is set in "Wei" which is the lowest unit in Ethereum, so if we are used to the usual "Gwei" units, this will need to be converted using the Nethereum Convertion utilities.</p>
+<h6 id="estimating-gas">Estimating Gas<a class="headerlink" href="#estimating-gas" title="Permanent link"></a></h6>
+<p>Nethereum does an automatic estimation of the total gas necessary to make the function transaction by calling the "EthEstimateGas" internally with the "CallInput".</p>
+<p>If wanted this can be done manually, using the TransactionHandler and the "transfer" transaction FucntionMessage.</p>
+<pre><code class="language-csharp"> var estimate = await transferHandler.EstimateGasAsync(contractAddress, transfer);
+ transfer.Gas = estimate.Value;
+</code></pre>
+<h6 id="nonces">Nonces<a class="headerlink" href="#nonces" title="Permanent link"></a></h6>
+<p>Each account transaction has a Nonce associated with it, this is the order and unique number for that transaction. This allows each transaction to be differentiate it from each other, but also ensure transactions are processed on the same order.</p>
+<p>Nethereum calculates the Nonce automatically for all Transactions by retrieving the latest count of the transactions from the chain. Also internally manages at Account level an in memory counter on the nonces, to allow for situations in which we want to send multiple transactions before giving time to the Ethereum client to update its internal counter.</p>
+<p>Nevertheless it might be scenarios, we want to supply our Nonce, for example if we want to sign the transaction completely offline.</p>
+<pre><code class="language-csharp">transfer.Nonce = 2;
+</code></pre>
+<h6 id="signing-a-function-deployment-message-online-offline">Signing a Function / Deployment message online / offline<a class="headerlink" href="#signing-a-function-deployment-message-online-offline" title="Permanent link"></a></h6>
+<p>The TransactionHandler also provides a mechanism to sign the Function and Deployments messages, provided we use an Account and/or ExternalAccount</p>
+<pre><code class="language-csharp">var signedTransaction = await transferHandler.SignTransactionAsync(ContractAddress, transfer);
+</code></pre>
+<p>Nethereum internally calls the Ethereum client to set the GasPrice, Nonce and estimate the Gas, so if want to sign the transaction for the contract completely offline we will need to set those values before hand.</p>
+<pre><code class="language-csharp">transfer.Nonce = 2;
+transfer.Gas = 21000;
+transfer.GasPrice =  Nethereum.Web3.Web3.Convert.ToWei(25, UnitConversion.EthUnit.Gwei);
+var signedTransaction = await transferHandler.SignTransactionAsync(ContractAddress, transfer);
+</code></pre>
+<h6 id="extension-methods-for-functions-and-deployment-messages">Extension methods for Functions and Deployment Messages<a class="headerlink" href="#extension-methods-for-functions-and-deployment-messages" title="Permanent link"></a></h6>
+<p>There are a number of extensions that can simplify the interaction with Function messages and Deployment messages.</p>
+<p>These are under the namespace</p>
+<pre><code class="language-csharp">using Nethereum.Contracts.Extensions;
+</code></pre>
+<p>Some of the extension methods are the following:</p>
+<p><strong>SetGasPriceFromGwei</strong> which sets the GasPrice and converts it to Wei.</p>
+<p><strong>CreateCallInput</strong> creates the call input which can be used to query or estimate transactions.</p>
+<p><strong>CreateTransactionInput</strong> creates the transaction input which can be used to send or sign the raw transaction</p>
+<p><strong>DecodeInput</strong> decodes the data of a transaction into a FunctionMessage</p>
+<p><strong>DecodeTransactionToFunctionMessage</strong> decodes the full transaction into a FunctionMessage</p>
+<p><strong>GetCallData</strong> returns the encoded call data with all the function and parameter information to be send to Ethereum</p>
+<p><strong>DecodeTransactionToDeploymentMessage</strong> decodes the full transaction into DeploymentMessage</p>
+<p><strong>GetSwarmAddressFromByteCode</strong> using the bytecode of a DeploymentMessage finds the swarm address included</p>
+<p>For more support get in touch with our community:  https://gitter.im/Nethereum/Nethereum</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Smart contracts integration with Nethereum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/smart-contracts-integration-with-nethereum/b54334b0695342c1bbe161c4c4467b50/a</li>
+<li><strong>Kauri original author:</strong> Gaël Blanchemain  (@anegg0)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-24</li>
+<li><strong>Kauri original tags:</strong> smart-contract, dotnet, nethereum</li>
+<li><strong>Kauri original hash:</strong> QmSydezx29qnek9MTBk29bj4wXFyh3WqMbEq295UV996Zs</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../signing-messages-with-nethereum/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../signing-messages-with-nethereum/" class="btn btn-xs btn-link">
+        Signing messages with Nethereum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../creating-a-dapp-in-go-with-geth/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../creating-a-dapp-in-go-with-geth/" class="btn btn-xs btn-link">
+        Creating a DApp in Go with Geth
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/smart-contracts-integration-with-nethereum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

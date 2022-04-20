@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/a-beginner-s-guide-to-monero/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A beginner’s guide to Monero - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "A beginner\u2019s guide to Monero", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="a-beginners-guide-to-monero">A beginner’s guide to Monero<a class="headerlink" href="#a-beginners-guide-to-monero" title="Permanent link"></a></h1>
+<p>This article was originally published on <a href="https://medium.com/@linda.xie/a-beginners-guide-to-monero-7a5df2c50ed9">Medium</a> </p>
+<p><strong>What is Monero?</strong></p>
+<p>According to the 
+<a href="https://getmonero.org/home">Monero website</a>
+ , “Monero is a secure, private, untraceable currency.” Some people might think that this definition could be applied to Bitcoin but that is actually not the case when it comes to being private and untraceable. Monero is a digital currency that uses a different kind of cryptography to allow for these specific attributes. This beginner’s guide should help those who are new to Monero to understand the high level differences between the two.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmU1grN2WpxDfXSj5yXMcNNxPe7Nkt3x4cPvCiJoLZKnrr" /></p>
+<p><strong>Comparison</strong></p>
+<p>There is a common misconception that Bitcoin is entirely untraceable digital money. The very premise of Bitcoin is that all transactions 
+<a href="https://blockchain.info/">can be viewed</a>
+ on a public ledger called the blockchain. This is useful because it allows anyone to verify that a transaction occurred, particularly for ones that need to be completely transparent (e.g. government, non-profit spending).
+Monero is different than Bitcoin in that it focuses on the privacy aspect of transacting with a digital currency. Monero uses a different type of technology to make the transactions untraceable and the balances hidden. If your bitcoin address is ever shared publicly, anyone can view your balance and all other bitcoin addresses you have ever transacted with. Even though names aren’t explicitly stated on the blockchain, if someone decides to share their address publicly, all previous and future activity associated with that address will forever be linked to that person. You also don’t necessarily need to share your address publicly for someone to figure out that you own it. In fact, just transacting with other tagged addresses may be enough for someone to figure out that an account is owned by you. For example, below you can see all transactions and the balance associated with the popular and publicly shared 
+<a href="https://shop.wikileaks.org/donate">WikiLeaks donation address</a>
+ .</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdMHqLe4kKfvktRX33CyUMduQfqqhFj2NKgf67DG3ahSt" /></p>
+<p>While certain organizations that need to be transparent may want their transaction history to be displayed, the same can’t be said about all individuals and companies. Imagine that anyone could see all of your bank balances and transactions. You might not want the entire world to know your salary and spending habits. Financial privacy has been especially relevant after the string of security breaches over the past few years that have leaked credit card data. You might not necessarily want every store and website that you make purchases on to store that information. Monero values protecting this personal information and makes transaction details private to the outside world by default.</p>
+<p><strong>Technology</strong></p>
+<p>Without diving too deep into the technical details, the way Monero is able to make transactions untraceable is through a technology called 
+<a href="https://getmonero.org/knowledge-base/moneropedia/ringsignatures">ring signatures</a>
+ . It essentially mixes an individual’s set of transactions with others so it is not clear to the public eye who owns which addresses. It also hides balances through 
+<a href="https://getmonero.org/knowledge-base/moneropedia/stealthaddress">stealth addresses</a>
+ which are random one time addresses that can’t be associated with an individual publicly.
+In Monero there is also something called a “spend key” used to spend funds and a “view key” which the user can share with others to allow transaction details to be selectively transparent to certain individuals. Optional transparency can be beneficial for situations where an entity needs to be audited or submit information for tax purposes. This separation into two different keys ensures that one may allow a third party to view transaction details without allowing the viewer to spend all of their funds. Drawing an analogy to the existing financial system: the bank login information needed to access your funds is similar to a spend key while a copy of your bank account statement and transaction details is similar to a view key.</p>
+<p><strong>Team</strong></p>
+<p>Monero has a strong 
+<a href="https://getmonero.org/knowledge-base/people">core developer team</a>
+ of seven people, five of which are pseudonymous and two are known to the public — Riccardo Spagni and Francisco Cabañas along with 
+<a href="https://github.com/monero-project/monero/network/members">many contributors</a>
+ . Monero undergoes development updates that are currently planned to occur every 6 months which add new features and security enhancements. These scheduled updates force Monero to evolve and keep everyone on the same page that there will be consistent updates to the system.</p>
+<p><strong>Resources</strong></p>
+<p>Monero is an exciting digital currency with interesting technology behind it. Below are some links that may help you understand Monero further and keep up with the development.</p>
+<p><em>Understanding Monero</em></p>
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=TZi9xx6aiuY">What is Monero?</a> </p>
+</li>
+<li>
+<p><a href="https://getmonero.org/home">Monero website</a> </p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=pTgadb7M47E">Riccardo Spagni’s talk at Coinbase</a> </p>
+</li>
+<li>
+<p><a href="https://thecontrol.co/meet-the-best-performing-digital-currency-of-2016-monero-e6010768e54a#.ctb3o7eku">Meet the Best Performing Digital Currency of 2016: Monero</a> </p>
+</li>
+</ul>
+<p><em>Keeping up with Monero</em></p>
+<ul>
+<li>
+<p><a href="https://www.reddit.com/r/Monero/">Monero Subreddit</a> </p>
+</li>
+<li>
+<p><a href="https://forum.getmonero.org/">Monero Forum</a> </p>
+</li>
+<li>
+<p><a href="https://twitter.com/monerocurrency">Monero Twitter</a> </p>
+</li>
+</ul>
+<p>Thanks to 
+<a href="https://medium.com/@willwarren89">Will Warren</a>
+ and many 
+<a href="https://www.coinbase.com/">Coinbase</a>
+ colleagues especially 
+<a href="https://medium.com/@jcliff">Jordan Clifford</a>, 
+<a href="https://medium.com/@hkparker">Hayden Parker</a>, 
+<a href="https://medium.com/@bramanathan">Reuben Bramanathan</a>, and 
+<a href="https://medium.com/@Dfarmer">David Farmer</a> .</p>
+<p><em>Please note this post is not an endorsement of Monero by Coinbase. All opinions are my own. Disclaimer: I own Monero.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> A beginner’s guide to Monero</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-beginners-guide-to-monero/b0da5ffc94fb4fb894741839aa2fa616/a</li>
+<li><strong>Kauri original author:</strong> Linda Xie (@ljxie)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-03</li>
+<li><strong>Kauri original tags:</strong> privacy</li>
+<li><strong>Kauri original hash:</strong> QmNhxMTpWwxbiZnikjCt2cAwKKR5NAFJYuFgRqozbnqqEA</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Open%20Finance%20%28DeFi%29/kyber-network--on-chain-liquidity-protocol/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Open%20Finance%20%28DeFi%29/kyber-network--on-chain-liquidity-protocol/" class="btn btn-xs btn-link">
+        Kyber Network  On-chain liquidity protocol
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../a-beginner-s-guide-to-zcash/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../a-beginner-s-guide-to-zcash/" class="btn btn-xs btn-link">
+        A beginner’s guide to Zcash
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/a-beginner-s-guide-to-monero.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

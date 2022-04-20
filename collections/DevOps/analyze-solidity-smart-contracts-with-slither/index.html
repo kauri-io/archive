@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/DevOps/analyze-solidity-smart-contracts-with-slither/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Analyze Solidity Smart Contracts with Slither - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Analyze Solidity Smart Contracts with Slither", url: "#_top", children: [
+              {title: "Features", url: "#features" },
+              {title: "How to install", url: "#how-to-install" },
+              {title: "Usage", url: "#usage" },
+              {title: "Detectors", url: "#detectors" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="analyze-solidity-smart-contracts-with-slither">Analyze Solidity Smart Contracts with Slither<a class="headerlink" href="#analyze-solidity-smart-contracts-with-slither" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPPsw3VodYCNmxVJE36RXKwmjfdqyTxue5WyJ3cZaYjBE" /></p>
+<p>Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors, prints visual information about contract details, and provides an API to easily write custom analyses. Slither enables developers to find vulnerabilities, enhance their code comprehension, and quickly prototype custom analyses.</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h3>
+<ul>
+<li>Detects vulnerable Solidity code with low false positives</li>
+<li>Identifies where the error condition occurs in the source code</li>
+<li>Easily integrates into continuous integration and Truffle builds</li>
+<li>Built-in 'printers' quickly report crucial contract information</li>
+<li>Detector API to write custom analyses in Python</li>
+<li>Ability to analyze contracts written with Solidity &gt;= 0.4</li>
+<li>Intermediate representation (<a href="https://github.com/trailofbits/slither/wiki/SlithIR">SlithIR</a>) enables simple, high-precision analyses</li>
+<li>Correctly parses 99.9% of all public Solidity code</li>
+<li>Average execution time of less than 1 second per contract</li>
+</ul>
+<h3 id="how-to-install">How to install<a class="headerlink" href="#how-to-install" title="Permanent link"></a></h3>
+<p>Slither requires Python 3.6+ and <a href="https://github.com/ethereum/solidity/">solc</a>, the Solidity compiler.</p>
+<h4 id="using-pip">Using Pip<a class="headerlink" href="#using-pip" title="Permanent link"></a></h4>
+<pre><code class="language-shell">$ pip install slither-analyzer
+</code></pre>
+<h4 id="using-git">Using Git<a class="headerlink" href="#using-git" title="Permanent link"></a></h4>
+<pre><code class="language-bash">$ git clone https://github.com/trailofbits/slither.git &amp;&amp; cd slither
+$ python setup.py install 
+</code></pre>
+<p>We recommend using a Python virtual environment, as detailed in the <a href="https://github.com/trailofbits/slither/wiki/Developer-installation">Developer Installation Instructions</a>, if you prefer to install Slither via git.</p>
+<h4 id="using-docker">Using Docker<a class="headerlink" href="#using-docker" title="Permanent link"></a></h4>
+<p>Use the <a href="https://github.com/trailofbits/eth-security-toolbox/"><code>eth-security-toolbox</code></a> docker image. It includes all of our security tools and every major version of Solidity in a single image. <code>/home/share</code> will be mounted to <code>/share</code>  in the container. Use <a href="https://github.com/trailofbits/eth-security-toolbox/#usage"><code>solc-select</code></a> to switch the Solidity version.</p>
+<pre><code class="language-shell">docker pull trailofbits/eth-security-toolbox
+</code></pre>
+<p>To share a directory in the container:</p>
+<pre><code class="language-shell">docker run -it -v /home/share:/share trailofbits/eth-security-toolbox
+</code></pre>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<p>Run Slither on a Truffle/Embark/Dapp/Etherlime application:</p>
+<pre><code class="language-shell">slither .
+</code></pre>
+<p>Run Slither on a single file:</p>
+<pre><code class="language-shell">$ slither tests/uninitialized.sol 
+</code></pre>
+<p>For additional configuration, see the <a href="https://github.com/trailofbits/slither/wiki/Usage">usage</a> documentation.</p>
+<h3 id="detectors">Detectors<a class="headerlink" href="#detectors" title="Permanent link"></a></h3>
+<p>By default, all the detectors are run.</p>
+<table>
+<thead>
+<tr>
+<th>Num</th>
+<th>Detector</th>
+<th>What it Detects</th>
+<th>Impact</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>rtlo</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#right-to-left-override-character">Right-To-Left-Override control character is used</a></td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>shadowing-state</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing">State variables shadowing</a></td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>suicidal</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#suicidal">Functions allowing anyone to destruct the contract</a></td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>uninitialized-state</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables">Uninitialized state variables</a></td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>uninitialized-storage</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-storage-variables">Uninitialized storage variables</a></td>
+<td>High</td>
+<td>High</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>arbitrary-send</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations">Functions that send ether to arbitrary destinations</a></td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>controlled-delegatecall</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#controlled-delegatecall">Controlled delegatecall destination</a></td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>reentrancy-eth</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities">Reentrancy vulnerabilities (theft of ethers)</a></td>
+<td>High</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>erc20-interface</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc20-interface">Incorrect ERC20 interfaces</a></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>erc721-interface</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-erc721-interface">Incorrect ERC721 interfaces</a></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>incorrect-equality</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities">Dangerous strict equalities</a></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>locked-ether</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#contracts-that-lock-ether">Contracts that lock ether</a></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>shadowing-abstract</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing-from-abstract-contracts">State variables shadowing from abstract contracts</a></td>
+<td>Medium</td>
+<td>High</td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>constant-function</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#constant-functions-changing-the-state">Constant functions changing the state</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>reentrancy-no-eth</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1">Reentrancy vulnerabilities (no theft of ethers)</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>16</td>
+<td><code>tx-origin</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin">Dangerous usage of <code>tx.origin</code></a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>17</td>
+<td><code>unchecked-lowlevel</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls">Unchecked low-level calls</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>18</td>
+<td><code>unchecked-send</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-send">Unchecked send</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>19</td>
+<td><code>uninitialized-local</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables">Uninitialized local variables</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>20</td>
+<td><code>unused-return</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return">Unused return values</a></td>
+<td>Medium</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>21</td>
+<td><code>shadowing-builtin</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#builtin-symbol-shadowing">Built-in symbol shadowing</a></td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>22</td>
+<td><code>shadowing-local</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing">Local variables shadowing</a></td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>23</td>
+<td><code>calls-loop</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation/_edit#calls-inside-a-loop">Multiple calls in a loop</a></td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>24</td>
+<td><code>reentrancy-benign</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2">Benign reentrancy vulnerabilities</a></td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>25</td>
+<td><code>timestamp</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp">Dangerous usage of <code>block.timestamp</code></a></td>
+<td>Low</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>26</td>
+<td><code>assembly</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage">Assembly usage</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>27</td>
+<td><code>constable-states</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant">State variables that could be declared constant</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>28</td>
+<td><code>deprecated-standards</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#deprecated-standards">Deprecated Solidity Standards</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>29</td>
+<td><code>erc20-indexed</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-erc20-event-parameters">Un-indexed ERC20 event parameters</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>30</td>
+<td><code>external-function</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#public-function-that-could-be-declared-as-external">Public function that could be declared as external</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>31</td>
+<td><code>low-level-calls</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls">Low level calls</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>32</td>
+<td><code>naming-convention</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions">Conformance to Solidity naming conventions</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>33</td>
+<td><code>pragma</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used">If different pragma directives are used</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>34</td>
+<td><code>solc-version</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-version-of-solidity">Incorrect Solidity version (&lt; 0.4.24 or complex pragma)</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>35</td>
+<td><code>unused-state</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variables">Unused state variables</a></td>
+<td>Informational</td>
+<td>High</td>
+</tr>
+<tr>
+<td>36</td>
+<td><code>too-many-digits</code></td>
+<td><a href="https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits">Conformance to numeric notation best practices</a></td>
+<td>Informational</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<h4 id="printers">Printers<a class="headerlink" href="#printers" title="Permanent link"></a></h4>
+<p>To run a printer, use <code>--print</code> and a comma-separated list of printers.</p>
+<table>
+<thead>
+<tr>
+<th>Num</th>
+<th>Printer</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>call-graph</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#call-graph">Export the call-graph of the contracts to a dot file</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>cfg</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#cfg">Export the CFG of each functions</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>contract-summary</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#contract-summary">Print a summary of the contracts</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>data-dependency</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#data-dependencies">Print the data dependencies of the variables</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>function-id</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#function-id">Print the keccack256 signature of the functions</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>function-summary</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#function-summary">Print a summary of the functions</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>human-summary</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#human-summary">Print a human-readable summary of the contracts</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>inheritance</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#inheritance">Print the inheritance relations between contracts</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>inheritance-graph</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#inheritance-graph">Export the inheritance graph of each contract to a dot file</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td><code>modifiers</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#modifiers">Print the modifiers called by each function</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td><code>require</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#require">Print the require and assert calls of each function</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td><code>slithir</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#slithir">Print the slithIR representation of the functions</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td><code>slithir-ssa</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#slithir-ssa">Print the slithIR representation of the functions</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td><code>variable-order</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#variable-order">Print the storage order of the state variables</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td><code>vars-and-auth</code></td>
+<td><a href="https://github.com/trailofbits/slither/wiki/Printer-documentation#variables-written-and-authorization">Print the state variables written and the authorization of the functions</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>Feel free to stop by our <a href="https://empireslacking.herokuapp.com">Slack channel</a> (#ethereum) for help using or extending Slither.</p>
+<ul>
+<li>
+<p>The <a href="https://github.com/trailofbits/slither/wiki/Printer-documentation">Printer documentation</a> describes the information Slither is capable of visualizing for each contract.</p>
+</li>
+<li>
+<p>The <a href="https://github.com/trailofbits/slither/wiki/Adding-a-new-detector">Detector documentation</a> describes how to write a new vulnerability analyses.</p>
+</li>
+<li>
+<p>The <a href="https://github.com/trailofbits/slither/wiki/API-examples">API documentation</a> describes the methods and objects available for custom analyses.</p>
+</li>
+<li>
+<p>The <a href="https://github.com/trailofbits/slither/wiki/SlithIR">SlithIR documentation</a> describes the SlithIR intermediate representation.</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Analyze Solidity Smart Contracts with Slither</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/analyze-solidity-smart-contracts-with-slither/4f4dcf7d105d4714b212a86da742baf6/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-28</li>
+<li><strong>Kauri original tags:</strong> smart-contracts, analysis, solidity</li>
+<li><strong>Kauri original hash:</strong> QmcgSkHeDCpzVgUjXGmcMQE19Uyv7gUBWyx1X9o2qN4uVf</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../SecureETH/system-description-document/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../SecureETH/system-description-document/" class="btn btn-xs btn-link">
+        System Description Document
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../truffle-101-development-tools-for-smart-contracts/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../truffle-101-development-tools-for-smart-contracts/" class="btn btn-xs btn-link">
+        Truffle 101 - Development Tools for Smart Contracts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/DevOps/analyze-solidity-smart-contracts-with-slither.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

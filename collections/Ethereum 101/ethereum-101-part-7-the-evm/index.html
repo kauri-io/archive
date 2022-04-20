@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-7-the-evm/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 7 - The EVM - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 7 - The EVM", url: "#_top", children: [
+              {title: "Quick Overview", url: "#quick-overview" },
+              {title: "EVM bytecode", url: "#evm-bytecode" },
+              {title: "Deployment vs runtime bytecode", url: "#deployment-vs-runtime-bytecode" },
+              {title: "EVM Assembly", url: "#evm-assembly" },
+              {title: "Quick primer on the EVM instruction set", url: "#quick-primer-on-the-evm-instruction-set" },
+              {title: "Notes on EVM performance", url: "#notes-on-evm-performance" },
+              {title: "Learning more", url: "#learning-more" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-7-the-evm">Ethereum 101 - Part 7 - The EVM<a class="headerlink" href="#ethereum-101-part-7-the-evm" title="Permanent link"></a></h1>
+<h2 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link"></a></h2>
+<blockquote>
+<p>The EVM is the part of Ethereum that handles smart contract deployment and execution. Simple value transfer transactions from one EOA to another don’t need to involve it, practically speaking, but everything else will involve a state update computed by the EVM. At a high level, the EVM running on the Ethereum blockchain can be thought of as a global decentralized computer containing millions of executable objects, each with its own permanent data store. </p>
+</blockquote>
+<p>Citation: "Mastering Ethereum, Section 13 - The Ethereum Virtual Machine" authors Andreas Antonopoulos and Gavin Wood Ph.D.</p>
+<p>The EVM's been mentioned throughout this documentation, but we haven't gone into much detail. The EVM is the Ethereum Virtual Machine, it is the Turing complete virtual machine that handles all of the transaction processing on the Ethereum network. It is a complete 256 bit virtual machine that serves to execute arbitrary EVM bytecode. </p>
+<h2 id="evm-bytecode">EVM bytecode<a class="headerlink" href="#evm-bytecode" title="Permanent link"></a></h2>
+<p>Bytecode is the machine code that the high-level smart contract languages are compiled into. It looks like this: </p>
+<pre><code>608060405234801561001057600080fd5b506040516020806108b28339810180604052602081101561003057600080fd5b8101908080519060200190929190505050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555060018060008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055508060ff166002816100fa9190610101565b5050610154565b81548183558181111561012857818360005260206000209182019101610127919061012d565b5b505050565b61015191905b8082111561014d5760008082016000905550600101610133565b5090565b90565b61074f806101636000396000f3fe60806040526004361061005c576000357c0100000000000000000000000000000000000000000000000000000000900480635c19a95c14610061578063609ff1bd146100b25780639e7b8d61146100e3578063b3f98adc14610134575b600080fd5b34801561006d57600080fd5b506100b06004803603602081101561008457600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610172565b005b3480156100be57600080fd5b506100c76104c7565b604051808260ff1660ff16815260200191505060405180910390f35b3480156100ef57600080fd5b506101326004803603602081101561010657600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610543565b005b34801561014057600080fd5b506101706004803603602081101561015757600080fd5b81019080803560ff169060200190929190505050610640565b005b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16156101d257506104c4565b5b600073ffffffffffffffffffffffffffffffffffffffff16600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561030057503373ffffffffffffffffffffffffffffffffffffffff16600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1614155b1561036f57600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160029054906101000a900473ffffffffffffffffffffffffffffffffffffffff1691506101d3565b3373ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff1614156103a957506104c4565b60018160010160006101000a81548160ff021916908315150217905550818160010160026101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506000600160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16156104aa57816000015460028260010160019054906101000a900460ff1660ff1681548110151561048b57fe5b90600052602060002001600001600082825401925050819055506104c1565b816000015481600001600082825401925050819055505b50505b50565b6000806000905060008090505b6002805490508160ff16101561053e578160028260ff168154811015156104f757fe5b906000526020600020016000015411156105315760028160ff1681548110151561051d57fe5b906000526020600020016000015491508092505b80806001019150506104d4565b505090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415806105eb5750600160008273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160009054906101000a900460ff165b156105f55761063d565b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600001819055505b50565b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002090508060010160009054906101000a900460ff16806106a857506002805490508260ff1610155b156106b35750610720565b60018160010160006101000a81548160ff021916908315150217905550818160010160016101000a81548160ff021916908360ff160217905550806000015460028360ff1681548110151561070457fe5b9060005260206000200160000160008282540192505081905550505b5056fea165627a7a723058209061ffc04667804683fe01748db07db99f66b416464677c76a87e047d3ff2a430029
+</code></pre>
+<p>This is not human readable code. If you had some free time, it could be reverse engineered, but that's not always a value-adding task. Further, you shouldn't be interacting with contracts on the blockchain unless you also have their high-level source code and application binary interface (ABI). </p>
+<h2 id="deployment-vs-runtime-bytecode">Deployment vs runtime bytecode<a class="headerlink" href="#deployment-vs-runtime-bytecode" title="Permanent link"></a></h2>
+<p>The above is the <em>deployment bytecode</em> of the HelloWorld.sol Solidity smart contract we deployed earlier in the Smart Contract section. Deployment bytecode is the <em>runtime bytecode</em> wrapped in auxiliary code to foster successful deployment of the contract. After successful contract deployment, the runtime bytecode resides alone at its new contract address. </p>
+<h2 id="evm-assembly">EVM Assembly<a class="headerlink" href="#evm-assembly" title="Permanent link"></a></h2>
+<p>The solidity compiler can print out the EVM assembly of our HelloWorld.sol contract in human readable format:</p>
+<pre><code>    /* &quot;HelloWorld.sol&quot;:109:871  contract HelloWorld // defining the contract... */
+  mstore(0x40, 0x80)
+    /* &quot;HelloWorld.sol&quot;:231:395  constructor() // constructor function, optional, executed once upon deployment and cannot be called again... */
+  callvalue
+    /* &quot;--CODEGEN--&quot;:8:17   */
+  dup1
+    /* &quot;--CODEGEN--&quot;:5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* &quot;--CODEGEN--&quot;:30:31   */
+  0x00
+    /* &quot;--CODEGEN--&quot;:27:28   */
+  dup1
+    /* &quot;--CODEGEN--&quot;:20:32   */
+  revert
+    /* &quot;--CODEGEN--&quot;:5:7   */
+tag_1:
+    /* &quot;HelloWorld.sol&quot;:231:395  constructor() // constructor function, optional, executed once upon deployment and cannot be called again... */
+  pop
+    /* &quot;HelloWorld.sol&quot;:362:388  greeting = &quot;Hello, World.&quot; */
+  0x40
+  dup1
+  mload
+  swap1
+  dup2
+  add
+  0x40
+  mstore
+  dup1
+  0x0d
+  dup2
+  mstore
+  0x20
+  add
+  0x48656c6c6f2c20576f726c642e00000000000000000000000000000000000000
+  dup2
+  mstore
+  pop
+    /* &quot;HelloWorld.sol&quot;:362:370  greeting */
+  0x00
+    /* &quot;HelloWorld.sol&quot;:362:388  greeting = &quot;Hello, World.&quot; */
+  swap1
+  dup1
+  mload
+  swap1
+  0x20
+  add
+  swap1
+  tag_4
+  swap3
+  swap2
+  swap1
+  tag_5
+  jump  // in
+tag_4:
+  pop
+    /* &quot;HelloWorld.sol&quot;:109:871  contract HelloWorld // defining the contract... */
+  jump(tag_6)
+tag_5:
+  dup3
+  dup1
+  sload
+  0x01
+  dup2
+  0x01
+  and
+  iszero
+  0x0100
+  mul
+  sub
+  and
+  0x02
+  swap1
+  div
+  swap1
+  0x00
+  mstore
+  keccak256(0x00, 0x20)
+  swap1
+  0x1f
+  add
+  0x20
+  swap1
+  div
+  dup2
+  add
+  swap3
+  dup3
+  0x1f
+  lt
+  tag_8
+  jumpi
+  dup1
+  mload
+  not(0xff)
+  and
+  dup4
+  dup1
+  add
+  or
+  dup6
+  sstore
+  jump(tag_7)
+
+
+[ ---- cut ---- ]
+
+
+
+    tag_29:
+      tag_30
+      swap2
+      swap1
+    tag_31:
+      dup1
+      dup3
+      gt
+      iszero
+      tag_32
+      jumpi
+      0x00
+      dup2
+      0x00
+      swap1
+      sstore
+      pop
+      0x01
+      add
+      jump(tag_31)
+    tag_32:
+      pop
+      swap1
+      jump
+    tag_30:
+      swap1
+      jump  // out
+
+    auxdata: 0xa165627a7a723058205a6ad79adf0bb2db43f8594df4cf90d9ddac2dcc7fdec3406884535056226e4c0029
+}
+
+</code></pre>
+<p>This EVM assembly has been truncated. It's actually quite long. This is a little easier to interpret than the raw bytecode. </p>
+<h2 id="quick-primer-on-the-evm-instruction-set">Quick primer on the EVM instruction set<a class="headerlink" href="#quick-primer-on-the-evm-instruction-set" title="Permanent link"></a></h2>
+<p>The instruction set consists of many operations called opcodes. Each opcode is a computational step with an explicit gas cost. Some examples:</p>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Name</th>
+<th>Description</th>
+<th>Gas</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x01</td>
+<td>ADD</td>
+<td>Addition operation</td>
+<td>3</td>
+<td>Simple computational steps</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>MUL</td>
+<td>Multiplication operation</td>
+<td>5</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>0x31</td>
+<td>BALANCE</td>
+<td>Retrieve balance of given account</td>
+<td>400</td>
+<td>See higher costs</td>
+</tr>
+<tr>
+<td>0x54</td>
+<td>SLOAD</td>
+<td>Load word from storage</td>
+<td>200</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>0x55</td>
+<td>SSTORE</td>
+<td>Save word to storage</td>
+<td>20000</td>
+<td>High cost to store a 256-bit word</td>
+</tr>
+<tr>
+<td>0xf4</td>
+<td>DELEGATECALL</td>
+<td>Perform a message call to another account in the context of the calling account</td>
+<td>Varies</td>
+<td>Need to be cautious when using this opcode</td>
+</tr>
+</tbody>
+</table>
+<p>Some opcodes cost 0 gas. For example, opcodes that halt execution are gas-less opcodes. For example, the 0x00 STOP opcode halting execution costs 0 gas. Opcodes that terminate a transaction generally use no gas. Some other exceptions that will force the EVM to terminate a transaction are invalid opcodes, invalid jump destinations (the EVM is able to jump to arbitrary positions only if lands on a valid jump-destination), and stack underflows. </p>
+<h2 id="notes-on-evm-performance">Notes on EVM performance<a class="headerlink" href="#notes-on-evm-performance" title="Permanent link"></a></h2>
+<p>On mainnet, the EVM generally executes bytecode slower than one would expect of other virtual machines. The salient reason for this is that each operation must be executed by every full node in the network in order to achieve a trust-less environment. This is by design. The EVM was designed to achieve decentralized consensus across the whole network, and as a result, computation speeds are slower and costs are higher than those of a centralized network. The upside is that Ethereum network experiences near immutability, significantly improved fault tolerance, and zero downtime. </p>
+<p>Additionally, the EVM's gas metering mechanism ensures that miners receive compensation for including the transaction in a block. This also prevents programs from looping eternally. Eventually the transaction will exceed its gas limit, the transaction will immediately halt and rollback all sandboxed state changes. The only state changes resulting from the transaction is the sender's nonce incremented by one and the gas costs up until transaction failure are paid to the miner for their computational effort. </p>
+<h2 id="learning-more">Learning more<a class="headerlink" href="#learning-more" title="Permanent link"></a></h2>
+<p>The EVM is a subject that should be discussed at length. We won't go into any more detail, as the purpose of this section is to simply introduce users to the internal mechanisms of the EVM. If this topic is interesting to you, then we recommend the Ethereum Virtual Machine (EVM) Awesome List as a good starting point: 
+- https://github.com/ethereum/wiki/wiki/Ethereum-Virtual-Machine-(EVM)-Awesome-List</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 7 - The EVM</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-7-the-evm/a7ac47d26eab4ce899a865619122d42e/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> bytecode, ethereum, 101, virtual-machine, opcode, ethereum-virtual-machine, evm</li>
+<li><strong>Kauri original hash:</strong> QmWSA6oxhDQD6A96cCmqRPU3iXYugKoqRzZVRHtopbMsTq</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Kauri%20news%20and%20announcements/share-your-ethereum-knowledge-and-write-for-kauri/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Kauri%20news%20and%20announcements/share-your-ethereum-knowledge-and-write-for-kauri/" class="btn btn-xs btn-link">
+        Share Your Ethereum Knowledge and Write for Kauri
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-4-accounts-transactions-and-mes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-4-accounts-transactions-and-mes/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 4 - Accounts, Transactions, and Messages
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-7-the-evm.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

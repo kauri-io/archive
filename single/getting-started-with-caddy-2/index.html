@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/getting-started-with-caddy-2/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Getting started with Caddy 2 - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Getting started with Caddy 2", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="getting-started-with-caddy-2">Getting started with Caddy 2<a class="headerlink" href="#getting-started-with-caddy-2" title="Permanent link"></a></h1>
+<p>I write a lot of small projects in Go. Many of them have web interfaces and most of them share servers.</p>
+<p>Being a cautious kind of fellow, I am reluctant to put my Go web interfaces directly facing the internet and anyway that would require a lot of port management so discovering reverse proxies came as good news but I never really took the time to master NGINX or Lighttpd because I found the configuration non intuitive and certificate management was a pain.</p>
+<p>The pain was greatly relieved when I discovered Caddy. Caddy is a versatile little web server written in Go my favourite language.</p>
+<p>Among its many claims to fame are its speed, ease of configuration, automatic certificate handling and the many other features that are built into it. Since it was released it has slowly been eating into the space occupied by the other better known light servers.</p>
+<p>Hidden in that line was <strong>automatic certificate handling</strong> meaning that it will install a LetsEncrypt ssh certificate for you and continuously ensure that it is kept up to date.</p>
+<p>With Caddy 2 approaching final release and a little bit of time on my hands and a project that needed a reverse proxy I thought it was time to give Caddy 2 a spin.</p>
+<p>This is the story of my first day testing caddy version 2 facilitated by the <a href="https://caddyserver.com/docs/">online docs</a> and <a href="https://caddy.community/">online community forum</a></p>
+<p><strong>Building a linux executable on a mac</strong></p>
+<p>The Caddy website can be found at https://caddyserver.com/ there you can read a load of documentation and join the caddy community to get help from the community.</p>
+<p>The downloads section lists pre-compiles for Fedora, RedHat and CentOS. They also have a docker image and a Digital Ocean droplet. 
+Since I run a mac and Ubuntu, I elected to clone the repo and build it myself.</p>
+<p>As long as you have Go 1.14 installed it is effortless and fast to build an image. Since I planned to deploy from my mac to an Amazon instance I elected to cross compile it.</p>
+<p>Cross compiling from Go is a breeze :</p>
+<pre><code class="language-bash">git clone &quot;https://github.com/caddyserver/caddy.git&quot;
+GOOS=linux GOARCH=386 go build
+</code></pre>
+<p>A really short time afterwards you have a new linux executable waiting for you.</p>
+<p><strong>Installing on Amazon</strong></p>
+<p>Next I fired up an Amazon LightSail instance and copied my public key to it to allow me to log in and transfer files using scp.</p>
+<p>Also <strong>VERY IMPORTANT</strong> I opened up port 443</p>
+<p>Finally I copied the cross compiled instance of caddy to the server.</p>
+<p>I then followed the <a href="https://caddyserver.com/docs/install">documentation verbatim</a> to get everything into the correct place</p>
+<pre><code class="language-bash">$ sudo mv caddy /usr/bin/
+$ sudo groupadd --system caddy
+$ sudo useradd --system \
+    --gid caddy \
+    --create-home \
+    --home-dir /var/lib/caddy \
+    --shell /usr/sbin/nologin \
+    --comment &quot;Caddy web server&quot; \
+    caddy
+</code></pre>
+<p>Then I took the supplied system service file to save to <code>/etc/systemd/system/caddy.service</code> and created my first extremely basic Caddyfile in <code>/etc/caddy</code> </p>
+<p><strong>Obviously</strong> you need to replace <code>example.com</code> with a domain that you actually control.</p>
+<pre><code class="language-text">www.example.com
+
+respond &quot;Hello World :-)&quot;
+</code></pre>
+<p>which defines which site is being served and the fact that the reply to every page is "Hello World :-)" to every request.</p>
+<p>finally, to set caddy up as a service (also from the first page of docs)</p>
+<pre><code class="language-bash">$ sudo systemctl daemon-reload
+$ sudo systemctl enable caddy
+$ sudo systemctl start caddy
+</code></pre>
+<p>As soon as Caddy starts it will download a Letsencrypt SSH certificate and install it.</p>
+<p>The only thing is, your domain does not point to the server. I chose to use Cloudflare to act as my DNS server. If you do this, do not let Cloudflare act as your proxy.</p>
+<p>You can test it from any web browser by typing your domain (e.g. <code>https://www.example.com</code>) in the address bar</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdQB4T1QLqBPnURtGVYWXagYudzwK4PtB1SSEToEnL9PN" /></p>
+<p><strong> Really simple file server </strong></p>
+<p>if you want a quick &amp; dirty setup - have a look at the options for the <a href="https://caddyserver.com/docs/quick-starts/static-files">static file server</a></p>
+<p>stop the service, navigate to the folder with the files and run</p>
+<pre><code class="language-text">$ caddy file-server
+</code></pre>
+<p><strong>A simple file server using the Caddyfile</strong></p>
+<p>You can configure caddy as a simple file server by simply changing the Caddyfile to </p>
+<pre><code class="language-text">www.example.com
+
+root * /home/dave/www
+file_server
+</code></pre>
+<p>This is easy to test - simply put HTML files in the www folder and you are ready to go.</p>
+<p><strong> Reverse proxies </strong></p>
+<p>As mentioned above, my chief reason for looking at Caddy is because I write a lot of small independent services which share a server for the sake of efficiency and would like to get rid of the pain of port management.</p>
+<p><strong> Really simple reverse proxy server </strong></p>
+<p>The quick and dirty version can be found in the <a href="https://caddyserver.com/docs/quick-starts/reverse-proxy">proxy server setup</a></p>
+<p>examples from the documentation :</p>
+<pre><code class="language-text">&amp; caddy reverse-proxy --to 127.0.0.1:9000
+</code></pre>
+<pre><code class="language-text">$ caddy reverse-proxy --from :2016 --to 127.0.0.1:9000
+</code></pre>
+<p><strong> Getting a reverse proxy working from the Caddyfile for more flexibility </strong></p>
+<p>I created a simple web server just for testing <a href="https://gist.github.com/DaveAppleton/124f23cf276ed1251a886df6f23e63ca">source code here</a></p>
+<p>this server accepts requests on port 8001</p>
+<p>Let's get it working on the local machine first. </p>
+<p>Start with this Caddyfile.</p>
+<p>In this case, you can start caddy by using <code>$ caddy run</code> which allows you to stop the server using CTRL-C</p>
+<p>note : Not defining a domain allows us to avoid having it load a certificate which is pointless on your local machine</p>
+<pre><code class="language-text">:2020
+
+reverse_proxy localhost:8001
+</code></pre>
+<p>starting both the server and caddy you can now access your server on both ports 8001 and on 2020</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZ5dS3ZiqB9DP6BbSaoRT48gpDqT5HQbGEk6feWQNcZFp" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaMLGzN7Fa9Vpv6uSpVPjUYAA9uuxnwrfNemnj5QUpGvq" /></p>
+<p>You can also query the admin interface on port 2019</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaxP6jxuCnGx3mwSuJMLnJe54eTKPXfTxPK5LT9Q2nDE9" /></p>
+<p><strong>Mix and Match </strong></p>
+<p>You can add, for example, a static file server on all interfaces that do not start with <code>/api/</code></p>
+<pre><code class="language-text">:2020
+
+reverse_proxy /api/* localhost:8001
+file_server
+</code></pre>
+<p>Test this by having a simple index.html in the folder that you start caddy and visiting </p>
+<p>your reverse proxy at </p>
+<p>localhost:2020/api/time</p>
+<p>and your index file at</p>
+<p>localhost:2020</p>
+<p><strong> Now for the Amazon server </strong></p>
+<p>Because caddy is running as a service, your Caddyfile is going to be stored in <code>/etc/caddy</code> you need to specify the file root as in the earlier example.</p>
+<pre><code class="language-text">www.example.com
+
+reverse_proxy /api/* localhost:8001
+root * /lib/caddy
+file_server
+</code></pre>
+<p>Now you need to reload your Caddyfile</p>
+<p><code>sudo systemctl reload caddy</code></p>
+<p>then check the status</p>
+<p><code>systemctl status caddy.service</code></p>
+<p>Next copy an index.html file to /lib/caddy and check that it has been served correctly</p>
+<p><strong> Checking the reverse proxy </strong></p>
+<p>Recompile the test server for linux </p>
+<p><code>GOOS=linux  GOARCH=386 go build -o server.linux</code></p>
+<p>transfer it to your server using scp and run it.</p>
+<p>Now you should be able to call <code>www.example.com/api/test</code> and <code>www.example.com/api/time</code> from your browser.</p>
+<p><strong> conclusion &amp; notes from day 1 </strong></p>
+<p>Caddy 2 is still in final testing. The documentation (hence everything above) is still subject to change. </p>
+<p>That being said, it is refreshing to have something so easy to install and use.</p>
+<p>Compiling is fast and easy, configuration is equally simple. It is not just that the documents are correct, the processes are simple which makes it easy to get right.</p>
+<p>There is a lot of power under the hood that I have not even tried yet - from the full power of Caddy files and using the API through to templates and extension modules.</p>
+<p>I know I will get there soon but no promised deadlines.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Getting started with Caddy 2</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/getting-started-with-caddy-2/6391aa56db3143ab989590f060f722a8/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-06-25</li>
+<li><strong>Kauri original tags:</strong> reverse-proxy, caddy, web-server</li>
+<li><strong>Kauri original hash:</strong> QmPFTeaN7gh6Rzwyu6SSqrn47MUGxFyR9nL87An6VW9CPy</li>
+<li><strong>Kauri original checkpoint:</strong> QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-restart-a-spring-application-context-withi/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-restart-a-spring-application-context-withi/" class="btn btn-xs btn-link">
+        How to Restart a Spring Application Context within a JUnit test
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../collections/ETHBerlin/good-badger/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../collections/ETHBerlin/good-badger/" class="btn btn-xs btn-link">
+        Good Badger
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/getting-started-with-caddy-2.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

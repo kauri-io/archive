@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/secret-rock-paper-scissors/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Secret Rock, Paper, Scissors - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Secret Rock, Paper, Scissors", url: "#_top", children: [
+              {title: "Rock, Paper, Scissors \u2014 Shoot!", url: "#rock-paper-scissors-shoot" },
+              {title: "User-flow for this demo:", url: "#user-flow-for-this-demo" },
+              {title: "Enigma-Specific Functions", url: "#enigma-specific-functions" },
+              {title: "Comparisons and Reflections", url: "#comparisons-and-reflections" },
+              {title: "Timing", url: "#timing" },
+              {title: "Winner Calculation", url: "#winner-calculation" },
+              {title: "Wrapping it up", url: "#wrapping-it-up" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="secret-rock-paper-scissors">Secret Rock, Paper, Scissors<a class="headerlink" href="#secret-rock-paper-scissors" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdwD7k9aeEfDVZQkLQb662ZWmhzayrDQjfkQuWF3ArQEK" /></p>
+<p><em>Demo and code for game using “secret state” on Ethereum and Enigma.</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmX6aabfWEUxYYUrVzt6ta4RX3tpoT4xJDgBwk9b5n7f3y" /></p>
+<p>At Enigma, we’re always exploring new applications for our protocol and “ 
+<a href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">secret contracts</a>
+ ” (smart contracts that preserve data privacy). Previously we’ve written about a number of different 
+<a href="https://blog.enigma.co/solutions/home">solutions</a>
+ , including 
+<a href="https://blog.enigma.co/decentralizing-credit-with-enigma-440c6648b4d8?source=collection_category---4------2---------------------">credit</a>
+ , 
+<a href="https://blog.enigma.co/secret-voting-an-update-code-walkthrough-605e8635e725?source=collection_category---4------1---------------------">voting</a>
+ , and 
+<a href="https://blog.enigma.co/secret-auction-smart-contracts-with-enigma-a-walkthrough-ec27f89f9f7c?source=collection_category---4------2---------------------">auctions</a>
+ . Today we’re excited to share our first look at how Enigma’s protocol can play into a very popular use case for decentralized applications: 
+<strong>gaming.</strong></p>
+<p>Games are an amazing vertical to explore because of their diversity. They can range from hugely complex, in-world economy MMOs, to simple economic and luck-based games that can help test assumptions, provide instant feedback, and be fun for users at the same time. Examining simple games is a great way to take a closer look at the new technologies that can power them.</p>
+<p><a href="https://github.com/PeterMPhillips">Peter Phillips</a>
+ recently built an implementation of a traditional Rock, Paper, Scissors game for use with Enigma and Ethereum. 
+<a href="https://github.com/PeterMPhillips/Enigma-Rock-Paper-Scissors/blob/master/contracts/RockPaperScissors.sol">Go check it out!</a>
+ We’ll describe how this game works, discuss some issues and future modifications (timing, winner selection), as well as suggest new applications that make use of the same basic concepts. In doing this, we’ll demonstrate how a core mechanic 
+<strong>(secret game state)</strong>
+ can be an important key to a wide range of applications.</p>
+<h3 id="rock-paper-scissors-shoot">Rock, Paper, Scissors — Shoot!<a class="headerlink" href="#rock-paper-scissors-shoot" title="Permanent link"></a></h3>
+<p>Rock, Paper, Scissors (RPS) is a simple game for two people. If you’ve never played it, here’s how gameplay works.
+Players have just one choice to make: to play Rock, Paper, or Scissors. Players simultaneously pick their object, make the sign associated with it (a fist, scissors from first two fingers, or a flat hand), and either Player 1 wins, Player 2 wins, or there is a draw. A winner is chosen in the following manner:</p>
+<ul>
+<li>
+<p>Rock beats Scissors</p>
+</li>
+<li>
+<p>Scissors beats Paper</p>
+</li>
+<li>
+<p>Paper beats Rock</p>
+</li>
+<li>
+<p>If both players play the same object, the game is a draw
+Most games are played as “best out of three” or “best out of five” rounds. This example shows only 
+<em>one</em>
+ round of play (there are additional challenges when requiring more rounds, which we will discuss later).</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbdKgJ3X9X9yPCchKLFF3HAsXVTZWXcuYQkqC56B7hT9H" /></p>
+<h3 id="user-flow-for-this-demo">User-flow for this demo:<a class="headerlink" href="#user-flow-for-this-demo" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Player 1 creates a game, picks a bet, and selects an object to play.</p>
+</li>
+<li>
+<p>The UI is update to reflect an in-progress game that could be joined by a second player.</p>
+</li>
+<li>
+<p>The second player selects a game, matches the bet (no option to raise), and selects her object.</p>
+</li>
+<li>
+<p>After both participants have selected their object and placed their bets, the computation executes and compares selected objects to find the winner.</p>
+</li>
+<li>
+<p>The winner is returned, and awarded the pot.</p>
+</li>
+<li>
+<p>If there is no winner (a draw), bets are respectively returned</p>
+</li>
+<li>
+<p>Users can withdraw their funds.</p>
+</li>
+</ul>
+<h3 id="enigma-specific-functions">Enigma-Specific Functions<a class="headerlink" href="#enigma-specific-functions" title="Permanent link"></a></h3>
+<p>For 
+<a href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">secret contracts</a>
+ , we have functions called 
+<em>callable</em>
+ and 
+<em>callback</em>
+ . These are the functions that communicate directly with the Enigma network. (For a more in-depth discussion, see our 
+<a href="https://blog.enigma.co/getting-started-with-the-enigma-protocol-a-complete-developers-guide-170b7dfa5c0f">Getting Started</a>
+ guide).</p>
+<pre><code>//Callable function
+function calculateWinner(uint256 _gameID, address[] _players, string _move1, string _move2)
+</code></pre>
+<p>Here, the Callable function is 
+<code>calculateWinner</code>
+ which takes in encrypted values gameID, Players, move1, and move2. These values are encrypted client-side using the Enigma-JS client with the public key of the enclave.</p>
+<p><code>calculateWinner</code>
+ evaluates the winner based on each player’s pick according to the rules of RPS. If play results in a draw, 
+<code>address(0)</code>
+ is returned which will initiate funds to be respectively returned to the players.</p>
+<pre><code>//callback function
+function setWinner(uint256 _gameID, address _address)
+</code></pre>
+<p>This public function is called by the worker, a randomly selected node that executes computations in the Enigma network. Note that we expect the address returned by the callable (must be identically named, in this case 
+<code>address</code>
+ ).
+Feel free to dig into the 
+<a href="https://github.com/PeterMPhillips/Enigma-Rock-Paper-Scissors/blob/master/contracts/RockPaperScissors.sol">well-commented code</a>
+ (thumbs up to Peter) for more detail on this implementation.</p>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/1ojeU9bcJZs" width="512"></iframe>
+
+<h3 id="comparisons-and-reflections">Comparisons and Reflections<a class="headerlink" href="#comparisons-and-reflections" title="Permanent link"></a></h3>
+<p>We looked at a few other implementations of decentralized RPS for comparison. First, we looked at a 
+<a href="https://github.com/cryptoplayerone/cryptobotwars">demo made for Raiden</a>
+ (which is awesome, more about it can be found 
+<a href="https://medium.com/@loredana.cirstea/cryptobotwars-part-2-conclusions-ebde6fa716f6">here</a>
+ ). There are a few key differences between Peter’s “secret RPS” implementation and the Raiden rock-paper-scissors demo.
+In Raiden,</p>
+<ul>
+<li>
+<p>Players pick a “player”, and then they pick a move. (for example, Darth Vader + Scissors). These are essentially “votes” for a particular move.</p>
+</li>
+<li>
+<p>The hashed selection is sent along with a payment (using Raiden) to a “game guardian”.</p>
+</li>
+<li>
+<p>A timer (drawn from the game server) is used to determine when the game ends.</p>
+</li>
+<li>
+<p>When the game ends, the unencrypted data is submitted by the game guardian to the game server, where the winner is calculated and result is returned to the game guardian.</p>
+</li>
+<li>
+<p>The game guardian instructs the Raiden nodes to distribute funds accordingly.
+These choices are intended to 
+<a href="https://medium.com/@loredana.cirstea/cryptobotwars-or-how-to-build-shitty-demos-and-why-19b5ecf60c76">showcase Raiden’s payment channels</a>
+ — hence the “voting” on an avatar and a choice rather than picking individual moves in a 1v1 game. However, in production this may leave such an approach open to sybil and whale manipulation. Peter’s implementation allows any player to start or join a specific game, rather than one all-encompassing game.
+RPS could also be implemented in a straightforward smart contract on Ethereum, where the flow would be:</p>
+</li>
+<li>
+<p>Players pick their moves, hash the move data and submit it to the contract.</p>
+</li>
+<li>
+<p>After play is concluded, players reveal their hashed data
+This design pattern, known as “commit-reveal”, is also used in voting to prevent vote-memeing. Unfortunately, it really slows down the pace of play. See 
+<a href="https://np.reddit.com/r/ethereum/comments/4jkp2s/uncheatable_rps_with_crypted_hands_play_now_only/?st=jr81s96y&amp;sh=d3dbd096">this cool example from 2+ years ago</a>
+ , which demonstrates some of the intricacies and drawbacks of such periodization, as well as 
+<a href="https://www.reddit.com/r/ethereum/comments/990tfi/i_make_a_funny_dapp_that_can_play/">this more recent effort</a>
+ . Both of these saw limited usage due to usability — note in particular the 24 hr waiting period in the more recent example.
+Two things come up from these examples: 
+<strong>timing</strong>
+ and 
+<strong>winner calculation</strong>
+ .</p>
+</li>
+</ul>
+<h3 id="timing">Timing<a class="headerlink" href="#timing" title="Permanent link"></a></h3>
+<p>In single-round play, we think Secret RPS has a distinct UX advantage over these other two implementations.
+However, it would be awesome to enable best of 3 or best of 5 round-based play, letting users develop more complex strategies. Without the ability to tell time inside the secret contract (which our initial release lacks), this leaves Peter’s implementation open to the dropped-player problem across multiple rounds.
+For example, say Alice and Bob are playing. Alice wins the first round, and Bob suddenly has his laptop with his private keys stolen. There’s no way for the game to “time out” and for Alice to retrieve her funds (or Bob for that matter. Sorry to do this to you Bob!). This is something we hope to address soon as it appears in multiple use-cases, especially for gaming. In a single-round (which is what the code is for right now), you can always play yourself to get the funds back if no counterparty accepts your game. This UX isn’t ideal, but adding a start time to the game struct, and then check for elapsed time in the 
+<code>withdraw()</code>
+ function would be straightforward to implement.</p>
+<h3 id="winner-calculation">Winner Calculation<a class="headerlink" href="#winner-calculation" title="Permanent link"></a></h3>
+<p>In Secret RPS, the winner is calculated within the Enigma Node immediately when both players have made their respective moves. Users can withdraw their funds anytime after this occurs with the 
+<code>withdraw()</code>
+ function. This is in contrast to the “game guardian” in the Raiden example, where a server external to the network performs the computation and returns instruction to the Raiden nodes. For gaming implementations, this design may present both regulatory risk and other liabilities.</p>
+<h3 id="wrapping-it-up">Wrapping it up<a class="headerlink" href="#wrapping-it-up" title="Permanent link"></a></h3>
+<p>Usability is incredibly important, and we’re really beginning to come to terms with that as a community. Looking at emerging projects like Veil, the proliferation of decentralized exchange relayers, 3box, and other usability layers, it’s clear that this has been a blind spot in dApp development so far. 
+<strong>What is really interesting to us here at Enigma is to what degree data privacy and scalability solutions can enable usability gains — and how Enigma specifically can contribute.</strong></p>
+<p>We’re looking forward to building on what we’ve learned here from Peter’s implementation, and we’re also looking forward to moving this demo forward into production as we approach mainnet. We’re also excited about what other kinds of dApps can be built using similar mechanisms: poker, dice, on-chain CryptoKitty battles…
+So, if:</p>
+<ul>
+<li>
+<p>You have ideas for how we can improve this implementation technically or edge-case questions</p>
+</li>
+<li>
+<p>You’re a designer / front-end developer and want to work with us to improve these aspects</p>
+</li>
+<li>
+<p>You have corrections to my interpretation of how these other implementations work</p>
+</li>
+<li>
+<p>You want to build on these ideas to create even more games (Poker? Lottery?)</p>
+</li>
+</ul>
+<p><strong>Please, get in touch!</strong>
+ You can also post your thoughts on the Enigma Developers Forum.</p>
+<blockquote>
+<p>Many thanks to Loredana (Darth Vader / Robowars RPS) and reddit users ikirch and WhySoS3rious for their work on other RPS implementations that we were able to draw on for comparison. To be clear, we certainly are not criticizing these implementations, as the Raiden example is clearly intended to showcase Raiden, and the other two Ethereum-only samples work as intended with the tools available. However, they provide very useful foils as we unpack the different issues at play in even a simple RPS implementation.</p>
+</blockquote>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaQUr43FZ4YPZ1KhH3QZE3wPjaPdq6f7PJL8xG6L9eRGv" /></p>
+<h4 id="enigma-is-building-the-privacy-layer-for-the-decentralized-web">Enigma is building the privacy layer for the decentralized web.<a class="headerlink" href="#enigma-is-building-the-privacy-layer-for-the-decentralized-web" title="Permanent link"></a></h4>
+<p>Come build and discover privacy-first applications and join our community!</p>
+<p><strong>Learn more about the Enigma project</strong>
+ on our 
+<a href="http://enigma.co">website</a>
+ and 
+<a href="https://blog.enigma.co">blog</a>
+ .
+<strong>Want to build using our protocol?</strong></p>
+<p><a href="https://airtable.com/shraD9Oo5HPmRR9eE">Submit your interest here</a>
+<em>,</em>
+<a href="http://enigma.co/protocol">read our documentation</a>
+<em>, or</em>
+<a href="http://forum.enigma.co">join our developer forum</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Secret Rock, Paper, Scissors</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/secret-rock-paper-scissors/468b49fcd2ef48feaada3a4399d0b2a6/a</li>
+<li><strong>Kauri original author:</strong> Ainsley Sutherland (@ainsleys)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-30</li>
+<li><strong>Kauri original tags:</strong> Ethereum</li>
+<li><strong>Kauri original hash:</strong> QmP811S4h39chekN8uqsh5m6uZiH72H71CBYmcH8j1Svtw</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../brave-and-binance-browser-scandal/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../brave-and-binance-browser-scandal/" class="btn btn-xs btn-link">
+        Brave and binance browser scandal
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../metadata-and-hosting-options/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../metadata-and-hosting-options/" class="btn btn-xs btn-link">
+        Metadata and Hosting Options
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/secret-rock-paper-scissors.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

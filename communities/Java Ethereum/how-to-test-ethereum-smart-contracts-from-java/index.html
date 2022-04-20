@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Java%20Ethereum/how-to-test-ethereum-smart-contracts-from-java/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to test Ethereum smart contracts from Java - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to test Ethereum smart contracts from Java", url: "#_top", children: [
+              {title: "There\u2019s a library for that", url: "#theres-a-library-for-that" },
+              {title: "Running EVM code in the JVM", url: "#running-evm-code-in-the-jvm" },
+              {title: "Testing against testnets", url: "#testing-against-testnets" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-test-ethereum-smart-contracts-from-java">How to test Ethereum smart contracts from Java<a class="headerlink" href="#how-to-test-ethereum-smart-contracts-from-java" title="Permanent link"></a></h1>
+<p>As a developer, I’m sure you strive to test what you develop, and in most established programming languages you have a box full of tools to pick from. In the world of blockchain, the box is still being built however, and the maturity of the available tools reflects this.</p>
+<p>Here at Web3 Labs, we do our best to help accelerate the quality of these tools. In this blog post I’ll dive into what we can offer you as a Java developer writing Ethereum smart contracts. </p>
+<p>First, let’s establish the landscape. </p>
+<p>The Ethereum blockchain is the world computer on to which you’d like to deploy and interact with your smart contract code. The smart contracts themselves can be written in the Solidity programming language because you wouldn’t run Java directly on the Ethereum blockchain. This already brings with it some challenges, as we now spread our focus onto two separate stacks. Web3j can bridge this gap by helping you generate type-safe contract wrappers with easy access to protocol functionality. </p>
+<p>That’s great, but there’s still a lot of moving parts. Firstly you need to be able to connect to an Ethereum node. Of course, you don’t need to do this against the Ethereum mainnet, but even a testnet brings with it external configuration and setup that needs managing. </p>
+<h3 id="theres-a-library-for-that">There’s a library for that<a class="headerlink" href="#theres-a-library-for-that" title="Permanent link"></a></h3>
+<p>All these moving parts scream out for a bit of tooling, so we wrapped it all up into a nice library called <a href="https://github.com/web3j/web3j-unit">web3j-unit</a>. It allows you to write tests in Java, and automatically start and interact with a local Ethereum node. This node is started by the web3j-unit library and managed behind the scenes. </p>
+<p>Rather than figuring out how to install, configure and run a local Ethereum node, this is now fully automated. You don’t even need to know there is one running. And when the tests have finished, the node is automatically terminated with nothing left behind unintentionally. </p>
+<p><img alt="Easily test Ethereum smart contracts using Web3j-unit" src="https://ipfs.infura.io/ipfs/QmPWzjAnYFEnagm5Mj2R4puXAdJmYDGkTcHKAiu2Xtik8D" /></p>
+<p>What makes the above otherwise simple test special is the @EVMTest class annotation you see on line 11. This highlights the test for our web3j-unit library to pick up, and lets us create and inject the required Web3j instance, in addition to a transaction manager and gas calculator. On the annotation itself you’ll notice the type parameter. This defines which type of node will get started, with current support for Geth, Besu and our embedded EVM implementation we’ll cover below. </p>
+<p>With these injected you have a preconfigured and good to go connection to the Ethereum blockchain. We’re off to a great start with web3j-unit as it’s never been easier to test and interact with Ethereum smart contracts from Java. </p>
+<p><img alt="EVM + JVM = true" src="https://ipfs.infura.io/ipfs/QmckEVDxj4LkNkEyw6geobAuaGRzYKryp6uUcUM2xXmYyU" /></p>
+<h3 id="running-evm-code-in-the-jvm">Running EVM code in the JVM<a class="headerlink" href="#running-evm-code-in-the-jvm" title="Permanent link"></a></h3>
+<p>Wouldn’t it be nice if you could deploy and interact with Solidity smart contracts within the Java process you’re already running? Instead of dockerized nodes, just a library you can directly interact with? </p>
+<p>This is what we’re currently developing in the <a href="https://github.com/web3j/web3j-evm">web3j-evm</a> library, and it brings with it several benefits. </p>
+<p>Firstly, there is no need to start a docker image, which improves upon startup time and communication lag. Instead, just use the @EVMTest annotation with the default type = NodeType.EMBEDDED. </p>
+<p>Secondly, because we now run the Solidity bytecode within an EVM running inside the JVM, we don’t need to cross process boundaries. This lets us inspect all the details of what’s happening within your smart contract, which is great for providing context and debugging tools. </p>
+<p><img alt="Stepping through EVM byte code for that true low level experience" src="https://ipfs.infura.io/ipfs/QmTmfTszpp1FbCp4VZLPak1RZju5o9YK85DTNZzUF75M3t" /></p>
+<p>The above gif is showing an early demo of this in action, where we’re stepping through the individual EVM opcodes that are executed as part of normal contract deployment and interaction. While this might be a bit low level, it does show the potential for higher-level tools. We’ll be sharing more details on this as it becomes available.</p>
+<h3 id="testing-against-testnets">Testing against testnets<a class="headerlink" href="#testing-against-testnets" title="Permanent link"></a></h3>
+<p>While the @EVMTest annotation lets you get up and running with local Ethereum nodes from a single annotation, we also want you to just as easily get going on a testnet. There are times when testing your contracts on a testnet makes more sense than simply within an isolated local node, especially when doing integration testing. </p>
+<p>But there are additional things needed when using a testnet, specifically a prefunded wallet address and somewhere you can connect. Sure, it isn’t that difficult getting free test Ether, but it does bring with it some additional steps we’d like to eliminate. </p>
+<p>We’ll return with more on this as well when we have something to offer around the tooling of this in the near future, but the idea is to extend the @EVMTest annotation with additional types covering these. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to test Ethereum smart contracts from Java</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-test-ethereum-smart-contracts-from-java/b1d2293f5c4442f1bafbb4eee2ce45d6/a</li>
+<li><strong>Kauri original author:</strong> Christian Felde (@cfelde)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-10</li>
+<li><strong>Kauri original tags:</strong> ethereum, developer-tool, java, developer-experience</li>
+<li><strong>Kauri original hash:</strong> QmbcT79uFqLxEzzCYQcG9AqhEbB5aKfiSsjornPncJoNUW</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../web3j-transaction-managers/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../web3j-transaction-managers/" class="btn btn-xs btn-link">
+        Web3j Transaction Managers
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Getting%20started%20with%20dapp%20development/an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Getting%20started%20with%20dapp%20development/an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-link">
+        An Introduction to Smart Contracts with Solidity
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Java Ethereum/how-to-test-ethereum-smart-contracts-from-java.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

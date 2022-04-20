@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/dco-sign-off--commiting-code-to-hyperledger-besu/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>DCO Sign-Off  Commiting code to Hyperledger Besu - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DCO Sign-Off  Commiting code to Hyperledger Besu", url: "#_top", children: [
+              {title: "DCO Sign-Off", url: "#dco-sign-off" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="dco-sign-off-commiting-code-to-hyperledger-besu">DCO Sign-Off  Commiting code to Hyperledger Besu<a class="headerlink" href="#dco-sign-off-commiting-code-to-hyperledger-besu" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVy1cEfY2PwWE6xAGRnYuVEpi6HPTab9eZneKsP3X5FZ7" /></p>
+<h2 id="dco-sign-off">DCO Sign-Off<a class="headerlink" href="#dco-sign-off" title="Permanent link"></a></h2>
+<p><img alt="DCO signoff" src="https://i.imgur.com/4ZBslvZ.png" /></p>
+<h3 id="what-is-the-dco-sign-off">What is the DCO sign off?<a class="headerlink" href="#what-is-the-dco-sign-off" title="Permanent link"></a></h3>
+<p>This stack overflow answer does a good job of explaining it:</p>
+<blockquote>
+<p>It was introduced in the wake of the SCO lawsuit [...] as a Developers Certificate of Origin. It is used to say that you certify that you have created the patch in question, or that you certify that to the best of your knowledge, it was created under an appropriate open-source license, or that it has been provided to you by someone else under those terms. </p>
+</blockquote>
+<p>https://stackoverflow.com/questions/1962094/what-is-the-sign-off-feature-in-git-for</p>
+<p>The answer also mentions only a few projects use the DCO sign off feature, and well, we're one of those projects. <a href="https://www.hyperledger.org/blog/2019/08/29/announcing-hyperledger-besu">Since submitting Besu to the Hyperledger Foundation</a> (hosted by the <a href="http://linuxfoundation.org/">Linux Foundation</a>) we now require contributors to add a line of text essentially signing their comment in order to affirm that the code submitted has originated from themselves (or that they have permission to use it).</p>
+<p>If you want to read the contents of the Developer Certificate of Origin, see here: https://developercertificate.org.</p>
+<hr />
+<h3 id="how-to-sign-off">How to sign off?<a class="headerlink" href="#how-to-sign-off" title="Permanent link"></a></h3>
+<p>This should be done after following the <a href="https://wiki.hyperledger.org/display/BESU/How+to+Contribute#ContributingCodeorDocumentation">instructions on how to commit</a>.</p>
+<p>There are several ways to add the line "Signed-off-by: Your Legal Name <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#121;&#111;&#117;&#114;&#45;&#101;&#109;&#97;&#105;&#108;&#64;&#97;&#100;&#100;&#114;&#101;&#115;&#115;">&#121;&#111;&#117;&#114;&#45;&#101;&#109;&#97;&#105;&#108;&#64;&#97;&#100;&#100;&#114;&#101;&#115;&#115;</a>" to each of your commits.</p>
+<h4 id="1-manually-adding-it">1. Manually adding it.<a class="headerlink" href="#1-manually-adding-it" title="Permanent link"></a></h4>
+<p>You can add this line of text manually to your commit body on each commit. 
+Although cumbersome, it possible and simple.</p>
+<pre><code class="language-shell">git commit -m &quot;Fix typo in documentation
+Signed-off-by: Legal Name &lt;email@domain&gt;&quot;
+</code></pre>
+<p>or</p>
+<pre><code class="language-shell">git commit -m &quot;Fix typo in documentation&quot; -m &quot;Signed-off-by: Legal Name &lt;email@domain&gt;&quot;
+</code></pre>
+<h4 id="2-automating-this-boring-step">2. Automating this boring step<a class="headerlink" href="#2-automating-this-boring-step" title="Permanent link"></a></h4>
+<p>Computers can do things for us, so lets configure that.</p>
+<pre><code class="language-shell">git config user.name &quot;Legal Name&quot;
+git config user.email &quot;email@domain&quot; 
+</code></pre>
+<blockquote>
+<p>You can use <code>-global</code> or <code>`-g</code> in order to configure this globally on your machine.</p>
+</blockquote>
+<p>Now all you need to do is add <code>-s</code> or <code>--signoff</code> to your <code>git commit</code> commands.</p>
+<pre><code class="language-shell">git commit -s -m &quot;Fix typo in documentation&quot;
+</code></pre>
+<ol>
+<li>Adding it if you forgot to sign-off.
+If you forgot to add the sign-off, you can also amend your commit with the sign-off.</li>
+</ol>
+<pre><code class="language-shell">git commit --amend -s
+</code></pre>
+<h4 id="3-adding-alias">3. Adding alias<a class="headerlink" href="#3-adding-alias" title="Permanent link"></a></h4>
+<p>If you're already added your name and email to the config, you can add an alias to your local setup in order to automatically add that <code>-s</code> t every commit command.</p>
+<p>This can be done wither on your local CLI setup, or through a git alias as follows:</p>
+<pre><code class="language-shell">git config --global alias.c 'commit --signoff'
+</code></pre>
+<p>And now you can run <code>git commit c -m</code> instead of <code>git commit -s -m</code>.</p>
+<p>For an example of the former using zsh:</p>
+<pre><code class="language-shell">echo alias gco='git commit -s' &gt;&gt; ~/.zshrc
+</code></pre>
+<blockquote>
+<p>For bash, replace <code>.zshrc</code> with <code>.bashrc</code>.</p>
+</blockquote>
+<p>If you want to reduce your typing even futher, add the <code>-m</code> flag.</p>
+<pre><code class="language-shell">echo alias gco='git commit -s -m' &gt;&gt; ~/.zshrc
+</code></pre>
+<p>Verify that your config was written.</p>
+<pre><code class="language-shell">$ tail ~/.zshrc
+</code></pre>
+<p>You should see the following, or similar:</p>
+<pre><code class="language-shell">alias gco=git commit -s
+</code></pre>
+<p>In order to test this last option out, you have to re-source the config file:</p>
+<pre><code class="language-shell">source ~/.zshrc
+</code></pre>
+<blockquote>
+<p>For bash, replace <code>.zshrc</code> with <code>.bashrc</code>.</p>
+</blockquote>
+<p>If you've already pushed your changes to Github, you will have to <code>force push</code> your branch after this with <code>git push -f</code>.</p>
+<h3 id="dco-errors">DCO Errors<a class="headerlink" href="#dco-errors" title="Permanent link"></a></h3>
+<p>for more information on DCO sign-off, including how to deal with DCO errors flagged by our bot, check out our wiki: https://wiki.hyperledger.org/display/BESU/How+to+Contribute#HowtoContribute-HowtoworkwithDCO</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> DCO Sign-Off  Commiting code to Hyperledger Besu</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/dco-signoff-commiting-code-to-hyperledger-besu/f58190e5e3bc4b1a9ed902bfccfe58b9/a</li>
+<li><strong>Kauri original author:</strong> Felipe Faraggi (@felipefaraggi)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-27</li>
+<li><strong>Kauri original tags:</strong> dco, github, pegasys, git, besu</li>
+<li><strong>Kauri original hash:</strong> QmY7xVfd9RWmkNEX93S7xzv1kWHXL4AtPoH8moFtUtrBQM</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mapping-defi-ecosystem/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mapping-defi-ecosystem/" class="btn btn-xs btn-link">
+        Mapping DeFi ecosystem
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../a-linked-list-implementation-for-ethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../a-linked-list-implementation-for-ethereum/" class="btn btn-xs btn-link">
+        A Linked List Implementation for Ethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/dco-sign-off--commiting-code-to-hyperledger-besu.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

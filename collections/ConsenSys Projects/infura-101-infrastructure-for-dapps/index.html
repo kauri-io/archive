@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ConsenSys%20Projects/infura-101-infrastructure-for-dapps/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Infura 101 - Infrastructure for Dapps - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Infura 101 - Infrastructure for Dapps", url: "#_top", children: [
+              {title: "Why use Infura?", url: "#why-use-infura" },
+              {title: "Getting Started with Infura", url: "#getting-started-with-infura" },
+              {title: "Statistics", url: "#statistics" },
+              {title: "Migrating from V2 to V3", url: "#migrating-from-v2-to-v3" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="infura-101-infrastructure-for-dapps">Infura 101 - Infrastructure for Dapps<a class="headerlink" href="#infura-101-infrastructure-for-dapps" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk" /></p>
+<h3 id="why-use-infura">Why use Infura?<a class="headerlink" href="#why-use-infura" title="Permanent link"></a></h3>
+<p>Creating and maintaining your own Ethereum and IPFS nodes and infrastructure is complex and costly. Infura lets you focus on developing functionality by providing a secure, reliable, and scalable infrastructure for your Dapps that you don't need to worry about.</p>
+<p>You access your Infura-hosted infrastructure via TLS-enabled endpoints, and Ferryman, a custom reverse proxy for scaling requests and instances.</p>
+<h3 id="getting-started-with-infura">Getting Started with Infura<a class="headerlink" href="#getting-started-with-infura" title="Permanent link"></a></h3>
+<p>The onboarding process for Infura walks you through creating an account and projects. You can assign each project to a different Ethereum network, and the project overview gives you the keys and addresses your application needs. The project overview also has a section for whitelisting contracts, and a secret key value, but these are reserved for future functionality.</p>
+<p>You can get status information by issuing requests to your project endpoint, for example, to return the latest block:</p>
+<pre><code class="language-bash">curl -X &quot;POST&quot; &quot;https://rinkeby.infura.io/v3/&lt;PROJECT_ID&gt;&quot; \
+     -H 'Content-Type: application/json' \
+     -d $'{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;eth_blockNumber&quot;,
+  &quot;params&quot;: []
+}'
+</code></pre>
+<p>HTTP requests are useful, but to create a fully-fleshed Dapp, you can also use Web3.js.</p>
+<p>First import the web3 library, and create a provider to the Infura project:</p>
+<pre><code class="language-html">&lt;script src=&quot;https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js&quot; integrity=&quot;sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;/script&gt;
+
+&lt;script&gt;
+if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+} else {
+    // Set the provider you want from
+    Web3.providers
+    web3 = new Web3(new Web3.providers.HttpProvider(&quot;https://mainnet.infura.io/v3/&lt;PROJECT_ID&gt;&quot;));
+}
+&lt;/script&gt;
+</code></pre>
+<p>Then call the method, outputting the value to the interface:</p>
+<pre><code class="language-html">&lt;h2&gt;Latest Block&lt;/h2&gt;
+&lt;script&gt;
+  web3.eth.getBlockNumber(function (err, res) {
+    if (err) console.log(err)
+    document.write(res)
+  })
+&lt;/script&gt;
+</code></pre>
+<h3 id="statistics">Statistics<a class="headerlink" href="#statistics" title="Permanent link"></a></h3>
+<p>Once your Dapp has issued some requests to Infura, the <em>Stats</em> pane shows a summary of method calls and information about the bandwidth used.</p>
+<p><img alt="Infura stats dashboard" src="https://ipfs.infura.io/ipfs/QmSuWjeyKnSQeotyf535wZtFdqgqz1Vu8eL7wqPe2eX6Qk" /></p>
+<h3 id="migrating-from-v2-to-v3">Migrating from V2 to V3<a class="headerlink" href="#migrating-from-v2-to-v3" title="Permanent link"></a></h3>
+<p>If you used Infura before, make sure your applications are using the new <code>https://rinkeby.infura.io/v3/*</code> endpoints. If not, you need to re-register and update your Dapps to keep using Infura. BLOG POST?</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Infura 101 - Infrastructure for Dapps</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/infura-101-infrastructure-for-dapps/9113c37841e5451fbb2cf2477a3a63e5/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-07</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qma6nEx5dfuEGbFhjSr59qbeUDHMgtf9aLABiawrxbb5Nq</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle-101-development-tools-for-smart-contracts/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle-101-development-tools-for-smart-contracts/" class="btn btn-xs btn-link">
+        Truffle 101 - Development Tools for Smart Contracts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../openlaw-tutorial--blockchain-enabled-legally-enfo/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../openlaw-tutorial--blockchain-enabled-legally-enfo/" class="btn btn-xs btn-link">
+        OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ConsenSys Projects/infura-101-infrastructure-for-dapps.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

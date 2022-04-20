@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/enabling-networks-to-become-cross-chain-with-witn/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Enabling networks to become cross-chain with Witnet - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Enabling networks to become cross-chain with Witnet", url: "#_top", children: [
+              {title: "Cross-chain asset transfer", url: "#cross-chain-asset-transfer" },
+              {title: "Cross-chain contract calls", url: "#cross-chain-contract-calls" },
+              {title: "Cross-chain contract upgradeability", url: "#cross-chain-contract-upgradeability" },
+              {title: "Security concerns", url: "#security-concerns" },
+              {title: "Want to know more about the use cases of Witnet?", url: "#want-to-know-more-about-the-use-cases-of-witnet" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="enabling-networks-to-become-cross-chain-with-witnet">Enabling networks to become cross-chain with Witnet<a class="headerlink" href="#enabling-networks-to-become-cross-chain-with-witnet" title="Permanent link"></a></h1>
+<hr />
+<p>For a quick primer on Witnet, check out this post: (3 minute read)](https://medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4).</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*5quZiEFOGAy-NE67saKEoA.png" /></p>
+<p>The <a href="https://aragon.one/network/">Aragon Network</a> aims to be a fully digital jurisdiction. By running entirely on the blockchain, it allows DAOs to interact with each other with notable guarantees. These include a decentralized arbitration system and mutual staking just in case any of the arbitration participants needs to be compensated.
+Without going into much further detail, the Aragon Network (AN) is, in the end, a crypto network fueled by a token. There are many others with similar needs, such as the <a href="http://district0x.io/">district0x network</a> , the <a href="https://0xproject.com/">0x network</a> , or the <a href="https://keep.network/">Keep network</a> .
+These networks are built upon a blockchain, in this case Ethereum.
+But how can other entities in other blockchains interact with an Ethereum-based network?
+Or, if for some reason the blockchain they are built upon stops serving their needs, how can the network migrate to another blockchain?</p>
+<blockquote>
+<p>Instead of thinking of building our crypto networks on top of just one chain, maybe we should be thinking of making them cross-chain by default.</p>
+</blockquote>
+<p>In the end, if we want crypto networks to be a success, with blockchains still being a bleeding edge technology, we need to hedge our bets.</p>
+<h3 id="cross-chain-asset-transfer">Cross-chain asset transfer<a class="headerlink" href="#cross-chain-asset-transfer" title="Permanent link"></a></h3>
+<p>Crypto networks usually require some form of staking or payment using their native token. The AN requires DAOs to stake into the network’s deposit in order for the DAO to build up reputation, being able to interact with other DAOs, or even offer their token in the network’s liquidity pool.
+To truly achieve Aragon’s core proposition (unstoppable organizations), the AN will need to endure any kind of “crypto calamities” that may occur. This is only feasible by allowing the AN to cross over the boundaries of the Ethereum network and become blockchain agnostic.
+The Witnet oracle network provides a secure and trustless way to bridge the gap between Ethereum and any other blockchain with smart contract capability. Thanks to its “bridge nodes”, tokens and assets can be transferred atomically from one chain to another without relying on any single point of failure.
+Discover more about ETH&lt;&gt;WIT bridge nodes in this other post:</p>
+<h4 id="practical-example-transferring-ant-from-eth-to-rsk">Practical example: transferring ANT from ETH to RSK<a class="headerlink" href="#practical-example-transferring-ant-from-eth-to-rsk" title="Permanent link"></a></h4>
+<p>Let’s say that we want to transfer 1 ANT from the Ethereum network to the <a href="https://www.rsk.co/">Rooststock</a> network:</p>
+<ul>
+<li>
+<p>The ANT needs to be first sent to the <em>Witnet Bridge Interface</em> (WBI) Ethereum contract, which removes the tokens from circulation. In this transaction, senders must specify which chain they want their tokens transferred to (RSK) and a destination address. We shall also pay a fee to incentivize all parties involved in the transfer. The locking contract acts as an escrow for this fee.</p>
+</li>
+<li>
+<p>ETH&lt;&gt;WIT bridge nodes collect the most recent locking transactions, and for each of them, they publish a request on the Witnet network containing a PoLock ( <em>“proof-of-locking”</em> , an SPV of the Ethereum locking transaction). These transactions also contain a special reward output that will be spent later.</p>
+</li>
+<li>
+<p>As Witnet is aware of every Ethereum block header, it can verify that the locking transaction actually happened and that it is buried under (confirmed by) a minimum number of blocks.</p>
+</li>
+<li>
+<p>ETH&lt;&gt;WIT bridge nodes generate a PoI ( <em>“proof-of-inclusion”</em> , a Witnet SPV proof) for each of the requests they posted, and use these proofs to claim the fee from the escrow in the WBI Ethereum contract. As the WBI is aware of every Witnet block, these proofs can be verified inside the contract.</p>
+</li>
+<li>
+<p>RSK&lt;&gt;WIT bridge nodes then discover those Witnet requests directed towards Rootstock. They also create their own PoI for each and publish them into Rootstock by calling a method in Rootstock’s own WBI contract.</p>
+</li>
+<li>
+<p>The WBI Rootstock contract is capable of internally validating the PoI coming from Witnet (as it is aware of all Witnet block headers) and tell the ANT smart contract in Rootstock to credit 1 ANT to the destination address (this is the <em>“crediting transaction”</em> ).</p>
+</li>
+<li>
+<p>Once the ANT is credited and the transaction doing so is sufficiently confirmed in the Rootstock blockchain, the bridge nodes from step 5 will generate a PoI for each Rootstock ANT crediting transaction, and use them to claim the fee from the output in step 2 by spending it.
+The reverse process can be easily achieved by locking the Rootstock ANT in the WBI Rootstock contract and specific Ethereum as the destination chain. This will trigger the whole process in the opposite direction and end up unlocking the ANT tokens that were originally locked in the WBI Ethereum contract.</p>
+</li>
+</ul>
+<h3 id="cross-chain-contract-calls">Cross-chain contract calls<a class="headerlink" href="#cross-chain-contract-calls" title="Permanent link"></a></h3>
+<p>The Aragon Network is a network of DAOs, which can be from traditional companies, to non-profit entities, to other crypto networks, or just individuals.
+They need to transact with each other, including cross-chain interactions.
+All DAOs are based on aragonOS, which has a very powerful Access Control List of which entities can call certain functions on certain apps.
+Just like with cross-chain asset transfers, Ethereum smart contracts will be able to call contracts in a different chain by delegating their calls through the <em>Witnet Bridge Interface</em> (WBI).
+This case is even simpler than cross-chain asset transfer: from an Ethereum smart contract’s perspective, all that’s needed is calling a certain function in the WBI while specifying the address of the contract in the destination chain and the parameters we want to call it with. Everything else works just the same!
+Thanks to <a href="https://github.com/aragon/aragonos">aragonOS</a> , the changes required for any app in the AN ecosystem to support this mechanism would be minimal and wouldn’t even cause app developers any breaking changes in their existing code.
+All apps in the AN use aragonOS for authentication, thanks to the <a href="https://github.com/aragon/aragonOS/blob/dev/contracts/acl/ACL.sol">ACL</a> . The ACL checks <em>msg.sender</em> to identify the sender of the transaction. If instead of doing that, the ACL would check signatures, that would enable aragonOS to verify that a transaction was authorized from another chain, and instead of pointing its origin from the WBI, it would point its origin from the account that sent it in another chain.</p>
+<h3 id="cross-chain-contract-upgradeability">Cross-chain contract upgradeability<a class="headerlink" href="#cross-chain-contract-upgradeability" title="Permanent link"></a></h3>
+<p>All Aragon entities run on aragonOS, which offers secure and flexible smart contract upgradeability by default. Upgradeability is especially important for crypto networks and protocols, where the canonical version of the rules that are enforced to all token holders needs to be consensuated. Consensus happens via any governance mechanism, and that’s why an Access Control List is so important too, so that only certain governance mechanisms can execute certain changes to the protocol.
+aragonOS achieves this model by taking advantage of proxies. Let’s explore this process:</p>
+<ul>
+<li>
+<p>We dispatch a call to the App Proxy (and not the app itself)</p>
+</li>
+<li>
+<p>The App Proxy asks the Kernel where’s the actual App with its actual code</p>
+</li>
+<li>
+<p>The Kernel replies back with its address</p>
+</li>
+<li>
+<p>Then the App Proxy delegates the call to the actual App</p>
+</li>
+<li>
+<p>The App asks the Kernel whether the sender of the call is authorized to perform it</p>
+</li>
+<li>
+<p>If it is, the code is executed</p>
+</li>
+</ul>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/0*QVWeO3zuaQzarlYI." /></p>
+<p>Now let’s imagine how an upgrade to the Aragon Network would be executed:</p>
+<ul>
+<li>
+<p>Someone who wants to propose an upgrade (the proposer) would deploy a new set of contracts for the network or for any of its features. Let’s say the contracts are located at address 0xNEWVERSION</p>
+</li>
+<li>
+<p>The proposer creates a new voting (or goes through whichever governance mechanism that the Network has) and proposes 0xNEWVERSION as the next version</p>
+</li>
+<li>
+<p>The governance of the Network votes and decides. Let’s assume that the vote is approved</p>
+</li>
+<li>
+<p>The Kernel would update its reference for the contracts that have just been upgraded (which would be an App)</p>
+</li>
+<li>
+<p>All the new calls would come in via the App Proxy, and would be directed towards the new version of the code instead of the old one. Boom!
+In a scenario in which ANT has become truly cross-chain and the AN contracts live on multiple blockchains, preserving contract upgradability across chains is also necessary.
+Again, Witnet will make these cross-chain contract upgrades nearly as easy to perform as if everything was happening in the same chain, and the changes required for existing dApps to support this mechanism will be minimal and cause no headache to developers willing to make their smart contracts truly chain agnostic.</p>
+</li>
+</ul>
+<h3 id="security-concerns">Security concerns<a class="headerlink" href="#security-concerns" title="Permanent link"></a></h3>
+<p>In the blockchain space, there’s a generally accepted precept that the maximum value that a network can support and secure is proportional to the cost of rewriting its history of transactions.
+This notion comes from the fact that the security of Proof-of-Work schemes is not based on making it impossible for anyone to tamper with the transactions ledger, but on making it extremely expensive.
+As long as the total network value is lower than the cost of hacking the blockchain (e.g. by means of a majority attack), we can rest assured that no one will try to break it. But in the same moment that the network value goes over the hacking cost, you’ve just created a bounty for any (incredibly powerful) attacker to go and try to to loot everyone’s wallets.
+But, if Witnet doesn’t use PoW, when people start to use it for moving assets from chain A to chain B, how much value will it be able to handle without becoming attractive to attackers?
+In Witnet, mining power is not correlated to computing power. Instead, each of the miners’ likeliness to come with a valid block is proportional to their reputation, which they earn or lose over time depending on their honesty when performing <em>retrieve-attest-deliver</em> (RAD) tasks as requested to the distributed oracle network by smart contracts.
+Witnet moves away from putting a (high) price to owning a majority of power in the network. Instead, the Witnet protocol makes it mathematically impossible for any player in the network to hoard a majority of the reputation by imposing a progressive demurrage policy on reputation scores.
+Under this policy, the more reputation points you have, the faster you lose them without any possible countermeasure other than remaining honest and performing RAD tasks to earn more points.
+The catch is that, beyond a certain reputation score threshold, this policy is applied so harshly that it’s impossible to earn more reputation points than the amount you are losing because of demurrage.
+This means that there’s a consensus-enforced roof to reputation score, which in practice translates to infeasibility of any kind of majority attack at the same time that guarantees power decentralization.
+Summing up, on a network like Witnet, assets of any value can be transferred securely without being limited to a maximum network value defined by the total work committed to the chain.</p>
+<hr />
+<p><strong>Thanks to</strong>  <a href="https://medium.com/@lic">Luis Cuende</a>  <strong>and</strong>  <a href="https://medium.com/@izqui9">Jorge Izquierdo</a>  <strong>from the Aragon team for their contributions to this post.</strong> </p>
+<hr />
+<h3 id="want-to-know-more-about-the-use-cases-of-witnet">Want to know more about the use cases of Witnet?<a class="headerlink" href="#want-to-know-more-about-the-use-cases-of-witnet" title="Permanent link"></a></h3>
+<p>Don’t miss the next article in the series:
+You can also:</p>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Enabling networks to become cross-chain with Witnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/enabling-networks-to-become-crosschain-with-witnet/3d109c86ee4849ad95516ea071fda33a/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-13</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmYM6h9pFDtKsKPgA4y8dfw5q2pGfwevujPgd5F9mdPP8w</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../why-microsoft-could-become-a-force-to-reckon-with/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../why-microsoft-could-become-a-force-to-reckon-with/" class="btn btn-xs btn-link">
+        Why Microsoft could become a force to reckon with in Machine Learning
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../brew-gnu/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../brew-gnu/" class="btn btn-xs btn-link">
+        Brew Gnu
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/enabling-networks-to-become-cross-chain-with-witn.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

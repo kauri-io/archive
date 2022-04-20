@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-explained--merkle-trees-world-state-tran/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum Explained  Merkle Trees, World State, Transactions, and More - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum Explained  Merkle Trees, World State, Transactions, and More", url: "#_top", children: [
+              {title: "Merkle Trees", url: "#merkle-trees" },
+              {title: "World State", url: "#world-state" },
+              {title: "Account State", url: "#account-state" },
+              {title: "Transaction", url: "#transaction" },
+              {title: "Block", url: "#block" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-explained-merkle-trees-world-state-transactions-and-more">Ethereum Explained  Merkle Trees, World State, Transactions, and More<a class="headerlink" href="#ethereum-explained-merkle-trees-world-state-transactions-and-more" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK" /></p>
+<p><img alt="Ethereum Architecture Diagram" src="https://ipfs.infura.io/ipfs/QmRtzzyLPfjAUdHX9P5hFrKsFDNedqeRYDwzNZZtQg1DoK" /></p>
+<p><em>At PegaSys we understand that entering into the Ethereum world can be a daunting task. There are many new concepts and terms that one needs to learn to engage in the community. In Ethereum Explained our protocol engineer, Lucas Saldanha, provides an easy to digest summary of the Ethereum Yellow Paper for technical and non-technical people alike.</em></p>
+<p>Hi everyone! This is a post exploring some topics in the Ethereum Yellow Paper. In this post, we will learn more about the main objects in Ethereum and their roles. We'll also briefly discuss how Merkle trees are used in Ethereum.</p>
+<p>I hope that after reading this post, you'll know what Merkle trees are and the role that they play in Ethereum, what the world state and account state are, and what a transaction and a block look like.</p>
+<p>(DISCLAIMER: this post is based on the Byzantium version of the <a href="https://ethereum.github.io/yellowpaper/paper.pdf">Yellow Paper</a>, version e94ebda from 5th June 2018)</p>
+<h3 id="merkle-trees">Merkle Trees<a class="headerlink" href="#merkle-trees" title="Permanent link"></a></h3>
+<p>Before discussing the main data objects in Ethereum, I'd like to present a summary of what Merkle trees are and the properties that make them useful.</p>
+<p>The Yellow Paper states that it assumes implementations will maintain the world state and transactions in a modified Merkle Patricia tree (trie). This data structure is described in Appendix D.</p>
+<p>The Merkle Patricia tree (trie) has some really interesting properties and, if you want to learn more about the Ethereum implementation, I'd recommend reading <a href="https://github.com/ethereum/wiki/wiki/Patricia-Tree">this article</a>.</p>
+<p>In a Merkle tree, the leaf nodes contain the hash of a block of data and the non-leaf nodes contain the hash of its children nodes.</p>
+<p>In a Merkle tree any change to the underlying data causes the hash of the node referring to the data to change. Since each parent node hash depends on the data of its children, any change to the data of a child node causes the parent hash to change. This happens to each parent node up to the root node. Therefore, any change to the data at the leaf nodes causes the root node hash to change. From this finding, we can derive two important properties:</p>
+<ol>
+<li>We don't need to compare all the data across the leaf nodes to know if they have the same data. We can just compare the root node hash.</li>
+<li>If we want to prove that specific data is part of the tree, we can use a technique called <a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proofs</a>. We won't dive into details here but it is an easy and effective way to prove that a piece of data is in the Merkle tree.</li>
+</ol>
+<p>The first property is important because it makes it possible to store only a hash of the root node to represent the data at that point in time. This means we only need to store the root hash of the tree representing the block on the blockchain (as opposed to storing all the data in the blockchain) and still keep the data immutable.</p>
+<p>Now that we have an idea of what a Merkle tree root hash represents, let's talk about Ethereum main objects.</p>
+<h3 id="world-state">World State<a class="headerlink" href="#world-state" title="Permanent link"></a></h3>
+<p>The world state is a mapping between addresses (accounts) and account states. The world state is not stored on the blockchain but the Yellow Paper states its expected implementations store this data in a trie (also referred as the state database or state trie). The world state can be seen as the global state that is constantly updated by transaction executions. The Ethereum network is like a decentralized computer and the world state is considered this computer's hard drive.</p>
+<p>All the information about Ethereum accounts live in the world state and is stored in the world state trie. If you want to know the balance of an account, or the current state of a smart contract, you query the world state trie to retrieve the account state of that account. I'll describe how this data is stored shortly.</p>
+<h3 id="account-state">Account State<a class="headerlink" href="#account-state" title="Permanent link"></a></h3>
+<p>In Ethereum, there are <a href="http://ethdocs.org/en/latest/contracts-and-transactions/account-types-gas-and-transactions.html#externally-owned-accounts-eoas">two types of accounts</a>: Externally Owned Accounts (EOA) and Contract Accounts. An EOA account is the account that you and I would have, that we can use to send Ether to one another and deploy smart contracts. A contract account is the account that is created when a smart contract is deployed. Every smart contract has its own Ethereum account.</p>
+<p>The account state contains information about an Ethereum account. For example, it stores how much Ether an account has and the number of transactions sent by the account. Each account has an account state.</p>
+<p>Let's take a look into each one of the fields in the account state:</p>
+<h4 id="nonce">nonce<a class="headerlink" href="#nonce" title="Permanent link"></a></h4>
+<p>Number of transactions sent from this address (if this is an External Owned Account – EOA) or the number of contract-creations made by this account (don't worry about what contract-creations means for now).</p>
+<h4 id="balance">balance<a class="headerlink" href="#balance" title="Permanent link"></a></h4>
+<p>Total Ether (in <a href="http://ethdocs.org/en/latest/ether.html">Wei</a>) owned by this account.</p>
+<h4 id="storageroot">storageRoot<a class="headerlink" href="#storageroot" title="Permanent link"></a></h4>
+<p>Hash of the root node of the account storage trie (weâ€™ll see what the account storage is in a moment).</p>
+<h4 id="codehash">codeHash<a class="headerlink" href="#codehash" title="Permanent link"></a></h4>
+<p>For contract accounts, hash of the EVM code of this account. For EOAs, this will be empty.</p>
+<p>One important details about the account state is that all fields (except the codeHash) are mutable. For example, when one account sends some Ether to another, the nonce will be incremented and the balance will be updated to reflect the new balance.</p>
+<p>One of the consequences of the codeHash being immutable is that if you deploy a contract with a bug, you can't update the same contract. Instead, you need to deploy a new contract (the buggy version will be available forever). This is why it is important to use <a href="https://truffleframework.com/">Truffle</a> to develop and test your smart contracts and follow the <a href="https://consensys.github.io/smart-contract-best-practices/software_engineering/#upgrading-broken-contracts">best practices</a> when working with Solidity.</p>
+<p>The Account Storage trie is where the data associated with an account is stored. This is only relevant for Contract Accounts, ;in EOAs the storageRoot is empty and the codeHash is the hash of an empty string. All smart contract data is persisted in the account storage trie as a mapping between 32-bytes integers. We wonâ€™t discuss in details how the contract data is persisted in the account state trie. If you really want to learn about the internals, I suggest reading <a href="https://medium.com/coinmonks/a-practical-walkthrough-smart-contract-storage-d3383360ea1b">this post</a>. The hash of an account storage root node is persisted in the storageRoot field in the account state of the respective account.</p>
+<h3 id="transaction">Transaction<a class="headerlink" href="#transaction" title="Permanent link"></a></h3>
+<p>Transactions are what makes the state change from the current state to the next state. In Ethereum, we have three types of transactions:</p>
+<ol>
+<li>Transactions that transfer value between two EOAs (e.g., change the sender and receiver account balances)</li>
+<li>Transactions that send a message call to a contract (e.g., set a value in the smart contract by sending a message call that executes a setter method)</li>
+<li>Transactions that deploy a contract (therefore, create an account, the contract account)</li>
+</ol>
+<p>(Technically, types 1 and 2 are the same...transactions that send message calls that affect an account state, either EOA or contract accounts. But is it easier to think about them as three different types.)</p>
+<p>These are the fields of a transaction:</p>
+<h4 id="nonce_1">nonce<a class="headerlink" href="#nonce_1" title="Permanent link"></a></h4>
+<p>Number of transactions sent by the account that created the transaction.</p>
+<h4 id="gasprice">gasPrice<a class="headerlink" href="#gasprice" title="Permanent link"></a></h4>
+<p>Value (in Wei) that will be paid per unit of gas for the computation costs of executing this transaction.</p>
+<h4 id="gaslimit">gasLimit<a class="headerlink" href="#gaslimit" title="Permanent link"></a></h4>
+<p>Maximum amount of gas to be used while executing this transaction.</p>
+<h4 id="to">to<a class="headerlink" href="#to" title="Permanent link"></a></h4>
+<ul>
+<li>If this transaction is transferring Ether, address of the EOA account that will receive a value transfer.</li>
+<li>If this transaction is sending a message to a contract (e.g., calling a method in the smart contract), this is address of the contract.</li>
+<li>If this transactions is creating a contract, this value is always empty.</li>
+</ul>
+<h4 id="value">value<a class="headerlink" href="#value" title="Permanent link"></a></h4>
+<ul>
+<li>If this transaction is transferring Ether, amount in Wei that will be transferred to the recipient account.</li>
+<li>If this transaction is sending a message to a contract, amount of Wei <a href="https://medium.com/@rsripathi781/6-payable-functions-in-solidity-smartcontract-ethereum-d2535e346dc1">payable</a> by the smart contract receiving the message.</li>
+<li>If this transaction is creating a contract, this is the amount of Wei that will be added to the balance of the created contract._</li>
+</ul>
+<h4 id="v-r-s">v, r, s<a class="headerlink" href="#v-r-s" title="Permanent link"></a></h4>
+<p>Values used in the cryptographic signature of the transaction used to determine the sender of the transaction.</p>
+<h4 id="data">data<a class="headerlink" href="#data" title="Permanent link"></a></h4>
+<p>(only for value transfer and sending a message call to a smart contract)</p>
+<p>Input data of the message call (e.g., imagine you are trying to execute a setter method in your smart contract, the data field would contain the identifier of the setter method and the value that should be passed as parameter).</p>
+<h4 id="init">init<a class="headerlink" href="#init" title="Permanent link"></a></h4>
+<p>(only for contract creation)</p>
+<p>The EVM-code utilized for <a href="https://medium.com/@hayeah/diving-into-the-ethereum-vm-part-5-the-smart-contract-creation-process-cb7b6133b855">initialization of the contract</a>.</p>
+<p>Don't try to grasp all of this at once... Some fields like the data field or the init field require you to have a deeper understanding of the internals of Ethereum to really understand what they mean and how to use them.</p>
+<p>Not surprisingly, all transactions in a block are stored in a trie. And the root hash of this trie is stored in the...block header! Let's take a look into the anatomy of an Ethereum block.</p>
+<h3 id="block">Block<a class="headerlink" href="#block" title="Permanent link"></a></h3>
+<p>The block header is divided in two parts, the block header and the block body.</p>
+<p>The block header is the blockchain part of Ethereum. This is the structure that contains the hash of its predecessor block (also known as parent block), building a cryptographically guaranteed chain.</p>
+<p>The block body contains a list of transactions that <a href="https://medium.com/blockchannel/life-cycle-of-an-ethereum-transaction-e5c66bae0f6e">have been included in this block</a> and a list of uncle (ommer) blocks headers. If you want to learn know more about uncle blocks, I recommend <a href="https://github.com/ethereum/wiki/wiki/Design-Rationale#uncle-incentivization">this post</a>.</p>
+<p>Let's take a look at all fields in the block header:</p>
+<h4 id="parenthash">parentHash<a class="headerlink" href="#parenthash" title="Permanent link"></a></h4>
+<p>Hash of the block header from the previous block. Each block contains a hash of the previous block, all the way to the first block in the chain. This is how all the data is protected against modifications (any modification in a previous block would change the hash of all blocks after the modified block).</p>
+<h4 id="ommershash">ommersHash<a class="headerlink" href="#ommershash" title="Permanent link"></a></h4>
+<p>Hash of the uncle blocks headers part of the block body.</p>
+<h4 id="beneficiary">beneficiary<a class="headerlink" href="#beneficiary" title="Permanent link"></a></h4>
+<p><em>Ethereum account that will get fees for mining this block.</em></p>
+<h4 id="stateroot">stateRoot<a class="headerlink" href="#stateroot" title="Permanent link"></a></h4>
+<p>Hash of the root node of the world state trie (after all transactions are executed).</p>
+<h4 id="transactionsroot">transactionsRoot<a class="headerlink" href="#transactionsroot" title="Permanent link"></a></h4>
+<p>Hash of the root node of the transactions trie. This trie contains all transactions in the block body.</p>
+<h4 id="receiptsroot">receiptsRoot<a class="headerlink" href="#receiptsroot" title="Permanent link"></a></h4>
+<p>Every time a transaction is executed, Ethereum generates a transaction receipt that contains information about the transaction execution. This field is the hash of the root node of the transactions receipt trie.</p>
+<h4 id="logsbloom">logsBloom<a class="headerlink" href="#logsbloom" title="Permanent link"></a></h4>
+<p><em><a href="https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832">Bloom filter</a> that can be used to find out if logs were generated on transactions in this block (if you want more details, <a href="https://ethereum.stackexchange.com/questions/3418/how-does-ethereum-make-use-of-bloom-filters/3426#3426">check this Stack Overflow answer</a>). This avoids storing of logs in the block (saving a lot of space).</em></p>
+<h4 id="difficult">difficult<a class="headerlink" href="#difficult" title="Permanent link"></a></h4>
+<p>Difficulty level of this block. This is a measure of how hard it was to mine this block (I'm not diving into the details of how this is calculated in this post).</p>
+<h4 id="number">number<a class="headerlink" href="#number" title="Permanent link"></a></h4>
+<p><em>Number of ancestor blocks. This represents the height of the chain (how many blocks are in the chain). The genesis block has number zero.</em></p>
+<h4 id="gaslimit_1">gasLimit<a class="headerlink" href="#gaslimit_1" title="Permanent link"></a></h4>
+<p>Each transaction consumes gas. The gas limit specifies the maximum gas that can be used by the transactions included in the block. It is a way to limit the number of transactions in a block.</p>
+<h4 id="gasused">gasUsed<a class="headerlink" href="#gasused" title="Permanent link"></a></h4>
+<p><em>Sum of the gas cost of each transaction in the block.</em></p>
+<h4 id="timestamp">timestamp<a class="headerlink" href="#timestamp" title="Permanent link"></a></h4>
+<p>Unix timestamp when the block was created. Note that due to the decentralized nature of Ethereum, we can't trust in this value, especially when implementing smart contracts that have time related business logic.</p>
+<h4 id="extradata">extraData<a class="headerlink" href="#extradata" title="Permanent link"></a></h4>
+<p><em>Arbitrary byte array that can contain anything. When a miner is creating the block, it can choose to add anything in this field.</em></p>
+<h4 id="mixhash">mixHash<a class="headerlink" href="#mixhash" title="Permanent link"></a></h4>
+<p>Hash used to verify that a block has been mined properly (if you want to really understand this, read about the <a href="https://github.com/ethereum/wiki/wiki/Ethash">Ethash proof-of-work function</a>).</p>
+<h4 id="nonce_2">nonce<a class="headerlink" href="#nonce_2" title="Permanent link"></a></h4>
+<p>Same as the mixHash, this value is used to verify that a block has been mined properly.</p>
+<p>Phew... This is a long list... Take your time to read it! Again, the point here is not to memorize each one of the fields and what they represent (you can always Google it later). What I intended was to describe each field in a simple way (at least simpler than the Yellow Paper) to help you to understand what they mean. Think of it as an Ethereum objects for dummies! ðŸ™‚</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Let's do a quick recap about what we just saw! Basically, Ethereum has 4 types of tries:</p>
+<ol>
+<li><strong>The world state trie contains the mapping between addresses and account states.</strong> The hash of the root node of the world state trie is included in a block (in the stateRoot field) to represent the current state when that block was created. We only have one world state trie.</li>
+<li><strong>The account storage trie contains the data associated to a smart contract.</strong> The hash of the root node of the Account storage trie is included in the account state (in the storageRoot field). We have one Account storage trie for each account.</li>
+<li><strong>The transaction trie contains all the transactions included in a block.</strong> The hash of the root node of the Transaction trie is included in the block header (in the transactionsRoot field). We have one transaction trie per block.</li>
+<li><strong>The transaction receipt trie contains all the transaction receipts for the transactions included in a block.</strong> The hash of the root node of the transaction receipts trie is included in also included in the block header (in the receiptsRoot field); We have one transaction receipts trie per block.</li>
+</ol>
+<p>And the objects that we discussed today are:</p>
+<ol>
+<li><strong>World state:</strong> the hard drive of the distributed computer that is Ethereum. It is a mapping between addresses and account states.</li>
+<li><strong>Account state:</strong> stores the state of each one of Ethereum's accounts. It also contains the storageRoot of the account state trie, that contains the storage data for the account.</li>
+<li><strong>Transaction:</strong> represents a state transition in the system. It can be a funds transfer, a message call or a contract deployment.</li>
+<li><strong>Block:</strong> contains the link to the previous block (parentHash) and contains a group of transactions that, when executed, will yield the new state of the system. It also contains the stateRoot, the transactionRoot and the receiptsRoot, the hash of the root nodes of the world state trie, the transaction trie and the transaction receipts trie, respectively.</li>
+</ol>
+<p>I tried to capture all the information contained in this post in the diagram at the top of the page.</p>
+<p>In my experience, learning from the Yellow Paper is not easy and requires a lot of patience. As I said before, the main goal was to describe each one of the main Ethereum objects in words that someone relatively new to the blockchain and Ethereum ecosystem could understand. I hope that you have found this post useful!</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://brilliant.org/wiki/merkle-tree/">Merkle Trees</a></li>
+<li><a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle Proofs</a></li>
+<li><a href="https://hackernoon.com/getting-deep-into-ethereum-how-data-is-stored-in-ethereum-e3f669d96033">How data is stored in Ethereum?</a></li>
+<li><a href="https://medium.com/cybermiles/diving-into-ethereums-world-state-c893102030ed">Diving into Ethereum's world state</a></li>
+<li><a href="https://medium.com/@preethikasireddy/how-does-ethereum-work-anyway-22d1df506369">How does Ethereum work anyway?</a></li>
+<li><a href="https://medium.com/coinmonks/a-practical-walkthrough-smart-contract-storage-d3383360ea1b">A (Practical) Walkthrough of Smart Contract Storage</a></li>
+<li><a href="https://medium.com/@codetractio/inside-an-ethereum-transaction-fa94ffca912f">Inside an Ethereum transaction</a></li>
+<li><a href="https://medium.com/blockchannel/life-cycle-of-an-ethereum-transaction-e5c66bae0f6e">Life Cycle of an Ethereum Transaction</a></li>
+<li><a href="https://github.com/ethereum/wiki/wiki/Design-Rationale">Ethereum Design Rationale</a></li>
+</ul>
+<p><em>Note: This blog post was originally posted on Lucas Saldanha's personal website <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/">www.lucassaldanha.com</a> and imported from the <a href="https://pegasys.tech/ethereum-explained-merkle-trees-world-state-transactions-and-more/">PegaSys blog post</a></em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum Explained  Merkle Trees, World State, Transactions, and More</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-explained-merkle-trees-world-state-transa/1f4196c3db7f41e5845f063dc1581a4e/a</li>
+<li><strong>Kauri original author:</strong> PegaSys (@pegasys)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-15</li>
+<li><strong>Kauri original tags:</strong> Ethereum-Architecture, State, Ethereum, Merkle-Trees, PegaSys</li>
+<li><strong>Kauri original hash:</strong> QmfSkxDaqNr1oTC4VeWHtKtgvATgUCqY8WwNTkBNjGENH1</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-101-part-5-the-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-101-part-5-the-smart-contract/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 5 - The Smart Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-7-decentralized-apps/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-7-decentralized-apps/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 7 - Decentralized Apps
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-explained--merkle-trees-world-state-tran.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Libra/whitepaper-deep-dive-move--facebook-libra-blockch/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Whitepaper Deep Dive\u200a\u2014\u200aMove  Facebook Libra Blockchain\u2019s New Programming Language", url: "#_top", children: [
+              {title: "Overview &amp; Motivation", url: "#overview-motivation" },
+              {title: "Abstract", url: "#abstract" },
+              {title: "2.2 Encoding Digital Assets in an Open System", url: "#22-encoding-digital-assets-in-an-open-system" },
+              {title: "2.3. Existing Blockchain Languages", url: "#23-existing-blockchain-languages" },
+              {title: "3. Move Design Goals", url: "#3-move-design-goals" },
+              {title: "4. Move Overview", url: "#4-move-overview" },
+              {title: "Wrap up", url: "#wrap-up" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="whitepaper-deep-dive-move-facebook-libra-blockchains-new-programming-language">Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language<a class="headerlink" href="#whitepaper-deep-dive-move-facebook-libra-blockchains-new-programming-language" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSpSn7MZb68WtRk4CcdxyA4EZ8ESpjRByWe9XRNWq7iWU" /></p>
+<h3 id="overview-motivation">Overview &amp; Motivation<a class="headerlink" href="#overview-motivation" title="Permanent link"></a></h3>
+<p>This is a walkthrough of the 26 pages 
+<a href="https://developers.libra.org/docs/assets/papers/libra-move-a-language-with-programmable-resources.pdf">technical whitepaper of Move</a>
+ , Facebook Libra’s new programming language. As an Ethereum developer and a blockchain community enthusiast, I hope to provide a quick overview and highlights of the paper for everyone curious about this new language :)
+Hope that you will like it, happy learning!</p>
+<p>The original article on Medium: http://bit.ly/2ISy4uA</p>
+<h3 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link"></a></h3>
+<blockquote>
+<p>Move is an executable bytecode language used to implement custom transactions and smart contracts.</p>
+</blockquote>
+<p>There’re two things to take note:</p>
+<ul>
+<li>
+<p>While Move is a bytecode language which can be directly executed in Move’s VM, Solidity (Ethereum’s smart contract language) is a higher level language that needs to be compiled down to bytecode before executing in EVM (Ethereum’s Virtual Machine).</p>
+</li>
+<li>
+<p>Move can not only be used to implement smart contracts but also <em>custom transactions</em> (explained later in the article), while Solidity is a language for smart contracts on Ethereum only.</p>
+<blockquote>
+<p>The key feature of Move is the ability to define custom resource types with semantics inspired by linear logic: a resource can never be copied or implicitly discarded, only moved between program storage locations.</p>
+</blockquote>
+</li>
+</ul>
+<p>This is a feature similar to Rust. Values in Rust can only be assigned to one name at a time. Assigning a value to a different name causes it to no longer be accessible under the previous name.
+For example, the following code snippet will output the error: 
+<code>Use of moved value ‘x’</code>
+ . This is because Rust has no garbage collection. When variables go out of scope, the memory they refer to is also deallocated. For simplicity, we can understand this as 
+<strong>there can only be one “owner” of data at a time</strong>
+ . In this example, x is the original owner, and then y becomes the owner.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaWSednUYAAJvfafttUm3aiSfGQeuiUQswLmTPqLjPEUz" /></p>
+<h3 id="22-encoding-digital-assets-in-an-open-system">2.2 Encoding Digital Assets in an Open System<a class="headerlink" href="#22-encoding-digital-assets-in-an-open-system" title="Permanent link"></a></h3>
+<blockquote>
+<p>There are two properties of physical assets that are difficult to encode in digital assets:• Scarcity. The supply of assets in the system should be controlled. Duplicating existing assets should be prohibited, and creating new assets should be a privileged operation.• Access control. A participant in the system should be able to protect her assets with access control policies.</p>
+</blockquote>
+<p>It points out two major characteristics that digital assets need to achieve, which are considered natural for physical assets. For example, rare metal is naturally 
+<strong>scarce</strong>
+ , and only you have the 
+<strong>access</strong>
+ (ownership) of the bill in your hand before spending it.
+To illustrate how we came up with the two properties, let’s start with the following proposals:</p>
+<p><strong>Proposal#1: Simplest Rule Without Scarcity and Access Control</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcuSXE2qZvo6KqYFrCAxekHG8gSbE1mYfQETFpXdhAjUC" /></p>
+<ul>
+<li>
+<p><code>G[K]:=n</code> denotes updating the number stored at key 𝐾 in the global blockchain state with the value 𝑛.</p>
+</li>
+<li>
+<p><code>transaction ⟨Alice, 100⟩</code> means set Alice’s account balance to 100.
+The above representation has serval serious problems:</p>
+</li>
+<li>
+<p>Alice can have unlimited coins by sending <code>transaction ⟨Alice, 100⟩</code> herself.</p>
+</li>
+<li>
+<p>The coins that Alice sends to Bob are worthless since Bob could send himself unlimited coins using the same technic as well.</p>
+</li>
+</ul>
+<p><strong>Proposal#2: Taking Scarcity into Account</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc4BWkPsEtV1yuhtC37RTBGgKgGNpsoGNxrdkyouw5cMf" /></p>
+<p>Now we enforce that the number of coins stored under 𝐾𝑎 is at least 𝑛 before the transfer takes place.
+However, though this solves the scarcity issue, there’s no ownership checking on who can send Alice’s coins. (anyone can do so under this evaluation rule)</p>
+<p><strong>Proposal#3: Considering both Scarcity and Access Control</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfEiEAWq6zmhL8GZ1Z3hA1i3K4rhb9Ti5bD8T46eRnxSy" /></p>
+<p>We address the problem by using digital signature mechanism 
+<code>verify_sig</code>
+ before the scarcity checking, which means Alice uses her private key to sign the transaction and prove that she is the owner of her coin.</p>
+<h3 id="23-existing-blockchain-languages">2.3. Existing Blockchain Languages<a class="headerlink" href="#23-existing-blockchain-languages" title="Permanent link"></a></h3>
+<p>Existing blockchain languages are facing the following problems (all of them have been solved in 
+<em>Move</em>
+ ):</p>
+<blockquote>
+<ol>
+<li>
+<p>Indirect representation of assets. An asset is encoded using an integer, but an integer value is not the same thing as an asset. In fact, there is no type or value that represents Bitcoin/Ether/StrawCoin! This makes it awkward and error-prone to write programs that use assets. Patterns such as passing assets into/out of procedures or storing assets in data structures require special language support.</p>
+</li>
+<li>
+<p>Scarcity is not extensible. The language only represents one scarce asset. In addition, the scarcity protections are hardcoded directly in the language semantics. A programmer that wishes to create a custom asset must carefully reimplement scarcity with no support from the language.</p>
+</li>
+</ol>
+</blockquote>
+<p>These are exactly the problems in Ethereum smart contracts. Custom assets such as ERC-20 tokens use integer to represent its value and its total supply. Whenever new tokens are minted, the smart contract code has to manually check if the scarcity (total supply in this case) has been reached.
+Furthermore, serious bugs such as 
+<em>duplication, reuse, or loss of assets,</em>
+ are more likely to be introduced due to the Indirect representation of asset problem.</p>
+<blockquote>
+<ol>
+<li>Access control is not flexible. The only access control policy the model enforces is the signature scheme based on the public key. Like the scarcity protections, the access control policy is deeply embedded in the language semantics. It is not obvious how to extend the language to allow programmers to define custom access control policies.</li>
+</ol>
+</blockquote>
+<p>This is also true in Ethereum, where smart contracts do not have native language support for the public-private key cryptography to do access control. Developers have to manually write access control such as using 
+<a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/ownership/Ownable.sol#L35">OnlyOwner</a>
+ .
+Despite that I’m a big fan of Ethereum, I agree that these asset properties should be natively supported by the language for safety purposes.</p>
+<blockquote>
+<p>In particular, transferring Ether to a smart contract involves dynamic dispatch, which has led to a new class of bugs known as re-entrancy vulnerabilities</p>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Dynamic_dispatch">Dynamic dispatch</a>
+ here means that the code execution logic will be determined at runtime (dynamic) instead of compile time (static). Thus in Solidity, when contract A calls contract B’s function, contract B can run code that was unanticipated by contract A’s designer, which can lead to 
+<a href="https://consensys.github.io/smart-contract-best-practices/known_attacks/#reentrancy">re-entrancy vulnerabilities</a>
+ (contract A accidentally executes contract B’s function to withdraw money before actually deducting balances from the account).</p>
+<h3 id="3-move-design-goals">3. Move Design Goals<a class="headerlink" href="#3-move-design-goals" title="Permanent link"></a></h3>
+<h4 id="31-first-class-resources">3.1. First-Class Resources<a class="headerlink" href="#31-first-class-resources" title="Permanent link"></a></h4>
+<blockquote>
+<p>At a high level, the relationship between modules/resources/procedures in Move is similar to the relationship between classes/objects/methods in object-oriented programming.Move modules are similar to smart contracts in other blockchain languages. A module declares resource types and procedures that encode the rules for creating, destroying, and updating its declared resources.</p>
+</blockquote>
+<p>The 
+<strong>modules/resources/procedures</strong>
+ are just some jargons in 
+<em>Move.</em>
+ We will have an example to illustrate these later in this article;)</p>
+<h4 id="32-flexibility">3.2. Flexibility<a class="headerlink" href="#32-flexibility" title="Permanent link"></a></h4>
+<blockquote>
+<p>Move adds flexibility to Libra via transaction scripts. Each Libra transaction includes a transaction script that is effectively the main procedure of the transaction.</p>
+<p>The scripts can perform either expressive one-off behaviors (such as paying a specific set of recipients) or reusable behaviors (by invoking a single procedure that encapsulates the reusable logic)</p>
+</blockquote>
+<p>From the above, we can see that 
+<em>Move</em>
+ ’s transaction script introduces more flexibility since it is capable of 
+<strong>one-off behaviors</strong>
+ as well as 
+<strong>reusable behaviors,</strong>
+ while Ethereum can only perform 
+<strong>reusable behaviors</strong>
+ (which is invoking a single smart contract method). The reason why it’s named “ 
+<em>reusable</em>
+ ” is that smart contract functions can be executed multiple times.</p>
+<h4 id="33-safety">3.3. Safety<a class="headerlink" href="#33-safety" title="Permanent link"></a></h4>
+<blockquote>
+<p>The executable format of Move is a typed bytecode that is higher-level than assembly yet lower-level than a source language. The bytecode is checked on-chain for resource, type, and memory safety by a bytecode verifier and then executed directly by a bytecode interpreter. This choice allows Move to provide safety guarantees typically associated with a source language, but without adding the source compiler to the trusted computing base or the cost of compilation to the critical path for transaction execution.</p>
+</blockquote>
+<p>This is indeed a very neat design for 
+<em>Move</em>
+ to be a bytecode language. Since it doesn’t need to be compiled from the source to bytecode like Solidity, it doesn’t have to worry about the possible failures or attacks in compilers.</p>
+<h4 id="34-verifiability">3.4. Verifiability<a class="headerlink" href="#34-verifiability" title="Permanent link"></a></h4>
+<blockquote>
+<p>Our approach is to perform as much lightweight on-chain verification of key safety properties as possible, but design the Move language to support advanced off-chain static verification tools.</p>
+</blockquote>
+<p>From here we can see that Move prefers performing static verification instead of doing on-chain verification work. Nonetheless, as stated at the end of their paper, the verification tool is left for future work.</p>
+<blockquote>
+<ol>
+<li>Modularity. Move modules enforce data abstraction and localize critical operations on resources. The encapsulation enabled by a module combined with the protections enforced by the Move type system ensures that the properties established for a module’s types cannot be violated by code outside the module.</li>
+</ol>
+</blockquote>
+<p>This is also a very well thought data abstraction design! which means that the data in a smart contract can only be modified within the contract scope but not other contracts from the outside.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmatZY26D9qgAfHvji1yiUHcs9q5kVy8kBiufQy1j3Hk4o" /></p>
+<h3 id="4-move-overview">4. Move Overview<a class="headerlink" href="#4-move-overview" title="Permanent link"></a></h3>
+<blockquote>
+<p>The example transaction script demonstrates that a malicious or careless programmer outside the module cannot violate the key safety invariants of the module’s resources.</p>
+</blockquote>
+<p>This section walks you through an example about what 
+<strong>modules, resources, and procedures</strong>
+ actually is when writing the programming language.</p>
+<h4 id="41-peer-to-peer-payment-transaction-script">4.1. Peer-to-Peer Payment Transaction Script<a class="headerlink" href="#41-peer-to-peer-payment-transaction-script" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVtpAK4S88XWUD9ThQreTwgrY9u9m7MGVKHTMATAfmnJb" /></p>
+<p>There are several new symbols here (The small red text is my own notes XD):</p>
+<ul>
+<li>
+<p><code>0x0</code> : the account address where the <em>module</em> is stored</p>
+</li>
+<li>
+<p><code>Currency</code> : the name of the <em>module</em> </p>
+</li>
+<li>
+<p><code>Coin</code> : the resource type</p>
+</li>
+<li>
+<p>The value <code>coin</code> returned by the <em>procedure</em> is a resource value whose type is <code>0x0.Currency.Coin</code> </p>
+</li>
+<li>
+<p><code>move()</code> : the value can not be used again</p>
+</li>
+<li>
+<p><code>copy()</code> : the value can be used later</p>
+</li>
+</ul>
+<h4 id="code-breakdown">Code breakdown:<a class="headerlink" href="#code-breakdown" title="Permanent link"></a></h4>
+<blockquote>
+<p>In the first step, the sender invokes a procedure named withdraw_from_sender from the module stored at 0x0.Currency.</p>
+<p>In the second step, the sender transfers the funds to payee by moving the coin resource value into the 0x0.Currency module’s deposit procedure.</p>
+</blockquote>
+<h4 id="here-are-3-types-of-code-examples-that-will-be-rejected">Here are 3 types of code examples that will be rejected:<a class="headerlink" href="#here-are-3-types-of-code-examples-that-will-be-rejected" title="Permanent link"></a></h4>
+<p><strong>1. Duplicating currency by changing</strong></p>
+<p><code>move(coin)</code></p>
+<p><strong>to</strong></p>
+<p><code>copy(coin)</code></p>
+<blockquote>
+<p>Resource values can only be moved. Attempting to duplicate a resource value (e.g., using copy(coin) in the example above) will cause an error at bytecode verification time.</p>
+</blockquote>
+<p>Because 
+<code>coin</code>
+ is a 
+<em>resource</em>
+ value, it can only be moved.</p>
+<p><strong>2. Reusing currency by writing</strong></p>
+<p><code>move(coin)</code></p>
+<p><strong>twice</strong></p>
+<blockquote>
+<p>Adding the line 0x0.Currency.deposit(copy(some_other_payee), move(coin)) to the example above would let the sender “spend” coin twice — the first time with payee and the second with some_other_payee. This undesirable behavior would not be possible with a physical asset. Fortunately, Move will reject this program.</p>
+</blockquote>
+<p><strong>3. Losing currency by neglecting to</strong></p>
+<p><code>move(coin)</code></p>
+<blockquote>
+<p>Failing to move a resource (e.g., by deleting the line that contains move(coin) in the example above) will trigger a bytecode verification error. This protects Move programmers from accidentally — or intentionally — losing track of the resource.</p>
+</blockquote>
+<h4 id="42-currency-module">4.2. Currency Module<a class="headerlink" href="#42-currency-module" title="Permanent link"></a></h4>
+<h4 id="421-primer-move-execution-model">4.2.1 Primer: Move execution model<a class="headerlink" href="#421-primer-move-execution-model" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZg7JGXRoRjmFbicAtJnqpCdAXijb8PYswBnQU9EdziUS" /></p>
+<blockquote>
+<p>Each account can contain zero or more modules (depicted as rectangles) and one or more resource val- ues (depicted as cylinders). For example, the account at address 0x0 contains a module 0x0.Currency and a resource value of type 0x0.Currency.Coin. The account at address 0x1 has two resources and one module; the account at address 0x2 has two modules and a single resource value.</p>
+</blockquote>
+<p><strong>Some highlights:</strong></p>
+<ul>
+<li>
+<p>Executing a transaction script is all-or-nothing</p>
+</li>
+<li>
+<p>A module is a long-lived piece of code published in the global state</p>
+</li>
+<li>
+<p>The global state is structured as a map from account addresses to accounts</p>
+</li>
+<li>
+<p>Accounts can contain at most one resource value of a given type and at most one module with a given name (The account at address <code>0x0</code> would not be allowed to contain an additional <code>0x0.Currency.Coin</code> resource or another module named <code>Currency</code> )</p>
+</li>
+<li>
+<p>The address of the declaring module is part of the type ( <code>0x0.Currency.Coin</code> and <code>0x1.Currency.Coin</code> are distinct types that cannot be used interchangeably)</p>
+</li>
+<li>
+<p>Programmers can still hold multiple instances of a given resource type in an account by defining a custom wrapper resource
+( 
+<code>resource TwoCoins { c1: 0x0.Currency.Coin, c2: 0x0.Currency.Coin }</code>
+ )</p>
+</li>
+<li>
+<p>The rule is it is ok as long as you can still reference the resource by its name without having conflicts, for example, you can reference the two resources using <code>TwoCoins.c1</code> and <code>TwoCoins.c2</code> .</p>
+</li>
+</ul>
+<h4 id="422-declaring-the-coin-resource">4.2.2 Declaring the Coin Resource<a class="headerlink" href="#422-declaring-the-coin-resource" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSq21xiWEa4777EJ1VQsph5jq8LLN1kfVd9EXC1exe3U3" /></p>
+<p><strong>Some highlights:</strong></p>
+<ul>
+<li>
+<p>A Coin is a struct type with a single field value of type u64 (a 64-bit unsigned integer)</p>
+</li>
+<li>
+<p>Only the <em>procedures</em> of the <code>Currency</code>  <em>module</em> can create or destroy values of type <code>Coin</code> </p>
+</li>
+<li>
+<p>Other <em>modules</em> and <em>transaction scripts</em> can only write or reference the value field via the public <em>procedures</em> exposed by the <em>module</em> </p>
+</li>
+</ul>
+<h4 id="423-implementing-deposit">4.2.3 Implementing Deposit<a class="headerlink" href="#423-implementing-deposit" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVyN7HCkXim6enAaKRWyYMiDU1FVCREQZWNL9FE3WYNE2" /></p>
+<blockquote>
+<p>This procedure takes a Coin resource as input and combines it with the Coin resource stored in the payee’s account by:1. Destroying the input Coin and recording its value.2. Acquiring a reference to the unique Coin resource stored under the payee’s account.3. Incrementing the value of payee’s Coin by the value of the Coin passed to the procedure.</p>
+</blockquote>
+<p><strong>Some highlights:</strong></p>
+<ul>
+<li>
+<p><code>Unpack, BorrowGlobal</code> are builtin <em>procedures</em> </p>
+</li>
+<li>
+<p><code>Unpack&lt;T&gt;</code> is the only way to delete a resource of type T. It takes a resource of type T as input, destroys it, and returns the values bound to the fields of the resource</p>
+</li>
+<li>
+<p><code>BorrowGlobal&lt;T&gt;</code> takes an address as input and returns a reference to the unique instance of T published under that address</p>
+</li>
+<li>
+<p><code>&amp;mut Coin</code> is a mutable reference to a <code>Coin</code>  <em>resource</em> , not <code>Coin</code> </p>
+</li>
+</ul>
+<h4 id="424-implementing-withdraw_from_sender">4.2.4 Implementing withdraw_from_sender<a class="headerlink" href="#424-implementing-withdraw_from_sender" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZxxtzSnsTDL5yY3JXMgG7RRGieThvpCQ9d9BxFg1qwYD" /></p>
+<blockquote>
+<p>This procedure:</p>
+<ol>
+<li>Acquires a reference to the unique resource of type Coin published under the sender’s account.2. Decreases the value of the referenced Coin by the input amount.3. Creates and returns a new Coin with value amount.</li>
+</ol>
+</blockquote>
+<p><strong>Some highlights:</strong></p>
+<ul>
+<li>
+<p><code>Deposit</code> can be called by anyone but <code>withdraw_from_sender</code> has access control to only be callable by the owner of coin</p>
+</li>
+<li>
+<p><code>GetTxnSenderAddress</code> is similar to Solidity’s <code>msg.sender</code> </p>
+</li>
+<li>
+<p><code>RejectUnless</code> is similar to Solidity’s <code>require</code> . If this check fails, execution of the current transaction script halts and none of the operations it performed will be applied to the global state</p>
+</li>
+<li>
+<p><code>Pack&lt;T&gt;</code> , also a builtin <em>procedure</em> , creates a new resource of type T</p>
+</li>
+<li>
+<p>Like <code>Unpack&lt;T&gt;</code> , <code>Pack&lt;T&gt;</code> can only be invoked inside the declaring module of resource T</p>
+</li>
+</ul>
+<h3 id="wrap-up">Wrap up<a class="headerlink" href="#wrap-up" title="Permanent link"></a></h3>
+<p>Now that you have an overview of what is the main characteristics of 
+<em>Wave,</em>
+ how it compares to Ethereum, and also familiar with its basic syntax.
+Lastly, I highly recommend reading through the 
+<a href="https://developers.libra.org/docs/assets/papers/libra-move-a-language-with-programmable-resources.pdf">original white paper</a>
+ . It includes a lot of details regarding the programming language design principles behind and many great references.
+Thank you so much for your time reading. Feel free to share this with someone who might be interested :) Any suggestions are also welcomed!!</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV4CcTkR8h9xWtyDJaTxbQKRNuiQCw2t6vfFWdjRRvn9C" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/whitepaper-deep-dive-move-facebook-libra-blockchai/aaff5b1d82dd46b9a8668ec983a71548/a</li>
+<li><strong>Kauri original author:</strong> Lee Ting Ting (@tina1998612)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-19</li>
+<li><strong>Kauri original tags:</strong> cryptocurrency, ethereum, blockchain, facebook, community, bitcoin, technical-analysis</li>
+<li><strong>Kauri original hash:</strong> QmQPJcJqGmk6egz2K4ySdQQTa3V9UJTTwFEujdq7ZSoMmi</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../quick-dive-into-the-move-programming-language/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../quick-dive-into-the-move-programming-language/" class="btn btn-xs btn-link">
+        Quick Dive into the Move Programming Language
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../building-and-working-with-facebook-s-cryptocurren/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../building-and-working-with-facebook-s-cryptocurren/" class="btn btn-xs btn-link">
+        Building and Working with Facebook’s Cryptocurrency Libra
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Libra/whitepaper-deep-dive-move--facebook-libra-blockch.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

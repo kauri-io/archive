@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Bitcoin/bitcoin-blockchain-overview/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Bitcoin Blockchain Overview - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Bitcoin Blockchain Overview", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Proof Of Work", url: "#proof-of-work" },
+              {title: "Block Height And Forking", url: "#block-height-and-forking" },
+              {title: "Transaction Data", url: "#transaction-data" },
+              {title: "Consensus Rule Changes", url: "#consensus-rule-changes" },
+              {title: "Detecting Forks", url: "#detecting-forks" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="bitcoin-blockchain-overview">Bitcoin Blockchain Overview<a class="headerlink" href="#bitcoin-blockchain-overview" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme1FAbwNY7dgerFRE5n1cWCU8d9xkVnCbKVA7zK38AAxH" /></p>
+<p><em>This article originally appeared on <a href="https://bitcoin.org/en/blockchain-guide">bitcoin.org</a></em></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>Each full node in the Bitcoin network independently stores a block chain
+containing only blocks validated by that node. When several nodes all
+have the same blocks in their block chain, they are considered to be in
+<a href="https://bitcoin.org/en/glossary/consensus">consensus</a>. The validation rules these
+nodes follow to maintain consensus are called <a href="https://bitcoin.org/en/glossary/consensus-rules">consensus
+rules</a>. This section describes many of
+the consensus rules used by Bitcoin Core.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmThKV39X58nkRZmuhFKy17A1zcLASHhnnZKzEVMwvZi5Q" /></p>
+<p>The illustration above shows a simplified version of a block chain.
+A <a href="https://bitcoin.org/en/glossary/block">block</a> of one or more new transactions
+is collected into the transaction data part of a block.
+Copies of each transaction are hashed, and the hashes are then paired,
+hashed, paired again, and hashed again until a single hash remains, the
+<a href="https://bitcoin.org/en/glossary/merkle-root">merkle root</a> of a merkle tree.</p>
+<p>The merkle root is stored in the block header. Each block also
+stores the hash of the previous block's header, chaining the blocks
+together. This ensures a transaction cannot be modified without
+modifying the block that records it and all following blocks.</p>
+<p>Transactions are also chained together. Bitcoin wallet software gives
+the impression that satoshis are sent from and to wallets, but
+bitcoins really move from transaction to transaction. Each
+transaction spends the satoshis previously received in one or more earlier
+transactions, so the input of one transaction is the output of a
+previous transaction.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQrMZGXKQCXcX1do99MYSzAQiWzTXsp4qvrEvQEyCCEex" /></p>
+<p>A single transaction can create multiple outputs, as would be
+the case when sending to multiple addresses, but each output of
+a particular transaction can only be used as an input once in the
+block chain. Any subsequent reference is a forbidden double
+spend---an attempt to spend the same satoshis twice.</p>
+<p>Outputs are tied to <a href="https://bitcoin.org/en/glossary/txid">transaction identifiers (TXIDs)</a>, which are the hashes
+of signed transactions.</p>
+<p>Because each output of a particular transaction can only be spent once,
+the outputs of all transactions included in the block chain can be categorized as either
+<a href="https://bitcoin.org/en/glossary/unspent-transaction-output">Unspent Transaction Outputs (UTXOs)</a> or spent transaction outputs. For a
+payment to be valid, it must only use UTXOs as inputs.</p>
+<p>Ignoring coinbase transactions (described later), if the value of a
+transaction's outputs exceed its inputs, the transaction will be
+rejected---but if the inputs exceed the value of the outputs, any
+difference in value may be claimed as a <a href="https://bitcoin.org/en/glossary/transaction-fee">transaction
+fee</a> by the Bitcoin
+<a href="https://bitcoin.org/en/glossary/mining">miner</a> who creates the block containing that
+transaction.
+For example, in the illustration above, each transaction spends 10,000 satoshis
+fewer than it receives from its combined inputs, effectively paying a 10,000
+satoshi transaction fee.</p>
+<h3 id="proof-of-work">Proof Of Work<a class="headerlink" href="#proof-of-work" title="Permanent link"></a></h3>
+<p>The block chain is collaboratively maintained by anonymous peers on the network, so
+Bitcoin requires that each block prove a significant amount of work was invested in
+its creation to ensure that untrustworthy peers who want to modify past blocks have
+to work harder than honest peers who only want to add new blocks to the
+block chain.</p>
+<p>Chaining blocks together makes it impossible to modify transactions included
+in any block without modifying all subsequent blocks. As a
+result, the cost to modify a particular block increases with every new block
+added to the block chain, magnifying the effect of the proof of work.</p>
+<p>The <a href="https://bitcoin.org/en/glossary/proof-of-work">proof of work</a> used in Bitcoin
+takes advantage of the apparently random nature of cryptographic hashes.
+A good cryptographic hash algorithm converts arbitrary data into a
+seemingly random number. If the data is modified in any way and
+the hash re-run, a new seemingly random number is produced, so there is
+no way to modify the data to make the hash number predictable.</p>
+<p>To prove you did some extra work to create a block, you must create a
+hash of the block header which does not exceed a certain value. For
+example, if the maximum possible hash value is <span
+class="math">2<sup>256</sup> − 1</span>, you can prove that you
+tried up to two combinations by producing a hash value less than <span
+class="math">2<sup>255</sup></span>.</p>
+<p>In the example given above, you will produce a successful hash on average every other try.
+You can even estimate the probability
+that a given hash attempt will generate a number below the <a href="https://bitcoin.org/en/glossary/nbits">target</a>
+threshold.
+Bitcoin assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.</p>
+<p>New blocks will only be added to the block chain if their hash is at
+least as challenging as a <a href="https://bitcoin.org/en/glossary/difficulty">difficulty</a> value expected by the consensus protocol.
+Every 2,016 blocks, the network uses timestamps stored in each
+block header to calculate the number of seconds elapsed between generation
+of the first and last of those last 2,016 blocks. The ideal value is
+1,209,600 seconds (two weeks).</p>
+<ul>
+<li>
+<p>If it took fewer than two weeks to generate the 2,016 blocks,
+  the expected difficulty value is increased proportionally (by as much
+  as 300%) so that the next 2,016 blocks should take exactly two weeks
+  to generate if hashes are checked at the same rate.</p>
+</li>
+<li>
+<p>If it took more than two weeks to generate the blocks, the expected
+  difficulty value is decreased proportionally (by as much as 75%) for
+  the same reason.</p>
+</li>
+</ul>
+<p>(Note: an off-by-one error in the Bitcoin Core implementation causes the
+difficulty to be updated every 2,01<em>6</em> blocks using timestamps from only
+2,01<em>5</em> blocks, creating a slight skew.)</p>
+<p>Because each block header must hash to a value below the target
+threshold, and because each block is linked to the block that
+preceded it, it requires (on average) as much hashing power to
+propagate a modified block as the entire Bitcoin network expended
+between the time the original block was created and the present time.
+Only if you acquired a majority of the network's hashing power
+could you reliably execute such a <a href="https://bitcoin.org/en/glossary/51-percent-attack">51 percent attack</a> against
+transaction history (although, it should be noted, that even less than 50% of the hashing power still has a good chance of performing such attacks).</p>
+<p>The block header provides several easy-to-modify fields, such as a
+dedicated nonce field, so obtaining new hashes doesn't require waiting
+for new transactions. Also, only the 80-byte block header is hashed for
+proof-of-work, so including a large volume of transaction data in
+a block does not slow down hashing with extra I/O, and adding additional
+transaction data only requires the recalculation of the ancestor hashes in
+the merkle tree.</p>
+<h3 id="block-height-and-forking">Block Height And Forking<a class="headerlink" href="#block-height-and-forking" title="Permanent link"></a></h3>
+<p>Any Bitcoin miner who successfully hashes a block header to a value
+below the target threshold can add the entire block to the block chain
+(assuming the block is otherwise valid).
+These blocks are commonly addressed
+by their <a href="https://bitcoin.org/en/glossary/block-height">block height</a> ---the number of blocks between them and the first Bitcoin
+block (block 0, most commonly known as the <a href="https://bitcoin.org/en/glossary/genesis-block">genesis block</a>). For example,
+block 2016 is where difficulty could have first been adjusted.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSpjpTkDJbnyvZJvip7gXErAnv1rpW9NQs31LqXmLFFqk" /></p>
+<p>Multiple blocks can all have the same block height, as is common when
+two or more miners each produce a block at roughly the same time. This
+creates an apparent <a href="https://bitcoin.org/en/glossary/fork">fork</a> in the block chain, as shown in the
+illustration above.</p>
+<p>When miners produce simultaneous blocks at the end of the block chain, each
+node individually chooses which block to accept. In the absence of
+other considerations, discussed below, nodes usually use the first
+block they see.</p>
+<p>Eventually a miner produces another block which attaches to only one of
+the competing simultaneously-mined blocks. This makes that side of
+the fork stronger than the other side.
+Assuming a fork only contains valid
+blocks, normal peers always follow the most difficult chain
+to recreate and throw away <a href="https://bitcoin.org/en/glossary/stale-block">stale blocks</a> belonging to shorter forks.
+(Stale blocks are also sometimes called orphans or orphan blocks<!--noref-->, but
+those terms are also used for true orphan blocks without a known parent block.)</p>
+<p>Long-term forks are possible if different miners work at cross-purposes,
+such as some miners diligently working to extend the block chain at the
+same time other miners are attempting a 51 percent attack to revise
+transaction history.</p>
+<p>Since multiple blocks can have the same height during a block chain fork, block
+height should not be used as a globally unique identifier. Instead, blocks
+are usually referenced by the hash of their header (often with the byte order reversed, and in hexadecimal).</p>
+<h3 id="transaction-data">Transaction Data<a class="headerlink" href="#transaction-data" title="Permanent link"></a></h3>
+<p>Every block must include one or more transactions. The first one of these
+transactions must be a coinbase transaction, also called a generation transaction, which should collect and
+spend the block reward (comprised of a block subsidy and any transaction fees paid by transactions included in this block).</p>
+<p>The UTXO of a coinbase transaction has the special condition that
+it cannot be spent (used as an input) for at least 100 blocks. This temporarily
+prevents a miner from spending the transaction fees and block reward from a
+block that may later be determined to be stale (and therefore the coinbase transaction destroyed) after a block chain fork.</p>
+<p>Blocks are not required to include any non-coinbase transactions, but
+miners almost always do include additional transactions in order to
+collect their transaction fees.</p>
+<p>All transactions, including the coinbase transaction, are encoded into
+blocks in binary raw transaction format.</p>
+<p>The raw transaction format is hashed to create the transaction
+identifier (txid). From these txids, the <a href="https://bitcoin.org/en/glossary/merkle-tree">merkle tree</a> is constructed by pairing each
+txid with one other txid and then hashing them together. If there are
+an odd number of txids, the txid without a partner is hashed with a
+copy of itself.</p>
+<p>The resulting hashes themselves are each paired with one other hash and
+hashed together. Any hash without a partner is hashed with itself. The
+process repeats until only one hash remains, the merkle root.</p>
+<p>For example, if transactions were merely joined (not hashed), a
+five-transaction merkle tree would look like the following text diagram:</p>
+<pre><code>       ABCDEEEE .......Merkle root
+      /        \
+   ABCD        EEEE
+  /    \      /
+ AB    CD    EE .......E is paired with itself
+/  \  /  \  /
+A  B  C  D  E .........Transactions
+</code></pre>
+<p>As discussed in the Simplified Payment Verification (SPV) subsection,
+the merkle tree allows clients to verify for
+themselves that a transaction was included in a block by obtaining the
+merkle root from a block header and a list of the intermediate hashes
+from a full peer. The full peer does not need to be trusted: it is
+expensive to fake block headers and the intermediate hashes cannot be faked or
+the verification will fail.</p>
+<p>For example, to verify transaction D was added to the
+block, an SPV client only needs a copy of the C, AB, and EEEE hashes in addition to the
+merkle root; the client doesn't need to know anything about any of the
+other transactions. If the five transactions in this block were all at
+the maximum size, downloading the entire block would require over
+500,000 bytes---but downloading three hashes plus the block header
+requires only 140 bytes.</p>
+<p>Note: If identical txids are found within the same block, there is a possibility that the merkle tree may collide with a block with some or all duplicates removed due to how unbalanced merkle trees are implemented (duplicating the lone hash).
+Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached;
+otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as CVE-2012-2459.</p>
+<h3 id="consensus-rule-changes">Consensus Rule Changes<a class="headerlink" href="#consensus-rule-changes" title="Permanent link"></a></h3>
+<p>To maintain consensus, all full nodes validate blocks using the same
+consensus rules. However, sometimes the consensus rules are changed to
+introduce new features or prevent network abuse. When the new rules are
+implemented, there will likely be a period of time when non-upgraded
+nodes follow the old rules and upgraded nodes follow the new rules,
+creating two possible ways consensus can break:</p>
+<ol>
+<li>
+<p>A block following the new consensus rules is accepted by upgraded
+   nodes but rejected by non-upgraded nodes. For example, a new
+   transaction feature is used within a block: upgraded nodes understand
+   the feature and accept it, but non-upgraded nodes reject it because
+   it violates the old rules.</p>
+</li>
+<li>
+<p>A block violating the new consensus rules is rejected by upgraded
+   nodes but accepted by non-upgraded nodes. For example, an abusive
+   transaction feature is used within a block: upgraded nodes reject it
+   because it violates the new rules, but non-upgraded nodes accept it
+   because it follows the old rules.</p>
+</li>
+</ol>
+<p>In the first case, rejection by non-upgraded nodes, mining software
+which gets block chain data from those non-upgraded nodes refuses to
+build on the same chain as mining software getting data from upgraded
+nodes. This creates permanently divergent chains---one for non-upgraded
+nodes and one for upgraded nodes---called a <a href="https://bitcoin.org/en/glossary/hard-fork">hard
+fork</a>.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf1pmytUhhrvMXkrPoYfAL1oNayrfwLMJxiRCQw3gRB5F" /></p>
+<p>In the second case, rejection by upgraded nodes, it's possible to keep
+the block chain from permanently diverging if upgraded nodes control a
+majority of the hash rate. That's because, in this case, non-upgraded
+nodes will accept as valid all the same blocks as upgraded nodes, so the
+upgraded nodes can build a stronger chain that the non-upgraded nodes
+will accept as the best valid block chain. This is called a <a href="https://bitcoin.org/en/glossary/soft-fork">soft
+fork</a>.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRavJXZFsjBBJDb5Sij748BnJpbQKhJyoCfbQRW37p4WQ" /></p>
+<p>Although a fork is an actual divergence in block chains, changes to the
+consensus rules are often described by their potential to create either
+a hard or soft fork. For example, "increasing the block size above 1 MB
+requires a hard fork." In this example, an actual block chain fork is
+not required---but it is a possible outcome.</p>
+<p>Consensus rule changes may be activated in various ways. During Bitcoin's
+first two years, Satoshi Nakamoto performed several soft forks by just
+releasing the backwards-compatible change in a client that began immediately
+enforcing the new rule. Multiple soft forks such as BIP30 have
+been activated via a flag day where the new rule began to be enforced at a
+preset time or block height. Such forks activated via a flag day are known as
+<a href="https://bitcoin.org/en/glossary/uasf">User Activated Soft Forks</a> (UASF) as
+they are dependent on having sufficient users (nodes) to enforce the new rules
+after the flag day.</p>
+<p>Later soft forks waited for a majority of hash rate (typically 75% or 95%)
+to signal their readiness for enforcing the new consensus rules. Once the signalling
+threshold has been passed, all nodes will begin enforcing the new rules. Such
+forks are known as <a href="https://bitcoin.org/en/glossary/masf">Miner Activated Soft Forks</a> (MASF)
+as they are dependent on miners for activation.</p>
+<p><strong>Resources:</strong> [BIP16][], [BIP30][], and [BIP34][] were implemented as
+changes which might have lead to soft forks. [BIP50][] describes both an
+accidental hard fork, resolved by temporary downgrading the capabilities
+of upgraded nodes, and an intentional hard fork when the temporary
+downgrade was removed. A document from Gavin Andresen outlines <a href="https://gist.github.com/gavinandresen/2355445">how
+future rule changes may be
+implemented</a>.</p>
+<h3 id="detecting-forks">Detecting Forks<a class="headerlink" href="#detecting-forks" title="Permanent link"></a></h3>
+<p>Non-upgraded nodes may use and distribute incorrect information during
+both types of forks, creating several situations which could lead to
+financial loss. In particular, non-upgraded nodes may relay and accept
+transactions that are considered invalid by upgraded nodes and so will
+never become part of the universally-recognized best block chain.
+Non-upgraded nodes may also refuse to relay blocks or transactions which
+have already been added to the best block chain, or soon will be, and so
+provide incomplete information.</p>
+<!-- paragraph below based on src/main.cpp CheckForkWarningConditions() -->
+
+<p>Bitcoin Core includes code that detects a hard fork by looking at block
+chain proof of work. If a non-upgraded node receives block chain headers
+demonstrating at least six blocks more proof of work than the best chain
+it considers valid, the node reports a warning in the <code>getnetworkinfo</code> RPC
+results and runs the <code>-alertnotify</code> command if set.  This warns the
+operator that the non-upgraded node can't switch to what is likely the
+best block chain.</p>
+<p>Full nodes can also check block and transaction version numbers. If the
+block or transaction version numbers seen in several recent blocks are
+higher than the version numbers the node uses, it can assume it doesn't
+use the current consensus rules. Bitcoin Core reports this situation
+through the <code>getnetworkinfo</code> RPC and <code>-alertnotify</code> command if set.</p>
+<p>In either case, block and transaction data should not be relied upon
+if it comes from a node that apparently isn't using the current
+consensus rules.</p>
+<p>SPV clients which connect to full nodes can detect a likely hard fork by
+connecting to several full nodes and ensuring that they're all on the
+same chain with the same block height, plus or minus several blocks to
+account for transmission delays and stale blocks.  If there's a
+divergence, the client can disconnect from nodes with weaker chains.</p>
+<p>SPV clients should also monitor for block and transaction version number
+increases to ensure they process received transactions and create new
+transactions using the current consensus rules.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Bitcoin Blockchain Overview</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/bitcoin-blockchain-overview/60804658f033475cad5797438adcab90/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-04</li>
+<li><strong>Kauri original tags:</strong> blockchain, bitcoin</li>
+<li><strong>Kauri original hash:</strong> QmcokTjQSaABoiFy9LRjevpMxmodaSaXcfLQTNPgT8zLUu</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../creating-bitcoin-transactions/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../creating-bitcoin-transactions/" class="btn btn-xs btn-link">
+        Creating Bitcoin Transactions
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Libra/quick-dive-into-the-move-programming-language/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Libra/quick-dive-into-the-move-programming-language/" class="btn btn-xs btn-link">
+        Quick Dive into the Move Programming Language
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Bitcoin/bitcoin-blockchain-overview.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/making-p2p-marketplaces-trustless/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Making P2P marketplaces trustless - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Making P2P marketplaces trustless", url: "#_top", children: [
+              {title: "The holy grail of smart contracts and e-commerce, finally made possible", url: "#the-holy-grail-of-smart-contracts-and-e-commerce-finally-made-possible" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="making-p2p-marketplaces-trustless">Making P2P marketplaces trustless<a class="headerlink" href="#making-p2p-marketplaces-trustless" title="Permanent link"></a></h1>
+<hr />
+<h2 id="the-holy-grail-of-smart-contracts-and-e-commerce-finally-made-possible">The holy grail of smart contracts and e-commerce, finally made possible<a class="headerlink" href="#the-holy-grail-of-smart-contracts-and-e-commerce-finally-made-possible" title="Permanent link"></a></h2>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/600/1*9j0ewpT7YoSZJ63Ab3MgoA.png" /></p>
+<h3 id="why-you-need-a-peer-to-peer-marketplace-at-all">Why you need a peer-to-peer marketplace at all<a class="headerlink" href="#why-you-need-a-peer-to-peer-marketplace-at-all" title="Permanent link"></a></h3>
+<blockquote>
+<p>A peer-to-peer marketplace is a market where sellers and buyers trade without intermediaries.</p>
+</blockquote>
+<p>One of the largest communities and most exciting projects working towards enabling p2p marketplaces is <a href="https://district0x.io/">district0x</a> , a network of decentralized markets created, operated, and governed on top of <strong>Ethereum</strong> and <a href="https://aragon.one/">Aragon</a> .
+These kind of marketplaces leverage one of the more famous blockchain axioms: removing intermediaries reduces <strong>costs</strong> and facilitates <strong>free trade</strong> .
+But it also introduces a large degree of <strong>counterparty risk</strong> . One of the parties in the trade can lose money if the other doesn’t live up to their contractual obligations.
+If Alice pays Bob for some merchandise but she never receives it, she loses it all. She can’t enforce a <strong>penalty</strong> on Bob, who gets away with his fraud.
+Alice will prefer to pay only after she receives the merchandise. But that’s even riskier for Bob, especially when trading <strong>physical goods</strong> . If Bob sends the merchandise upfront, he needs some way to enforce payment upon delivery.
+This is why marketplaces exist in the first place. They act as <strong>trusted</strong> arbiters providing <strong>escrow</strong> and <strong>insurance</strong> services at a cost. They remove risk from trade and <strong>enforce</strong> penalties on misbehaving actors.
+Marketplaces also play an important role as “merchant <strong>rating</strong> agencies”. Customers’ comments and ratings are a crowdsourced assessment of each seller’s honesty.
+These reputation metrics <strong>incentivice</strong> merchants to remain honest in the long term. But they aren’t effective against <a href="https://en.wikipedia.org/wiki/Exit_scam">exit scams</a> . Merchants can become corrupt at any time. They can deceive a few customers before their reputation is significantly damaged.
+In peer-to-peer marketplaces, there is no intermediary to assume the economic impact of exit scams. <strong>Counterparty risk is unavoidable.</strong>  <strong>Or is it?</strong> </p>
+<h3 id="smart-contracts-as-decentralized-escrows-for-peer-to-peer-marketplaces">Smart contracts as decentralized escrows for peer-to-peer marketplaces<a class="headerlink" href="#smart-contracts-as-decentralized-escrows-for-peer-to-peer-marketplaces" title="Permanent link"></a></h3>
+<blockquote>
+<p>Escrows are independent trusted entities acting as custodians for funds in a trade. They release those funds depending on conditions agreed upon by the transacting parties.</p>
+</blockquote>
+<p><strong>Smart contracts</strong> are the perfect way to automatize escrows. They <strong>remove the need for trust</strong> from the equation. As long as their code is faithful to the agreed conditions, no deception is possible.
+Escrows are indeed one of the most popular use cases for smart contracts. But the problem comes when physical goods enter the formula. Current blockchain technology won’t allow you to create smart contracts that can check the delivery status of a parcel in order to decide whether the funds in a escrow should be released or refunded.
+This is the ugly truth about smart contracts’ state of the art: <strong>smart contracts are still completely isolated from the rest of the world.</strong> They have no means to retrieve information from websites and APIs in a trustless way.</p>
+<blockquote>
+<p>Relying on a single trusted party to feed external information into your smart contract completely defeats the point of using a smart contract in the first place.</p>
+</blockquote>
+<h3 id="decentralized-escrows-on-distric0x">Decentralized escrows on distric0x<a class="headerlink" href="#decentralized-escrows-on-distric0x" title="Permanent link"></a></h3>
+<p>This is where <strong>Witnet</strong> comes into play. Witnet is a <strong>decentralized oracle network</strong> . It allows smart contracts to read information from websites and APIs.
+Using Witnet, the <strong>district0x communities</strong> —the <em>districts</em> — can finally build <strong>the holy grail of e-commerce</strong> : decentralized <em>Amazon-like</em> marketplaces for physical goods.
+In these marketplaces, customers will send their payments to the underpinning smart contracts, which will act as a trustless escrow service.
+These contracts will then use Witnet to <strong>interact with the courier company’s API</strong> and check the <strong>delivery status of the parcel</strong> .
+As soon as the parcel is delivered, the funds will be <strong>released</strong> to the merchant. If on the contrary the parcel isn’t delivered before an agreed deadline, the funds will be <strong>refunded</strong> to the customer immediately.</p>
+<h3 id="cross-chain-payments-for-district0x-marketplaces">Cross-chain payments for district0x marketplaces<a class="headerlink" href="#cross-chain-payments-for-district0x-marketplaces" title="Permanent link"></a></h3>
+<p>Decentralized applications are currently limited by their inability to allow for payments in a variety of currencies. While a broad ecosystem of tokens has already been deployed on the Ethereum network in the form of <strong>ERC-20 tokens</strong> , there are hundreds of other blockchains whose native assets can not be easily integrated for payments in a decentralized marketplace built on Ethereum at present.
+Witnet will change this, making it possible for blockchains to <strong>interoperate</strong> with one another. Witnet will give a smart contract on the Ethereum blockchain the ability to check a transaction on other blockchains, granting smart contracts the ability to <strong>verify payment on a separate platform</strong> and to act accordingly once completed.
+By leveraging Witnet, users will be able to <strong>purchase goods</strong> from markets deployed on the district0x Network with Bitcoin, Ethereum, or virtually any other cryptocurrency of their choosing.
+Here’s more info on how Witnet enables <strong>cross-chain operations</strong> :</p>
+<h3 id="the-endgame">The endgame<a class="headerlink" href="#the-endgame" title="Permanent link"></a></h3>
+<p>These decentralized and cross-chain ecosystems powered by Witnet will offer the possibility for the participants in <strong>district0x</strong> districts to share and govern their own marketplaces not focusing merely on consumption but rather on <strong>peer-to-peer production</strong> and <strong>active participation</strong> .
+Projects like <a href="https://aragon.one/">Aragon</a> will be the cornerstone of how those markets will <strong>govern themselves</strong> . The Witnet team is also working side by side with the Aragon team to <a href="https://medium.com/witnet/enabling-crypto-networks-to-become-cross-chain-using-witnet-2c8d3731fcb5">make the Aragon Network work across different chains</a> .
+A new <strong>decentralized economy</strong> is being born, and the Witnet team is proud to be building one of its <strong>key building blocks</strong> .
+ <em>Want to be part of this revolution?</em>  <a href="https://angel.co/witnet-foundation-1/jobs">Join us, we are hiring!</a> </p>
+<hr />
+<p><em>( I’d like to thank</em>  <strong><a href="https://medium.com/@JoeUrgo">Joe Urgo</a></strong>  from the  <strong>district0x</strong>  team for his contributions to this post. )</p>
+<hr />
+<h3 id="want-to-know-more-about-the-use-cases-of-witnet">Want to know more about the use cases of Witnet?<a class="headerlink" href="#want-to-know-more-about-the-use-cases-of-witnet" title="Permanent link"></a></h3>
+<p>Don’t miss the next article in the series:
+You can also:</p>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Making P2P marketplaces trustless </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/making-p2p-marketplaces-trustless/c9b3cc69bec243b085255c65120b9f8b/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-15</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmSWYV46nMsip2vVt8DAVKPR1UgBCfnzvFnc9v7Jd4xEor</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../forward-...-to-the-hall-of-the-ancient-martian-wo/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../forward-...-to-the-hall-of-the-ancient-martian-wo/" class="btn btn-xs btn-link">
+        Forward ... to the Hall of the Ancient Martian Wormhole and/or Jim's Gallery
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../witnet-s-fall-event-schedule/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../witnet-s-fall-event-schedule/" class="btn btn-xs btn-link">
+        Witnet’s Fall Event Schedule
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/making-p2p-marketplaces-trustless.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

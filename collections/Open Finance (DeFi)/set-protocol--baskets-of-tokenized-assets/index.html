@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/set-protocol--baskets-of-tokenized-assets/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Set Protocol  Baskets of tokenized assets - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Set Protocol  Baskets of tokenized assets", url: "#_top", children: [
+              {title: "Concepts", url: "#concepts" },
+              {title: "Installation", url: "#installation" },
+              {title: "Usage", url: "#usage" },
+              {title: "Blockchain Setup", url: "#blockchain-setup" },
+              {title: "Web3", url: "#web3" },
+              {title: "Summary", url: "#summary" },
+              {title: "\ud83c\udf89 Congrats!", url: "#congrats" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="set-protocol-baskets-of-tokenized-assets">Set Protocol  Baskets of tokenized assets<a class="headerlink" href="#set-protocol-baskets-of-tokenized-assets" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNM92dhoDTzoyeT8XyYfwVr1ie9x7aVFjyNGHY9oDXtoy" /></p>
+<blockquote>
+<p>Set Protocol allows grouping multiple tokens into one asset. Each set is a deployed smart contract with each set being fully-collateralized. Anyone can deposit a token to the set contract and withdraw them back, which makes the sets permissionless. Sets comply with the ERC20 standard, so they can be transferred and traded on exchanges. This also means that sets can be grouped into other sets.</p>
+</blockquote>
+<p><em>This article originally appeared on the <a href="https://docs.setprotocol.com/#/getting-started">Set Protocol Docs Portal</a></em></p>
+<p>Welcome Settler of Tokan 👋 setprotocol.js is a Javascript library for interacting with Set Protocol.</p>
+<p><strong>Warning:</strong> This is Alpha software, and is subject to non-backwards compatible changes. Please develop at your own risk of major changes.</p>
+<p>Now that we got that out of the way, let’s get started 🚀</p>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link"></a></h2>
+<h4 id="typescript">Typescript<a class="headerlink" href="#typescript" title="Permanent link"></a></h4>
+<p><a href="https://www.npmjs.com/package/setprotocol.js">setprotocol.js</a> and <a href="https://www.npmjs.com/package/set-protocol-contracts">set-protocol-contracts</a> utilize Typescript to enforce strong static typing throughout our code bases. This makes typing checking and schema validation seamless which is particularly useful when working with financial products where there are many conversions and abstractions used.</p>
+<p>You can find more about Typescript <a href="https://www.typescriptlang.org/">here</a>.</p>
+<h4 id="async-await">Async / Await<a class="headerlink" href="#async-await" title="Permanent link"></a></h4>
+<p><code>setprotocol.js</code> is a promised-based library and makes heavy use of asynchronous calls. We recommend using the latest async / await syntax for clean asynchronous code without having to use a third party coroutine implementation. It looks something like this:</p>
+<pre><code>const getUserBalance = async function(userAddress) {
+  return await setProtocol.erc20.balanceOf(userAddress);
+};
+</code></pre>
+<p>You can learn more about async / await <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">here</a>.</p>
+<h4 id="bignumber">BigNumber<a class="headerlink" href="#bignumber" title="Permanent link"></a></h4>
+<p>Our libraries utilize the <code>bignumber.js</code> library for representations of large numbers in Javascript. This is due to Javascript’s inability to handle large numbers properly (more on this later). When passing numerical figures into <code>setprotocol.js</code> functions, we require that they be instances of BigNumber:</p>
+<pre><code>const quantityToIssue = new BigNumber(1000000);
+</code></pre>
+<p>If you’re having issues with BigNumber, it may be that you are using the wrong version. Try using BigNumber <code>v5.0.0</code> vs the latest.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
+<h4 id="setprotocoljs">setprotocol.js<a class="headerlink" href="#setprotocoljs" title="Permanent link"></a></h4>
+<p>The Javascript SDK can be installed via <code>yarn</code> or <code>npm</code>.</p>
+<h4 id="bignumberjs-500">BigNumber.js @ ^5.0.0<a class="headerlink" href="#bignumberjs-500" title="Permanent link"></a></h4>
+<p><code>setprotocol.js</code> uses BigNumber to represent large numbers. The latest stable version we use is <code>BigNumber@^5.0.0</code>.</p>
+<h4 id="web3-10">Web3 1.0<a class="headerlink" href="#web3-10" title="Permanent link"></a></h4>
+<p>This newest 1.1.0 release candidate of <code>setprotocol.js</code> uses Web3 1.0. If you want to use the older versions of web3, you will need to use an older version of setprotocol.js (i.e. v1.2.0-rc12).</p>
+<pre><code>// Recommended method
+yarn add setprotocol.js
+yarn add bignumber.js@^5.0.0
+yarn add web3@1.0.0-beta.36
+​
+// or
+npm install --save setprotocol.js
+npm install --save bignumber.js@^5.0.0
+npm install --save web3@1.0.0-beta.36
+</code></pre>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h2>
+<p>Let’s initialize our <code>setProtocol</code> instance. We need to first import our library like this:</p>
+<pre><code>import SetProtocol from 'setprotocol.js';
+</code></pre>
+<h4 id="config">Config<a class="headerlink" href="#config" title="Permanent link"></a></h4>
+<p>When instantiating an instance of <code>setProtocol</code>, the constructor requires a provider and config object.</p>
+<p>The configuration object requires inputs of the suite of Set smart contract addresses: Core, Transfer Proxy, Vault, RebalanceAuctionModule, Set Token Factory, Rebalancing Set Token Factory, Exchange Issue Module, Issuance Order Module, Rebalancing Token Issuance Module, and Payable Exchange Issue. The following external contract addresses are also required: Kyber Network Wrapper and Wrapped Ether.</p>
+<pre><code>const config = {
+  coreAddress: '0xxxx'
+  transferProxyAddress: '0x...',
+  vaultAddress: '0x...',
+  rebalanceAuctionModuleAddress: '0x...',
+  kyberNetworkWrapperAddress: '0x...',
+  setTokenFactoryAddress: '0x...',
+  rebalancingSetTokenFactoryAddress: '0x...',
+  exchangeIssueModuleAddress: '0x...',
+  issuanceOrderModuleAddress: '0x...',
+  rebalancingTokenIssuanceModule: '0x...',
+  payableExchangeIssue: '0x...',
+  wrappedEtherAddress: '0x...',
+};
+</code></pre>
+<p>For reference, we’ve provided the contract addresses below across multiple networks. We recommend using <code>Kovan</code> TestNet since it contains the 0x exchange contract which is required to build a Set relayer that consumes 0x orders for liquidity (more on this later).</p>
+<p>The rest of the contracts can be found in the Smart Contract section <a href="https://docs.setprotocol.com/#/contracts/#deployed-contracts">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Contract</th>
+<th>Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MainNet</td>
+<td><a href="https://etherscan.io/address/0x75FBBDEAfE23a48c0736B2731b956b7a03aDcfB2">Core</a></td>
+<td>0x75FBBDEAfE23a48c0736B2731b956b7a03aDcfB2</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x38E5462BBE6A72F79606c1A0007468aA4334A92b">ExchangeIssueModule</a></td>
+<td>0x38E5462BBE6A72F79606c1A0007468aA4334A92b</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x8440f6a2c42118bed0D6E6A89Bf170ffd13e21c0">IssuanceOrderModule</a></td>
+<td>0x8440f6a2c42118bed0D6E6A89Bf170ffd13e21c0</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x3700414Bb6716FcD8B14344fb10DDd91FdEA59eC">KyberNetworkWrapper</a></td>
+<td>0x3700414Bb6716FcD8B14344fb10DDd91FdEA59eC</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x18B739aabC019d9eF160D44BA8A9dD6a717372Af">PayableExchangeIssue</a></td>
+<td>0x18B739aabC019d9eF160D44BA8A9dD6a717372Af</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x1db929398958082d2080AA1B501e460503f60467">RebalanceAuctionModule</a></td>
+<td>0x1db929398958082d2080AA1B501e460503f60467</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x4c4C649455c6433dC48ff1571C9e50aC58f0CeFA">RebalancingSetTokenFactory</a></td>
+<td>0x4c4C649455c6433dC48ff1571C9e50aC58f0CeFA</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x1F6eE9CE38E6BEEB968BB91f755998548D3165e0">RebalancingTokenIssuanceModule</a></td>
+<td>0x1F6eE9CE38E6BEEB968BB91f755998548D3165e0</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x14f0321be5e581abF9d5BC76260bf015Dc04C53d">SetTokenFactory</a></td>
+<td>0x14f0321be5e581abF9d5BC76260bf015Dc04C53d</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x25C499e7306248C308cef403D9824110817b305C">TransferProxy</a></td>
+<td>0x25C499e7306248C308cef403D9824110817b305C</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x5ecd8E3b059BC5A69E2d7a73c60Bd4E9788972FF">Vault</a></td>
+<td>0x5ecd8E3b059BC5A69E2d7a73c60Bd4E9788972FF</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2">Wrapped Ether</a></td>
+<td>0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2</td>
+</tr>
+<tr>
+<td>Kovan</td>
+<td><a href="https://etherscan.io/address/0x79c9eCb5c9a34d5FFd2aDc956AdCaFcC6F983234">Core</a></td>
+<td>0x79c9eCb5c9a34d5FFd2aDc956AdCaFcC6F983234</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x5507dB57A67C029a33F0CC89B641C1963F4c9a4c">ExchangeIssueModule</a></td>
+<td>0x5507dB57A67C029a33F0CC89B641C1963F4c9a4c</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x2De291709980Dd2640c33e614E97D4e0aB4F1a27">IssuanceOrderModule</a></td>
+<td>0x2De291709980Dd2640c33e614E97D4e0aB4F1a27</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x40c39C462264ff8E0C372d3F18b6F0444d048e43">KyberNetworkWrapper</a></td>
+<td>0x40c39C462264ff8E0C372d3F18b6F0444d048e43</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x6E9C790fE4329e012BBd7DF93AbcA42276aCE374">PayableExchangeIssue</a></td>
+<td>0x6E9C790fE4329e012BBd7DF93AbcA42276aCE374</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x2C229EE3aD3fdC0e581d51BaA6b6f45CC9A6Ca39">RebalanceAuctionModule</a></td>
+<td>0x2C229EE3aD3fdC0e581d51BaA6b6f45CC9A6Ca39</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x5A736e0706066B4C3F91dbD1599A2C83b1Efe6f7">RebalancingSetTokenFactory</a></td>
+<td>0x5A736e0706066B4C3F91dbD1599A2C83b1Efe6f7</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x806E2a3e6dfB2387a4FfB7A44D8756b2EaFA574f">RebalancingTokenIssuanceModule</a></td>
+<td>0x806E2a3e6dfB2387a4FfB7A44D8756b2EaFA574f</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x8F43Ee43cE545193A79466642BC5FfF381036908">SetTokenFactory</a></td>
+<td>0x8F43Ee43cE545193A79466642BC5FfF381036908</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0x640f4F4AA4e4449F630d37801CAF5452b9462AC4">TransferProxy</a></td>
+<td>0x640f4F4AA4e4449F630d37801CAF5452b9462AC4</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://etherscan.io/address/0xb53A6593169A2974282f5690928FAe897A738571">Vault</a></td>
+<td>0xb53A6593169A2974282f5690928FAe897A738571</td>
+</tr>
+<tr>
+<td>TestRPC</td>
+<td>Core</td>
+<td>0x5315e44798395d4a952530d131249fe00f554565</td>
+</tr>
+<tr>
+<td></td>
+<td>SetTokenFactory</td>
+<td>0xdff540fe764855d3175dcfae9d91ae8aee5c6d6f</td>
+</tr>
+<tr>
+<td></td>
+<td>Vault</td>
+<td>0x72d5a2213bfe46df9fbda08e22f536ac6ca8907e</td>
+</tr>
+<tr>
+<td></td>
+<td>TransferProxy</td>
+<td>0x2ebb94cc79d7d0f1195300aaf191d118f53292a8</td>
+</tr>
+<tr>
+<td></td>
+<td>RebalancingSetTokenFactory</td>
+<td>0xc1be2c0bb387aa13d5019a9c518e8bc93cb53360</td>
+</tr>
+</tbody>
+</table>
+<h2 id="blockchain-setup">Blockchain Setup<a class="headerlink" href="#blockchain-setup" title="Permanent link"></a></h2>
+<p><strong>We recommend using the TestNet smart contracts</strong>, but we support developing on TestRPC here as well.</p>
+<p><strong>If you’re going to run on TestNet, you can go ahead and skip this section.</strong></p>
+<p>We have an Ethereum blockchain snapshot set up for you with <code>setprotocol.js</code> that is preloaded with all of the Set Protocol contracts.</p>
+<p>First, create your <code>set-chain</code> script that runs your TestRPC locally.</p>
+<pre><code>// package.json
+&quot;scripts&quot;: {
+  &quot;set-chain&quot;: &quot;set-chain&quot;
+}
+</code></pre>
+<p>Then open a new terminal tab in the same directory and run the following command.</p>
+<pre><code>yarn set-chain
+</code></pre>
+<p>This runs a blockchain locally using <a href="https://github.com/trufflesuite/ganache-cli">Ganache-cli</a> with the snapshots at <code>http://localhost:8545</code>.</p>
+<h2 id="web3">Web3<a class="headerlink" href="#web3" title="Permanent link"></a></h2>
+<p>Next, we need to instantiate the web3 <code>provider</code> to pass into the <code>SetProtocol</code> constructor. If you’re developing using a local node or TestRPC, the chain can be found at port 8545. If no instance is passed in (for instance when Metamask is injected into the global scope), we’ll attempt to use the Metamask Web3 object.</p>
+<h4 id="testnet-method">TestNet Method<a class="headerlink" href="#testnet-method" title="Permanent link"></a></h4>
+<p>When trying to connect to TestNet, use the web3 <code>provider</code> injected by MetaMask or Mist.</p>
+<pre><code>import * as Web3 from 'web3';
+​
+const injectedWeb3 = window.web3 || undefined;
+let provider;
+try {
+  // Use MetaMask/Mist provider
+  provider = injectedWeb3.currentProvider;
+} catch (err) {
+  // Throws when user doesn't have MetaMask/Mist running
+  throw new Error(`No injected web3 found when initializing setProtocol: ${err}`);
+}
+</code></pre>
+<h4 id="local-testrpc-method">Local TestRPC Method<a class="headerlink" href="#local-testrpc-method" title="Permanent link"></a></h4>
+<pre><code>import * as Web3 from 'web3';
+​
+const web3 = new Web3();
+​
+const provider = new Web3.providers.HttpProvider('http://localhost:8545');
+</code></pre>
+<h4 id="typescript_1">Typescript<a class="headerlink" href="#typescript_1" title="Permanent link"></a></h4>
+<p>If you’re using Typescript, you’ll need to declare your <code>web3</code> module. To do this, we’ll borrow from 0x who have generously exported Web3 typings for our use. Run:</p>
+<pre><code>yarn add @0xproject/typescript-typings
+</code></pre>
+<p>And add the following to your <code>tsconfig.json</code>:</p>
+<pre><code>// tsconfig.json
+{
+  &quot;compilerOptions&quot;: {
+    &quot;baseUrl&quot;: &quot;.&quot;,
+    &quot;typeRoots&quot;: [
+      &quot;node_modules/@0xproject/typescript-typings/types&quot;,
+      &quot;node_modules/setprotocol.js/src/types&quot;,
+      &quot;node_modules/@types&quot;
+    ],
+    &quot;paths&quot;: {
+      &quot;*&quot;: [
+        &quot;node_modules/@0xproject/typescript-typings/types/*&quot;,
+      ]
+    }
+  }
+}
+</code></pre>
+<p>This tells Typescript to look inside of the <code>node_modules/@0xproject/typescript-typings/types</code> and <code>node_modules/setprotocol.js/src/types</code> for type definitions, alongside the default <code>@types</code> folder.</p>
+<p>Next, you‘ll need to declare web3 on the Window object if you‘re using web3 on the front-end:</p>
+<pre><code>declare global {
+  // tslint:disable-next-line
+  interface Window { web3: any; }
+}
+</code></pre>
+<h4 id="instantiation">Instantiation<a class="headerlink" href="#instantiation" title="Permanent link"></a></h4>
+<p>Finally, we can instantiate our setProtocol instance by passing in the provider and configuration.</p>
+<pre><code>const setProtocol = new SetProtocol(provider, config);
+</code></pre>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h2>
+<p>With our packages imported, config set up, web3 initialized, and <code>setProtocol</code> instantiated, it should look like this:</p>
+<pre><code>import SetProtocol from 'setprotocol.js';
+import * as Web3 from 'web3';
+​
+// Kovan Config
+const config = {
+  coreAddress: '0x79c9eCb5c9a34d5FFd2aDc956AdCaFcC6F983234',
+  exchangeIssueModuleAddress: '0x5507dB57A67C029a33F0CC89B641C1963F4c9a4c',
+  issuanceOrderModuleAddress: '0x2De291709980Dd2640c33e614E97D4e0aB4F1a27',
+  kyberNetworkWrapperAddress: '0x40c39C462264ff8E0C372d3F18b6F0444d048e43',
+  payableExchangeIssueAddress: '0x6E9C790fE4329e012BBd7DF93AbcA42276aCE374',
+  rebalanceAuctionModuleAddress: '0x2C229EE3aD3fdC0e581d51BaA6b6f45CC9A6Ca39',
+  rebalancingSetTokenFactoryAddress: '0x5A736e0706066B4C3F91dbD1599A2C83b1Efe6f7',
+  rebalancingTokenIssuanceModuleAddress: '0x806E2a3e6dfB2387a4FfB7A44D8756b2EaFA574f',
+  setTokenFactoryAddress: '0x8F43Ee43cE545193A79466642BC5FfF381036908',
+  transferProxyAddress: '0x640f4F4AA4e4449F630d37801CAF5452b9462AC4',
+  wrappedEtherAddress: '0xd0a1e359811322d97991e03f863a0c30c2cf029c',
+  vaultAddress: '0xb53A6593169A2974282f5690928FAe897A738571',
+};
+​
+const injectedWeb3 = window.web3 || undefined;
+let provider;
+try {
+  // Use MetaMask/Mist provider
+  provider = injectedWeb3.currentProvider;
+} catch (err) {
+  // Throws when user doesn't have MetaMask/Mist running
+  throw new Error(`No injected web3 found when initializing setProtocol: ${err}`);
+}
+​
+const setProtocol = new SetProtocol(provider, config);
+</code></pre>
+<p>We can now start calling functions on the <code>setProtocol</code> instance like this:</p>
+<pre><code>// Example of calling createSetAsync method
+const txHash = await setProtocol.createSetAsync(/* args */);
+</code></pre>
+<h2 id="congrats">🎉 Congrats!<a class="headerlink" href="#congrats" title="Permanent link"></a></h2>
+<p>Now you’re ready to start building! Try your hand at some of our tutorials:</p>
+<ul>
+<li><a href="https://docs.setprotocol.com/#/tutorials#create-a-stable-set">Create a Set</a></li>
+<li><a href="https://docs.setprotocol.com/#/tutorials#issuing-a-set">Issuing a Set</a></li>
+<li><a href="https://docs.setprotocol.com/#/tutorials#redeeming-a-set">Redeeming a Set</a></li>
+<li><a href="https://docs.setprotocol.com/#/tutorials#create-and-fill-issuance-order">Create and Fill Issuance Order</a></li>
+<li><a href="https://docs.setprotocol.com/#/tutorials#0x-protocol-issuance-order-fill">Fill Issuance Order with 0x</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Set Protocol  Baskets of tokenized assets</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/set-protocol-baskets-of-tokenized-assets/f6bedcda0eb24decb02de9f4d3e42ef3/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-08</li>
+<li><strong>Kauri original tags:</strong> erc20, portfolio, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmWPvhLTS31wUkw3Hg9r526TN4vonNESKWPysFxaDhTC7o</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../an-introduction-to-bonding-curves/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../an-introduction-to-bonding-curves/" class="btn btn-xs btn-link">
+        An Introduction to Bonding Curves
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../uniswap--protocol-for-automated-token-exchange/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../uniswap--protocol-for-automated-token-exchange/" class="btn btn-xs btn-link">
+        Uniswap  Protocol for automated token exchange
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/set-protocol--baskets-of-tokenized-assets.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/devcon5-osaka-online-ticket-auction/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Devcon5 Osaka online ticket Auction - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Devcon5 Osaka online ticket Auction", url: "#_top", children: [
+              {title: "The mechanics of the Devcon5 online auction", url: "#the-mechanics-of-the-devcon5-online-auction" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="devcon5-osaka-online-ticket-auction">Devcon5 Osaka online ticket Auction<a class="headerlink" href="#devcon5-osaka-online-ticket-auction" title="Permanent link"></a></h1>
+<h2 id="the-mechanics-of-the-devcon5-online-auction">The mechanics of the Devcon5 online auction<a class="headerlink" href="#the-mechanics-of-the-devcon5-online-auction" title="Permanent link"></a></h2>
+<p>The auction mechanism takes its inspiration from Nick Johnson's ENS 1.0 auctions</p>
+<p>When you submit a bid it is masked so that nobody can be quite certain of the size of your bid. It is only when bidding closes that you reveal the bid to the rest of the world.</p>
+<p>There are three phases</p>
+<ol>
+<li>Bidding phase (1 bid per address)</li>
+<li>Reveal phase</li>
+<li>Withdrawal phase</li>
+</ol>
+<h3 id="bidding">Bidding<a class="headerlink" href="#bidding" title="Permanent link"></a></h3>
+<ol>
+<li>Decide how much you want to bid (bid amount)</li>
+<li>Select a <em>random</em> mask phrase</li>
+<li>Perform a hash of the bid amount and the mask phrase (hash value)</li>
+<li>Send the hash value in a transaction to the auction contract. This transaction must have a value greater or equal to the bid amount (mask value)</li>
+</ol>
+<p>At this point, people can see your mask amount but not your bid amount.</p>
+<h4 id="warning-be-sure-to-save-your-phrase-and-bid-amount"><strong>WARNING</strong> : BE SURE TO SAVE YOUR PHRASE AND BID AMOUNT<a class="headerlink" href="#warning-be-sure-to-save-your-phrase-and-bid-amount" title="Permanent link"></a></h4>
+<h3 id="revealing">Revealing<a class="headerlink" href="#revealing" title="Permanent link"></a></h3>
+<p>1) You reveal your bid by sending a 0 eth transaction to the reveal method of the contract supplying the mask phrase and the bid amount.</p>
+<p>Now your bid can be seen by everybody but nobody can submit more bids</p>
+<h4 id="warning"><strong>WARNING</strong><a class="headerlink" href="#warning" title="Permanent link"></a></h4>
+<h4 id="if-you-do-not-reveal-or-forget-your-mask-details-you-will-lose-everything">IF YOU DO NOT REVEAL, or FORGET YOUR MASK DETAILS YOU WILL LOSE EVERYTHING<a class="headerlink" href="#if-you-do-not-reveal-or-forget-your-mask-details-you-will-lose-everything" title="Permanent link"></a></h4>
+<h3 id="withdrawal">Withdrawal<a class="headerlink" href="#withdrawal" title="Permanent link"></a></h3>
+<p>Once the winning amount has been announced, people can withdraw excess ether</p>
+<ul>
+<li>If you won, you can withdraw the difference between the mask amount and the bid amount</li>
+<li>If you revealed but were unsuccessful your entire mask amount can be withdrawn</li>
+<li>If you wait too long (after the end of the withdrawal period) you will not be able to withdraw either of the above</li>
+</ul>
+<h3 id="what-you-pay-if-you-win">What you pay if you win<a class="headerlink" href="#what-you-pay-if-you-win" title="Permanent link"></a></h3>
+<p>You pay what you bid.</p>
+<h3 id="if-the-winning-amount-is-10-ether-and-i-bid-20-ether-but-bob-bid-15-ether">If the winning amount is 10 ether and I bid 20 ether but Bob bid 15 ether?<a class="headerlink" href="#if-the-winning-amount-is-10-ether-and-i-bid-20-ether-but-bob-bid-15-ether" title="Permanent link"></a></h3>
+<p>See above. You pay 20 ether, Bob pays 15.
+Thank you for your support.</p>
+<h3 id="if-the-winning-amount-is-10-ether-and-a-load-of-people-have-the-same-bid">If the winning amount is 10 ether and a load of people have the same bid<a class="headerlink" href="#if-the-winning-amount-is-10-ether-and-a-load-of-people-have-the-same-bid" title="Permanent link"></a></h3>
+<ol>
+<li>Everybody who bid &gt; winning amount gets a ticket</li>
+<li>The remaining tickets are allocated on a first to reveal basis.</li>
+</ol>
+<p>You can check the reveals by the <code>BidRevealed</code> event</p>
+<pre><code>   event BidRevealed(address bidder, uint256 bid);
+</code></pre>
+<h3 id="web-based-bidding-process">Web based bidding process<a class="headerlink" href="#web-based-bidding-process" title="Permanent link"></a></h3>
+<p>The entire process can be carried out at https://ethercards.devcon.org</p>
+<h4 id="placing-your-bid">Placing your bid<a class="headerlink" href="#placing-your-bid" title="Permanent link"></a></h4>
+<p>During the bidding period, if you have not previously placed a bid, you will be given a mask-phrase and asked for your bid amount. </p>
+<p>You can optionally modify the mask phrase before submission.</p>
+<p>If you have already bid from this address you will be shown a screen telling you that you cannot bid. If you bid from this browser window you will be shown the phrase used and the bid amount (it is saved in local storage). We do not recommend relying on this - still save your phrase and bid amount.</p>
+<h4 id="revealing-your-bid">Revealing your bid<a class="headerlink" href="#revealing-your-bid" title="Permanent link"></a></h4>
+<p>During the reveal phase, you will be shown a field for the bid and another for the mask phrase. These will be filled from local storage if available. Accepting this will send the 0 ether transaction to reveal the bid.</p>
+<p>And, of course if it has already been revealed.</p>
+<h4 id="withdrawing-your-bid-the-excess">Withdrawing your bid / the excess<a class="headerlink" href="#withdrawing-your-bid-the-excess" title="Permanent link"></a></h4>
+<p>After the reveal phase, a visit to the page will show if you have won or not and how much you can withdraw and a button to do so. Simply click the button.</p>
+<h3 id="accessing-via-alternative-mechanism-eg-mycrypto-mew-etherscan">Accessing via alternative mechanism (e.g. MyCrypto / MEW / etherscan)<a class="headerlink" href="#accessing-via-alternative-mechanism-eg-mycrypto-mew-etherscan" title="Permanent link"></a></h3>
+<p>Once we announce the contract address, you will be able to see the address and get the contract's ABI</p>
+<h4 id="checking-the-stage-of-the-auction">Checking the stage of the auction<a class="headerlink" href="#checking-the-stage-of-the-auction" title="Permanent link"></a></h4>
+<p>The following events are generated to show the parameters</p>
+<pre><code>    event  MinimumBid(uint256 _minimumBid);
+
+    event BiddingPeriod( uint256 startBids, uint256 endBids);
+    event RevealPeriod( uint256 startReveal, uint256 endReveal);
+    event WithdrawPeriod( uint256 startWithdraw, uint256 endWithdraw);
+
+    event WinningAmount(uint256 winningAmount);
+
+</code></pre>
+<p>You can also call the following functions from etherscan's contract read page</p>
+<pre><code>    function inBidding() public view returns (bool) 
+    function inReveal() public view returns (bool) {
+    function inWithdraw() public view returns (bool) {
+</code></pre>
+<p>Did you win? </p>
+<pre><code>    function isWinner(address check) public view returns(bool winner, bool inPeriod)
+</code></pre>
+<p>The first parameter tells you if you won
+The second is true during the withdrawal period</p>
+<h4 id="bidding_1">Bidding<a class="headerlink" href="#bidding_1" title="Permanent link"></a></h4>
+<p>The safest way to generate the hash is to call the <code>calculateHash</code> function.</p>
+<pre><code>function calculateHash(uint256 _bid, bytes memory _randString) public pure returns (bytes32)
+</code></pre>
+<p>The submission takes place via</p>
+<pre><code>function biddingTime(bytes32 _hash) public payable
+</code></pre>
+<p><strong>NOTE</strong>
+We cannot check that your bid is less than your mask amount.
+If <code>bid &gt; mask amount</code> you will be unable to reveal, hence losing your ether</p>
+<h4 id="revealing_1">Revealing<a class="headerlink" href="#revealing_1" title="Permanent link"></a></h4>
+<pre><code>function reveal(uint256 _bid, bytes memory randString) public
+</code></pre>
+<h4 id="withdrawing">Withdrawing<a class="headerlink" href="#withdrawing" title="Permanent link"></a></h4>
+<pre><code>function withdrawRefund() public
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Devcon5 Osaka online ticket Auction</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/devcon5-osaka-online-ticket-auction/c26a5fcda75c4b35bbee651ae2beed98/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-27</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, devcon, defi, devcon5</li>
+<li><strong>Kauri original hash:</strong> QmbVqLaLnFa4tSiehSvBUY82jkCsDLJksLaw2T7AQDTH1G</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../building-identity-linked-zksnarks-with-zokrates/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../building-identity-linked-zksnarks-with-zokrates/" class="btn btn-xs btn-link">
+        Building Identity-linked zkSNARKs with ZoKrates
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../create-your-own-security-token-offering-%28sto%29-wit/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../create-your-own-security-token-offering-%28sto%29-wit/" class="btn btn-xs btn-link">
+        Create Your Own Security Token Offering (STO) with Polymath
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/devcon5-osaka-online-ticket-auction.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

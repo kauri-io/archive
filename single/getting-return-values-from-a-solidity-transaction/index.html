@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/getting-return-values-from-a-solidity-transaction/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Getting return values from a solidity transaction - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Getting return values from a solidity transaction", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="getting-return-values-from-a-solidity-transaction">Getting return values from a solidity transaction<a class="headerlink" href="#getting-return-values-from-a-solidity-transaction" title="Permanent link"></a></h1>
+<p>In solidity we have learned that there are two ways to directly interact with smart contracts, by transactions and calls.</p>
+<p>Transactions change the state of the blockchain, Calls allow you to read that state.</p>
+<p>There is, however a little wrinkle that I decided to investigate as part of some work into upgradable contracts. I haven't seen anybody write about this before so I thought this may be useful to somebody.</p>
+<p><strong>Writing to the chain</strong></p>
+<p>A transaction when signed and submitted to the transaction pool and when mined will alter the internal state of one or more contracts. An example of a transaction would be the transfer function of an ERC20 token.</p>
+<p><code>function transfer(address destination, uint256 value) public returns (bool)</code></p>
+<p>As we should all be aware, calling this function from your account will cause a certain number of tokens to be transferred from your balance to the destination's balance. This transfer of tokens is the state change of the contract. This means that all the nodes on the network need to reach a consensus that your transaction is valid. This takes time.</p>
+<p>You will notice that the function returns a boolean result to indicate the success or failure of the transfer but if you send this function from a normal <em>externally owned address</em> (EOA*) - you are unable to check the boolean result that is returned because the transaction is submitted to be mined so the result is not immediately available on submission. This is why the event mechanism is available to allow the contract to communicate to the off chain world.</p>
+<p>*An <em>externally owned address</em> is an account for which you own the private key in some form as opposed to another smart contract.</p>
+<p><strong>Reading from the chain</strong></p>
+<p>By contrast, if all we want to do is to read something from a contract, for example and ERC20 balance we can do so using a <em>call</em>.</p>
+<p><code>function balanceOf(address owner) public view returns (uint256)</code></p>
+<p>The <code>view</code> keyword is one of two variants of the original <code>constant</code> keyword that is clearly defines this as a function that does NOT change the blockchain. Since each node in the blockchain should contain identical data, we only need to query a single node, usually a local one. Your local query, not requiring consensus, will return an immediate answer containing the data you requested.</p>
+<p>So let's take some very simple sample code</p>
+<pre><code>pragma solidity ^0.4.25;
+
+contract test {
+
+    uint val = 7;
+
+    function wotVal() public returns (uint) {
+        val++;
+        return val;
+    }
+}
+</code></pre>
+<p>You can see that if we submit a transaction to call <code>wotVal</code> it will increment the value of <code>val</code> but unfortunately you will not be able to find out the value of <code>val</code> because you can't get the resulting value from the transaction.</p>
+<p>If you mark the function <code>wotVal</code> as constant by adding <code>view</code>, you will not be able to submit a transaction that increments <code>val</code>.</p>
+<p><strong>Accessing the contract from myCrypto using the ABI</strong></p>
+<p>It IS possible however, to use this function in either mode if you do not mark it as constant.</p>
+<p>From a low level perspective you can either submit a transaction (to make the increment of val persistent) or you can use the call method to get the results. Let's see how we can do that.</p>
+<p>You will find this contract sitting at address <code>0x17d9486DCd19981B42a3214Ba97d1E1F130e801a</code> on the Kovan Network. You can interact with it. Find it on etherscan.</p>
+<p>https://kovan.etherscan.io/address/0x17d9486dcd19981b42a3214ba97d1e1f130e801a#contracts</p>
+<p>On this page you will find the ABI. You can access the contract from myCrypto. Select the Kovan network and "interact with contracts" from the tools menu.</p>
+<p><img alt="
+" src="https://ipfs.infura.io/ipfs/QmcqRJYhzsjZYqJd3cQhx2pnMkEeJP6pvZbT6MGrzwZT5U" /></p>
+<p>Paste the address of the contract (see above) as the address, and paste the ABI that you got from etherscan into the large text box.</p>
+<p>Clicking the access button, you will see that you can now call the wotVal function - but you are asked for an account with which to access it (e.g. Metamask). </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf25PRUaybpgmcfiSFa4YohjFDg9mccKwEWAnn2B8hYhD" /></p>
+<p>Using one of these would allow you to transact with the contract (i.e. bump the value of <code>val</code>) but you cannot read the return value.</p>
+<p><strong>But if we tweak the ABI....</strong></p>
+<p>Let's have a look at the ABI that we pasted. It defines how we interact with the contract. Formatting it slightly we get :</p>
+<pre><code>[
+    {
+        &quot;constant&quot;: false,
+        &quot;inputs&quot;: [],
+        &quot;name&quot;: &quot;wotVal&quot;,
+        &quot;outputs&quot;: [
+            {
+                &quot;name&quot;: &quot;&quot;,
+                &quot;type&quot;: &quot;uint256&quot;
+            }
+        ],
+        &quot;payable&quot;: false,
+        &quot;stateMutability&quot;: &quot;nonpayable&quot;,
+        &quot;type&quot;: &quot;function&quot;
+    }
+]
+</code></pre>
+<p>If we change constant to <code>true</code> and stateMutability to <code>view</code> and paste the new ABI into myCrypto, we now get a big READ button instead of an offer to use a wallet. Depending on how many people call the transaction, your reply probably won't be 9 but you do get a response. Do note however, that calling the function multiple times always results in the same answer because the changes when you bump <code>val</code> are not persistent.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRMsvV2VkvHe5cGWPfCQj4HGsbLmn2rrzAuS8AkLqn5GL" /></p>
+<p>This means that you can use exactly the same mechanism to read the reply from javascript using either the web3 call method or by using a modified ABI, or similar methods from Go, Python etc.</p>
+<p>Interestingly it also means that if you write an ERC20 and forgot to make the <em>balanceOf</em> function constant, almost every user would access it as if it were so it really would not matter!</p>
+<p><strong>How this is important</strong></p>
+<p>The way an upgradable contract works is that the data is stored in one (data) contract, but most transactions and calls are passed to another (business logic) contract via the delegatecall method. </p>
+<p>This means that your base contract is usually accessed via its fallback function because you will not know all the functions that may be needed in the future.</p>
+<p>Say, for example, you had released an ERC20 token but wanted to upgrade it to an ERC777 or some other kind of token. When you wrote the ERC20 you would not know all the ERC777 functions. You would rely on the fallback function to act as a catch-all and pass everything on to the business logic contract.</p>
+<p>Since we do not know in advance which function are going to be constant and which are not, we need to be able to treat functions as constant as required. The investigations here proved that this is possible.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Getting return values from a solidity transaction</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/getting-return-values-from-a-solidity-transaction/ea44be3e30264e0ea116c7ec0621bb51/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-21</li>
+<li><strong>Kauri original tags:</strong> transaction, solidity</li>
+<li><strong>Kauri original hash:</strong> QmNTMTdRP1L1fqequEDtA56gwAmgTVxJos6qp7CwbUjHiX</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../my-tradingview-setup-for-technical-analysis/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../my-tradingview-setup-for-technical-analysis/" class="btn btn-xs btn-link">
+        My TradingView setup for Technical Analysis
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../solving-the-%22the-following-signatures-were-invali/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../solving-the-%22the-following-signatures-were-invali/" class="btn btn-xs btn-link">
+        Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/getting-return-values-from-a-solidity-transaction.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

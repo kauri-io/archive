@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/witnet-monthly-report-october-2018/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Witnet Monthly Report — October 2018 - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Witnet Monthly Report\u200a\u2014\u200aOctober 2018", url: "#_top", children: [
+              {title: "\ud83d\udd27 Product", url: "#product" },
+              {title: "\ud83d\udc9c Team", url: "#team" },
+              {title: "\ud83c\udf0d Community", url: "#community" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="witnet-monthly-report-october-2018">Witnet Monthly Report — October 2018<a class="headerlink" href="#witnet-monthly-report-october-2018" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/0*MKHewYXXP1ugbMUU" /></p>
+<p><em>If this is your first time visiting our monthly updates, welcome! For some general background on Witnet and our technology, please</em> <a href="https://medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4">read this 3 minute primer</a>, <a href="https://witnet.io/static/witnet-whitepaper.pdf">take a look at our whitepaper</a> <em>, or check out our</em> <a href="https://medium.com/witnet/witnet-must-reads-digest-b8d26a909efb">project’s “must-reads” digest</a><em>.</em></p>
+<p>Every month we update you on our work towards the milestones 
+<a href="https://republic.co/witnet">set in our project roadmap</a>. In September, we proudly shared 
+<a href="https://medium.com/witnet/welcome-to-sheikah-5b658d4815c8">the release of our prototype, Sheikah</a>. Today we will share what we have been up to since then and 
+<strong>the progress we have made towards our next milestone: the Witnet testnet</strong>.</p>
+<h3 id="product">🔧 Product<a class="headerlink" href="#product" title="Permanent link"></a></h3>
+<h4 id="witnet-rust">Witnet-rust<a class="headerlink" href="#witnet-rust" title="Permanent link"></a></h4>
+<p>We are particularly excited to share that 
+<code>Witnet-rust</code>
+ development has boomed over the last month:</p>
+<ul>
+<li>
+<p>We <strong>adopted</strong>  <a href="https://actix.rs/">Actix</a> for powering the different components inside the full node in a concurrent and efficient way using green threads.</p>
+</li>
+<li>
+<p>We <strong>wrote encoders and decoders</strong> to be able to send Witnet protocol messages over the network using the <a href="https://google.github.io/flatbuffers/">FlatBuffers</a> library from Google.</p>
+</li>
+<li>
+<p>We implemented a lot more of <strong>infrastructure layer components</strong> that are not so noteworthy, but will have a very positive impact on our future development efficiency.</p>
+</li>
+<li>
+<p>We <strong>published the</strong>  <a href="https://docs.witnet.io/protocol/network/">specification for the basic network protocol messages</a> in the official documentation.</p>
+</li>
+<li>
+<p>The <a href="https://docs.witnet.io/protocol/data-requests/radon/encoding/">full specification for the RADON language</a>  <strong>has been published</strong> in the official documentation. This is huge: it includes all the data types and methods that will be available on testnet.</p>
+</li>
+<li>
+<p>We also <strong>published our</strong>  <a href="https://docs.witnet.io/roadmap/">updated roadmap</a>  <strong>and a</strong>  <a href="https://docs.witnet.io/glossary/">small glossary</a> that gathers our project-wise definitions of the crypto jargon terms we use the most.</p>
+</li>
+</ul>
+<p><strong>By The Way… Open Source Contributors:</strong></p>
+<p>Are you interested in contributing to the development of 
+<a href="https://github.com/witnet/witnet-rust">Witnet-rust</a>
+ ? We would be thrilled to have you! 
+<strong>Visit our new</strong> <a href="https://docs.witnet.io/contributing/">contributing guide</a> <strong>and</strong> [development guide] https://docs.witnet.io/development/) <strong>for more info</strong>!</p>
+<h3 id="team">💜 Team<a class="headerlink" href="#team" title="Permanent link"></a></h3>
+<p>This past week we 
+<a href="https://medium.com/witnet/team-insights-gorka-research-lead-76da9ecbee3d">introduced you to Gorka</a>, 
+<strong>our new Research Lead.</strong>
+ Gorka is leading our scientific, cryptographic and security research, and has experience working with security attacks and best practices in both software and hardware environments.</p>
+<p><strong>The Witnet Foundation still has</strong> <a href="https://angel.co/witnet-foundation-1/jobs">open positions</a>, so if you are aware of the impact a decentralized oracle network will have on the crypto landscape and want to get involved, be sure to check them out!</p>
+<h3 id="community">🌍 Community<a class="headerlink" href="#community" title="Permanent link"></a></h3>
+<p>As we 
+<a href="https://medium.com/witnet/witnets-fall-event-schedule-b94650a0351a">announced last month</a>, this October was packed with exciting events that we’re just now returning from. It was great to be able to see old friends and collaborators and also meet people who have never heard of Witnet or had not thought of the issues surrounding data oracles before. We found pretty much all of our conversations about what we’re working to solve and how we’re going about it to to be both enlightening and incredibly validating.</p>
+<h4 id="web3-summit">Web3 Summit<a class="headerlink" href="#web3-summit" title="Permanent link"></a></h4>
+<p>Our first stop was Berlin and the 
+<a href="https://web3summit.com/">Web3 Summit</a>. It was a great experience full of rich talks, learning, and discussing the best approach to the Oracle problem with other colleagues. We also got to participate in a cool interview with Griff from Giveth!</p>
+<body><style>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}</style><blockquote class="twitter-tweet" data-align="center" data-conversation="none" data-dnt="true"><p>Great talk between <a href="http://twitter.com/aesedepece" target="_blank" title="Twitter profile for @aesedepece">@aesedepece</a>, <a href="http://twitter.com/jrmoreau" target="_blank" title="Twitter profile for @jrmoreau">@jrmoreau</a> and <a href="http://twitter.com/thegrifft" target="_blank" title="Twitter profile for @thegrifft">@thegrifft</a> about Decentralized Oracles at #Web3Summit!</p><p> — <a href="https://twitter.com/witnet_io/status/1055513409356263425">@witnet_io</a></p></blockquote><script charset="utf-8" src="//platform.twitter.com/widgets.js"></script><script>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});</script><script>if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}</script></body>
+
+<h4 id="status-hackathon">Status Hackathon<a class="headerlink" href="#status-hackathon" title="Permanent link"></a></h4>
+<p>After that, we headed to Prague where we first participated as sponsors in the 
+<a href="https://hackathon.status.im/">Status #cryptolife hackathon</a>, a great event where we got to meet smart contract developers from all over the world and participate in meaningful conversations.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*l5vX2sf3FjAaYBP4690QSg.jpeg" /></p>
+<h4 id="d1conf">D1Conf<a class="headerlink" href="#d1conf" title="Permanent link"></a></h4>
+<p>Next, we headed to 
+<a href="https://d1conf.com/">D1Conf</a>, which we were fortunate enough to be able to sponsor. This was the decentralized insurance conference where Adán was able to deliver his 
+<strong>#DontTrustTheMessenger</strong>
+ talk: why smart contracts shouldn’t trust centralized data providers.</p>
+<body><style>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}</style><blockquote class="twitter-tweet" data-align="center" data-conversation="none" data-dnt="true"><p>P2P and DAOs are here to take over the world." <a href="http://twitter.com/witnet_io" target="_blank" title="Twitter profile for @witnet_io">@witnet_io</a> testnet coming January 2019.</p><p> — <a href="https://twitter.com/jbrukh/status/1056929974450618375">@jbrukh</a></p></blockquote><script charset="utf-8" src="//platform.twitter.com/widgets.js"></script><script>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});</script><script>if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}</script></body>
+
+<p>Adan also participated in an Oracle panel with other members of the community working on different approaches to solving the Oracle problem. It was a lively discussion that really hooked the audience. We were grateful to be part of one of the highlights of the whole event.</p>
+<body><style>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}</style><blockquote class="twitter-tweet" data-align="center" data-conversation="none" data-dnt="true"><p>Greatest minds in the space of #decentralized #oracles <a href="http://twitter.com/tensorjack" target="_blank" title="Twitter profile for @tensorjack">@tensorjack</a> <a href="http://twitter.com/ThomasBertani" target="_blank" title="Twitter profile for @ThomasBertani">@ThomasBertani</a> <a href="http://twitter.com/dougvk" target="_blank" title="Twitter profile for @dougvk">@dougvk</a> <a href="http://twitter.com/SergeyNazarov" target="_blank" title="Twitter profile for @SergeyNazarov">@SergeyNazarov</a> <a href="http://twitter.com/aesedepece" target="_blank" title="Twitter profile for @aesedepece">@aesedepece</a> <a href="http://twitter.com/bneiluj" target="_blank" title="Twitter profile for @bneiluj">@bneiluj</a> We have all of them on #D1Conf stage now together with <a href="http://twitter.com/RonB7139" target="_blank" title="Twitter profile for @RonB7139">@RonB7139</a> of <a href="http://twitter.com/coinbase" target="_blank" title="Twitter profile for @coinbase">@coinbase</a>. Really humbling 🙏🏻</p><p> — <a href="https://twitter.com/d1conf/status/1056933120178618368">@d1conf</a></p></blockquote><script charset="utf-8" src="//platform.twitter.com/widgets.js"></script><script>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});</script><script>if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}</script></body>
+
+<p>Finally, in this video interview, you can watch Adán explain the core of Witnet’s design and how our technology works on empowering smart contracts.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s0_Bwme-eHA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h4 id="devcon-iv">Devcon IV<a class="headerlink" href="#devcon-iv" title="Permanent link"></a></h4>
+<p>DevCon IV was the climax of Prague Blockchain Week and largely the pinnacle of the Fall event lineup this year. Over the course of several days, non-stop talks, workshops and immersive experiences were offered to an enthusiastic group of individuals from all over the world who were waiting with anticipation to share and hear updates on their favorite projects and initiatives. We were encouraged by seeing talks about the very problems we are trying to solve related to data oracles, including a packed talk given by Chainlink’s 
+<a href="https://twitter.com/chainlink/status/1058004990856454144">Sergey Nazarov</a>.</p>
+<body><style>body[data-twttr-rendered="true"] {background-color: transparent;}.twitter-tweet {margin: auto !important;}</style><blockquote class="twitter-tweet" data-align="center" data-conversation="none" data-dnt="true"><p>Lots of great talks and conversations happening at #Devcon4. <a href="http://twitter.com/aesedepece" target="_blank" title="Twitter profile for @aesedepece">@aesedepece</a> about to watch <a href="http://twitter.com/chainlink" target="_blank" title="Twitter profile for @chainlink">@chainlink</a> talk about decentralized oracles. #DontTrustTheMessenger</p><p> — <a href="https://twitter.com/witnet_io/status/1058003620875005952">@witnet_io</a></p></blockquote><script charset="utf-8" src="//platform.twitter.com/widgets.js"></script><script>function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}twttr.events.bind('rendered', function (event) {notifyResize();}); twttr.events.bind('resize', function (event) {notifyResize();});</script><script>if (parent && parent._resizeIframe) {var maxWidth = parseInt(window.frameElement.getAttribute("width")); if ( 500  < maxWidth) {window.frameElement.setAttribute("width", "500");}}</script></body>
+
+<p>For sure, traveling to Berlin and Prague for these events provided valuable opportunities for us to present our ideas and progress to the public and get feedback on where we’re at. But for now, <strong>our team is rapidly advancing towards our goals of a Q1 testnet launch and are more than eager to get heads down building again</strong>. We look forward to sharing even more updates as we head towards that milestone!</p>
+<hr />
+<h4 id="you-can-follow-witnet-on-twitter-and-stay-up-to-date-on-our-blog">You can follow Witnet on Twitter and stay up to date on our blog.<a class="headerlink" href="#you-can-follow-witnet-on-twitter-and-stay-up-to-date-on-our-blog" title="Permanent link"></a></h4>
+<p>You can also:</p>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a>, <a href="https://community.witnet.io/">Discourse</a> and <a href="https://discord.gg/QKEa5gU">Discord</a>. 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Witnet Monthly Report — October 2018</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/witnet-monthly-report-october-2018/e9a33360b3444342abadca28cf85213e/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmNUqXvXCLWzevgRFbD6xRgR9UvtZPnLzFgvjo1TeyZwpu</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../debugging-a-dapp-using-remix-mist-geth/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../debugging-a-dapp-using-remix-mist-geth/" class="btn btn-xs btn-link">
+        Debugging a Dapp using Remix - Mist - Geth
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../why-microsoft-could-become-a-force-to-reckon-with/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../why-microsoft-could-become-a-force-to-reckon-with/" class="btn btn-xs btn-link">
+        Why Microsoft could become a force to reckon with in Machine Learning
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/witnet-monthly-report-october-2018.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

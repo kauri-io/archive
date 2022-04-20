@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Getting%20started%20with%20dapp%20development/an-introduction-to-solidity-for-experienced-devel/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>An Introduction to Solidity for Experienced Developers - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "An Introduction to Solidity for Experienced Developers", url: "#_top", children: [
+              {title: "Addresses, accounts, and balances", url: "#addresses-accounts-and-balances" },
+              {title: "Functions and variables", url: "#functions-and-variables" },
+              {title: "Interfaces and abstract contracts", url: "#interfaces-and-abstract-contracts" },
+              {title: "Error handling", url: "#error-handling" },
+              {title: "Subscribing to events", url: "#subscribing-to-events" },
+              {title: "Storage locations", url: "#storage-locations" },
+              {title: "Modularity", url: "#modularity" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="an-introduction-to-solidity-for-experienced-developers">An Introduction to Solidity for Experienced Developers<a class="headerlink" href="#an-introduction-to-solidity-for-experienced-developers" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY4YNTQKgxgvPAJTSbmmB6vaSks3nbzvuw2GFH9bhUwTL" /></p>
+<p><strong>This post applies to Solidity 0.5.x, I am working on an update for 0.6.x</strong>.</p>
+<p>You're an experienced JavaScript/Java/Python/Go/Ruby/Rust/COBOL/somethingelse developer and have heard about this Ethereum thing. You took a quick look at Solidity, and it looked familiar, but you saw some terms that were new and confusing. Maybe you even tried running an Ethereum node or two locally, and it looked a bit like some other distributed systems you tried before, but all that accounts and addresses stuff was new.</p>
+<p>This post tries to explain some of these concepts in terms that are hopefully more familiar to you and compare them to similar concepts in other programming languages.</p>
+<h3 id="addresses-accounts-and-balances">Addresses, accounts, and balances<a class="headerlink" href="#addresses-accounts-and-balances" title="Permanent link"></a></h3>
+<p>Pretty much everything on the Ethereum network has an address. For many interactions with the network, you need an account, and that account has an address. If you create a smart contract and set it run on the Ethereum network, it also has an address that is different from your personal address.</p>
+<p>All accounts on Ethereum networks have a balance of the ETH cryptocurrency. This currency is used to pay for transactions and interactions on the network.</p>
+<p>Just when you thought it was all starting to make sense, it's worth pointing out that there are different Ethereum networks, and you have different accounts and balances on each of them. Practically speaking, this means that if you are testing your smart contracts on a test network, or a private or local network, the ETH you add to your account doesn't cost you anything.</p>
+<h3 id="functions-and-variables">Functions and variables<a class="headerlink" href="#functions-and-variables" title="Permanent link"></a></h3>
+<p>Like Java function methods, Solidity function modifiers change the way that code interacts with them, and how the compiler deals with them.</p>
+<h4 id="visibility">Visibility<a class="headerlink" href="#visibility" title="Permanent link"></a></h4>
+<p>A function or variable declared as <code>private</code> is only visible to the contract that defines it.</p>
+<p>A function or variable declared as <code>internal</code> is only visible to the contract that defines it, or any contracts derived from that contract.</p>
+<p>For example with <code>data</code> of the <code>C</code> contract marked as <code>internal</code> or <code>private</code>:</p>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract C {
+ uint internal data = 42;
+}
+
+contract Caller {
+ C c = new C();
+ function f() public view returns (uint) {
+ return c.data();
+ }
+}
+</code></pre>
+<p>An attempt to call it from contract <code>Caller</code> results in a compiler error:</p>
+<pre><code class="language-shell">TypeError: Member &quot;data&quot; not found or not visible after argument-dependent lookup in contract C.
+return c.data();
+^----^
+</code></pre>
+<p>A function or variable declared as <code>public</code> is part of the contract interface, and are accessible to all other contracts. The EVM also generates a getter function for public state variables automatically. For example, by marking <code>data</code> as <code>public</code>, the <code>Caller</code> contract can "get" the value via a convenience function:</p>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract C {
+    uint public data = 42;
+}
+
+contract Caller {
+    C c = new C();
+    function f() public view returns (uint) {
+        return c.data();
+    }
+}
+</code></pre>
+<p>A function (not variable) declared as <code>external</code> is only part of the contract interface, and can be called by external contracts, but not internal ones.</p>
+<p>For example, assigning <code>get()</code> to <code>localData</code> results in an error, using it within <code>Caller</code> does not:</p>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function get() external view returns (uint) {
+        return storedData;
+    }
+
+    uint localData = get();
+}
+
+contract Caller {
+    SimpleStorage c = new SimpleStorage();
+    function f() public view returns (uint) {
+        return c.get();
+    }
+}
+</code></pre>
+<p><em>Read more details about visibility <a href="https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#visibility-and-getters">in the documentation</a>.</em></p>
+<p>Getter functions operate similarly to other programming languages and provide a convenience function to access the value of a public state variable. You access the value from the getter function by creating an instance of the contract that provides the variable in the calling contract. For example:</p>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract C {
+ uint public data = 42;
+}
+
+contract Caller {
+ C c = new C();
+ function f() public view returns (uint) {
+ return c.data();
+ }
+}
+</code></pre>
+<p>Like other languages, Solidity doesn't provide any special functionality for setter functions, and it is up to you to implement them based on your needs.</p>
+<h4 id="protecting-state-with-view-and-pure">Protecting state with <code>view</code> and <code>pure</code><a class="headerlink" href="#protecting-state-with-view-and-pure" title="Permanent link"></a></h4>
+<p>A function declared <code>view</code> promises not to modify state. A function declared <code>pure</code> promises not to modify or read from state. When compiling the contract, the compiler throws an error if a function marked <code>view</code> or <code>pure</code> does not meet this promise. For example:</p>
+<pre><code>pragma solidity &gt;=0.5.0 &lt;0.7.0;
+
+contract C {
+    uint c;
+    function f(uint a, uint b) public view returns (uint) {
+        c = a * (b + 42) + now;
+    }
+}
+</code></pre>
+<p>Results in the following error (and similar for <code>pure</code>):</p>
+<pre><code class="language-shell">TypeError: Function declared as view, but this expression (potentially) modifies the state and thus requires non-payable (the default) or payable.
+
+        c = a * (b + 42) + now;
+        ^
+</code></pre>
+<h3 id="interfaces-and-abstract-contracts">Interfaces and abstract contracts<a class="headerlink" href="#interfaces-and-abstract-contracts" title="Permanent link"></a></h3>
+<p>Similar to classes in C++ or Java, interfaces, and abstract contracts in Solidity are a way of implementing inheritance.</p>
+<p><a href="https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#abstract-contracts">An abstract contract</a> is a contract with at least one function that lacks an implementation. An abstract contract is not compiled, but other contracts can use it as a base contract. If the contract inherits from an abstract contract, but doesn't implement all the non-implemented functions, then it is also an abstract contract.</p>
+<p><a href="https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#interfaces">Interfaces</a> are similar, but are more restricted:</p>
+<ul>
+<li>They cannot implement any functions.</li>
+<li>They cannot inherit other contracts or interfaces.</li>
+<li>All declared functions must be external.</li>
+<li>They cannot declare a constructor.</li>
+<li>They cannot declare state variables.</li>
+</ul>
+<h3 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link"></a></h3>
+<p>Solidity does not have the concept of <code>try/catch</code> common in other programming languages. Instead, it provides 3 convenience functions to check if conditions are met before performing an operation. If the conditions are not met, all changes made to state in the current function call (and sub-calls) are reverted, and an error message generated. The three functions work in slightly different ways, and to serve different potential error flows. Read more about the details and how to use them <a href="https://solidity.readthedocs.io/v0.5.15/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions">in the documentation</a>.</p>
+<h3 id="subscribing-to-events">Subscribing to events<a class="headerlink" href="#subscribing-to-events" title="Permanent link"></a></h3>
+<p>A blockchain is essentially an immutable ledger of events, and this isn't too dissimilar from other "traditional" systems such as event stores, write-ahead logs, or immutable data streams. Typically when your application uses such a tool, you have applications that publish and subscribe (pubsub) to them. With Ethereum, the smart contract is always the publisher, but the subscriber can be any other application you want that listens to the event emitting from the blockchain.</p>
+<p>With a Solidity smart contract, you first define the data structure of the event you want to emit and then emit it. For example:</p>
+<pre><code>pragma solidity &gt;=0.4.21 &lt;0.7.0;
+
+contract ClientReceipt {
+ event Deposit(
+ address indexed _from,
+ bytes32 indexed _id,
+ uint _value
+ );
+
+ function deposit(bytes32 _id) public payable {
+ emit Deposit(msg.sender, _id, msg.value);
+ }
+}
+</code></pre>
+<p><em>Read the documentation for more details on <a href="https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#events">events</a>.</em></p>
+<h3 id="storage-locations">Storage locations<a class="headerlink" href="#storage-locations" title="Permanent link"></a></h3>
+<p>Some C-style languages allow you to specify if a variable should be stored in a register instead of RAM, but Solidity adds other location options that reflect the nature of the EVM Solidity code runs within.</p>
+<p>These are:</p>
+<ul>
+<li>"Storage", where values persist between calls but cost more gas to read from.</li>
+<li>"Memory", where every call to the contract creates a cleared instance of the variable.</li>
+<li>"Stack", is similar to the register, but has limited access options.</li>
+</ul>
+<p>Find more details <a href="https://solidity.readthedocs.io/v0.5.15/latest/introduction-to-smart-contracts.html#storage-memory-and-the-stack">in the documentation</a>.</p>
+<h3 id="modularity">Modularity<a class="headerlink" href="#modularity" title="Permanent link"></a></h3>
+<p>You can think of <a href="https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#libraries">libraries</a> as something like an <code>include</code>, <code>import</code> or <code>require</code> statement for using any public functions and variables from other contracts. The <a href="https://solidity.readthedocs.io/v0.5.15/v0.5.12/contracts.html#using-for"><code>using A for B</code></a> statement lets you take this a step further, by attaching library <code>A</code> to type <code>B</code>. This means that the functions in the library receive the object they are called on as their first parameter. This effectively lets you override or replace functions with library functions, and there are common patterns in Solidity for doing this, such as using the <a href="https://docs.openzeppelin.com/contracts/2.x/api/math#SafeMath"><code>SafeMath</code></a> library to improve arithmetic operations.</p>
+<p>Here's an abstracted example of a library definition, and a contract that uses it:</p>
+<pre><code>pragma solidity &gt;=0.4.22 &lt;0.7.0;
+
+
+library Set {
+ struct Data { mapping(uint =&gt; bool) flags; }
+
+ function insert(Data storage self, uint value)
+ public
+ returns (bool)
+ {
+ if (self.flags[value])
+ return false;
+ self.flags[value] = true;
+ return true;
+ }
+}
+
+
+contract C {
+ Set.Data knownValues;
+
+ function register(uint value) public {
+ require(Set.insert(knownValues, value));
+ }
+}
+</code></pre>
+<p>And an example of <code>using A for B</code>:</p>
+<pre><code>pragma solidity &gt;=0.4.16 &lt;0.7.0;
+
+
+library Set {
+ struct Data { mapping(uint =&gt; bool) flags; }
+
+ function insert(Data storage self, uint value)
+ public
+ returns (bool)
+ {
+ if (self.flags[value])
+ return false; // already there
+ self.flags[value] = true;
+ return true;
+ }
+}
+
+
+contract C {
+ using Set for Set.Data;
+ Set.Data knownValues;
+
+ function register(uint value) public {
+ require(knownValues.insert(value));
+ }
+}
+</code></pre>
+<p>Read the documentation for more on <a href="https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#libraries">libraries</a> and <a href="https://solidity.readthedocs.io/v0.5.15/latest/contracts.html#using-for">using for</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> An Introduction to Solidity for Experienced Developers</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/an-introduction-to-solidity-for-experienced-develo/16b7b58597fc4a9e848b29a6299ee967/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-20</li>
+<li><strong>Kauri original tags:</strong> java, c, javascript, solidity</li>
+<li><strong>Kauri original hash:</strong> QmQjz5yTRSvw4MmSkdMxqR6NQwQ6oiV49qfgC7XNGk38sB</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle--adding-a-frontend-with-react-box/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle--adding-a-frontend-with-react-box/" class="btn btn-xs btn-link">
+        Truffle  Adding a frontend with react box
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../tips-for-starting-dapp-development/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../tips-for-starting-dapp-development/" class="btn btn-xs btn-link">
+        Tips for Starting Dapp Development
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Getting started with dapp development/an-introduction-to-solidity-for-experienced-devel.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Decentralized%20Storage/orbitdb--serverless-distributed-peer-to-peer-data/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OrbitDB  Serverless, Distributed, Peer-to-Peer Database - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OrbitDB  Serverless, Distributed, Peer-to-Peer Database", url: "#_top", children: [
+              {title: "Getting Started with OrbitDB", url: "#getting-started-with-orbitdb" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="orbitdb-serverless-distributed-peer-to-peer-database">OrbitDB  Serverless, Distributed, Peer-to-Peer Database<a class="headerlink" href="#orbitdb-serverless-distributed-peer-to-peer-database" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeAZpe2m1dps6goHtAUPPn9npo6V4vB625rcCBzJ2jnx6" /></p>
+<blockquote>
+<p>OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS as its data storage and IPFS Pubsub to automatically sync databases with peers.</p>
+</blockquote>
+<p><em>This guide originally appeared in the <a href="https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md">OrbitDB repository on GitHub</a></em></p>
+<h2 id="getting-started-with-orbitdb">Getting Started with OrbitDB<a class="headerlink" href="#getting-started-with-orbitdb" title="Permanent link"></a></h2>
+<p>This guide will get you familiar with using OrbitDB in your JavaScript application. OrbitDB and IPFS both work in Node.js applications as well as in browser applications. (Windows is not supported yet though).</p>
+<p>This guide is still being worked on and we would love to get <a href="https://github.com/orbitdb/orbit-db/issues">feedback and suggestions</a> on how to improve it!</p>
+<h3 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link"></a></h3>
+<!-- toc -->
+
+<ul>
+<li><a href="#background">Background</a></li>
+<li><a href="#install">Install</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#create-a-database">Create a database</a></li>
+<li><a href="#address">Address</a><ul>
+<li><a href="#manifest">Manifest</a></li>
+</ul>
+</li>
+<li><a href="#identity">Identity</a></li>
+<li><a href="#access-control">Access Control</a><ul>
+<li><a href="#public-databases">Public databases</a></li>
+</ul>
+</li>
+<li><a href="#add-an-entry">Add an entry</a></li>
+<li><a href="#get-an-entry">Get an entry</a></li>
+<li><a href="#persistency">Persistency</a></li>
+<li><a href="#replicating-a-database">Replicating a database</a></li>
+<li><a href="#custom-stores">Custom Stores</a></li>
+<li><a href="#more-information">More information</a></li>
+</ul>
+<!-- tocstop -->
+
+<h3 id="background">Background<a class="headerlink" href="#background" title="Permanent link"></a></h3>
+<p>OrbitDB is a peer-to-peer database meaning that each peer has its own instance of a specific database. A database is replicated between the peers automatically resulting in an up-to-date view of the database upon updates from any peer. That is to say, the database gets pulled to the clients.</p>
+<p>This means that each application contains the full database that they're using. This in turn changes the data modeling as compared to client-server model where there's usually one big database for all entries: in OrbitDB, the data should be stored, "partitioned" or "sharded" based on the access rights for that data. For example, in a twitter-like application, tweets would not be saved in a global "tweets" database to which millions of users write concurrently, but rather, <strong><em>each user would have their own database</em></strong> for their tweets. To follow a user, a peer would subscribe to a user's feed, ie. replicate their feed database.</p>
+<p>OrbitDB supports multiple data models (see more details below) and as such the developer has a variety of ways to structure data. Combined with the peer-to-peer paradigm, the data modeling is important factor to build scalable decentralized applications.</p>
+<p>This may not be intuitive or you might not be sure what the best approach would be and we'd be happy to help you decide on your data modeling and application needs, <a href="https://github.com/orbitdb/orbit-db/issues">feel free to reach out</a>!</p>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link"></a></h3>
+<p>Install <a href="https://github.com/orbitdb/orbit-db">orbit-db</a> and <a href="https://www.npmjs.com/package/ipfs">ipfs</a> from npm:</p>
+<pre><code class="language-sh">npm install orbit-db ipfs
+</code></pre>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h3>
+<p>Require OrbitDB and IPFS in your program and create the instances:</p>
+<pre><code class="language-javascript">const IPFS = require('ipfs')
+const OrbitDB = require('orbit-db')
+
+// OrbitDB uses Pubsub which is an experimental feature
+// and need to be turned on manually.
+// Note that these options need to be passed to IPFS in
+// all examples in this document even if not specified so.
+const ipfsOptions = {
+  EXPERIMENTAL: {
+    pubsub: true
+  }
+}
+
+// Create IPFS instance
+const ipfs = new IPFS(ipfsOptions)
+
+ipfs.on('ready', () =&gt; {
+  // Create OrbitDB instance
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+})
+</code></pre>
+<p><code>orbitdb</code> is now the OrbitDB instance we can use to interact with the databases.</p>
+<h3 id="create-a-database">Create a database<a class="headerlink" href="#create-a-database" title="Permanent link"></a></h3>
+<p>First, choose the data model you want to use. The available data models are:
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbkeyvaluenameaddress">Key-Value</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdblognameaddress">Log</a> (append-only log)
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbfeednameaddress">Feed</a> (same as log database but entries can be removed)
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbdocsnameaddress-options">Documents</a> (store indexed JSON documents)
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbcounternameaddress">Counters</a></p>
+<p>Then, create a database instance (we'll use Key-Value database in this example):</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+  const db = await orbitdb.keyvalue('first-database')
+})
+</code></pre>
+<h4 id="address">Address<a class="headerlink" href="#address" title="Permanent link"></a></h4>
+<p>When a database is created, it will be assigned an address by OrbitDB. The address consists of three parts:</p>
+<pre><code>/orbitdb/Qmd8TmZrWASypEp4Er9tgWP4kCNQnW4ncSnvjvyHQ3EVSU/first-database
+</code></pre>
+<p>The first part, <code>/orbitdb</code>, specifies the protocol in use. The second part, an IPFS multihash <code>Qmd8TmZrWASypEp4Er9tgWP4kCNQnW4ncSnvjvyHQ3EVSU</code>, is the database manifest which contains the database info such as the name and type, and a pointer to the access controller. The last part, <code>first-database</code>, is the name of the database.</p>
+<p>In order to replicate the database with peers, the address is what you need to give to other peers in order for them to start replicating the database.</p>
+<p>The database address can be accessed as <code>db.address</code> from the database instance:</p>
+<pre><code class="language-javascript">const address = db.address
+// address == '/orbitdb/Qmdgwt7w4uBsw8LXduzCd18zfGXeTmBsiR8edQ1hSfzcJC/first-database'
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+  const db = await orbitdb.keyvalue('first-database')
+  console.log(db.address.toString())
+  // /orbitdb/Qmd8TmZrWASypEp4Er9tgWP4kCNQnW4ncSnvjvyHQ3EVSU/first-database
+})
+</code></pre>
+<h5 id="manifest">Manifest<a class="headerlink" href="#manifest" title="Permanent link"></a></h5>
+<p>The second part of the address, the IPFS multihash <code>Qmdgwt7w4uBsw8LXduzCd18zfGXeTmBsiR8edQ1hSfzcJC</code>, is the manifest of a database. It's an IPFS object that contains information about the database.</p>
+<p>The database manifest can be fetched from IPFS and it looks like this:</p>
+<pre><code class="language-json">{
+  &quot;Data&quot;: &quot;{\&quot;name\&quot;:\&quot;a\&quot;,\&quot;type\&quot;:\&quot;feed\&quot;,\&quot;accessController\&quot;:\&quot;/ipfs/QmdjrCN7SqGxRapsm6LuoS4HrWmLeQHVM6f1Zk5A3UveqA\&quot;}&quot;,
+  &quot;Hash&quot;: &quot;Qmdgwt7w4uBsw8LXduzCd18zfGXeTmBsiR8edQ1hSfzcJC&quot;,
+  &quot;Size&quot;: 102,
+  &quot;Links&quot;: []
+}
+</code></pre>
+<h4 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link"></a></h4>
+<p>Each entry in a database is signed by who created that entry. The identity, which includes the public key used to sign entries, can be accessed via the identity member variable of the database instance:</p>
+<pre><code class="language-javascript">const identity = db.identity
+console.log(identity.toJSON())
+// prints
+{
+  id: '0443729cbd756ad8e598acdf1986c8d586214a1ca9fa8c7932af1d59f7334d41aa2ec2342ea402e4f3c0195308a4815bea326750de0a63470e711c534932b3131c',
+  publicKey: '0446829cbd926ad8e858acdf1988b8d586214a1ca9fa8c7932af1d59f7334d41aa2ec2342ea402e4f3c0195308a4815bea326750de0a63470e711c534932b3131c',
+  signatures: {
+    id: '3045022058bbb2aa415623085124b32b254b8668d95370261ade8718765a8086644fc8ae022100c736b45c6b2ef60c921848027f51020a70ee50afa20bc9853877e994e6121c15',
+    publicKey: '3046022100d138ccc0fbd48bd41e74e40ddf05c1fa6ff903a83b2577ef7d6387a33992ea4b022100ca39e8d8aef43ac0c6ec05c1b95b41fce07630b5dc61587a32d90dc8e4cf9766'
+  },
+  type: 'orbitdb'
+}
+</code></pre>
+<h5 id="creating-an-identity">Creating an identity<a class="headerlink" href="#creating-an-identity" title="Permanent link"></a></h5>
+<pre><code class="language-javascript">const Identities = require('orbit-db-identity-provider')
+const options = { id: 'local-id' }
+const identity = await Identities.createIdentity(options)
+</code></pre>
+<p>This identity can be used in OrbitDB by passing it in as an argument in the <code>options</code> object:</p>
+<pre><code class="language-javascript">const orbitdb = await OrbitDB.createInstance(ipfs, { identity: identity })
+</code></pre>
+<p>The identity also contains signatures proving possession of the id and OrbitDB public key. This is included to allow proof of ownership of an external public key within OrbitDB. You can read more <a href="https://github.com/orbitdb/orbit-db-identity-provider">here</a></p>
+<p>The OrbitDB public key can be retrieved with:</p>
+<pre><code class="language-javascript">console.log(db.identity.publicKey)
+// 04d009bd530f2fa0cda29202e1b15e97247893cb1e88601968abfe787f7ea03828fdb7624a618fd67c4c437ad7f48e670cc5a6ea2340b896e42b0c8a3e4d54aebe
+</code></pre>
+<p>If you want to give access to other peers to write to a database, you need to get their public key in hex and add it to the access controller upon creating the database. If you want others to give you the access to write, you'll need to give them your public key (output of <code>orbitdb.identity.publicKey</code>). For more information, see: <a href="https://github.com/orbitdb/orbit-db/blob/master/GUIDE.md#access-control">Access Control</a>.</p>
+<h4 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link"></a></h4>
+<p>You can specify the peers that have write-access to a database. You can define a set of peers that can write to a database or allow anyone write to a database. <strong>By default and if not specified otherwise, only the creator of the database will be given write-access</strong>.</p>
+<p><strong><em>Note!</em></strong> <em>OrbitDB currently supports only dynamically adding write-access. That is, write-access cannot be revoked once added. In the future OrbitDB will support access revocation and read access control. At the moment, if access rights need to be removed, the address of the database will change.</em></p>
+<p>Access rights are setup by passing an <code>accessController</code> object that specifies the access-controller type and access rights of the database when created. OrbitDB currently supports write-access. The access rights are specified as an array of public keys of the peers who can write to the database. The public keys to which access is given can be retrieved from the identity.publicKey property of each peer.</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+  const options = {
+    // Give write access to ourselves
+    accessController: {
+      write: [orbitdb.identity.publicKey]
+    }
+  }
+
+  const db = await orbitdb.keyvalue('first-database', options)
+  console.log(db.address.toString())
+  // /orbitdb/Qmd8TmZrWASypEp4Er9tgWP4kCNQnW4ncSnvjvyHQ3EVSU/first-database
+})
+</code></pre>
+<p>To give write access to another peer, you'll need to get their public key with some means. They'll need to give you the output of their OrbitDB instance's key: <code>orbitdb.identity.publicKey</code>.</p>
+<p>The keys look like this:
+<code>042c07044e7ea51a489c02854db5e09f0191690dc59db0afd95328c9db614a2976e088cab7c86d7e48183191258fc59dc699653508ce25bf0369d67f33d5d77839</code></p>
+<p>Give access to another peer to write to the database:</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+
+  const options = {
+    // Setup write access
+    accessController: {
+      write: [
+        // Give access to ourselves
+        orbitdb.identity.publicKey,
+        // Give access to the second peer
+        '042c07044e7ea51a489c02854db5e09f0191690dc59db0afd95328c9db614a2976e088cab7c86d7e48183191258fc59dc699653508ce25bf0369d67f33d5d77839',
+      ]
+    }
+  }
+
+  const db1 = await orbitdb.keyvalue('first-database', options)
+  console.log(db1.address.toString())
+  // /orbitdb/Qmdgwt7w4uBsw8LXduzCd18zfGXeTmBsiR8edQ1hSfzcJC/first-database
+
+  // Second peer opens the database from the address
+  const db2 = await orbitdb.keyvalue(db1.address.toString())
+})
+</code></pre>
+<h5 id="public-databases">Public databases<a class="headerlink" href="#public-databases" title="Permanent link"></a></h5>
+<p>The access control mechanism also support "public" databases to which anyone can write to.</p>
+<p>This can be done by adding a <code>*</code> to the write access array:</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+
+  const options = {
+    // Give write access to everyone
+    accessController: {
+      write: ['*']
+    }
+  }
+
+  const db = await orbitdb.keyvalue('first-database', options)
+  console.log(db.address.toString())
+  // /orbitdb/QmRrauSxaAvNjpZcm2Cq6y9DcrH8wQQWGjtokF4tgCUxGP/first-database
+})
+</code></pre>
+<p>Note how the access controller hash is different compared to the previous example!</p>
+<h5 id="granting-access-after-database-creation">Granting access after database creation<a class="headerlink" href="#granting-access-after-database-creation" title="Permanent link"></a></h5>
+<p>To give access to another peer after the database has been created, you must set the access-controller <code>type</code> to an <code>AccessController</code> which supports dynamically adding write-access such as <code>OrbitDBAccessController</code>.</p>
+<pre><code class="language-javaScript">db = await orbitdb1.feed('AABB', {
+  accessController: {
+    type: 'orbitdb', //OrbitDBAccessController
+    write: [identity1.publicKey]
+  }
+})
+
+await db.access.grant('write', identity2.publicKey) // grant access to identity2
+</code></pre>
+<h5 id="custom-access-controller">Custom Access Controller<a class="headerlink" href="#custom-access-controller" title="Permanent link"></a></h5>
+<p>You can create a custom access controller by implementing the <code>AccessController</code> <a href="https://github.com/orbitdb/orbit-db-access-controllers/blob/master/src/access-controller-interface.js">interface</a> and adding it to the AccessControllers object before passing it to OrbitDB.</p>
+<pre><code class="language-javascript">class OtherAccessController extends AccessController {
+
+    static get type () { return 'othertype' } // Return the type for this controller
+
+    async canAppend(entry, identityProvider) {
+      // logic to determine if entry can be added, for example:
+      if (entry.payload === &quot;hello world&quot; &amp;&amp; entry.identity.id === identity.id &amp;&amp; identityProvider.verifyIdentity(entry.identity))
+        return true
+
+      return false
+      }
+
+    async grant (access, identity) {} // Logic for granting access to identity
+}
+
+let AccessControllers = require('orbit-db-access-controllers')
+AccessControllers.addAccessController({ AccessController: OtherAccessController })
+
+const orbitdb = await OrbitDB.createInstance(ipfs, {
+  AccessControllers: AccessControllers
+})
+
+const db = await orbitdb.keyvalue('first-database', {
+  accessController: {
+    type: 'othertype',
+    write: [id1.publicKey]
+  }
+})
+</code></pre>
+<h3 id="add-an-entry">Add an entry<a class="headerlink" href="#add-an-entry" title="Permanent link"></a></h3>
+<p>To add an entry to the database, we simply call <code>db.put(key, value)</code>.</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+  const db = await orbitdb.keyvalue('first-database')
+  await db.put('name', 'hello')
+})
+</code></pre>
+<p>For adding entries to other databases, see:
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#addevent">log.add()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#adddata">feed.add()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#putdoc">docs.put()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#incvalue">counter.inc()</a></p>
+<p><strong>Parallelism</strong></p>
+<p>We currently don't support parallel updates. Updates to a database need to be executed in a sequential manner. The write throughput is several hundreds or thousands of writes per second (depending on your platform and hardware, YMMV), so this shouldn't slow down your app too much. If it does, <a href="https://github.com/orbitdb/orbit-db/issues">lets us know</a>!</p>
+<p>Update the database one after another:</p>
+<pre><code class="language-javascript">await db.put('key1', 'hello1')
+await db.put('key2', 'hello2')
+await db.put('key3', 'hello3')
+</code></pre>
+<p>Not:</p>
+<pre><code class="language-javascript">// This is not supported atm!
+Promise.all([
+  db.put('key1', 'hello1'),
+  db.put('key2', 'hello2'),
+  db.put('key3', 'hello3')
+])
+</code></pre>
+<h3 id="get-an-entry">Get an entry<a class="headerlink" href="#get-an-entry" title="Permanent link"></a></h3>
+<p>To get a value or entry from the database, we call the appropriate query function which is different per database type.</p>
+<p>Key-Value:</p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+  const db = await orbitdb.keyvalue('first-database')
+  await db.put('name', 'hello')
+  const value = db.get('name')
+})
+</code></pre>
+<p>Other databases, see:
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#iteratoroptions">log.iterator()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#iteratoroptions-1">feed.iterator()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#getkey-1">docs.get()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#querymapper">docs.query()</a>
+- <a href="https://github.com/orbitdb/orbit-db/blob/master/API.md#value">counter.value</a></p>
+<h3 id="persistency">Persistency<a class="headerlink" href="#persistency" title="Permanent link"></a></h3>
+<p>OrbitDB saves the state of the database automatically on disk. This means that upon opening a database, the developer can choose to load locally the persisted before using the database. <strong>Loading the database locally before using it is highly recommended!</strong></p>
+<pre><code class="language-javascript">const ipfs = new IPFS()
+ipfs.on('ready', async () =&gt; {
+  const orbitdb = await OrbitDB.createInstance(ipfs)
+
+  const db1 = await orbitdb.keyvalue('first-database')
+  await db1.put('name', 'hello')
+  await db1.close()
+
+  const db2 = await orbitdb.keyvalue('first-database')
+  await db2.load()
+  const value = db2.get('name')
+  // 'hello'
+})
+</code></pre>
+<p>If the developer doesn't call <code>load()</code>, the database will be operational but will not have the persisted data available immediately. Instead, OrbitDB will load the data on the background as new updates come in from peers.</p>
+<h3 id="replicating-a-database">Replicating a database<a class="headerlink" href="#replicating-a-database" title="Permanent link"></a></h3>
+<p>In order to have the same data, ie. a query returns the same result for all peers, an OrbitDB database must be replicated between the peers. This happens automatically in OrbitDB in a way that a peer only needs to open an OrbitDB from an address and it'll start replicating the database.</p>
+<p>To know when database was updated, we can listen for the <code>replicated</code> event of a database: <code>db2.events.on('replicated', () =&gt; ...)</code>. When the <code>replicated</code> event is fired, it means we received updates for the database from a peer. This is a good time to query the database for new results.</p>
+<p>Replicate a database between two nodes:</p>
+<pre><code class="language-javascript">// Create the first peer
+const ipfs1 = new IPFS({ repo: './ipfs1' })
+ipfs1.on('ready', async () =&gt; {
+  // Create the database
+  const orbitdb1 = await OrbitDB.createInstance(ipfs1, { directory: './orbitdb1' })
+  const db1 = await orbitdb1.log('events')
+
+  // Create the second peer
+  const ipfs2 = new IPFS({ repo: './ipfs2' })
+  ipfs2.on('ready', async () =&gt; {
+    // Open the first database for the second peer,
+    // ie. replicate the database
+    const orbitdb2 = await OrbitDB.createInstance(ipfs2, { directory: './orbitdb2' })
+    const db2 = await orbitdb2.log(db1.address.toString())
+
+    // When the second database replicated new heads, query the database
+    db2.events.on('replicated', () =&gt; {
+      const result = db2.iterator({ limit: -1 }).collect().map(e =&gt; e.payload.value)
+      console.log(result.join('\n'))
+    })
+
+    // Start adding entries to the first database
+    setInterval(async () =&gt; {
+      await db1.add({ time: new Date().getTime() })
+    }, 1000)
+  })
+})
+</code></pre>
+<h3 id="custom-stores">Custom Stores<a class="headerlink" href="#custom-stores" title="Permanent link"></a></h3>
+<p>Use a custom store to implement case specific functionality that is not supported by the default OrbitDB database stores. Then, you can easily add and use your custom store with OrbitDB:</p>
+<pre><code class="language-javascript">// define custom store type
+class CustomStore extends DocumentStore {
+  constructor (ipfs, id, dbname, options) {
+    super(ipfs, id, dbname, options)
+    this._type = CustomStore.type
+  }
+
+  static get type () {
+    return 'custom'
+  }
+}
+
+// add custom type to orbitdb
+OrbitDB.addDatabaseType(CustomStore.type, CustomStore)
+
+// instantiate custom store
+let orbitdb = await OrbitDB.createInstance(ipfs, { directory: dbPath })
+let store = orbitdb.create(name, CustomStore.type)
+</code></pre>
+<h3 id="more-information">More information<a class="headerlink" href="#more-information" title="Permanent link"></a></h3>
+<p>Is this guide missing something you'd like to understand or found an error? Please <a href="https://github.com/orbitdb/orbit-db/issues">open an issue</a> and let us know what's missing!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OrbitDB  Serverless, Distributed, Peer-to-Peer Database</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/orbitdb-serverless-distributed-peertopeer-database/6ae5ffa612044a09be856ff390ce6990/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-16</li>
+<li><strong>Kauri original tags:</strong> database, storage</li>
+<li><strong>Kauri original hash:</strong> QmQxfqosaQFBvyp3eyfmkkKZCy4buDVMvLASvbo1wet6tq</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../storj--decentralized-cloud-object-storage/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../storj--decentralized-cloud-object-storage/" class="btn btn-xs btn-link">
+        Storj  Decentralized Cloud Object Storage
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-link">
+        Peer-to-peer hypermedia with IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Decentralized Storage/orbitdb--serverless-distributed-peer-to-peer-data.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

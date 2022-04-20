@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-6-mainnet-and-testnets/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 6 - Mainnet & Testnets - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 6 - Mainnet &amp; Testnets", url: "#_top", children: [
+              {title: "Quick Overview", url: "#quick-overview" },
+              {title: "Table Overview of the Testnets", url: "#table-overview-of-the-testnets" },
+              {title: "I'm a consumer, I want to use real Ether and use DApps, what network do I use?", url: "#im-a-consumer-i-want-to-use-real-ether-and-use-dapps-what-network-do-i-use" },
+              {title: "I'm a developer, what network do I use?", url: "#im-a-developer-what-network-do-i-use" },
+              {title: "Additional Reading:", url: "#additional-reading" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-6-mainnet-testnets">Ethereum 101 - Part 6 - Mainnet &amp; Testnets<a class="headerlink" href="#ethereum-101-part-6-mainnet-testnets" title="Permanent link"></a></h1>
+<h2 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link"></a></h2>
+<ul>
+<li>
+<p><strong>Mainnet</strong> - the live public Ethereum production blockchain, where actual valued transactions occur on the distributed ledger.</p>
+</li>
+<li>
+<p><strong>Public Testnet(s)</strong> - public Ethereum blockchain(s) designed for testing, running on valueless ether available from "faucets," that mock the mainnet environment as best as possible.</p>
+<ul>
+<li>Examples: Ropsten, Kovan, Rinkeby, Görli</li>
+</ul>
+</li>
+<li><strong>Local Testnet(s)</strong> - local, running on your machine or on a small scale, private Ethereum blockchains.<ul>
+<li>Examples: Ganache, eth-tester, private client network clusters (e.g. Geth with custom genesis file, Parity with '--dev' argument)</li>
+</ul>
+</li>
+</ul>
+<p>Generally speaking, consumers will interact with the Ethereum mainnet. Developers, projects, and researchers will use testnets to experiment new features, test transactions, and calibrate gas costs without paying gas fees. </p>
+<h2 id="table-overview-of-the-testnets">Table Overview of the Testnets<a class="headerlink" href="#table-overview-of-the-testnets" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>Network</th>
+<th>Mainnet</th>
+<th>Ropsten</th>
+<th>Kovan</th>
+<th>Rinkeby</th>
+<th>Görli</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Consensus Protocol</strong></td>
+<td>Proof of Work (ethash)</td>
+<td>Proof of Work <br>(best emulates mainnet environment)</td>
+<td>Proof of Authority</td>
+<td>Proof of Authority (Clique)</td>
+<td>Proof of Authority (Clique)</td>
+</tr>
+<tr>
+<td><strong>Supported Clients</strong></td>
+<td>Multi-client</td>
+<td>Both Geth / Parity</td>
+<td>Parity only</td>
+<td>Geth only</td>
+<td>Multi-client</td>
+</tr>
+<tr>
+<td><strong>Average Block Times</strong></td>
+<td>~15 sec.</td>
+<td>~15 sec.</td>
+<td>~4 sec.</td>
+<td>~15 sec.</td>
+<td>~16 sec.</td>
+</tr>
+<tr>
+<td><strong>Mineable / Faucet</strong></td>
+<td>Mineable / Ether purchased on exchanges</td>
+<td>Mineable <br>(ether can also be requested via fauced</td>
+<td>Not mineable <br>(ether is requested via faucet)</td>
+<td>Not mineable <br>(ether is requested via faucet)</td>
+<td>Not mineable<br>(ether is requested via faucet)</td>
+</tr>
+<tr>
+<td><strong>Website</strong></td>
+<td><a href="https://ethstats.net/">Link</a></td>
+<td><a href="https://github.com/ethereum/ropsten">Link</a></td>
+<td><a href="https://github.com/kovan-testnet/proposal">Link</a></td>
+<td><a href="https://www.rinkeby.io/">Link</a></td>
+<td><a href="https://goerli.net/">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Source: https://www.ethnews.com/ropsten-to-kovan-to-rinkeby-ethereums-testnet-troubles</li>
+<li>Source: https://ethereum.stackexchange.com/questions/27048/comparison-of-the-different-testnets</li>
+</ul>
+<h3 id="ropsten-using-proof-of-work">Ropsten using Proof of Work<a class="headerlink" href="#ropsten-using-proof-of-work" title="Permanent link"></a></h3>
+<p>The Ropsten testnet, by virtue of using a Proof of Work consensus protocol and being mineable, generally best emulates the current Ethereum production network. </p>
+<h3 id="rinkeby-and-kovan-using-proof-of-authority">Rinkeby and Kovan using Proof of Authority<a class="headerlink" href="#rinkeby-and-kovan-using-proof-of-authority" title="Permanent link"></a></h3>
+<p>Kovan and Rinkeby both utilize a Proof of Authority (PoA) protocol. Instead of nodes solving arbitrarily difficult mathematical proof of work puzzles, a set of authorities (called ‘sealers’) are given the explicit permission to create new blocks and update the state of the test blockchain. </p>
+<p>Under a Proof of Authority protocol, adversaries operating from an unwanted connection are unable to overwhelm or spam the network. The implementation of Proof of Authority testnets was the result of a series of attacks exploiting the proof of work algorithm on prior testnets (originating on Morden, which has since been voluntarily deactivated). To learn more of the historical details surrounding the testnets, please see the additional reading section. </p>
+<h4 id="single-client-testnets">Single client testnets<a class="headerlink" href="#single-client-testnets" title="Permanent link"></a></h4>
+<p>Single client testnets also offer auxiliary debugging information. If Rinkeby is experiencing issues, a reasonable assumption can be made that there is a bug in the Geth client. Diagnosing issues on the mainnet can be more nebulous due to the multitude of different clients maintaining sync. </p>
+<h4 id="multi-client-testnets">Multi client testnets<a class="headerlink" href="#multi-client-testnets" title="Permanent link"></a></h4>
+<p>Likewise, multi client testnets create environments that allow for testing of client interoperability. Ropsten supports both Geth and Parity clients. Görli, a new testnet with its genesis block starting Jan. 31, 2019, supports Parity, Geth, Nethermind, Pantheon, and EthereumJS. </p>
+<h2 id="im-a-consumer-i-want-to-use-real-ether-and-use-dapps-what-network-do-i-use">I'm a consumer, I want to use real Ether and use DApps, what network do I use?<a class="headerlink" href="#im-a-consumer-i-want-to-use-real-ether-and-use-dapps-what-network-do-i-use" title="Permanent link"></a></h2>
+<ul>
+<li>Mainnet. Be vigilant, you will be using real digital assets!</li>
+</ul>
+<h2 id="im-a-developer-what-network-do-i-use">I'm a developer, what network do I use?<a class="headerlink" href="#im-a-developer-what-network-do-i-use" title="Permanent link"></a></h2>
+<ul>
+<li>Are you simply testing small, private transactions? Try starting with Ganache or a private Geth or Parity chain. </li>
+<li>Are you working with a DApp? Try deploying to a public testnet suitable to your needs (e.g. single client, multi-client, or do you need a specific blocktime? Check the table above.) </li>
+<li>Full faith and confidence in your DApp? Deploy to mainnet and expect some attention.  </li>
+</ul>
+<h2 id="additional-reading">Additional Reading:<a class="headerlink" href="#additional-reading" title="Permanent link"></a></h2>
+<ul>
+<li>“Ropsten to Kovan to Rinkeby: Ethereum’s Testnet Troubles:’ <a href="https://www.ethnews.com/ropsten-to-kovan-to-rinkeby-ethereums-testnet-troubles">https://www.ethnews.com/ropsten-to-kovan-to-rinkeby-ethereums-testnet-troubles</a></li>
+<li>Ropsten Revival, Ethereum Github: <a href="https://github.com/ethereum/ropsten/blob/master/revival.md">https://github.com/ethereum/ropsten/blob/master/revival.md</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 6 - Mainnet &amp; Testnets</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-6-mainnet-and-testnets/3eba08b801a44776a07607b9e046dd08/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> ganache, ethereum, 101, geth, parity, mainnet, testnet</li>
+<li><strong>Kauri original hash:</strong> QmTr1MHA8rs7BLZ5oViu5Yeynwu8pqunwjgEbz6W5bnwRd</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-101-part-7-decentralized-apps/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-101-part-7-decentralized-apps/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 7 - Decentralized Apps
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-3-consensus-protocols/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-3-consensus-protocols/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 3 - Consensus Protocols
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-6-mainnet-and-testnets.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/ethereum-101-part-1-what-is-ethereum/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 1 - What is Ethereum? - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 1 - What is Ethereum?", url: "#_top", children: [
+              {title: "Purpose of Document", url: "#purpose-of-document" },
+              {title: "What is Ethereum?", url: "#what-is-ethereum" },
+              {title: "Ethereum's Native Currency and Beyond", url: "#ethereums-native-currency-and-beyond" },
+              {title: "Decentralized Apps (DApps)", url: "#decentralized-apps-dapps" },
+              {title: "Reasons for using a DApp", url: "#reasons-for-using-a-dapp" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-1-what-is-ethereum">Ethereum 101 - Part 1 - What is Ethereum?<a class="headerlink" href="#ethereum-101-part-1-what-is-ethereum" title="Permanent link"></a></h1>
+<h2 id="purpose-of-document">Purpose of Document<a class="headerlink" href="#purpose-of-document" title="Permanent link"></a></h2>
+<p>The purpose of this documentation is to serve as a springboard for anyone looking to gain utility from the Ethereum network. </p>
+<h2 id="what-is-ethereum">What is Ethereum?<a class="headerlink" href="#what-is-ethereum" title="Permanent link"></a></h2>
+<p>Ethereum can be explained many different ways. Ethereum also means different things to different people, and by the end of this document it will also mean something to you. To be prudent and concise, I want to cite an author, Andreas M. Antonopoulos, that I feel does a great job summarizing what Ethereum is from both a computer science perspective and a practical perspective. </p>
+<p>From the book "<a href="https://github.com/ethereumbook/ethereumbook">Mastering Ethereum</a>" by authors Andreas Antonopoulos and Gavin Wood Ph.D. </p>
+<blockquote>
+<p>Ethereum is often described as "the world computer.” But what does that mean? Let’s start with a computer science–focused description, and then try to decipher that with a more practical analysis of Ethereum’s capabilities and characteristics, while comparing it to Bitcoin and other decentralized information exchange platforms (or "blockchains" for short). <br /><br />From a computer science perspective, Ethereum is a deterministic but practically unbounded state machine, consisting of a globally accessible singleton state and a virtual machine that applies changes to that state. <br /><br />From a more practical perspective, Ethereum is an open source, globally decentralized computing infrastructure that executes programs called smart contracts. It uses a blockchain to synchronize and store the system’s state changes, along with a cryptocurrency called ether to meter and constrain execution resource costs. <br /><br />The Ethereum platform enables developers to build powerful decentralized applications with built-in economic functions. While providing high availability, auditability, transparency, and neutrality, it also reduces or eliminates censorship and reduces certain counterparty risks.</p>
+</blockquote>
+<p>Citation: "<a href="https://github.com/ethereumbook/ethereumbook/blob/develop/01what-is.asciidoc">Mastering Ethereum, Section 1 - What is Ethereum?</a>" authors Andreas Antonopoulos and Gavin Wood Ph.D. </p>
+<h4 id="ethereum-as-a-world-computer">Ethereum as a "World Computer"<a class="headerlink" href="#ethereum-as-a-world-computer" title="Permanent link"></a></h4>
+<p>Antonopoulus' primer explanation of Ethereum above includes some interesting terms: world computer, blockchains, deterministic, state, state machine, decentralized computing infrastructure, smart contracts, decentralized apps, and others. </p>
+<p>We'll explore these terms, but before we do let's look at the last sentence of his last paragraph: </p>
+<blockquote>
+<p>While providing high availability, auditability, transparency, and neutrality, it also reduces or eliminates censorship and reduces certain counterpary risk. </p>
+</blockquote>
+<p>This is noteworthy. Keep this in mind as we work through this document together. </p>
+<p>Let's look at some of those terms we say earlier and, just as a thought exercise, let's loosely match definitions to them: 
+* World Computer -- a computer available to all, with no geographic restrictions
+* Blockchains -- chained blocks of data, Ethereum is a blockchain 
+* Deterministic -- no matter which node runs the program, the resulting computation will be the same
+* State -- the remembered information of a program or system
+* State machine -- mechanism that changes the aforementioned state, while maintaining consensus
+* Decentralized computer infrastructure -- decentralized infrastructure where each node supporting the network is equally privileged and equipotent
+* Smart contracts -- code that can be expected to execute in a decentralized computing infrastructure
+* Decentralized apps -- applications that touch decentralized computing infrastucture or utilize smart contracts, or both</p>
+<p>Individuals, projects, and businesses generally prefer to build on firm, stable systems that can be relied upon to act as expected. This is what Ethereum affords to its developers. </p>
+<p>Ethereum is fault tolerant, meaning that nodes can drop offline with negligible impact to the security and throughput of transactions on the network. Nodes synchronize to the current state upon coming back online. </p>
+<p>Ethereum allows developers to write and deploy immutable programs to the blockchain. When deployed, these programs can be trusted to execute without interference from external non-blockchain events. These programs are colloquially known as "smart contracts."</p>
+<h2 id="ethereums-native-currency-and-beyond">Ethereum's Native Currency and Beyond<a class="headerlink" href="#ethereums-native-currency-and-beyond" title="Permanent link"></a></h2>
+<p>To be concise, let's look at tried and true definitions:</p>
+<blockquote>
+<p>Because Ethereum strives not primarily at the currency application, but at all applications, there is a fundamental network cost unit used to mitigate the possibility of abusing the network with excessive computational expenditures. This is called gas
+, ...""</p>
+</blockquote>
+<p>Author: Micah Dameron, <a href="https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf">"Beigepaper: An Ethereum Technical Specification"</a> Section 1.1 Native Currency</p>
+<p>To use the Ethereum network, to send value from account to account, or to deploy a smart contract to the blockchain, we pay a gas fee to the miners that secure the network. </p>
+<p>To pay this gas fee, we use Ether, the native currency of the Ethereum blockchain. We're starting to segue into a more technical discussion on units of value, so to summarize the table below highlights the denominations. </p>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Ether</th>
+<th>Wei</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ether</td>
+<td>Ξ1.00000000000000000</td>
+<td>1,000,000,000,000,000,000</td>
+</tr>
+<tr>
+<td>Finney</td>
+<td>Ξ0.001000000000000000</td>
+<td>1,000,000,000,000,000</td>
+</tr>
+<tr>
+<td>Ether</td>
+<td>Ξ0.000001000000000000</td>
+<td>1,000,000,000,000</td>
+</tr>
+<tr>
+<td>Ether</td>
+<td>Ξ0.000000000000000001</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Credit: 
+<a href="https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf">"Beigepaper: An Ethereum Technical Specification"</a></p>
+<h2 id="decentralized-apps-dapps">Decentralized Apps (DApps)<a class="headerlink" href="#decentralized-apps-dapps" title="Permanent link"></a></h2>
+<p>In the most narrow definition, a decentralized application is a smart contract with a frontend. In the context of this documentation, a decentralized application is one which distributes its logic, data storage, or messaging using the Ethereum protocol, or any neighboring web3 protocol. </p>
+<ul>
+<li>The term "web3" is a colloquial term for a decentralized web. </li>
+<li>The term "web2" is a colloquial term for the internet's current state of affairs. </li>
+</ul>
+<h2 id="reasons-for-using-a-dapp">Reasons for using a DApp<a class="headerlink" href="#reasons-for-using-a-dapp" title="Permanent link"></a></h2>
+<p>A sample of decentralized apps that have surfaced over the past several years includes, but is not limited to: </p>
+<ul>
+<li>decentralized exchanges,</li>
+<li>prediction markets,</li>
+<li>decentralized knowledge bases (like Kauri),</li>
+<li>open source identity systems,</li>
+<li>casinos, </li>
+<li>games, </li>
+<li>and a litany of other use cases. This is not exhaustive. </li>
+</ul>
+<p>A quick internet search will return a long list of ongoing, more theoretical work-in-progress decentralized applications, many of which are working to solve real-world problems. For a more curated list, please reference: https://www.stateofthedapps.com/ </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 1 - What is Ethereum?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-1-what-is-ethereum/67a81d8746ee4b49ba19447e8e2a983e/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> ethereum, dapp, blockchain, tutorial</li>
+<li><strong>Kauri original hash:</strong> QmV3HLyXXnZVarZaxxyVZa74JyrsZvNegW5XYvUX8s77HG</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-link">
+        Remix IDE - Your first smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-link">
+        Full Stack dApp Tutorial Series - Intro
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/ethereum-101-part-1-what-is-ethereum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

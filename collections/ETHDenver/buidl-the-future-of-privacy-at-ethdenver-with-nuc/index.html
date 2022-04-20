@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nuc/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>BUIDL the Future of Privacy at ETHDenver with NuCypher - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "BUIDL the Future of Privacy at ETHDenver with NuCypher", url: "#_top", children: [
+              {title: "The Code", url: "#the-code" },
+              {title: "Previous Hacks", url: "#previous-hacks" },
+              {title: "See you at ETHDenver!", url: "#see-you-at-ethdenver" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="buidl-the-future-of-privacy-at-ethdenver-with-nucypher">BUIDL the Future of Privacy at ETHDenver with NuCypher<a class="headerlink" href="#buidl-the-future-of-privacy-at-ethdenver-with-nucypher" title="Permanent link"></a></h1>
+<p>Hey ETHDenver hackers!</p>
+<p>All of us at NuCypher, the privacy layer of the decentralized web, are super excited to meet you in a few weeks! Last year’s ETHDenver was our first ETHGlobal event (followed by ETHIndia, ETHBerlin, ETHSan Francisco, and ETHSingapore, so we’re clearly smitten).</p>
+<p>It’s been a whirlwind in the Ethereum space since then, but we’ve never been more excited about the new dapps and protocols the community continues to #buidl.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXYCxS2arsXPppHHXXSvCEoQJ2YNC41u6EP8YgAruA8HG" /></p>
+<p>We think hackathons are one of the best demonstrations of the quality and strength of our Ethereum community, which is why we’re always excited to sponsor (and sometimes <a href="https://devpost.com/software/sputnik">participate</a>
+ ).</p>
+<p>ETHDenver will be the first time the NuCypher public testnet will be truly available #buidling — so no more hassling with local deployments. We’re incredibly excited to see what you #buidl with it.</p>
+<p>Almost our entire team will be at ETHDenver (we’ll be the ones wearing shirts with the big  <code>NU</code> on the front or look for our sponsor table) so don’t hesitate to grab us to brainstorm ideas, ask questions about the API, or jam to some 
+<a href="https://youtu.be/OuY9WXK61gY">impromptu flute music/Mongolian throat singing</a>.</p>
+<p>Heck, you don’t even need to wait until Denver: hop into our <a href="https://discord.gg/7rmXa3S">Discord server</a> and hit us up —we’re always keen to chat with blockchain devs.</p>
+<p>For those of you who aren’t familiar with the NuCypher network, check out Justin Myles’ awesome demo:</p>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/OuY9WXK61gY" width="512"></iframe>
+
+<h4 id="the-code">The Code<a class="headerlink" href="#the-code" title="Permanent link"></a></h4>
+<p>In preparation, we’ve got a lot of great tools queued up for you on our <a href="https://github.com/nucypher">GitHub</a>:</p>
+<ul>
+<li>
+<p><code>hackathon</code> — your home base and the best place to start. Closer to the hackathon, we’ll update this with directions to all the relevant links and our bounties (when announced).</p>
+</li>
+<li>
+<p><code>pyUmbral</code> — this is the reference implementation of our split-key proxy re-encryption scheme that powers the NuCypher network. It’s a low-level cryptographic library that great for prototyping stuff.</p>
+</li>
+<li>
+<p><code>nucypher</code> — this is our keystone project, a layer 2 access control network that lets you manage private data in your Ethereum dapp.</p>
+</li>
+<li>
+<p><code>nufhe</code> — starting to get more futuristic. NuFHE is our GPU-accelerated fully homomorphic encryption library that lets you process and compute on encrypted data. We use it to #buidl <a href="https://github.com/nucypher/Sputnik">fully homomorphic smart contracts</a> and other cool proof of concepts.</p>
+</li>
+</ul>
+<h4 id="previous-hacks">Previous Hacks<a class="headerlink" href="#previous-hacks" title="Permanent link"></a></h4>
+<p>Last year, we saw lots of great submissions at hackathons all over the world. Here are a few of them to help spark ideas for you to work on at ETHDenver.</p>
+<p><em>ETHSan Francisco</em></p>
+<p><a href="https://devpost.com/software/keep-you-privacy-with-you">Keep your privacy with you</a>: Allows arbitrary EC arithmetic to be used on mobile devices with good speed and without a mess of C/C++ integrations.</p>
+<p><a href="https://devpost.com/software/py-fhe-evm">py-fhe-evm</a> — An experiment integrating the NuCypher FHE library as a type of EVM into the Py-EVM code base.</p>
+<p><em>ETHIndia</em></p>
+<p><a href="https://devfolio.co/submissions/we-are-calling-our-platform-whistle-we-have-chosen-this-name-as-we-wanted-to-build-a-platform-to-empower-whistleblowers-and-those-who-live-under-constant-fear-of-death">Whistle</a>: A dApp that empowers individuals and whistleblowers who live under the constant fear of death, to utilize the decentralized blockchain and store encrypted data using a unique combination of heartbeat transactions and the NuCypher network. This automates decryption of the data upon the death of the individual, acting as a dead man’s switch.</p>
+<p><em>ETHBerlin</em></p>
+<p><a href="https://github.com/nucypher/sputnik">Sputnik</a>
+ : Sputnik is an assembly language and interpreter for Fully Homomorphic Encryption. It was used to execute the first ever fully homomorphic smart contract at ETHBerlin on September 9, 2018.</p>
+<p><em>MIT Bitcoin Hackathon</em></p>
+<p><a href="https://devpost.com/software/dechat-jh902i">proxyChat</a>
+ : Other chatting applications rely on a server as a “Trusted” key manager. This server becomes a single point of failure, and if the server manager ever decides to become dishonest, the privacy of the entire system is compromised. We felt like this idea required NuCypher to guarantee that malicious servers would not have the power to spy on its client’s conversations.</p>
+<p><em>Crypto Bazar Hackathon</em></p>
+<p><a href="https://gitlab.com/vanes/nucypher---chromeextesion-with-gui-and-logging">Chrome extension for NuCypher network:</a>
+ While the javascript version of NuCypher is still in development, it is still possible to interact with the NuCypher network using the Python code from browsers using a browser extension.</p>
+<h4 id="see-you-at-ethdenver">See you at ETHDenver!<a class="headerlink" href="#see-you-at-ethdenver" title="Permanent link"></a></h4>
+<p>Start exploring our tools, checking out some of the previous submissions, and asking questions in our 
+<a href="https://discord.gg/7rmXa3S">Discord</a>, we can’t wait to see you at ETHDenver and #buidl something awesome together.</p>
+<p>The final wave of applications for ETHDenver closes January 31st so <a href="https://www.ethdenver.com/">apply today</a> if you haven’t already.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong>  BUIDL the Future of Privacy at ETHDenver with NuCypher</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/buidl-the-future-of-privacy-at-ethdenver-with-nucy/892e5ee1912e4478a0066b922585c17c/a</li>
+<li><strong>Kauri original author:</strong> MacLane Wilkison (@maclane)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-25</li>
+<li><strong>Kauri original tags:</strong> Ethereum, ETHGLOBAL</li>
+<li><strong>Kauri original hash:</strong> QmcDMng6eU1RcPjShH9cqcMP6wdZsASZZwBT1ZRLugdTfE</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../connect-your-smart-contracts-connected-to-real-wo/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../connect-your-smart-contracts-connected-to-real-wo/" class="btn btn-xs btn-link">
+        Connect your smart contracts connected to real world data with Chainlink
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../share-your-knowledge-at-ethdenver-to-build-a-bett/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../share-your-knowledge-at-ethdenver-to-build-a-bett/" class="btn btn-xs btn-link">
+        Share your knowledge at ETHDenver to build a better ecosystem
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHDenver/buidl-the-future-of-privacy-at-ethdenver-with-nuc.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

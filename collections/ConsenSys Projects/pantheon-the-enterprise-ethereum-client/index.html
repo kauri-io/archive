@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ConsenSys%20Projects/pantheon-the-enterprise-ethereum-client/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Pantheon - The Enterprise Ethereum Client - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Pantheon - The Enterprise Ethereum Client", url: "#_top", children: [
+              {title: "Installation", url: "#installation" },
+              {title: "Build from source", url: "#build-from-source" },
+              {title: "Installation on a VM", url: "#installation-on-a-vm" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="pantheon-the-enterprise-ethereum-client">Pantheon - The Enterprise Ethereum Client<a class="headerlink" href="#pantheon-the-enterprise-ethereum-client" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme8Rk7peKJkFMQfhpVhNsyKLaaNYBanGdSNjqpu91hgK7" /></p>
+<p>Pantheon is a suite of ETH-based services created by PegaSys, and aims to create an ethereum client that develops its enterprise-focused
+features in lock-step with the evolution of the public Ethereum
+blockchain. Pantheon helps enterprises profit from the Ethereum public
+blockchain while explicitly following the <a href="https://bitcoinexchangeguide.com/enterprise-ethereum-alliance-eea-welcomes-ebay-foxconn-to-blockchain-consortium/">Enterprise Ethereum Alliance</a>
+(EEA) standards. Pantheon is focused on being fully interoperable with
+other Ethereum technology including Geth, Parity, etc.</p>
+<p>Pantheon uses the Apache 2.0 open source software license and Java to
+create a new Ethereum client that is easier to program, gives more
+flexibility and freedom than the GPL.</p>
+<p>Pantheon provides:</p>
+<ul>
+<li>Main-net compatibility</li>
+<li>Consensus algorithms</li>
+<li>Enhanced privacy features</li>
+<li>Permissioning controls</li>
+<li>A command line interface</li>
+<li>JSON-RPC API for running, maintaining, debugging, and monitoring node operations in an Ethereum network.</li>
+</ul>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h3>
+<h4 id="install-on-macos-using-homebrew">Install on macOS Using Homebrew<a class="headerlink" href="#install-on-macos-using-homebrew" title="Permanent link"></a></h4>
+<pre><code class="language-shell">brew tap pegasyseng/pantheon
+brew install pantheon
+</code></pre>
+<h4 id="install-on-windows-with-chocolatey">Install on Windows with Chocolatey<a class="headerlink" href="#install-on-windows-with-chocolatey" title="Permanent link"></a></h4>
+<pre><code class="language-shell">choco install pantheon
+</code></pre>
+<h4 id="install-from-packaged-binaries">Install from Packaged Binaries<a class="headerlink" href="#install-from-packaged-binaries" title="Permanent link"></a></h4>
+<p>Download the Pantheon <a href="https://bintray.com/consensys/pegasys-repo/pantheon/_latestVersion#files">packaged binaries</a>.
+Unpack the downloaded files and in the unpacked directory run:</p>
+<pre><code class="language-shell">bin/pantheon --help
+</code></pre>
+<h3 id="build-from-source">Build from source<a class="headerlink" href="#build-from-source" title="Permanent link"></a></h3>
+<p>Pantheon requires Java 8+ to compile, earlier versions are not
+supported. Pantheon is currently supported only on 64-bit versions of
+Windows, and requires a 64-bit version of JDK/JRE. It's recommended to remove any 32-bit JDK/JRE installations.</p>
+<p>Clone the repo:</p>
+<pre><code class="language-shell">git clone --recursive https://github.com/PegaSysEng/pantheon.git
+</code></pre>
+<p>In the <em>pantheon</em> directory build Pantheon with the Gradle wrapper <code>gradlew</code>, omitting tests:</p>
+<pre><code class="language-shell">./gradlew build -x test
+</code></pre>
+<p>To run <code>gradlew</code>, you must have the <code>JAVA_HOME</code> system variable set to the Java installation directory.</p>
+<p>Go to the distribution directory:</p>
+<pre><code class="language-shell">cd build/distributions/
+</code></pre>
+<p>Expand the distribution archive:</p>
+<pre><code class="language-shell">tar -xzf pantheon-{version}.tar.gz
+</code></pre>
+<p>Move to the expanded folder and display the Pantheon help to confirm
+installation.</p>
+<pre><code class="language-shell">cd pantheon-{version}/
+bin/pantheon --help
+</code></pre>
+<h3 id="installation-on-a-vm">Installation on a VM<a class="headerlink" href="#installation-on-a-vm" title="Permanent link"></a></h3>
+<p>You can run Pantheon on a virtual machine (VM) on a cloud service such
+as AWS or Azure, or locally using a VM manager such as
+<a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
+<p>If you set up your own VM locally using a VM manager such as
+<a href="https://www.virtualbox.org/">VirtualBox</a>, there are a few
+considerations:</p>
+<ul>
+<li>Make sure that you enable Intel Virtualization Technology (VTx) and Virtualization Technology for Directed I/O (VT-d) in the BIOS settings.</li>
+<li>On Windows, you might need to disable Hyper-V in the Windows Feature list.</li>
+</ul>
+<p>It is recommended that you create a VM with the following attributes:</p>
+<ul>
+<li>Memory size set to 4096</li>
+<li>Create a virtual hard disk with at least 10 GB</li>
+<li>Virtual hard disk file type: VDI (if you need to share it with other apps, use VHD)</li>
+<li>(Optional) You can create a shared directory to copy block files or genesis files from the host computer to the VM. For details on how to create a shared directory, see "Share Folders" in <a href="https://linus.nci.nih.gov/bdge/installUbuntu.html">Install Ubuntu on Oracle VirtualBox</a>.</li>
+</ul>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.pantheon.pegasys.tech/en/latest/Installation/Build-From-Source/">The build from source tutorial</a></li>
+<li><a href="https://docs.pantheon.pegasys.tech/en/latest/Tutorials/Private-Network-Quickstart/">The Private Network Quickstart</a></li>
+<li><a href="https://docs.pantheon.pegasys.tech/en/latest/Getting-Started/Starting-Pantheon/">Starting Pantheon</a></li>
+<li><a href="https://docs.pantheon.pegasys.tech/en/stable/">The Pantheon knowledge base</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Pantheon - The Enterprise Ethereum Client</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/pantheon-the-enterprise-ethereum-client/48c4c61a77304ecab8df7247aa1900ac/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-01</li>
+<li><strong>Kauri original tags:</strong> ethereum, library, enterprise, pantheon, sdk</li>
+<li><strong>Kauri original hash:</strong> QmYrQXKqFndyoNJim1ptxNvZ4UnGwccCvKd3UBXY9GG2jz</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../nethereum-an-open-source-.net-integration-library/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../nethereum-an-open-source-.net-integration-library/" class="btn btn-xs btn-link">
+        Nethereum - An open source .NET integration library for blockchain
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../kaleido-the-blockchain-business-cloud/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../kaleido-the-blockchain-business-cloud/" class="btn btn-xs btn-link">
+        Kaleido - the Blockchain Business Cloud
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ConsenSys Projects/pantheon-the-enterprise-ethereum-client.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

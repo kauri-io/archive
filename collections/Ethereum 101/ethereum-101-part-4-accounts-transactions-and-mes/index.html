@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-4-accounts-transactions-and-mes/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 4 - Accounts, Transactions, and Messages - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 4 - Accounts, Transactions, and Messages", url: "#_top", children: [
+              {title: "Accounts, Transactions, and Messages", url: "#accounts-transactions-and-messages" },
+              {title: "Quick Overview", url: "#quick-overview" },
+              {title: "Supplemental Technical Information", url: "#supplemental-technical-information" },
+              {title: "Primer on Asymmetric Cryptography", url: "#primer-on-asymmetric-cryptography" },
+              {title: "Sending a transaction with ethereumjs-tx", url: "#sending-a-transaction-with-ethereumjs-tx" },
+              {title: "Additional Web3 Libraries", url: "#additional-web3-libraries" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-4-accounts-transactions-and-messages">Ethereum 101 - Part 4 - Accounts, Transactions, and Messages<a class="headerlink" href="#ethereum-101-part-4-accounts-transactions-and-messages" title="Permanent link"></a></h1>
+<h2 id="accounts-transactions-and-messages">Accounts, Transactions, and Messages<a class="headerlink" href="#accounts-transactions-and-messages" title="Permanent link"></a></h2>
+<p>The Ethereum state is made up of accounts, and the transactions among those accounts propel the network forward, ensuring network validators receive appropriate compensation for their Proof of Work computations securing the blockchain.</p>
+<p>The blockchain is a state transition system. The “state” is the ledger of all existing Ethereum accounts, smart contracts, and ether ownership. In a “state transition function” that state is used to execute a transaction and the output of that transaction becomes the new state. As transactions are submitted to the network by externally owned accounts, they move the Ethereum blockchain to its newest state. </p>
+<h2 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link"></a></h2>
+<p>There are two different types of accounts: </p>
+<ul>
+<li>Externally owned accounts (acronym: EOA)</li>
+<li>Contract accounts</li>
+</ul>
+<p>Externally owned accounts are controlled by their private keys, while contract accounts are controlled by their contract EVM bytecode, a topic that will be discussed in another section. </p>
+<h5 id="address-do-not-send-money-to-this-address-it-may-be-lost">Address (do not send money to this address, it may be lost):<a class="headerlink" href="#address-do-not-send-money-to-this-address-it-may-be-lost" title="Permanent link"></a></h5>
+<pre><code>0xab6291d3B3290e7F2287dE751Fb5FDDA4B91ebB6
+</code></pre>
+<p>The address is your public facing element of your account. If you are to receive Ether, you will direct that transaction to this address. The address is simply the Keccak-256 hash of the public key, which is not listed in this section. </p>
+<h5 id="private-key-with-this-key-you-have-control-over-the-above-address">Private Key (with this key, you have control over the above address):<a class="headerlink" href="#private-key-with-this-key-you-have-control-over-the-above-address" title="Permanent link"></a></h5>
+<pre><code>aa50f1a46ecb19a2464cfdd43f0d31ad32f4bb598df3ed5a448a43ab5d02f0ef
+</code></pre>
+<h2 id="supplemental-technical-information">Supplemental Technical Information<a class="headerlink" href="#supplemental-technical-information" title="Permanent link"></a></h2>
+<h4 id="mnemonic-seed-phrases-bip39">Mnemonic Seed Phrases &amp; BIP39<a class="headerlink" href="#mnemonic-seed-phrases-bip39" title="Permanent link"></a></h4>
+<p>Some decentralized apps and wallets use mnemonic phrases or JSON files for account recovery (e.g. MetaMask uses a 12 word seed phrase for account restoration). Similar as you would with private keys, mnemonic phrases and keystore files (typically a JSON file) should be duly protected. </p>
+<h3 id="resources">Resources:<a class="headerlink" href="#resources" title="Permanent link"></a></h3>
+<ul>
+<li>https://iancoleman.io/bip39/ &amp; https://github.com/iancoleman/bip39</li>
+</ul>
+<p>Should someone learn your mnemonic phrase or obtain your JSON keystore file, they may be able to recover your account and gain access to your funds. For more information, please reference the knowledge bases of MetaMask (<a href="https://support.metamask.io/">https://support.metamask.io/</a>) and MyEtherWallet (<a href="https://myetherwallet.github.io/knowledge-base/">https://myetherwallet.github.io/knowledge-base/</a>). </p>
+<h2 id="primer-on-asymmetric-cryptography">Primer on Asymmetric Cryptography<a class="headerlink" href="#primer-on-asymmetric-cryptography" title="Permanent link"></a></h2>
+<p>Accounts are derived through complex and inherently secure asymmetric cryptography. The creation of an Ethereum account is a three step process:</p>
+<ul>
+<li>First, a 64 character hexadecimal private key is randomly generated. </li>
+<li>Second, the public key is generated by taking the 64 character hexadecimal private key and applying elliptic curve multiplication (this is an irreversible calculation). </li>
+<li>Third, take the Keccak-256 hash of the newly generated public key, take the final, furthest right 40 characters of this hash, and prefix these 40 characters with ‘0x’. This is the account address. </li>
+</ul>
+<p>Using our accounts’ derived asymmetric private key and address, we can begin executing transactions. The term transaction refers to a signed data package that is sent from an externally owned account. Similar to a transaction, a message call is produced by a contract, not an externally owned account. Contracts can even make message calls to other contracts. The white paper describes contracts not as objects that must be fulfilled, but instead as a block of code on the blockchain that is executed when called by an externally owned account or another contract (via a message call). </p>
+<p>In the event we are conducting a raw transaction between two external accounts, the process is straightforward. First, we need three parameters: the account that is sending the transaction, the account that will be receiving the transaction value, and the value of the transaction. Additional parameters are required: nonce, gasLimit, and the gasPrice, though we do not need to derive these values on our own as they will be populated by the geth console. </p>
+<ul>
+<li><strong>nonce:</strong> this is the transaction count of the account sending the transaction (not to be confused with the Proof of Work nonce, as this is a different nonce). </li>
+<li><strong>gasLimit (STARTGAS):</strong> an upfront value paid by the externally owned account setting the maximum price paid to execute the transaction; if all gas is exhausted the transaction is reverted back to its previous state. Any unused gas is typically returned to the transaction sender. </li>
+<li><strong>gasPrice (GASPRICE):</strong> the value of each computation step (an EVM opcode) paid by the externally owned account to execute the transaction. </li>
+</ul>
+<h2 id="sending-a-transaction-with-ethereumjs-tx">Sending a transaction with ethereumjs-tx<a class="headerlink" href="#sending-a-transaction-with-ethereumjs-tx" title="Permanent link"></a></h2>
+<p>For the purposes of this document, we will be using ethereumjs-tx to execute this transaction. Installation is simple, please use the command below: </p>
+<pre><code>$ npm install ethereumjs-tx
+</code></pre>
+<p>Next, let’s get a geth console running and obtain some values to help us better define our transaction parameters. Let’s use the Rinkeby testnet for this exercise. You will need to obtain ether from the Rinkeby faucet @ <a href="https://faucet.rinkeby.io/">https://faucet.rinkeby.io/</a>. </p>
+<p>Open up a terminal and input the following geth commands: </p>
+<pre><code>&gt; geth --fast --cache=1024 --rinkeby console 2&gt;&gt;eth.log
+</code></pre>
+<p>Utilize a second terminal to view the geth feed: </p>
+<pre><code>&gt; tail -F eth.log
+</code></pre>
+<p>Obtain our transaction nonce using the below command in our geth node: </p>
+<pre><code>&gt; web3.eth.getTransactionCount(“&lt;insert account here&gt;”)
+</code></pre>
+<p>Now that we’ve found our transaction nonce, let’s assemble the code that will push our transaction onto the ethereum network. Understanding the transaction nonce and how it prevents double-spending on the Ethereum blockchain is important. Assume that an Account A is sending 3 ether to Account B, and Account A only has that 3 ether in its account. Account A signs and broadcasts this transaction to the network. Subsequently, while using a higher gas price,  Account A then signs and broadcasts a second transaction to C in the amount of 3 ether. The higher gas price warrants the second transaction a higher queue in the pending transaction pool, effectively executing a double spend. </p>
+<p>The nonce is what prevents this double spending from happening, as account transactions need to be sequential. In our above example, assuming the account has a nonce of 0, the first transaction will be written to the blockchain. The second transaction, even with the higher gas price, will be rejected because the nonce is +1 more than the first transaction’s nonce. The blockchain will interpret that Account A will not have enough ether to execute the second transaction, even though it was sent with a higher gas price, and will then reject that second transaction. </p>
+<p>In our nodejs console: </p>
+<pre><code>&gt; const EthTxn = require(“ethereumjs-tx”)
+&gt; const privKey = Buffer.from(“&lt;INSERT PRIVATE KEY&gt;”, “hex”)
+&gt; const txnParams = {nonce: “0x00”, gasPrice: “0x2540be400”, gasLimit: “0x222e0”, to: “&lt;INSERT DESTINATION ADDRESS HERE&gt;”, value: “0x2fe01dba2bb1dffe”, data: “0x00”, }
+&gt; const tx = new EthTxn(txnParams)
+&gt; tx.sign(privKey)
+&gt; const serializedTx = tx.serialize()
+&gt; const rawTxn = “0x” + serializedTx.toString(“hex”);
+&gt; console.log(rawTxn)
+// this will output a long transaction string
+0xf86d018520540be400839752e094a18d70840b9bc475ba15f4f6a98d2967744fe4c1882fe01dba2bb1dffe001ba0984e42f70a04d17e56b965423ae83527ee701cfb56e2b701b8b46e9c94461303a01ffd3efc1bcc7eb5f85fa1929cb2ca52706a59f0c48febe488c3c56aee5d164e
+</code></pre>
+<p>The above console.log(rawTxn) command will return a raw transaction string. Input this raw transaction string into your geth console using the below command: </p>
+<pre><code>&gt; eth.sendRawTransaction(“0xf86d018520540be400839752e094a18d70840b9bc475ba15f4f6a98d 2967744fe4c1882fe01dba2bb1dffe001ba0984e42f70a04d17e56b965423ae83527ee701cfb56e2b701b8b46e9c94461303a01ffd3efc1bcc7eb5f85fa1929cb2ca52706a59f0c48febe488c3c56aee5d164e”)
+</code></pre>
+<p>In your second terminal you will find output similar to the below:</p>
+<pre><code>INFO [XX-XX|XX:XX:XX] Submitted transaction ...
+</code></pre>
+<p>To summarize, the above tutorial explains how to send transactions from an externally owned account. It’s important to understand that contracts do not initiate transactions. Contracts are able to send messages to other contracts, but to do this, the contract must receive a message from an externally owned account. </p>
+<p>Contract messages are different, they do not have a gas limit, as the gas costs set by the externally owned account initiating the transaction must be sufficient enough to carry the whole execution through to completion. In the event a message execution runs out of gas, then that particular message will halt and revert back to its previous state, unwinding all prior computational steps effectively restoring its previous state. This is an unsuccessful transaction. </p>
+<p>Since we sent the above transaction on the Rinkeby testnet, you could simply use Etherscan to view your address, the transactions you’re sending and receiving at that address, as well as the externally owned accounts and contracts that received your test ether. Many decentralized apps reference Etherscan to obtain a quick glimpse of your activity on the blockchain. Take a moment to review: <a href="https://etherscan.io">https://etherscan.io</a></p>
+<h2 id="additional-web3-libraries">Additional Web3 Libraries<a class="headerlink" href="#additional-web3-libraries" title="Permanent link"></a></h2>
+<h3 id="web3js-javascript">Web3js - JavaScript<a class="headerlink" href="#web3js-javascript" title="Permanent link"></a></h3>
+<ul>
+<li>Github: https://github.com/ethereum/web3.js/</li>
+<li>Docs: https://web3js.readthedocs.io/en/1.0/</li>
+</ul>
+<h3 id="web3py-python">Web3py - Python<a class="headerlink" href="#web3py-python" title="Permanent link"></a></h3>
+<ul>
+<li>Github: https://github.com/ethereum/web3.py</li>
+<li>Docs: https://web3py.readthedocs.io/en/stable/</li>
+</ul>
+<h3 id="web3j-java">Web3j - Java<a class="headerlink" href="#web3j-java" title="Permanent link"></a></h3>
+<ul>
+<li>Github: https://github.com/web3j/web3j</li>
+<li>Docs: https://docs.web3j.io/</li>
+</ul>
+<h3 id="additional-reading">Additional reading:<a class="headerlink" href="#additional-reading" title="Permanent link"></a></h3>
+<ul>
+<li>Ethereum White Paper: https://github.com/ethereum/wiki/wiki/White-Paper#messages-and-transactions</li>
+<li>Ethereum Yellow Paper: 
+https://ethereum.github.io/yellowpaper/paper.pdf</li>
+<li>Ethereum Beige Paper: https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 4 - Accounts, Transactions, and Messages</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-4-accounts-transactions-and-mess/7e79b6932f8a41a4bcbbd194fd2fcc3a/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, 101, web3, state, message, transaction</li>
+<li><strong>Kauri original hash:</strong> QmTF8hThon8NnFva8AqmxHzYb32fr32xUei3FkyMY7M7r7</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-101-part-7-the-evm/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-101-part-7-the-evm/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 7 - The EVM
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-5-the-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-5-the-smart-contract/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 5 - The Smart Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-4-accounts-transactions-and-mes.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

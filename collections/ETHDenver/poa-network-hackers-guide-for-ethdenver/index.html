@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHDenver/poa-network-hackers-guide-for-ethdenver/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>POA Network Hackers Guide for ETHDenver - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "POA Network Hackers Guide for ETHDenver", url: "#_top", children: [
+              {title: "Who will be there from the POA team?", url: "#who-will-be-there-from-the-poa-team" },
+              {title: "Where can I find the developer docs and resources?", url: "#where-can-i-find-the-developer-docs-and-resources" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="poa-network-hackers-guide-for-ethdenver">POA Network Hackers Guide for ETHDenver<a class="headerlink" href="#poa-network-hackers-guide-for-ethdenver" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaG21963chf4dQ5RGgYAy93B2M1s1bT9aXWtaBLAS3VSp" /></p>
+<p>POA is proud to announce that we will be sponsoring
+<a href="https://ethdenver.com">ETHDenver</a> for a second consecutive year! Last
+year we witnessed the developer community <a href="https://medium.com/poa-network/poa-network-at-ethdenver-a-recap-88f64b18dee7">rally together and focus on
+building several amazing dApps on our
+infrastructure</a>.
+We saw many inspiring projects and submissions and had the opportunity
+to showcase the prototype version of our POA20 Bridge.</p>
+<p><img alt="image" src="https://discourse-cdn-sjc1.com/business5/uploads/poa1/optimized/2X/4/4fe19dd57656de07b82e231891e5df64ae5e7b16_2_689x459.jpeg" /></p>
+<p>Since then, we have released a full suite of open source developer tools
+to advance the Ethereum ecosystem. We’re excited to see how hackers and
+#BUILDers leverage these tools to create something new!</p>
+<ul>
+<li><a href="https://blockscout.com">BlockScout</a> — Our open source block
+    explorer that utilizes Elixir for its scalability and fault-tolerant
+    systems to provide fast, secure, and easy to use transaction
+    processing. BlockScout features an <a href="https://blockscout.com/poa/dai/api_docs">API
+    1</a> that is easy to connect
+    with to view and confirm transactions and smart contract
+    interactions.</li>
+<li><a href="https://forum.poa.network/t/xdai-chain-official-announcement/1779/4">xDai
+    Chain</a>
+    — We have partnered with MakerDAO to create the first ever
+    blockchain where the native currency of the chain is USD-stable.
+    xDai Chain, an Ethereum compatible sidechain with Dai as the native
+    currency of the network, combines POA Network’s interoperability
+    technology along with MakerDAO’s Dai, the permissionless,
+    crypto-collateralized USD-stable coin.</li>
+<li><a href="https://forum.poa.network/t/introducing-the-erc20-to-erc20-tokenbridge/1783">ERC20 to ERC20 TokenBridge
+    2</a>
+    — This bridge allows users to transfer ERC20 tokens from one
+    Ethereum Virtual Machine (EVM) based network to another EVM based
+    network within a single wallet.</li>
+</ul>
+<p>We’ve seen first hand the power of hackathons to generate new and
+exciting ideas. Most recently, we participated in the Status
+#CryptoLife Hackathon in Prague, Czech Republic where developers
+<a href="https://medium.com/poa-network/cryptolife-recap-looking-at-the-poa-network-projects-513a1a66c8d3">created applications on our xDai chain including a payment platform and
+a virtual jukebox
+1</a>.</p>
+<h2 id="who-will-be-there-from-the-poa-team">Who will be there from the POA team?<a class="headerlink" href="#who-will-be-there-from-the-poa-team" title="Permanent link"></a></h2>
+<p>At EthDenver, POA will be represented by various team members including:</p>
+<ul>
+<li><a href="https://forum.poa.network/u/igorbarinov">Igor Barinov</a> - When he is
+    not helping hackers and developers, <strong>POA’s tech lead</strong> will be
+    participating in <strong>infrastructure and scalability</strong> related panels
+    and workshops.</li>
+<li><a href="https://forum.poa.network/u/viktorbaranov">Viktor Baranov</a> - POA
+    Core developer Viktor Baranov will be helping the hackers with any
+    issues or technical problems they may have.</li>
+<li><a href="https://forum.poa.network/u/AndrewG">Andrew Gross</a> - Technical
+    writer, Ethereum dev call contributor and Denver native will be
+    presenting the POA keynote on the first evening of ETHDenver.</li>
+<li><a href="https://forum.poa.network/u/andrewcravenho">Andrew Cravenho</a> -
+    BlockScout project lead will be at ETHDenver alongside the POA team
+    where he will be presenting BlockScout’s latest features and future
+    roadmap.</li>
+</ul>
+<p>Alongside the official POA team, you will find <strong>POA validators</strong> <a href="https://forum.poa.network/u/henryvishnevsky/summary">Henry
+Vishnevsky</a> and
+<a href="https://forum.poa.network/u/alexem/summary">Alexey Emelyanov</a> and two
+of <strong>POA’s official ambassadors</strong> <a href="https://forum.poa.network/u/Sky-POA/summary">Sky
+Minert</a> and <a href="https://forum.poa.network/u/mgarcia/summary">Manuel
+Garcia</a>. You will find them
+at the POA booth where they will be rocking and giving away official POA
+swag!</p>
+<p>Our team members, validators and ambassadors will be ready and available
+to help you develop and deploy your DApp to one of our networks. If you
+are looking for help now, or just want to familiarize yourself with our
+tools, we welcome any questions in our
+<a href="https://forum.poa.network">forum</a> or in our
+<a href="https://discord.gg/SwbdEAS">Discord</a>.</p>
+<p>A main success criteria of any submission we receive will be a
+successful deployment to either the xDai Chain or POA Network. But not
+to worry! Deploying to either of these networks is as easy as can be.</p>
+<h2 id="where-can-i-find-the-developer-docs-and-resources">Where can I find the developer docs and resources?<a class="headerlink" href="#where-can-i-find-the-developer-docs-and-resources" title="Permanent link"></a></h2>
+<p>xDai Chain Resources:
+<a href="https://forum.poa.network/t/xdai-chain-resources/1769/4">https://forum.poa.network/t/xdai-chain-resources/1769</a></p>
+<p>POA Core resources:
+<a href="https://forum.poa.network/t/core-network-resources/1797">https://forum.poa.network/t/core-network-resources/1797</a></p>
+<p>Deployment guide for POA Core:
+<a href="https://forum.poa.network/t/tutorial-deploying-your-dapp-to-poa-network/1804/2">https://forum.poa.network/t/tutorial-deploying-your-dapp-to-poa-network/1804</a></p>
+<p><strong>See you at ETHDenver!</strong></p>
+<p>We can’t wait to see everyone! We will release more details about the
+bounties soon, but for now start exploring our different tools, play
+with xDai and the <a href="http://bridge.poa.net">Dai Bridge 1</a>, check your
+transactions in <a href="https://blockscout.com">BlockScout</a>, deploy a small
+contract to POA Core, and ask questions in our
+<a href="https://discord.gg/SwbdEAS">Discord</a> or
+<a href="https://forum.poa.network">forum</a> - we’ll be more than happy to help!
+The final wave of applications for ETHDenver closes January 31st so
+<a href="http://ethdenver.com/">apply today</a> if you haven’t already!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> POA Network Hackers Guide for ETHDenver </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/poa-network-hackers-guide-for-ethdenver/bd3960fa9d124de0bbecd72691c0f89b/a</li>
+<li><strong>Kauri original author:</strong> Ziggy Zeidan (@ziggy)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-29</li>
+<li><strong>Kauri original tags:</strong> EthDenver, POA, hackathons</li>
+<li><strong>Kauri original hash:</strong> QmTcVar9QsAaVXgXH5HjqemHrwLp7jNgpxyNU4U6GbUexr</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../get-started-with-zeppelinos%21/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../get-started-with-zeppelinos%21/" class="btn btn-xs btn-link">
+        Get started with ZeppelinOS!
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../bzx-the-decentralized-margin-lending-protocol-at-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../bzx-the-decentralized-margin-lending-protocol-at-/" class="btn btn-xs btn-link">
+        Bzx - the Decentralized Margin Lending Protocol at ETHDenver
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHDenver/poa-network-hackers-guide-for-ethdenver.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

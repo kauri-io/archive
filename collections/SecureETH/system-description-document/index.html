@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/SecureETH/system-description-document/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>System Description Document - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "System Description Document", url: "#_top", children: [
+              {title: "System Description", url: "#system-description" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="system-description-document">System Description Document<a class="headerlink" href="#system-description-document" title="Permanent link"></a></h1>
+<h2 id="system-description">System Description<a class="headerlink" href="#system-description" title="Permanent link"></a></h2>
+<p>The System Description Document (SDD) is a top level informal document that describes what the system will do. It should describe the “System” or “Product” from a users’ perspective. This is the first document that any auditor or contractor would read. From it they should understand what the system does.</p>
+<h4 id="why-do-a-system-description-document">Why do a System Description Document?<a class="headerlink" href="#why-do-a-system-description-document" title="Permanent link"></a></h4>
+<p>This is the first document any outside auditor will read. It gives them context and perspective.</p>
+<h4 id="who-reads-the-system-description-document">Who reads the System Description Document?<a class="headerlink" href="#who-reads-the-system-description-document" title="Permanent link"></a></h4>
+<p>Any third party that will be working with the smart contracts should read the SDD first. This will include auditors, but could also include new colloborators that join your project.</p>
+<h3 id="what-is-included-in-the-sdd">What is Included in the SDD?<a class="headerlink" href="#what-is-included-in-the-sdd" title="Permanent link"></a></h3>
+<p>The document does not formally trace to any requirements or tests. This means the document can be in any format. Think of it as the “spirit of the application”.</p>
+<p>It can include web as well as smart contracts aspects of the application. It should include the business aspects of the project and a description of any tokens, their uses and life cycle. It can include a list of the goals for the smart contracts. It can be an excerpt of the white paper but should be an independent document.</p>
+<h4 id="description-from-the-users-point-of-view">Description from the Users Point of View<a class="headerlink" href="#description-from-the-users-point-of-view" title="Permanent link"></a></h4>
+<p>The SDD should describe what the user does and why. Describe their business incentives for using the application. Ideally it would have a users instruction manual and a set of user stories but that is not required.</p>
+<h4 id="tokens">Tokens<a class="headerlink" href="#tokens" title="Permanent link"></a></h4>
+<p>This is the only document where you can describe the uses and lifecycle of a token from a business perspective. It is important for an auditor to know which tokens will hold a high value.</p>
+<h4 id="diagrams">Diagrams<a class="headerlink" href="#diagrams" title="Permanent link"></a></h4>
+<p>This is a good place to include any relevant flow diagrams explaining your system or aspects of it. Many other documents of this process (requirements, code, tests, etc) often are text files that cannot carry documents, so put the diagrams in this document and reference them elsewhere.</p>
+<h4 id="web-aspect-of-the-application">Web Aspect of the Application<a class="headerlink" href="#web-aspect-of-the-application" title="Permanent link"></a></h4>
+<p>While this section can simply describe a web application, consider mentioning other aspects important to the smart contract. How many instances can be called in parallel? Are there any aspects in the design of the web application that will affect the smart contract (e.g. the owner is assumed to use it only in a certain way)? State any relevant assumptions.</p>
+<h4 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link"></a></h4>
+<p>If your Application uses hardware such as an Internet of Things device, this is the place to describe it. If the device will interact with the Blockchain then its code will have its own set of requirements.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h3>
+<p>Check <a href="../examples.md">here </a>for a description of the examples used below.</p>
+<p><a href="https://github.com/SecurEth/CryptoZombiesT2/blob/master/Lesson4/doc/SystemDefinitionDoc.md">Example 1 - CryptoZombies Lesson 4</a></p>
+<p><a href="https://github.com/SecurEth/guidelines/blob/master/project-planning/example1-tinyDNS.md">Example 2 - Tiny DNS</a></p>
+<p><a href="https://github.com/SecurEth/Wayback/blob/master/docs/01%20-%20System%20Description%20Document.md">Example 3 - Wayback</a></p>
+<h3 id="template">Template<a class="headerlink" href="#template" title="Permanent link"></a></h3>
+<p>What is the top level of your System/Application/Product?</p>
+<p>What does the User see and do with the Application?</p>
+<p>Describe any tokens involved in the system, including value and flow.</p>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link"></a></h3>
+<p>Got a comment?  Check out our <a href="https://gitter.im/SecurEth_Guidelines/community#">Gitter Channel</a>!</p>
+<p>Copyright and related rights waived via <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> System Description Document</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/system-description-document/a3a29cf21736417684361836693388e5/a</li>
+<li><strong>Kauri original author:</strong> Rex Hygate (@rhygate)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-13</li>
+<li><strong>Kauri original tags:</strong> solidity-guidelines-developer-vyper</li>
+<li><strong>Kauri original hash:</strong> QmSme42poZqdd52FbHohuLgqRtopUdXQsUJboimxgs5J2G</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../secureth-guidelines-getting-started/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../secureth-guidelines-getting-started/" class="btn btn-xs btn-link">
+        SecurEth Guidelines - Getting Started
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../DevOps/analyze-solidity-smart-contracts-with-slither/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../DevOps/analyze-solidity-smart-contracts-with-slither/" class="btn btn-xs btn-link">
+        Analyze Solidity Smart Contracts with Slither
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/SecureETH/system-description-document.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

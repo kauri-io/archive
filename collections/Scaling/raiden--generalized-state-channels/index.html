@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/raiden--generalized-state-channels/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Raiden  Generalized State Channels - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Raiden  Generalized State Channels", url: "#_top", children: [
+              {title: "Getting started with the Raiden API", url: "#getting-started-with-the-raiden-api" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="raiden-generalized-state-channels">Raiden  Generalized State Channels<a class="headerlink" href="#raiden-generalized-state-channels" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYbLBgSUCpsVJgaXFVPpJZ2eudGtqsDjEYim1cGxZamen" /></p>
+<blockquote>
+<p>The Raiden Network is an off-chain scaling solution, enabling near-instant, low-fee and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token.</p>
+</blockquote>
+<h2 id="getting-started-with-the-raiden-api">Getting started with the Raiden API<a class="headerlink" href="#getting-started-with-the-raiden-api" title="Permanent link"></a></h2>
+<pre><code>.. toctree::
+  :maxdepth: 3
+</code></pre>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>Raiden has a Restful API with URL endpoints corresponding to actions
+that users can perform with their channels. The endpoints accept and
+return JSON encoded objects. The API URL path always contains the API
+version in order to differentiate queries to different API versions. All
+queries start with: <code>/api/&lt;version&gt;/</code> where <code>&lt;version&gt;</code> is an integer
+representing the current API version.</p>
+<p>This section walks through the steps necessary to participate in a
+Raiden Token Network. Some different scenarios such as joining an
+already existing token network, registering a new token network,
+together with opening, closing and settling channels, are provided.</p>
+<p>Before getting started with below guides, please see <code>Overview and Guide
+&lt;overview_and_guide&gt;</code>, to make sure that a proper connection to Raiden
+is established.</p>
+<p>Furthermore, to see all available endpoints, please see the <code>REST API
+documentation &lt;rest_api&gt;</code>.</p>
+<h3 id="scenarios">Scenarios<a class="headerlink" href="#scenarios" title="Permanent link"></a></h3>
+<p>Below is a series of different scenarios showing different ways a user
+can interact with the Raiden API.</p>
+<p>A good way to check that Raiden was started correctly before proceeding
+is to check that the Raiden address is the same address as the Ethereum
+address chosen, when starting the Raiden node:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/address HTTP/1.1
+   Host: localhost:5001
+</code></pre>
+<p>If this returns the same address, we know that the Raiden node is up and
+running correctly.</p>
+<h3 id="bootstrapping-a-token-network">Bootstrapping a token network<a class="headerlink" href="#bootstrapping-a-token-network" title="Permanent link"></a></h3>
+<p>In this scenario it is assumed that a user holds some ERC20 token, with
+address <code>0x9aBa529db3FF2D8409A1da4C9eB148879b046700</code>, which has not yet
+been registered with Raiden.</p>
+<p>The user wants to register the token, which creates a <a href="https://raiden-network-specification.readthedocs.io/en/latest/smart_contracts.html#tokennetwork-contract">Token
+Network</a>
+for that token. For each registered token there is a corresponding token
+network. Token networks are responsible for opening new payment channels
+between two parties.</p>
+<h4 id="checking-if-a-token-is-already-registered">Checking if a token is already registered<a class="headerlink" href="#checking-if-a-token-is-already-registered" title="Permanent link"></a></h4>
+<p>One way of checking if a token is already registered is to get the list
+of all registered tokens. Then, in the returned list, check if the
+address of the token wanted for interaction exists:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/tokens HTTP/1.1
+   Host: localhost:5001
+</code></pre>
+<p>If the address of the token exists in the list, see the <code>Joining an
+already existing token network scenario
+&lt;joining-existing-token-network&gt;</code>. If it does not exist in the list, it
+is desired to <code>register the token &lt;adding-a-token&gt;</code>.</p>
+<h4 id="registering-a-token">Registering a token<a class="headerlink" href="#registering-a-token" title="Permanent link"></a></h4>
+<p><strong>Note</strong></p>
+<p>For the Raiden Red Eyes release, it will not be possible to register
+more than one token, due to security reasons in order to minimise
+possible loss of funds in the case of bugs. The one token that will be
+registered is <a href="https://weth.io/">W-ETH</a>.</p>
+<p>In order to register a token, only its address is needed. When a new
+token is registered a Token Network contract is deployed. This is quite
+expensive in terms of gas usage (costs about 3.5 million gas). Luckily,
+this only has to be done once per token.</p>
+<p>To register a token simply use the endpoint listed below:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/tokens HTTP/1.1
+   Host: localhost:5001
+</code></pre>
+<p>If successful this call returns the address of the freshly created Token
+Network like this:</p>
+<pre><code class="language-http">HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+    &quot;token_network_address&quot;: &quot;0xC4F8393fb7971E8B299bC1b302F85BfFB3a1275a&quot;
+}
+</code></pre>
+<p>The token is now registered. However, since the token was just
+registered, there are no other Raiden nodes connected to the token
+network. This means that there are no nodes to connect to. Due to this
+the token network for this specific token needs to be bootstrapped. If
+the address of some other Raiden node that holds some of the tokens is
+known or it's simply desired to pay some tokens to another Raiden node
+in a one-way-channel, it can be done by opening a channel with this
+node. The way to open a channel with another Raiden node is the same
+whether the partner already holds some tokens or not.</p>
+<h4 id="opening-a-channel">Opening a channel<a class="headerlink" href="#opening-a-channel" title="Permanent link"></a></h4>
+<p>To open a channel with another Raiden node four things are needed: the
+address of the token, the address of the partner node, the amount of
+tokens desired for deposit, and the settlement timeout period. With
+these things ready a channel can be opened:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   PUT /api/v1/channels HTTP/1.1
+   Host: localhost:5001
+   Content-Type: application/json
+
+   {
+       &quot;partner_address&quot;: &quot;0x61C808D82A3Ac53231750daDc13c777b59310bD9&quot;,
+       &quot;token_address&quot;: &quot;0x9aBa529db3FF2D8409A1da4C9eB148879b046700&quot;,
+       &quot;balance&quot;: 1337,
+       &quot;settle_timeout&quot;: 500
+   }
+</code></pre>
+<p><strong>Note</strong></p>
+<p>For the Raiden Red Eyes release the maximum deposit per node in a
+channel is limited to 0.075 worth of <a href="https://weth.io/">W-ETH</a>. This
+means that the maximum amount of tokens in a channel is limited to 0.15
+worth of W-ETH. This is done to mitigate risk since the Red Eyes release
+is an alpha testing version on the mainnet.</p>
+<p>At this point the specific value of the <code>balance</code> field isn't too
+important, since it's always possible to <code>deposit more tokens
+&lt;depositing-to-a-channel&gt;</code> to a channel if need be.</p>
+<p>Successfully opening a channel returns the following information:</p>
+<pre><code class="language-http">HTTP/1.1 201 CREATED
+Content-Type: application/json
+
+{
+    &quot;channel_identifier&quot;: &quot;0xfb43f382bbdbf209f854e14b74d183970e26ad5c1fd1b74a20f8f6bb653c1617&quot;,
+    &quot;token_network_identifier&quot;: &quot;0x3C158a20b47d9613DDb9409099Be186fC272421a&quot;,
+    &quot;partner_address&quot;: &quot;0x61C808D82A3Ac53231750daDc13c777b59310bD9&quot;,
+    &quot;token_address&quot;: &quot;0x9aBa529db3FF2D8409A1da4C9eB148879b046700&quot;,
+    &quot;balance&quot;: 1337,
+    &quot;state&quot;: &quot;opened&quot;,
+    &quot;settle_timeout&quot;: 500,
+    &quot;reveal_timeout&quot;: 10
+}
+</code></pre>
+<p>Here it's interesting to notice that a <code>channel_identifier</code> has been
+generated. This means that the channel has been created inside the
+<a href="https://raiden-network-specification.readthedocs.io/en/latest/smart_contracts.html#tokennetwork-contract">Token
+Network</a>.</p>
+<h4 id="depositing-to-a-channel">Depositing to a channel<a class="headerlink" href="#depositing-to-a-channel" title="Permanent link"></a></h4>
+<p>A payment channel is now open between the user's node and a
+counterparty. However, since only one of the nodes has deposited to the
+channel, only that node can make payments at this point in time. Now
+would be a good time to notify the counterparty that a channel has been
+opened with it, so that it can also deposit to the channel. All the
+counterparty needs in order to do this is to use the endpoint consisting
+of a combination of the <code>token_address</code> and the <code>participant_address</code>:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   PATCH /api/v1/channels/0x9aBa529db3FF2D8409A1da4C9eB148879b046700/0x61C808D82A3Ac53231750daDc13c777b59310bD9 HTTP/1.1
+   Host: localhost:5001
+   Content-Type: application/json
+
+   {
+        &quot;total_deposit&quot;: 7331
+   }
+</code></pre>
+<p><strong>Note
+</strong>
+For the Raiden Red Eyes release the maximum deposit per node in a
+channel is limited to 0.075 worth of <a href="https://weth.io/">W-ETH</a>. This
+means that the maximum amount of tokens in a channel is limited to 0.15
+worth of W-ETH. This is done to mitigate risk since the Red Eyes release
+is an alpha testing version on the mainnet.</p>
+<p>To see if and when the counterparty deposited tokens, the channel can be
+queried for the corresponding events. The <code>from_block</code> parameter in the
+request represents the block number to query from. (in general the
+default value should be fine):</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/events/channels/0x9aBa529db3FF2D8409A1da4C9eB148879b046700/0x61C808D82A3Ac53231750daDc13c777b59310bD9?from_block=1337 HTTP/1.1
+   Host: localhost:5001
+</code></pre>
+<p>This returns a list of events that has happened in the specific payment
+channel. The relevant event in this case is:</p>
+<pre><code>    {
+        &quot;amount&quot;: 682,
+        &quot;block_number&quot;: 3663408,
+        &quot;event&quot;: &quot;EventPaymentSentSuccess&quot;,
+        &quot;identifier&quot;: 1531927405484,
+        &quot;target&quot;: &quot;0x25511699C252eeA2678266857C98F459Df97B77c&quot;
+    },
+</code></pre>
+<p>From the above event it can be deducted that the counterparty deposited
+to the channel. It is possible for both parties to query the state of
+the specific payment channel by calling:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/channels/0x9aBa529db3FF2D8409A1da4C9eB148879b046700/0x61C808D82A3Ac53231750daDc13c777b59310bD9 HTTP/1.1
+   Host: localhost:5001
+</code></pre>
+<p>This gives a result similar to those in <code>Opening a Channel
+&lt;opening-a-channel&gt;</code> that represents the current state of the payment
+channel.</p>
+<p>A new token resulting in a new token network has now been registered. A
+channel between two Raiden nodes has been opened, and both nodes have
+deposited to the channel. From here on the two nodes can start <code>sending
+payments &lt;token-payments&gt;</code> to each other.</p>
+<p>The above is not how a user would normally join an already existing
+token network. It is only included here to show how it works under the
+hood.</p>
+<p>In <code>the next scenario &lt;joining-existing-token-network&gt;</code> it is explained
+how to join already bootstrapped token networks.</p>
+<h3 id="joining-an-already-existing-token-network">Joining an already existing token network<a class="headerlink" href="#joining-an-already-existing-token-network" title="Permanent link"></a></h3>
+<p>In <code>above scenario &lt;bootstrapping-a-token-network&gt;</code> it was shown how to
+bootstrap a token network for an unregistered token. In this section the
+most common way of joining a token network is be explained. In most
+cases users don't want to create a new token network, but they want to
+join an already existing token network for an ERC20 token that they
+already hold.</p>
+<p>The main focus of this section is the usage of the <code>connect</code> and the
+<code>leave</code> endpoints. The <code>connect</code> endpoint allows users to automatically
+connect to a token network and open channels with other nodes.
+Furthermore the <code>leave</code> endpoint allows users to leave a token network
+by automatically closing and settling all of their open channels.</p>
+<p>It's assumed that a user holds at least 2000 Raiden Testnet ERC20 token
+(RTT). The user knows that a token network already exists for this
+token.</p>
+<h4 id="connect">Connect<a class="headerlink" href="#connect" title="Permanent link"></a></h4>
+<p>Connecting to an already existing token network is quite simple. All
+that is needed, is as mentioned above, the address of the token network
+to join and the amount of the corresponding token that the user is
+willing to deposit in channels:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+    PUT /api/v1/connections/0x0f114A1E9Db192502E7856309cc899952b3db1ED HTTP/1.1
+    Host: localhost:5001
+    Content-Type: application/json
+
+    {
+        &quot;funds&quot;: 2000
+    }
+</code></pre>
+<p><strong>Note</strong></p>
+<p>For the Raiden Red Eyes release the maximum deposit per node in a
+channel is limited to 0.075 worth of <a href="https://weth.io/">W-ETH</a>. This
+means that the maximum amount of tokens in a channel is limited to 0.15
+worth of W-ETH. This is done to mitigate risk since the Red Eyes release
+is an alpha testing version on the mainnet.</p>
+<p>This automatically opens channels with three random peers in the token
+network, with 20% of the funds deposited to each channel. Furthermore it
+leaves 40% of the funds initially unassigned. This allows new nodes
+joining the network to open payment channels with this node in the same
+way that it just opened channels with random nodes in the network.</p>
+<p>The user node is now connected to the token network for the RTT token.
+It should also have a path to all other nodes that have joined this
+token network. This means that it can pay tokens to all nodes
+participating in this network. See the <code>Token Payments &lt;token-payments&gt;</code>
+section for instructions on how to pay tokens to other nodes.</p>
+<h4 id="leave">Leave<a class="headerlink" href="#leave" title="Permanent link"></a></h4>
+<p>If at some point it is desired to leave the token network, the <code>leave</code>
+endpoint is available. This endpoint takes care of closing and settling
+all open channels for a specific token network:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+    DELETE /api/v1/connections/0x0f114A1E9Db192502E7856309cc899952b3db1ED HTTP/1.1
+    Host: localhost:5001
+    Content-Type: application/json
+</code></pre>
+<p>This call takes some time to finalize, due to the nature of the way that
+settlement of payment channels work. For instance there is a
+<code>settlement_timeout</code> period after calling <code>close</code> that needs to expire
+before <code>settle</code> can be called.</p>
+<h3 id="token-payments">Token payments<a class="headerlink" href="#token-payments" title="Permanent link"></a></h3>
+<p>For the token payment example it is assumed a node is connected to the
+RTT token network as mentioned above. In this case the node is connected
+to five peers, since the standard <code>connect()</code> parameters were used.</p>
+<h4 id="payments">Payments<a class="headerlink" href="#payments" title="Permanent link"></a></h4>
+<p>Paying tokens to another node is quite easy. The address of the token
+desired for the payment is <code>0x0f114A1E9Db192502E7856309cc899952b3db1ED</code>.
+All that then remains is the address of the target node. Assume the
+address of the target node is
+<code>0x61C808D82A3Ac53231750daDc13c777b59310bD9</code>:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+    POST /api/v1/payments/0x0f114A1E9Db192502E7856309cc899952b3db1ED/0x61C808D82A3Ac53231750daDc13c777b59310bD9 HTTP/1.1
+    Host: localhost:5001
+    Content-Type: application/json
+
+    {
+        &quot;amount&quot;: 42
+    }
+</code></pre>
+<p>An <code>"identifier": &lt;some_integer&gt;</code> can also be added to the payload, but
+it's optional. The purpose of the identifier is solely for the benefit
+of the Dapps built on top of Raiden in order to provide a way to tag
+payments.</p>
+<p>If there is a path in the network with enough capacity and the address
+sending the payment holds enough tokens to pay the amount in the
+payload, the payment goes through. The receiving node should then be
+able to see incoming payments by querying all its open channels. This is
+done by doing the following for all addresses of open channels:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   GET /api/v1/events/channels/0x0f114A1E9Db192502E7856309cc899952b3db1ED/0x61C808D82A3Ac53231750daDc13c777b59310bD9?from_block=1337 HTTP/1.1
+   Host: localhost:5001
+   Content-Type: application/json
+</code></pre>
+<p>Which returns a list of events. All that then needs to be done is to
+filter for incoming payments.</p>
+<p>Please note that one of the most powerful features of Raiden is that
+users can send payments to anyone connected to the network as long as
+there is a path to them with enough capacity, and not just to the nodes
+that a user is directly connected to. This is called <em>mediated
+transfers</em>.</p>
+<h4 id="close">Close<a class="headerlink" href="#close" title="Permanent link"></a></h4>
+<p>If at any point in time it is desired to close a specific channel it can
+be done with the <code>close</code> endpoint:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   PATCH /api/v1/channels/0x0f114A1E9Db192502E7856309cc899952b3db1ED/0x61C808D82A3Ac53231750daDc13c777b59310bD9 HTTP/1.1
+   Host: localhost:5001
+   Content-Type: application/json
+
+    {
+        &quot;state&quot;:&quot;closed&quot;
+    }
+</code></pre>
+<p>When successful this gives a response with a channel object where the
+state is set to <code>"closed"</code>:</p>
+<pre><code class="language-http">HTTP/1.1 200 OK
+Content-Type: application/json
+
+ {
+     &quot;channel_identifier&quot;: &quot;0xfb43f382bbdbf209f854e14b74d183970e26ad5c1fd1b74a20f8f6bb653c1617&quot;,
+     &quot;token_network_identifier&quot;: &quot;0x3C158a20b47d9613DDb9409099Be186fC272421a&quot;,
+     &quot;token_address&quot;: &quot;0x0f114A1E9Db192502E7856309cc899952b3db1ED&quot;,
+     &quot;balance&quot;: 350,
+     &quot;state&quot;: &quot;closed&quot;,
+     &quot;settle_timeout&quot;: 500,
+     &quot;reveal_timeout&quot;: 10
+ }
+</code></pre>
+<p>Notice how the <code>state</code> is now set to <code>"closed"</code> compared to the previous
+channel objects where it was <code>"opened"</code>.</p>
+<h4 id="settle">Settle<a class="headerlink" href="#settle" title="Permanent link"></a></h4>
+<p>Once <code>close</code> has been called, the settle timeout period starts. The
+channel is automatically settled as soon as it is over.</p>
+<p>The balance of the channel is now <code>0</code> and the state <code>"settled"</code>. This
+means that the net balances that the two parties participating in the
+channel owe each other have now been transferred on the blockchain. It
+also means that the life cycle of the payment channel has ended.</p>
+<h3 id="interacting-with-the-raiden-echo-node">Interacting with the Raiden Echo Node<a class="headerlink" href="#interacting-with-the-raiden-echo-node" title="Permanent link"></a></h3>
+<p><strong>Note
+</strong></p>
+<p>For the Raiden Red Eyes release on mainnet the Echo Node will not be
+available. Currently the Echo Node is available on the Ropsten testnet
+according to the text below.</p>
+<p>For easy testing of Raiden, there is a specialized Raiden node running,
+the "Raiden Echo Node". The Echo Node responds to received payments by
+sending a payment back to the initiator. The echo payment follows
+certain rules:</p>
+<ul>
+<li>consecutive payments with the same <code>identifier</code> and same <code>amount</code>
+    from the same address are ignored (as in: the Echo Node just keeps
+    your money)</li>
+<li>the <code>echo_identifier</code> of all echo payments is <code>identifier +
+    echo_amount</code></li>
+<li>payments with an <code>amount</code> divisible by <code>3</code> will be answered with an
+    echo payment of <code>echo_amount = amount - 1</code></li>
+<li>payments with an <code>amount = 7</code> are special lottery payments. They
+    will go to a lottery pool. After the Echo Node has received seven
+    lottery payments, it will choose a winner that receives an echo
+    payment with <code>echo_amount = 49</code> and the pool is reset. To query the
+    current number of tickets in the pool, a participant can send
+    another payment with <code>amount = 7</code> -- if the participant already
+    takes part in the current draw, the Echo Node will respond with a
+    payment with <code>echo_amount = number_of_tickets</code>, otherwise it will
+    enter the pool.</li>
+<li>for a payment with any other <code>amount</code> it returns <code>echo_amount =
+    amount</code></li>
+</ul>
+<p>The address of the Echo Node is
+<code>0x02f4b6BC65561A792836212Ebc54434Db0Ab759a</code> and it is connected to the
+Raiden Testnet Token (RTT) with the address
+<code>0x0f114a1e9db192502e7856309cc899952b3db1ed</code>. The RTT token contract is
+verified and can be seen in
+<a href="https://ropsten.etherscan.io/address/0x0f114A1E9Db192502E7856309cc899952b3db1ED#code">etherscan</a>.
+To interact with the Echo Node, first <code>join the RTT network
+&lt;joining-existing-token-network&gt;</code>.</p>
+<p>You can obtain RTT tokens by calling the <code>mint()</code> function of the token.
+In javascript you can load the RTT token contract and call mint as such:</p>
+<pre><code>    var rtt_token_abi = [{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;name&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_spender&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;approve&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;success&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[],&quot;name&quot;:&quot;mint&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;totalSupply&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;supply&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_from&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_to&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;transferFrom&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;success&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;decimals&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint8&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;version&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_owner&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;balanceOf&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;balance&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;symbol&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;amount&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;mint&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_to&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;transfer&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;success&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;amount&quot;,&quot;type&quot;:&quot;uint256&quot;},{&quot;name&quot;:&quot;target&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;mintFor&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_spender&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;},{&quot;name&quot;:&quot;_extraData&quot;,&quot;type&quot;:&quot;bytes&quot;}],&quot;name&quot;:&quot;approveAndCall&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;success&quot;,&quot;type&quot;:&quot;bool&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[{&quot;name&quot;:&quot;_owner&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;name&quot;:&quot;_spender&quot;,&quot;type&quot;:&quot;address&quot;}],&quot;name&quot;:&quot;allowance&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;remaining&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;function&quot;},{&quot;inputs&quot;:[{&quot;name&quot;:&quot;_tokenName&quot;,&quot;type&quot;:&quot;string&quot;},{&quot;name&quot;:&quot;_tokenSymbol&quot;,&quot;type&quot;:&quot;string&quot;}],&quot;payable&quot;:false,&quot;type&quot;:&quot;constructor&quot;},{&quot;payable&quot;:false,&quot;type&quot;:&quot;fallback&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:true,&quot;name&quot;:&quot;_from&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:true,&quot;name&quot;:&quot;_to&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;Transfer&quot;,&quot;type&quot;:&quot;event&quot;},{&quot;anonymous&quot;:false,&quot;inputs&quot;:[{&quot;indexed&quot;:true,&quot;name&quot;:&quot;_owner&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:true,&quot;name&quot;:&quot;_spender&quot;,&quot;type&quot;:&quot;address&quot;},{&quot;indexed&quot;:false,&quot;name&quot;:&quot;_value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;Approval&quot;,&quot;type&quot;:&quot;event&quot;}];
+    var rtt_token_address = &quot;0x0f114A1E9Db192502E7856309cc899952b3db1ED&quot;;
+    var rtt_token = web3.eth.contract(rtt_token_abi).at(rtt_token_address);
+    rtt_token.mint({from: eth.accounts[0]}); // adjust to your raiden account and unlock first!
+</code></pre>
+<p>Then you can send a payment to it via the payments endpoint:</p>
+<pre><code>.. http:example:: curl wget httpie python-requests
+
+   POST /api/v1/payments/0x0f114A1E9Db192502E7856309cc899952b3db1ED/0x02f4b6BC65561A792836212Ebc54434Db0Ab759a HTTP/1.1
+   Host: localhost:5001
+   Content-Type: application/json
+
+   {
+       &quot;amount&quot;: 1,
+       &quot;identifer&quot;: 42
+   }
+</code></pre>
+<p>Afterwards you can check your events and you should find an
+<code>EventPaymentReceivedSuccess</code> event with:</p>
+<pre><code>    {
+        &quot;event&quot;: &quot;EventPaymentReceivedSuccess&quot;,
+        &quot;amount&quot;: 1,
+        &quot;identifier&quot;: 43,
+        &quot;initiator&quot;: &quot;0x02f4b6BC65561A792836212Ebc54434Db0Ab759a&quot;
+        &quot;log_time&quot;: &quot;2018-10-30T07:04:22.293&quot;
+    }
+</code></pre>
+<p>According to the rules from above, you should try the same with
+different amounts, <code>3</code>, <code>6</code>, <code>7</code>, ... -- have fun!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Raiden  Generalized State Channels </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/raiden-generalized-state-channels/e875bf0e94444f86b3dcdebc730f6c7f/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-17</li>
+<li><strong>Kauri original tags:</strong> scaling, state-channels</li>
+<li><strong>Kauri original hash:</strong> QmXFVT3xcJpu2ZjihyY7v6dACnRWjgnMujoFKVYNCmbBwy</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../minimum-viable-plasma-the-kyokan-implementation/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../minimum-viable-plasma-the-kyokan-implementation/" class="btn btn-xs btn-link">
+        Minimum Viable Plasma - The Kyokan Implementation
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../loom-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../loom-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-link">
+        Loom - Part 1 - Develop and deploy a smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/raiden--generalized-state-channels.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

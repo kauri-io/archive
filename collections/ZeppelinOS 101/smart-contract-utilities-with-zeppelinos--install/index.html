@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos--install/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smart Contract Utilities with ZeppelinOS  Installation and Use - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Smart Contract Utilities with ZeppelinOS  Installation and Use", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Installing", url: "#installing" },
+              {title: "Creating our project", url: "#creating-our-project" },
+              {title: "Creating a Contract", url: "#creating-a-contract" },
+              {title: "Deploying", url: "#deploying" },
+              {title: "Upgrading", url: "#upgrading" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="smart-contract-utilities-with-zeppelinos-installation-and-use">Smart Contract Utilities with ZeppelinOS  Installation and Use<a class="headerlink" href="#smart-contract-utilities-with-zeppelinos-installation-and-use" title="Permanent link"></a></h1>
+<p>In this tutorial, we install ZeppelinOS, deploy a simple contract and then update it.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js</a></li>
+<li>An understanding of <a href="https://solidity.readthedocs.io/en/v0.5.1/solidity-in-depth.html">Solidity</a> the programming language for smart contracts.</li>
+<li><a href="https://truffleframework.com/truffle">Truffle</a>, a development framework for Ethereum to test and deploy smart contracts.</li>
+<li><a href="https://truffleframework.com/ganache">Ganache</a>, a personal blockchain installed to test and run our smart contracts.</li>
+</ul>
+<h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link"></a></h3>
+<p>After installing Node.js we are now ready to install ZeppelinOS. Using terminal do the following:</p>
+<p><strong>Note</strong>: For Windows users, I recommend Powershell over Command Prompt.</p>
+<pre><code class="language-shell">npm install -g zos
+</code></pre>
+<p>That's it! We installed ZeppelinOSs.</p>
+<p><strong>Note</strong>: <code>zos --help</code> gives you a full list of all ZeppelinOS commands should you require them.</p>
+<h3 id="creating-our-project">Creating our project<a class="headerlink" href="#creating-our-project" title="Permanent link"></a></h3>
+<p>In the directory of your choice, create your project and then change to that directory:</p>
+<pre><code class="language-shell">mkdir first-project
+cd first-project
+</code></pre>
+<p>Now we're going to create our <em>project.json</em> file to store the relevant data for the project. You will see a dialogue of properties to fill in. Fill them in if you wish or press enter to leave as the default.</p>
+<pre><code class="language-shell">npm init
+</code></pre>
+<p>To initialize as a ZeppelinOS project run the following:</p>
+<pre><code class="language-shell">zos init first-project
+</code></pre>
+<p>This command initializes a Truffle config file, two empty folders called <em>contracts</em> and <em>migrations</em>, and a <em>zos.json</em> file which has more information about the project in relation to ZeppelinOS.</p>
+<p>The last step is to download the ZeppelinOS project library.</p>
+<p><strong>Note</strong>: You have to install this library with every project, you can't use it from project to project.</p>
+<pre><code class="language-shell">npm install zos-lib --save
+</code></pre>
+<h3 id="creating-a-contract">Creating a Contract<a class="headerlink" href="#creating-a-contract" title="Permanent link"></a></h3>
+<p>After installing and initializing our project we are now ready to create our smart contract.</p>
+<p>Open the project folder in an editor of your choice (I use atom) and notice that the file structure should look as follows:</p>
+<pre><code>first-project
+  contracts
+  migrations
+  node_modules
+  package-lock.json
+  package.json
+  truffle-config.js
+  zos.json
+</code></pre>
+<p>Inside the <em>contracts</em> folder create a new file called <em>FirstContract.sol</em>. This is going to be our smart contract. In this file write the following:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+import &quot;zos-lib/contracts/Initializable.sol&quot;;
+
+contract FirstContract is Initializable {
+
+  int public year;
+  int public age;
+  string public name;
+
+  function initialize(int _year,int _age, string memory _name) initializer public {
+    year = _year;
+    age = _age;
+    name = _name;
+  }
+}
+</code></pre>
+<p>This is a basic contract that initializes 3 variables: <code>year</code>, <code>age</code> and <code>name</code>. We will update it later to make it more useful.</p>
+<p>In ZeppelinOS we use an initialize function instead of a standard constructor because this allows for the contract to be upgradeable. <em>Initializable.sol</em> is a contract we've imported from the zos library. It makes it possible to have the initialize function.</p>
+<p>After creating our contract, we're ready to compile and add information to our <em>zos.json</em> file:</p>
+<pre><code class="language-shell">zos add FirstContract
+</code></pre>
+<h3 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link"></a></h3>
+<p>It's time to deploy our contract onto our test network using ganache.</p>
+<p>To start ganache, open a separate terminal window and type the following command:</p>
+<pre><code class="language-shell">ganache-cli --port 9545 --deterministic
+</code></pre>
+<p>You should see something similar to the below:</p>
+<pre><code>Available Accounts
+==================
+(0) 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1 (~100 ETH)
+(1) 0xffcf8fdee72ac11b5c542428b35eef5769c409f0 (~100 ETH)
+(2) 0x22d491bde2303f2f43325b2108d26f1eaba1e32b (~100 ETH)
+(3) 0xe11ba2b4d45eaed5996cd0823791e0c93114882d (~100 ETH)
+(4) 0xd03ea8624c8c5987235048901fb614fdca89b117 (~100 ETH)
+(5) 0x95ced938f7991cd0dfcb48f0a06a40fa1af46ebc (~100 ETH)
+(6) 0x3e5e9111ae8eb78fe1cc3bb8915d5d461f3ef9a9 (~100 ETH)
+(7) 0x28a8746e75304c0780e011bed21c72cd78cd535e (~100 ETH)
+(8) 0xaca94ef8bd5ffee41947b4585a84bda5a3d3da6e (~100 ETH)
+(9) 0x1df62f291b2e969fb0849d99d9ce41e2f137006e (~100 ETH)
+
+Private Keys
+==================
+(0) 0x4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d
+(1) 0x6cbed15c793ce57650b9877cf6fa156fbef513c4e6134f022a85b1ffdd59b2a1
+(2) 0x6370fd033278c143179d81c5526140625662b8daa446c22ee2d73db3707e620c
+(3) 0x646f1ce2fdad0e6deeeb5c7e8e5543bdde65e86029e2fd9fc169899c440a7913
+(4) 0xadd53f9a7e588d003326d1cbf9e4a43c061aadd9bc938c843a79e7b4fd2ad743
+(5) 0x395df67f0c2d2d9fe1ad08d1bc8b6627011959b79c53d7dd6a3536a33ab8a4fd
+(6) 0xe485d098507f54e7733a205420dfddbe58db035fa577fc294ebd14db90767a52
+(7) 0xa453611d9419d0e56f499079478fd72c37b251a94bfde4d19872c44cf65386e3
+(8) 0x829e924fdf021ba3dbbc4225edfece9aca04b929d6e75613329ca6f1d31c0bb4
+(9) 0xb0057716d5917badaf911b193b12b910811c1497b5bada8d7711f758981c3773
+
+HD Wallet
+==================
+Mnemonic:     &quot;your Mnemonic here&quot;
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Listening on 127.0.0.1:9545
+</code></pre>
+<p>We see a mnemonic associated with our test account as well as details about our development blockchain. Now we're going to start a new session and test our contract. Open up another terminal and run the command below replacing <code>{ADDRESS}</code> with an address from Ganache.</p>
+<pre><code class="language-shell">zos session --network local --from {ADDRESS} --expires 3600
+</code></pre>
+<p>We've began a session with the local network. We're using a default sender address and we specify an expiry time for how long the session runs.</p>
+<p>Our contract is ready to deploy.</p>
+<pre><code class="language-shell">zos push
+</code></pre>
+<p><strong>Note</strong>: If you get a message at any point saying "A network name must be provided to execute the requested action" it means that our session expired. Run the <code>zos session</code> command from above and try again from where you left off.</p>
+<p>That's it! Our contract is successfully deployed to the local network from the default address. If you look at your ganache terminal you will see details about the deployment. In our project folder there is a new file called <em>zos.dev-"network id".json</em> It contains all the information about your project on this network.</p>
+<h3 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link"></a></h3>
+<p>The contract we created is now deployed to our local network and we want to upgrade it. Normally this would be impossible but with ZeppelinOS we have the ability to do this.</p>
+<p>Before we upgrade, to make sure there are no errors later on, we're going to compile our contract.</p>
+<pre><code class="language-shell">truffle compile
+</code></pre>
+<p>To begin we create an instance of our contract:</p>
+<pre><code class="language-shell">zos create FirstContract --init initialize --args 2019,19,Juliette
+</code></pre>
+<p>We re-initialize our contract through the <code>initialize</code> function and pass arguments to it. Thus we are initializing our contract to have the <code>year</code> <code>2019</code>, <code>age</code> <code>19</code>, and <code>name</code> <code>Juliette</code>.</p>
+<p>After creating our instance we to test it using our Truffle console.</p>
+<pre><code class="language-shell">npx truffle console --network local
+</code></pre>
+<p>Once the Truffle console is up do the following:</p>
+<pre><code class="language-shell">firstContract = await FirstContract.at('your-address')
+</code></pre>
+<p>The address you use is directly <em>underneath</em> the 'Instance created at <an-address> sentence from the <code>zos create</code> command earlier. Run the following four separate commands:</p>
+<pre><code class="language-shell">$ firstContract.year()
+&gt; &lt;BN: 7e3&gt;
+
+$ firstContract.name()
+&gt; Juliette
+
+$ firstContract.age()
+&gt; &lt;BN: 13&gt;
+ ```
+
+**Note**: `7e3` is hexadecimal for `2019` and `13` is hexadecimal for `19`. Integer numbers always display as hexadecimal. To confirm if your math is right you can always convert it yourself from hexadecimal to decimal.
+
+Our tests performed the way we wanted to, thus we can now go and update the contract. Type `exit` to leave the Truffle console.
+
+Update your contract to look like the following:
+
+</code></pre>
+<p>pragma solidity ^0.5.0;</p>
+<p>import "zos-lib/contracts/Initializable.sol";</p>
+<p>contract FirstContract is Initializable {</p>
+<p>int public year;
+  int public age;
+  string public name;</p>
+<p>function initialize(int _year, int _age, string memory _name) initializer public {
+    year = _year;
+    age = _age;
+    name = _name;
+  }</p>
+<p>function increaseYear() public {
+    year += 4;
+    age += 4;
+  }
+}
+````</p>
+<p>Updating our contract, we added a new function that increases <code>year</code> and <code>age</code> by 4. The user is able to determine how old they will be in 4 years.</p>
+<p><strong>Note</strong>: ZeppelinOS allows you to add functions, variables, etc when you update. To preserve functionality, all new variables must be below your existing ones.</p>
+<pre><code>contract MyContract1.0 {
+  uint256 public a;
+  uint256 public b;
+}
+
+contract MyContract1.1 {
+  uint256 public c;
+  uint256 public d;
+}
+</code></pre>
+<p>Once you are happy with your changes, push your contract and then update it.</p>
+<pre><code class="language-shell">zos push --network local
+zos update FirstContract --network local
+</code></pre>
+<p>Now that we have updated our contract lets start the Truffle console again to test it.</p>
+<pre><code class="language-shell">npx truffle console --network local
+</code></pre>
+<p>Now type in the following command:</p>
+<pre><code class="language-shell">$ firstContract = await FirstContract.at('your-address')
+&gt; undefined
+</code></pre>
+<p>Run the following four separate commands. The address you're going to use is the same one we used before:</p>
+<pre><code class="language-shell">$ firstContract.year()
+&gt; &lt;BN: 7e3&gt;
+
+$ firstContract.name()
+&gt; Juliette
+
+$ firstContract.age()
+&gt; &lt;BN: 13&gt;
+
+$ firstContract.increaseYear()
+</code></pre>
+<p>You should get a lot of output here. Something like the following:</p>
+<pre><code class="language-json">{
+  &quot;tx&quot;: &quot;address&quot;,
+  &quot;receipt&quot;: {
+    &quot;transactionHash&quot;: &quot;address&quot;,
+    &quot;transactionIndex&quot;: 0,
+    &quot;blockHash&quot;: &quot;address&quot;,
+    &quot;blockNumber&quot;: 5,
+    &quot;from&quot;: &quot;address&quot;,
+    &quot;to&quot;: &quot;address&quot;,
+    &quot;gasUsed&quot;: 33451,
+    &quot;cumulativeGasUsed&quot;: 33451,
+    &quot;contractAddress&quot;: null,
+    &quot;logs&quot;: \[],
+    &quot;status&quot;: true,
+    &quot;logsBloom&quot;: &quot;0x000000000000000000000000000000000...&quot;,
+    &quot;v&quot;: &quot;0x1b&quot;,
+    &quot;r&quot;: &quot;address&quot;,
+    &quot;s&quot;: &quot;address&quot;,
+    &quot;rawLogs&quot;: []
+  },
+  &quot;logs&quot;: []
+}
+</code></pre>
+<p>Then if we run the following two commands:</p>
+<pre><code class="language-shell">$ firstContract.age()
+&gt; &lt;BN: 17&gt;
+
+$ firstContract.year()
+&gt; &lt;BN: 7e7&gt;
+</code></pre>
+<p><strong>Note</strong>: <strong>17</strong> is hexadecimal for <strong>23</strong> and <strong>7e7</strong> is hexadecimal for <strong>2023</strong>. Integer numbers always display as hexadecimal. To confirm if your math is right you can convert it yourself from hexadecimal to decimal.</p>
+<p>That's it! We deployed and updated our contract on our local test network!</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.zeppelinos.org/docs/upgrading.html">https://docs.zeppelinos.org/docs/upgrading.html</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Smart Contract Utilities with ZeppelinOS  Installation and Use</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/smart-contract-utilities-with-zeppelinos-installat/dcd4006a9e0f45fc84c8e5f7ddd6e2bd/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-19</li>
+<li><strong>Kauri original tags:</strong> smart-contract, zeppelinos, upgrade, zeppelin, deploy</li>
+<li><strong>Kauri original hash:</strong> QmUG11wHr1CvoABM3xNRZCg6cXcriMkSou8ahXr2Pwvy9f</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../smart-contract-utilities-with-zeppelinos--linking/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../smart-contract-utilities-with-zeppelinos--linking/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../smart-contract-utilities-with-zeppelinos--introdu/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../smart-contract-utilities-with-zeppelinos--introdu/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Introduction
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--install.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/OpenZeppelin/openzeppelin-part-1--introductory/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenZeppelin Part 1  Introductory - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenZeppelin Part 1  Introductory", url: "#_top", children: [
+              {title: "Introductory To OpenZeppelin", url: "#introductory-to-openzeppelin" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openzeppelin-part-1-introductory">OpenZeppelin Part 1  Introductory<a class="headerlink" href="#openzeppelin-part-1-introductory" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG" /></p>
+<h2 id="introductory-to-openzeppelin">Introductory To OpenZeppelin<a class="headerlink" href="#introductory-to-openzeppelin" title="Permanent link"></a></h2>
+<h3 id="what-is-openzeppelin">What Is OpenZeppelin?<a class="headerlink" href="#what-is-openzeppelin" title="Permanent link"></a></h3>
+<p>OpenZeppelin is a library of reusable smart contracts to use with Ethereum and other EVM and eWASM blockchains. The contracts focus on secure and simple open source code. They are continuously tested and community reviewed to ensure they follow the best industry standards and security practices. As a developer it's difficult to create any piece of code from scratch; especially a contract. Through the use of OpenZeppelin's inheritable contracts, you have a base to start from and build complex features with little to, or no effort.</p>
+<h3 id="openzeppelin-vs-zeppelinos">OpenZeppelin vs ZeppelinOS<a class="headerlink" href="#openzeppelin-vs-zeppelinos" title="Permanent link"></a></h3>
+<p>Zeppelin solutions provides two different frameworks that are often confused to be the same thing. <a href="https://openzeppelin.org">OpenZeppelin</a> is a series of open source contracts to inherit into your code. In contrast, <a href="https://zeppelinos.org">ZeppelinOS</a> is a platform of utilities to securely manage your smart contracts. Ideally you use them together. In this tutorial series, we focus on OpenZeppelin.</p>
+<h3 id="types-of-contracts">Types of Contracts<a class="headerlink" href="#types-of-contracts" title="Permanent link"></a></h3>
+<p>OpenZeppelin has a variety of contracts to meet your needs divided into the following categories:</p>
+<ol>
+<li><strong>Access</strong>: Roles and privileges.</li>
+<li><strong>Crowdsale</strong>: Creating a smart contract for use in a crowdsale.</li>
+<li><strong>Cryptography</strong>: Protecting your information.</li>
+<li><strong>Drafts</strong>: Contracts that are currently in testing by the OpenZeppelin team.</li>
+<li><strong>Introspection</strong>: Interface support.</li>
+<li><strong>Lifecycle</strong>: Managing the behaviour of your contract.</li>
+<li><strong>Math</strong>: Perform operations without overflow errors.</li>
+<li><strong>Ownership</strong>: Manage ownership throughout your contract.</li>
+<li><strong>Payment</strong>: How your contract releases tokens.</li>
+<li><strong>Tokens</strong>: Creating tokens and protecting them.</li>
+<li><strong>Utilities</strong>: Other contracts to assist you.</li>
+</ol>
+<p>You inherit or combine OpenZeppelin contracts with your own contracts, serving as a base for you to build from. Later in the series, we will explore the uses of each of these contracts.</p>
+<h3 id="how-to-download">How To Download<a class="headerlink" href="#how-to-download" title="Permanent link"></a></h3>
+<p>To begin, you need to have <a href="https://nodejs.org/en/download/">Node.js</a> and <a href="https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts">Truffle</a> installed on your machine. To work with OpenZeppelin you should be familiar with Solidity, the programming language for smart contracts. The <a href="https://kauri.io/article/124b7db1d0cf4f47b414f8b13c9d66e2/v6/remix-ide-your-first-smart-contract">"Remix IDE - Your first smart contract"</a> article is a good place to start.</p>
+<p>In a directory of your choice make a new project folder and initialize Truffle in it.</p>
+<pre><code class="language-shell">mkdir myproject
+cd myproject
+truffle init
+</code></pre>
+<p>Now install the OpenZeppelin library into your projects root directory. Use the <code>--save-exact</code> option to ensure that all dependencies configure with an exact version, since breaking changes (change in software that can potentially make other components fail) might occur when versions are updated.</p>
+<pre><code class="language-shell">npm init -y
+npm install --save-exact openzeppelin-solidity
+</code></pre>
+<p>OpenZeppelin is now installed. The library of contracts are stored in the <em>node___modules/openzeppelin-solidity/contracts</em> folder path within your project.</p>
+<p>To use the library, add an import statement at the beginning of the contract specifying which one you want to use.</p>
+<pre><code>import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+</code></pre>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>OpenZeppelin allows you to write more complex and secure contracts using their variety of base contracts. Less time spent building the foundation and more time to optimize details.</p>
+<p>Documentation and Next Steps:</p>
+<ul>
+<li><a href="https://github.com/OpenZeppelin/openzeppelin-solidity">https://github.com/OpenZeppelin/openzeppelin-solidity</a></li>
+<li><a href="https://openzeppelin.org/">https://openzeppelin.org/</a></li>
+<li><a href="https://github.com/OpenZeppelin/openzeppelin-solidity/tree/2c34cfbe0ea5b2969ca5a13710694f44c1be3e6a/contracts/mocks">Examples of contracts that use the OpenZeppelin library</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenZeppelin Part 1  Introductory</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-part-1-introductory/c3ef30099d1e404180067ed4f656aad2/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-11</li>
+<li><strong>Kauri original tags:</strong> smart-contract, openzeppelin, zeppelin, solidity</li>
+<li><strong>Kauri original hash:</strong> QmTgSJ69J6KmHojB1DZdb2nrudnjcvPn2udwWmXgXjexgk</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../openzeppelin-part-2--access-control/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../openzeppelin-part-2--access-control/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 2  Access Control
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/signing-data-in-java-and-web3j/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/signing-data-in-java-and-web3j/" class="btn btn-xs btn-link">
+        Signing Data in Java and Web3j
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/OpenZeppelin/openzeppelin-part-1--introductory.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-5-the-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 5 - The Smart Contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 5 - The Smart Contract", url: "#_top", children: [
+              {title: "Quick Overview", url: "#quick-overview" },
+              {title: "The High-Level Languages", url: "#the-high-level-languages" },
+              {title: "Table Comparison of the High-Level Languages", url: "#table-comparison-of-the-high-level-languages" },
+              {title: "Solidity Quick Example", url: "#solidity-quick-example" },
+              {title: "Vyper Quick Example", url: "#vyper-quick-example" },
+              {title: "Tooling to get started", url: "#tooling-to-get-started" },
+              {title: "Remix Solidity", url: "#remix-solidity" },
+              {title: "Truffle Development Framework", url: "#truffle-development-framework" },
+              {title: "Embark Framework", url: "#embark-framework" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-5-the-smart-contract">Ethereum 101 - Part 5 - The Smart Contract<a class="headerlink" href="#ethereum-101-part-5-the-smart-contract" title="Permanent link"></a></h1>
+<h2 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link"></a></h2>
+<p>The term smart contract is an ubiquitous term with varying definitions across the greater blockchain ecosystem. </p>
+<p>Smart contracts are just computer programs. In the context of Ethereum, smart contracts refer to the source code of EVM-specific, special-purpose programming languages: Solidity, Vyper, LLL, Bamboo, and Serpent. </p>
+<p>There are good reasons for using built-for-purpose languages to write smart contracts, but they will not be discussed in this documentation. To make an attempt at summarizing, due to the minimalistic and constrained nature of the EVM, it's easier to build a special-purpose language from the ground up than it is to bend a general-purpose language to the intricate needs of the EVM. </p>
+<h2 id="the-high-level-languages">The High-Level Languages<a class="headerlink" href="#the-high-level-languages" title="Permanent link"></a></h2>
+<p>Smart contract developers have multiple high level language options at their disposal. In an earlier section, we highlighted the diverse range of Ethereum clients, yet explained that two clients, Geth and Parity, remain the most salient and widely used. The state of Ethereum high-level languages is slightly similar. Solidity is the de facto and most widely used language, while Vyper is emerging as a competitive alternative. </p>
+<h2 id="table-comparison-of-the-high-level-languages">Table Comparison of the High-Level Languages<a class="headerlink" href="#table-comparison-of-the-high-level-languages" title="Permanent link"></a></h2>
+<table>
+<thead>
+<tr>
+<th>High-Level Language</th>
+<th>Syntactic similarities</th>
+<th>Link to Documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solidity</td>
+<td>JavaScript / Java / C++</td>
+<td>https://solidity.readthedocs.io/en/latest/</td>
+</tr>
+<tr>
+<td>Vyper</td>
+<td>Python</td>
+<td>https://vyper.readthedocs.io/en/latest/</td>
+</tr>
+<tr>
+<td>LLL</td>
+<td>Lisp</td>
+<td>https://lll-docs.readthedocs.io/en/latest/</td>
+</tr>
+<tr>
+<td>Bamboo</td>
+<td>Erlang</td>
+<td>https://github.com/CornellBlockchain/bamboo</td>
+</tr>
+<tr>
+<td>Serpent, outdated</td>
+<td>Python</td>
+<td>https://github.com/ethereum/serpent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="solidity-quick-example">Solidity Quick Example<a class="headerlink" href="#solidity-quick-example" title="Permanent link"></a></h2>
+<p>Solidity is the de facto language of Ethereum smart contracts, so for the next few paragraphs we'll work solely with Solidity source code.</p>
+<p>Below you will find the source code of a Solidity contract (helpful information is commented out to the right '//'):</p>
+<pre><code>pragma solidity 0.5.3; // Solidity version 0.5.3, pragma used to enable certain compiler features or checks
+
+contract HelloWorld // defining the contract
+{
+    string greeting; // defining the state string variable 'greeting'
+
+    constructor() // constructor function, optional, executed once upon deployment and cannot be called again
+    public
+    {
+        greeting = &quot;Hello, World.&quot;;
+    }
+
+    function printGreeting() // defining a function
+    public // this function is callable by anyone 
+    view // dictates that this function promises to not modify the state
+    returns (string memory) // function returns a string variable from memory
+    {
+        return greeting;
+    }
+
+    function setGreeting(string memory _greeting)
+    public 
+    // notice that this function contains no &quot;view&quot; -- it modifies the state
+    {
+        greeting = _greeting;
+    }
+}
+</code></pre>
+<p>This contract compiles using solidity compiler version 0.5.3. Try it yourself at <a href="https://remix.ethereum.org">remix.ethereum.org</a>. </p>
+<p>Reproduce the contract, deploy it to a JavaScript test blockchain (Javascript VM), and interact with the functions: 
+1. Copy and paste the above source code into the text editor at <a href="https://remix.ethereum.org">remix.ethereum.org</a>
+2. In the 'Compile' tab, set the compiler version to '0.5.3+commit.10d17f24...' to match our contract version 0.5.3. 
+3. Switch to the 'Run' tab, and adjust the 'Environment' drop-down box to 'JavaScript VM.'
+4. In the box directly below, find our "Hello World" contract and use the light red push button to deploy the contract to the JavaScript test blockchain. 
+5. Two boxes directly below, find the 'Deployed contracts' section. Within you'll see two buttons: 
+    * 'printGreeting' will print the current greeting (the button is blue because of the view declaration!)
+    * 'setGreeting' will change the current greeting to a string of your choosing, just ensure you enclose it within quotation marks "" (the button is read because this function changes state!)</p>
+<p>We just used Remix to write, deploy, and interact with our 'HelloWorld' smart contract. Remix is a powerful tool for smart contract development. </p>
+<h2 id="vyper-quick-example">Vyper Quick Example<a class="headerlink" href="#vyper-quick-example" title="Permanent link"></a></h2>
+<pre><code>greeting: public(bytes[32]) # defining greeting state variable, just like Solidity
+
+@public
+def __init__(): # initialization function, same as Solidity's constructor function
+    self.greeting = &quot;Hello, World.&quot;
+
+@public # function can be called internally and externally
+@constant # function will not change state
+def printGreeting() -&gt; bytes[32]:
+    return self.greeting
+
+@public
+def setGreeting(_greeting: bytes[32]): # a state changing function
+    self.greeting = _greeting
+
+</code></pre>
+<p>We're going to use MyEtherWallet for the Vyper contract: 
+1. Open up two tabs:
+    * https://vyper.online
+    * https://www.myetherwallet.com/#contracts
+2. Copy &amp; paste the above source code into the Vyper Online Compiler, and compile. 
+3. On MyEtherWallet, navigate to 'Deploy Contract' and populate the fields using the output from the 'Bytecode' and 'ABI' tabs on the Vyper Online Compiler. 
+4. Use MetaMask to connect to the Rinkeby network and sign the transaction. 
+    * Test ETH available @ https://faucet.rinkeby.io/
+6. Use MyEtherWallet to view the state variables and MetaMask to make state changes using our "setGreeting(bytes[32])"
+7. Gas costs are expensive, but this is for demonstration purposes. 
+8. Use a Hex to ASCII text converter to convert function inputs:
+    * https://www.rapidtables.com/convert/number/hex-to-ascii.html or something similar from Google</p>
+<h2 id="tooling-to-get-started">Tooling to get started<a class="headerlink" href="#tooling-to-get-started" title="Permanent link"></a></h2>
+<h3 id="general-solidity-tutorials-on-kauri">General Solidity tutorials on Kauri:<a class="headerlink" href="#general-solidity-tutorials-on-kauri" title="Permanent link"></a></h3>
+<p><em>Up-to-date tutorials, using real code, written by active web3 developers.</em> 
+* <a href="https://beta.kauri.io/article/7a27a1c1fbdc428b8058f14db1a227aa/v1/tools-for-working-with-solidity">Tools for Working With Solidity</a></p>
+<h2 id="remix-solidity">Remix Solidity<a class="headerlink" href="#remix-solidity" title="Permanent link"></a></h2>
+<p>From the <a href="https://remix.readthedocs.io/en/latest/">Remix documentation</a>, verbatim: </p>
+<blockquote>
+<p>Remix is a powerful, open source tool that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser and locally. <br /><br />Remix also supports testing, debugging and deploying of smart contracts and much more. </p>
+</blockquote>
+<h3 id="remix-tutorials-on-kauri">Remix tutorials on Kauri:<a class="headerlink" href="#remix-tutorials-on-kauri" title="Permanent link"></a></h3>
+<p><em>Up-to-date tutorials, using real code, written by active web3 developers.</em> 
+* <a href="https://beta.kauri.io/article/124b7db1d0cf4f47b414f8b13c9d66e2">Remix IDE - Your first smart contract</a></p>
+<h3 id="links-additional-information">Links &amp; additional information<a class="headerlink" href="#links-additional-information" title="Permanent link"></a></h3>
+<ul>
+<li>Website: <a href="https://remix.ethereum.org/">https://remix.ethereum.org/</a></li>
+<li>Documentation: <a href="https://remix.readthedocs.io/en/latest/">https://remix.readthedocs.io/en/latest/</a></li>
+</ul>
+<h2 id="truffle-development-framework">Truffle Development Framework<a class="headerlink" href="#truffle-development-framework" title="Permanent link"></a></h2>
+<p>From the <a href="https://truffleframework.com/docs/truffle/overview">Truffle documentation</a>, verbatim: </p>
+<blockquote>
+<p>A world class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a developer easier. </p>
+</blockquote>
+<h3 id="truffle-tutorials-on-kauri">Truffle tutorials on Kauri:<a class="headerlink" href="#truffle-tutorials-on-kauri" title="Permanent link"></a></h3>
+<p><em>Up-to-date tutorials, using real code, written by active web3 developers.</em> </p>
+<ul>
+<li><a href="https://beta.kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/v5/truffle:-smart-contract-compilation-and-deployment">Truffle: Smart Contract Compilation &amp; Deployment</a></li>
+<li><a href="https://beta.kauri.io/article/f95f956261494090be1aaa8227464773/v7/truffle:-testing-your-smart-contract">Truffle: Testing your smart contract</a> </li>
+<li><a href="https://beta.kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box">Truffle: Adding a frontend with react box</a></li>
+</ul>
+<h3 id="links-additional-information_1">Links &amp; additional information<a class="headerlink" href="#links-additional-information_1" title="Permanent link"></a></h3>
+<ul>
+<li>Website: <a href="https://truffleframework.com/">https://truffleframework.com/</a></li>
+<li>Documentation: <a href="https://truffleframework.com/docs">https://truffleframework.com/docs</a></li>
+<li>Community: <a href="https://truffleframework.com/community">https://truffleframework.com/community</a></li>
+</ul>
+<h2 id="embark-framework">Embark Framework<a class="headerlink" href="#embark-framework" title="Permanent link"></a></h2>
+<p>From the <a href="https://embark.status.im/docs/">Embark documentation</a>, verbatim: </p>
+<blockquote>
+<p>Embark is a fast, easy to use, and powerful developer environment to build and deploy decentralized applications, also known as “DApps”. It integrates with Ethereum blockchains, decentralized storages like IPFS and Swarm, and decentralized communication platforms like Whisper. <br /><br />Embark’s goal is to make building decentralized applications as easy as possible, by providing all the tools needed and staying extensible at the same time. </p>
+</blockquote>
+<h3 id="embark-tutorials-on-kauri">Embark tutorials on Kauri:<a class="headerlink" href="#embark-tutorials-on-kauri" title="Permanent link"></a></h3>
+<p><em>Up-to-date tutorials, using real code, written by active web3 developers.</em> </p>
+<ul>
+<li><a href="https://beta.kauri.io/article/13758d60f21648a1897fad1fa5b78237/v1/embark:-smart-contract-compilation-and-deployment">Embark: Smart Contract Compilation &amp; Deployment</a></li>
+<li><a href="https://beta.kauri.io/article/e8f18d0643c14756b43d698122bba9d9/v1/embark:-testing-your-smart-contract">Embark: Testing your Smart Contract</a></li>
+</ul>
+<h3 id="links-additional-information_2">Links &amp; additional information<a class="headerlink" href="#links-additional-information_2" title="Permanent link"></a></h3>
+<ul>
+<li>Website: https://embark.status.im/</li>
+<li>Documentation: https://embark.status.im/docs/</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 5 - The Smart Contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-5-the-smart-contract/e4f66c6079e74a4a9b532148d3158188/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, myetherwallet, vyper, solidity, remix</li>
+<li><strong>Kauri original hash:</strong> Qmd8HLf7TvMVXyT5URU62PjYc1hBvuR8EYViiRCVtc7PCg</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-101-part-4-accounts-transactions-and-mes/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-101-part-4-accounts-transactions-and-mes/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 4 - Accounts, Transactions, and Messages
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-explained--merkle-trees-world-state-tran/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-explained--merkle-trees-world-state-tran/" class="btn btn-xs btn-link">
+        Ethereum Explained  Merkle Trees, World State, Transactions, and More
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-5-the-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

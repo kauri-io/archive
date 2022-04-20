@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/utilisez-votre-noeud-ethereum-distant-en-utilisan/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Utilisez votre nœud Ethereum distant en utilisant un tunnel SSH et MetaMask - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Utilisez votre n\u0153ud Ethereum distant en utilisant un tunnel SSH et MetaMask", url: "#_top", children: [
+              {title: "Mise en place d'un tunnel SSH", url: "#mise-en-place-dun-tunnel-ssh" },
+              {title: "Obtention de l'adresse IP de votre VPS", url: "#obtention-de-ladresse-ip-de-votre-vps" },
+              {title: "SSH sous Windows", url: "#ssh-sous-windows" },
+              {title: "Initier le tunnel", url: "#initier-le-tunnel" },
+              {title: "Faire du permanent impermanent", url: "#faire-du-permanent-impermanent" },
+              {title: "Permanence \u00e0 distance", url: "#permanence-a-distance" },
+              {title: "Permanence locale", url: "#permanence-locale" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="utilisez-votre-nud-ethereum-distant-en-utilisant-un-tunnel-ssh-et-metamask">Utilisez votre nœud Ethereum distant en utilisant un tunnel SSH et MetaMask<a class="headerlink" href="#utilisez-votre-nud-ethereum-distant-en-utilisant-un-tunnel-ssh-et-metamask" title="Permanent link"></a></h1>
+<blockquote>
+<p><strong>Warning</strong>: We found this translation of <a href="https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v5/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask">Daniel Ellison's post</a> and thought we'd cross-post it, but we have no idea as to the quality of the translation.</p>
+</blockquote>
+<hr />
+<p>dans le <a href="https://medium.com/@zigguratt/how-to-install-and-synchronize-your-own-remote-ethereum-node-5d875c684504">première partie</a> de cette série, nous avons appris comment installer et synchroniser une <code>geth</code> noeud avec la chaîne de blocs Ethereum sur un serveur virtuel privé (VPS). Dans cette seconde partie, nous explorons <em>garantir</em> accès à distance à ce nœud Ethereum via MetaMask.We explique également comment faire en sorte que tout continue à survivre aux crashs et aux arrêts.</p>
+<h3 id="mise-en-place-dun-tunnel-ssh">Mise en place d'un tunnel SSH<a class="headerlink" href="#mise-en-place-dun-tunnel-ssh" title="Permanent link"></a></h3>
+<p>Mise en place d'un <em>quoi?</em> C'est le processus déroutant que j'ai mentionné plus tôt. Je n'entrerai pas dans les détails ici, mais en réalité, cela permet aux demandes adressées à votre ordinateur local d'être automatiquement transférées à un autre ordinateur. Dans ce cas, le VPS exécutant votre <code>geth</code> nœud. Nous comprendrons pourquoi nous en avons besoin lors de la création ultérieure de MetaMask.</p>
+<h3 id="obtention-de-ladresse-ip-de-votre-vps">Obtention de l'adresse IP de votre VPS<a class="headerlink" href="#obtention-de-ladresse-ip-de-votre-vps" title="Permanent link"></a></h3>
+<p>Afin de transférer les demandes à votre SMV, vous devez connaître son adresse IP. Ceci est déterminé en retournant à votre tableau de bord Linode et en allant à la <em>Linodes</em> onglet à gauche. L'adresse IP de votre nœud devrait apparaître à droite, juste en dessous de l'emplacement géographique de votre VPS. Cela ressemble à quelque chose comme ça: <code>172.16.389.54</code>. Prenez note de cette adresse IP; nous allons l'utiliser bientôt.</p>
+<h3 id="ssh-sous-windows">SSH sous Windows<a class="headerlink" href="#ssh-sous-windows" title="Permanent link"></a></h3>
+<p>Depuis la mise à jour d'avril 2018, OpenSSH est installé par défaut sur Windows 10. Cela fournit <code>ssh.exe</code> ainsi que plusieurs autres utilitaires SSH. Pour vérifier l'état de SSH sous Windows au moment de la rédaction, j'ai téléchargé le dernier ISO de Windows 10 et je l'ai installé sur une machine virtuelle. OpenSSH était déjà installé et disponible à partir de <code>cmd.exe</code>. Si vous avez Windows 10 mais que OpenSSH n'est pas installé, suivez les instructions de cette <a href="https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview">Article de Microsoft</a>. Si vous possédez une version plus ancienne de Windows, plusieurs utilitaires disponibles fourniront des fonctionnalités SSH.</p>
+<h3 id="initier-le-tunnel">Initier le tunnel<a class="headerlink" href="#initier-le-tunnel" title="Permanent link"></a></h3>
+<p>Nous partons de là en supposant que vous avez un accès en ligne de commande à un <code>ssh</code> client. La commande suivante configure le tunnel SSH. Cette commande est identique sur les trois plates-formes.</p>
+<pre><code class="language-shell">ssh -N -v utilisateur@172.16.389.54 -L 8545: hôte local: 8545
+</code></pre>
+<p>le <code>-N</code> commutateur dit
+<code>ssh</code> ne pas exécuter une commande à
+distance. Nous voulons une connexion continue, ou <em>tunnel</em>, à notre
+noeud. Aucune commande à exécuter à distance à ce stade. le
+<code>-v</code> commutateur fait <code>ssh</code> afficher des informations de journalisation pendant son
+exécution. Nous fournissons ensuite le nom d'utilisateur et l'adresse IP
+afin de vous connecter à notre VPS. Le reste configure le tunnel
+lui-même, en spécifiant que tout ce que votre machine locale reçoit sur
+le port <code>8545</code> (le port sur lequel votre
+nœud écoute les demandes RPC) doit être transféré vers le même port sur
+votre nœud <em>en toute sécurité dans le tunnel</em>. C'est le point le plus
+important: personne d'autre ne peut le faire, sauf vous. Votre nœud est
+à l'abri des exploits dus à un port RPC exposé.</p>
+<p>C’est la partie la plus facile de tout le kerfuffle du tunnel. Je
+suppose que vous avez laissé le tunnel SSH en marche et que vous pouvez
+voir sa sortie de journal. Dans votre navigateur, activez MetaMask en
+cliquant sur la tête de renard en haut à droite de la fenêtre de votre
+navigateur. En haut de la fenêtre MetaMask se trouve le réseau Ethereum
+actuellement choisi. Si vous utilisiez des versions bêta dapps, il est
+probable que <em>Réseau de test Rinkeby</em>. Cliquez sur ce nom et vous verrez
+un menu déroulant. Au sommet est <em>Réseau Ethereum principal</em>. C’est
+notre destination finale, mais nous ne voulons pas utiliser cet élément
+de menu. Si vous le faites, MetaMask se connecte à un nœud Infura,
+annulant ainsi l’objectif de ce long voyage. Plus bas dans la liste,
+vous voyez <em>Localhost 8545</em>. Cliquez dessus pour regarder la sortie de
+votre tunnel SSH. Vous devriez voir les lignes ressembler à ceci:</p>
+<pre><code>debug1: connexion au port 8545 transmettant au port localhost 8545 demandé.debug1: channel 1: new [direct-tcpip]
+</code></pre>
+<p>MetaMask devrait maintenant avoir <em>Localhost 8545</em> au sommet et vous devriez voir <em>Dépôt</em> et <em>Envoyer</em> boutons au milieu. Si oui, vous avez maintenant connecté votre télécommande <code>geth</code> noeud vers MetaMask, bien que MetaMask pense s'être connecté à votre ordinateur local.</p>
+<h3 id="faire-du-permanent-impermanent">Faire du permanent impermanent<a class="headerlink" href="#faire-du-permanent-impermanent" title="Permanent link"></a></h3>
+<p>Vous avez maintenant un pleinement fonctionnel <code>geth</code> noeud et sont capables de se connecter à distance <em>et en toute sécurité</em> à travers MetaMask et un tunnel SSH. Toutes nos félicitations! Bien sûr, les ordinateurs tombent en panne ou sont arrêtés délibérément. Afin de ne pas avoir à tout configurer à nouveau lors d'un redémarrage, nous devons faire deux choses: premièrement, configurer notre <code>geth</code> nœud pour démarrer automatiquement sur le SMV et deux, en quelque sorte faire la même chose pour le tunnel SSH sur notre machine locale.</p>
+<h3 id="permanence-a-distance">Permanence à distance<a class="headerlink" href="#permanence-a-distance" title="Permanent link"></a></h3>
+<p>En termes relatifs, c'est la partie la plus facile du processus de permanence. Nous n'avons affaire qu'à un seul système d'exploitation, Linux, et il existe un moyen bien établi de démarrer des tâches automatiquement: <code>systemd</code>. La politique Linux mise à part, commençons.</p>
+<p><code>systemd</code> gère les processus sur la plupart des systèmes Linux, Ubuntu ne faisant pas exception. Pour ce faire, il lit <code>.un service</code> des dossiers. Avoir notre <code>geth</code> nœud démarre automatiquement au démarrage, nous devons fournir un <code>geth.service</code> fichier. Retournez et lancez la console depuis le <em>Linodes</em> languette. Si ton <code>geth</code> noeud est toujours en cours d'exécution, vous devez le fermer. Comme précédemment, tapez ce qui suit pour vous reconnecter à votre <code>geth</code> nœud:</p>
+<pre><code class="language-shell">$ tmux attach -t 0
+</code></pre>
+<p>Arrête ton <code>geth</code> noeud avec
+<code>ctrl-c</code>. Encore une fois, attendez que
+vous soyez à une invite de commande, puis tapez <code>ctrl-d</code> sortir de <code>tmux</code>. Tapez
+ce qui suit sur la ligne de commande, en remplaçant
+<code>utilisateur</code> dans
+<code>Utilisateur = utilisateur</code> pour le nom
+d'utilisateur que vous avez fourni précédemment:</p>
+<pre><code class="language-shell">$ cat&gt; geth.service &lt;&lt; EOF
+[Unit]
+Description = Aller client Ethereum
+[Service]
+Utilisateur = utilisateur
+Type = simple
+Redémarrer = toujours
+ExecStart = / usr / bin / geth --rpc --rpcaddr localhost --rpcport 8545
+[Install]
+WantedBy = default.target
+EOF
+</code></pre>
+<p>Cela crée un <code>geth.service</code> fichier dans le répertoire en cours. Vous devez faire quelques choses pour le rendre disponible à <code>systemd</code>:</p>
+<pre><code class="language-shell">$ sudo mv geth.service / etc / systemd / system /
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable geth.service
+$ sudo systemctl start geth.service
+</code></pre>
+<p>Pour vérifier le statut du service, utilisez ceci:</p>
+<pre><code>$ sudo systemctl status geth.service
+</code></pre>
+<p>Quelque part vers le début de la sortie, vous verrez <code>actif (en cours d'exécution)</code>. Si vous ne le faites pas, il y aura des messages d'erreur ci-dessous. Bonne chance! Pour voir une sortie continue de <code>geth</code>, tapez ce qui suit:</p>
+<pre><code class="language-shell">$ sudo journalctl -f -u geth.service
+</code></pre>
+<p>Si tout va bien, vous verrez un flux de lignes contenant <em>Nouveau
+segment de chaîne importé</em>. Type <code>ctrl-c</code>
+pour arrêter la sortie. Ne vous inquiétez pas, cela n'arrête pas votre
+<code>geth</code> nœud. Il ne cesse de montrer le
+<code>systemd</code> enregistrer la sortie.</p>
+<p>A partir de maintenant, lorsque votre VPS redémarre pour une raison
+quelconque <code>geth</code> redémarre
+automatiquement.</p>
+<h3 id="permanence-locale">Permanence locale<a class="headerlink" href="#permanence-locale" title="Permanent link"></a></h3>
+<p>Vous avez démarré avec succès un tunnel SSH sur votre machine, mais dès
+que vous fermez le terminal ou mettez votre ordinateur portable en
+veille, le tunnel se déconnecte et la connexion est interrompue. Ceci
+est évidemment sous-optimal. Devoir démarrer une session de terminal et
+réactiver le tunnel est un peu fastidieux. Le problème est que les trois
+principaux systèmes d'exploitation disposent de trois manières
+différentes pour configurer des services permanents tels que notre
+tunnel SSH.</p>
+<h4 id="paires-de-cles-ssh">Paires de clés SSH<a class="headerlink" href="#paires-de-cles-ssh" title="Permanent link"></a></h4>
+<p>Pour que l'un des éléments suivants fonctionne automatiquement, vous
+devez disposer de clés privées et publiques SSH. Si vous régulièrement
+<code>ssh</code> dans des machines distantes sans
+avoir besoin de fournir un mot de passe, vous êtes déjà configuré. Même
+dans ce cas, vous devez envoyer votre clé publique à la machine distante
+exécutée. <code>geth</code>. Pour obtenir des
+instructions sur la procédure à suivre – et comment générer une paire de
+clés SSH en premier lieu si vous en avez besoin – <a href="https://www.linode.com/docs/security/authentication/use-public-key-authentication-with-ssh/">cet article de Linode</a>
+ou <a href="https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html">celui de Atlassian</a>
+explique les choses assez bien. Ces articles sont déjà très longs et
+très techniques. fouiller avec des clés SSH est un processus bien connu,
+il n'est donc pas nécessaire de répéter ces instructions ici. Si vous
+pouvez taper:</p>
+<pre><code>$ ssh utilisateur@172.16.389.54
+</code></pre>
+<p>fournir votre propre nom d'utilisateur et l'adresse IP de votre télécommande <code>geth</code> Si vous êtes connecté sans avoir à fournir de mot de passe, vous êtes prêt à partir. Si ce n'est pas le cas, aucune des solutions suivantes ne fonctionnera.</p>
+<h4 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link"></a></h4>
+<p>Le processus de création d'un tunnel SSH permanent est similaire à celui utilisé sur notre système VPS. Nous installons un <code>persistent.ssh.tunnel.service</code> archivez et configurez les éléments pour que le service démarre avec le système. La seule différence majeure, mis à part la nécessité nécessairement différente <code>ExecStart</code> line, c'est que nous devons faire précéder cette ligne d'une ligne spécifiant un léger délai de démarrage pour nous assurer que le réseau est prêt avant le démarrage du service. Rappelez-vous, bien sûr, pour remplacer <code>utilisateur</code> dans <code>Utilisateur = utilisateur</code> avec votre propre nom d'utilisateur et <code>utilisateur@172.16.389.54</code> avec votre nom d'utilisateur sur le système distant et son adresse IP.</p>
+<pre><code class="language-shell">$ cat&gt; persistent.ssh.tunnel.service &lt;&lt; EOF
+[Unit]
+Description = Tunnel SSH persistant
+[Service]
+Utilisateur = utilisateur
+Type = simple
+Redémarrer = toujours
+ExecStartPre = / bin / sleep 10
+ExecStart = / usr / bin / ssh -N -v utilisateur@172.16.389.54 -L 8545: localhost: 8545
+[Install]
+WantedBy = default.target
+EOF
+</code></pre>
+<p>Cela crée un <code>persistent.ssh.tunnel.service</code> fichier dans le répertoire en cours. Comme auparavant, vous devez faire quelques choses pour le rendre disponible à <code>systemd</code>, cette fois sur votre système local:</p>
+<pre><code class="language-shell">$ sudo mv persistent.ssh.tunnel.service / etc / systemd / system /
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable persistent.ssh.tunnel.service
+$ sudo systemctl start persistent.ssh.tunnel.service
+</code></pre>
+<p>Pour vérifier que le service a démarré avec succès, tapez ce qui suit:</p>
+<pre><code>$ sudo systemctl status persistent.ssh.tunnel.service
+</code></pre>
+<h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link"></a></h4>
+<p>MacOS d'Apple a sa propre façon de configurer des services persistants en utilisant <code>launchctl</code>. Semblable à <code>systemd</code> sous Linux, vous fournissez un fichier de configuration – cette fois sous la forme d'un <a href="https://en.wikipedia.org/wiki/XML">Document XML</a> au lieu d'un <a href="https://en.wikipedia.org/wiki/INI_file">Fichier INI</a> – puis installez et activez le service à l'aide de ce document XML. Tout d'abord, nous créons ce fichier, en fournissant comme d'habitude le nom d'utilisateur et l'adresse IP de notre VPS pour Windows. <code>utilisateur@172.16.389.54</code>. De plus, indiquez votre nom d'utilisateur macOS sous <code>Nom d'utilisateur</code>.</p>
+<pre><code class="language-shell">$ cat &gt; com.persistent.ssh.tunnel.plist &lt;&lt;EOF
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+  &lt;key&gt;Label&lt;/key&gt;
+  &lt;string&gt;com.persistent.ssh.tunnel&lt;/string&gt;
+  &lt;key&gt;UserName&lt;/key&gt;
+  &lt;string&gt;user&lt;/string&gt;
+  &lt;key&gt;StandardErrorPath&lt;/key&gt;
+  &lt;string&gt;/tmp/persistent.ssh.tunnel.err&lt;/string&gt;
+  &lt;key&gt;ProgramArguments&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;/usr/bin/ssh&lt;/string&gt;
+    &lt;string&gt;-N&lt;/string&gt;
+    &lt;string&gt;-v&lt;/string&gt;
+    &lt;string&gt;user@172.16.389.54&lt;/string&gt;
+    &lt;string&gt;-L&lt;/string&gt;
+    &lt;string&gt;8545:localhost:8545&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;KeepAlive&lt;/key&gt;
+  &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+EOF
+</code></pre>
+<p>Une fois que vous avez créé le
+<code>com.persistent.ssh.tunnel.plist</code>
+fichier, déplacez-le vers un emplacement dans lequel
+<code>launchctl</code> s'attend à ce que ces
+fichiers résident. Enfin, donnez-lui la commande pour l'installer dans
+le système et démarrer le processus en arrière-plan.</p>
+<pre><code class="language-shell">$ sudo mv com.persistent.ssh.tunnel.plist /Library/LaunchDaemons/
+$ sudo launchctl load /Library/LaunchDaemons/com.persistent.ssh.tunnel.plist
+</code></pre>
+<p>Installer le <code>.pliste</code> déposer dans <code>/ Bibliothèque / LaunchDaemons /</code> le met à la disposition de tout utilisateur du système; cela ne dépend pas de votre connexion pour que le tunnel soit actif.</p>
+<h4 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link"></a></h4>
+<p>Pour configurer un service persistant dans Windows, vous devez télécharger un utilitaire offrant cette fonctionnalité. Celui que j'ai utilisé est le libre, l'open source et le domaine public <a href="https://nssm.cc/">NSSM</a> alors vous devez <a href="https://nssm.cc/release/nssm-2.24.zip">installez ça</a> avant de procéder.</p>
+<p>Les étapes ci-dessous créent le <code>tunnel ssh persistant</code> service et définit divers paramètres afin que vous puissiez l'utiliser pour connecter MetaMask à votre <code>geth</code> nœud. J'ai fourni les commandes ainsi que les réponses de <code>nssm</code> pour plus de clarté. Pour exécuter ces commandes, vous devez démarrer une session de terminal en tant qu'administrateur Windows. Vous pouvez le faire en ouvrant le menu Démarrer et en tapant <code>cmd</code>. Cela devrait amener un <em>Meilleure correspondance</em> menu avec <em>Invite de commande</em> a souligné. À droite choisir <em>Exécuter en tant qu'administrateur</em>. Cliquez sur <em>Oui</em> pour permettre à cette application d'apporter des modifications. Si tout se passe bien, une fenêtre de terminal noire s'ouvre avec l'invite de commande. <code>C: Windows system32&gt;</code>. Tapez soigneusement les commandes ci-dessous, en vous assurant que <em>ne pas</em> taper l'invite de commande! Assurez-vous que chaque commande obtient une réponse similaire à celle fournie ici. Remplacez votre nom d'utilisateur Windows par <code>.utilisateur</code> (en gardant le <code>.</code>) et votre mot de passe de connexion Windows pour <code>mot de passe</code>. Indiquez également votre nom d'utilisateur et l'adresse IP de votre télécommande <code>geth</code> noeud dans <code>utilisateur@172.16.389.54</code>.</p>
+<pre><code class="language-shell">C:\Windows\system32&gt;nssm install persistent-ssh-tunnel &quot;C:\Windows\System32\OpenSSH\ssh.exe&quot; &quot;-N -v user@172.16.389.54 -L 8545:localhost:8545&quot;
+Service &quot;persistent-ssh-tunnel&quot; installed successfully!
+
+C:\Windows\system32&gt;nssm set persistent-ssh-tunnel ObjectName &quot;.\user&quot; &quot;password&quot;
+Set parameter &quot;ObjectName&quot; for service &quot;persistent-ssh-tunnel&quot;.
+
+C:\Windows\system32&gt;nssm set persistent-ssh-tunnel DisplayName &quot;Persistent SSH Tunnel&quot;
+Set parameter &quot;DisplayName&quot; for service &quot;persistent-ssh-tunnel&quot;.
+
+C:\Windows\system32&gt;nssm set persistent-ssh-tunnel Description &quot;Establishes a persistent SSH tunnel between a remote server and the local computer.&quot;
+Set parameter &quot;Description&quot; for service &quot;persistent-ssh-tunnel&quot;.
+
+C:\Windows\system32&gt;nssm start persistent-ssh-tunnel
+persistent-ssh-tunnel: START: The operation completed successfully.
+</code></pre>
+<h4 id="test-du-tunnel-ssh-persistant">Test du tunnel SSH persistant<a class="headerlink" href="#test-du-tunnel-ssh-persistant" title="Permanent link"></a></h4>
+<p>En supposant que tout se passe bien, vous disposez maintenant d'un service système sous Windows, Linux ou macOS qui s'exécute en arrière-plan et démarre à chaque redémarrage de votre ordinateur local. Pour le tester, ouvrez un navigateur sur lequel MetaMask est installé et suivez les instructions ci-dessus. <em>Configuration du méta-masque</em>. MetaMask devrait à nouveau se connecter à <em>Localhost 8545</em>, mais cette fois-ci, le service d'arrière-plan utilise les tunnels qui demandent <code>geth</code> VPS. Vous n'avez plus besoin de penser à établir une connexion avec votre nœud Ethereum distant.</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Par souci d'opportunité, j'ai fait des choix spécifiques dans ces articles. Par exemple, j'ai choisi d'utiliser un VPS, et même un fournisseur de VPS particulier, pour notre nœud Ethereum. Comme expliqué ci-dessus, cela coûte de l'argent. Les développeurs dapp qui perçoivent des revenus de leur projet doivent absolument envisager cet itinéraire. D'autre part, quelqu'un qui est simplement curieux et qui souhaite suivre les étapes décrites peut configurer un VPS, suivre le tutoriel, et après l'avoir testé et avoir appris tout ce qu'il y a à apprendre, éteignez et supprimez le VPS. Cela ne coûterait que quelques centimes: si cela vous prenait deux heures pour terminer ce tutoriel, vous perdriez 24 ¢ US, en supposant un <em>Linode 16 Go</em> VPS.</p>
+<p>Vous êtes également libre de choisir un autre fournisseur VPS. Océan numérique <em>Gouttelettes</em> sont à des prix compétitifs. Le processus ici devrait fonctionner aussi bien sur une gouttelette. AWS d'Amazon est également une possibilité. L'utilisation de votre propre matériel permettrait d'économiser des coûts mensuels, mais le processus deviendrait beaucoup plus complexe et aurait été inapproprié pour un article destiné à des personnes moyennement techniques.</p>
+<p>Un autre choix que j'ai fait est d'utiliser la distribution Linux Ubuntu comme système d'exploitation de notre système. <code>geth</code> nœud. Ubuntu est l'une des distributions les plus populaires, mais il y a, dirons-nous, <em>nombreuses</em> autres distributions Linux que vous pourriez choisir. Si vous êtes plus familier avec une autre distribution, vous devriez être capable de gérer les différences entre votre choix et les instructions ci-dessus basées sur Ubuntu.</p>
+<p>J'ai choisi un utilitaire de service système pour Windows, n'offrant aucune alternative, et j'ai passé en revue les aspects SSH de ce système d'exploitation. Encore une fois, ces articles s'approcheraient de nouveautés si je devais aborder tous les aspects du logiciel sur toutes les plates-formes. Je présente mes excuses à ceux qui voulaient plus de détails. S'il vous plaît laissez un commentaire si vous avez des questions sur ces choses.</p>
+<p>Cela a certainement été un long voyage. Je sais que tout est un peu ambitieux, en particulier pour ceux qui ont une technique moins technique. J'espère que vous avez pu suivre ces instructions et vous retrouver avec votre propre nœud Ethereum distant, en vous y connectant avec MetaMask via un tunnel SSH sécurisé. Si vous avez des questions ou avez besoin d'aide pour le processus, laissez un commentaire ici. Je serais heureux d'aider.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Utilisez votre nœud Ethereum distant en utilisant un tunnel SSH et MetaMask</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/utilisez-votre-noeud-ethereum-distant-en-utilisant/86aee595a3244883b5fef18be4df67dc/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-15</li>
+<li><strong>Kauri original tags:</strong> metamask, geth, ssh-tunnel</li>
+<li><strong>Kauri original hash:</strong> QmasbpNK8aNkCA3EGhV5ptDSVM1AThSrUA6EHCLXMHYSyG</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../why-do-we-need-a-decentralized-oracle-network/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../why-do-we-need-a-decentralized-oracle-network/" class="btn btn-xs btn-link">
+        Why do we need a Decentralized Oracle Network?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../kauri-users-your-input-requested%21/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../kauri-users-your-input-requested%21/" class="btn btn-xs btn-link">
+        Kauri Users, your input requested!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/utilisez-votre-noeud-ethereum-distant-en-utilisan.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

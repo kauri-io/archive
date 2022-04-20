@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2835%29-collect-metrics-with-elastic-metricbeat-for-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes", url: "#_top", children: [
+              {title: "Prerequisite - kube-state-metrics", url: "#prerequisite-kube-state-metrics" },
+              {title: "Configuration", url: "#configuration" },
+              {title: "Installation and result", url: "#installation-and-result" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="35-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes">(3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes<a class="headerlink" href="#35-collect-metrics-with-elastic-metricbeat-for-monitoring-kubernetes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfFTZb7ZaiZfDzc34kQfc137WaQ5HewS4JzinqEu2QRpE" /></p>
+<p><a href="https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html"><strong>Metricbeat</strong></a> is a lightweight shipper installed on a server to periodically collect metrics from the host and services running. This represents the first pillar of observability to monitor our stack.</p>
+<p>Metricbeat captures by default system metrics but also includes a large list of modules to capture specific metrics about services such as proxy (NGINX), message bus (RabbitMQ, Kafka), Databases (MongoDB, MySQL, Redis) and many others (find the full list <a href="https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-modules.html">here</a>)</p>
+<p><br /></p>
+<h3 id="prerequisite-kube-state-metrics">Prerequisite - kube-state-metrics<a class="headerlink" href="#prerequisite-kube-state-metrics" title="Permanent link"></a></h3>
+<p>First, we need to install <code>kube-state-metrics</code> which is a service listening the Kubernetes API to exposes a set of useful metrics about the state of each Object.</p>
+<p>To install <code>kube-state-metrics</code>, simply run the following command:</p>
+<pre><code class="language-shell">$ kubectl apply -f https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/kube-state-metrics.yml
+
+clusterrolebinding.rbac.authorization.k8s.io/kube-state-metrics created
+clusterrole.rbac.authorization.k8s.io/kube-state-metrics created
+deployment.apps/kube-state-metrics created
+serviceaccount/kube-state-metrics created
+service/kube-state-metrics created
+</code></pre>
+<p><br /></p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h3>
+<p>In order to install Metricbeat on our Kubernetes environment, we need to install a <code>DaemonSet</code> (agent installed on every nodes) and configure the settings.</p>
+<p>First of all, we are writing the metricbeat configuration into the file <code>metricbeat.yml</code>  which will be located in <code>/etc/metricbeat.yml</code> of the DaemonSet pod container.</p>
+<p>This file contains our metricbeat <a href="https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-reference-yml.html">settings</a>. We configure the ElasticSearch connection (endpoint, username, password) as output, the Kibana connection (to import pre-existing dashboards), the modules we want to enable with the period of pulling and the indice lifecycle file (rollup, retention), etc.</p>
+<pre><code class="language-yaml">## metricbeat.settings.configmap.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: metricbeat-config
+  labels:
+    app: metricbeat
+data:
+  metricbeat.yml: |-
+
+    # Configure modules
+    metricbeat.modules:
+      - module: system
+        period: ${PERIOD}
+        metricsets: [&quot;cpu&quot;, &quot;load&quot;, &quot;memory&quot;, &quot;network&quot;, &quot;process&quot;, &quot;process_summary&quot;, &quot;core&quot;, &quot;diskio&quot;, &quot;socket&quot;]
+        processes: ['.*']
+        process.include_top_n:
+          by_cpu: 5      # include top 5 processes by CPU
+          by_memory: 5   # include top 5 processes by memory
+
+      - module: system
+        period: ${PERIOD}
+        metricsets:  [&quot;filesystem&quot;, &quot;fsstat&quot;]
+        processors:
+        - drop_event.when.regexp:
+            system.filesystem.mount_point: '^/(sys|cgroup|proc|dev|etc|host|lib)($|/)'
+
+      - module: docker
+        period: ${PERIOD}
+        hosts: [&quot;unix:///var/run/docker.sock&quot;]
+        metricsets: [&quot;container&quot;, &quot;cpu&quot;, &quot;diskio&quot;, &quot;healthcheck&quot;, &quot;info&quot;, &quot;memory&quot;, &quot;network&quot;]
+
+      - module: kubernetes
+        period: ${PERIOD}
+        host: ${NODE_NAME}
+        hosts: [&quot;localhost:10255&quot;]
+        metricsets: [&quot;node&quot;, &quot;system&quot;, &quot;pod&quot;, &quot;container&quot;, &quot;volume&quot;]
+
+      - module: kubernetes
+        period: ${PERIOD}
+        host: ${NODE_NAME}
+        metricsets: [&quot;state_node&quot;, &quot;state_deployment&quot;, &quot;state_replicaset&quot;, &quot;state_pod&quot;, &quot;state_container&quot;]
+        hosts: [&quot;kube-state-metrics.kube-system.svc.cluster.local:8080&quot;]
+
+    # Configure specific service module based on k8s deployment
+    metricbeat.autodiscover:
+      providers:
+        - type: kubernetes
+          host: ${NODE_NAME}
+          templates:
+            - condition.equals:
+                kubernetes.labels.app: mongo
+              config:
+                - module: mongodb
+                  period: ${PERIOD}
+                  hosts: [&quot;mongo.default:27017&quot;]
+                  metricsets: [&quot;dbstats&quot;, &quot;status&quot;, &quot;collstats&quot;, &quot;metrics&quot;, &quot;replstatus&quot;]
+
+    # Connection to ElasticSearch
+    output.elasticsearch:
+      hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+
+    # Connection to Kibana to import pre-existing dashboards
+    setup.kibana:
+      host: '${KIBANA_HOST:kibana}:${KIBANA_PORT:5601}'
+
+    # Import pre-existing dashboards
+    setup.dashboards.enabled: true
+
+    # Configure indice lifecycle
+    setup.ilm:
+      policy_file: /etc/indice-lifecycle.json
+---
+</code></pre>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/index-lifecycle-management.html">ElasticSearch indice lifecycle</a> represents a set of rules you want to apply to your indices based on the size or the age of the indice. So for example, it's possible to rollover the indice (create a new file) every day or every time it exceed 1GB, we can also configure different phases based on rule (<code>hot</code> for active read/write indice, <code>cold</code> for read-only and <code>delete</code> to delete the indice).
+Monitoring can generate a large amount of data, perhaps more than 10GB a day, so to prevent spending to much money on cloud storage, we can use the indice lifecycle to configure data retention easily.</p>
+<p>In the file below, we configure to rollover the indice every day or every time it exceeds 5GB and delete all indice files older than 30 days. <strong>We only keep 30 days of monitoring data</strong></p>
+<pre><code class="language-yaml">## metricbeat.indice-lifecycle.configmap.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: metricbeat-indice-lifecycle
+  labels:
+    app: metricbeat
+data:
+  indice-lifecycle.json: |-
+    {
+      &quot;policy&quot;: {
+        &quot;phases&quot;: {
+          &quot;hot&quot;: {
+            &quot;actions&quot;: {
+              &quot;rollover&quot;: {
+                &quot;max_size&quot;: &quot;5GB&quot; ,
+                &quot;max_age&quot;: &quot;1d&quot;
+              }
+            }
+          },
+          &quot;delete&quot;: {
+            &quot;min_age&quot;: &quot;30d&quot;,
+            &quot;actions&quot;: {
+              &quot;delete&quot;: {}
+            }
+          }
+        }
+      }
+    }
+---
+</code></pre>
+<p>The next part is the <code>DaemonSet</code> describing a Metricbeat agent deployed on each node of the k8s cluster. We can especially noticed the environment variables and the volumes to access the <code>ConfigMap</code></p>
+<pre><code class="language-yaml">## metricbeat.daemonset.yml
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  namespace: monitoring
+  name: metricbeat
+  labels:
+    app: metricbeat
+spec:
+  template:
+    metadata:
+      labels:
+        app: metricbeat
+    spec:
+      serviceAccountName: metricbeat
+      terminationGracePeriodSeconds: 30
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+      - name: metricbeat
+        image: docker.elastic.co/beats/metricbeat:7.3.0
+        args: [
+          &quot;-c&quot;, &quot;/etc/metricbeat.yml&quot;,
+          &quot;-e&quot;,
+          &quot;-system.hostfs=/hostfs&quot;,
+        ]
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: elasticsearch-client.monitoring.svc.cluster.local
+        - name: ELASTICSEARCH_PORT
+          value: &quot;9200&quot;
+        - name: ELASTICSEARCH_USERNAME
+          value: elastic
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-pw-elastic
+              key: password
+        - name: KIBANA_HOST
+          value: kibana.monitoring.svc.cluster.local
+        - name: KIBANA_PORT
+          value: &quot;5601&quot;
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: PERIOD
+          value: &quot;10s&quot;
+        securityContext:
+          runAsUser: 0
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - name: config
+          mountPath: /etc/metricbeat.yml
+          readOnly: true
+          subPath: metricbeat.yml
+        - name: indice-lifecycle
+          mountPath: /etc/indice-lifecycle.json
+          readOnly: true
+          subPath: indice-lifecycle.json
+        - name: dockersock
+          mountPath: /var/run/docker.sock
+        - name: proc
+          mountPath: /hostfs/proc
+          readOnly: true
+        - name: cgroup
+          mountPath: /hostfs/sys/fs/cgroup
+          readOnly: true
+      volumes:
+      - name: proc
+        hostPath:
+          path: /proc
+      - name: cgroup
+        hostPath:
+          path: /sys/fs/cgroup
+      - name: dockersock
+        hostPath:
+          path: /var/run/docker.sock
+      - name: config
+        configMap:
+          defaultMode: 0600
+          name: metricbeat-config
+      - name: indice-lifecycle
+        configMap:
+          defaultMode: 0600
+          name: metricbeat-indice-lifecycle
+      - name: data
+        hostPath:
+          path: /var/lib/metricbeat-data
+          type: DirectoryOrCreate
+---
+</code></pre>
+<p>The last part is a more generic part that grant access of k8s resources to the metricbeat agents.</p>
+<pre><code class="language-yaml">## metricbeat.permissions.yml
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: metricbeat
+subjects:
+- kind: ServiceAccount
+  name: metricbeat
+  namespace: monitoring
+roleRef:
+  kind: ClusterRole
+  name: metricbeat
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: metricbeat
+  labels:
+    app: metricbeat
+rules:
+- apiGroups: [&quot;&quot;]
+  resources:
+  - nodes
+  - namespaces
+  - events
+  - pods
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+- apiGroups: [&quot;extensions&quot;]
+  resources:
+  - replicasets
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+- apiGroups: [&quot;apps&quot;]
+  resources:
+  - statefulsets
+  - deployments
+  verbs: [&quot;get&quot;, &quot;list&quot;, &quot;watch&quot;]
+- apiGroups:
+  - &quot;&quot;
+  resources:
+  - nodes/stats
+  verbs:
+  - get
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: monitoring
+  name: metricbeat
+  labels:
+    app: metricbeat
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/metricbeat.yml">full file</a></em></p>
+<p><br /></p>
+<h3 id="installation-and-result">Installation and result<a class="headerlink" href="#installation-and-result" title="Permanent link"></a></h3>
+<p>We can now deploy Metricbeat:</p>
+<pre><code class="language-shell">$ kubectl apply  -f metricbeat.settings.configmap.yml \
+                 -f metricbeat.indice-lifecycle.configmap.yml \
+                 -f metricbeat.daemonset.yml \
+                 -f metricbeat.permissions.yml
+
+configmap/metricbeat-config configured
+configmap/metricbeat-indice-lifecycle configured
+daemonset.extensions/metricbeat created
+clusterrolebinding.rbac.authorization.k8s.io/metricbeat created
+clusterrole.rbac.authorization.k8s.io/metricbeat created
+serviceaccount/metricbeat created
+</code></pre>
+<p>Wait until the <code>metricbeat</code> pod is <code>Running</code> and you should be able to observe metrics in Kibana.</p>
+<pre><code class="language-shell">$ kubectl get all -n monitoring -l app=metricbeat
+
+NAME                   READY   STATUS    RESTARTS   AGE
+pod/metricbeat-hczk7   1/1     Running   0          60m
+
+NAME                        DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/metricbeat   1         1         1       1            1           &lt;none&gt;          60m
+</code></pre>
+<p>Firstly, from the left menu, click on "Infrastructure" and you should see a schema of your infrastructure with:
+- Host: Nodes of Cluster
+- Kubernetes: Visualise each pods
+- Docker: Visualise each container</p>
+<p>On each view, we can observe different metrics (CPU, Memory, Network, etc.) or group by attribute value (namespace, host, etc.).</p>
+<p><img alt="" src="https://imgur.com/lBlGO0X.gif" /></p>
+<p>In the settings, we set the property <code>setup.dashboards.enabled</code> to <code>true</code> to import pre-existing dashboards. From the left menu, go to "Dashboards" and you should see a list of about 50 Metricbeat dashboards.</p>
+<p>We enabled the module <code>kubernetes</code>, so the dashboard <strong>[Metricbeat Kubernetes] Overview ECS</strong> should be populated:</p>
+<p><img alt="" src="https://i.imgur.com/A14pvYz.png" /></p>
+<p>We also enabled the module <code>mongodb</code>, have a look now on the dashboard <strong>[Metricbeat MongoDB] Overview ECS</strong></p>
+<p><img alt="" src="https://i.imgur.com/XyZCA9k.png" /></p>
+<p><br />
+<br /></p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>In the following article, we will learn how to install and configure Filebeat:
+<a href="https://kauri.io/article/28b4930506794915be2559dc5ee4b0b1">Collect logs with Elastic Filebeat for monitoring Kubernetes</a></p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/35-collect-metrics-with-elastic-metricbeat-for-mon/935f4e17a10243139b41546780f43c42/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-19</li>
+<li><strong>Kauri original tags:</strong> kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat</li>
+<li><strong>Kauri original hash:</strong> QmV8jRTc1MmPN1fTgoi5cSZ9qzvLkQseb6RRUNFDLAkRPf</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2845%29-collect-logs-with-elastic-filebeat-for-monit/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2845%29-collect-logs-with-elastic-filebeat-for-monit/" class="btn btn-xs btn-link">
+        (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2825%29-install-elasticsearch-and-kibana-to-store-an/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2825%29-install-elasticsearch-and-kibana-to-store-an/" class="btn btn-xs btn-link">
+        (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Monitoring Kubernetes with Elastic Stack/(35)-collect-metrics-with-elastic-metricbeat-for-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

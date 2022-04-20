@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/data-privacy-with-the-nucypher-network/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Data Privacy with the NuCypher Network - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Data Privacy with the NuCypher Network", url: "#_top", children: [
+              {title: "Overview", url: "#overview" },
+              {title: "Read the NuCypher whitepapers", url: "#read-the-nucypher-whitepapers" },
+              {title: "Guides", url: "#guides" },
+              {title: "Demos", url: "#demos" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="data-privacy-with-the-nucypher-network">Data Privacy with the NuCypher Network<a class="headerlink" href="#data-privacy-with-the-nucypher-network" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWsMymRmjGBB1z3w8wb5CPwwgjWr6JDg4S4WsUiRhe3zq" /></p>
+<blockquote>
+<p>The NuCypher network uses the Umbral threshold proxy re-encryption scheme to provide cryptographic access controls for distributed apps and protocols.</p>
+</blockquote>
+<p>This article is adapted from the <a href="https://docs.nucypher.com/en/latest/">NuCypher documentation</a></p>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
+<ol>
+<li>
+<p>Alice, the data owner, grants access to her encrypted data to anyone she wants by creating a policy and uploading it to the NuCypher network.</p>
+</li>
+<li>
+<p>Using her policy’s public key, any entity can encrypt data on Alice’s behalf. This entity could be an IoT device in her car, a collaborator assigned the task of writing data to her policy, or even a third-party creating data that belongs to her – for example, a lab analyzing medical tests. The resulting encrypted data can be uploaded to IPFS, Swarm, S3, or any other storage layer.</p>
+</li>
+<li>
+<p>A group of Ursulas, which are nodes of the NuCypher network, receive the access policy and stand ready to re-encrypt data in exchange for payment in fees and token rewards. Thanks to the use of proxy re-encryption, Ursulas and the storage layer never have access to Alice’s plaintext data.</p>
+</li>
+<li>
+<p>Bob, a data recipient, sends an access request to the NuCypher network. If the policy is satisfied, the data is re-encrypted to his public key and he can decrypt it with his private key.</p>
+</li>
+</ol>
+<p>More detailed information about the NuCypher network can be found here:</p>
+<p><a href="https://www.github.com/nucypher/nucypher">GitHub</a></p>
+<p><a href="https://www.nucypher.com/">nucypher.com</a></p>
+<h3 id="read-the-nucypher-whitepapers">Read the NuCypher whitepapers<a class="headerlink" href="#read-the-nucypher-whitepapers" title="Permanent link"></a></h3>
+<h4 id="network">Network<a class="headerlink" href="#network" title="Permanent link"></a></h4>
+<p>https://github.com/nucypher/whitepaper/blob/master/whitepaper.pdf</p>
+<p>“NuCypher - A proxy re-encryption network to empower privacy in decentralized systems” by Michael Egorov, David Nuñez, and MacLane Wilkison - NuCypher</p>
+<h4 id="economics">Economics<a class="headerlink" href="#economics" title="Permanent link"></a></h4>
+<p>https://github.com/nucypher/mining-paper/blob/master/mining-paper.pdf</p>
+<p>“NuCypher - Mining &amp; Staking Economics” by Michael Egorov, MacLane Wilkison - NuCypher</p>
+<h4 id="cryptography">Cryptography<a class="headerlink" href="#cryptography" title="Permanent link"></a></h4>
+<p>https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf</p>
+<p>“Umbral A Threshold Proxy Re-Encryption Scheme” by David Nuñez - NuCypher</p>
+<h3 id="guides">Guides<a class="headerlink" href="#guides" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.nucypher.com/en/latest/guides/quickstart.html">Nucypher Quickstart</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/federated_testnet_guide.html">NuCypher Federated Testnet (NuFT) Setup Guide</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/installation_guide.html">Installation Guide</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/ursula_configuration_guide.html">Ursula Configuration Guide</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/contribution_guide.html">Contributing</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/character_control_guide.html">NuCypher Character Control Guide</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/staking_guide.html">NuCypher Staking Guide</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/guides/deployment_guide.html">Deployment Guide</a></li>
+</ul>
+<h3 id="demos">Demos<a class="headerlink" href="#demos" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.nucypher.com/en/latest/demos/local_fleet_demo.html">Local Development Fleet Testing</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/demos/finnegans_wake_demo.html">Finnegan’s Wake Demo</a></li>
+<li><a href="https://docs.nucypher.com/en/latest/demos/heartbeat_demo.html">Heartbeat Demo</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Data Privacy with the NuCypher Network</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/data-privacy-with-the-nucypher-network/3a264ce066b04332b2e03ffa88af39e6/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-06</li>
+<li><strong>Kauri original tags:</strong> encryption, nucypher, privacy, proxy-re-encryption</li>
+<li><strong>Kauri original hash:</strong> QmTgEALiSyjafEdQ5FLzqqiZUuKWrXBJmnqoAqdPbiigVU</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../nucypher-pyumbral/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../nucypher-pyumbral/" class="btn btn-xs btn-link">
+        NuCypher - PyUmbral
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-code-your-own-confidential-token-on-ethere/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-code-your-own-confidential-token-on-ethere/" class="btn btn-xs btn-link">
+        How to Code Your Own Confidential Token on Ethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/data-privacy-with-the-nucypher-network.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

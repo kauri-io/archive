@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Kotlin%20%E2%9D%A4%20Web3/simple-kotlin-springboot-dapp-utilizing-web3j/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Simple Kotlin SpringBoot dApp utilizing web3j - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Simple Kotlin SpringBoot dApp utilizing web3j", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="simple-kotlin-springboot-dapp-utilizing-web3j">Simple Kotlin SpringBoot dApp utilizing web3j<a class="headerlink" href="#simple-kotlin-springboot-dapp-utilizing-web3j" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPpiC3xjs1N1gs4GzucHSWnazPkEsj7dPKiw9PnUwYh22" /></p>
+<p>Are you sick of web3js? I know I am!</p>
+<p>We are still forced to use it on the frontend but that doesn't mean that our backend event listeners and backend contract interactions have to go through this pile of poorly documented crap.</p>
+<p>I want to introduce you to a great alternative that I've been using to write the backend of my dApps.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZS8mDt57Tb1cqNZ49oEQSNNMxZ8Xx2yXzvms6DnCKWjZ" /><img alt="" src="https://ipfs.infura.io/ipfs/QmecvtMiuNTJXiWDuaEKmJLWXd1jjUND9MQGjXULghVdBk" /><img alt="" src="https://ipfs.infura.io/ipfs/QmfWo2RhNPoU234Xpkee53pfRhTtYqBdoTJEXTf3vMNLbx" /></p>
+<p>First create a spring boot application: https://start.spring.io/ </p>
+<p>Pick Maven + Kotlin + latest version (I'm using 2.1.4) + you can leave the names as is or give it something fancy</p>
+<p>Download and open that bad boy up in Intellij Idea. Community edition is free: https://www.jetbrains.com/idea/download </p>
+<p>Now it should be pretty straight forward to get it running. Just browse over to the file (com.example.demo.DemoApplication) that contains @SpringBootApplication and there should be a little ▶ button. Press it? It won't do much now.</p>
+<p>Let's leave this for now and go create our simple smart contract. I like using remix! https://remix.ethereum.org</p>
+<p>Contract code (all it does is that it emits an event with the text we send it):</p>
+<pre><code>pragma solidity 0.5.7;
+
+contract HelloKotlin {
+
+    function myTextInWeb3(string memory text) public {
+        emit HelloKotlinEvent(
+            text
+        );
+    }
+
+    event HelloKotlinEvent(string text);
+}
+</code></pre>
+<p>Let's deploy it using remix. I deployed it here on rinkeby: <code>0xde370152a5a35ebc1b575cf7feddb2e0e16a62a4</code></p>
+<p>Now let's compile it into a java class using web3j!</p>
+<p>First download web3j command line tool: https://github.com/web3j/web3j/releases (I'm using web3j-4.2.0)</p>
+<p>Second thing is to compile our contract into its abi and bin files. <code>solc hellokotlin.sol --bin --abi --optimize -o .</code> I'm using solcjs and it kind of messes up the names. Generating hellokotlin_sol_HelloKotlin.bin and hellokotlin_sol_HelloKotlin.abi</p>
+<p>And let's generate the class: <code>~/Dev/web3j-4.2.0/bin/web3j solidity generate -b ./hellokotlin_sol_HelloKotlin.bin -a ./hellokotlin_sol_HelloKotlin.abi -o ~/Dev/demo/src/main/kotlin/ -p com.example.demo</code></p>
+<p>Go back to IntelliJ and the generated class should be there and ready to be used! I'm going to rename it to something nicer: HelloKotlin.java (You can attempt to change this to use Kotlin but it strictly says to not modify the generated code. If you are successful let me know!)</p>
+<p>Next is to add the web3j dependency to Maven. First open up pom.xml and add this inside of <Dependencies>:</p>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.web3j&lt;/groupId&gt;
+  &lt;artifactId&gt;core&lt;/artifactId&gt;
+  &lt;version&gt;4.2.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>IntelliJ should prompt you to reimport. Do it!</p>
+<p>Now my friends we can create some beans and event listeners:</p>
+<ol>
+<li>Create a kotlin class called Web3jConfig.kt</li>
+</ol>
+<pre><code>package com.example.demo
+
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.web3j.protocol.Web3j
+import org.web3j.protocol.websocket.WebSocketService
+
+@Configuration
+class Web3jConfig {
+
+    @Bean
+    fun web3jProvider(): Web3j {
+        val wssService = WebSocketService(
+                &quot;wss://rinkeby.infura.io/ws&quot;,
+                true
+        )
+        wssService.connect()
+        return Web3j.build(wssService)
+    }
+}
+</code></pre>
+<p>It just creates a bean of type Web3j that we can use to connect to Infura's WebSocket web3 provider!</p>
+<p>Let's create another class to listen in on events and just printing them out to the console as they come in. Let's call this one EventListener.kt</p>
+<pre><code>package com.example.demo
+
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
+import org.springframework.stereotype.Service
+import org.web3j.protocol.Web3j
+import org.web3j.protocol.core.DefaultBlockParameterName
+import org.web3j.tx.ReadonlyTransactionManager
+import org.web3j.tx.gas.StaticGasProvider
+
+@Service
+class EventListener {
+    @Autowired
+    lateinit var web3j: Web3j
+
+    companion object {
+        const val CONTRACT_ADDRESS = &quot;0xde370152a5a35ebc1b575cf7feddb2e0e16a62a4&quot;
+        const val GAS_PRICE = 200
+        const val GAS_LIMIT = 4500000
+    }
+
+    @Bean
+    fun listen() {
+        val transactionManager = ReadonlyTransactionManager(web3j, &quot;0x0&quot;)
+        val gasProvider = StaticGasProvider(GAS_PRICE.toBigInteger(), GAS_LIMIT.toBigInteger())
+
+        val helloKotlinContract = HelloKotlin.load(
+                CONTRACT_ADDRESS,
+                web3j,
+                transactionManager,
+                gasProvider
+        )
+
+        helloKotlinContract.helloKotlinEventEventFlowable(
+                DefaultBlockParameterName.EARLIEST,
+                DefaultBlockParameterName.LATEST).subscribe { event -&gt;
+            println(event.text)
+        }
+    }
+}
+</code></pre>
+<p>Go back to the ▶ button and again, Press It! Now if you're using the contract at the address that I deployed then you'll see some text come in already. But to create your own text let's go back to remix and add in some text and fire up a transaction. If you look at the log of the application, you'll see something like this:</p>
+<pre><code>&quot;C:\Program Files\Java\jdk-10.0.1\bin\java.exe&quot; &quot;-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\lib\idea_rt.jar=61097:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin&quot; -Dfile.encoding=UTF-8 -classpath C:\Users\hayde\Dev\demo\target\classes;C:\Users\hayde\.m2\repository\org\springframework\boot\spring-boot-starter\2.1.4.RELEASE\spring-boot-starter-2.1.4.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\boot\spring-boot\2.1.4.RELEASE\spring-boot-2.1.4.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-context\5.1.6.RELEASE\spring-context-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-aop\5.1.6.RELEASE\spring-aop-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-beans\5.1.6.RELEASE\spring-beans-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-expression\5.1.6.RELEASE\spring-expression-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.1.4.RELEASE\spring-boot-autoconfigure-2.1.4.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.1.4.RELEASE\spring-boot-starter-logging-2.1.4.RELEASE.jar;C:\Users\hayde\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\hayde\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\hayde\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;C:\Users\hayde\.m2\repository\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;C:\Users\hayde\.m2\repository\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;C:\Users\hayde\.m2\repository\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-core\5.1.6.RELEASE\spring-core-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\springframework\spring-jcl\5.1.6.RELEASE\spring-jcl-5.1.6.RELEASE.jar;C:\Users\hayde\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;C:\Users\hayde\.m2\repository\org\jetbrains\kotlin\kotlin-reflect\1.3.21\kotlin-reflect-1.3.21.jar;C:\Users\hayde\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.3.21\kotlin-stdlib-1.3.21.jar;C:\Users\hayde\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.3.21\kotlin-stdlib-common-1.3.21.jar;C:\Users\hayde\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\hayde\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.3.21\kotlin-stdlib-jdk8-1.3.21.jar;C:\Users\hayde\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.3.21\kotlin-stdlib-jdk7-1.3.21.jar;C:\Users\hayde\.m2\repository\org\web3j\core\4.2.0\core-4.2.0.jar;C:\Users\hayde\.m2\repository\org\web3j\abi\4.2.0\abi-4.2.0.jar;C:\Users\hayde\.m2\repository\org\web3j\utils\4.2.0\utils-4.2.0.jar;C:\Users\hayde\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.60\bcprov-jdk15on-1.60.jar;C:\Users\hayde\.m2\repository\org\web3j\crypto\4.2.0\crypto-4.2.0.jar;C:\Users\hayde\.m2\repository\org\web3j\rlp\4.2.0\rlp-4.2.0.jar;C:\Users\hayde\.m2\repository\org\web3j\tuples\4.2.0\tuples-4.2.0.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-unixsocket\0.21\jnr-unixsocket-0.21.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-ffi\2.1.9\jnr-ffi-2.1.9.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jffi\1.2.17\jffi-1.2.17.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jffi\1.2.16\jffi-1.2.16-native.jar;C:\Users\hayde\.m2\repository\org\ow2\asm\asm\5.0.3\asm-5.0.3.jar;C:\Users\hayde\.m2\repository\org\ow2\asm\asm-commons\5.0.3\asm-commons-5.0.3.jar;C:\Users\hayde\.m2\repository\org\ow2\asm\asm-analysis\5.0.3\asm-analysis-5.0.3.jar;C:\Users\hayde\.m2\repository\org\ow2\asm\asm-tree\5.0.3\asm-tree-5.0.3.jar;C:\Users\hayde\.m2\repository\org\ow2\asm\asm-util\5.0.3\asm-util-5.0.3.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-a64asm\1.0.0\jnr-a64asm-1.0.0.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-x86asm\1.0.2\jnr-x86asm-1.0.2.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-constants\0.9.11\jnr-constants-0.9.11.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-enxio\0.19\jnr-enxio-0.19.jar;C:\Users\hayde\.m2\repository\com\github\jnr\jnr-posix\3.0.47\jnr-posix-3.0.47.jar;C:\Users\hayde\.m2\repository\com\squareup\okhttp3\okhttp\3.8.1\okhttp-3.8.1.jar;C:\Users\hayde\.m2\repository\com\squareup\okio\okio\1.13.0\okio-1.13.0.jar;C:\Users\hayde\.m2\repository\com\squareup\okhttp3\logging-interceptor\3.8.1\logging-interceptor-3.8.1.jar;C:\Users\hayde\.m2\repository\io\reactivex\rxjava2\rxjava\2.2.8\rxjava-2.2.8.jar;C:\Users\hayde\.m2\repository\org\reactivestreams\reactive-streams\1.0.2\reactive-streams-1.0.2.jar;C:\Users\hayde\.m2\repository\org\java-websocket\Java-WebSocket\1.3.8\Java-WebSocket-1.3.8.jar;C:\Users\hayde\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.8\jackson-databind-2.9.8.jar;C:\Users\hayde\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\hayde\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.8\jackson-core-2.9.8.jar;C:\Users\hayde\.m2\repository\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar com.example.demo.DemoApplicationKt
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.4.RELEASE)
+
+2019-04-14 00:55:55.256  INFO 16112 --- [           main] com.example.demo.DemoApplicationKt       : Starting DemoApplicationKt on DESKTOP-2R74B1B with PID 16112 (C:\Users\hayde\Dev\demo\target\classes started by hayde in C:\Users\hayde\Dev\demo)
+2019-04-14 00:55:55.258  INFO 16112 --- [           main] com.example.demo.DemoApplicationKt       : No active profile set, falling back to default profiles: default
+2019-04-14 00:55:58.718  INFO 16112 --- [           main] com.example.demo.DemoApplicationKt       : Started DemoApplicationKt in 3.873 seconds (JVM running for 4.579)
+Hello There My Kotlin!
+</code></pre>
+<p>What do you think? A good alternative to web3js or not really? Please leave your feedback and ask me any questions! If this is received well I'll make a full dapp with a frontend that builds on this!</p>
+<p>Also, am I doing something wrong? Please leave a comment for that as well :) I'm always looking to improve my Kotlin, Sprinboot, and Ethereum skills!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Simple Kotlin SpringBoot dApp utilizing web3j</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/simple-kotlin-springboot-dapp-utilizing-web3j/311e46faf254462f9755e245a48de0cb/a</li>
+<li><strong>Kauri original author:</strong> Hayder Sharhan (@hshar)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-14</li>
+<li><strong>Kauri original tags:</strong> spring, web3j, kotlin, springboot</li>
+<li><strong>Kauri original hash:</strong> QmQMMMVQS3Hx83gQL8ULLY63qBpqnwLY2smRrgM19pdyzX</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-achieve-user-authentication-by-web3-wallet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-achieve-user-authentication-by-web3-wallet/" class="btn btn-xs btn-link">
+        How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../egge.gg-instant-payout-esports-tournaments-for-et/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../egge.gg-instant-payout-esports-tournaments-for-et/" class="btn btn-xs btn-link">
+        EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Kotlin ❤ Web3/simple-kotlin-springboot-dapp-utilizing-web3j.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

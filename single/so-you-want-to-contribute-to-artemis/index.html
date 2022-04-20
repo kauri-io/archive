@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/so-you-want-to-contribute-to-artemis/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>So you want to contribute to Artemis? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "So you want to contribute to Artemis?", url: "#_top", children: [
+              {title: "1. Find something to work on", url: "#1-find-something-to-work-on" },
+              {title: "2. Fork the repo", url: "#2-fork-the-repo" },
+              {title: "3. Make a local copy", url: "#3-make-a-local-copy" },
+              {title: "4. Add the Artemis base repo as your upstream remote", url: "#4-add-the-artemis-base-repo-as-your-upstream-remote" },
+              {title: "5. Write some code!", url: "#5-write-some-code" },
+              {title: "6. Rebase from upstream", url: "#6-rebase-from-upstream" },
+              {title: "7. Make sure everything still works", url: "#7-make-sure-everything-still-works" },
+              {title: "8. Push your changes to origin", url: "#8-push-your-changes-to-origin" },
+              {title: "9. Submit a pull request", url: "#9-submit-a-pull-request" },
+              {title: "Resources", url: "#resources" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="so-you-want-to-contribute-to-artemis">So you want to contribute to Artemis?<a class="headerlink" href="#so-you-want-to-contribute-to-artemis" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma22aVM17Sv7F9vjAYq4TgMt2ofjRKzmzUDQi8FYJWTcv" /></p>
+<blockquote>
+<p><em>Artemis is an <a href="https://github.com/ethereum/eth2.0-specs">Ethereum 2.0</a> client being built in Java by the <a href="https://pegasys.tech/">PegaSys</a> R&amp;D team. We’d love for you to get involved!</em></p>
+</blockquote>
+<p>My <a href="https://github.com/ethereum/solidity/pull/2350/files">first contribution</a> to Ethereum software development was pretty modest: a single line of code; just an unsolicited patch to improve something trivial. Things moved quite swiftly after that: within two months I was interviewing with blockchain companies, and within four months was working full time in R&amp;D for PegaSys. In this space, people who get involved get noticed, and those who are generous with their time and knowledge do well.</p>
+<p>Anyway, it was just about my first Github pull request (PR) on any project, and, honestly speaking, the whole Github workflow and terminology (forks, clones, remotes, rebases, upstream, origin...) was bewildering. I wish I’d had a handy quick-start guide like this one 😀.</p>
+<p>At PegaSys, we are building two major projects based on open source community and collaboration: <a href="https://github.com/PegaSysEng/pantheon">Pantheon</a>, our Ethereum Mainnet and Enterprise client, and <a href="https://github.com/PegaSysEng/artemis">Artemis</a>, our Ethereum 2.0 test implementation. Both are written in Java. I’m going to focus on Artemis here as it’s the one I’m most familiar with, but the process for getting involved in Pantheon is just about the same.</p>
+<h2 id="1-find-something-to-work-on">1. Find something to work on<a class="headerlink" href="#1-find-something-to-work-on" title="Permanent link"></a></h2>
+<p>In the <a href="https://github.com/PegaSysEng/artemis/">Artemis repo on Github</a>, we’ve tagged some open items with <a href="https://github.com/PegaSysEng/artemis/issues?q=is%3Aissue+is%3Aclosed+label%3A%22good+first+issue+%3Ababy%3A%22">Good First Issue</a> or <a href="https://github.com/PegaSysEng/artemis/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted+%F0%9F%86%98%22">Help Wanted</a>. These are likely to be fruitful starting points, but don’t feel limited by these if you see things in the code you think need fixing, or other work that needs doing. Help with testing is always appreciated.</p>
+<p>Don’t be shy about jumping onto our <a href="https://gitter.im/PegaSysEng/artemis">Gitter channel</a> to ask for advice or guidance. And do read our <a href="https://github.com/PegaSysEng/artemis/blob/master/CONTRIBUTING.md">guidelines for contributing</a>.</p>
+<h2 id="2-fork-the-repo">2. Fork the repo<a class="headerlink" href="#2-fork-the-repo" title="Permanent link"></a></h2>
+<p>To make pull requests, you’ll need a copy of the Artemis repo under your own Github account. Simply visit the <a href="https://github.com/PegaSysEng/artemis/">main Artemis page</a> in your browser and click the “Fork” button at the top right.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb6S47s4kjT55WpjSgv3a96Rm463C3Qm4SB8L2dBeu2xp" /></p>
+<h2 id="3-make-a-local-copy">3. Make a local copy<a class="headerlink" href="#3-make-a-local-copy" title="Permanent link"></a></h2>
+<p>You’ll also need a local version to work on. In the below, <code>NAME</code> is your Github username. At your command line, do the following:</p>
+<pre><code>$ git clone https://github.com/NAME/artemis.git
+</code></pre>
+<p>Or, use this command if you have an ssh key, and modify things below accordingly:</p>
+<pre><code>$ git clone git@github.com:NAME/artemis.git
+</code></pre>
+<p>Check that your own Github repo is correctly set as the origin remote:</p>
+<pre><code>$ cd artemis
+$ git remote -v
+origin    https://github.com/NAME/artemis.git (fetch)
+origin    https://github.com/NAME/artemis.git (push)
+</code></pre>
+<h2 id="4-add-the-artemis-base-repo-as-your-upstream-remote">4. Add the Artemis base repo as your upstream remote<a class="headerlink" href="#4-add-the-artemis-base-repo-as-your-upstream-remote" title="Permanent link"></a></h2>
+<p>The standard contribution workflow looks like this:
+1.  You keep your local repo up to date with any recent changes in the Artemis base repo (the upstream remote).
+2.  You commit changes and new code on git branches in your local environment.
+3.  You push your local branch to your own Github Artemis repo (the origin remote).
+4.  From there you create a pull request to the base Artemis repo, closing the circle.</p>
+<p>Once you’re set up, this is all fairly straightforward. We just need to point your upstream remote to the Artemis base repo:</p>
+<pre><code>$ git remote add upstream https://github.com/PegaSysEng/artemis.git
+$ git remote -v
+origin    https://github.com/NAME/artemis.git (fetch)
+origin    https://github.com/NAME/artemis.git (push)
+upstream    https://github.com/PegaSysEng/artemis.git (fetch)
+upstream    https://github.com/PegaSysEng/artemis.git (push)
+</code></pre>
+<h2 id="5-write-some-code">5. Write some code!<a class="headerlink" href="#5-write-some-code" title="Permanent link"></a></h2>
+<p>Your code needs to be committed to a local git branch. Choosing a reasonable name for the branch helps avoid confusion if you’ve got several on the go.</p>
+<pre><code>$ git checkout -b implement-feature-x
+</code></pre>
+<p>Once you have made some changes, commit them to the branch with a <a href="https://chris.beams.io/posts/git-commit/">good commit message</a>.</p>
+<pre><code>$ git add the/modified/file.java
+$ git commit -m &quot;Implement feature x&quot;
+</code></pre>
+<h2 id="6-rebase-from-upstream">6. Rebase from upstream<a class="headerlink" href="#6-rebase-from-upstream" title="Permanent link"></a></h2>
+<p>While you were writing your code, other changes may have been made in the base (upstream) repo. It is good practice to rebase your code to take this into account. It’s possible that your changes will conflict with other changes, in which case you might need to do some fixing up.</p>
+<pre><code>$ git fetch upstream master
+$ git rebase upstream/master
+</code></pre>
+<h2 id="7-make-sure-everything-still-works">7. Make sure everything still works<a class="headerlink" href="#7-make-sure-everything-still-works" title="Permanent link"></a></h2>
+<pre><code>$ ./gradlew spotlessApply clean build test
+</code></pre>
+<p>You’re looking for a nice <code>BUILD SUCCESSFUL</code> message.</p>
+<h2 id="8-push-your-changes-to-origin">8. Push your changes to origin<a class="headerlink" href="#8-push-your-changes-to-origin" title="Permanent link"></a></h2>
+<p>This will push your local branch to your own forked version of the Artemis repo:</p>
+<pre><code>$ git push origin implement-feature-x
+</code></pre>
+<h2 id="9-submit-a-pull-request">9. Submit a pull request<a class="headerlink" href="#9-submit-a-pull-request" title="Permanent link"></a></h2>
+<p>A “pull request” asks the maintainers of the repository to pull in your code changes.</p>
+<p>When you push a branch to your own Github/artemis repo and then visit the page in your browser, you should see a banner like this one (only with your name and branch name).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmckcRcvkqPdNd8XjaVtn9NvLYTtTFuapZBbtUsqqNKcn2" /></p>
+<p>Clicking on the green button allows you to review the code changes and to complete the template commit message. If you want to make further updates, you can simply make more commits to your branch by going back to step #5 (you can do this before or after creating the PR).</p>
+<p>On your first commit, you will be asked to sign the <a href="https://gist.github.com/rojotek/978b48a5e8b68836856a8961d6887992">Contributor License Agreement</a> to confirm that you are fully on-board with the open source nature of this project. Just click the link and follow the instructions.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmaa5hzHHfWudcW6fjL12rs6LCMvhjiVQ9G6Vk2F9PEYh7" /></p>
+<p>And that’s it! Some automatic checks are run, then one of the team will review your PR. There maybe some Q&amp;A and perhaps some updates. Finally, your PR will be merged, and you’ll be Ethereum 2.0 Core Dev 😃.</p>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://github.com/PegaSysEng/artemis">Artemis Github repo</a>.</li>
+<li><a href="https://github.com/PegaSysEng/artemis/blob/master/CONTRIBUTING.md">Contributing guidelines</a>.</li>
+<li><a href="https://gitter.im/PegaSysEng/artemis">Artemis Gitter</a> - come and say Hi!</li>
+<li><a href="https://github.com/PointCloudLibrary/pcl/wiki/A-step-by-step-guide-on-preparing-and-submitting-a-pull-request">Github’s notes on creating PRs</a>.</li>
+<li>An intro to <a href="https://dev.to/maxwell_dev/the-git-rebase-introduction-i-wish-id-had">git rebasing</a>. This can be a bit tricky on occasion. Don’t hesitate to reach out on Gitter if you need a hand.</li>
+</ul>
+<hr />
+<p><em><a href="https://twitter.com/benjaminion_xyz">Ben Edgington</a>, on behalf of the PegaSys Ethereum 2.0 implementation team. Thanks to <a href="https://twitter.com/JonnyRhea">Jonny Rhea</a> for getting this article started!</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> So you want to contribute to Artemis?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/so-you-want-to-contribute-to-artemis/43989eea892f4b15b1937990b354502d/a</li>
+<li><strong>Kauri original author:</strong> Ben Edgington (@benjaminion)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-01</li>
+<li><strong>Kauri original tags:</strong> Ethereum</li>
+<li><strong>Kauri original hash:</strong> QmYj17xq3Cb65eSgpU5VR2aAbd8paFq1VE3njNs7f6Md72</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../reasonreact-and-web3/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../reasonreact-and-web3/" class="btn btn-xs btn-link">
+        ReasonReact and Web3
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../get-started-with-colonyjs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../get-started-with-colonyjs/" class="btn btn-xs btn-link">
+        Get Started with colonyJS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/so-you-want-to-contribute-to-artemis.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

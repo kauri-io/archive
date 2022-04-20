@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20non%20practitioner%20guide%20to%20machine%20learning%20/multi-class-classification-example-with-convoluti/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow">Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow<a class="headerlink" href="#multi-class-classification-example-with-convolutional-neural-network-in-keras-and-tensorflow" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbsUQbFc338YDcLY2T4y1JH7r5kcfSKuTtb8o1NZZMzsB" /></p>
+<p>In the previous articles, we have looked at a regression problem and a binary classification problem. Let's now look at another common supervised learning problem, multi-class classification.</p>
+<p>The staple training exercise for multi-class classification is the MNIST dataset, a set of handwritten roman numerals, while particularly useful, we can spice it up a little and use the  <a href="https://www.kaggle.com/c/Kannada-MNIST">Kannada MNIST dataset</a> available on Kaggle.</p>
+<p>The Kannada language is spoken in southern regions of India, by around 45 million people, and compared to roman numerals provides the advantage of being a lot less familiar to most people and also provides a little extra challenge due to similarity between some of its numerals.</p>
+<p>Let's get cracking!</p>
+<p>Firstly, <a href="https://www.kaggle.com/c/Kannada-MNIST/data">download the data from the Kaggle competition website </a>.</p>
+<p>Once your data is unpacked and your Jupyter Notebook (or Python IDE, whatever you prefer) is all fired up, let's start importing the required modules:</p>
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dropout, Dense, Conv2D, MaxPool2D, Flatten
+from tensorflow.keras.callbacks import TensorBoard
+import matplotlib.pyplot as plt
+import seaborn as sns
+import random
+import time
+print(tf.__version__)
+</code></pre>
+<p>If you are running the GPU version of Tensorflow, it's always nice to check that the GPUs are in fact available. Particularly with Convolutional Neural Network (or CNN  for short) GPUs can speed up your training process up to 100x. Let's make sure that GPU power is at our fingertips.</p>
+<pre><code>gpus = tf.config.experimental.list_physical_devices('GPU')
+print(&quot;GPUs Available: &quot;, len(gpus))
+tf.config.experimental.set_memory_growth(gpus[0], True)python
+</code></pre>
+<p>The train dataset contains 60,000 samples, but we have no validation set, so we would to set  aside around  8-10% of samples for the validation step.</p>
+<pre><code class="language-python">VALIDATION_SET = 5000 # define the length of the validation set
+
+## load the data
+
+VALIDATION_SET = 5000
+
+train_raw_data = pd.read_csv('../input/Kannada-MNIST/train.csv')
+test_raw_data = pd.read_csv('../input/Kannada-MNIST/test.csv')
+
+def split_sets(x):
+    x = x.sample(frac=1, axis=0) # shuffling the content to ensure the model doesn't learn about the order of the items
+    val = x[:VALIDATION_SET]
+    train = x[VALIDATION_SET:]
+    val.reset_index(drop=True, inplace=True)
+    train.reset_index(drop=True, inplace=True)
+    y_train = train['label']
+    x_train = train.drop(['label'], axis=1) / 255 # normalizing the 0 - 255 scale to 0 -1
+    y_val = val['label']
+    x_val = val.drop(['label'], axis=1) / 255 # normalizing the 0 - 255 scale to 0 -1
+    return y_val, x_val, y_train, x_train
+
+y_val, x_val, y_train, x_train = split_sets(train_raw_data)
+</code></pre>
+<p>We also want to make sure that our randomization training set shows some balance between the different classes.</p>
+<pre><code class="language-python">sns.distplot(y_val, color='red')
+sns.distplot(y_train, color='green')
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTrWCRy9mNzmTSNQ3j4ZFkNSS69uDB2PM1FA1Roq74kMH" /></p>
+<p>Now let's preview some of the samples, what do this numbers actually look like??</p>
+<pre><code class="language-python">## Let's have a look at some random images
+
+x_train = x_train.values.reshape(x_train.shape[0], 28, 28) # We need to reshape the images to be arranged in a square format
+
+fig, ax = plt.subplots(1,6, figsize=(20,8))
+
+for i in range(6):
+    index = random.randint(0, len(x_train))
+    ax[i].imshow(x_train[index],cmap=plt.cm.binary)
+    ax[i].set_title(y_train[index], fontSize=24)
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf8p1UG3KcP7ruNTopYQbFCo7HLEw1DTXhiyjsQHJsL9t" /></p>
+<p>Finally let's reshape the images yet again to prepare them for our Conv2D layers:</p>
+<pre><code class="language-python">x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+x_val = x_val.values.reshape(x_val.shape[0], 28, 28, 1)
+y_train = y_train.values
+y_val = y_val.values
+</code></pre>
+<p>Now we are ready to build and train our model!</p>
+<pre><code class="language-python">def build_model():
+    model = Sequential()
+    model.add(Conv2D(filters = 32, kernel_size = (5,5),padding = 'Same', activation ='relu', input_shape = (28, 28, 1)))
+    model.add(Conv2D(filters = 32, kernel_size = (5,5),padding = 'Same',  activation ='relu'))
+    model.add(MaxPool2D(pool_size=(2,2)))
+    model.add(Dropout(0.25))
+
+    model.add(Conv2D(filters = 64, kernel_size = (3,3),padding = 'Same', activation ='relu'))
+    model.add(Conv2D(filters = 64, kernel_size = (3,3),padding = 'Same', activation ='relu'))
+    model.add(MaxPool2D(pool_size=(2,2), strides=(2,2)))
+    model.add(Dropout(0.25))
+
+    model.add(Flatten())
+    model.add(Dense(256, activation = &quot;relu&quot;))
+    model.add(Dropout(0.5))
+    model.add(Dense(10, activation = &quot;softmax&quot;))
+
+    model.compile(
+        optimizer='adam',
+        loss=['sparse_categorical_crossentropy'],
+        metrics=['accuracy']
+    )
+    return model
+
+tensorboard = TensorBoard(log_dir=f&quot;logs/{time.time()}&quot;, histogram_freq=1)
+
+model = build_model()
+
+history = model.fit(
+    x_train,
+    y_train,
+    epochs=6,
+    batch_size=32,
+    validation_data=(
+        x_val,
+        y_val
+    ),
+    callbacks=[
+        tensorboard
+    ]
+)
+</code></pre>
+<p>After a little while your model should be trained with a validation accuracy around ~99%, awesome! Let's test this on our test data:</p>
+<pre><code class="language-python">## Preparing the test data first
+test_ids = test_raw_data[['id']] # we'll need this for the Kaggle submission
+test_data = test_raw_data.drop(['id'], axis=1)
+test_data = test_data / 255
+test_data = test_data.values.reshape(test_data.shape[0], 28, 28, 1)
+
+## Let's get the model to actually predict the labels
+predictions = model.predict(test_data)
+
+## Finally, let's render some of these images
+ROWS = 6
+COLUMNS = 6
+fig, ax = plt.subplots(ROWS,COLUMNS, figsize=(40,40))
+
+for row in range(ROWS):
+    for column in range(COLUMNS):
+        imgIndex = random.randint(0, len(test_data))
+        image = test_data[imgIndex]
+        image = image.reshape(28,28)
+        ax[row,column].imshow(image,cmap=plt.cm.binary)
+        ax[row, column].set_title(np.argmax(predictions[imgIndex]), fontSize=24)
+
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/multiclass-classification-example-with-convolution/145b4c03a55146cba2051f04e7f499e9/a</li>
+<li><strong>Kauri original author:</strong> Davide Scalzo (@davidescalzo)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-09</li>
+<li><strong>Kauri original tags:</strong> artificial-intelligence, machine-learning, classification</li>
+<li><strong>Kauri original hash:</strong> QmTPfUf5QEPK715NZgombYKrzMM8MYW5bbG9Nc94MrLjGq</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../An%20ethereum%20test%20toolkit%20in%20Go/sending-transactions-on-geth-s-simulated-backend/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../An%20ethereum%20test%20toolkit%20in%20Go/sending-transactions-on-geth-s-simulated-backend/" class="btn btn-xs btn-link">
+        Sending Transactions on GETH's Simulated Backend
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../predict-cryptocurrency-prices-with-tensorflow-as-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../predict-cryptocurrency-prices-with-tensorflow-as-/" class="btn btn-xs btn-link">
+        Predict cryptocurrency prices with Tensorflow as binary classification problem
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A non practitioner guide to machine learning /multi-class-classification-example-with-convoluti.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

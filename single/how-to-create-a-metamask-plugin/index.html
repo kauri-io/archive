@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-create-a-metamask-plugin/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to create a Metamask Plugin - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to create a Metamask Plugin", url: "#_top", children: [
+              {title: "How to create a Metamask Plugin", url: "#how-to-create-a-metamask-plugin_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-create-a-metamask-plugin">How to create a Metamask Plugin<a class="headerlink" href="#how-to-create-a-metamask-plugin" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmakSxGWzoHe9Jk3iTFHef3WvoRoLyaUyH7zWJKWrwvKGk" /></p>
+<h2 id="how-to-create-a-metamask-plugin_1">How to create a Metamask Plugin<a class="headerlink" href="#how-to-create-a-metamask-plugin_1" title="Permanent link"></a></h2>
+<h3 id="what-is-it">What is It?<a class="headerlink" href="#what-is-it" title="Permanent link"></a></h3>
+<p>A Metamask plugin is a script that allows developers to customize the browser extension and introduce extra features with the help of powerful APIs. By default, the plugin system has zero privilege though, there are several methods in the snaps which enable a permission system a developer can offer to users according to the needs of a Dapp.</p>
+<h3 id="why-snaps">Why Snaps?<a class="headerlink" href="#why-snaps" title="Permanent link"></a></h3>
+<p>Everyday new protocols are introduced in the ecosystem, and their associated Dapp may require interacting with user accounts, or running a persistent script on the user’s behalf, either to monitor state, pre-process transactions, or serve up a new peer to peer file transport to different sites with a shared cache.</p>
+<p>Dapp to Dapp, these requirements vary but with the current implementation of the Metamask, users are asked to install the extension and accept security-sensitive permissions. Also, if a dapp uses Metamask as their web3 provider it cannot introduce any additional features to the wallet.</p>
+<p>After realizing that adding functionality is a powerful pattern, arguably the hallmark of open computing, Metamask introduced Snaps: The Metamask Plugin System.</p>
+<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h3>
+<p>A plugin script is able to add different functionalities by making API calls. Metamask introduced the <a href="https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#the-snaps-wallet-api"><code>wallet</code> API</a>, which is an extension of <a href="https://web3js.readthedocs.io/en/v1.2.1/web3.html#currentprovider"><code>web3.currentProvider</code> API</a> and allows developers to build better permission systems. </p>
+<p>For example, a file-sharing plugin doesn’t need to know what page you’re on, just what hash you want to load or set. </p>
+<h3 id="different-plugin-ideas">Different Plugin Ideas<a class="headerlink" href="#different-plugin-ideas" title="Permanent link"></a></h3>
+<p>Every plugin has the ability to provide its own API to the sites that a user visits, as well as to other plugins, allowing plugins to build upon each other, in a sort of decentralized dependency graph. For example, a state channel plugin might rely on a whisper plugin. </p>
+<h4 id="smart-contract-security">Smart Contract Security<a class="headerlink" href="#smart-contract-security" title="Permanent link"></a></h4>
+<p>Smart Contract Security is a huge issue, both because you can never be secure enough, and no matter how many layers of checks you add, you always have to ask who watches the watchmen? Plugins could add warnings or endorsements of accounts wherever MetaMask displays them.</p>
+<p><a href="https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#recipient-address-auditing">More information</a></p>
+<h4 id="ens-to-resolve-names">ENS to resolve names<a class="headerlink" href="#ens-to-resolve-names" title="Permanent link"></a></h4>
+<p>Decentralized name systems are an exciting opportunity for loading content outside of the traditional certificate authority system, and we don’t want to dictate what name systems a user can subscribe to!</p>
+<p><a href="https://docs.ens.domains/dapp-developer-guide/resolving-names">More information</a></p>
+<h4 id="privacy-protocols">Privacy protocols<a class="headerlink" href="#privacy-protocols" title="Permanent link"></a></h4>
+<p>Privacy-centric protocols require unique forms of cryptography, so rather than try to implement every kind of signing algorithm in existence and audit and merge them. </p>
+<p>Developers can use the <a href="https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#app-keys">wallet.getAppKey() API</a> to get a unique private key for their domain, generated from the user’s own seed phrase uniquely for the plugin’s origin, which is now treated as the authority for that key type. Developers can then use a JavaScript confirmation to get user consent for that type of signature.</p>
+<h4 id="layer-2-scaling">Layer 2 Scaling<a class="headerlink" href="#layer-2-scaling" title="Permanent link"></a></h4>
+<p>Metamask introduced a suite of plugins APIs that open Dapp development to decentralized agreements off the main Ethereum chain. For instance, switching from mainchain to sidechain requires user to perform manual switching. Snap's permission with the <a href="https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#app-keys">wallet.getAppKey() API</a> or the <a href="https://github.com/MetaMask/metamask-snaps-beta/wiki/Snaps-API#custom-asset-management">wallet_manageAssets</a> can help to automate this process.  </p>
+<h4 id="apis-currently-provided">APIs currently provided<a class="headerlink" href="#apis-currently-provided" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p><code>.registerRpcMessageHandler(rpcMessageHandler)</code> - Used to extend the MetaMask API exposed to Dapps. Developers can create their own APIs making this extendible and powerful.</p>
+</li>
+<li>
+<p><code>.registerApiRequestHandler(handler)</code> - Used to create responsive, event-driven APIs, that can be provided to the Dapp.</p>
+</li>
+<li>
+<p><code>.onMetaMaskEvent(eventName, callback)</code> - Just for beta purposes, exposes every event internal to the MetaMask controllers for Transactions, Networks, and Block tracking. Some are:-</p>
+<ul>
+<li><code>tx:status-update</code>: Be notified when the status of your transactions changes</li>
+<li><code>latest</code>: Be notified when new blocks are added to the blockchain</li>
+<li><code>networkDidChange</code>: Be notified when your selected network changes</li>
+<li><code>newUnapprovedTx</code>: Be notified with details of your new transactions</li>
+</ul>
+<p>Developers can ask for permissions for the above in the following format:</p>
+<p><code>json
+"initialPermissions": {
+  "metamask_newUnapprovedTx": {}
+}</code></p>
+</li>
+<li>
+<p><code>.getAppKey()</code> - Every Snap can request a unique secret seed based on <code>hash(script_origin + user_private_key)</code>. It is available in the Snap globally as <code>wallet.getAppKey()</code>. This method returns a promise, which resolves to a 32 byte (64 character) hex-encoded string which is re-generated if the user were to have their computer wiped, but restored MetaMask from the same seed phrase.</p>
+</li>
+<li>
+<p><code>.updatePluginState(yourStateToPersist)</code> - Used to persist state to our data store in the browser.</p>
+</li>
+<li>
+<p><code>.getPluginState()</code> - Returns whatever the most recent value you passed to <code>.updatePluginState()</code>. Useful when first starting up your Snap to restore its state.</p>
+</li>
+</ul>
+<p><em>A list of all the methods is available in the <a href="https://github.com/MetaMask/metamask-snaps-beta/blob/develop/app/scripts/controllers/permissions/restrictedMethods.js">documentation</a>.</em></p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h3>
+<p>In this tutorial, we install Metamask Snaps Beta and do a basic setup.</p>
+<h4 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h4>
+<p>A Chromium-based, and preferably a Linux or macOS operating system. Disable any existing metamask extension. </p>
+<h3 id="installing-the-metamask-snaps-beta">Installing the MetaMask Snaps Beta<a class="headerlink" href="#installing-the-metamask-snaps-beta" title="Permanent link"></a></h3>
+<p>Follow the below commands to clone and build special fork of Metamask:</p>
+<pre><code class="language-shell">git clone https://github.com/Metamask/metamask-snaps-beta.git
+cd metamask-snaps-beta
+yarn install
+yarn start
+</code></pre>
+<ol>
+<li>Click on the menu option in the top right corner.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdYKYszEDjnUM9TBnN5jZdPZUbgTAGov5udV4rLHNP4o7" /></p>
+<ol>
+<li>Click on more tools. </li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNidHMKuty6XfPk4YdWeBqJkdpA3TvW2y7d7jDCG38hRk" /></p>
+<ol>
+<li>Click on Extensions </li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdsvMPbMbYkFsBwq3ctD7nLoF4Ri2bs91kUsLGpNbpKS" /></p>
+<ol>
+<li>Make sure that Developer Mode is on</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbPZzLCLAfkNNJLrraaqpjPfSVUMQWMVq8brMJzNeWM3q" /></p>
+<ol>
+<li>Click on Load Unpacked option and choose the Metamask-snaps-beta/dist/chrome folder to load your metamask.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYuFQTKh7c3nkqYYgFrNMSPhiqj9DLHHQa2dPLqwdwCeo" /></p>
+<p><code>yarn start</code> automatically rebuilds MetaMask on any file change. You can then <a href="https://metamask.zendesk.com/hc/en-us/articles/360016336611-Revert-Back-to-Earlier-Version-or-Add-Custom-Build-to-Chrome">add your custom build to your browser</a>.</p>
+<p>You now have the forked the Metamask running on your machine.</p>
+<h4 id="running-snap-dapps">Running Snap Dapps<a class="headerlink" href="#running-snap-dapps" title="Permanent link"></a></h4>
+<p>For building and running Snaps. Metamask provides the utility <a href="https://github.com/MetaMask/snaps-cli">snaps-cli</a>. </p>
+<p>Install snaps-cli:</p>
+<pre><code class="language-shell">git clone https://github.com/MetaMask/snaps-cli
+cd snaps-cli
+npm i -g snaps-cli
+</code></pre>
+<p>To check the tools provided by snap-cli, run <code>mm-snap --help</code>.</p>
+<h3 id="initializing">Initializing<a class="headerlink" href="#initializing" title="Permanent link"></a></h3>
+<p>Metamask provided some examples in this <a href="https://github.com/MetaMask/snaps-cli/tree/master/examples">folder</a>.</p>
+<p>Let's start with the simplest one, <code>hello-snaps</code></p>
+<pre><code class="language-shell">cd examples/hello-snaps
+mm-snap build
+mm-snap serve
+</code></pre>
+<ul>
+<li><code>mm-snap build</code>: Build snap from sources into <em>bundle.js</em></li>
+<li><code>mm-snap serve</code>: Locally serve Snap file(s) for testing  </li>
+</ul>
+<p>This should give you a message <code>Server listening on http://localhost:8081</code>. You can configure the port, and the build target is configured in <code>snap.config.json</code>, or with command-line arguments. You can now open that address in your browser, and if you have installed your Snap branch of MetaMask correctly, you should be able to see this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR4nkgUVpkiTph82oSRDaTgDmnik2ag82rdKrsacjGdS5" /></p>
+<ul>
+<li>Click the "Connect" button on the site.</li>
+<li>Approve the site's permissions request (which includes the Snap installation!)</li>
+<li>Approve the Snap's permissions request (which in this case is permission to show alerts to you, to send its message)</li>
+<li>Click the "Send Hello" button to receive a greeting from the Snap.</li>
+</ul>
+<h4 id="project-structure">Project structure<a class="headerlink" href="#project-structure" title="Permanent link"></a></h4>
+<ul>
+<li><code>dist</code> folder - minified/concatenated version of code used on production sites</li>
+<li><code>bundle.js</code> - bundled js file of snap</li>
+<li><code>index.js</code> - unminified snap code</li>
+<li><code>package.json</code> - Add permissions your plugin needs under the <code>web3Wallet</code> key</li>
+<li><code>snap.config.json</code> - Snap configuration </li>
+<li><code>index.html</code> - Interacts with the Snap using two basic API calls. </li>
+<li><code>index.js</code> - Add API methods to connect to websites from within a Snap. Also contains the Snap Code.</li>
+</ul>
+<h5 id="snap-code-indexjs">Snap Code <code>index.js</code><a class="headerlink" href="#snap-code-indexjs" title="Permanent link"></a></h5>
+<pre><code class="language-javascript">wallet.registerRpcMessageHandler(async (originString, requestObject) =&gt; {
+  switch (requestObject.method) {
+    case 'hello':
+      return wallet.send({
+        method: 'alert',
+        params: [`Hello, ${originString}!`]
+      })
+    default:
+      throw new Error('Method not found.')
+  }
+})
+</code></pre>
+<p>The code registers an RPC Handler i.e., creates a developer-defined API by the name of <code>hello</code> which the frontend can call. </p>
+<p><code>requestObject</code> contains the method for the plugin to execute.</p>
+<p><code>alert</code> is an inbuilt method that allows us to create an alert on the webpage. An alert is created when the hello method is called using the metamask API.</p>
+<h5 id="dapp-code-indexhtml">Dapp Code <code>index.html</code><a class="headerlink" href="#dapp-code-indexhtml" title="Permanent link"></a></h5>
+<pre><code class="language-javascript">async function connect () {
+      await ethereum.send({
+        method: 'wallet_enable',
+        params: [{
+          wallet_plugin: { [snapId]: {} },
+        }]
+      })
+    }
+
+// here we call the plugin's &quot;hello&quot; method
+async function send () {
+    try {
+      const response = await ethereum.send({
+        method: 'wallet_invokePlugin',
+        params: [snapId, {
+          method: 'hello'
+        }]
+      })
+    } catch (err) {
+      console.error(err)
+      alert('Problem happened: ' + err.message || err)
+    }
+  }
+</code></pre>
+<p>The <code>connect</code> function is called to connect metamask with the plugin and download it if does not exist. </p>
+<p>When the <code>wallet_enable</code> method is sent, Metamask asks the user for the permissions set by the plugin.</p>
+<p><code>wallet_invokePlugin</code> is another method used to call an RPC method declared above, <code>hello</code> in our example. The <code>hello</code> case in our switch statement is called leading to an alert.</p>
+<h3 id="debugging-your-snap">Debugging Your Snap :<a class="headerlink" href="#debugging-your-snap" title="Permanent link"></a></h3>
+<ol>
+<li>Right-click the MetaMask icon in the top right of your browser.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf7dnvcKfk5HERsBGCbqLgzoZkZERpEDQQJ6mUKa37gLc" /></p>
+<ol>
+<li>Select Manage Extensions.</li>
+<li>Ensure "Developer Mode" is selected in the top right.</li>
+<li>Click on the Details button on metamask extension. </li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW3tPJgCVyKf3nssrdpANnkEajJCdaegPDtgZ7xhb3SGs" /></p>
+<ol>
+<li>Scroll down to MetaMask, and click the "Inspect views: background page" link.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfCoDwrr94o6i6pZho9jL4GMoUULLVKX7iSkQPGPZRc4r" /></p>
+<ol>
+<li>Wait for the new Inspector window to open. </li>
+<li>Click Console at the top of the Inspector window.</li>
+<li>Look for any strange logs, especially red errors!</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTJoqTPMi6c4C6G7S512AJ49WgqzLCs5wSnu6Fo8VTrjY" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to create a Metamask Plugin</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-create-a-metamask-plugin/937a0e7fb83047f39ec6cba27e679f89/a</li>
+<li><strong>Kauri original author:</strong> Sachin Mittal (@sachin_mittal)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-29</li>
+<li><strong>Kauri original tags:</strong> metamask, documentation, kauri, layer-2, tutorial, ens, snap</li>
+<li><strong>Kauri original hash:</strong> QmRAsvpwR7V2Ur9iWtHzKGFgRoAfG889bytYMLMVqQqiaH</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../join-the-community-ambassador-program%21-%28up-to-dol/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../join-the-community-ambassador-program%21-%28up-to-dol/" class="btn btn-xs btn-link">
+        Join the Community Ambassador Program! (up to $3k in bounty funding)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../quorum-how-to/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../quorum-how-to/" class="btn btn-xs btn-link">
+        Quorum how-to
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-create-a-metamask-plugin.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

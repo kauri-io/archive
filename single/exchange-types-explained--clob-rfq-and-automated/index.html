@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/exchange-types-explained--clob-rfq-and-automated/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Exchange types explained  CLOB, RFQ, and Automated - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Exchange types explained  CLOB, RFQ, and Automated", url: "#_top", children: [
+              {title: "TL;DR", url: "#tldr" },
+              {title: "Central Limit Order Book (CLOB) Exchanges", url: "#central-limit-order-book-clob-exchanges" },
+              {title: "Request for Quotation (RFQ) Exchanges", url: "#request-for-quotation-rfq-exchanges" },
+              {title: "Automated Exchange", url: "#automated-exchange" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="exchange-types-explained-clob-rfq-and-automated">Exchange types explained  CLOB, RFQ, and Automated<a class="headerlink" href="#exchange-types-explained-clob-rfq-and-automated" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfXrKWoT6r6vCRQfbbiocF5QkdfJee5hWtSxTX4PVqxTv" /></p>
+<p>Since <a href="https://www.hummingbot.io"><strong>Hummingbot</strong></a> is an open source bot platform that connects many different exchanges, we have developed a deep understanding of the nuances between various exchange types. </p>
+<p>In this post, we discuss the three main methodologies that digital asset exchanges use to facilitate asset transactions. We hope that this post helps crypto traders and developers choose the right exchange for their needs.</p>
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link"></a></h2>
+<p>Exchanges perform the fundamental role in free markets of bringing together and coordinating buyers and sellers. Exchanges provide a venue for these parties to discover one another, negotiate and agree terms, and ultimately transact. Exchanges have adopted multiple methodologies to achieve this:</p>
+<table>
+<thead>
+<tr>
+<th>Exchange Types</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#central-limit-order-book-clob"><strong>Central Limit Order Book (CLOB)</strong></a><br/><br/><small>Most commonly used exchange methodology</small><br/><br/><small>Exchange collects orders from market makers and then publishes an aggregate order book</small><br/><br/><small>Orders are made available for other parties (“takers”) to accept the terms and transact</small><br/><br/></td>
+<td><small>NYSE, CBOT, Coinbase, Binance, EtherDelta, DDEX, Radar Relay</small></td>
+</tr>
+<tr>
+<td><a href="#request-for-quotation-rfq-exchanges"><strong>Request for Quotation (RFQ)</strong></a><br/><br/><small>Pricing on demand: A taker initiates a transaction by querying a known set of market makers with a specific demand (e.g. “buy 10 ETH”)</small><br/><br/><small>Taker receives a quote from each, and decides which (if any) to accept</small><br/><br/></td>
+<td><small>Airswap, Kyber</small></td>
+</tr>
+<tr>
+<td><a href="#automated-exchange"><strong>Automated Exchange</strong></a><br/><br/><small>A form of exchange enabled by blockchain technology where an exchange smart contract calculates prices using a predetermined formula referencing the contract’s inventory of assets</small><br/><br/><small>This requires third party actors (arbitrageurs) to keep asset prices in-line with other markets</small><br/><br/></td>
+<td><small>Bancor, Uniswap</small></td>
+</tr>
+</tbody>
+</table>
+<p>We also discuss the degrees of decentralization of each methodology.  CLOB exchanges, as the name suggests, are centralized (even "decentralized exchanges" using CLOB have some degree of centralization) since exchange operators can control the flow of order information and access, whereas RFQ and automated exchanges allow for more or nearly full decentralization.</p>
+<hr />
+<h2 id="central-limit-order-book-clob-exchanges">Central Limit Order Book (CLOB) Exchanges<a class="headerlink" href="#central-limit-order-book-clob-exchanges" title="Permanent link"></a></h2>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRgVYQAcgFgurn6h2p7Qoa3JnDK5Ji1xeFdYXQZoiweUy" /></p>
+<p>Central limit order books are the most widely used exchange methodology.  If you have transacted on Coinbase, Binance, Kraken, or any centralized exchange, you have transacted on a CLOB.  Not limited to digital asset exchanges, this methodology is also used by traditional exchanges such as the New York Stock Exchange (NYSE) and Chicago Board of Trade (CBOT), which trades commodity futures. This method of exchange is rooted in the “trading pits” associated with the early days of Wall Street and commodities markets: chaotic, crowded venues with people yelling and shouting orders.
+<img alt="" src="https://ipfs.infura.io/ipfs/QmeUK7hWknMNN6hqxDSeABd4d4r3sokB7YhqQCx5YdCUhj" /></p>
+<h3 id="coordinating-buyers-and-sellers-on-a-clob-exchange">Coordinating buyers and sellers on a CLOB exchange<a class="headerlink" href="#coordinating-buyers-and-sellers-on-a-clob-exchange" title="Permanent link"></a></h3>
+<ol>
+<li>Market makers submit their intent to transact assets to the exchange, specifying basic information such as prices, quantities, and direction of their intent (buy or sell)<a href="#footnotes"><sup>[1]</sup></a>. </li>
+<li>The exchange collects all of these intents (<strong>orders</strong>) into a database (the <strong>order book</strong>).  </li>
+<li>The exchange then organizes and publishes the order book to all of its users.  </li>
+<li>In order to consummate a transaction, another party (a <strong>taker</strong>) must accept the prices and quantities available on the order book. The exchange operator matches the taker's acceptance (its <strong>market order</strong>) with the corresponding orders in the order book that fulfill the taker’s order at the currently available best prices.</li>
+</ol>
+<h3 id="clob-explained-in-pictures">CLOB explained in pictures<a class="headerlink" href="#clob-explained-in-pictures" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWoXRkWTViBg4hLVxKLjbGD3BEW9DkEkduXdmCQ4L5GCZ" /></p>
+<h3 id="order-matching-on-a-clob-exchange">Order matching on a CLOB exchange<a class="headerlink" href="#order-matching-on-a-clob-exchange" title="Permanent link"></a></h3>
+<p>When it comes to <strong>order-matching</strong>, most CLOB exchanges take an active approach and match orders whenever buyers' and sellers' orders overlap.  In the case where there are multiple orders entered at the same price, CLOB exchanges also implement algorithms aimed to prioritize orders in a fair and objective way.  Most centralized exchanges and some DEXs (e.g. DDEX, IDEX, and Paradex) use <strong><a href="https://en.wikipedia.org/wiki/Order_matching_system">Price/Time priority</a></strong> (or <strong>first in, first out "FIFO"</strong>), where fllling orders is prioritized based on 1) the best price, and then 2) the time in which those orders were submitted (for discussion and examples, check out this <a href="https://stackoverflow.com/questions/13112062/which-are-the-order-matching-algorithms-most-commonly-used-by-electronic-financi">stack overflow post</a>), while to a lesser degree, some exchanges can use a <a href="https://en.wikipedia.org/wiki/Order_matching_system"><strong>pro-rata</strong></a> algorithm.</p>
+<p>On the other hand, some other DEXs (e.g. 0x relayers) take a less involved approach in order to allow for order matching to occur between users in a trustless way, free from influence or involvement from the exchange operator.  In the most widely used "<a href="https://0x.org/wiki#Open-Orderbook"><strong>open orderbook</strong></a>" relayer strategy, the relayer broadcasts submitted orders and leaves them for any takers to fill.</p>
+<blockquote>
+<p>Another distinguishing feature of CLOB exchanges is their ability to administer order matching, though some relayers take more hands-off approach (e.g. open orderbook) to allow users to match orders themselves.</p>
+</blockquote>
+<h3 id="is-a-clob-exchange-centralized-or-decentralized">Is a CLOB exchange centralized or decentralized?<a class="headerlink" href="#is-a-clob-exchange-centralized-or-decentralized" title="Permanent link"></a></h3>
+<p>CLOB exchanges are generally <strong>centralized</strong>, in that there is a central authority, the exchange operator, who (1) controls the flow of information, (2) controls who can use and access the exchange, and (3) maintains ownership or custody of users' assets.</p>
+<p><strong>Control of information</strong>: when collecting and processing users' orders, the exchange operator has the ability to choose what and when to broadcast. This gives exchanges the ability to censor information as well as even front run users' orders (although of course, you wouldn't expect them to). These exchanges are also susceptible to outages or service disruptions if the exchange operator's servers go down.</p>
+<p><strong>Exchange access</strong>: due to regulatory and compliance requirements, exchanges typically control who can access their systems by requiring KYC/AML processes for onboarding and limiting availability to certain jurisdictions.</p>
+<p><strong>Asset custody and control</strong>: most widely used (currently) CLOB exchanges also hold custody of users' assets, which helps facilitate the settlement of asset transfers.  For example, if you are trading on Binance, Binance maintains custody of your assets; your assets are susceptible to hacks into Binance's accounts or any wrongdoing by Binance.</p>
+<blockquote>
+<p>For anyone who has had to deal with Binance support to re-enable withdrawals, or anyone unlucky enough to have had accounts on <a href="https://www.coinbureau.com/news/mt-gox-redux-controversy-continues/">Mt Gox</a>, <a href="http://fortune.com/2018/01/31/coincheck-hack-how/">Coincheck</a>, <a href="https://hacked.com/the-sad-story-of-quadrigacx-what-it-means-for-crypto/">QuadrigaCX</a>... you know full well what it means to have to deal with a centralized exchange!</p>
+</blockquote>
+<h3 id="but-what-about-decentralized-exchanges">But what about decentralized exchanges? 🤔<a class="headerlink" href="#but-what-about-decentralized-exchanges" title="Permanent link"></a></h3>
+<p>Most DEXs operate CLOB exchanges, such as EtherDelta, 0x Relayers, and DDEX. These exchanges achieve some level of decentralization, but only when it comes to asset custody; they enable users to self custody or retain control of their assets using escrow contracts. 0x Relayers and DDEX allow users to maintain ownership of their assets, but use signed transactions and asset exchange protocols to facilitate direct settlement of assets between a taker and maker's wallets.  Meanwhile, EtherDelta uses escrow smart contracts to temporarily hold assets to be traded. Both <strong>achieve decentralization in that they do not relinquish control of assets to the exchange operator</strong>.</p>
+<p>However, these exchanges still control the information of the order book, maintaining the ability to censor and front run, and are susceptible to service disruptions.  Also, some DEXs control access to their exchange.  Some DEXs are adopting or have already adopted some degree of KYC/AML procedures, while some restrict user access through geofencing (e.g. DDEX prevents access to the U.S.).</p>
+<hr />
+<h2 id="request-for-quotation-rfq-exchanges">Request for Quotation (RFQ) Exchanges<a class="headerlink" href="#request-for-quotation-rfq-exchanges" title="Permanent link"></a></h2>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUJNGF9bnh94Nb7YD8MDZsCTbJAcZrVSqZ5rtSzZNP4pd" /></p>
+<p>Request for quotation is a common practice used in daily life and business and can simply be thought of as price comparison shopping or pricing on demand. Some activities involving RFQs include:</p>
+<ul>
+<li>buying or selling a car</li>
+<li>buying goods or services</li>
+<li>hiring contractors</li>
+</ul>
+<p>In each case, assuming the end product (the asset or service) is exactly the same and interchangeable (<strong>fungible</strong>), you request quotes from multiple dealers or service providers and choose the one that provides the best price.</p>
+<p>This practice is already used in cryptocurrency trading as well as in traditional financial products (stocks, derivatives), specifically when a party requests quotes from multiple <strong>OTC (over-the-counter) market makers</strong> and trades with the best one.</p>
+<blockquote>
+<p>The relatively new development is the use of the blockchain technology to automate and bring the RFQ form of exchange to more users as an alternative form of every day asset exchange.</p>
+</blockquote>
+<p>One distinction of an RFQ type of business process is that you will typically know who the counterparty is; after all, you deliberately chose and asked that party for a quote<a href="#footnotes"><sup>[2]</sup></a>.  This contrasts with a CLOB exchange, where the only party that knows who all the actors are is the exchange operator, so a taker may not know who the maker on the other side of a trade is<a href="#footnotes"><sup>[3]</sup></a>.</p>
+<p>In RFQs, the role of the exchange operator (or smart contract) is to organize and keep track of quotation providers for a taker, assist in the coordination of requesting and receiving quotes, and finally provide a method for effecting (settling) the transaction once agreed.</p>
+<h3 id="rfq-explained-in-pictures">RFQ explained in pictures<a class="headerlink" href="#rfq-explained-in-pictures" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbcHSSxhJXykLVXf3ipYNKpCLcKWpKE8guX3v2YL9oW1e" /></p>
+<h3 id="rfq-and-decentralization">RFQ and decentralization<a class="headerlink" href="#rfq-and-decentralization" title="Permanent link"></a></h3>
+<p>RFQ exchanges clearly offer a higher degree of decentralization and enable true "peer-to-peer" transactions.  Once established, the direct access between takers and makers eliminates the control and influence of a central exchange operator.</p>
+<p>In practice, technical complexities must be overcome to fully enable more widespread adoption and use.  Currently, the role of maker is limited to only sophisticated and technologically capable parties, since makers need to setup the infrastructure to be able to provide quotes and supply inventory on demand.</p>
+<blockquote>
+<p>At Hummingbot, we are planning to add integrations to RFQ exchanges in the future, to obfuscate the technical complexity and make the role of market maker accessible to more users.</p>
+</blockquote>
+<hr />
+<h2 id="automated-exchange">Automated Exchange<a class="headerlink" href="#automated-exchange" title="Permanent link"></a></h2>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZHAahUARyucBM2gxUzmx3CLCSXY9eQfBNpLL9HTDr5MV" /></p>
+<p>A relatively new form of exchange that has emerged in the cryptocurrency markets is the automated exchange such as Bancor and Uniswap. These exchanges do away with order books altogether and instead use a smart contract and its inventory to determine prices for exchange. We discuss how Uniswap works in a previous <a href="/blog/2019-04-hummingbot-vs-uniswap/">blog post</a>.</p>
+<h3 id="automated-exchange-explained-in-pictures">Automated exchange explained in pictures<a class="headerlink" href="#automated-exchange-explained-in-pictures" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY1Fpt9PY872n94NixMMe9LYR4WmvUDsKciPxsWBfLhsZ" /></p>
+<p>To understand numerically how automated market maker pricing works, this <a href="http://bit.ly/2VhceZT" target="_blank">spreadsheet</a> may be helpful.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMJ2keSw7zrWqwTqWm4UQMfeqHrwkcNVGGazYzkfbFKs" /></p>
+<h3 id="automated-exchanges-and-decentralization">Automated exchanges and decentralization<a class="headerlink" href="#automated-exchanges-and-decentralization" title="Permanent link"></a></h3>
+<p>The elegance of the Automated Exchange is its simplicity: a simple contract, using basic arithmetic, that is free of control from any party.  Automated exchanges rely on natural market forces to establish pricing.</p>
+<p>Since it's simply a smart contract, once deployed, the exchange can be accessed by anyone at any time, and not even the original creator of the exchange may be able to influence the exchange's behavior.</p>
+<blockquote>
+<p>As mentioned in our <a href="https://www.hummingbot.io/blog/2019-04-hummingbot-vs-uniswap/">previous blog</a>, we are working to integrate Automated Exchanges into Hummingbot, allowing Hummingbot users to act as arbitrageurs to generate profits but also help the exchanges keep pricing in-line with the market; it's a win-win.</p>
+</blockquote>
+<hr />
+<h4 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link"></a></h4>
+<ol>
+<li>Exchanges may also allow for the specification of additional parameters for additional complexity and customization, such as order duration/expiration or other conditions (stop, limit).</li>
+<li>Unlike other market places, when applied to digital assets, the counterparty in an RFQ transaction facilitated by an RFQ protocol may only be <em>known</em> by their wallet address.</li>
+<li>Note that for decentralized exchanges, the operator or platform may not know who the actual party is, however the operator and the taker will know the maker’s Ethereum wallet address.</li>
+</ol>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Exchange types explained  CLOB, RFQ, and Automated</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/exchange-types-explained-clob-rfq-and-automated/2e23af304e7f4d64b3302ed53e07788b/a</li>
+<li><strong>Kauri original author:</strong> Hummingbot (@hummingbot)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-23</li>
+<li><strong>Kauri original tags:</strong> cryptocurrency, trading, dex, crypto-trading, exchange</li>
+<li><strong>Kauri original hash:</strong> QmNjxNQJ2SDhfNqMSBGxn11e9P9ULZuVkFagGc5BCHsyEx</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../reading-on-kauri/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../reading-on-kauri/" class="btn btn-xs btn-link">
+        Reading on Kauri
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../what-are-the-risksrewards-associated-with-leverag/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../what-are-the-risksrewards-associated-with-leverag/" class="btn btn-xs btn-link">
+        What are the risks/rewards associated with leveraging?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/exchange-types-explained--clob-rfq-and-automated.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

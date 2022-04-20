@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/embark--smart-contract-compilation-and-deployment/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Embark  Smart Contract Compilation & Deployment - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Embark  Smart Contract Compilation &amp; Deployment", url: "#_top", children: [
+              {title: "What is Embark?", url: "#what-is-embark" },
+              {title: "Installing Embark", url: "#installing-embark" },
+              {title: "Creating an Embark Project", url: "#creating-an-embark-project" },
+              {title: "Deployment", url: "#deployment" },
+              {title: "Interacting with our contract", url: "#interacting-with-our-contract" },
+              {title: "Test Network: Rinkeby", url: "#test-network-rinkeby" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="embark-smart-contract-compilation-deployment">Embark  Smart Contract Compilation &amp; Deployment<a class="headerlink" href="#embark-smart-contract-compilation-deployment" title="Permanent link"></a></h1>
+<p>Earlier in the series, we took a look at how to manually deploy and interact with our Bounties.sol smart contract on a local development blockchain.</p>
+<p>We also briefly touched on development frameworks which hide the complexity of these repetitive tasks and allow us to focus on developing dApps.</p>
+<p>This article will walk through the steps required to setup Embark and use it to compile, deploy and interact with our Bounties.sol smart contract. You should see that this is a much easier process than the manual steps we learned in the previous article.</p>
+<p>[The source code for this tutorial can be found here.] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/embark-writing-tests)</p>
+<h3 id="what-is-embark">What is Embark?<a class="headerlink" href="#what-is-embark" title="Permanent link"></a></h3>
+<p>Embark is a Node based framework which can be used to develop and deploy dApps.</p>
+<p><a href="https://embark.status.im">https://embark.status.im</a></p>
+<p>[Documentation] https://embark.status.im/docs/index.html</p>
+<h3 id="installing-embark">Installing Embark<a class="headerlink" href="#installing-embark" title="Permanent link"></a></h3>
+<p>You can install Embark using NPM, you will need to have NodeJS 6.9.5+ installed</p>
+<pre><code>npm install -g embark
+</code></pre>
+<p><strong>Note: On linux systems you may see an error when you attempt to run embark. If you see the following error:</strong></p>
+<pre><code>$ embark --version
+env: node\r: No such file or directory
+</code></pre>
+<p>This is a common issue with Node.js when using files with Windows line endings. [See: npm/npm#12371] (https://github.com/npm/npm/issues/12371)</p>
+<p>To resolve we’re going to have to use <code>dos2unix</code> to convert the embark js file to Unix format</p>
+<ol>
+<li>Find the location embark js file on your system</li>
+</ol>
+<pre><code>$ which embark
+/usr/local/bin/embark
+cd /usr/local/bin/
+ls -lrt | grep embark
+lrwxr-xr-x  1 joshuacassidy  admin        37 15 Aug 21:41 embark -&gt; *../lib/node_modules/embark/bin/embark*
+</code></pre>
+<p>From the output above we see that on my machine, the relative path of the embark js file is located here:<code>../lib/node_modules/embark/bin/embark</code></p>
+<ol>
+<li>Install dos2unix</li>
+</ol>
+<pre><code>$ brew install dos2unix
+</code></pre>
+<ol>
+<li>Convert the file</li>
+</ol>
+<pre><code>$ sudo dos2unix ../lib/node_modules/embark/bin/embark
+dos2unix: converting file ../lib/node_modules/embark/bin/embark to Unix format...
+</code></pre>
+<p>That's it! Now when you run embark — version you should see something like the following:</p>
+<pre><code>$ embark --version
+3.1.9
+</code></pre>
+<h3 id="creating-an-embark-project">Creating an Embark Project<a class="headerlink" href="#creating-an-embark-project" title="Permanent link"></a></h3>
+<p>To use embark commands you need to run them against an existing project. So the first step is to create an embark project:</p>
+<pre><code>$ embark new dapp-series-bounties
+
+Initializing Embark Template....
+Init complete
+App ready at dapp-series-bounties
+</code></pre>
+<p>The <strong>embark new</strong> command sets up an embark project with the standard project directory structure:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfK33bTriMgaSKKCikPQTTaR5oMA7Na4daWtKBxzSnKWU" /></p>
+<ul>
+<li><strong>app/</strong>: store the webapp code for our dApp here, we won’t be focusing on the webapp until later in the series</li>
+<li><strong>config/</strong>: configuration files for embark components</li>
+<li><strong>blockchain.js</strong>: configure local development node(s)</li>
+<li><strong>contracts.js</strong>: configure contracts, specify deployments, constructor arguments and dependancies</li>
+<li><strong>storage.js</strong>: configure storage components (e.g IPFS)</li>
+<li><strong>communication.js</strong>: configure communication component (e.g Whisper)</li>
+<li><strong>webserver.js</strong>: configure a dev web server for the webapp</li>
+<li><strong>contracts/</strong>: store original codes of the smart contract. We will place our Bounties.sol file here</li>
+<li><strong>test/</strong>: tests for your smart contract(s), well learn about writing tests in the next article</li>
+<li><strong>chain.json</strong>: tracks deployed contracts across environments</li>
+<li><strong>embark.json</strong>: customise embark, and setup embark plugin</li>
+</ul>
+<p>Now let's create a Bounties.sol file in the contracts folder and copy the contents of [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol) which we previously developed.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXxac4JwMSQRXF1JtJF1xM1NmYeQ3FRDUN8URUv2hxBw9" /></p>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<p><strong>Development Blockchain: Ganache-CLI</strong></p>
+<p>In order to deploy our smart contracts we’re going to need an Ethereum environment to deploy to. For this we will use Ganache-CLI to run a local development</p>
+<p><strong>Installing Ganache-CLI</strong></p>
+<pre><code>$ npm install -g ganache-cli
+</code></pre>
+<p>We can start our local development blockchain environment by running the <code>embark simulator</code> command:</p>
+<pre><code>$ embark simulator
+
+running: ganache-cli -p 8555 -a 10 -e 100 -l 8000000 --mnemonic &quot;example exile argue silk regular smile grass bomb merge arm assist farm&quot;
+Ganache CLI v6.1.3 (ganache-core: 2.1.2)
+Available Accounts
+==================
+(0) 0xb8d851486d1c953e31a44374aca11151d49b8bb3
+(1) 0xf6d5c6d500cac10ee7e6efb5c1b479cfb789950a
+(2) 0xf09324e7a1e2821c2f7a4a47675f9cf0b1a5eb7f
+(3) 0xfbaf82a227dcebd2f9334496658801f63299ba24
+(4) 0x774b5341944deac70199a4750556223cb008949b
+(5) 0x4801428dad07e7c2401d033d195116011fc4e400
+(6) 0xcf08befbc01a5b02ea09d840797d6b4565d4d535
+(7) 0x1a2f3b98e434c02363f3dac3174af93c1d690914
+(8) 0x4a17f35f0a9927fb4141aa91cbbc72c1b31598de
+(9) 0xdf18cb4f2005bc52f94e9bd6c31f7b0c6394e2c2
+Private Keys
+==================
+(0) f942d5d524ec07158df4354402bfba8d928c99d0ab34d0799a6158d56156d986
+(1) 88f37cfbaed8c0c515c62a17a3a1ce2f397d08bbf20dcc788b69f11b5a5c9791
+(2) f4ebc8adae40bfc741b0982c206061878bffed3ad1f34d67c94fa32c3d33eac8
+(3) ca67021a16478270ede4fddd65d0c031c75cd36c13b6a56bcb767928c1c2cf86
+(4) 9955b1e01b2a7d8c22df41754d48b08dff3c0f3dd79d43e091c6311f97f0605a
+(5) 130137aa9a7fbc7cadc98c079cda47a999ff41931d9feaab621855beceed71f7
+(6) ead83d04f741d2b3ab50be1299c18aa1a82c241606861a9a6d3122443496522d
+(7) e6e893ac9f1c1db066a8a83a376554084b0a786e4cdcd91559d68bd4a1dac396
+(8) f1023ac6c8695f6ceb5331a382be8846bfe078b22c18ad7ef4fc3ea6e1cc59e4
+(9) 4aef59c2cf29479b2c27a5f208e6b89d65d16f4977988151e135460db8274fdb
+HD Wallet
+==================
+Mnemonic:      example exile argue silk regular smile grass bomb merge arm assist farm
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+Gas Price
+==================
+20000000000
+Gas Limit
+==================
+8000000
+Listening on localhost:8555
+</code></pre>
+<p>The above output shows ganache-cli has started and is listening on <em>localhost:8555</em></p>
+<p><strong>Deploy</strong></p>
+<p>To deploy simply run the embark run command in a separate window</p>
+<p><strong>NOTE: You may come across the following error when you attempt to run ebmark</strong></p>
+<pre><code>$ embark run
+
+Error: Cannot find module 'perf_hooks'
+    at Function.Module._resolveFilename (module.js:489:15)
+    at Function.Module._load (module.js:439:25)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at Object.&lt;anonymous&gt; (/usr/local/lib/node_modules/embark/lib/versions/npmTimer.js:1:106)
+    at Module._compile (module.js:573:30)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+</code></pre>
+<p>The above error is due to having an outdated node version. To resolve:</p>
+<ol>
+<li>Update node version: <code>npm i -g node</code></li>
+<li>Find the location embark node module file on your system</li>
+</ol>
+<pre><code>$ which embark
+
+/usr/local/bin/embark
+cd /usr/local/bin/
+ls -lrt | grep embark
+lrwxr-xr-x  1 joshuacassidy  admin        37 15 Aug 21:41 embark -&gt; ../lib/node_modules/embark/bin/embark
+</code></pre>
+<p>From the output above we see that on my machine, the relative path of the embark js file is located here:<code>../lib/node_modules/embark</code></p>
+<ol>
+<li>Delete and rebuild the embark npm dependencies</li>
+</ol>
+<pre><code>$ cd /usr/lib/node_modules/embark
+$ rm -rf node_modules
+$ npm i
+</code></pre>
+<p>Now back in your project directory:</p>
+<ol>
+<li>Restart the simulator embark simulator</li>
+<li>Run embark embark run</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmS2XbJ9aUAG9PzvFp89q4E71MusuCuRiuWPr3jSGmDfrE" /></p>
+<p>The above image shows the embark dashboard, we can see from the “contracts” section that our Bounties.sol contract has been deployed and now has a contract address of:</p>
+<p><code>0x04D45b51fe4f00b4478F8b0719Fa779f14c8A194</code></p>
+<p>Embark both compiles and deploys contracts with the embark run command. The build output of our dApp is stored in the <strong>dist</strong> folder.</p>
+<p>Bounties.sol was compiled and the artifact were written to <em>./dist/contracts</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTocEvJBkEwxceFdDxr1FWcQC6sMp5oMscyfFzKn3ndSJ" /></p>
+<p>If you review the <strong>Bounties.json</strong> file, you will find it is similar to the output we got when we manually compiled our Bounties.sol smart contract the previous article. It stores the ABI and also the bytecode for deployment and linking, however, this embark artifact contains additional features that make interacting with and deploying smart contracts using embark a smoother experience.</p>
+<p>As mentioned earlier, embark keeps a <code>chains.json</code> configuration file which tracks deployed contracts across environments. Once a deployment is complete this file is updated automatically by embark:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXMBM1mYnkqUUuJQgGxiHc5mkaqEJGnWw57iMWq9peZHs" /></p>
+<h3 id="interacting-with-our-contract">Interacting with our contract<a class="headerlink" href="#interacting-with-our-contract" title="Permanent link"></a></h3>
+<p>When running embark we’re provided with a console loaded with web3.js</p>
+<blockquote>
+<p>web3.js is a javascript library, a convenient wrapper around the JSON-RPC protocol which provide an interface for interacting with an Ethereum node in javascript. We’ll talk more about web3 later in the series.</p>
+</blockquote>
+<p>Lets attempt to issue a bounty. To do this we’ll need to set the <code>string _data</code> argument to some string “some requirements” and set the <code>uint64 _deadline</code> argument to a unix timestamp in the future e.g “1691452800” August 8th 2023.</p>
+<p>Since embark 3.1 uses web3.js 1.0 our syntax for issuing a bounty is:</p>
+<pre><code>Bounties.methods.issueBounty(&quot;some requirements&quot;,1691452800).send({value: 1000000, gas: 3000000})
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUJoMdKAp4ZsJVKs3jJ1BiD9CPdEJBKW6TubNSkKCCTvx" /></p>
+<p>The image above shows the output of the <code>issueBounty</code> function in the embark console. The output logs part of the transaction receipt. We can see from that status <code>0x1</code> thats the transaction was successful.</p>
+<p>Read more about [web3.js transaction receipt here] (https://web3js.readthedocs.io/en/1.0/web3-eth.html#gettransactionreceipt).</p>
+<h3 id="test-network-rinkeby">Test Network: Rinkeby<a class="headerlink" href="#test-network-rinkeby" title="Permanent link"></a></h3>
+<p>We can also configure Embark to deploy to one of the public test Ethereum networks rather than a local development environment. Earlier in the series, we introduced the following public Ethereum test networks:</p>
+<ul>
+<li>Rinkeby</li>
+<li>Kovan</li>
+<li>Ropsten</li>
+</ul>
+<p>This part of the article will discuss deployment to the <strong>Rinkeby</strong> environment, however, the instructions can be used to deploy to either <strong>Kovan</strong> or <strong>Ropsten</strong> also.</p>
+<h4 id="infura">Infura<a class="headerlink" href="#infura" title="Permanent link"></a></h4>
+<p>In order to send transactions to a public network, you need access to a network node. Infura is a public hosted Ethereum node cluster, which provides access to its nodes via an API</p>
+<p><a href="https://infura.io">https://infura.io</a></p>
+<p>If you do not already have an Infura account, the first thing you need to do is [register for an account] (https://infura.io/register).</p>
+<p>Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
+<p>Once your project is created, select the environment we will be deploying to, in this case <strong>Rinkeby</strong>, from the <em>Endpoint</em> drop down and copy the endpoint URL for future reference:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
+<p>Make sure you save this token and keep it private!</p>
+<p><strong>Generate Mnemonic</strong></p>
+<p>To configure the HDWallet Provider we need to provide a mnemonic which generates the account to be used for deployment.</p>
+<p>If you already have a mnemonic, feel free to skip this part.</p>
+<p>You can generate a mnemonic using an <a href="https://iancoleman.io/bip39/">online mnemonic generator</a>.</p>
+<p><a href="https://iancoleman.io/bip39/">https://iancoleman.io/bip39</a></p>
+<p>In the BIP39 Mnemonic code form:</p>
+<ol>
+<li>Select “ETH — Ethereum” from the “Coin” drop down</li>
+<li>Select a minimum of “12” words</li>
+<li>Click the “Generate” button to generate the mnemonic</li>
+<li>Copy and save the mnemonic located in the field “BIP39”, <strong>remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts</strong></li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
+<ol>
+<li>Scroll down the page to the <em>Derived Addresses</em> section and copy and save the <em>Address</em> this will be your Ethereum deployment account.</li>
+</ol>
+<p><strong>NOTE: Your private key will be displayed here, please keep this private.</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
+<p>Above the address we’ll be using is: <strong>0x56fB94c8C667D7F612C0eC19616C39F3A50C3435</strong></p>
+<p><strong>Configure Embark</strong></p>
+<p>Now we have all the pieces setup, we need to configure embark to use a wallet to deploy our contracts to the <strong>Rinkeby</strong> environment. To do this we will need to edit the <code>config/contracts.js</code> configuration file.</p>
+<p>First lets create a <code>secrets.json</code> file, this file will store your mnemonic and Infura API key so that it can be loaded by embark.</p>
+<p><em>NOTE: Remember not to check this file into any public repository!</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeUy9K6wfHzssQKDyhZaHJtiTgiQabmJixgGFU2gV8LKE" /></p>
+<p>Next, in the <code>config/contracts.js</code> configuration file add the following lines to load our mnemonic and api key from our <code>secrets.json</code> file:</p>
+<pre><code>const fs = require('fs');
+let secrets;
+if (fs.existsSync('secrets.json')) {
+  secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
+}
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfFc9fSZM9bvwYxGYQkaoeqUdpCmUj3TBLJHEDZz5MV9y" /></p>
+<p>Add the following extract to the the config/contracts.js file:</p>
+<p>rinkeby: {
+    deployment:{
+      accounts: [
+        {
+          "mnemonic": secrets.mnemonic
+        }
+      ],
+      host: "rinkeby.infura.io/v3/"+secrets.infuraApiKey,
+      port: false,
+      protocol: 'https',
+      type: "rpc"
+    }
+}</p>
+<p>Here we define a new environment <strong>rinkeby</strong> which:</p>
+<ol>
+<li>Uses the <strong>mnemonic</strong> loaded into the <strong>secrets</strong> variable for its accounts.</li>
+<li>Sets the <strong>rinkeby</strong> infura endpoint as its host</li>
+<li>Since infura uses https, we define the protocol to be used</li>
+<li>Sets the type of the endpoint to <strong>rpc</strong></li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYbBD7eqMbWWW6CCuQeRS9XboWPWR1EMEdkjgZpYhB8vY" /></p>
+<h4 id="fund-your-account">Fund Your Account<a class="headerlink" href="#fund-your-account" title="Permanent link"></a></h4>
+<p>We’re almost ready to deploy! However we need to make sure we have enough funds in our account to complete the transaction. We can fund our <strong>Rinkeby</strong> test account using the [<strong>Rinkeby</strong> ETH faucet] (https://faucet.rinkeby.io/):</p>
+<p>To request ETH from the faucet we need to complete the following steps:</p>
+<ol>
+<li>
+<p>Post publicly our Ethereum deployment address from one of the following social network accounts: Twitter, Google+or Facebook, in this example we’ll be using Twitter</p>
+</li>
+<li>
+<p>Copy the link to the social media post</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
+<ol>
+<li>Paste the link into the [<em>Rinkeby</em> ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
+<ol>
+<li>Check the Rinkeby etherscan for the status of the transaction</li>
+</ol>
+<p>[https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
+<p><strong>Deploy</strong></p>
+<p>To deploy simply run the <code>embark run</code> command whilst specifying the environment to deploy to. The environments are defined in the <code>config/contracts.js</code> configuration file we configured earlier in this article:</p>
+<pre><code>$ embark run rinkeby
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVFcL9Lu7F3EGi9etEEUJeFXKKVs8qwbFKwHmB84Kajvf" /></p>
+<p>And that's it! We have now finally deployed our Bounties.sol contract to the public testnet environment Rinkeby
+.
+Later in the series, we’ll discuss how to write tests within the Embark framework, and how we can also add a frontend to our dApp so users can interact with our smart contract on the public network!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Embark  Smart Contract Compilation &amp; Deployment</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/embark-smart-contract-compilation-and-deployment/13758d60f21648a1897fad1fa5b78237/a</li>
+<li><strong>Kauri original author:</strong> null (@iurimatias)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-19</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmauEoEghUu7BXmah9cJEBamHwhoN9PQmbRpWAUBEMQqmu</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../embark--testing-your-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../embark--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Embark  Testing Your Smart Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../truffle--adding-a-frontend-with-react-box/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../truffle--adding-a-frontend-with-react-box/" class="btn btn-xs btn-link">
+        Truffle  Adding a frontend with react box
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/embark--smart-contract-compilation-and-deployment.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

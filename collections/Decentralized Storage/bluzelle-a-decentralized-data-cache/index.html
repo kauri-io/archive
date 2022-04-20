@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Decentralized%20Storage/bluzelle-a-decentralized-data-cache/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Bluzelle - A decentralized data cache - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Bluzelle - A decentralized data cache", url: "#_top", children: [
+              {title: "Quick Start", url: "#quick-start" },
+              {title: "Troubleshooting", url: "#troubleshooting" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="bluzelle-a-decentralized-data-cache">Bluzelle - A decentralized data cache<a class="headerlink" href="#bluzelle-a-decentralized-data-cache" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUA7WxrGCsVzmHC5nkL1krDzcFRrHuBkP52mdGwciz9Cq" /></p>
+<blockquote>
+<p>Bluzelle is a decentralized data cache with servers available in data centers across multiple regions, and auto-replication.</p>
+</blockquote>
+<h3 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link"></a></h3>
+<h4 id="1-create-an-npm-project">1. Create an NPM Project<a class="headerlink" href="#1-create-an-npm-project" title="Permanent link"></a></h4>
+<p>With NodeJS and NPM installed creating a project is a straight forward process:</p>
+<pre><code class="language-shell">$ mkdir my-bluzelle-project
+$ cd my-bluzelle-project
+$ npm init
+</code></pre>
+<h4 id="2-install-the-bluzelle-npm-package">2. Install the <code>bluzelle</code> NPM package<a class="headerlink" href="#2-install-the-bluzelle-npm-package" title="Permanent link"></a></h4>
+<p>Run <code>npm install bluzelle</code> to get the latest and greatest Bluzelle sdk (see <a href="installation.md">installation</a> for more details).</p>
+<h4 id="3-run-a-simple-program">3. Run a simple program<a class="headerlink" href="#3-run-a-simple-program" title="Permanent link"></a></h4>
+<p>Create a file, <code>my-program.js</code>, and paste the following starter code. (Click the copy button in the top-right corner of the code window to preserve line endings)</p>
+<p>Run the program with <code>node my-program</code>. The expected output is <code>The value of myKey is: myValue</code>. If you run the program multiple times on the same uuid, it will fail with <code>DATABASE_EXISTS</code> . Change the uuid to get a fresh database.</p>
+<p>Explore the rest of the API on the <a href="api.md">API page</a> and read about <a href="permissioning.md">cryptographic permissioning</a>.</p>
+<pre><code class="language-javascript">const { bluzelle } = require('bluzelle');
+
+const bz = bluzelle({
+    entry: 'ws://testnet.bluzelle.com:51010',
+
+    // This UUID identifies your database and may be changed.
+    uuid: '5f493479–2447–47g6–1c36-efa5d251a283',
+
+    // This is the private key used for signing off database operations
+    private_pem: 'MHQCAQEEIFNmJHEiGpgITlRwao/CDki4OS7BYeI7nyz+CM8NW3xToAcGBSuBBAAKoUQDQgAEndHOcS6bE1P9xjS/U+SM2a1GbQpPuH9sWNWtNYxZr0JcF+sCS2zsD+xlCcbrRXDZtfeDmgD9tHdWhcZKIy8ejQ=='
+});
+
+const main = async () =&gt; {
+    await bz.createDB();
+    await bz.create('myKey', 'myValue');
+    console.log('The value of myKey is: ', await bz.read('myKey'));
+    bz.close();
+};
+
+main().catch(e =&gt; { 
+    bz.close();
+    throw e;
+});
+</code></pre>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h3>
+<p>{% hint style="info" %}
+Sometimes running a "hello world" program does not produce expected results. Common problems are listed below.
+{% endhint %}</p>
+<h4 id="your-nodejs-installation-is-out-of-date">Your NodeJS installation is out of date<a class="headerlink" href="#your-nodejs-installation-is-out-of-date" title="Permanent link"></a></h4>
+<p>Make sure that your NodeJS installation is modern. Running <code>node -v</code> will print your current version. As of the time of writing, the current version is <code>11.4.0</code>. Some operating systems ship with outdated versions of node. Follow <a href="https://www.hostingadvice.com/how-to/update-node-js-latest-version/">this guide</a> to update your installation.</p>
+<h4 id="the-testnet-is-down">The testnet is down<a class="headerlink" href="#the-testnet-is-down" title="Permanent link"></a></h4>
+<p>While we are consistently improving the system's stability and reliability, sometimes requests cannot be fulfilled due to problems in the distributed network. If you suspect this to be the case, contact us on <a href="https://gitter.im/bluzelle/Lobby">Gitter</a>.</p>
+<p>It is possible to launch your own swarm locally using docker by following the instructions <a href="https://github.com/bluzelle/docker-swarm-deploy">here</a>.</p>
+<h4 id="insecure-websockets-connections-over-https">Insecure WebSockets connections over HTTPS<a class="headerlink" href="#insecure-websockets-connections-over-https" title="Permanent link"></a></h4>
+<p>Bluzelle does not currently implement secure WebSockets (WSS). If you try to create a connection in an https page, you may get an error message along the lines of "the operation is insecure." To fix, host your page over HTTP, or change your browser settings. In Firefox navigate to "about:config" in the url bar, scroll down and set the <code>network.websocket.allowInsecureFromHTTPS</code> flag to true.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Bluzelle - A decentralized data cache</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/bluzelle-a-decentralized-data-cache/4cdd52b4333f4d579dbb81fd5e2ab100/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-06</li>
+<li><strong>Kauri original tags:</strong> storage, cdn, caching</li>
+<li><strong>Kauri original hash:</strong> QmR6Fx3c1b3sQJ6BdWhA1RizSjW1md3LZoncyKucorhDG2</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../filecoin--peer-to-peer-storage-network-and-paymen/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../filecoin--peer-to-peer-storage-network-and-paymen/" class="btn btn-xs btn-link">
+        Filecoin  Peer-to-Peer Storage Network and Payment Protocol
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sia--decentralized-cloud-storage/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sia--decentralized-cloud-storage/" class="btn btn-xs btn-link">
+        Sia  Decentralized Cloud Storage
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Decentralized Storage/bluzelle-a-decentralized-data-cache.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

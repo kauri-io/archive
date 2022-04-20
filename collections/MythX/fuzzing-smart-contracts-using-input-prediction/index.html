@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/MythX/fuzzing-smart-contracts-using-input-prediction/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Fuzzing Smart Contracts Using Input Prediction - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Fuzzing Smart Contracts Using Input Prediction", url: "#_top", children: [
+              {title: "Motivating Example", url: "#motivating-example" },
+              {title: "Predicting New Inputs", url: "#predicting-new-inputs" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="fuzzing-smart-contracts-using-input-prediction">Fuzzing Smart Contracts Using Input Prediction<a class="headerlink" href="#fuzzing-smart-contracts-using-input-prediction" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZHSD8LwYkompXoa7ypaBbMvXjgjB7ba1jTwNd6yi6wuw" /></p>
+<p>In the 
+<a href="https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2">previous post</a>
+ , we discussed several approaches for automatically finding vulnerabilities in smart contracts and we introduced Harvey: a fuzzer for Ethereum smart contracts being developed by 
+<a href="https://consensys.net/diligence/">ConsenSys Diligence: Smart contract auditing</a>
+ , in collaboration with 
+<a href="https://mariachris.github.io">Maria Christakis</a>
+ from MPI-SWS and that will be one of the tools powering our 
+<a href="https://mythx.io">MythX analysis platform</a>
+ .
+Grey-box fuzzers are able to achieve high code coverage even for complex code without using more expensive techniques, such as automated SMT solvers, to reason about the program. However, for many programs it can still pay off to perform some lightweight reasoning about the code to increase code coverage more quickly. In this post, we will present a novel input prediction technique for grey-box fuzzers.</p>
+<h3 id="motivating-example">Motivating Example<a class="headerlink" href="#motivating-example" title="Permanent link"></a></h3>
+<p>Let’s go back to the smart contract from the previous post (written in the Solidity programming language) to illustrate a limitation in state-of-the-art grey-box fuzzers.</p>
+<pre><code>contract Foo {
+  function Bar(int256 a, int256 b, int256 c) returns (int256) {
+    int256 d = b + c;
+    if (d &amp;lt; 1) {
+      if (b &amp;lt; 3) {
+        return 1;
+      }
+      if (a == 42) {
+        assert(false);
+        return 2;
+      }
+      return 3;
+    } else {
+      if (c &amp;lt; 42) {
+        return 4;
+      }
+      return 5;
+    }
+  }
+}
+</code></pre>
+<p>Most grey-box fuzzers will take a long time to detect the assertion violation since inputs are fuzzed randomly; the chance of picking 
+<code>a</code>
+ to be 42 is tiny. For instance, 
+<a href="http://lcamtuf.coredump.cx/afl">AFL</a>
+ , a state-of-the-art grey-box fuzzer, was not able to generate a test that violates the assertion within 12 hours. While there are a number of heuristics that fuzzers can employ (e.g., picking new inputs from the constants in the program), Harvey also integrates a more systematic approach that we will present below.</p>
+<h3 id="predicting-new-inputs">Predicting New Inputs<a class="headerlink" href="#predicting-new-inputs" title="Permanent link"></a></h3>
+<p>Let’s assume that Harvey generated an input 
+<code>I</code>
+ with 
+<code>a==0</code>
+ , 
+<code>b==3</code>
+ , and 
+<code>c==-3</code>
+ ; it explores the path that returns 3 (on Line 12). We would like to predict a new input 
+<code>F</code>
+ , that will explore the then-branch of the last conditional along the execution of input 
+<code>I</code>
+ (on Line 8).
+As discussed in the previous post, one could use white-box fuzzers that symbolically execute the desired path and use SMT/SAT solvers to create new test cases. However, this can be expensive and one might prefer a more lightweight approach that builds on the grey-box fuzzing algorithm introduced in the previous post.
+Let’s assume Harvey generates a new input 
+<code>J</code>
+ by changing parameter 
+<code>a</code>
+ of input 
+<code>I</code>
+ to 7. Even though this new input still executes the same path, we can extract information that will allow us to predict an input that explores the desired branch.
+All we need to do is measure for both inputs how far we are from “flipping” that branch (i.e., by negating the branch condition). For input 
+<code>I</code>
+ this distance is 42 since we would flip the branch if we were to increase 
+<code>a</code>
+ by 42. Similarly, for input 
+<code>J</code>
+ the distance is 35. We record these distances while running inputs which does not incur much overhead since grey-box fuzzers already perform some lightweight instrumentation to record a path identifier during execution. The distance for a given branch is computed automatically during the execution of the EVM bytecode based on the type of comparison operator that is used (e.g., == and &lt;=), and the concrete arguments to the operator (e.g., 7 and 42). In other words, we use a simple mathematical formula that determines the distance for each operator and its arguments. For instance, the distance formula for flipping to the then-branch is 
+<code>absoluteValue(42-a)</code>
+ , whereas it would be 
+<code>42 — a+1</code>
+ if the condition of the desired branch was 
+<code>42 &lt; a</code>
+ .
+By simply comparing the distance of the given branch for both inputs, we already learn something useful: the change in distance confirms that we are on the right track by fuzzing 
+<code>a</code>
+ . Essentially, we learn that 
+<code>a</code>
+ taints the condition of the desired branch 
+<em>without even running any expensive taint analysis</em>
+ .
+Now, to actually predict the new input, we can think of the distance as an unknown (but computable) mathematical function 
+<code>f(x)</code>
+ where 
+<code>x</code>
+ is an input parameter that was changed. In our example, parameter 
+<code>a</code>
+ was changed and we happen to know two concrete values of our distance function 
+<code>f</code>
+ : 
+<code>f(0)==42</code>
+ and 
+<code>f(7)==35</code>
+ . The key insight is that we are now able to phrase the problem of finding the desired input as the problem of finding a value 
+<code>x’</code>
+ such that 
+<code>f(x')==0</code>
+ .
+This problem has been studied extensively and there are many different methods, such as 
+<a href="https://en.wikipedia.org/wiki/Newton%27s_method">Newton’s method</a>
+ . In Harvey, we use an approach that is known as the 
+<a href="https://en.wikipedia.org/wiki/Secant_method">Secant method</a>
+ . It works by essentially drawing a line through the two known points of the function, p1 at (0,42) and p2 at (7,35), and determining the x-coordinate of point p’ where the line intersects with the x-axis, i.e., (42,0). Harvey then uses this information to derive a new input with 
+<code>a==42</code>
+ that will be tried next.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQgGB39PVedEstcPUhGZqjm2iSkTdvrwaZWbgN83EK5AT" /></p>
+<p>Et voilà! By running the input we confirm that it indeed explores the desired branch. If we were less lucky, we could apply the same approach iteratively, for instance, if the branch condition was 
+<code>a*a*a==27</code>
+ . However, in practice, we found that this is almost never necessary.
+This simple but elegant technique typically allows Harvey to 
+<em>find vulnerabilities orders-of-magnitude faster</em>
+ . For our example, it allows Harvey to achieve full coverage 
+<em>within less than a second</em>
+ whereas it takes Harvey roughly 14 seconds without input prediction. See our 
+<a href="https://arxiv.org/pdf/1807.07875.pdf">paper</a>
+ for more details (including an extensive evaluation on real-world smart contracts).
+In the 
+<a href="https://link.medium.com/pFqM9dQhVT">next post</a>
+ of this series, we will look at how Harvey detects vulnerabilities that can only be triggered if an attacker issues multiple transactions. Stay tuned!
+Thanks to 
+<a href="https://mariachris.github.io">Maria Christakis</a>
+ , 
+<a href="https://twitter.com/joranhonig">Joran Honig</a>
+ , John Mardlin (aka 
+<a href="https://twitter.com/maurelian_">Maurelian</a>
+ ), and 
+<a href="https://twitter.com/muellerberndt">Bernhard Mueller</a>
+ for feedback on drafts of this article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Fuzzing Smart Contracts Using Input Prediction</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/fuzzing-smart-contracts-using-input-prediction/c3d4ee5919064a23bc0e5f3317310f16/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-02</li>
+<li><strong>Kauri original tags:</strong> fuzzing, security, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmTFYVGWjTzUUCdtWvmrcAM746Ap6HG2npu5ko8Neg4tge</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../auditing-the-0x-protocol-v2-with-consensys-dilige/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../auditing-the-0x-protocol-v2-with-consensys-dilige/" class="btn btn-xs btn-link">
+        Auditing the 0x Protocol v2 with ConsenSys Diligence
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../fuzzing-smart-contracts-using-multiple-transactio/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../fuzzing-smart-contracts-using-multiple-transactio/" class="btn btn-xs btn-link">
+        Fuzzing Smart Contracts Using Multiple Transactions
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/MythX/fuzzing-smart-contracts-using-input-prediction.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

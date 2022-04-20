@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/top-5-ways-to-scale-your-ethereum-blockchain-appl/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Top 5 ways to scale your Ethereum blockchain application (dApp) - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Top 5 ways to scale your Ethereum blockchain application (dApp)", url: "#_top", children: [
+              {title: "CONTEXT: Scalability issues", url: "#context-scalability-issues" },
+              {title: "SUMMARY of scalability solutions", url: "#summary-of-scalability-solutions" },
+              {title: "Trade-offs of scalability solutions", url: "#trade-offs-of-scalability-solutions" },
+              {title: "Description and implementation of scalability solutions", url: "#description-and-implementation-of-scalability-solutions" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="top-5-ways-to-scale-your-ethereum-blockchain-application-dapp">Top 5 ways to scale your Ethereum blockchain application (dApp)<a class="headerlink" href="#top-5-ways-to-scale-your-ethereum-blockchain-application-dapp" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmX77iTZW68cU9Eozxhmc55eTTpPnUsjUyjJExP2wfvCGv" /></p>
+<p><strong><em>General article outlining the relative trade-offs of existing solutions for scaling solutions on the Ethereum. If you would like to contribute tutorials or how to's for scalability solutions please reach out <a href="https://twitter.com/kauri_io">@kauri_io</a> or <a href="https://twitter.com/andreaswallend1">@AndreasWallend1</a> and we will feature your project in kauri's scalability collection!</em></strong></p>
+<p>Scalability solutions are here now! This article explores some of the solutions that can be implemented today and the relative trade-offs of different approaches, as well as highlighting developer resources so you can start BUIDLing.</p>
+<h3 id="context-scalability-issues">CONTEXT: Scalability issues<a class="headerlink" href="#context-scalability-issues" title="Permanent link"></a></h3>
+<blockquote>
+<p>Why is scalability so hard? I often talk about the ‘scalability trilemma’, where I say that blockchain systems have to trade off between different properties. And it’s very hard for them to have three things at the same time, where one of them is decentralization. The other is scalability, and the third is security.                     -- <em><strong>Vitalik Buterin, November 2017</strong></em></p>
+</blockquote>
+<p>Public permissionless blockchains like Bitcoin and Ethereum have opted to optimize security and decentralization over high transaction throughput at layer 1. Anyone willing to become a validator can participate and being a validator requires a reasonably low time and capital commitment. Thousands of mining nodes participating in Proof of Work secure these blockchains from 51% attacks  which <a href="https://www.crypto51.app/">cost</a> ~$100,000 /hr on Ethereum blockchain and &gt;$350,000 /hr on Bitcoin blockchain at today's, <em>April, 2019</em>, prices. </p>
+<p>The truly permissionless decentralized nature and high security of Ethereum are two features of many that make it the top choice for a trust layer for the global economy and securing blockchain applications that facilitate those transactions.</p>
+<p>However, security and decentralization come at the expense of scalability. Today Ethereum is processing ~5 transaction per second and would be overloaded at ~6 transaction per second, with a  theoretical limit of 14-15 transactions per second for simple transactions. This is <a href="https://cointelegraph.com/news/cryptocurrency-still-a-long-journey-ahead">orders of magnitude too small</a> for any mainstream existing consumer or financial applications. </p>
+<blockquote>
+<p>The core limitation is that public blockchains like ethereum require every transaction to be processed by every single node in the network.                     -- <em><strong>Josh Stark, February 2018 [Making Sense of Ethereum’s Layer 2 scaling solutions] (https://medium.com/l4-media/making-sense-of-ethereums-layer-2-scaling-solutions-state-channels-plasma-and-truebit-22cb40dcc2f4)</strong></em></p>
+</blockquote>
+<p>The Ethereum Foundation has an advanced roadmap to upgrade the base infrastructure of the Ethereum blockchain in Ethereum 2.0, and <a href="https://media.consensys.net/state-of-ethereum-protocol-1-d3211dd0f6">will greatly improve scalability in the coming years</a>. However, we're building applications now and need to scale now! In addition, as I will discuss later, depending on your use case it is likely you will not want all transactions running on mainnet / L1 but opt for second layer solutions even once Serenity has arrived.</p>
+<h4 id="primary-challenges-today">Primary challenges today<a class="headerlink" href="#primary-challenges-today" title="Permanent link"></a></h4>
+<ul>
+<li><strong>Slow</strong> - low transaction throughput and and network latency dependent in the case of full blocks</li>
+<li><strong>Expensive</strong> - user must pay gas fees on each transaction, spikes in gas and ethereum prices</li>
+<li><strong>Suboptimal User Experience</strong> - user must sign each transaction and wait for it to confirm before the next can be executed</li>
+</ul>
+<h3 id="summary-of-scalability-solutions">SUMMARY of scalability solutions<a class="headerlink" href="#summary-of-scalability-solutions" title="Permanent link"></a></h3>
+<p>Summary of scalability solutions that can be implemented today to scale transaction throughput. There are other solutions to scalability which include off-chain compute and other scaling vectors, which can also be considered, but will not be directly covered here. </p>
+<ul>
+<li><strong>Off-chain message signing (Meta transactions)</strong> - sign messages off-chain using ethereum key pairs, store and emit events or pass them p2p to then update an onchain state based on the content and signatures on those messages (e.g. increase # votes, update price oracle)</li>
+<li><strong>Payment channels</strong> - off-chain channel between counter-parties to exchange value and transact the resulting net in one on-chain transaction</li>
+<li><strong>State channels</strong> - off-chain channel between counter-parties to update states multiple times and update the final state with one on-chain transaction</li>
+<li><strong>Side chains x bridges</strong> - fully featured side chain anchored to the Ethereum mainnet via bridge contracts and a relay mechanism</li>
+<li><strong>Plasma chains</strong> - fully featured child chains that periodically commit the differential of their state tree to the root chain (e.g. Ethereum mainnet)</li>
+</ul>
+<h3 id="trade-offs-of-scalability-solutions">Trade-offs of scalability solutions<a class="headerlink" href="#trade-offs-of-scalability-solutions" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWesgCWeUdKkMLdqWukkf1zn1jEbz51XGvingwMxuvn1x" /></p>
+<h2 id="description-and-implementation-of-scalability-solutions">Description and implementation of scalability solutions<a class="headerlink" href="#description-and-implementation-of-scalability-solutions" title="Permanent link"></a></h2>
+<p>The following are implementations are OpenSource and available to build into your application, though <em><strong>all scaling solutions are still under development and a security audit is highly recommended before deploying anything to mainnet</strong></em>. Projects that are yet to release a useable product or code repos have not been included. </p>
+<h3 id="message-signing">Message signing<a class="headerlink" href="#message-signing" title="Permanent link"></a></h3>
+<ul>
+<li>User signs a message off chain with their public private key pair (using keccak256 hashing algorithm)</li>
+<li>Messages can be stored in IPFS or a DB and then be batched into one on chain transaction </li>
+<li>e.g. claiming ownership on mainnet for your peeps in a batch rather than executing a transaction each peep</li>
+<li>The messages can also be passed p2p via scuttlebot and once verified (via public key) that they are from the valid or authorized party, can be taken as an oracle input to a mainnet smart contract</li>
+<li>That smart contract then takes the message and can execute as it has been written to do so</li>
+<li>MakerDAO proposed a solution for off-chain price oracles using this methodology at ETH Berlin</li>
+</ul>
+<h4 id="resources">Resources:<a class="headerlink" href="#resources" title="Permanent link"></a></h4>
+<ul>
+<li>Karl Floersch - Hashing and message signing basics https://cryptoeconomics.study/</li>
+<li>Mario Conti - Price oracles via offchain signed messages https://view.ly/v/Rt275OYzLCI1</li>
+<li>Vitalik Buterin - Oracles https://blog.ethereum.org/2014/07/22/ethereum-and-oracles/</li>
+</ul>
+<h3 id="payment-and-state-channels">Payment and State channels<a class="headerlink" href="#payment-and-state-channels" title="Permanent link"></a></h3>
+<h4 id="state-channels-have-three-primary-steps">State channels have three primary steps:<a class="headerlink" href="#state-channels-have-three-primary-steps" title="Permanent link"></a></h4>
+<ul>
+<li>Two users lock the initial blockchain state (e.g., each party's balance) into a smart contract closely resembling a multi-signature wallet. This ensures that the funds in the wallet can't be used elsewhere or removed until unlocked with an update that both parties have signed.</li>
+<li>The two parties transact by passing state updates (e.g., balance updates) amongst themselves. If both parties agree on a state update by "signing" it, it could be submitted to the smart contract at any time to unlock funds.</li>
+<li>When parties have finished transacting, they each submit state updates to the smart contract. If the state updates match, the blockchain state (e.g., each party's balance) is unlocked, typically in a different configuration than the initial state.</li>
+</ul>
+<h4 id="payment-channels">Payment channels:<a class="headerlink" href="#payment-channels" title="Permanent link"></a></h4>
+<ul>
+<li>Constrained state channel solutions limited to payments denominated in ETH or ERC20. Simplified structure allows for greater throughput and and more efficient design as only one (or few) states are being updated: the net balance</li>
+</ul>
+<h4 id="dispute-resolution">Dispute resolution:<a class="headerlink" href="#dispute-resolution" title="Permanent link"></a></h4>
+<ul>
+<li>Each state update that is signed by both parties is assigned a "nonce", or a number that uniquely identifies that update. More recent nonces trump older nonces.</li>
+<li>As soon as Party A submits a state update, a challenge period starts. During this period, Party B has the opportunity to submit an update with a more recent nonce. When the challenge timer expires, the update with the most recent nonce is used to unlock the blockchain state and distribute funds appropriately.</li>
+</ul>
+<h4 id="existing-projects-and-implementations">Existing projects and implementations<a class="headerlink" href="#existing-projects-and-implementations" title="Permanent link"></a></h4>
+<p><strong>Raiden</strong> a payment channel solution, enabling near-instant, low-fee and scalable payments. It’s complementary to the Ethereum blockchain and works with any ERC20 compatible token <a href="https://kauri.io/article/e875bf0e94444f86b3dcdebc730f6c7f/v1/raiden:-generalized-state-channels">Getting started</a></p>
+<p><strong>Connext</strong> is building open source, p2p micropayment infrastructure. Their first product uses payment channels on the Ethereum blockchain. Payment channels allow many off-chain transactions to be aggregated into a much smaller number of on-chain transactions <a href="https://kauri.io/article/ea598e8c666c413e8df0a6dd106a1c28/v1/connext:-peer-to-peer-payment-channels">Getting started</a></p>
+<h3 id="side-chains-x-bridges">Side chains x bridges<a class="headerlink" href="#side-chains-x-bridges" title="Permanent link"></a></h3>
+<p>Bridge (or relay) relays information from side chain running its own consensus algorithm to mainnet. Either lock value or state on mainnet (or both) and run Dapp on sidechain gathering and processing transactions
+- User deposits Ether/ERC20 from the mainnet to bridge contract
+- ÐApp runs for as long as required, then user withdraws their Ether/ERC20 back on the mainnet
+- Users pay only the gas for two transactions – the deposit and the withdrawal
+- User may also pay smaller transaction fees on side chain (Loom and POA  both have running costs - Loom charges the Dapp in loom tokens, POA requires users to pay gas in POA tokens on the side chain) 
+- Dapp can also operate a private chain and remove gas costs on side chain - however incentivizing many independent validators may be a challenge</p>
+<h4 id="resources_1">Resources<a class="headerlink" href="#resources_1" title="Permanent link"></a></h4>
+<ul>
+<li>See video: Parity Bridge Ropsten-Kovan Ether-ERC20 Test Deployment </li>
+<li>Melonport and Colony are already working on implementing and testing Parity Bridge, with Swarm.City and Giveth helping test arbitrary message passing</li>
+<li>https://wiki.parity.io/Bridge; https://github.com/poanetwork/poa-bridge-contracts</li>
+</ul>
+<h4 id="existing-projects-and-implementations_1">Existing projects and implementations<a class="headerlink" href="#existing-projects-and-implementations_1" title="Permanent link"></a></h4>
+<p><strong>POA Network</strong> is an Ethereum-based platform that offers an open-source framework for smart contracts. POA Network is a sidechain to Ethereum utilizing Proof of Authority as its consensus mechanism <a href="https://kauri.io/article/549b50d2318741dbba209110bb9e350e/v12/poa-part-1-develop-and-deploy-a-smart-contract">Getting started</a></p>
+<p><strong>Loom</strong> is a Layer 2 scaling solution for Ethereum focusing on social and gaming dApps that require a very high throughput. Loom SDK enables to generate a sidechain called dAppChain using a dPoS consensus optimised for high-scalability [Getting started] (https://kauri.io/article/6f807cc4fe01479b8b14bd5625b68191/v5/loom-part-1-develop-and-deploy-a-smart-contract)</p>
+<p><strong>SKALE</strong>'s elastic sidechains provide all benefits of standard full-capacity sidechains alongside the security guarantees of truly decentralized networks. Elastic sidechains are highly performant, configurable, and Ethereum / Web3 Compatible [Getting started] (https://kauri.io/article/1695fa6d727347e58af02ba7c36a0581/v1/skale:-ethereum-compatible-sidechains)</p>
+<h3 id="plasma-chains">Plasma chains<a class="headerlink" href="#plasma-chains" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQWgWLpbFW1uHVoV1UXjk8VDZyfrMVXCviowoFv5872tb" /></p>
+<h4 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h4>
+<ul>
+<li>Initialize the Plasma blockchain. Write the contracts, submit it to the root blockchain</li>
+<li>Localized computation. Only periodic commitments (Plasma blockchain blockhashes) submitted to the blockchain</li>
+<li>Consensus rules defined in fraud proofs. If any of the blocks are invalid, anyone can submit proof of fraudulent state transition to roll back blockchain</li>
+<li>Unique rules per Plasma blockchain. Chains are special-purpose decentralized applications.</li>
+</ul>
+<h4 id="existing-projects-and-implementations_2">Existing projects and implementations<a class="headerlink" href="#existing-projects-and-implementations_2" title="Permanent link"></a></h4>
+<p><strong>Summary of development:</strong> Including FourthStateLabs, OmiseGo, Kyokan, Plasma Group. [Summary] (https://kauri.io/article/3103de2a3a874f348013b96d157451be/v7/plasma-roundup:-from-mvp-to-mainnet)</p>
+<p><strong>Kyokan Minimum Viable Plasma</strong> implementation of minimal viable plasma (MVP) focused purely on payment use cases so that app developers can experience plasma today [Getting Started] (https://kauri.io/article/7f9e1c04f3964016806becc33003bdf3/v4/minimum-viable-plasma-the-kyokan-implementation)</p>
+<p><strong>Plasma Group</strong> is dedicated to the creation of an open plasma implementation for the greater Ethereum community. It’s our mission to push layer 2 scaling forward by exploring the full potential of the plasma framework. [Learn More] (https://kauri.io/public-profile/4c1f7c394b9fdbe23dcbe64e7b537b5354c71b24)</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Top 5 ways to scale your Ethereum blockchain application (dApp)</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/top-5-ways-to-scale-your-ethereum-blockchain-appli/7ccaaa2fe7f344d5bf53807cb5c01530/a</li>
+<li><strong>Kauri original author:</strong> Andreas Wallendahl (@andreaswallend1)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-23</li>
+<li><strong>Kauri original tags:</strong> scaling, dapp, payment-channels, meta-transactions, state-channels, plasma, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmXvT3gP4bEUtJmTzp6tpGRx7FR2BrAXkNWQATQyYFWn5C</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../plasma-roundup--from-mvp-to-mainnet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../plasma-roundup--from-mvp-to-mainnet/" class="btn btn-xs btn-link">
+        Plasma Roundup  From MVP to Mainnet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../monoplasma--a-simple-way-to-broadcast-money/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../monoplasma--a-simple-way-to-broadcast-money/" class="btn btn-xs btn-link">
+        Monoplasma  A simple way to broadcast money
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/top-5-ways-to-scale-your-ethereum-blockchain-appl.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

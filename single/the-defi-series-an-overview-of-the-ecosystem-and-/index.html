@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/the-defi-series-an-overview-of-the-ecosystem-and-/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The DeFi Series — An overview of the ecosystem and major protocols - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The DeFi Series\u200a\u2014\u200aAn overview of the ecosystem and major protocols", url: "#_top", children: [
+              {title: "TL; DR", url: "#tl-dr" },
+              {title: "Introduction", url: "#introduction" },
+              {title: "Maker DAO &amp; DAI", url: "#maker-dao-dai" },
+              {title: "Compound", url: "#compound" },
+              {title: "Token Exchange: Uniswap", url: "#token-exchange-uniswap" },
+              {title: "Prediction Market: Augur", url: "#prediction-market-augur" },
+              {title: "User overlap analysis \u2014 Maker &amp; Compound", url: "#user-overlap-analysis-maker-compound" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-defi-series-an-overview-of-the-ecosystem-and-major-protocols">The DeFi Series — An overview of the ecosystem and major protocols<a class="headerlink" href="#the-defi-series-an-overview-of-the-ecosystem-and-major-protocols" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYVcgHuRug4Coz9GF91iMU3roRTAVYzfoS98b5oKt3CVG" /></p>
+<h3 id="tl-dr">TL; DR<a class="headerlink" href="#tl-dr" title="Permanent link"></a></h3>
+<p>As the first piece of our DeFi series, this article aims to introduce the overview landscape and share knowledge collected around the several most major protocols. In this piece we touched the overlap on user base of Maker and Compound, and will continue research on user base and systematic risks in the coming DeFi pieces. Keep an eye out for our continually refreshed 
+<a href="https://public.tableau.com/profile/alethio#!/vizhome/DeFi_15529865481350">dashboard</a>
+ and 
+<a href="https://reports.aleth.io/">Reporting</a>
+ tools to download all the data. Also we will keep sending DeFi related weekly newsletter for followers — subscribe to it on our 
+<a href="https://aleth.io/">website</a>
+ !</p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>For the past few months, various projects have blossomed in decentralized finance space on Ethereum. Quoted from 
+<a href="https://www.theblockcrypto.com/2019/03/14/mapping-out-ethereums-defi/">the block</a>
+ , below is the landscape picturing the DeFi ecosystem. The most trending protocols fall into exchanges &amp; liquidity, derivatives, prediction markets, stablecoins and credit &amp; lending categories. We will dive into examples for each of them later in this article.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmciK7XEv2sMRbj7JwkdfgKR4touC5aP2ESSZMf8MyHkhG" /></p>
+<p>As a concern raised from the community, a considerable amount of ETH are sent to those applications for collateralization purposes. Until April 25, over 2.2 million ETH has been locked up in DeFi platforms, which makes up over 2% of total ETH supply by then. Among them, Maker gathered the most — more than 90% out of 6 major DeFi projects (shown below).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUkchbCjDi18LMaYKZhJDk6GU63ifvrocqj6yWxVJJBUF" /></p>
+<h3 id="maker-dao-dai">Maker DAO &amp; DAI<a class="headerlink" href="#maker-dao-dai" title="Permanent link"></a></h3>
+<h4 id="what-is-dai">What is DAI?<a class="headerlink" href="#what-is-dai" title="Permanent link"></a></h4>
+<p>DAI is a collateral backed cryptocurrency that lives completely on the blockchain and does not rely on any mediator to insure its stability and peg relative to the US Dollar. DAI is backed by collateral which is locked into audited and publicly available smart contracts.</p>
+<h4 id="how-is-dai-generated">How is DAI generated?<a class="headerlink" href="#how-is-dai-generated" title="Permanent link"></a></h4>
+<p>Maker uses a series of smart contracts deployed on the mainnet to back the value of the DAI stablecoin through a system of Collateralized Debt Positions (CDPs), feedback mechanisms and trusted third parties. It allows anyone to leverage ETH holdings to generate DAI stablecoins.
+Users that want to create DAI first open a CDP and then deposit ETH in the Maker CDP smart contract.
+Technically it’s not ETH that is deposited, but PETH, or Pooled Ether. First of all, ETH is turned into WETH, or Wrapped Ether, which is essentially an ERC20 token that is minted 1:1 for ETH. Afterwards PETH basically acts as a share of a ‘pool of ETH’ — you deposit ETH, and get a share that you can redeem for the amount of ETH received. It’s worth noting that unlike ETH to WETH, ETH to PETH conversion rates are not 1:1. Currently 1 PETH = 1.04 ETH — the reason behind this will be made clear a bit later.
+The amount of DAI that the user creates relative to the ETH it deposited is called the collateralization ratio. For example, if the collateralization ratio is 200%, and 1 ETH is worth 1000$ — when depositing 1 ETH to the collateralization contract, a user would be able to create 500 DAI. That 1 ETH is no longer in the user’s control — until the 500 DAI loan is paid back, the CDP is closed, and the DAI burned.
+If the value of ETH fluctuates and the ETH value in the CDP drops enough that it gets close to the collateralization ratio — it runs the risk of entering liquidation. However, users have mechanisms at their disposal that lets them add more collateral, unless the CDP is already in liquidation. The opposite is also true — and in the case of ETH appreciation that brings the collateralization ratio even higher — users have 2 options at their disposal. They can either issue fresh DAI based on the same collateral, or withdraw part of that collateralized ETH. Users can also transfer ownership of CDPs, pay back all the debt or close their account entirely.
+However, when the collateral value for a CDP drops below the collateralization ratio, and the user doesn’t lock up more ETH — that CDP gets liquidated. When this happens, it is acquired by the system, and the CDP owner receives the value of the leftover collateral minus the debt, Stability Fee and Liquidation Penalty.
+The PETH collateral is then offered for sale at a discount, which can be bought using DAI, until an amount equal to the CDP debt has been removed. If any DAI is paid in excess, the excess is used to purchase PETH from the market and burn it, which positively changes the ETH to PETH ratio (hence 1 PETH = 1.04 WETH = 1.04 ETH) .
+A CDPs lifecycle is defined in 6 stages ( 
+<a href="https://makerdao.com/purple/#dfn-free">according to the purple paper</a>
+ )</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd3ESirMkBj3zQsduCGkz8dYyZvNwfjfHgFKiTU3vUP8H" /></p>
+<p><strong>Some implications:</strong></p>
+<ul>
+<li>
+<p>Collateral-increasing actions are allowed until Grief.</p>
+</li>
+<li>
+<p>To draw is only allowed during Pride, while free is also allowed during Anger.</p>
+</li>
+<li>
+<p>To give\ transfers ownership of a CDP. is allowed at any time, including during liquidation.</p>
+</li>
+<li>
+<p>Each of the liquidation actions corresponds to its own stage.</p>
+</li>
+</ul>
+<p><strong>Risk Management:</strong>
+ The MKR token. MKR is an ERC-20 token which is created/destroyed in response to DAI price fluctuations in order to keep it hovering around $1 USD. Aside from being used to pay the stability fees on the system, the holders of the MKR token are responsible for voting on performing a number of risk management actions. They can add or modify existing CDP types (currently only single collateral CDPs), change the DAI savings rate (unused currently — a part of the switch to multi-collateral CDPs), choose the set of oracles that help determine accurate collateral prices (properly incentivized external actors which report prices), choose a set of emergency oracles which have the ability to trigger an Emergency Shutdown, and finally, the voters can instantly trigger Emergency shutdown themselves if enough voters deem it necessary (Emergency Shutdown is the mechanism used in case (Emergency Shutdowns can occur due to technical updates or if the system is subject to a serious attack it can be used to mitigate that).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRUYiQrvrkLiYs18Pf55WYEAuUoYcSSjZ4PZzzqxjKWQu" /></p>
+<p>Above is showing by March 12, how the user community around Maker Collateral Pool look like. Green nodes are all the external accounts created CDPs and deposited into the liquidity pool. Some of them communicated through proxy contracts (blue nodes) and exchanged ETH for WETH first, and then deposited WETH into Maker SaiTub, while some of them sent WETH directly towards the Maker (green nodes around it). The total WETH volume makes up the total amount of ETH once locked up in Maker, which is ~2 million ETH by then. (<em>2% of total ETH supply and ~89% out of 6 major defi projects</em>)</p>
+<h3 id="compound">Compound<a class="headerlink" href="#compound" title="Permanent link"></a></h3>
+<p>Compound is a protocol on the Ethereum blockchain that uses a process of algorithmically determining interest rates for pools of tokens (called money markets) based on the supply and demand for each token. The money markets are unique to every ERC20 token and transparently record transactions and historical interest rates.
+Users supply tokens to the platform directly, and earn a floating interest rate, without negotiating anything with their counterparties (conversely borrowers take loans of tokens from the platforms and pay the interest rates).
+Insead of having suppliers and borrowers negotiate on terms and rates, the interest rates in the Compound protocol are computed using a model that follows the theoretical notion that increased demand should increase interest rates. Each money market undergoes this calculation, and thus each token has its own interest rate model — a function of that specific token’s utilization. Of course, the interest earned by suppliers is less than that paid by borrowers — to ensure the protocol’s economic stability and sustainability.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR52TAFePmT93J9vLseTKqAQbh5rxNBXSEsa99rLuZeBq" /></p>
+<p>Why be a supplier? Or a borrower?
+Money markets accrue interest in real time, and offer complete liquidity — so users can view their balances (including interest) and withdraw them at any time. Long term holders can leverage their positions and use the money markets as an additional source of income.
+Similarly, borrowers can instantly borrow tokens (they collateralize these loans — and similarly to Maker’s approach — users have to maintain a balance that covers the borrowed amount, and then some, to ensure solvency). Borrowers don’t have to wait for orders to fill, and they can easily leverage their existing portfolios to borrow tokens that they can instantly use somewhere else in the Ethereum ecosystem.</p>
+<h4 id="platform-usage">Platform usage<a class="headerlink" href="#platform-usage" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmacuJuWeAPZLRv5txaLvpsNEBcPSW1CXRPouSZCQb5tCC" /></p>
+<p>The table above summarizes the usage in the Compound platform so far. The simplest way to determine supply and demand forces and their influence on the interest is to look at the number of loans, lenders and borrowers. Another interesting metric that could explain the higher interest rates, is the percent lent, which shows how much of the total supply was borrowed at one point — by the most borrowed tokens are DAI and WETH.</p>
+<h3 id="token-exchange-uniswap">Token Exchange: Uniswap<a class="headerlink" href="#token-exchange-uniswap" title="Permanent link"></a></h3>
+<p>Uniswap is a protocol that automates token exchanges on Ethereum. Inspired by 
+<a href="https://www.reddit.com/r/ethereum/comments/55m04x/lets_run_onchain_decentralized_exchanges_the_way/">a reddit post</a>
+ from Vitalik, it is a set of smart contracts deployed to the mainnet. It doesn’t have a token (it actually has more than one, but more on that later), no centralized order books and no amount of fees goes to the platform or its creator (but rather to the liquidity providers — so the users). At just under 30k ETH locked — this would be enough to put it in the top 5 DeFi platforms. This figure doesn’t take into account all the tokens locked though — tokens included, Uniswap is currently the 3rd largest DeFi platform (after Maker and Compound) in terms of value locked.
+The way Uniswap works is it basically creates markets for each ERC20 — ETH pair. It allows anyone to deploy a contract that essentially creates a new exchange for each ERC20. These contracts will always hold a reserve of ETH and the associated token. Trades between two tokens are then facilitated by using ETH as an intermediary — all these contracts are linked together through a registry that keeps track of them. The uniswap_factory contract accomplishes both of these tasks — it acts as both a factory and a registry. Users can use the public createExchange() function to deploy an exchange contract for a new ERC20.
+Traditionally, on centralized exchanges, users choose to make markets by providing liquidity at various price points that they would be satisfied in getting / paying — so they become market makers either on the buy side, the sell side, or both. The collection of orders from all traders that do this makes up the order book. On Uniswap however, liquidity is pooled together — on both sides of the trade. The markets are then made according to an algorithm. A feature of Uniswap that stands out — is the fact that it cannot run out of liquidity. Granted, a promise that sounds so far fetched cannot come without trade-offs. The trick that the Uniswap algorithm uses, involves increasing coin prices by an asymptotic function of the desired quantity. Basically, the more tokens you want on a single trade — the more you’re going to pay for them, hence the trade-off. No longer will whales be able to make huge trades, but at the same time — the system is always going to have liquidity — trades will 
+<strong>always</strong>
+ get completed.</p>
+<h4 id="whats-in-it-for-the-liquidity-providers">What’s in it for the liquidity providers?<a class="headerlink" href="#whats-in-it-for-the-liquidity-providers" title="Permanent link"></a></h4>
+<p>When providing liquidity to an exchange, this cannot happen on just one side of the pair — this would shift the ratio that essentially gives the token price (x token / y ETH = price) and with this change the provider will lose money through arbitrage.
+After adding equally valued amounts of both ETH and token to the exchange contract for said token, the provider is issued what are called liquidity tokens. These tokens essentially represent shares in the liquidity pool (provide 10% of the total liquidity of that pool — receive tokens that entitle you to 10% of the pool). These are simply records that tell how much liquidity providers are owed. Adding or removing liquidity, mints or burns liquidity tokens such that the relative share of the pool stays constant for everyone.
+These were the hows, now onto the whys. The incentive to provide liquidity comes from the fact that for all trades, fees are paid. These fees go back into the liquidity pool so that even though providers are always entitled to the same percent of the liquidity pool, that percent is now worth more. There are no platform fees, only these swapping fees.</p>
+<h4 id="fee-structure">Fee Structure<a class="headerlink" href="#fee-structure" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p><strong>ETH to ERC20 trades</strong> </p>
+</li>
+<li>
+<p>0.3% fee paid in ETH</p>
+</li>
+</ul>
+<p><strong>2. ERC20 to ETH trades</strong></p>
+<ul>
+<li>0.3% fee paid in ERC20 tokens</li>
+</ul>
+<p><strong>3. ERC20 to ERC20 trades</strong></p>
+<ul>
+<li>
+<p>0.3% fee paid in ERC20 tokens for ERC20 to ETH swap on input exchange</p>
+</li>
+<li>
+<p>0.3% fee paid in ETH for ETH to ERC20 swap on output exchange</p>
+</li>
+<li>
+<p>Effectively 0.5991% fee on input ERC20</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRh3YV68jx3VE4NxXcdqsrmm7vH9PaGqHvgqrYYMg2yBP" /></p>
+<p>This chart shows liquidity providers for each token. The Each color represents a token, each rectangle — a provider. The size of each rectangle is proportional to the amount of liquidity provided. The 2 biggest tokens on the left (green and gold) are DAI and MKR — apparently the most popular pairs.</p>
+<h3 id="prediction-market-augur">Prediction Market: Augur<a class="headerlink" href="#prediction-market-augur" title="Permanent link"></a></h3>
+<p>Augur is a protocol that allows users to create prediction markets. These allow speculators to essentially bet on the outcomes of future events. These markets aggregate the predictions of participants and incentivize them to contribute to the 
+<a href="https://en.wikipedia.org/wiki/Wisdom_of_the_crowd">pool of wisdom</a>
+ by rewarding those who are eventually proven to be right.
+The markets follow a four stage process: creation, trading, reporting and settlement. Trading begins immediately after creation, and once the event occurs and its outcome is determined, users can close their positions and withdraw their payouts.</p>
+<h4 id="market-creation">Market Creation<a class="headerlink" href="#market-creation" title="Permanent link"></a></h4>
+<p>Anyone can create a market regarding a future event. The creator sets event end times and designates the reporter that will report the outcome of the event (Anyone reported outcome can be disputed by the community, in case the report is considered to be wrong). The creator also chooses a resolution source — this should be used to determine the outcome (can be almost any source). The fees that will be paid by those who settle the market to the creator are also decided.
+Lastly the creator posts 2 bonds: the validity (paid for in ETH and refunded if the market doesn’t settle as invalid — it’s set based on the amount of recent invalid results and acts as an incentive for creators to only open unambiguous markets) and the no-show bond (paid in REP — it is returned to the creator only if the designated reporter submits the report during a 3 day period — it incentivizes the choosing of reliable reporters so that markets are resolved quickly).</p>
+<h4 id="trading">Trading<a class="headerlink" href="#trading" title="Permanent link"></a></h4>
+<p>The outcomes of events are traded by means of shares in that outcome. When users buy shares for a possible outcome for a market, they essentially bet ETH on one outcome or the other, after which Augur’s matching engine creates a complete set of shares that consists of one share of each possible outcome.
+An order book is maintained for all of the markets created, and orders can be created or filled at any time and for any market. This may involve trading with other users, or the creation of new sets of shares. Traders set a minimum price for their orders and if it cannot be filled in full, it is at least partially filled, with the rest placed again as a new order.
+All the assets mentioned — Augur markets, shares in outcomes, participation tokens, shares in dispute bonds — are tradable and transferable at any time.</p>
+<h4 id="reporting">Reporting<a class="headerlink" href="#reporting" title="Permanent link"></a></h4>
+<p>Once the event that the market was created to predict occurs — it’s outcome determines the market to finalize and for settlement to begin. Oracles that are motivated by profit act as reporters and relate the real world outcome of the events. REP holders may participate in the reporting and eventual disputing of outcomes.</p>
+<h4 id="market-settlement">Market Settlement<a class="headerlink" href="#market-settlement" title="Permanent link"></a></h4>
+<p>Traders exit their positions by either selling their shares to others or by settling with the market.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNrrZQrTjTVUwK5RDvWbAKv87SsujgGycS2AcszPWDKGA" /></p>
+<p>When creating a market, users can specify a description, and also some tags to help describe the scope of that market. The chart above is a word cloud built from the Augur market tags used so far. 
+<em>(They were extracted and decoded from the data field of the topics that the Augur smart contract generated when the create market event is fired)</em>
+ .</p>
+<h3 id="user-overlap-analysis-maker-compound">User overlap analysis — Maker &amp; Compound<a class="headerlink" href="#user-overlap-analysis-maker-compound" title="Permanent link"></a></h3>
+<p>From what we’ve shown so far, the only 2 protocols that share a market (check the first chart, bottom right corner — Credit &amp; Lending) are Maker and Compound. They also happen to be the 2 biggest protocols to date (granted, Maker is an order of magnitude larger). Thus, it would make sense to take a look at their user bases.
+For Maker, this would be made up of those who opened CDPs, and for Compound by both the suppliers and borrowers, as these 2 categories are equally important to the platform. Whereas in Maker, those who lock ETH (CDP openers) usually also borrow DAI, in Compound, you can either be a supplier, a borrower, or both.</p>
+<p><strong>475 unique borrowers for Compound (2,549 borrows)</strong></p>
+<ul>
+<li>
+<p>230 users with 1 borrow</p>
+</li>
+<li>
+<p>136 users with 1 to 5 borrows</p>
+</li>
+<li>
+<p>54 users with 5 to 10 borrows</p>
+</li>
+<li>
+<p>55 users with 10 or more borrows (7 of which have more than 50, and the max being 171)</p>
+</li>
+</ul>
+<p><strong>3,116 unique suppliers for Compound (10,956 supply actions)</strong></p>
+<ul>
+<li>
+<p>1,527 users with 1 supply</p>
+</li>
+<li>
+<p>1,133 users with 1 to 5 supplies</p>
+</li>
+<li>
+<p>338 users with 5 to 10 supplies</p>
+</li>
+<li>
+<p>199 users with 10 or more supplies (4 of which with over 100, and the max at 160)</p>
+</li>
+</ul>
+<p><strong>7,518 unique CDP openers on Maker (16,848 CDP opens)</strong></p>
+<ul>
+<li>
+<p>6,308 users with 1 CDP</p>
+</li>
+<li>
+<p>1091 users with 1 to 5 CDPs</p>
+</li>
+<li>
+<p>91 users with 5 to 10 CDPs</p>
+</li>
+<li>
+<p>28 users with 10 or more CDPs (2 of which have more than 1,000 CDPs — 1360 and 4,893 respectively)
+From the total of 30,353 actions in total (which will correspond to the edges in the next graph, but since there is no point in keeping them all as they’ll only clutter the graph, only 11,109 are included — one between each of the unique nodes), there are 9,539 unique addresses (these will be the nodes).</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYrtW18oSQQzG6UsU4YFzMUpALGNhkjPqXAJFN34QbsjG" /></p>
+<p>At a glance, we notice the size difference between the 2 platforms, a large group of addresses in between them (and other smaller ones towards one or the other) as well as some rings formed around the nodes representing Maker and Compound. Let’s describe what these groups are, to help better understand what the chart can tell us. First, it would help to think of the Maker and Compound nodes as having a sort of ‘gravity’. The closer a node is to them, the more interactions it had.
+The large group in the middle: around 775 addresses that interacted with both protocols in equal or close to equal amounts (1–2 interactions with each).
+Each of the smaller groups formed to either side of this one are addresses that interacted with both protocols, but gravitated towards one by having more interactions with it. The closer the groups are to one platform or the other, the more interactions this means it had with it. For example, the small red-ish nodes we see really close to Maker — these are users that opened a lot of CDPs (close to 10 or more) , and only had 1 interaction with Compound.
+Similar interpretations can be given to the users that bundled in halos around the platform nodes. The outermost circle — 1 interaction. Move 1 step closer — 2 interactions, and so on. Same goes for the ones we mentioned earlier as being the users with the most interactions. For example the address that opened 4,893 CDPs 
+<strong>(more than 1/4 of the total CDPs opened can be attributed to 1/7518 of the users, with almost 1/2 being opened by 3/1000 of users!)</strong>
+ can be seen as overlapping the Maker node (hard to see in this picture, but zoom in and you can just make it out near the ‘k’) .
+All in all, if we sum up the addresses that were unique for each of the actions we looked at (again, supply &amp; borrow for Compound, and CDP open for Maker) we would end up with 11,109 users. Unique addresses between them — 9,539. This would leave us with 1,570 addresses that were common between them. Percentage wise — we can say that 43% of the users that interacted with Compound also opened CDPs on Maker at some point. Similarly, 20% of those who opened CDPs on the Maker platform, also supplied or borrowed tokens to/from Compound.</p>
+<p><em>Disclaimer: Alethio has no preference or prejudice towards any of the projects mentioned above. The range of protocols discussed is limited and we will keep working on adding more in the list to achieve a more holistic view. Alethio has a strong commitment to staying neutral by providing facts and best judgments based on objective and/or verified information. This article should never be used as a guide for any malicious practice or trading suggestion.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The DeFi Series — An overview of the ecosystem and major protocols</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-defi-series-an-overview-of-the-ecosystem-and-m/c4a236b658874fb78cff95a73e54a587/a</li>
+<li><strong>Kauri original author:</strong> null (@null)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-25</li>
+<li><strong>Kauri original tags:</strong> ethereum, blockchain, makerdao, defi, decentralized-finance</li>
+<li><strong>Kauri original hash:</strong> QmUDGT11RGrA6ho65W31QAWxwugqoKQsJFiVLNNwoYui3F</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../making-a-url-shortener-on-ethereum-blockchain/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../making-a-url-shortener-on-ethereum-blockchain/" class="btn btn-xs btn-link">
+        Making a URL shortener on Ethereum Blockchain ⛓
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sms-blockchain-protocol/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sms-blockchain-protocol/" class="btn btn-xs btn-link">
+        SMS-blockchain-protocol
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/the-defi-series-an-overview-of-the-ecosystem-and-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

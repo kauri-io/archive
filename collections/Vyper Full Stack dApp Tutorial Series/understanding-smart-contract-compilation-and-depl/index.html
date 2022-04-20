@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/understanding-smart-contract-compilation-and-depl/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Understanding smart contract compilation and deployment - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Understanding smart contract compilation and deployment", url: "#_top", children: [
+              {title: "Understanding smart contract compilation and deployment", url: "#understanding-smart-contract-compilation-and-deployment_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="understanding-smart-contract-compilation-and-deployment">Understanding smart contract compilation and deployment<a class="headerlink" href="#understanding-smart-contract-compilation-and-deployment" title="Permanent link"></a></h1>
+<h2 id="understanding-smart-contract-compilation-and-deployment_1">Understanding smart contract compilation and deployment<a class="headerlink" href="#understanding-smart-contract-compilation-and-deployment_1" title="Permanent link"></a></h2>
+<p>As discussed earlier in the series, when developing dapp and writing smart contracts, there are many repetitive tasks you will undertake. These include compiling source code, generating ABIs, testing, and deployment.</p>
+<p>Development frameworks hide the complexity of these tasks and enable you as a developer to focus on developing your idea.</p>
+<p>Before we take a look at frameworks such as <a href="https://truffleframework.com/">truffle</a>, <a href="https://embark.status.im/">embark</a> and <a href="https://github.com/ethereum/populus">populous</a>, let's take a detour and have a look at the tasks performed and hidden by these frameworks. Understanding whats happening under the hood is useful when you run into issues or bugs with these frameworks.</p>
+<p>This article walks you through how to manually compile and deploy your <em>Bounties.vy</em> smart contract from the command line, to a local development blockchain.</p>
+<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h3>
+<p>Before deployment, we need to encode a smart contract needs into EVM friendly binary called bytecode, much like a compiled Java class. The following steps typically need to take place before deploying a contract:</p>
+<ol>
+<li>Smart contract is written in a human friendly language (e.g Vyper). For this article, the <a href="https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy">Bounties.vy</a> file contract</li>
+<li>The code is compiled into bytecode and a set of function descriptors (Application Binary Interface, known as ABI) by a compiler (e.g Vyper)</li>
+<li>The bytecode is packed with other parameters into a transaction</li>
+<li>The transaction is signed by the account deploying the contract</li>
+<li>The signed transaction is sent to the blockchain and mined</li>
+</ol>
+<h3 id="vyper-compiler">Vyper Compiler<a class="headerlink" href="#vyper-compiler" title="Permanent link"></a></h3>
+<p>To compile Vyper we need to use the Vyper compiler. Typically frameworks such as <a href="https://truffleframework.com/">truffle</a>, <a href="https://embark.status.im/">embark</a> and <a href="https://github.com/ethereum/populus">populous</a> come with a version of Vyper preconfigured, since we are compiling without a framework, we need to install Vyper manually.</p>
+<h4 id="installing-vyper">Installing Vyper<a class="headerlink" href="#installing-vyper" title="Permanent link"></a></h4>
+<h5 id="using-pip">Using pip<a class="headerlink" href="#using-pip" title="Permanent link"></a></h5>
+<pre><code class="language-shell">pip install Vyper
+</code></pre>
+<h5 id="installing-jq">Installing JQ<a class="headerlink" href="#installing-jq" title="Permanent link"></a></h5>
+<p>To help with processing json content during compilation and deployment, install JQ
+Using homebrew:</p>
+<pre><code class="language-shell">brew install jq
+</code></pre>
+<p>Or on ubuntu:</p>
+<pre><code class="language-shell">sudo apt-get install jq
+</code></pre>
+<p><a href="https://stedolan.github.io/jq/download/">Read more about installing jq</a></p>
+<h4 id="compiling-vyper">Compiling Vyper<a class="headerlink" href="#compiling-vyper" title="Permanent link"></a></h4>
+<p>Once we've installed Vyper we can now compile our smart contract. Here we want to generate</p>
+<ul>
+<li>The bytecode (binary) to deploy to the blockchain</li>
+<li>The ABI (Application Binary Interface) which tells us how to interact with the deployed contract</li>
+</ul>
+<p>Let's setup our directory to work from and copy the <em>Bounties.vy</em> smart contract</p>
+<pre><code class="language-shell">mkdir dapp-series-bounties
+cd dapp-series-bounties
+touch Bounties.vy
+</code></pre>
+<p>Now copy the contents of <a href="https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy">Bounties.vy</a> into the file.</p>
+<p>And compile it:</p>
+<pre><code class="language-shell">vyper -f json Bounties.vy
+</code></pre>
+<p>This command tells the compiler to combine both the abi and binary output into one json file, <em>Bounties.json</em>. To get the abi from the Vyper contract, use</p>
+<pre><code class="language-shell">vyper -f abi Bounties.vy
+</code></pre>
+<p>We can view the output using jq:</p>
+<pre><code class="language-shell">$ cat Bounties.json| jq
+
+[
+  {
+    &quot;name&quot;: &quot;BountyIssued&quot;,
+    &quot;inputs&quot;: [
+      {
+        &quot;type&quot;: &quot;int128&quot;,
+        &quot;name&quot;: &quot;_id&quot;,
+        &quot;indexed&quot;: false
+      },
+      {
+        &quot;type&quot;: &quot;address&quot;,
+        &quot;name&quot;: &quot;_issuer&quot;,
+        &quot;indexed&quot;: true
+      },
+      {
+        &quot;type&quot;: &quot;uint256&quot;,
+        &quot;name&quot;: &quot;_amount&quot;,
+        &quot;indexed&quot;: false,
+        &quot;unit&quot;: &quot;wei&quot;
+      },
+      {
+        &quot;type&quot;: &quot;bytes32&quot;,
+        &quot;name&quot;: &quot;data&quot;,
+        &quot;indexed&quot;: false
+      }
+    ],
+    &quot;anonymous&quot;: false,
+    &quot;type&quot;: &quot;event&quot;
+  },...]
+</code></pre>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<p>Now its time to deploy our smart contract!</p>
+<p>The command <code>vyper Bounties.vy</code> returns the contract's bytecode which you can use to deploy through mist, geth or with myetherwallet.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<!-- TODO: Update -->
+
+<ul>
+<li>Read the next guide: <a href="https://kauri.io/article/1ac9d10358b94945b06b9c893cd5bfcf/v1/truffle:-smart-contract-compilation-and-deployment">Truffle: Smart Contract Compilation &amp; Deployment</a></li>
+<li>Learn more about the Truffle suite of tools from the <a href="https://truffleframework.com/">website</a></li>
+</ul>
+<blockquote>
+<p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</p>
+<p>If you have found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right hand menu, and/or <a href="https://github.com/iamonuwa/Bounties">update the code</a></p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Understanding smart contract compilation and deployment</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/understanding-smart-contract-compilation-and-deplo/195c5784663e4963b16d914900ba5cf5/a</li>
+<li><strong>Kauri original author:</strong> Onuwa Nnachi Isaac (@iamonuwa)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-29</li>
+<li><strong>Kauri original tags:</strong> smart-contract, deploy</li>
+<li><strong>Kauri original hash:</strong> QmWShCxtRnjsxosAovaZStP8zvxxTA7sPf9hRLArchpThr</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-link">
+        Truffle  Smart Contract Compilation & Deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../remix-ide-your-first-vyper-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../remix-ide-your-first-vyper-smart-contract/" class="btn btn-xs btn-link">
+        Remix IDE - Your first Vyper smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Vyper Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

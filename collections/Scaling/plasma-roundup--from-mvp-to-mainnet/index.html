@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/plasma-roundup--from-mvp-to-mainnet/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Plasma Roundup  From MVP to Mainnet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Plasma Roundup  From MVP to Mainnet", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "FourthState Labs", url: "#fourthstate-labs" },
+              {title: "OmiseGO", url: "#omisego" },
+              {title: "Kyokan", url: "#kyokan" },
+              {title: "Plasma Group", url: "#plasma-group" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="plasma-roundup-from-mvp-to-mainnet">Plasma Roundup  From MVP to Mainnet<a class="headerlink" href="#plasma-roundup-from-mvp-to-mainnet" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTtmFGAtW4xAJCsn26ZA5pKQZiVY2GevQnKFm9dWvVUwR" /></p>
+<p>Ethereum second layer scaling technology has come a long way in a short period of time. Second layer solutions, innovations beyond the layer one protocol level, include State Channels, Side Chains, and Plasma. Taken together, layer two technologies present a wide scope of possibility for scaling the Ethereum blockchain.</p>
+<p>In August 2017, Plasma creators Joseph Poon and Vitalik Buterin <a href="https://plasma.io/plasma.pdf">proposed this framework</a> for scaling Ethereum transaction throughput to a "significant amount of state updates per second," potentially more than Paypal, Visa or other widely used merchant service providers.</p>
+<p>Aside from offering comparable, if not more, transactions per second, Plasma stakes its security in the value of Ethereum’s decentralized mainchain rather than in centralized merchant services.</p>
+<p>The current promise of Plasma lays in its potential to help scale blockchain technology by processing a substantial amount of decentralized financial applications worldwide.</p>
+<p>In January 2018, Vitalik posted the <a href="https://ethresear.ch/t/minimal-viable-plasma/426">“Minimal Viable Plasma” (MVP) specification to the Ethereum Research Forums</a>. The specification was designed to offer simplicity and basic security properties to kickstart development. Teams immediately began building their implementations.</p>
+<p>This overview is not meant to be exhaustive. Instead, by highlighting in progress implementations, it aims to be indicative of the progress that Plasma has made over the past year.</p>
+<p>Although none of the Plasma models reviewed here are production ready, they show that the technology is not just theory. Taken together, the implementations suggest that Plasma is moving rapidly toward realizing the scaling potential that its creators and implementers envision.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>For most of these projects you need <a href="https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts">Truffle</a>, <a href="https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b/v1/truffle-101-development-tools-for-smart-contracts">Ganache</a> and <a href="https://www.npmjs.com">npm</a> installed.</p>
+<h3 id="fourthstate-labs">FourthState Labs<a class="headerlink" href="#fourthstate-labs" title="Permanent link"></a></h3>
+<p>Among the earliest Plasma implementations was <a href="https://github.com/FourthState/plasma-mvp-rootchain">FourthState Labs</a>, whose design includes a rootchain contract according to the Plasma MVP. This rootchain, which other projects have also incorporated, is a series of Solidity smart contracts. This implementation may be an excellent place to start if you are considering building your own Plasma chain. It is designed to maintain a mapping from block number to merkle root, processing deposits, withdrawals and resolving transaction disputes. FourthState has written tests that emulate running these features which you can run by following these steps:</p>
+<pre><code class="language-shell">git clone https://github.com/fourthstate/plasma-mvp-rootchain
+cd plasma-mvp-rootchain
+npm install
+ganache-cli // In seperate terminal window
+npm test
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbDKcmsdeVqnY3abxsJAAnJakrP3bFeFgwKNL6A4oCATX" /></p>
+<h3 id="omisego">OmiseGO<a class="headerlink" href="#omisego" title="Permanent link"></a></h3>
+<p>Other notable early MVPs include <a href="https://github.com/omisego/plasma-contracts">OmiseGO's implementation</a>. OmiseGO aspires to enable financial inclusion and interoperability through a public, decentralized OMG network. A key component of this network is Plasma. OMG's implementation has a root chain, child chain and a client to interact with the Plasma chain, and is different from the MVP specification. For instance, OMG has added protection against the threat of chain re-organization (which can result from 51% attacks). Among other additions, it has built-in support for ERC20 token handling.</p>
+<p>You can run the tests that emulate running the implementation with the following commands:</p>
+<pre><code class="language-shell">git clone https://github.com/omisego/plasma-contracts
+cd plasma-contracts
+make init
+make dev
+make test
+</code></pre>
+<h3 id="kyokan">Kyokan<a class="headerlink" href="#kyokan" title="Permanent link"></a></h3>
+<p>Making the significant jump from MVP to mainnet is <a href="https://github.com/kyokan/plasma">Kyokan</a>. Kyokan is a Golang implementation <a href="https://kauri.io/article/7f9e1c04f3964016806becc33003bdf3/v4/minimum-viable-plasma-the-kyokan-implementation">extending the original MVP specification</a>. Their architecture uses the FourthState rootchain contract from above and includes root nodes to process transactions and package them into blocks, broadcast blocks to validator nodes, process exits and more. The team has been working steadily since March 2018 to build a production-ready Plasma implementation.</p>
+<p>Last month, Kyokan announced that they had achieved <a href="https://medium.com/kyokan-llc/announcing-our-plasma-mvp-alpha-23a8bc9673fc">two critical milestones on the way to that goal</a>: the launch of their MVP mainnet alpha (capable of an initial 1,000 transactions per second) and the completion of their security audit. To help test how their implementation behaves now that they have released it into the wild, Kyokan has launched a game of Capture the Flag, inviting people to break the system and keep the funds, "just let us know how you did it so that the rest of the community can benefit." Successful denial of service attacks and attacks that lead to a loss of funds in <a href="https://etherscan.io/address/0x0cdd78c34a4305234898864c1daccdbb326a520d">the smart contract</a> will also be paid $1,000.</p>
+<p>While Plasma’s arrival on mainnnet is a notable milestone, the technology’s evolution needs more work and time before it is ready for mass adoption.</p>
+<p>It's possible to test and run all the component infrastructure Kyokan needs, but you may run into various dependency and build issues. However, if you get past those, you have the chance to test a mostly functional Plasma implementation. <a href="https://github.com/kyokan/plasma#local-development-installation-and-setup">Find full instructions in the project read me</a>.</p>
+<h3 id="plasma-group">Plasma Group<a class="headerlink" href="#plasma-group" title="Permanent link"></a></h3>
+<p>At the end of 2018, the <a href="https://plasma.group/">Plasma Group</a> <a href="https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf">announced the release of their implementation</a> aimed at the greater Ethereum community. It includes a Plasma chain operator, a client and command line wallet, support for ERC20 tokens, a block explorer, transaction load testing and more. While their implementation includes properties such as scalable light client proofs and the possibility for interchain atomic swaps, the group has moved quickly to offer a <a href="https://medium.com/plasma-group/towards-a-general-purpose-plasma-f1cc4d49c1f4">general purpose plasma design</a>. This general purpose design aims to overcome constraints in old design patterns which were not upgradeable nor generalizable.</p>
+<p>The purpose is to create a Plasma design space that allows the development of applications on a Plasma chain in the same way that developers build dapps on the Ethereum blockchain. Hence the Plasma Group has recently offered Plasma apps, special types of smart contracts called ‘<a href="https://github.com/plasma-group/plasma-predicates">predicate contracts</a>’ which are deployed to Ethereum, where users can interact with the contract, and the Plasma chain carries out the computation where it is less expensive than if it were to occur on the Ethereum main chain.</p>
+<p>To spin up Plasma Group's block explorer, do the following:</p>
+<pre><code class="language-shell">git clone https://github.com/plasma-group/plasma-explorer
+cd plasma-explorer
+npm install
+npm run serve
+</code></pre>
+<p>View the local block explorer at <em><a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></em>. If that does not work you may need to forward traffic from port 80 to port 3000 with this command:</p>
+<pre><code class="language-shell">sudo iptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 3000
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmcq47SvmNBkmTukfridq4f7UwskLSwTe519VvtRwyeQyw" /></p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Overall, Plasma is making great leaps forward, but there are still obstacles to overcome. Implementations need to be audited and tested. With mass adoption and the potential for global application, the stakes are high for these chains which, if all goes according to plan, will be processing a significant number of states per second, each state possibly holding high values. These implementations may suggest that layer two Plasma technology is right around the corner, but careful engineering to protect users and avoid risk takes time.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Plasma Roundup  From MVP to Mainnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/plasma-roundup-from-mvp-to-mainnet/3103de2a3a874f348013b96d157451be/a</li>
+<li><strong>Kauri original author:</strong> Chris Spannos (@chrisspannos)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-09</li>
+<li><strong>Kauri original tags:</strong> scaling, layer-2, plasma</li>
+<li><strong>Kauri original hash:</strong> QmcDQP5QnA7cXD9r4Ch8xyLHxEtMxeFiNaVRQERsbc9pvB</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Kotlin%20%E2%9D%A4%20Web3/egge.gg-instant-payout-esports-tournaments-for-et/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Kotlin%20%E2%9D%A4%20Web3/egge.gg-instant-payout-esports-tournaments-for-et/" class="btn btn-xs btn-link">
+        EGGE.GG Instant Payout eSports Tournaments For ETHDenver2019
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../top-5-ways-to-scale-your-ethereum-blockchain-appl/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../top-5-ways-to-scale-your-ethereum-blockchain-appl/" class="btn btn-xs btn-link">
+        Top 5 ways to scale your Ethereum blockchain application (dApp)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/plasma-roundup--from-mvp-to-mainnet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

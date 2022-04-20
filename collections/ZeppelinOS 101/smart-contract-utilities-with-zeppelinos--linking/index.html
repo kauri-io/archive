@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos--linking/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Installing", url: "#installing" },
+              {title: "Creating our project", url: "#creating-our-project" },
+              {title: "Creating a Contract", url: "#creating-a-contract" },
+              {title: "Publishing", url: "#publishing" },
+              {title: "Vouching", url: "#vouching" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="smart-contract-utilities-with-zeppelinos-linking-publishing-and-vouching">Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching<a class="headerlink" href="#smart-contract-utilities-with-zeppelinos-linking-publishing-and-vouching" title="Permanent link"></a></h1>
+<p>A feature of ZeppelinOS is the ability to link to EVM packages that are already deployed. In this tutorial, we will learn how to link to these packages and publish our own!</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://nodejs.org/en/">Node.js</a></li>
+<li>An understanding of <a href="https://solidity.readthedocs.io/en/v0.5.1/solidity-in-depth.html">Solidity</a> the programming language for smart contracts.</li>
+<li><a href="https://truffleframework.com/truffle">Truffle</a>, a development framework for Ethereum to test and deploy smart contracts.</li>
+<li><a href="https://truffleframework.com/ganache">Ganache</a>, a personal blockchain installed to test and run our smart contracts.</li>
+</ul>
+<h3 id="installing">Installing<a class="headerlink" href="#installing" title="Permanent link"></a></h3>
+<p>After installing Node.js we are now ready to install ZeppelinOS. Using the terminal do the following:</p>
+<p><strong>Note</strong>: For Windows users, I recommend Powershell over Command Prompt.</p>
+<pre><code class="language-shell">npm install -g zos
+</code></pre>
+<p>That's it! We installed ZeppelinOS.</p>
+<p><strong>Note</strong>: <code>zos --help</code> gives you a full list of all ZeppelinOS commands should you require them.</p>
+<h3 id="creating-our-project">Creating our project<a class="headerlink" href="#creating-our-project" title="Permanent link"></a></h3>
+<p>In the directory of your choice, create your project and then change to that directory:</p>
+<pre><code class="language-shell">mkdir first-project
+cd first-project
+</code></pre>
+<p>Now we're going to create our <em>project.json</em> file to store the relevant data for the project. You will see a dialogue of properties to fill in. Fill them in if you wish or press enter to leave as the default.</p>
+<pre><code class="language-shell">npm init
+</code></pre>
+<p>To initialize as a ZeppelinOS project run the following:</p>
+<pre><code class="language-shell">zos init first-project
+</code></pre>
+<p>This command initializes a Truffle config file, two empty folders called <em>contracts</em> and <em>migrations</em>, and a <em>zos.json</em> file which has more information about the project in relation to ZeppelinOS.</p>
+<p>The last step is to download the ZeppelinOS project library.</p>
+<p><strong>Note</strong>: You have to install this library with every project, you can't use it from project to project.</p>
+<pre><code class="language-shell">npm install zos-lib --save
+</code></pre>
+<h3 id="creating-a-contract">Creating a Contract<a class="headerlink" href="#creating-a-contract" title="Permanent link"></a></h3>
+<p>Open your project in a text editor of your choice (I'm using Atom) and create a new file called <em>MyToken.sol</em> under the <em>contracts</em> folder.</p>
+<pre><code>pragma solidity ^0.5.0;
+
+import &quot;openzeppelin-eth/contracts/token/ERC20/ERC20.sol&quot;;
+import &quot;openzeppelin-eth/contracts/token/ERC20/ERC20Detailed.sol&quot;;
+
+contract MyToken {
+  ERC20Detailed private _token;
+
+  function initialize(ERC20Detailed token) external  {
+    _token = token;
+  }
+}
+</code></pre>
+<p><strong>openzeppelin-eth</strong> is an EVM package that is already deployed and it contains the same contracts that OpenZeppelin does. The difference between the two is that OpenZeppelin is not deployed to the network.</p>
+<p>Now let's link our contract to the package:</p>
+<pre><code class="language-shell">zos link openzeppelin-eth
+</code></pre>
+<p>Right now the openzeppelin-eth EVM package has <strong>StandaloneERC20</strong>, <strong>StandaloneERC721</strong>, <strong>TokenVesting</strong>, and <strong>PaymentSplitter</strong> contracts pre-deployed. This means that these are the only contracts you can utilize in the EVM package.</p>
+<p>We are now linked. It's time to compile and add the contract to our project:</p>
+<pre><code class="language-shell">truffle compile
+
+zos add MyToken
+</code></pre>
+<p>Now in a separate terminal run ganache.</p>
+<pre><code class="language-shell">ganache-cli --port 9545 --deterministic
+</code></pre>
+<p>Open your original terminal and start a new session. For the address, you can choose any of the addresses from the ganache window under the "available accounts" section. I'm using the 9th address.</p>
+<pre><code class="language-shell">zos session --network local --from ganache-address-here --expires 3600
+</code></pre>
+<p><strong>Note</strong>: If you get a message at any point saying "A network name must be provided to execute the requested action" it means that our session expired. Run the <code>zos session</code> command from above and try again from where you left off.</p>
+<p>Now push our contract to the local network.</p>
+<pre><code class="language-shell">zos push --deploy-dependencies --network local
+</code></pre>
+<p>It's time to create an instance of our contract and the package we linked using the <strong>StandaloneERC20</strong> contract to create an instance of an ERC20 token.</p>
+<pre><code class="language-shell">zos create MyToken
+
+zos create openzeppelin-eth/StandaloneERC20 --init initialize --args JToken,JTKN,18,100,Juliette,[],[] --network local
+</code></pre>
+<p>The arguments are as follows: name, symbol, decimal, initial supply, initial holder, minters address, and pausers address. We left the last two empty and put "Juliette" instead of an address for who owns the token. You should see output describing what you've initialized.</p>
+<p>The last step is to use the truffle console to connect <strong>MyToken</strong> and <strong>StandalineERC20</strong> together. Open your <em>zos.dev-<network-id>.json</em> file and scroll down to where you see <code>token-project/MyToken</code> and <code>openzeppelin-eth/StandalineERC20</code>. The addresses listed in those sections are the ones you use in the following commands.</p>
+<pre><code class="language-shell">truffle console --network local
+
+myToken = await Mytoken.at('&lt;MyToken-address&gt;')
+&gt; undefined
+
+myToken.initialize('&lt;MyToken-address&gt;')
+</code></pre>
+<p>After this command, there should be a lot of output detailing the transaction.</p>
+<p>That's it! You've linked to an EVM package and deployed it on your local blockchain with the arguments we submitted above and successfully joined our <strong>StandaloneERC20</strong> token contract with our <strong>MyToken</strong> contract.</p>
+<h3 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link"></a></h3>
+<p>We've seen how to deploy, upgrade, and link our smart contracts. Now it's time to learn about publishing. If you've created your own EVM package, you have the option of publishing it to the network for others to use.</p>
+<p><strong>Note</strong>: If you follow the steps in this section of the tutorial you publish your package to the network. If you don't want to do that, use this section as a reference.</p>
+<p>Create your project and initialize it:</p>
+<pre><code class="language-shell">mkdir project-name
+cd project-name
+npm init
+zos init project-name
+</code></pre>
+<p>Within the <em>contracts</em> folder, we create our contract/package. Once finished we use the <code>add</code> command:</p>
+<pre><code class="language-shell">zos add contract-name-here
+</code></pre>
+<p>Then we can push our contract to the network. We have to use a real network, not a local network for it to deploy and be available for others to use.</p>
+<pre><code class="language-shell">zos push --network {network-here}
+</code></pre>
+<p>Replace {network-here} with the network you are going to publish to.</p>
+<p>Next, we edit the <em>package.json</em> file. Add the following to the bottom of the file.</p>
+<pre><code class="language-json">...
+&quot;files&quot;: [
+  &quot;contracts&quot;,
+  &quot;build&quot;,
+  &quot;zos.json&quot;,
+  &quot;zos.*.json&quot;
+]
+</code></pre>
+<p>Before adding this code, make sure that you change the second last bracket to have a comma after it. Your file should look something like this:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;echo \\&quot;Error: no test specified\\&quot; &amp;&amp; exit 1&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;openzeppelin-eth&quot;: &quot;^2.1.3&quot;,
+    &quot;zos-lib&quot;: &quot;^2.1.2&quot;
+  },
+  &quot;files&quot;: [
+    &quot;contracts&quot;,
+    &quot;build&quot;,
+    &quot;zos.json&quot;,
+    &quot;zos.*.json&quot;
+  ]
+}
+</code></pre>
+<p>If you have a <em>zos.dev-"network id".json</em> file you can remove it now because it was specific for your local test network.</p>
+<p>When you're ready:</p>
+<pre><code class="language-shell">npm login
+</code></pre>
+<p>You'll see a prompt to fill in your credentials to create an NPM account such as username, password and email address.
+Once you have an account. The last step is to publish your package to npm.</p>
+<pre><code class="language-shell">npm publish
+</code></pre>
+<p>If any developers ever want to link to your package, they use the following commands:</p>
+<pre><code class="language-shell">zos link your-project-name
+</code></pre>
+<p>That's it! It's easy to publish an EVM package and it's even easier to link to one!</p>
+<h3 id="vouching">Vouching<a class="headerlink" href="#vouching" title="Permanent link"></a></h3>
+<p>Vouching is useful to ensure the authenticity of a package. Anyone can create an EVM package but not all packages are useful or reliable. Vouching provides a way for the user to measure the quality of code. Right now vouching is in its beta stage and the following <a href="https://github.com/zeppelinos/zos/blob/v2.0.0/packages/vouching/contracts/Vouching.sol">contract</a> controls it. The ZEP token is an ERC20 token that will be used to vouch in this process. This is the next feature to be released.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.zeppelinos.org/docs/linking.html">https://docs.zeppelinos.org/docs/linking.html</a></li>
+<li><a href="https://docs.zeppelinos.org/docs/vouching.html">https://docs.zeppelinos.org/docs/vouching.html</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/smart-contract-utilities-with-zeppelinos-linking-p/01f3c20ef0cc4614b4b1a1f9b1927cdb/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-08</li>
+<li><strong>Kauri original tags:</strong> smart-contract, zeppelinos, linking, zeppelin, publishing</li>
+<li><strong>Kauri original hash:</strong> QmVG2do4tE9GYjkwwip83iaWrwn5WbszKQBRE3SYN2Uucx</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../smart-contract-utilities-with-zeppelinos--deployi/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../smart-contract-utilities-with-zeppelinos--deployi/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../smart-contract-utilities-with-zeppelinos--install/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../smart-contract-utilities-with-zeppelinos--install/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Installation and Use
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--linking.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

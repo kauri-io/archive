@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/3box.js--7-use-cases-for-social-dapps/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>3Box.js  7 Use Cases for Social Dapps - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "3Box.js  7 Use Cases for Social Dapps", url: "#_top", children: [
+              {title: "Most decentralized applications are social.", url: "#most-decentralized-applications-are-social" },
+              {title: "Social applications require and generate lots of user data.", url: "#social-applications-require-and-generate-lots-of-user-data" },
+              {title: "Where do we manage social user data in web3?", url: "#where-do-we-manage-social-user-data-in-web3" },
+              {title: "3Box.JS: A Web3 API for Social User Profiles", url: "#3boxjs-a-web3-api-for-social-user-profiles" },
+              {title: "7 Ways to Use 3Box.js in Your Dapp", url: "#7-ways-to-use-3boxjs-in-your-dapp" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="3boxjs-7-use-cases-for-social-dapps">3Box.js  7 Use Cases for Social Dapps<a class="headerlink" href="#3boxjs-7-use-cases-for-social-dapps" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPzN12erYvZtDadCD5ZFyDqeCyfc7qbP246BnP1s56TNG" /></p>
+<p><em>User profiles, onboarding, distributed data storage, encryption, and data sharing are just a few of the ways</em></p>
+<p><a href="https://3box.io">3Box</a></p>
+<p><em>powers next-generation social dapps. This post provides an overview of</em></p>
+<p><a href="https://github.com/3box/3box-js">3Box.js</a></p>
+<p><em>and the use cases it enables.</em></p>
+<h3 id="most-decentralized-applications-are-social">Most decentralized applications are social.<a class="headerlink" href="#most-decentralized-applications-are-social" title="Permanent link"></a></h3>
+<p>Decentralized applications are designed around the premise that users in a trustless context can interact peer-to-peer. The trust needed to support this type of interaction is established primarily in two ways: the 
+<strong>context of the interaction</strong>
+ and the 
+<strong>reputation of the participants</strong>
+ .
+In closed networks, platform operators set the context and enforce user reputation, which makes it easy for users to trust other users. In open networks however, the need for social context is even greater since we can infer very little about other users just by their presence on the network.</p>
+<h3 id="social-applications-require-and-generate-lots-of-user-data">Social applications require and generate lots of user data.<a class="headerlink" href="#social-applications-require-and-generate-lots-of-user-data" title="Permanent link"></a></h3>
+<p>Social applications 
+<em>require</em>
+ user data such as reputation, connections, and matches to create social context for users. Common features of social applications are that they allow users to learn more about the people they’re interacting with, find their friends, and create meaningful relationships — all forms of social context. As users are able to gather more information about their peers, they become more likely to trust and use the application. In this case, 
+<strong>familiarity leads to adoption and usage.</strong></p>
+<p>Social applications also 
+<em>generate</em>
+ large amounts of contextual data as a result of being social. Once users are able to establish relationships and identify each other, they begin to interact more frequently. This produces more and more data on the application, often referred to as user-generated content — like this post, your claps, or comment threads. As users establish more connections and community on these platforms, they generate more content, and as a result, more social context.</p>
+<h3 id="where-do-we-manage-social-user-data-in-web3">Where do we manage social user data in web3?<a class="headerlink" href="#where-do-we-manage-social-user-data-in-web3" title="Permanent link"></a></h3>
+<p>In web2, closed networks operate exclusive servers that store and analyze data produced by users of the network. This centralization of storage and compute makes it very efficient to scale the network, however web2 data servers silo users’ information within each network and strip the user of any ownership and benefit from their data. This closed model makes things like giving users control over their data, and sharing user data between applications, very difficult.</p>
+<blockquote>
+<p>Web3 promises to improve this model by giving users control over their data, yet there are currently no viable production-ready solutions to storing data within the user’s control.</p>
+</blockquote>
+<p>Many developers are storing user data on IPFS and publishing the hash on the blockchain, or storing it on a central server managed by the dapp. Both of these options are poor choices: blockchain storage is expensive, immutable, and provides a limited interface with poor user experience; while centralized storage is web2 all over again and makes it difficult or impossible to build data sharing partnerships.</p>
+<blockquote>
+<p>The fundamental gap to building distributed social applications is a user-centric data storage solution that allows users to generate and manage their social context.</p>
+</blockquote>
+<p>Developers need a place where they can store data with the user, but where their application and other applications can still easily access it when desired. This place should not be on the blockchain, but elsewhere on the distributed web. 
+<strong>3Box provides an</strong></p>
+<p><a href="https://github.com/3box/3box">API for user-centric distributed data storage</a></p>
+<p><strong>.</strong></p>
+<h3 id="3boxjs-a-web3-api-for-social-user-profiles">3Box.JS: A Web3 API for Social User Profiles<a class="headerlink" href="#3boxjs-a-web3-api-for-social-user-profiles" title="Permanent link"></a></h3>
+<p>3Box is a distributed database for Ethereum accounts that allows users to easily store and share public and encrypted information without needing to store any information on the blockchain. The 
+<a href="http://3box.io">3box.io</a>
+ application allows Ethereum users to create a social profile, which they can use to collect data, log into Ethereum applications, and build connections.</p>
+<p><code>3box-js</code>
+ is a JavaScript API that allows applications to integrate with 3Box, allowing them to onboard users and set/get data into 3Box profiles.
+By taking steps to make social context more available to people using Ethereum applications, we can make our users feel more at home on web3. 
+<strong>Once we begin replacing hex identifiers with human-readable profiles consisting of names and images, we can generate social context and welcome a mainstream audience to Web3.</strong></p>
+<p><em>The remainder of this post describes some of the ways that your application can use the 3Box.js library. For more detailed documentation you can always explore our Github repo.</em></p>
+<h3 id="7-ways-to-use-3boxjs-in-your-dapp">7 Ways to Use 3Box.js in Your Dapp<a class="headerlink" href="#7-ways-to-use-3boxjs-in-your-dapp" title="Permanent link"></a></h3>
+<h4 id="1-public-user-profiles">👩‍🚀 1. Public User Profiles<a class="headerlink" href="#1-public-user-profiles" title="Permanent link"></a></h4>
+<p>Wouldn’t it be great if we could replace hex addresses with social user profiles in our dapps? 3Box is a system for social user profiles, and we make it easy to discover other users.
+The 
+<code>getProfile</code>
+ method allows you to 
+<em>get</em>
+ the public profile for one or more ethereum accounts at any time. This allows you to replace hex addresses with user names and images throughout your application, which provides users with a huge amount of social context. 
+<code>getProfile</code>
+ is also useful for onboarding new users, which we will describe in more detail in #3.
+The 
+<code>box.public.set()</code>
+ and 
+<code>box.public.get()</code>
+ methods allow you to 
+<em>set</em>
+ and 
+<em>get</em>
+ data in the public profile. For example, you might store community or group affiliations in the public profile.</p>
+<h4 id="2-private-encrypted-storage">🔐 2. Private Encrypted Storage<a class="headerlink" href="#2-private-encrypted-storage" title="Permanent link"></a></h4>
+<p>3Box provides encryption to Ethereum users. This powerful functionality enables users and apps to store and exchange private information. This information will only ever be able to be read by those approved by the user. Encryption is not not currently supported by standard Ethereum wallets, but we can enable it which brings on a whole new set of Ethereum use cases.
+The 
+<code>box.private.set()</code>
+ and 
+<code>box.private.get()</code>
+ methods allow you to 
+<em>set</em>
+ and 
+<em>get</em>
+ private encrypted data in 3Box. For example, you might store a private image in the user’s private profile.</p>
+<h4 id="3-user-onboarding">👋 3. User Onboarding<a class="headerlink" href="#3-user-onboarding" title="Permanent link"></a></h4>
+<p>As an outcome of having #1 and #2 above, apps can easily onboard new users to their dapp by calling 
+<code>getProfile</code>
+ , 
+<code>box.public.get()</code>
+ , and 
+<code>box.private.get()</code>
+ for public and private information. One nice thing about this system is that users can share all of their information with an application that requests it with one click, making filling out forms and sharing information a simplified experience.</p>
+<h4 id="4-decentralized-messaging-or-public-key-infrastructure-pki">✅ 4. Decentralized Messaging or Public Key Infrastructure (PKI)<a class="headerlink" href="#4-decentralized-messaging-or-public-key-infrastructure-pki" title="Permanent link"></a></h4>
+<p>Applications can store public user communication keys and other verifiable information in 3Box and other users and applications can verify messages or claims against the user’s 3Box profile. This allows 3Box to act as a user’s very own decentralized public key infrastructure, making it trivial to implement encrypted messaging systems or verifiable identity credentials using 3Box.</p>
+<h4 id="5-distributed-user-content-storage-and-management">📁 5. Distributed User Content Storage and Management<a class="headerlink" href="#5-distributed-user-content-storage-and-management" title="Permanent link"></a></h4>
+<p>You might also think about using 3Box as a generalized way to store and keep track of user generated content without needing to store the content hashes on the blockchain; these hashes would instead be kept with the user in either the public or private profile. These bits of content can represent everything from tweets and peeps, to videos and likes. All you need is the hash of an IPFS object and you can store it in 3Box: be creative!</p>
+<h4 id="6-sharing-data-between-apps">🎁 6. Sharing Data Between Apps<a class="headerlink" href="#6-sharing-data-between-apps" title="Permanent link"></a></h4>
+<p>One of the benefits of storing data with the user ( free of silos) is that the data becomes more portable and interoperable wherever the user goes. This data can be shared with anyone or any application that calls 
+<code>getProfile</code>
+ , 
+<code>box.public.get()</code>
+ , or 
+<code>box.private.get()</code>
+ .</p>
+<h4 id="7-shared-reputation-systems">⭐ 7. Shared Reputation Systems<a class="headerlink" href="#7-shared-reputation-systems" title="Permanent link"></a></h4>
+<p>One of the most obvious use cases for sharing data between applications is building shared reputation systems. We are certain that these will emerge as the decentralized application ecosystem matures and we need better and more sophisticated ways to provide context to our users. 3Box is the obvious place to store most of this data in an off-chain, distributed manner, with the user.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>We believe these features will make it easy to build the next generation of more social apps on Ethereum, and contribute to making web3 a more safe and familiar place for our users and communities.
+This is only the starting point to what can be built using 
+<code>3box-js</code>
+ , and we hope this list excites your imagination! We invite you to 
+<a href="https://discord.gg/bevMe7w">join our discord</a>
+ and share your ideas.
+For more technical information on 3Box.js, visit our Github at 
+<a href="https://github.com/3box/3box-js">github.com/3box/3box-js</a>
+ , or read one of our 
+<a href="https://medium.com/3box">previous posts</a>
+ .</p>
+<p><em>3Box provides social infrastructure for web3. Integrate 3Box.js to instantly make your dapp more scalable, social, and human. Visit our site at</em></p>
+<p><a href="https://3box.io">3box.io</a></p>
+<p><em>to create your profile, or our Github at</em></p>
+<p><a href="https://github.com/3box/3box">github.com/3box/3box</a></p>
+<p><em>to dig into the code. Join our</em></p>
+<p><a href="https://discord.gg/VrrMqfy">discord</a></p>
+<p><em>to chat and say hi!</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNMSqWAKfHKJbiG7PW4hRArhJobPFFsFbixa1C5w6bHB6" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> 3Box.js  7 Use Cases for Social Dapps</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/3boxjs-7-use-cases-for-social-dapps/ba17ec11c71a4a1b918ca030b4f09e4d/a</li>
+<li><strong>Kauri original author:</strong> Danny Zuckerman (@dazuck)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-14</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmZXm2pihn7mxMuGSdwWV75rpfsm3N3ajdm9SDmdQARyrL</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../transactions-with-a-button-click-event-using-ethj/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../transactions-with-a-button-click-event-using-ethj/" class="btn btn-xs btn-link">
+        Transactions With a Button Click Event using EthJs
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-chast-1-chto-takoe-ethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-chast-1-chto-takoe-ethereum/" class="btn btn-xs btn-link">
+        Ethereum 101 - Часть 1 - Что такое Ethereum?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/3box.js--7-use-cases-for-social-dapps.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

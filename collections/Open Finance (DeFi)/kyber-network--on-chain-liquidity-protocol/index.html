@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/kyber-network--on-chain-liquidity-protocol/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Kyber Network  On-chain liquidity protocol - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Kyber Network  On-chain liquidity protocol", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="kyber-network-on-chain-liquidity-protocol">Kyber Network  On-chain liquidity protocol<a class="headerlink" href="#kyber-network-on-chain-liquidity-protocol" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYqAaxo5NRF6SohUPVkqxsARb18tBnLAMZUtoMYkC1biw" /></p>
+<blockquote>
+<p>Kyber Network builds a liquidity pool of tokens to facilitate token swaps. Different parties, including Kyber itself, maintain their own pools called reserves. Each reserve is a smart contract that is controlled by reserve admin who deployed it. Reserves vary in supported tokens, liquidity and conversion prices. When a user wants to exchange one token for another, Kyber scans all reserves to pick the cheapest one.</p>
+</blockquote>
+<p><em>This article originally appeared on the <a href="https://developer.kyber.network/docs/Start/">Kyber Developer</a> site</em></p>
+<p>Kyber is building an on-chain liquidity protocol that allows open contribution of liquidity from token holders. Our protocol enables a whole new class of decentralized applications, including <a href="https://developer.kyber.network/docs/VendorsUseCase/">payments in multiple tokens</a>, <a href="https://developer.kyber.network/docs/DappsUseCase/">transparent portfolio rebalancing</a>, <a href="https://developer.kyber.network/docs/WalletsUseCase/">in-wallet token swap</a> and many more.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmS3Pq31WhoQhDQTLdQoAC7B3GZeaVRFaBF86am51UsjeP" /></p>
+<p>Kyber's design offers 3 important properties that are essential to consumer facing applications.</p>
+<ul>
+<li>Instant confirmation. A transaction happens with instant confirmation if it's sent from on-chain entities like smart contracts. Otherwise, once the transaction is included on the blockchain, the execution triggered by the transaction is immediately confirmed.</li>
+<li>Operation certainty, There are no transactional risks. Users know the rate and how much liquidity is available before they commit their transaction. There is no settlement uncertainty or counterparty risk.</li>
+<li>Global and diverse pool of different tokens. Kyber welcomes token holders to contribute their token to the liquidity pool. By having their token made available to the liquidity pool, the token will be available in all services integrated with the Kyber protocol.</li>
+</ul>
+<p>Our design principle is to focus on the ease of integration, security and transparency for both liquidity providers (i.e. reserves) and projects that want to tap into the liquidity pool to utilise it for their own needs. The protocol is powered by Ethereum smart contract and runs entirely on-chain. Reserves also keep and contribute liquidity for their token via smart contracts that they control (source code prepared, tested and provided by us). At no point does Kyber control the funds of our users hence, users' funds will not be affected even in hacking incidents. All operations that occur on the Kyber protocol can be publicly verified on the blockchain.</p>
+<p>To integrate with the Kyber protocol is as simple as initiating a transaction or message call to our smart contracts via the public APIs. This makes the integration to on-chain entities like smart contracts seamless and hassle-free, compared to other off-chain or hybrid solutions. In addition, there is no trusted third party introduced in the integration process.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUmwbtw7KMny7j2w24vQErx1espxhjRmV1ZH9qsb8pcGv" /></p>
+<p>At Kyber, we believe in working together with other players in the ecosystem so we built the Kyber protocol to be application agnostic. Hence, allowing developers to create their own unique applications but still be able to easily leverage our liquidity pool by interacting with the Kyber protocol.</p>
+<p>The details about the Kyber protocol specifications and integration guides are available on this website. Should you have any question, feel free to join our telegram group at https://t.me/KyberDeveloper or shoot us an email at hello@kyber.network.</p>
+<p>Happy building!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Kyber Network  On-chain liquidity protocol</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/kyber-network-onchain-liquidity-protocol/9f81242a0dac4e0d91807f30312f0d0e/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-08</li>
+<li><strong>Kauri original tags:</strong> dex, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmQ6GhCohBk112NHZTvucRTuSmkoe26rg4sa8ZcrqatCrz</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../compound--money-markets-on-ethereum/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../compound--money-markets-on-ethereum/" class="btn btn-xs btn-link">
+        Compound  Money markets on Ethereum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Privacy/a-beginner-s-guide-to-monero/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Privacy/a-beginner-s-guide-to-monero/" class="btn btn-xs btn-link">
+        A beginner’s guide to Monero
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/kyber-network--on-chain-liquidity-protocol.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-google-cloud/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Deploying a full-stack dApp to Google Cloud - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Deploying a full-stack dApp to Google Cloud", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Firebase", url: "#firebase" },
+              {title: "Google Cloud Storage", url: "#google-cloud-storage" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="deploying-a-full-stack-dapp-to-google-cloud">Deploying a full-stack dApp to Google Cloud<a class="headerlink" href="#deploying-a-full-stack-dapp-to-google-cloud" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV3aiCbkwhcn82wNr3m15qQQ1r1Y4E1GQTDbMdTjWKEM3" /></p>
+<p>In the previous <a href="https://kauri.io/collection/5b8e401ee727370001c942e3">tutorials in this series</a>, we saw how to develop a full-stack ethereum-based blockchain dApp.</p>
+<p>In this tutorial, we learn how to deploy the dApp to two of Google's Cloud offerings, Firebase, and Cloud storage.</p>
+<p>Google Cloud is a suite of products similar to Amazon's AWS, ranging from computation and databases to storage.</p>
+<p>Google Firebase is an abstraction and subset of Google Cloud, making it easier for developers to use Google Cloud infrastructure. For example, Firebase Functions is an easier interface to Cloud Functions. Similarly, Firebase Storage and Hosting is an abstraction built on top of Cloud Storage.</p>
+<p>In this tutorial, we cover deploying a dApp to both <em>Firebase</em> and/or <em>Google Cloud Storage</em>.</p>
+<p>If you are looking for fully-featured static hosting, then Firebase is the recommended option. Benefits include:</p>
+<ul>
+<li>Free https certificate for your domain</li>
+<li>Free hosting and subdomain from Google (both a <code>yourproject.web.app</code> and <code>yourproject.firebaseapp.com</code> domains)</li>
+<li>No complicated setup with CNAME records and bucket setups (e.g. setting up permissions, etc.)</li>
+<li>An easy to use rollback/release history</li>
+<li>No billing setup needed</li>
+</ul>
+<p>If you would rather have a barebones static hosting solution, then Google Cloud Storage may be more suited. However, you need to have a domain name ready, be OK with changing some domain records and need to set up your own https certificates (if needed).</p>
+<p>For more information on the Google Cloud products and options, see the official <a href="https://cloud.google.com/solutions/web-serving-overview">Serving Websites</a> documentation.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>We assume that you have followed and completed the previous tutorials in this series, and now have:</p>
+<ul>
+<li>A truffle project setup and working,</li>
+<li>Your truffle project contains smart contract code,</li>
+<li>Your truffle project has an existing frontend (in React),</li>
+<li>You have deployed your smart contract code to <a href="https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box#deploy">Rinkeby using Infura</a>, and</li>
+<li>Your React frontend (on localhost) is communicating with your smart contracts on Rinkeby.</li>
+</ul>
+<h3 id="firebase">Firebase<a class="headerlink" href="#firebase" title="Permanent link"></a></h3>
+<h4 id="sign-up">Sign up<a class="headerlink" href="#sign-up" title="Permanent link"></a></h4>
+<ol>
+<li><a href="https://console.firebase.google.com/">Sign up for Firebase</a> using your Google account.</li>
+<li>Follow the instructions to create a new Firebase project.</li>
+<li>When prompted on the <em>Project Overview</em> page, select <em>Web</em> to create a new web project.</li>
+<li>Name your web app and check the box for <em>Also setup Firebase Hosting for this app</em>.</li>
+<li>You don't need to add the Firebase SDK, so skip the step if asked.</li>
+</ol>
+<h4 id="local-setup">Local setup<a class="headerlink" href="#local-setup" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>In terminal, install the Firebase CLI:</p>
+<p><code>shell
+npm install -g firebase-tools</code></p>
+</li>
+<li>
+<p>In the same terminal, sign in to Firebase:</p>
+<p><code>shell
+firebase login</code></p>
+</li>
+<li>
+<p>Still in terminal, navigate to the fullstack dApp root directory using the <code>cd</code> command (e.g. <code>cd truffle-react-box-frontend/</code>), and initiate the project with <code>firebase init</code>.</p>
+<ul>
+<li>When prompted, select <em>Hosting</em>, press space bar to select it, then enter to go to the next screen.</li>
+<li>When prompted, select <em>Use an existing project</em>, then select the project you created on the Firebase website.</li>
+<li>When asked <em>What do you want to use as your public directory?</em>,  press enter. We will change this manually later.</li>
+<li>When asked <em>Configure as a single-page app (rewrite all URLs to /index.html)?</em>, select <em>y</em>.</li>
+</ul>
+</li>
+</ol>
+<h4 id="making-deployment-easy">Making deployment easy<a class="headerlink" href="#making-deployment-easy" title="Permanent link"></a></h4>
+<ol>
+<li>In your editor, open the newly created <code>firebase.json</code> file.<ul>
+<li>Replace
+        <code>json
+        "public": "public",</code>
+        with:
+        <code>json
+        "public": "client/build",
+        "predeploy": [
+            "cd client &amp;&amp; npm run build"
+        ],</code>
+    This change tells Firebase to build your React dApp frontend, then use those build files to deploy to Firebase Hosting.</li>
+</ul>
+</li>
+<li>
+<p>You are now ready to deploy. From your terminal (still in the fullstack dApp root directory), enter:</p>
+<p><code>shell
+firebase deploy</code></p>
+</li>
+</ol>
+<h4 id="accessing-your-dapp">Accessing your dApp<a class="headerlink" href="#accessing-your-dapp" title="Permanent link"></a></h4>
+<ol>
+<li>Congratulations, your dApp is now live, hosted on Google's scalable infrastructure thanks to Firebase. You can access your dApp by going to the provided <code>Hosting URL</code> shown in the terminal.</li>
+<li>Whenever you update your React frontend code, repeat step 2 in <a href="#making-deployment-easy">Making deployment easy</a> to update your live dApp frontend code.</li>
+</ol>
+<h3 id="google-cloud-storage">Google Cloud Storage<a class="headerlink" href="#google-cloud-storage" title="Permanent link"></a></h3>
+<h4 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link"></a></h4>
+<ol>
+<li>Select or create a GCP project on the <a href="https://console.cloud.google.com/projectselector2/home/dashboard?_ga=2.107617601.-277740605.1569517720">project selector page</a><ul>
+<li>If you are creating a new project, select the <em>Create</em> in the top right, name your project, and add it to an organization if you would like to keep things organized.</li>
+</ul>
+</li>
+<li>Since we are utilizing Cloud Storage, you need to enable billing on your account. You will only be charged for costs above the <a href="https://cloud.google.com/storage/pricing">generous free tier</a>.<ul>
+<li>You can learn how to <a href="https://cloud.google.com/billing/docs/how-to/modify-project">enable billing for the project here</a>.</li>
+<li>If you already have a billing account added to GCP, then you can choose this billing account from the <a href="https://console.cloud.google.com/billing?_ga=2.73604561.-277740605.1569517720">manage billing accounts page</a></li>
+</ul>
+</li>
+<li>You need to have a domain you own. In this tutorial, we use the domain "example.com" as a placeholder.<ul>
+<li>To verify that you own the domain and can use it with Cloud Storage, you need to follow the steps to <a href="https://cloud.google.com/storage/docs/domain-name-verification#verification">verify that you own or manage the domain</a>.</li>
+<li>If you purchased your domain name via Google Domains, then verification is automatic.</li>
+</ul>
+</li>
+</ol>
+<h4 id="create-a-cname-record">Create a CNAME record<a class="headerlink" href="#create-a-cname-record" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Once you have completed the above, you need to add a CNAME record to your domain. Consult the support documentation of your domain provider to find out how to add one.</p>
+<ul>
+<li>
+<p>Create a <code>CNAME</code> record that points to "c.storage.googleapis.com"</p>
+<p><code>text
+NAME                TYPE    DATA
+www.example.com     CNAME   c.storage.googleapis.com</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="create-a-google-storage-bucket">Create a Google Storage bucket<a class="headerlink" href="#create-a-google-storage-bucket" title="Permanent link"></a></h4>
+<ul>
+<li>Go to the <a href="https://console.cloud.google.com/storage/browser?_ga=2.40579681.-277740605.1569517720">Cloud Storage browser</a> and create a bucket whose name matches the CNAME you created.<ul>
+<li>Enter the bucket information and choose the <em>default</em> settings for each step.</li>
+</ul>
+</li>
+</ul>
+<h4 id="install-the-gsutil-tool">Install the <code>gsutil</code> tool<a class="headerlink" href="#install-the-gsutil-tool" title="Permanent link"></a></h4>
+<p>The <code>gsutil</code> utility helps you use the Google Cloud platform from the terminal. Follow the instructions to <a href="https://cloud.google.com/sdk/docs/">Install the Cloud SDK</a>. When prompted, choose the project that you created initially.</p>
+<h4 id="upload-the-dapps-static-files">Upload the dApp's static files<a class="headerlink" href="#upload-the-dapps-static-files" title="Permanent link"></a></h4>
+<ol>
+<li>From the terminal, navigate to the fullstack dApp root directory using the <code>cd</code> command (e.g. <code>cd truffle-react-box-frontend/</code>).</li>
+<li>As you would for any React.js based app, create an optimized production build of your frontend:<ul>
+<li>Navigate to the <code>client/</code> directory and run the command: <code>npm run build</code></li>
+</ul>
+</li>
+<li>
+<p>In the same <code>client/</code> directory, run the command:</p>
+<p><code>shell
+gsutil rsync -R build gs://www.example.com</code></p>
+<ul>
+<li>This uploads all the contents of your <code>client/build/</code> directory to the Storage bucket you created</li>
+</ul>
+</li>
+</ol>
+<h4 id="make-all-files-in-your-bucket-publicly-accessible">Make all files in your bucket publicly accessible<a class="headerlink" href="#make-all-files-in-your-bucket-publicly-accessible" title="Permanent link"></a></h4>
+<ol>
+<li>Since we are only hosting a static website in the bucket, we want all the files to be publicly readable.<ul>
+<li>In the <a href="https://console.cloud.google.com/storage/browser?_ga=2.40579681.-277740605.1569517720">Cloud Storage browser</a>, select the dApp's website bucket you created.</li>
+<li>Select the <em>Permissions</em> tab.</li>
+<li>Select <em>Enable</em> in the <em>Simplify access control with Bucket Policy Only</em> alert.</li>
+<li>Confirm the selection.</li>
+<li>Select <em>Add members</em> and enter "allUsers" in the <em>New members</em> field, with the "Storage Object Viewer" role.</li>
+</ul>
+</li>
+<li>Your bucket is now publicly accessible.<ul>
+<li>If you set up the CNAME record properly and has propagated, your domain name points to the bucket's contents.</li>
+<li>Congratulations, your dApp is now live, hosted on Google Cloud Storage!</li>
+</ul>
+</li>
+<li>Whenever you update your React code, follow the steps in <a href="#deploying-your-dapp">Deploying your dApp</a> to update your deployed dApp.</li>
+</ol>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Deploying a full-stack dApp to Google Cloud</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/deploying-a-fullstack-dapp-to-google-cloud/2ee06d313ffa41348f916afa13a78bbd/a</li>
+<li><strong>Kauri original author:</strong> David T (@david-t)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-03</li>
+<li><strong>Kauri original tags:</strong> dapp, google-cloud, firebase, deploy</li>
+<li><strong>Kauri original hash:</strong> QmfKHpAtBoPdVe6QWu48Pz1eVEHiAc36vqvPybXS892aSY</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Web3%20Clients/understand-brave-browser-and-bat/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Web3%20Clients/understand-brave-browser-and-bat/" class="btn btn-xs btn-link">
+        Understand Brave Browser and BAT
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deploying-a-full-stack-dapp-to-amazon-ec2/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deploying-a-full-stack-dapp-to-amazon-ec2/" class="btn btn-xs btn-link">
+        Deploying a full-stack dApp to Amazon EC2
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/deploying-a-full-stack-dapp-to-google-cloud.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

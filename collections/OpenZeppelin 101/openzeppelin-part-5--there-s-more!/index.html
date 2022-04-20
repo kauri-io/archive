@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/OpenZeppelin%20101/openzeppelin-part-5--there-s-more%21/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenZeppelin Part 5  There's More! - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenZeppelin Part 5  There's More!", url: "#_top", children: [
+              {title: "There's More!", url: "#theres-more" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openzeppelin-part-5-theres-more">OpenZeppelin Part 5  There's More!<a class="headerlink" href="#openzeppelin-part-5-theres-more" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG" /></p>
+<h2 id="theres-more">There's More!<a class="headerlink" href="#theres-more" title="Permanent link"></a></h2>
+<p>OpenZeppelin has a wide range of utilities to help add more complexity to your contracts.</p>
+<h3 id="cryptography">Cryptography<a class="headerlink" href="#cryptography" title="Permanent link"></a></h3>
+<p>Within the cryptography folder are two contracts to help with security:</p>
+<ul>
+<li><em>ECDSA.sol</em> : This contract helps you to manage and recover your ECDSA signatures (Elliptic Curve Digital Signature Algorithm).</li>
+<li><em>MerkleProof.sol</em> : Functions to verify Merkle proofs. Merkle proofs make sure that data is in the Merkle tree.</li>
+</ul>
+<pre><code>pragma solidity ^0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/cryptography/ECDSA.sol&quot;;
+
+contract ECDSAMock {
+    using ECDSA for bytes32;
+
+    function recover(bytes32 hash, bytes memory signature) public pure returns (address) {
+        return hash.recover(signature);
+    }
+
+    function toEthSignedMessageHash(bytes32 hash) public pure returns (bytes32) {
+        return hash.toEthSignedMessageHash();
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ECDSAMock.sol">documentation</a>.</p>
+<h3 id="drafts">Drafts<a class="headerlink" href="#drafts" title="Permanent link"></a></h3>
+<p>The drafts folder contains contracts which are in their development stage.</p>
+<ul>
+<li><em>Counters.sol</em> : A simple counter contract.</li>
+<li><em>ERC20Migrator.sol</em> : Used to migrate an ERC20 token from one contract to another.</li>
+<li><em>SignatureBouncer.sol</em> : Set a signature as a permission to do an action.</li>
+<li><em>SignedSafeMath.sol</em> : Performs math with a safety check that reverts if there is an error.</li>
+<li><em>TokenVesting.sol</em> : A token holder contract that gradually releases its token balance.</li>
+</ul>
+<h3 id="introspection">Introspection<a class="headerlink" href="#introspection" title="Permanent link"></a></h3>
+<p>Introspection is a set of contracts that perform interface detection. They allow you to determine if your contract will support the interface you want to use.</p>
+<p>Earlier in the series we introduced token standards. In this tutorial, we are going to talk about another standard called ERC165. ERC165 maintains run time interface detection. The introspection folder provides the following contracts:</p>
+<ul>
+<li><strong>IERC615</strong> : Base interface that ERC165 conforms to. It also defines the interface you're working on.</li>
+<li><strong>ERC165</strong> : Supports interface detection using a lookup table.</li>
+<li><strong>ERC165Checked</strong> : Simplifies the process of checking if a contract supports the interface you want to use.</li>
+</ul>
+<pre><code>pragma solidity ^0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/introspection/ERC165.sol&quot;;
+
+contract ERC165Mock is ERC165 {
+    function registerInterface(bytes4 interfaceId) public {
+        _registerInterface(interfaceId);
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/ERC165Mock.sol">documentation</a>.</p>
+<p><strong>Note</strong>: When we refer to the interface, we are talking about what the contracts Application Binary Interface (ABI) can represent. The ABI is the interface by which the application program gains access to the operating system and other services.</p>
+<h3 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link"></a></h3>
+<p>Lifecycle contains a single contract called <em>Pausable.sol</em> which allows child contracts to have an emergency stop feature.</p>
+<h3 id="math">Math<a class="headerlink" href="#math" title="Permanent link"></a></h3>
+<ul>
+<li><em>Math.sol</em> : Assorted math operations.</li>
+<li><em>SafeMath.sol</em> : Math operations that protect your contract from overflow errors.</li>
+</ul>
+<pre><code>pragma solidity ^0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/math/SafeMath.sol&quot;;
+
+contract SafeMathMock {
+    function mul(uint256 a, uint256 b) public pure returns (uint256) {
+        return SafeMath.mul(a, b);
+    }
+
+    function div(uint256 a, uint256 b) public pure returns (uint256) {
+        return SafeMath.div(a, b);
+    }
+
+    function sub(uint256 a, uint256 b) public pure returns (uint256) {
+        return SafeMath.sub(a, b);
+    }
+
+    function add(uint256 a, uint256 b) public pure returns (uint256) {
+        return SafeMath.add(a, b);
+    }
+
+    function mod(uint256 a, uint256 b) public pure returns (uint256) {
+        return SafeMath.mod(a, b);
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/SafeMathMock.sol">documentation</a>.</p>
+<h3 id="payment">Payment<a class="headerlink" href="#payment" title="Permanent link"></a></h3>
+<p>Payment allows you to set different properties in regards to payment options.</p>
+<ul>
+<li><em>PullPayment.sol</em> : Fix stalling problems by using an <code>asyncSend()</code> function to send money to ex) a person and then requesting that they withdraw the amount later.</li>
+<li><em>PaymentSplitter.sol</em> : You can split a payment between multiple people in whichever percentages you want.</li>
+<li><em>ConditionalEscrow.sol</em> : An escrow contract that only allows a withdrawal if a condition is met.</li>
+<li><em>Escrow.sol</em> : Holds ether until the payee of the contract withdraws it. Thus It governs the release of funds involved in a transaction.</li>
+<li><em>RefundEscrow.sol</em> : Escrow that holds funds for a beneficiary.</li>
+</ul>
+<pre><code class="language-Solidity">pragma solidity ^0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/payment/PullPayment.sol&quot;;
+
+contract PullPaymentMock is PullPayment {
+    constructor () public payable {
+    }
+
+    function callTransfer(address dest, uint256 amount) public {
+        _asyncTransfer(dest, amount);
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/PullPaymentMock.sol">documentation</a>.</p>
+<h3 id="utilities">Utilities<a class="headerlink" href="#utilities" title="Permanent link"></a></h3>
+<p>Utilities contains contracts that don't fall under the other categories.</p>
+<ul>
+<li><em>Address.sol</em> : Tells you if the target address belongs to a contract.</li>
+<li><em>Arrays.sol</em> : A search that looks through a sorted array to find the index of an element value.</li>
+<li><em>ReentrancyGuard.sol</em> : Helps your contract guard against reentrancy attacks (a bug or attack on your contract).</li>
+</ul>
+<pre><code class="language-Solidity">pragma solidity ^0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/utils/Address.sol&quot;;
+
+contract AddressImpl {
+    function isContract(address account) external view returns (bool) {
+        return Address.isContract(account);
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/AddressImpl.sol">documentation</a>.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>OpenZeppelin provides the user with a multitude of contracts to support the creation of complex contracts.</p>
+<ul>
+<li><a href="https://openzeppelin.org/api/docs/learn-about-utilities.html">Documentation</a></li>
+<li><a href="https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/mocks">More examples</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenZeppelin Part 5  There's More!</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-part-5-theres-more/83d04613ba4a4a428d941483fe4fc45c/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-19</li>
+<li><strong>Kauri original tags:</strong> smart-contract, openzeppelin, pay-ment, cryptography, zeppelin</li>
+<li><strong>Kauri original hash:</strong> QmZdmm3HfsgcPeFRubeC9fTt5wqjGf1AG8F5uE7b4s4bNs</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in/" class="btn btn-xs btn-link">
+        EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../openzeppelin-part-4--crowdsales/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../openzeppelin-part-4--crowdsales/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 4  Crowdsales
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/OpenZeppelin 101/openzeppelin-part-5--there-s-more!.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

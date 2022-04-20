@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/how-to-code-your-own-confidential-token-on-ethere/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to Code Your Own Confidential Token on Ethereum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to Code Your Own Confidential Token on Ethereum", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Mental Models", url: "#mental-models" },
+              {title: "The Protocol", url: "#the-protocol" },
+              {title: "Notes", url: "#notes" },
+              {title: "Let\u2019s Do It", url: "#lets-do-it" },
+              {title: "Create Notes", url: "#create-notes" },
+              {title: "Create Dem Proofs", url: "#create-dem-proofs" },
+              {title: "Approve", url: "#approve" },
+              {title: "Transfer", url: "#transfer" },
+              {title: "Caveats", url: "#caveats" },
+              {title: "Packages", url: "#packages" },
+              {title: "Wrap-Up", url: "#wrap-up" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-code-your-own-confidential-token-on-ethereum">How to Code Your Own Confidential Token on Ethereum<a class="headerlink" href="#how-to-code-your-own-confidential-token-on-ethereum" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb6Mn3BQcbi4qMZUXrGeAqNqRd8j2hkTKvhnRtcaWC1ZL" /></p>
+<blockquote>
+<p>an efficient zero-knowledge privacy protocol to enable private transactions aztec powers real world financial applications on ethereum mainnet today</p>
+</blockquote>
+<p>This article originally appeared on the <a href="https://medium.com/aztec-protocol/how-to-code-your-own-confidential-token-on-ethereum-4a8c045c8651">Aztec Protocol blog</a></p>
+<p>Ethereum is not private. Every time you transfer an ERC20 token or any other digital asset, information is leaked to third parties. They could find out your full financial history simply by heading to Etherscan, Blockscout or any other blockchain explorer out there.
+Fear not, there are ways to prevent this. For one, you could use multiple accounts, but you’d have to constantly remember not to cross-link these accounts. This would be a life admin nightmare. What if there was a more elegant and programmable way?
+Let me introduce AZTEC: a privacy protocol built on top of Ethereum. In this article, I will not emphasise on the cryptography underpinning the protocol, but rather on its practical applications such as developing confidential tokens.
+Disclaimer: I’m working at AZTEC as a full-time software engineer.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>I will further assume that you have a basic understanding of:</p>
+<ul>
+<li>
+<p>Ethereum development using the <a href="https://truffleframework.com/">Truffle Framework</a> </p>
+</li>
+<li>
+<p><a href="https://ethresear.ch/t/zero-knowledge-proofs-starter-pack/4519">Zero-knowledge proofs</a> </p>
+</li>
+<li>
+<p>Cryptography and elliptic curves
+Make sure you have node.js and npm on your machine and install Truffle:</p>
+</li>
+</ul>
+<pre><code>$ npm install truffle --global
+</code></pre>
+<h3 id="mental-models">Mental Models<a class="headerlink" href="#mental-models" title="Permanent link"></a></h3>
+<p>Let’s pause for a moment and grasp the core technical concepts.</p>
+<h3 id="the-protocol">The Protocol<a class="headerlink" href="#the-protocol" title="Permanent link"></a></h3>
+<p>Ethereum is a 
+<strong>country</strong>
+ and AZTEC is a 
+<strong>forest</strong>
+ .
+In this country, people interact, do finance on dApps, move to different cities (wallets) and so forth. I like to think about AZTEC as a quiet woodland confined within the geography of the country. People can go there, declare their balance before stepping in, but after that transactions are confidential.
+The stock picture below represents my (silly) attempt to portray the idea of fading into AZTEC. It’s crystal clear what’s going on in the normal environment (Ethereum), but the state of the world after one crosses the arch is fuzzy and concealed by the forest (AZTEC).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWYb1F5CisH7DcSuzFTv1Mb1137G2Qoj3u8XtXqDTNqW5" /></p>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h3>
+<p>An AZTEC note is a first-class citizen and core primitive of the protocol. When you transact in zero-knowledge, smart contracts do NOT store any balances, but instead work with elliptic curve points, which are just computational noise to anyone who doesn’t have the private keys.
+It is very important to make a distinction between ERC20 and 
+<a href="https://github.com/ethereum/EIPs/issues/1724">ERC1724</a>
+ — AZTEC’s confidential token standard. The former stores a 
+<a href="https://ethereum.stackexchange.com/questions/58203/storing-millions-of-values-in-mapping-variable/58204#58204">mapping between Ethereum addresses and unencrypted balances</a>
+ . The latter does encrypt the balances. I like to compare AZTEC notes with 
+<strong>Bitcoin UTXOs</strong>
+ , as the process of spending notes on AZTEC is very much similar.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT1o6LSDCSU24UkY4g2APMp3UZB4afiM2VsgXMQimyTHg" /></p>
+<p>The contents of a note, classified by their visibility:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTrsPi6PX2dsJzZbfxGhBmGfqbek1KsQR66LeHHuVCfXj" /></p>
+<p>We’re optimising for speed, so we stop with the fancy cryptography here. If you’re hungry for more, check out our 
+<a href="https://github.com/AztecProtocol/AZTEC/blob/master/AZTEC.pdf">white paper</a>
+ .</p>
+<p><strong>Before continuing though, do note that AZTEC needs a trusted setup. This tutorial uses a trusted setup that was generated by our team internally. We will be releasing more information about the production trusted setup generation in the near future. Use at own risk.</strong></p>
+<h3 id="lets-do-it">Let’s Do It<a class="headerlink" href="#lets-do-it" title="Permanent link"></a></h3>
+<p>Clone this 
+<a href="https://github.com/PaulRBerg/confidential-tokens">repo</a>
+ and install the node modules:</p>
+<pre><code>$ git clone git@github.com:PaulRBerg/confidential-tokens.git
+$ cd confidential-tokens
+$ npm install
+</code></pre>
+<p>If you get a lot of verbose logs related to “scrypt” and “keccak”, that’s perfectly fine because we require 
+<code>aztec.js</code>
+ which requires 
+<code>web3.js</code>
+ which subsequently has many cryptographic dependencies.
+Before actually running the demo, there’s a few important steps to do:</p>
+<ul>
+<li>
+<p>Create an <code>accounts.js</code> file inside the <code>src</code> folder. Only set <strong>two</strong> accounts. There is an example file called <code>accounts.js.example</code> .</p>
+</li>
+<li>
+<p>Create a <code>.env</code> file at the root of the project and fill it with the properties below. Again, there is an example file called <code>.env.example</code> .</p>
+</li>
+<li>
+<p>Deploy the confidential token contract to Rinkeby. You can use Truffle to do this:</p>
+</li>
+</ul>
+<pre><code>$ truffle migrate --network rinkeby
+</code></pre>
+<p>Environment variables:</p>
+<ul>
+<li>
+<p><a href="https://truffleframework.com/docs/truffle/reference/truffle-commands#networks">CONFIDENTIAL_TOKEN_ADDRESS</a> : note that the actual contract name is ZKERC20, get this after truffle deploys the contract</p>
+</li>
+<li>
+<p><a href="https://support.mycrypto.com/private-keys-passwords/how-do-mnemonic-phrases-work.html">MNEMONIC</a> </p>
+</li>
+<li>
+<p><a href="https://infura.io/">INFURA_API_KEY</a> 
+Now, check that your project looks like this:</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSRAEwZu3Hz5gyRHwW6aq7g5KWHSdkMV2zCT9GRq9JeJ1" /></p>
+<p>Run the demo:</p>
+<pre><code>$ npm run demo
+</code></pre>
+<p>This is going to take a while, because transactions are sent to Rinkeby. After a few minutes, you should have a list of receipts printed in the console. Hooray, you just performed your first confidential token transfer on Ethereum!
+Now, let’s go through the source code in 
+<code>src/demo.js</code>
+ .</p>
+<h3 id="create-notes">Create Notes<a class="headerlink" href="#create-notes" title="Permanent link"></a></h3>
+<pre><code>aztecAccounts = [...new Array(2)].map(() =&gt; aztec.secp256k1.generateAccount());
+  notes = [
+    aztec.note.create(aztecAccounts[0].publicKey, 5),
+    aztec.note.create(aztecAccounts[0].publicKey, 5),
+    aztec.note.create(aztecAccounts[1].publicKey, 8),
+    aztec.note.create(aztecAccounts[0].publicKey, 2)
+  ];
+</code></pre>
+<p>Steps:</p>
+<ul>
+<li>
+<p>Generate a bunch of random accounts. We have to use “secp256k1” because AZTEC needs the accounts’ public keys, not just their addresses.</p>
+</li>
+<li>
+<p>Create 4 notes, with the first two belonging to the first account and the last two giving 8 tokens from the initial total amount (10) to the second account.
+To better understand step 2, recall that AZTEC notes are similar in nature with Bitcoin UTXOs. When one transfers money, the leftover sums have to be converted into a new set of notes — this is by contrast to Ethereum canonical transactions, which use a balance model.
+Also, I separated the accounts used in Ethereum (the ones in 
+<code>src/accounts.js</code>
+ ) from the randomly generated AZTEC accounts (the demo script generates a file called 
+<code>aztecAccounts.json</code>
+ ).</p>
+</li>
+</ul>
+<h3 id="create-dem-proofs">Create Dem Proofs<a class="headerlink" href="#create-dem-proofs" title="Permanent link"></a></h3>
+<pre><code>proofs[0] = aztec.proof.joinSplit.encodeJoinSplitTransaction({
+    inputNotes: [],
+    outputNotes: notes.slice(0, 2),
+    senderAddress: accounts[0].address,
+    inputNoteOwners: [],
+    publicOwner: accounts[0].address,
+    kPublic: -10,
+    aztecAddress: joinSplit.options.address,
+  });
+</code></pre>
+<p>The proof object above:</p>
+<ul>
+<li>
+<p>Attests that <code>publicOwner</code> is happy to transfer 10 <strong>public</strong> ERC20 tokens into AZTEC form</p>
+</li>
+<li>
+<p>Makes the first randomly generated AZTEC account the new owner (recall that the first two notes are worth 5 tokens each and are both owned by that AZTEC account)</p>
+</li>
+</ul>
+<pre><code>proofs[1] = aztec.proof.joinSplit.encodeJoinSplitTransaction({
+    inputNotes: notes.slice(0, 2),
+    outputNotes: notes.slice(2, 4),
+    senderAddress: accounts[0].address,
+    inputNoteOwners: [aztecAccounts[0], aztecAccounts[0]],
+    publicOwner: accounts[0].address,
+    kPublic: 0,
+    aztecAddress: joinSplit.options.address,
+  });
+</code></pre>
+<p>The second proof:</p>
+<ul>
+<li>
+<p>Transfers 8 tokens to the second AZTEC account in <strong>fully-fledged zero-knowledge</strong> form</p>
+</li>
+<li>
+<p>Burns the first two input notes so that the first AZTEC account cannot reuse them in the future</p>
+</li>
+</ul>
+<pre><code>proofOutputs = proofs.map(({ expectedOutput }) =&gt; {
+    return aztec.abiEncoder.outputCoder.getProofOutput(expectedOutput, 0);
+  });
+  proofHashes = proofOutputs.map(proofOutput =&gt; {
+    return aztec.abiEncoder.outputCoder.hashProofOutput(proofOutput);
+  });
+</code></pre>
+<p>We need the above to interact with a contract named “NoteRegistry”, which is unique to every confidential token contract. You can think of 
+<code>proofHashes</code>
+ as an array of unique identifiers for the previously generated proofs.</p>
+<h3 id="approve">Approve<a class="headerlink" href="#approve" title="Permanent link"></a></h3>
+<pre><code>for (let i = 0; i &lt; accounts.length; ++i) {
+    const data = erc20Mintable
+      .methods
+      .approve(noteRegistry.options.address, scalingFactor.mul(tokensTransferred).toString(10))
+      .encodeABI();
+    await sendTx({
+      from: accounts[i].address,
+      to: aztecAddresses.erc20Mintable,
+      data: data,
+      privateKey: accounts[i].privateKey,
+    });
+  }
+</code></pre>
+<p>We mint a bunch of tokens and grant the NoteRegistry permission to spend from the ERC20 contract.</p>
+<pre><code>const delta = 10;
+  let data = noteRegistry
+    .methods
+    .publicApprove(proofHashes[0], delta)
+    .encodeABI();
+  await sendTx({
+    from: accounts[0].address,
+    to: noteRegistry.options.address,
+    data: data,
+    privateKey: accounts[0].privateKey,
+  });
+</code></pre>
+<p>Just like ERC20, NoteRegistry needs to be granted permission to work with AZTEC proofs. We confess that this is an area of active research and we’re investigating ways of making the development UX smoother.</p>
+<h3 id="transfer">Transfer<a class="headerlink" href="#transfer" title="Permanent link"></a></h3>
+<pre><code>let data = confidentialToken
+    .methods
+    .confidentialTransfer(proofs[0].proofData)
+    .encodeABI();
+  await sendTx({
+    from: accounts[0].address,
+    to: confidentialToken.options.address,
+    data: data,
+    privateKey: accounts[0].privateKey,
+  });
+</code></pre>
+<pre><code>  data = confidentialToken
+    .methods
+    .confidentialTransfer(proofs[1].proofData)
+    .encodeABI();
+  await sendTx({
+    from: accounts[0].address,
+    to: confidentialToken.options.address,
+    data: data,
+    privateKey: accounts[0].privateKey,
+  });
+</code></pre>
+<p>Finally, the fun part: call the confidential token contract to make the transfers. Note that the first transaction only converts the ERC20 tokens, so third parties can find out how many tokens were transferred. However, the second transaction is fully confidential.
+Here’s a mindmap for what we just did:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbYNeBtdUdFcekUtRJoaf9NegvP8RhseGUickKbXzpfQK" /></p>
+<h3 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>This tutorial uses a trusted setup that was generated by our team internally. We will be releasing more information about the production trusted setup generation in the near future. Use at own risk.</p>
+</li>
+<li>
+<p>There’s a ton of pre-approvals required before the confidential transfers can be triggered. As previously mentioned, this is something we’re looking forward to improving.</p>
+</li>
+<li>
+<p>The AZTEC codebase may go through multiple breaking changes after this article is published. Fear not though, this tutorial uses <a href="https://teamtreehouse.com/community/why-install-npm-packages-as-saveexact">exact versions</a> of npm packages to prevent disruption.</p>
+</li>
+<li>
+<p>AZTEC uses <a href="https://solidity.readthedocs.io/en/v0.4.24/">Solidity 0.4.24</a> , so you must use a compatible version of OpenZeppelin, that is <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/releases/tag/v2.0.0">2.0.0</a> </p>
+</li>
+<li>
+<p>When the AZTEC contracts have only one user, confidentiality is leaked. Third parties can infer how much money is deposited due to ERC20’s public nature — they can compare that against the total amount held by the contract. The more users join, the more confidentiality there is.</p>
+</li>
+</ul>
+<h3 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link"></a></h3>
+<p>Here’s an exhaustive list of AZTEC goodies we used:</p>
+<ul>
+<li>
+<p><a href="https://github.com/AztecProtocol/AZTEC/tree/master/packages/aztec.js">aztec.js</a> </p>
+</li>
+<li>
+<p><a href="https://github.com/AztecProtocol/AZTEC/tree/master/packages/contract-addresses">@aztec/contract-addresses</a> </p>
+</li>
+<li>
+<p><a href="https://github.com/AztecProtocol/AZTEC/tree/master/packages/contract-artifacts">@aztec/contract-artifacts</a> </p>
+</li>
+<li>
+<p><a href="https://github.com/AztecProtocol/AZTEC/tree/master/packages/dev-utils">@aztec/dev-utils</a> </p>
+</li>
+<li>
+<p><a href="https://github.com/AztecProtocol/AZTEC/tree/master/packages/protocol">@aztec/protocol</a> 
+The source code for all of them is available in our 
+<a href="https://github.com/AztecProtocol/AZTEC">monorepo</a>
+ . Feel free to reach out on 
+<a href="https://twitter.com/aztecprotocol">Twitter</a>
+ or email at hello@aztecprotocol.com if you have any questions!</p>
+</li>
+</ul>
+<h3 id="wrap-up">Wrap-Up<a class="headerlink" href="#wrap-up" title="Permanent link"></a></h3>
+<p>I hope you enjoyed this tutorial and you’re as excited about confidential transactions as I am. Check out these transactions which use a couple of AZTEC proofs to convert 10 ERC20 tokens into fully-fledged zero-knowledge form:</p>
+<ul>
+<li>
+<p><a href="https://rinkeby.etherscan.io/tx/0x85ab17ab8290bad0d91501083c571a63e8715a0d425828df4c0b36accb11d077">https://rinkeby.etherscan.io/tx/0x85ab17ab8290bad0d91501083c571a63e8715a0d425828df4c0b36accb11d077</a> </p>
+</li>
+<li>
+<p><a href="https://rinkeby.etherscan.io/tx/0xf5dbaf357e09abf2d4151974bdfae5e20317043b155ff653b03fbd137c940a84">https://rinkeby.etherscan.io/tx/0xf5dbaf357e09abf2d4151974bdfae5e20317043b155ff653b03fbd137c940a84</a> 
+Many thanks to 
+<a href="https://medium.com/@aztecprotocol">Zac</a>
+ , 
+<a href="https://medium.com/@arnaudschenk">Arnaud S.</a>
+ and 
+<a href="https://medium.com/@thomas.waite4">Tom Waite</a>
+ for their input and feedback.
+Find me on 
+<a href="https://twitter.com/PaulRBerg">Twitter</a>
+ or 
+<a href="https://keybase.io/PaulRBerg">Keybase</a>
+ if you want to chat.</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to Code Your Own Confidential Token on Ethereum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-code-your-own-confidential-token-on-ethereu/b699361c8f7b4671aca588f1213e87bd/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-17</li>
+<li><strong>Kauri original tags:</strong> privacy, aztec, zero-knowledge-proofs, confidential-transactions</li>
+<li><strong>Kauri original hash:</strong> QmVQq8KALURS87KVjrx4DHwRbEEQPGdzXGpMgTrWWUxvfr</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../data-privacy-with-the-nucypher-network/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../data-privacy-with-the-nucypher-network/" class="btn btn-xs btn-link">
+        Data Privacy with the NuCypher Network
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../enigma-protocol/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../enigma-protocol/" class="btn btn-xs btn-link">
+        Enigma Protocol
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/how-to-code-your-own-confidential-token-on-ethere.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

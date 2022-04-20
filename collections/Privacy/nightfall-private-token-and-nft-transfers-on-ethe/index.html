@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/nightfall-private-token-and-nft-transfers-on-ethe/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Nightfall - Private Token and NFT Transfers on Ethereum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Nightfall - Private Token and NFT Transfers on Ethereum", url: "#_top", children: [
+              {title: "Nightfall", url: "#nightfall" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="nightfall-private-token-and-nft-transfers-on-ethereum">Nightfall - Private Token and NFT Transfers on Ethereum<a class="headerlink" href="#nightfall-private-token-and-nft-transfers-on-ethereum" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRVKXctEticBFgAYUNpytw9no9GrSgN86UGHRBWGmUDwF" /></p>
+<h2 id="nightfall">Nightfall<a class="headerlink" href="#nightfall" title="Permanent link"></a></h2>
+<p>Nightfall integrates a set of smart contracts and microservices, and the ZoKrates zk-snark toolkit,
+to enable standard ERC-20 and ERC-721 tokens to be transacted on the Ethereum blockchain with
+complete privacy. It is an experimental solution and still being actively developed. We decided to
+share our research work in the belief that this will speed adoption of public blockchains. This is
+not intended to be a production-ready application and we do not recommend that you use it as such.
+If it accelerates your own work, then we are pleased to have helped. We hope that people will feel
+motivated to contribute their own ideas and improvements.</p>
+<p><strong>Note that this code has not yet completed a security review and therefore we strongly recommend
+that you do not use it in production or to transfer items of material value. We take no
+responsibility for any loss you may incur through the use of this code.</strong></p>
+<p>As well as this file, please be sure to check out:</p>
+<ul>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/doc/whitepaper/nightfall-v1.pdf">The Whitepaper</a> for technical details on the protocols and
+  their application herein.</li>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/contributing.md">contributions.md</a> to find out how to contribute code.</li>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/limitations.md">limitations.md</a> to understand the limitations of the current code.</li>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/license.md">license.md</a> to understand how we have placed this code completely in the public
+  domain, without restrictions (but note that Nightfall makes use of other open source code which
+  <em>does</em> apply licence conditions).</li>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/UI.md">UI.md</a> to learn how to drive the demonstration UI and make transactions.</li>
+<li><a href="https://github.com/EYBlockchain/nightfall/blob/master/SECURITY.md">SECURITY.md</a> to learn about how we handle security issues.</li>
+</ul>
+<h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h3>
+<p>These instructions give the most direct path to a working Nightfall setup. The application is
+compute-intensive and so a high-end processor is preferred. Depending on your machine, setup can
+take one to several hours.</p>
+<h4 id="supported-hardware-prerequisites">Supported hardware &amp; prerequisites<a class="headerlink" href="#supported-hardware-prerequisites" title="Permanent link"></a></h4>
+<p>Mac and Linux machines with at least 16GB of memory and 10GB of disk space are supported.</p>
+<p>The Nightfall demonstration requires the following software to run:</p>
+<ul>
+<li>Docker</li>
+<li>Launch Docker Desktop (on Mac, it is on the menu bar) and set memory to 8GB with 4GB of swap
+    space (minimum - 12GB memory is better) or 16GB of memory with 512MB of swap. <strong>The default
+    values for Docker Desktop will NOT work. No, they really won't</strong>.</li>
+<li>Node (tested with 10.15.3) with npm and node-gyp</li>
+<li>If running macOS, install Xcode then run <code>xcode-select —install</code> to install these.</li>
+<li>docker-proxy</li>
+<li><a href="https://github.com/aj-may/docker-proxy/">https://github.com/aj-may/docker-proxy/</a></li>
+</ul>
+<h4 id="starting-servers">Starting servers<a class="headerlink" href="#starting-servers" title="Permanent link"></a></h4>
+<p>Start Docker:</p>
+<ul>
+<li>On Mac, open Docker.app.</li>
+</ul>
+<p>Start docker-proxy:</p>
+<ul>
+<li><code>docker-proxy start</code></li>
+</ul>
+<h4 id="installing-nightfall">Installing Nightfall<a class="headerlink" href="#installing-nightfall" title="Permanent link"></a></h4>
+<p>Clone the Nightfall repository and use a terminal to enter the directory.</p>
+<p>Next pull a compatible Docker image of ZoKrates</p>
+<pre><code class="language-sh">docker pull michaelconnor/zok:2Jan2019
+</code></pre>
+<p>Next we have to generate the keys and constraint files for Zero Knowledge Proofs
+(<a href="https://github.com/EYBlockchain/nightfall/blob/master/zkp/code/README-tools-trusted-setup.md">read more</a>), this is about 7GB and depends on randomness
+for security. This step can take a while, depending on your hardware. Before you start, check once
+more that you have provisioned enough memory for Docker, as described above:</p>
+<pre><code class="language-sh">cd zkp-utils
+npm ci
+cd ../zkp
+npm ci
+npm run setup-all
+cd ../
+</code></pre>
+<p>Note that this is a completely automated run: although questions will be asked by the script they
+will automatically receive a 'yes' answer. Manual runs are described in the
+<a href="https://github.com/EYBlockchain/nightfall/blob/master/zkp/code/README-tools-trusted-setup.md">readme</a>.</p>
+<p>Please be patient - you can check progress in the terminal window and by using <code>docker stats</code> in
+another terminal.</p>
+<p>You just created all the files needed to generate zk-SNARKs. The proving keys, verifying keys and
+constraint files will allow you to create hidden tokens, move them under zero knowledge and then
+recover them — both for fungible (ERC-20) and non-fungible (ERC-721) tokens.</p>
+<p>Note that there is a bug in web3js that means you can get a string of npm errors if you run <code>npm ci</code>
+more than once. If this happens to you, just delete all of the node modules and run npm ci again:</p>
+<pre><code class="language-sh">rm -rf node_modules
+npm ci
+</code></pre>
+<h4 id="starting-nightfall">Starting Nightfall<a class="headerlink" href="#starting-nightfall" title="Permanent link"></a></h4>
+<p>If you have pulled new changes from the repo, then first run</p>
+<pre><code class="language-sh">docker-compose build
+</code></pre>
+<p>:night_with_stars: We're ready to go! Run the demo:</p>
+<pre><code class="language-sh">./zkp-demo
+</code></pre>
+<p>and wait until you see the message <code>Compiled successfully</code> in the console.</p>
+<p>This brings up each microservice using docker-compose and finally builds a UI running on a local
+Angular server.</p>
+<p>Navigate your web browser to <a href="http://nightfall.docker">http://nightfall.docker</a> to start using Nightfall (give everything
+enough time to start up). There are instructions on how to use the application in the
+<a href="https://github.com/EYBlockchain/nightfall/blob/master/UI.md">UI.md</a> file.</p>
+<p>Note that ./zkp-demo has deployed an ERC-20 and ERC-721 contract for you (specifically FToken.sol
+and NFTokenMetada.sol). These are designed to allow anyone to mint tokens for demonstration
+purposes. You will probably want to curtail this behaviour in anything but a demonstration.</p>
+<p>The UI pulls token names from the contracts you deploy. In the present case, the tokens are called
+EY OpsCoin for the ERC-20 and EY Token for ERC-721.</p>
+<p>Note that it can take up to 10 mins to compute a transfer proof (depending on your machine) and the
+demonstration UI is intentionally modal while this happens (even though the action returns a
+promise). You can see what's happening if you look at the terminal where you ran <code>./zkp-demo</code>.</p>
+<p>If you want to close the application, make sure to stop containers and remove containers, networks,
+volumes, and images created by up, using</p>
+<pre><code class="language-sh">docker-compose down -v
+</code></pre>
+<h4 id="to-run-tests-or-if-ui-is-not-preferred">To run tests (or if UI is not preferred)<a class="headerlink" href="#to-run-tests-or-if-ui-is-not-preferred" title="Permanent link"></a></h4>
+<p>After following the steps from 'Installing Nightfall' section,</p>
+<p>There is a volume conflict sometimes, please run <code>docker volume rm nightfall_zkp-code</code></p>
+<p>Then run</p>
+<pre><code class="language-sh">make truffle-compile &amp;&amp; make truffle-migrate &amp;&amp; make zkp-start
+</code></pre>
+<p>and wait until you see the message <code>VK setup complete</code> in the console.</p>
+<p>To run tests of ZKP service, open another terminal and run</p>
+<pre><code class="language-sh">make zkp-test
+</code></pre>
+<p>The relevant files for these tests can be found under <code>zkp/__tests__</code> and <code>offchain/__tests__</code>
+directories.</p>
+<ul>
+<li><code>f-token-controller.test.js</code> - These are units tests to verify mint, transfer and burn of ERC-20
+  tokens and ERC-20 commitments</li>
+<li><code>nf-token-controller.test.js</code> - These are units tests to verify mint, transfer and burn of ERC-721
+  tokens and ERC-721 commitments</li>
+<li><code>utils.test.js</code> - These are unit tests for utils used for running the tests.</li>
+</ul>
+<p>Note that, the zkp service tests take a while to run (approx. 2 hours)</p>
+<h3 id="using-other-erc-20-and-erc-721-contracts">Using other ERC-20 and ERC-721 contracts<a class="headerlink" href="#using-other-erc-20-and-erc-721-contracts" title="Permanent link"></a></h3>
+<p>Nightfall will operate with any ERC-20 and ERC-721 compliant contract. The contracts' addresses are
+fed into FTokenShield.sol and NFTokenShield.sol respectively during the Truffle migration and cannot
+be changed subsequently. If you wish to use pre-existing ERC-20 and ERC-721 contracts then edit
+<code>2_Shield_migration.js</code> so that the address of the pre-existing ERC-20 contract is passed to
+FTokenShield and the address of the pre-existing ERC-721 contract is passed to NFTokenShield i.e.
+replace <code>FToken.address</code> and <code>NFTokenMetadata.address</code>. This can also be done from UI, by clicking
+on the user to go to settings, then clicking on contracts option in this page. A new shield contract
+address that has been deployed separately can be provided here. This new contract will be a
+replacement for NFTokenShield.sol or FTokenShield.sol. Each of these contracts currently shields the
+tokens of an ER721 or ERC20 contract instance respectively.</p>
+<h3 id="using-other-networks">Using other networks<a class="headerlink" href="#using-other-networks" title="Permanent link"></a></h3>
+<p>The demo mode uses Ganache-cli as a blockchain emulator. This is easier than using a true blockchain
+client but has the disadvantage that Ganache-cli doesn't currently support the Whisper protocol,
+which Nightfall uses for exchanging secrets between sender and recipient. Accordingly we've written
+a Whisper stub, which will emulate whisper for participants who are all on the same node server. If
+you want to run across multiple blockchain nodes and server instances then replace all occurrences
+of the words <code>whisper-controller-stub</code> with <code>whisper-controller</code> in the code — but you will need to
+use Geth rather than Ganache-cli and construct an appropriate Docker container to replace the
+Ganache one we provide</p>
+<h3 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link"></a></h3>
+<p>Team Nightfall thanks those who have indirectly contributed to it, with the ideas and tools that
+they have shared with the community:<br />
+<a href="https://hub.docker.com/r/michaelconnor/zok">ZoKrates</a><br />
+<a href="https://github.com/scipr-lab/libsnark">Libsnark</a><br />
+<a href="https://github.com/zcash/zcash">Zcash</a><br />
+<a href="https://eprint.iacr.org/2017/540.pdf">GM17</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Nightfall - Private Token and NFT Transfers on Ethereum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/nightfall-private-token-and-nft-transfers-on-ether/23d6c65e76614b0ea2af0f3d2606dcfa/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-06</li>
+<li><strong>Kauri original tags:</strong> erc20, privacy, confidential-transactions, private-transactions, erc721</li>
+<li><strong>Kauri original hash:</strong> QmUUuY7mq8bGGTtqtq7t4jA4CoQ5k5JscpodEDDYQCAGDk</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../privacy-with-pantheon-ethereum-java-client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../privacy-with-pantheon-ethereum-java-client/" class="btn btn-xs btn-link">
+        Privacy with Pantheon Ethereum Java Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../nucypher-pyumbral/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../nucypher-pyumbral/" class="btn btn-xs btn-link">
+        NuCypher - PyUmbral
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/nightfall-private-token-and-nft-transfers-on-ethe.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

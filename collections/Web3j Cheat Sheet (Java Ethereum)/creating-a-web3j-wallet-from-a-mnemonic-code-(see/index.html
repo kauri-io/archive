@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/creating-a-web3j-wallet-from-a-mnemonic-code-%28see/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase) - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)", url: "#_top", children: [
+              {title: "Wallet Generation with Default Derivation Path", url: "#wallet-generation-with-default-derivation-path" },
+              {title: "Wallet Generation with Custom Derivation Path", url: "#wallet-generation-with-custom-derivation-path" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="creating-a-web3j-wallet-from-a-mnemonic-code-seed-phrase">Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)<a class="headerlink" href="#creating-a-web3j-wallet-from-a-mnemonic-code-seed-phrase" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVcCJjgrbAZtYpnW1RUxseU6meWGsyPbpD3U1ehKX8X3T" /></p>
+<p>Deriving a private key from a mnemonic code or sentence (often called a seed phrase) is a very common way to generate an Ethererum wallet.  These seed phrases are usually 12 to 24 words long.  As you would expect, web3j provides some tools to allow you to achieve this task in your java code.</p>
+<h3 id="wallet-generation-with-default-derivation-path">Wallet Generation with Default Derivation Path<a class="headerlink" href="#wallet-generation-with-default-derivation-path" title="Permanent link"></a></h3>
+<p>The default derivation path used by web3j is <code>m/44'/60'/0'/1</code>.</p>
+<pre><code class="language-java">// Web3j supports mnemonic encryption.  No encryption in this example
+String password = null;
+String mnemonic = &quot;snap escape shadow school illness flip hollow label melt fetch noise install&quot;;
+
+// A Credentials object is essentially your wallet, and can be used throughout web3j
+// to interact with the Ethereum blockchain with a specific account
+Credentials credentials = WalletUtils.loadBip39Credentials(password, mnemonic);
+</code></pre>
+<h3 id="wallet-generation-with-custom-derivation-path">Wallet Generation with Custom Derivation Path<a class="headerlink" href="#wallet-generation-with-custom-derivation-path" title="Permanent link"></a></h3>
+<p>This example creates a private key and credentials with a derivation path of <code>m/44'/60'/0'/0</code>.</p>
+<pre><code class="language-java">String mnemonic = &quot;snap escape shadow school illness flip hollow label melt fetch noise install&quot;;
+
+//m/44'/60'/0'/0 derivation path
+int[] derivationPath = {44 | Bip32ECKeyPair.HARDENED_BIT, 60 | Bip32ECKeyPair.HARDENED_BIT, 0 | Bip32ECKeyPair.HARDENED_BIT, 0,0};
+
+// Generate a BIP32 master keypair from the mnemonic phrase
+Bip32ECKeyPair masterKeypair = Bip32ECKeyPair.generateKeyPair(MnemonicUtils.generateSeed(mnemonic, password));
+
+// Derive the keypair using the derivation path
+Bip32ECKeyPair  derivedKeyPair = Bip32ECKeyPair.deriveKeyPair(masterKeypair, derivationPath);
+
+// Load the wallet for the derived keypair
+Credentials credentials = Credentials.create(derivedKeyPair);
+</code></pre>
+<p>Thanks to Greg Jeanmart and his excellent article: <a href="https://www.kauri.io/manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a">Manage An Ethereum Account with Java and Web3j</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/creating-a-web3j-wallet-from-a-mnemonic-code-seed/a33a03fb66d14920896bb3e7ab77fba7/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-18</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, wallet, web3j, mnemonic</li>
+<li><strong>Kauri original hash:</strong> QmRk5XMxUgRZAJ3JDxMAauFyZSAEhVtPMCTH4TW6pAZuqY</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sending-an-ether-transfer-transaction-from-one-ac/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sending-an-ether-transfer-transaction-from-one-ac/" class="btn btn-xs btn-link">
+        Sending an Ether Transfer Transaction from One Account to Another in Web3j
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../converting-between-ether-units-denominations-in-w/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../converting-between-ether-units-denominations-in-w/" class="btn btn-xs btn-link">
+        Converting Between Ether Units / Denominations in Web3j
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Web3j Cheat Sheet (Java Ethereum)/creating-a-web3j-wallet-from-a-mnemonic-code-(see.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

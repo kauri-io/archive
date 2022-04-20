@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Non-Fungible%20Token%20Tutorial%20Series/understanding-openzeppelin-erc721/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Understanding OpenZeppelin ERC721 - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Understanding OpenZeppelin ERC721", url: "#_top", children: [
+              {title: "What is an NFT?", url: "#what-is-an-nft" },
+              {title: "Getting to Know the Standard", url: "#getting-to-know-the-standard" },
+              {title: "The OpenZeppelin implementation", url: "#the-openzeppelin-implementation" },
+              {title: "Most Relevant Functions", url: "#most-relevant-functions" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="understanding-openzeppelin-erc721">Understanding OpenZeppelin ERC721<a class="headerlink" href="#understanding-openzeppelin-erc721" title="Permanent link"></a></h1>
+<h4 id="what-is-an-nft">What is an NFT?<a class="headerlink" href="#what-is-an-nft" title="Permanent link"></a></h4>
+<p>Non-fungible Tokens (NFTs/NFTYs/Nifties) are an emerging tool to create provably unique digital assets. Whereas ERC20 ushered in a flood of fungible (where no single token or fraction of a token is unique or distinguishable from any other) tokens, ERC721 and others are allowing for rare and unique units. These units can represent everything from a specific piece of digital artwork (or physical art!) to a real estate asset, financial instrument (a futures contract to buy 1,000 barrels of oil for $60k on December 1), or even a <a href="https://blog.sendwyre.com/community-driven-on-chain-compliance-d334e0f5962b">KYC compliance check</a>.</p>
+<p>One of the first implementations of the NFT pattern is CryptoKitties from Axiom Zen, a wildly (at least by Dapp standards) popular game centered around collecting and breeding NFT-based cats. CryptoKitties used one of the first implementations of ERC721, the original proposed NFT standard. </p>
+<p>In the 6 months since the release of CK, NFTs have exploded, with major organizations and game studios developing products around the concept of digital collectibles. In this article, we'll walk through the standard interface referred to in EIP721, as well as the popular OpenZeppelin implementation. And most importantly, how to use it yourself!</p>
+<h4 id="getting-to-know-the-standard">Getting to Know the Standard<a class="headerlink" href="#getting-to-know-the-standard" title="Permanent link"></a></h4>
+<p>EIP 721: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-721.md</p>
+<pre><code>interface ERC721 /* is ERC165 */ {
+
+    event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId);
+
+    event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId);
+
+    event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);
+
+    function balanceOf(address _owner) external view returns (uint256);
+
+    function ownerOf(uint256 _tokenId) external view returns (address);
+
+    function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable;
+
+    function safeTransferFrom(address _from, address _to, uint256 _tokenId) external payable;
+
+    function transferFrom(address _from, address _to, uint256 _tokenId) external payable;
+
+    function approve(address _approved, uint256 _tokenId) external payable;
+
+    function setApprovalForAll(address _operator, bool _approved) external;
+
+    function getApproved(uint256 _tokenId) external view returns (address);
+
+    function isApprovedForAll(address _owner, address _operator) external view returns (bool);
+}
+
+interface ERC165 {
+
+    function supportsInterface(bytes4 interfaceID) external view returns (bool);
+}
+</code></pre>
+<p>The interface itself is composed of 8 functions:</p>
+<p><code>balanceOf</code>: returns the number of tokens owned by the given address</p>
+<p><code>ownerOf</code>: returns the address that owns a particular token (by unique ID)</p>
+<p><code>transferFrom</code>: transfers the token from one address to another</p>
+<p><code>safeTransferFrom</code>: performs the same action as transferFrom, but will fail if the receiver (_to) has not implemented the ERC721 functionality. This is done to prevent the accidental burning of the token, as a contract without ERC721 would have no support for moving the token elsewhere.</p>
+<p><code>approve</code>: sets an address as the “approved” owner, but does not transfer the token to them (they can do so in the future by using transferFrom). note: the specified token (by tokenId) must be owned by the sender (msg.sender)</p>
+<p><code>setApprovalForAll</code>: similar to approve, but sets the address as the “approved” owner for all tokens owned by the sender (msg.sender)</p>
+<p><code>getApproved</code>: returns the approved owner of a _tokenId</p>
+<p><code>isApprovedForAll</code>: returns true or false if the _operator is listed as the approved owner for all of _owner's tokens (setApprovalForAll called previously)</p>
+<h4 id="the-openzeppelin-implementation">The OpenZeppelin implementation<a class="headerlink" href="#the-openzeppelin-implementation" title="Permanent link"></a></h4>
+<p>As with many common smart contract patterns, the Zeppelin team has released an audited version of the ERC721 implementation, which will likely be one of the most highly used. There are 6 files that compose the standard.</p>
+<p>OZ files
+https://github.com/OpenZeppelin/openzeppelin-solidity/tree/master/contracts/token/ERC721</p>
+<p><strong>ERC721Basic.sol</strong> 
+Implements the standard interface</p>
+<p><strong>ERC721BasicToken.sol</strong>
+Provides a basic token implementation, minus the option metadata and enumerable extensions</p>
+<p><strong>ERC721Holder.sol</strong>
+Can be inherited to receive ERC721 transfers to a smart contract (implemented in ERC721Receiver.sol). 
+Note:
+If you want your contract to receive ERC721, this is the one you want!</p>
+<p><strong>ERC721.sol</strong> 
+Packages the optional metadata and enumerable extensions for use in ERC721Token.sol</p>
+<p><strong>ERC721Token.sol</strong> 
+This is the full implementation of the standard, and what we will be focusing on.</p>
+<h3 id="most-relevant-functions">Most Relevant Functions<a class="headerlink" href="#most-relevant-functions" title="Permanent link"></a></h3>
+<p><strong>Constructor</strong></p>
+<pre><code>constructor(string _name, string _symbol) public {}
+</code></pre>
+<p>Set the name and symbol of the contract</p>
+<p><strong>Getter Functions</strong></p>
+<pre><code>  function name() external view returns (string) {
+    return name_;
+  }
+
+  /**
+   * @dev Gets the token symbol
+   * @return string representing the token symbol
+   */
+  function symbol() external view returns (string) {
+    return symbol_;
+  }
+
+  /**
+   * @dev Returns an URI for a given token ID
+   * Throws if the token ID does not exist. May return an empty string.
+   * @param _tokenId uint256 ID of the token to query
+   */
+  function tokenURI(uint256 _tokenId) public view returns (string) {
+    require(exists(_tokenId));
+    return tokenURIs[_tokenId];
+  }
+</code></pre>
+<p><strong>Mint</strong></p>
+<p>Creates a new token with a given Id (reverts if this Id already exists) and transfers to a given address</p>
+<pre><code>  function _mint(address _to, uint256 _tokenId) internal {
+    super._mint(_to, _tokenId);
+
+    allTokensIndex[_tokenId] = allTokens.length;
+    allTokens.push(_tokenId);
+  }
+</code></pre>
+<p><strong>Burn</strong></p>
+<p>Removes from circulation</p>
+<pre><code>  function _burn(address _owner, uint256 _tokenId) internal {
+    super._burn(_owner, _tokenId);
+
+    // Clear metadata (if any)
+    if (bytes(tokenURIs[_tokenId]).length != 0) {
+      delete tokenURIs[_tokenId];
+    }
+  }
+</code></pre>
+<h4 id="metadata">Metadata<a class="headerlink" href="#metadata" title="Permanent link"></a></h4>
+<p>Metadata is crucial to the vast majority of NFTs, as it gives the token it's unique attributes. In CryptoKitties for instance, this can be the name of the cat, it's “cattributes”, and other useful information.</p>
+<p>To learn more about this standard: read our article here.</p>
+<h4 id="creating-a-token">Creating a Token<a class="headerlink" href="#creating-a-token" title="Permanent link"></a></h4>
+<p>Below is a very simple example of using the OpenZeppelin ERC721Token contract.</p>
+<pre><code>pragma solidity ^0.4.24;
+
+import &quot;zeppelin-solidity/contracts/token/ERC721/ERC721Token.sol&quot;;
+import &quot;zeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+
+/**
+ * @title KauriBadges
+ * KauriBadges - non-fungible badges
+ */
+contract KauriBadge is ERC721Token, Ownable {
+    constructor() ERC721Token(&quot;KauriBadge&quot;, &quot;KAB&quot;) public { }
+
+    /**
+    * @dev Mints a token to an address with a tokenURI.
+    * @param _to address of the future owner of the token
+    * @param _tokenURI token URI for the token
+    */
+    function mintTo(address _to, string _tokenURI) public onlyOwner {
+        uint256 newTokenId = _getNextTokenId();
+        _mint(_to, newTokenId);
+        _setTokenURI(newTokenId, _tokenURI);
+    }
+
+    /**
+    * @dev calculates the next token ID based on totalSupply
+    * @return uint256 for the next token ID
+    */
+    function _getNextTokenId() private view returns (uint256) {
+        return totalSupply().add(1); 
+    }
+}
+</code></pre>
+<p>Starting with the constructor:</p>
+<p><code>constructor() ERC721Token("KauriBadge", "KAB") public { }</code></p>
+<p>Since the ERC721Token takes two strings, name and symbol, those arguments are included in the instantiation here (“KauriBadge”, “KAB”)</p>
+<p>Next is mintTo:
+In this case, mintTo is limited to use by the creator of the contract (OpenZeppelin Ownable contract) using the onlyOwner modifer.</p>
+<p><code>function mintTo(address _to, string _tokenURI) public onlyOwner {}</code></p>
+<p>In order to keep the token IDs simple and sequential, an internal function _getNextTokenId() counts the current token supply (using the totalSupply getter) and adds 1. This is then used in the internal _mint function as the tokenId. Next, the metadata URI (if provided) is set using the _setTokenURI function and the newly created tokenId.</p>
+<pre><code>function _getNextTokenId() private view returns (uint256) {
+        return totalSupply().add(1); 
+    }
+</code></pre>
+<h4 id="wrap-up">Wrap Up<a class="headerlink" href="#wrap-up" title="Permanent link"></a></h4>
+<p>In this article, we've covered the ERC721 token standard, the OpenZeppelin implementation, and how to use the implementation in a simple contract. Further articles in this series will cover more advanced usage patterns for NFTs, including Refungibles, Cryptocomposables (ERC998), and other NFT-compatible standards like ERC1155.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Understanding OpenZeppelin ERC721</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/understanding-openzeppelin-erc721/9a7a50e503a1477f8b91397ecf1677da/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qmb5ysTem1C8r4LQ1kcSUrg9gqFGnz95nm6CyuQP4CUJaW</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../tokens-owning-tokens--erc998-and-composables/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../tokens-owning-tokens--erc998-and-composables/" class="btn btn-xs btn-link">
+        Tokens Owning Tokens  ERC998 and Composables
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Blockchain%20Game%20Summit%202018/panel---building-communities/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Blockchain%20Game%20Summit%202018/panel---building-communities/" class="btn btn-xs btn-link">
+        Panel   Building Communities
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Non-Fungible Token Tutorial Series/understanding-openzeppelin-erc721.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

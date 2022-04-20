@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/writing-for-blockchain--wallet-signature-request-/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Writing for blockchain  wallet signature request messages - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Writing for blockchain  wallet signature request messages", url: "#_top", children: [
+              {title: "Before we begin, what is Content design?", url: "#before-we-begin-what-is-content-design" },
+              {title: "But first, blockchain", url: "#but-first-blockchain" },
+              {title: "Wallet signature request messages", url: "#wallet-signature-request-messages" },
+              {title: "Content for signature request messages", url: "#content-for-signature-request-messages" },
+              {title: "What does this advice look like?", url: "#what-does-this-advice-look-like" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="writing-for-blockchain-wallet-signature-request-messages">Writing for blockchain  wallet signature request messages<a class="headerlink" href="#writing-for-blockchain-wallet-signature-request-messages" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY1PpMqybDT6jMC4z7etDodJiuEerheiH6xTk4Ag82Nib" /></p>
+<p><em>This article is for you if you’re curious about the design problems in the blockchain space. If you don’t have a writer on your team, or you’re looking to improve your blockchain product’s onboarding UX. If you’re thinking about the challenge of getting your product into more hands than the existing, tech-savvy blockchain community. Or all of the above.</em></p>
+<p>I’m Ryan, Lead UX content designer for the 
+<a href="https://consensys.design/design-system">Rimble</a>
+ design system team over at 
+<a href="https://medium.com/@ConsenSys">ConsenSys</a>
+ . And I want to help teams write better blockchain applications that anyone can understand.
+Rimble’s goal is to create:</p>
+<blockquote>
+<p>an adaptable system of guidelines and components to support the best practices of dApp (decentralised application) UX design. Built as an open-source project, the Web 3 Design System helps teams quickly build products that humans will use.</p>
+</blockquote>
+<p>I wanted to start this “Writing for blockchain” series to support Rimble and its mission. I want this series to offer a content design perspective on some of the interactions unique to blockchain.
+This space is straight-up crazy and everything is basically an experiment. Things have been built so rapidly and not always with the benefit of a design perspective. And because things are moving so fast, the UX (and the content) is quite often not thought about or just a sticky plaster applied at the end.
+It’s quite possible that my advice will be out of date by the time I publish this article. But that’s what makes the space so exciting, so here goes nothing…</p>
+<p><em>Note: if you’re already familiar with content design and the basics of blockchain or Ethereum. Feel free to skip the next few sections until you see the Bufficorn. Don’t know what one of those is? You’ll know it when you see it.</em></p>
+<h3 id="before-we-begin-what-is-content-design">Before we begin, what is Content design?<a class="headerlink" href="#before-we-begin-what-is-content-design" title="Permanent link"></a></h3>
+<p>Before I begin, a content designer is a role on a multidisciplinary product team. Our mission is to ensure that the product has the content it needs to help users complete their tasks. At the most basic level, it’s putting the right content in the right place at the right time.
+While a product designer is expected to design an experience as well as create beautiful user interfaces, a content designer is expected to design an experience through a content lens. After working out the content needed, they need to make sure it’s communicated eloquently and accessibly.
+This involves partnering closely with research to understand what you need to say, then partnering closely with product design to ensure flows and screens support the content needed.
+That was a bit of a whirlwind explanation, but if you’re curious I’ve written plenty more on the subject. Try 
+<a href="https://uxplanet.org/ux-writing-and-the-customer-experience-wont-somebody-please-think-of-the-words-f7cdefa3793a">this article</a>
+ for size… (note: I use UX writer and Content designer interchangeably).
+The thing about blockchain is that there are very few designers in the space and even fewer content designers or writers on product teams. So I’m hoping this series proves a good resource for improving the content and usability of all the products out there being built — especially if you don’t have a professional writer.
+And first up, I want to talk about something completely unique to blockchain… wallet signature request messages.</p>
+<h3 id="but-first-blockchain">But first, blockchain<a class="headerlink" href="#but-first-blockchain" title="Permanent link"></a></h3>
+<p>Before we actually get in to the nitty gritty of wallet signature requests, I just need to lay out some blockchain basics and some terminology.
+Blockchain applications are commonly referred to as dApps, which stands for decentralized applications.
+They’re decentralized because they use things called smart contracts to reduce or remove the need for middle-people or central authorities. Smart contracts are essentially coded agreements: “ 
+<em>if you do this, I’ll do that</em>
+ ”, guaranteed because they’re written to the blockchain.
+One example might be 
+<a href="http://airswap.io">Airswap</a>
+ , a platform for trading digital tokens. If you want to buy a Dogecoin, you pay for it in Ether. There’s no middle-person or 
+<em>Dogecorp</em>
+ needed because the code says that if you pay x Ether, you’ll get Y Dogecoin. And that code can’t be refuted.
+But I’m getting carried away…
+This article isn’t about explaining blockchain — and just as well because I’m not nearly qualified enough to do that. Let’s get back on track.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXQx1MAGHsD314X1eZxeLKoKJ36siLNi8N32bbG9NNjwF" /></p>
+<h3 id="wallet-signature-request-messages">Wallet signature request messages<a class="headerlink" href="#wallet-signature-request-messages" title="Permanent link"></a></h3>
+<blockquote>
+<p>Caveat #1: I’ll be talking about signature request messages in the context of logging in or accessing a dApp on the Ethereum blockchain, not when they’re used for verifying a smart contract transaction (that’ll come later).</p>
+</blockquote>
+<p>Wallet signature requests are some of the first things you come across when starting out with dApps. They are a crucial part of the decentralized “logging in” process.
+With some dApps, all you need is a wallet to access it. No account, no usernames, no passwords, no personal data stored by the dApp at all! A lot of the time you can enhance your experience by adding data afterwards, but it’s not a prerequisite for access.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaXnEgycRXh71AGkiyWDGpEcfswDusZsc16cZJDubS2y3" /></p>
+<p>Your wallet is your ticket to the blockchain party. It grants you access to a website’s blockchain features.
+So for example, if you head to 
+<a href="https://explorer.bounties.network/explorer">The Bounties Network</a>
+ you can browse the bounties (tasks people are willing to pay for in crypto) right away. But to outsource or fulfil a bounty you need to be connected to the blockchain because they are fulfilled via smart contracts without middle-people. To connect to the blockchain you just need to log in using your wallet.
+That’s why we have signature request messages when logging in to a dApp. They’re essentially a security precaution and a bit like that bank verification modal you sometimes get when you pay for stuff online. In a decentralized world, we don’t need the bank. You can verify yourself using your wallet. So dApps ask you to sign a message in your wallet to prove you have access and aren’t someone acting fraudulently with someone else’s wallet/funds.</p>
+<p><em>As a side note, I’m not sure signing is the best analogy for this. It sounds contractual, scary and there’s no signature in the traditional pen-and-ink sense, but the metaphors of blockchain is most certainly an article for another time.</em></p>
+<p>Whether or not you agree with the metaphor, the importance of this verification step is without doubt. Yet the message is often complete gibberish, leading to unnecessary points of friction and confusion.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYEi527roKZNZpsbcpzt8z9nDZzU8ba811v3R3yowXRRT" /></p>
+<p>This is often the last step (hurdle?) in logging in, so it’s crucial. I think it’s time we started caring more about what it says.</p>
+<h3 id="content-for-signature-request-messages">Content for signature request messages<a class="headerlink" href="#content-for-signature-request-messages" title="Permanent link"></a></h3>
+<blockquote>
+<p>Caveat #1: technically speaking, this article focuses just on MetaMask for now. MetaMask is an extension that allows you to have a wallet in your Chrome, Firefox, Brave or Opera browser. I can’t guarantee that the advice I provide is compatible with other technologies.</p>
+<p>Caveat #2: some dApps are more decentralized than others. Where some allow you access via your wallet alone, other dApps ask you to link a wallet to a centralized account. Although my primary focus is on the former, my advice applies more broadly to the latter too.</p>
+</blockquote>
+<p>In my first month working in blockchain, I’ve spent a lot of time logging in to dApps using my wallet.
+In theory, you only have to install MetaMask and create your wallet once. From there you can use your wallet to log into lots of dApps. This is actually a good opportunity for a quick login experience. All you need to do is sign a piece of data to gain access via your wallet. Yet even after a month in, this still feels problematic. I’ve never “signed data” before. I need some context and I desperately need some “why” or at least “what for?”. The good news is, there’s no reason you can’t supply that context.</p>
+<h4 id="the-technical-bit">The technical bit<a class="headerlink" href="#the-technical-bit" title="Permanent link"></a></h4>
+<p>Under the hood a signature request is a dApp sending a small piece of data to the wallet and asking the user to go into the wallet and sign to say that they’ve received it.
+This data might look like: 
+<code>d458fa15-dcab-4d85-a477-004d6febca12</code></p>
+<p><em>Make sense?</em></p>
+<p>After some sleuthing (and thanks to 
+<a href="https://www.toptal.com/ethereum/one-click-login-flows-a-metamask-tutorial">this tutorial</a>
+ ) I realised that this piece of data can be converted into something that 
+<strong>can</strong>
+ make sense and provide a better user experience. Hooray!</p>
+<p><code>Personal_sign</code>
+ is a signature type ( 
+<a href="https://danfinlay.github.io/js-eth-personal-sign-examples/">see it in action</a>
+ — you’ll need MetaMask installed) that allows you to customise the message presented to your user.
+In the code it looks a little like this…</p>
+<pre><code>handleSignMessage = ({ publicAddress, nonce }) =&gt; {
+    return new Promise((resolve, reject) =&gt;
+      web3.personal.sign(
+        web3.fromUtf8(`I am signing my one-time nonce: ${nonce}`),
+        publicAddress,
+        (err, signature) =&gt; {
+          if (err) return reject(err);
+          return resolve({ publicAddress, signature });
+        }
+      )
+    );
+  };
+</code></pre>
+<p><em>I’ve made it bold to show where you customise the message.</em></p>
+<p>This will convert the random combination of letters and numbers into something a human can read.
+Now you’ve just got to work out what to say.</p>
+<h4 id="the-content-bit">The content bit<a class="headerlink" href="#the-content-bit" title="Permanent link"></a></h4>
+<p>I believe getting this message right can really improve the log in experience for both new and return users — all in a really cheap way.
+Here’s my content design advice…</p>
+<p><strong>Don’t just pre-explain in your app</strong>
+ You might be thinking, we have a screen for this in our dApp. But content belongs where it’s most contextually relevant. That’s why you should invest time in writing your MetaMask message — that’s where your users are completing the sign action. If the MetaMask notification pops up automatically (as it sometimes does), your user may not even read your dApp screen. In fact, even if MetaMask doesn’t pop up automatically, they may not read it, especially if there’s no associated button or action to do. We all love skipping content when we think we can.
+However, definitely pre-explain the concept of message signing in your dApp too. With the space so new and the concept so different, over-explanation is probably a good idea. Make sure you direct your users to MetaMask when you ask them to sign the message — it doesn’t always pop up.</p>
+<p><strong>Be human, have a zero tolerance policy on jargon</strong>
+ Nonce doesn’t mean anything to regular users. And means 
+<a href="https://www.urbandictionary.com/define.php?term=nonce">something COMPLETELY different</a>
+ in the UK 😱. And why not say “Hi”? Even though they’re interacting with MetaMask, this is still very much a space for your brand and your product.</p>
+<p><strong>Be transparent: explain why</strong>
+ The biggest obstacle for me when signing a message was trying to figure out what I was doing and why I was doing it. There’s a lot of assumed knowledge in this space. Remember, no one will forgo your dApp because you’re telling them something they already know. But think about how many people are dropping off because they’re met with a scary cryptographic hash or talks of nonces when all they want to do is log in.</p>
+<p><em>Why do they need to sign:</em>
+ to prove they own the wallet.
+Remember, “signing” in the real world has financial and legal connotations — it’s a bit intimidating. I think of it more as like signing for a delivery than something contractual. This is a point I’d make in the dApp when asking users to sign the message.</p>
+<p><strong>Be direct</strong>
+ Invite them to sign the message. That’s the action you want them to take so ask them for their signature. Create a link between your message and the “Sign” button, so it’s clear what signing will do.</p>
+<p><em>What will signing do:</em>
+ prove they have access and 
+__
+ log them in</p>
+<p><strong>Let your users know it’s free</strong>
+ In the blockchain world, every on-chain event (a transaction that interacts with blockchain) requires a processing fee. The signature request is off-chain so doesn’t. Users might not understand this at first and be put off from connecting to your dApp. Be explicit that this won’t cost your users anything.</p>
+<p><strong>Be secure</strong>
+ It’s still advisable to include part of the data in its raw form. This way if an attacker is aware of a previous signature result, they can’t just reuse it. So keep the 
+<code>${nonce}</code>
+ . Just make sure you explain why you’re including a random string of data — to keep their wallet safe and stop hackers.</p>
+<p><strong>Be creative</strong>
+ It’s a good opportunity to show off your brand style or tone of voice. Take a look at CrytpoKitties to see what I mean.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVTRSBWYgQ9fAaFE9Lt728iKdFss6poPKVTybEahWK4LH" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb6JFpcYFkT8dYMJkVGLoXvc7eLg8RDcMFpt9t9wVj9uh" /></p>
+<h3 id="what-does-this-advice-look-like">What does this advice look like?<a class="headerlink" href="#what-does-this-advice-look-like" title="Permanent link"></a></h3>
+<p>A good, but generic, message might look something like:</p>
+<blockquote>
+<p>Hi there from {dApp name}! Sign this message to prove you have access to this wallet and we’ll log you in. This won’t cost you any Ether.To stop hackers using your wallet, here’s a unique message ID they can’t guess: d458fa15-dcab-4d85-a477–004d6febca12</p>
+</blockquote>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTcm9uKVpYYcpxHgaGXuN5N2aE9mhF4i2U3H9cz2hBKCM" /></p>
+<p>What this message does:</p>
+<ul>
+<li>
+<p>Addresses the user</p>
+</li>
+<li>
+<p>Uses human language, no jargon</p>
+</li>
+<li>
+<p>Reiterates who the message is from</p>
+</li>
+<li>
+<p>Asks them to sign and explains what they’re signing</p>
+</li>
+<li>
+<p>Sets expectations and frames the message in terms of their goal: “by doing this you’ll be logged in”</p>
+</li>
+<li>
+<p>Explains why</p>
+</li>
+<li>
+<p>Makes it clear it’s not financial</p>
+</li>
+<li>
+<p>Includes the nonce for security purposes
+Or in other words… when faced with this message, 
+<strong>your user understands what they need to do, why they need to do it and what will happen next</strong>
+ .
+All in just a few short lines of content.
+I hope you give this a go — I’d love to see more informative, helpful and human messages next time I sign one.</p>
+</li>
+</ul>
+<p><em>Huge thanks to @danfinlay over at MetaMask for answering all my questions. And to my Rimble and ConsenSys team mates for providing feedback on earlier drafts of this article</em></p>
+<h4 id="a-quick-edit">A quick edit<a class="headerlink" href="#a-quick-edit" title="Permanent link"></a></h4>
+<p>After more user testing, I found that this message must make it clear that the user doesn’t have to remember the nonce or write it down. It might also be worth removing any mention of hackers if your audience isn’t as tech-savvy.</p>
+<p>Blockchain is complicated and making it simple is even more complicated. So please let me know if you found this useful or if you spot any mistakes.
+If you have any areas you’d like covered in a future issue, leave it in the comments or you can reach out to me on 
+<a href="https://twitter.com/ryancreatescopy">@ryancreatescopy</a>
+ on Twitter.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Writing for blockchain  wallet signature request messages</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/writing-for-blockchain-wallet-signature-request-me/e46374ec0fbd4403ae9ea351580caa4d/a</li>
+<li><strong>Kauri original author:</strong> Ryan Cordell (@rcordell)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-30</li>
+<li><strong>Kauri original tags:</strong> metamask, ux, usability, blockchain, content</li>
+<li><strong>Kauri original hash:</strong> Qmf11neYJNAJWJgWEzXkAfe2cngRjaUgExyBmEiqdkXEJm</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../what-are-the-risksrewards-associated-with-leverag/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../what-are-the-risksrewards-associated-with-leverag/" class="btn btn-xs btn-link">
+        What are the risks/rewards associated with leveraging?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../using-kauri-communities/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../using-kauri-communities/" class="btn btn-xs btn-link">
+        Using Kauri Communities
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/writing-for-blockchain--wallet-signature-request-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2845%29-collect-logs-with-elastic-filebeat-for-monit/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes", url: "#_top", children: [
+              {title: "Configuration", url: "#configuration" },
+              {title: "Installation and result", url: "#installation-and-result" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="45-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes">(4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes<a class="headerlink" href="#45-collect-logs-with-elastic-filebeat-for-monitoring-kubernetes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZcCzNro3rnKo22XsMSmVRdxwj1jybedy9SHgQhPVHmpt" /></p>
+<p>In the next section of this series, we are now going to install <a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html"><strong>Filebeat</strong></a>, it is a lightweight agent to collect and forward log data to ElasticSearch within the k8s environment (node and pod logs). Moreover, specific <a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html">modules</a> can be configured to parse and visualise logs format coming from common applications or system (databases, message bus).</p>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h3>
+<p>Similarly to Metricbeat, Filebeat requires a settings file to configure the connections to ElasticSearch (endpoint, username, password), the connection to Kibana (to import pre-existing dashboards) and the way to collect and parse logs from each container of the k8s environment.</p>
+<p>The following <code>ConfigMap</code> represents all the settings needed to capture logs (find more <a href="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-reference-yml.html">here</a> to customise this config).</p>
+<pre><code class="language-yaml">## filebeat.settings.configmap.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: filebeat-config
+  labels:
+    app: filebeat
+data:
+  filebeat.yml: |-
+    filebeat.inputs:
+    - type: container
+      paths:
+        - /var/log/containers/*.log
+      processors:
+        - add_kubernetes_metadata:
+            in_cluster: true
+            host: ${NODE_NAME}
+            matchers:
+            - logs_path:
+                logs_path: &quot;/var/log/containers/&quot;
+
+    filebeat.modules:
+      - module: system
+        syslog:
+          enabled: true
+        auth:
+          enabled: true
+
+    filebeat.autodiscover:
+      providers:
+        - type: kubernetes
+          templates:
+            - condition.equals:
+                kubernetes.labels.app: mongo
+              config:
+                - module: mongodb
+                  enabled: true
+                  log:
+                    input:
+                      type: docker
+                      containers.ids:
+                        - ${data.kubernetes.container.id}
+
+    processors:
+      - drop_event:
+          when.or:
+              - and:
+                  - regexp:
+                      message: '^\d+\.\d+\.\d+\.\d+ '
+                  - equals:
+                      fileset.name: error
+              - and:
+                  - not:
+                      regexp:
+                          message: '^\d+\.\d+\.\d+\.\d+ '
+                  - equals:
+                      fileset.name: access
+      - add_cloud_metadata:
+      - add_kubernetes_metadata:
+      - add_docker_metadata:
+
+    output.elasticsearch:
+      hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+
+    setup.kibana:
+      host: '${KIBANA_HOST:kibana}:${KIBANA_PORT:5601}'
+
+    setup.dashboards.enabled: true
+    setup.template.enabled: true
+
+    setup.ilm:
+      policy_file: /etc/indice-lifecycle.json
+---
+</code></pre>
+<p>We also configure the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.3/index-lifecycle-management.html">indice lifecycle</a> on startup to rollover the indice every day and delete 30 days old indices.</p>
+<pre><code class="language-yaml">## filebeat.indice-lifecycle.configmap.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: filebeat-indice-lifecycle
+  labels:
+    app: filebeat
+data:
+  indice-lifecycle.json: |-
+    {
+      &quot;policy&quot;: {
+        &quot;phases&quot;: {
+          &quot;hot&quot;: {
+            &quot;actions&quot;: {
+              &quot;rollover&quot;: {
+                &quot;max_size&quot;: &quot;5GB&quot; ,
+                &quot;max_age&quot;: &quot;1d&quot;
+              }
+            }
+          },
+          &quot;delete&quot;: {
+            &quot;min_age&quot;: &quot;30d&quot;,
+            &quot;actions&quot;: {
+              &quot;delete&quot;: {}
+            }
+          }
+        }
+      }
+    }
+---
+</code></pre>
+<p>The following <code>DaemonSet</code> file allows to deploy an agent on each node of the k8s cluster to collect logs according to the settings configured above.</p>
+<pre><code class="language-yaml">##filebeat.daemonset.yml
+---
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  namespace: monitoring
+  name: filebeat
+  labels:
+    app: filebeat
+spec:
+  template:
+    metadata:
+      labels:
+        app: filebeat
+    spec:
+      serviceAccountName: filebeat
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: filebeat
+        image: docker.elastic.co/beats/filebeat:7.3.0
+        args: [
+          &quot;-c&quot;, &quot;/etc/filebeat.yml&quot;,
+          &quot;-e&quot;,
+        ]
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: elasticsearch-client.monitoring.svc.cluster.local
+        - name: ELASTICSEARCH_PORT
+          value: &quot;9200&quot;
+        - name: ELASTICSEARCH_USERNAME
+          value: elastic
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-pw-elastic
+              key: password
+        - name: KIBANA_HOST
+          value: kibana.monitoring.svc.cluster.local
+        - name: KIBANA_PORT
+          value: &quot;5601&quot;
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        securityContext:
+          runAsUser: 0
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - name: config
+          mountPath: /etc/filebeat.yml
+          readOnly: true
+          subPath: filebeat.yml
+        - name: filebeat-indice-lifecycle
+          mountPath: /etc/indice-lifecycle.json
+          readOnly: true
+          subPath: indice-lifecycle.json
+        - name: data
+          mountPath: /usr/share/filebeat/data
+        - name: varlog
+          mountPath: /var/log
+          readOnly: true
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+        - name: dockersock
+          mountPath: /var/run/docker.sock
+      volumes:
+      - name: config
+        configMap:
+          defaultMode: 0600
+          name: filebeat-config
+      - name: filebeat-indice-lifecycle
+        configMap:
+          defaultMode: 0600
+          name: filebeat-indice-lifecycle
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
+      - name: dockersock
+        hostPath:
+          path: /var/run/docker.sock
+      - name: data
+        emptyDir: {}
+---
+</code></pre>
+<p>Finally, we need to grant permissions to filebeat to access some resources of the Cluster.</p>
+<pre><code class="language-yaml">## filebeat.permission.yml
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  namespace: monitoring
+  name: filebeat
+subjects:
+- kind: ServiceAccount
+  name: filebeat
+  namespace: monitoring
+roleRef:
+  kind: ClusterRole
+  name: filebeat
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  namespace: monitoring
+  name: filebeat
+  labels:
+    app: filebeat
+rules:
+- apiGroups: [&quot;&quot;]
+  resources:
+  - namespaces
+  - pods
+  verbs:
+  - get
+  - watch
+  - list
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: monitoring
+  name: filebeat
+  labels:
+    app: filebeat
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/filebeat.yml">full file</a></em></p>
+<p><br /></p>
+<h3 id="installation-and-result">Installation and result<a class="headerlink" href="#installation-and-result" title="Permanent link"></a></h3>
+<p>We can now deploy Filebeat:</p>
+<pre><code class="language-shell">$ kubectl apply  -f filebeat.settings.configmap.yml \
+                 -f filebeat.indice-lifecycle.configmap.yml \
+                 -f filebeat.daemonset.yml \
+                 -f filebeat.permissions.yml
+
+configmap/filebeat-config configured
+configmap/filebeat-indice-lifecycle configured
+daemonset.extensions/filebeat created
+clusterrolebinding.rbac.authorization.k8s.io/filebeat created
+clusterrole.rbac.authorization.k8s.io/filebeat created
+serviceaccount/filebeat created
+</code></pre>
+<p>Wait until the <code>filebeat</code> pod is <code>Running</code> and you should be able to observe logs in Kibana.</p>
+<pre><code class="language-shell">$ kubectl get all -n monitoring -l app=filebeat
+NAME                 READY   STATUS    RESTARTS   AGE
+pod/filebeat-l88qj   1/1     Running   0          4m52s
+
+NAME                      DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
+daemonset.apps/filebeat   1         1         1       1            1           &lt;none&gt;          4m52s
+</code></pre>
+<p>Now Filebeat is up and running, you can observe logs in different ways. From the left menu, click on "Logs" and you can see an aggregated view of all the logs printed from every nodes and containers. You can filter the logs by any attributes attached to the log (for example a kubernetes label) and navigate over the time:</p>
+<p><img alt="" src="https://imgur.com/aiDUoYf.gif" /></p>
+<p>In the Infrastructure view, the logs are now integrated and can be accessed easily for each pod by clicking on "View logs" on a pod or container.</p>
+<p><img alt="" src="https://imgur.com/PLOi5bN.gif" /></p>
+<p>Filebeat comes also with pre-built dashboards imported to Kibana, go to "Dashboards" and you should have a lot of Filebeat dashboards available. We enabled the <code>mongodb</code> module so the dashboard "Overview [Filebeat MongoDB] ECS" should be populated. It give an overview of the state of MongoDB based on the logs (error rate).</p>
+<p><img alt="" src="https://i.imgur.com/NLBuXxy.png" /></p>
+<p><br />
+<br /></p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>In the following article, we will learn how to install and configure APM:
+<a href="https://kauri.io/article/bbbc0af03721495b886567ce6af6c59e">Collect traces with Elastic APM for monitoring Kubernetes</a></p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/45-collect-logs-with-elastic-filebeat-for-monitori/28b4930506794915be2559dc5ee4b0b1/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-03</li>
+<li><strong>Kauri original tags:</strong> kubernetes, elasticsearch, k8s, metricbeat, kibana, monitoring, filebeat</li>
+<li><strong>Kauri original hash:</strong> QmVco48xYKasdoCbEqsXNXXTQm2eEhMaJihMtvkDniuSxs</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2855%29-collect-traces-with-elastic-apm-for-monitori/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2855%29-collect-traces-with-elastic-apm-for-monitori/" class="btn btn-xs btn-link">
+        (5/5) Collect traces with Elastic APM for monitoring Kubernetes
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2835%29-collect-metrics-with-elastic-metricbeat-for-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2835%29-collect-metrics-with-elastic-metricbeat-for-/" class="btn btn-xs btn-link">
+        (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Monitoring Kubernetes with Elastic Stack/(45)-collect-logs-with-elastic-filebeat-for-monit.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

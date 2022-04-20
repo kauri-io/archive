@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/why-and-how-we-built-the-bounties-network/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Why and How We Built the Bounties Network - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Why and How We Built the Bounties Network", url: "#_top", children: [
+              {title: "Openness and ease of use for other open source developers and users of the StandardBounties contract", url: "#openness-and-ease-of-use-for-other-open-source-developers-and-users-of-the-standardbounties-contract" },
+              {title: "A realtime, fail-proof mechanism to cache the contract data", url: "#a-realtime-fail-proof-mechanism-to-cache-the-contract-data" },
+              {title: "Structured data to build open analytics tools for the community to participate in", url: "#structured-data-to-build-open-analytics-tools-for-the-community-to-participate-in" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="why-and-how-we-built-the-bounties-network">Why and How We Built the Bounties Network<a class="headerlink" href="#why-and-how-we-built-the-bounties-network" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSDT3XWamqMKK2qvhtvDr2Mc3RxBTTY7jfzkQxDPGxiHx" /></p>
+<p>We began building the Bounties Network in early 2017, and quickly realized that whether it was social media, bugs, or code, across different platforms, there was a very good reason for a standard to exist across all variations.
+Enter, <a href="https://github.com/Bounties-Network/StandardBounties">StandardBounties</a>: a community driven implementation for bounties on Ethereum, which is a collaborative effort among freelancing &amp; incentivization platforms that rely on Ethereum.</p>
+<p>Although data storage was (and still is) extremely expensive on the Ethereum Mainnet, we used IPFS to store the data pertaining to bounty specifications and submissions in a decentralized manner. This meant that any platform or user on Ethereum can easily access all relevant data, thereby avoiding a replication of the walled-garden architectures we saw with existing freelancing platforms in the web2.0 world.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbYiX4PG72KaMDxkBiYVTJ7iotZ29aB5HLJzotmC9MMGa" /></p>
+<p>Because most users aren’t comfortable interacting with smart contracts through command line tools, we realized the need to build a front-end interface — a <strong>Bounties Explorer</strong>. This would serve as an open-source, generalized platform for bounties across Ethereum, which could provide a reference client for new developers building on StandardBounties, as well as a website which end-users could employ to quickly begin <strong>building a world on bounties.</strong></p>
+<p>In the interest of building the system to be as decentralized as possible, we wanted the Bounties Explorer to be a fat client, one which managed as much logic in the front-end as possible,  <strong>so there would be no need for a back-end server at all.</strong> This meant the Bounties Explorer could be deployed &amp; accessed using decentralized storage services like IPFS and Swarm, and would only rely on data stored on the Ethereum network (along with those storage services). And to make it even easier for Ethereum novices, we also deployed it using existing web server practises to the beta.bounties.network domain.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmThyoeDYkU4ncUxvR2kXkckHqArU9zDiZbmKt4xQnVfJK" /></p>
+<p>Over time, as the Bounties Network grew and began being used to pay out real bounties to developers, writers, and creators in the ecosystem, we ran into some technical challenges. Because we didn’t cache any data off-chain, the entire state of the bounties registry, including all bounties and submissions on the network, needed to be loaded from the blockchain on page-load, which not only provided a diminished user experience for our users (through some really awful load times), but also added an undue load on <a href="https://infura.io">Infura</a>, through the substantial number of <em>eth_calls</em> required to pull all the data. Because the data was stored in IPFS, we didn’t have access to search functionality, pagination for quicker response times, analytics processing, and more. 
+<em>We sincerely thank <a href="https://infura.io/%5C">Infura</a> for their support in happily scaling their server infrastructure as usage of the Bounties Network and other Ethereum applications continues to grow.</em></p>
+<p>To solve all these issues, we’ve decided to transition to an architecture which  <strong>does</strong> use some off-chain caching to improve user experiences, without sacrificing the open nature of the Bounties Network, and maintaining the interoperability benefits we were initially seeking.</p>
+<p>For our <a href="https://github.com/Bounties-Network/BountiesAPI">caching API</a>, we had a few priorities in place. We wanted to achieve the following:</p>
+<h4 id="openness-and-ease-of-use-for-other-open-source-developers-and-users-of-the-standardbounties-contract">Openness and ease of use for other open source developers and users of the StandardBounties contract<a class="headerlink" href="#openness-and-ease-of-use-for-other-open-source-developers-and-users-of-the-standardbounties-contract" title="Permanent link"></a></h4>
+<p>We found our users faced roadblocks as they tested integration with the Rinkeby contract. They would have to repeat a lot of code just to parse through the IPFS stores, contract transactions, etc. to confirm they used the StandardBounties contract correctly and confirm the integrity of the data.</p>
+<p>As a result, we wanted to have an easily accessible <a href="https://api.bounties.network">API</a> with a good interface (using 
+<a href="https://swagger.io">swagger</a>), so anyone integrating with the contract could just load the API in real time and confirm all the data integrated correctly.</p>
+<h4 id="a-realtime-fail-proof-mechanism-to-cache-the-contract-data">A realtime, fail-proof mechanism to cache the contract data<a class="headerlink" href="#a-realtime-fail-proof-mechanism-to-cache-the-contract-data" title="Permanent link"></a></h4>
+<p>We also wanted to make it easy to filter, parse, and explore the data. As a result, the API we built returns a combination of everything written in IPFS and the on-chain contract, in addition to providing stats, profile data, searching, and more. It also provides all the endpoints necessary to build a reliable, fast, and stable bounties site (think bounties around stack overflow questions, translations, design, etc.).</p>
+<h4 id="structured-data-to-build-open-analytics-tools-for-the-community-to-participate-in">Structured data to build open analytics tools for the community to participate in<a class="headerlink" href="#structured-data-to-build-open-analytics-tools-for-the-community-to-participate-in" title="Permanent link"></a></h4>
+<p>We found it crucial to build the API to work in realtime and be as fail proof as possible. In order to accomplish this, we had to put a stable, solid architecture together.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUybhpT8p4cb2Pah38So6sz7jQwAFjtNQmeuxtr9qxrRu" /></p>
+<p>All the services we built are containerized using <a href="https://www.docker.com">docker</a>, and managed by <a href="http://kubernetes.io">kubernetes</a>. Containerization makes it easy for us to build multiple systems with a clear and distinct separation of concerns. Also, it allows for easy testing, deployment repeatability, simple local setup (one command runs everything), and scaling. For example, kubernetes integrates with AWS and provides auto-scaling if server loads increase, and will automatically restart failed containers. This automatic restart helps with error management and also helps to simplify the codebase.</p>
+<p>Next, we chose to build a contract subscriber and a bounties subscriber as two separate services. The contract subscriber listens directly to the ethereum contract for any new emitted events. When an event emits, it immediately grabs the relevant data and puts it into a job queue (SQS). The bounties subscriber listens to the job queue and writes to the database. Separating out the two jobs was an easy choice for a number of reasons:</p>
+<ol>
+<li>The node.js web3 client is much more advanced and further along than the python client — this way we use a Django server to write to the DB and node.js to listen to the contract.</li>
+<li>It separates concerns and it can just emit a contract event. It shouldn’t have to know what happens next. In the future, we may have multiple services that respond to each of the events (not just a bounties subscriber).</li>
+<li>Having a job service like SQS running before writing to the database blocks duplications and manages failures easily.</li>
+<li>It simplifies code, making it easier for new developers to easily begin contributing to our open source repo.</li>
+</ol>
+<p>As the bounties subscriber listens to the job queue, it reads from IPFS, structures the data appropriately, and writes everything to a psql database. After the bounties subscriber does its work, the data is readily available in the 
+<a href="https://api.bounties.network">API</a>. In the current system, we have a 1 second gap in time between the original event and its availability in the API. So far we consider this to be fast enough, but there are plenty of ways we can make it even quicker in the future, should the need arise.</p>
+<p>Finally, our third priority centered around providing structured data, allowing our community to easily build analytics or real time services using bounties. Having this data readily available makes it possible to build many tools such as a pricing suggestion engine, reputation engine, or matching engine. It can also help with decentralization and openness around conflicts or disputes. Our priority was to make the data easy to download, access, and integrate with. As we continue to build out the Bounties Network, we’d like to have these additional services (reputation, pricing, etc.) built directly into the API.</p>
+<hr />
+<p>As the Bounties Network continues to grow, we hope to continue sharing the lessons we learn about our development with our <a href="https://join.slack.com/t/bountiesnetwork/shared_invite/enQtMzA2Mjk3MzAzODQwLTZjN2UxMmU5MWYxZTVmMmM4OGNjZDRiMDgwYTVhOTIwYmQ4MjVlMjNkZjYzOTE4MWI4OTFhOWE4ZTUzN2MyNWY">community</a>, to make it even easier for new devs to build robust decentralized applications on top of Ethereum. We’re also excited to have the community join us in building the Bounties Network, and this process is already underway thanks to <a href="https://gitcoin.co">Gitcoin</a>.</p>
+<p><em>My thanks to <a href="https://medium.com/@mark.beylin">Mark Beylin</a> and others for their feedback and encouragement.</em></p>
+<ul>
+<li>Join our <a href="https://join.slack.com/t/bountiesnetwork/shared_invite/enQtMzA2Mjk3MzAzODQwLTZjN2UxMmU5MWYxZTVmMmM4OGNjZDRiMDgwYTVhOTIwYmQ4MjVlMjNkZjYzOTE4MWI4OTFhOWE4ZTUzN2MyNWY">Bounties Slack community</a></li>
+<li><a href="http://eepurl.com/dpTC-5">sign up to learning sessions</a></li>
+<li><a href="https://twitter.com/ethbounties">follow us on Twitter</a> to see what we’re up to!</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Why and How We Built the Bounties Network</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/why-and-how-we-built-the-bounties-network/1d5500b865fe4e2fa0b06e535216d233/a</li>
+<li><strong>Kauri original author:</strong> Will Villanueva (@will)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-30</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQdKQKTXeaH9R5G5rtf6BvyuKHvFEzPe983haPVtWBPFN</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../super-random-evm/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../super-random-evm/" class="btn btn-xs btn-link">
+        Super Random EVM
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../frustrated-by-long-transaction-latency-and-high-c/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../frustrated-by-long-transaction-latency-and-high-c/" class="btn btn-xs btn-link">
+        Frustrated by long transaction latency and high cost? Try Celer SDK!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/why-and-how-we-built-the-bounties-network.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2848%29-deploy-nextcloud-on-kuberbetes--the-self-hos/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox", url: "#_top", children: [
+              {title: "This article is part of the series Build your very own self-hosting platform with Raspberry Pi and Kubernetes", url: "#this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes" },
+              {title: "Introduction", url: "#introduction" },
+              {title: "Prerequisite", url: "#prerequisite" },
+              {title: "Namespace", url: "#namespace" },
+              {title: "Persistence", url: "#persistence" },
+              {title: "Deployment", url: "#deployment" },
+              {title: "Outside access", url: "#outside-access" },
+              {title: "Ingress", url: "#ingress" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="48-deploy-nextcloud-on-kuberbetes-the-self-hosted-dropbox">(4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox<a class="headerlink" href="#48-deploy-nextcloud-on-kuberbetes-the-self-hosted-dropbox" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWWVPyzfpSc2Pd1EcJ4RyqvQGB6iB7ytNTmVfawExJ3sr" /></p>
+<p><br /></p>
+<h4 id="this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes">This article is part of the series <a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c">Build your very own self-hosting platform with Raspberry Pi and Kubernetes</a><a class="headerlink" href="#this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes" title="Permanent link"></a></h4>
+<ol>
+<li><a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a">Introduction</a></li>
+<li><a href="https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a">Install Raspbian Operating-System and prepare the system for Kubernetes</a></li>
+<li><a href="https://kauri.io/install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a">Install and configure a Kubernetes cluster with k3s to self-host applications</a></li>
+<li><strong>Deploy NextCloud on Kuberbetes: The self-hosted Dropbox</strong></li>
+<li><a href="https://kauri.io/self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/8ec7c8c6bf4e4cc2a2ed563243998537/a">Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett</a></li>
+<li><a href="https://kauri.io/-selfhost-pihole-on-kubernetes-and-block-ads-and/5268e3daace249aba7db0597b47591ef/a">Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level</a></li>
+<li><a href="https://kauri.io/selfhost-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a">Self-host your password manager with Bitwarden</a></li>
+<li><a href="https://kauri.io/deploy-prometheus-and-grafana-to-monitor-a-kube/186a71b189864b9ebc4ef7c8a9f0a6b5/a">Deploy Prometheus and Grafana to monitor a Kubernetes cluster</a></li>
+</ol>
+<p><br />
+<br /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>Now we have prepared our RaspberryPi cluster to receive Kubernetes as a self-hosting platform, it's time to start installing applications !</p>
+<p><a href="https://nextcloud.com/">NextCloud</a> is an file hosting open-source software similar to Dropbox. Unlike Dropbox, NextCloud is not available as a SaaS but only on-premise which means anyone is allowed to install and operate it on their own private server. NextCloud offers individuals and organisations to gain control over their private data with a safe and secure solutions. NextCloud also provides a long list of add-ons working alongside the file sharing solution such as: Calendar &amp; Contacts management, Audio/Video conferencing, Task Management, Photos albums and more.  </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ7zPeatKZ8PY3Y2Qh4USKg9DHEdTiKbKTFjsrPfqrt8T" /></p>
+<p>In this article we will learn how to safely install NextCloud on a Kubernetes environment and configure both Desktop and Mobile access from anywhere.</p>
+<p><br />
+<br /></p>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link"></a></h3>
+<p>In order to run entirely the tutorial, we will need:</p>
+<ul>
+<li>A running Kubernetes cluster (see previous articles if you haven't set this up yet)</li>
+<li>A domain name in order to access our NextCloud instance from outside our network. (replace <domain.com> by your domain)</li>
+<li>Have a external static IP (usually the case by default)</li>
+<li>Access to your router admin console to port-forward an incoming request to our Kubernetes Ingress service.</li>
+</ul>
+<p><br />
+<br /></p>
+<h3 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link"></a></h3>
+<p>We are going to isolate all the Kubernetes objects related to NextCloud in the namespace <code>nextcloud</code>.</p>
+<p>To create a namespace, run the following command:</p>
+<pre><code>$ kubectl create namespace nextcloud
+</code></pre>
+<p><br />
+<br /></p>
+<h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link"></a></h3>
+<p>The first step consists in setting up a volume to store our NextCloud data (files and database). If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on <code>/mnt/ssd</code>.</p>
+<p><strong>1. Deploy the Persistent Volume (PV)</strong></p>
+<p>The Persistent Volume specify the name, the size, the location and the access modes of the volume:</p>
+<ul>
+<li>The name of the PV is  <code>nextcloud-ssd</code></li>
+<li>The size allocated is 50GB</li>
+<li>The location is <code>/mnt/ssd/nextcloud</code></li>
+<li>The access is ReadWriteOnce</li>
+</ul>
+<p>Create the following file and apply it to the k8 cluster.</p>
+<pre><code class="language-yaml">## nextcloud.persistentvolume.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: &quot;nextcloud-ssd&quot;
+  labels:
+    type: &quot;local&quot;
+spec:
+  storageClassName: &quot;manual&quot;
+  capacity:
+    storage: &quot;50Gi&quot;
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: &quot;/mnt/ssd/nextcloud&quot;
+---
+</code></pre>
+<pre><code>$ kubectl apply -f nextcloud.persistentvolume.yml
+persistentvolume/nextcloud-ssd created
+</code></pre>
+<p>You can verify the PV exists with the following command:</p>
+<pre><code>$ kubectl get pv
+
+NAME            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+nextcloud-ssd   50Gi       RWO            Retain           Available           manual                  34s
+</code></pre>
+<p><br />
+<strong>2. Create the Persistent Volume Claim (PVC)</strong></p>
+<p>The Persistent Volume Claim is used to map a Persistent Volume to a deployment or stateful set. Unlike the PV, the PVC belongs to a namespace.</p>
+<p>Create the following file and apply it to the k8 cluster.</p>
+<pre><code class="language-yaml">## nextcloud.persistentvolumeclaim.yml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: &quot;nextcloud&quot;
+  name: &quot;nextcloud-ssd&quot;
+spec:
+  storageClassName: &quot;manual&quot;
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: &quot;50Gi&quot;
+---
+</code></pre>
+<pre><code>$ kubectl apply -f nextcloud.persistentvolumeclaim.yml
+persistentvolumeclaim/nextcloud-ssd created
+</code></pre>
+<p>You can verify the PVC exists with the following command:</p>
+<pre><code>$ kubectl get pvc -n nextcloud
+
+NAME            STATUS   VOLUME          CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+nextcloud-ssd   Bound    nextcloud-ssd   50Gi       RWO            manual         26s
+</code></pre>
+<p><br />
+<br /></p>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<p>In the next part, we are now going to deploy NextCloud using the <a href="https://github.com/helm/charts/tree/master/stable/nextcloud">stable/nextcloud Helm chart</a>.</p>
+<p><strong>1. Download the Chart values of the chart locally</strong></p>
+<p>Run the following command to download the Chart values into the local file <code>nextcloud.values.yml</code>.</p>
+<pre><code>$ helm show values stable/nextcloud &gt;&gt; nextcloud.values.yml
+</code></pre>
+<p>If you open the file, you will see the default configuration values to setup NextCloud. Instead of using the flag <code>--set property=value</code> like before, we will use the file <code>nextcloud.values.yml</code> to make all the changes.</p>
+<p><strong>2. Update the values</strong></p>
+<p>We now need to update a few properties before installing the Helm chart. Open the file <code>nextcloud.values.yml</code> and change the following properties (<em>replace the information surrounded by <brackets> with your information</em>).</p>
+<pre><code class="language-yaml">## nextcloud.values.yml
+nextcloud:
+  host: &quot;nextcloud.&lt;domain.com&gt;&quot; # Host to reach NextCloud
+  username: &quot;admin&quot; # Admin
+  password: &quot;&lt;PASSWORD&gt;&quot; # Admin Password
+(...)
+persistence:
+  enabled: true # Change to true
+  existingClaim: &quot;nextcloud-ssd&quot; # Persistent Volume Claim created earlier
+  accessMode: ReadWriteOnce
+  size: &quot;50Gi&quot;
+</code></pre>
+<p>Take a look at the file if you want to make more customisation to NextCloud:</p>
+<ul>
+<li>Configure emails</li>
+<li>Configure an external database or deploy a MariaDB as part of the Chart (improve performance)</li>
+<li>Configure Redis server (improve performance)</li>
+</ul>
+<p><br />
+<strong>3. Install the Chart</strong></p>
+<p>In the part, we will install the Helm chart under the namespace <code>nextcloud</code> with <code>nextcloud.values.yml</code> as configuration file.</p>
+<pre><code>$ helm install nextcloud stable/nextcloud \
+  --namespace nextcloud \
+  --values nextcloud.values.yml
+</code></pre>
+<p>After a couple of minutes, check if the pod and service is up and running:</p>
+<pre><code>$ kubectl get pods -n nextcloud
+
+NAME                         READY   STATUS    RESTARTS   AGE   IP           NODE          NOMINATED NODE   READINESS GATES
+nextcloud-78f5564f89-854jr   1/1     Running   0          15m   10.42.0.16   kube-master   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+<pre><code>$ kubectl get services -n nextcloud -o wide
+
+NAME        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+nextcloud   ClusterIP   10.43.188.121   &lt;none&gt;        8080/TCP   51m   app.kubernetes.io/name=nextcloud
+</code></pre>
+<p><strong>4. Debugging</strong></p>
+<p>You can check the logs with the following command:</p>
+<pre><code>$ kubectl logs -f nextcloud-78f5564f89-854jr -n nextcloud
+</code></pre>
+<p>Otherwise check the folder <code>/mnt/ssd/nextcloud/data/nextcloud.log</code>.</p>
+<p><br />
+<br /></p>
+<h3 id="outside-access">Outside access<a class="headerlink" href="#outside-access" title="Permanent link"></a></h3>
+<p><em>This step is configured before the ingress in order to be able to issue a certificate automatically when we deploy the ingress</em></p>
+<p>The next part consist to enable the connections to NextCloud from outside so you can access your data from anywhere.</p>
+<p><strong>1. Port Forwarding</strong></p>
+<p>First you need to go to your router setup and add a port-forwarding rule to map any incoming requests on port 80 or port 443 to be forwarded to <code>192.168.0.240</code> (the LoadBalancer IP of the Nginx).</p>
+<p><img alt="" src="https://i.imgur.com/iqpI0H3.png" /></p>
+<p><em>VirginHub - Port-Forwarding</em></p>
+<p><br />
+<strong>2. Map the subdomain <code>nextcloud.&lt;domain.com&gt;</code> to your home router</strong></p>
+<p>First you need to find out what's your router external IP, run this command or go to <a href="https://www.whatismyip.com">whatismyip.com</a>.</p>
+<pre><code>$ curl ipecho.net/plain
+x.x.x.x
+</code></pre>
+<p>Then, we need to configure our subdomain to make sure <code>nextcloud.&lt;domain.com&gt;</code> resolves to our external static IP. Go to your domain provider console / DNS management add a record:</p>
+<ul>
+<li><strong>Type:</strong> A</li>
+<li><strong>Name:</strong> nextcloud (subdomain)</li>
+<li><strong>Value:</strong> x.x.x.x (external satic IP)</li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/b0BKzIE.png" /></p>
+<p><em>GoDaddy</em></p>
+<p><br />
+<br /></p>
+<h3 id="ingress">Ingress<a class="headerlink" href="#ingress" title="Permanent link"></a></h3>
+<p>At this point, the application (pod <code>nextcloud-78f5564f89-854jr</code>) is only accessible within the cluster on port 8080. To make it accessible from outside the cluster (on our network), we need to deploy an Ingress mapping <strong>service:port</strong> to a route of the Nginx proxy.</p>
+<p>Because, this route will also be exposed over the Internet, we will also issue a certificate to encrypt the traffic with SSL.</p>
+<p><strong>1. Create the ingress config file</strong></p>
+<p>Create the file <code>nextcloud.ingress.yml</code> containing:</p>
+<pre><code class="language-yaml">## nextcloud.ingress.yml
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: &quot;nextcloud&quot; # Same namespace as the deployment
+  name: &quot;nextcloud-ingress&quot; # Name of the ingress (see kubectl get ingress -A)
+  annotations:
+    kubernetes.io/ingress.class: &quot;nginx&quot;
+    cert-manager.io/cluster-issuer: &quot;letsencrypt-prod&quot; # Encrypt using the ClusterIssuer deployed while setting up Cert-Manager
+    nginx.ingress.kubernetes.io/proxy-body-size:  &quot;50m&quot; # Increase the size of the maximum allowed size of the client request body
+spec:
+  tls:
+  - hosts:
+    - &quot;nextcloud.&lt;domain.com&gt;&quot; # Host to access nextcloud
+    secretName: &quot;nextcloud-prod-tls&quot; # Name of the certifciate (see kubectl get certificate -A)
+  rules:
+  - host: &quot;nextcloud.&lt;domain.com&gt;&quot; # Host to access nextcloud
+    http:
+      paths:
+        - path: /  # We will access NextCloud via the URL https://nextcloud.&lt;domain.com&gt;/
+          backend:
+            serviceName: &quot;nextcloud&quot; # Mapping to the service (see kubectl get services -n nextcloud)
+            servicePort: 8080 # Mapping to the port (see kubectl get services -n nextcloud)
+---
+</code></pre>
+<p><strong>2. Deploy the Ingress</strong></p>
+<p>Now deploy the ingress:</p>
+<pre><code>$ kubectl apply -f nextcloud.ingress.yml
+ingress.extensions/nextcloud-ingress created
+</code></pre>
+<p><strong>3. Check the certificate issuance</strong></p>
+<p>After you deployed the ingress, a certificate should be issued, check the <code>certificaterequest</code> and <code>certificate</code> (it might take a couple of minutes to be READY):</p>
+<pre><code>$ kubectl get certificaterequest -n nextcloud -o wide
+
+NAMESPACE   NAME                         READY   ISSUER             STATUS                                         AGE
+nextcloud   nextcloud-prod-tls-9929727   True    letsencrypt-prod   Certificate fetched from issuer successfully   17m
+
+
+$ kubectl get certificate -n nextcloud -o wide
+
+NAMESPACE   NAME                 READY   SECRET                           ISSUER             STATUS                                          AGE
+nextcloud   nextcloud-prod-tls   True    nextcloud-prod-tls   letsencrypt-prod   Certificate is up to date and has not expired   17m
+</code></pre>
+<p><br />
+<br /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Alright, still with me :) You can now try to access your NextCloud instance using your browser, mobile or the Android/iOS app from home or outside via <a href="https://nextcloud.&lt;domain.com&gt;">https://nextcloud.<domain.com></a>.</p>
+<p><img alt="" src="https://i.imgur.com/HjjUi7I.png" /></p>
+<p>Connect with the user admin and the password configured in the file <code>nextcloud.values.yml</code>.</p>
+<p><img alt="" src="https://i.imgur.com/JtD053z.png" /></p>
+<p>You can also download the <a href="https://play.google.com/store/apps/details?id=com.nextcloud.client&amp;hl=en_GB">Android</a> or <a href="https://apps.apple.com/gb/app/nextcloud/id1125420102">iOS</a> app and access you data, sync automatically your photos and more.</p>
+<p><img alt="" src="https://i.imgur.com/ckk4dEl.png" /></p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (4/8) Deploy NextCloud on Kuberbetes  The self-hosted Dropbox</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/48-deploy-nextcloud-on-kuberbetes-the-selfhosted-d/f958350b22794419b09fc34c7284b02e/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-03-31</li>
+<li><strong>Kauri original tags:</strong> self-hosting, nextcloud, kubernetes, dropbox, open-source, file-hosting, helm</li>
+<li><strong>Kauri original hash:</strong> QmaKwvWjA1eTYcnE4o1gwTFvpWkegaYZZ8JRzJhzXjEyiK</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2858%29-self-host-your-media-center-on-kubernetes-wi/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2858%29-self-host-your-media-center-on-kubernetes-wi/" class="btn btn-xs btn-link">
+        (5/8) Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2838%29-install-and-configure-a-kubernetes-cluster-w/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2838%29-install-and-configure-a-kubernetes-cluster-w/" class="btn btn-xs btn-link">
+        (3/8) Install and configure a Kubernetes cluster with k3s to self-host applications
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(48)-deploy-nextcloud-on-kuberbetes--the-self-hos.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

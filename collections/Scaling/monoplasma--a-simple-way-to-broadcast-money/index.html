@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/monoplasma--a-simple-way-to-broadcast-money/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Monoplasma  A simple way to broadcast money - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Monoplasma  A simple way to broadcast money", url: "#_top", children: [
+              {title: "What problem does it solve?", url: "#what-problem-does-it-solve" },
+              {title: "Design principles", url: "#design-principles" },
+              {title: "Positive balance off-chain, negative balance on-chain", url: "#positive-balance-off-chain-negative-balance-on-chain" },
+              {title: "Other similarities and differences", url: "#other-similarities-and-differences" },
+              {title: "As a developer, how can I try it out?", url: "#as-a-developer-how-can-i-try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="monoplasma-a-simple-way-to-broadcast-money">Monoplasma  A simple way to broadcast money<a class="headerlink" href="#monoplasma-a-simple-way-to-broadcast-money" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQSHbBgSFnF1FvNG3PUJw8Y51uCQbrEJN7Xfs7aSMdhyn" /></p>
+<p>Monoplasma is a special-purpose off-chain scaling solution for one-to-many payments. It’s a good fit for any system where you repeatedly need to:</p>
+<ul>
+<li>
+<p>Distribute value to a large and dynamic set of Ethereum addresses.</p>
+</li>
+<li>
+<p>Allow recipients to accumulate value over time.</p>
+</li>
+<li>
+<p>Withdraw tokens at their preferred moment.
+We built Monoplasma because we needed it for the upcoming 
+<a href="https://medium.com/streamrblog/community-products-crowdselling-big-data-iot-blockchain-streamr-fbaa794c7bc9">Community Products</a>
+ feature on the 
+<a href="https://marketplace.streamr.com/">Streamr Marketplace</a>
+ . Community Products will allow end users who produce data through a connected gadget, 
+<a href="https://medium.com/streamrblog/personal-fitbit-data-sell-streamr-marketplace-blockchain-ethereum-3b32c215660c">like a Fitbit</a>
+ , or a Tesla, to pool and sell data collectively. And when that conglomerated data product sells, the revenue will then be automatically distributed out to potentially hundreds of thousands of data contributors.
+The Monoplasma framework is reusable and un-opinionated, and as such, it’s a piece of software that might help others too. That’s why we wanted to make it standalone as a (hopefully useful) contribution to the Ethereum scaling space.</p>
+</li>
+</ul>
+<h3 id="what-problem-does-it-solve">What problem does it solve?<a class="headerlink" href="#what-problem-does-it-solve" title="Permanent link"></a></h3>
+<p>Here are some possible use cases for Monoplasma, where this type of one-to-many payment pattern is repeated:</p>
+<ul>
+<li>
+<p>Revenue sharing</p>
+</li>
+<li>
+<p>Dividend distribution</p>
+</li>
+<li>
+<p>Staking rewards</p>
+</li>
+<li>
+<p>Repeated airdrops</p>
+</li>
+<li>
+<p>Community rewards</p>
+</li>
+<li>
+<p>Pension/benefit payments</p>
+</li>
+<li>
+<p>Loyalty reward schemes
+To outline something more specific I’ll pick an example way outside of our own use case of data monetisation and smart devices.
+Imagine a decentralized Airbnb service where ownership shares in apartments are tokenised. An individual apartment could have hundreds, even thousands, of owners, each owning a fraction of it. When a guest stays in said apartment, the fee needs to be split among the owners. Ideally, this would happen on-chain within the payment transaction, but looping through each recipient, calculating their share, and sending tokens to them in a smart contract costs more and more gas as the number of recipients grows. This approach works fine for a handful of people, but it is simply not feasible beyond, say, 100 recipients — the transaction will simply become too large to even be included in a single block!</p>
+</li>
+</ul>
+<h3 id="design-principles">Design principles<a class="headerlink" href="#design-principles" title="Permanent link"></a></h3>
+<p>We looked at the various scaling solutions out there for Ethereum, but none of them met our requirements, which were:</p>
+<ul>
+<li>
+<p>It must distribute individual lump sum payments among a large group of recipients.</p>
+</li>
+<li>
+<p>Recipients must be able to accumulate value for as long as they want, and withdraw at will by making a transaction on-chain.</p>
+</li>
+<li>
+<p>Recipients must be able to join the pool without making a transaction or placing a stake. This is different from many other payment channels, and in fact crucial for us. In our use case, the people are mainstream users and we need to minimise obstacles for joining, such as having to buy ETH on day one.</p>
+</li>
+<li>
+<p>And finally, the system should be trustless and transparent.
+So we decided to roll out our own, and try to keep things as simple as possible. We were 
+<a href="#a312">inspired by the different Plasma variants</a>
+ and payment channel stuff, but we basically threw out everything we didn’t need, to find the simplest possible mechanism that does what we want (and only that!), while maintaining good security properties and trustlessness.
+I won’t dive into the endless depths of how Monoplasma compares to every other side-channel/side-chain/payment channel solution out there. I’ll focus on the major functional difference with the rest of the family. This is the one thing to remember after reading this article:</p>
+</li>
+</ul>
+<p><em>We sacrificed generality in favour of special-purpose.</em></p>
+<p>This is not a generic payment system where everyone can arbitrarily transact with each other. The system is unidirectional: there are no transfers between accounts in the side channel.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmahajBWs32vSqejLqjiz8vQjYB26FEepemPoTzzesTH3M" /></p>
+<p>In other words, tokens can’t be spent on the side channel. But why is that a good thing? Since tokens can’t be spent there, there can be no double spending! And as you might know, preventing double spending is arguably the hardest problem in designing any distributed system that transfers value. Not having to deal with this simplifies things immensely, which is exactly what we wanted.</p>
+<h3 id="positive-balance-off-chain-negative-balance-on-chain">Positive balance off-chain, negative balance on-chain<a class="headerlink" href="#positive-balance-off-chain-negative-balance-on-chain" title="Permanent link"></a></h3>
+<p>Since there’s no side channel spending, balances on the side channel are your cumulative lifetime earnings. In other words, your account balance can only increase monotonically. Hence the name: Monoplasma.
+So what about withdrawals then? Withdrawals are tracked on-chain instead of off-chain. The side channel records your cumulative earnings (credits) and the smart contract keeps track of your cumulative withdrawals (debits).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma61nf3ZpBQyUL9fhPPtZ5xSEvXyGxjGRGHmt4KQcAPJ8" /></p>
+<p>Your withdrawable balance is the difference. To withdraw, all you need to do is prove your positive balance to the smart contract. You do this by providing a simple 
+<a href="https://medium.com/crypto-0-nite/merkle-proofs-explained-6dd429623dc5">Merkle proof</a>
+ .
+Let’s look at an example. The Monoplasma smart contract holds all the non-withdrawn tokens of the side channel. If we can prove we have earned 100 tokens, and the Monoplasma smart contract has seen us withdraw only 30 so far, it will allow us to withdraw 70 more.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb873JytyeDiC5syqa6janF9e6oZ4XDfXrdFvvsVExZoz" /></p>
+<p>The smart contract updates its internal record keeping to reflect that we now have withdrawn 100. If we try to withdraw again with a proof of earnings of 100 (or less), it won’t give us any further tokens. In other words, Monoplasma relies on the secure consensus mechanism of Ethereum to prevent people from withdrawing more than their provable share.</p>
+<h3 id="other-similarities-and-differences">Other similarities and differences<a class="headerlink" href="#other-similarities-and-differences" title="Permanent link"></a></h3>
+<p>I’ll briefly highlight some other aspects of Monoplasma:</p>
+<ul>
+<li>
+<p>There’s an Operator/Validator model. The Operator controls the off-chain state, and in Monoplasma they are actually the only party who can cheat. The job of the Validators is to check that they don’t.</p>
+</li>
+<li>
+<p>Both the Operator and Validators maintain the off-chain state in a Merkle tree, and the Operator periodically publishes the root hash to the on-chain smart contract to enable withdrawals from that state. This is all familiar from other Plasma variants.</p>
+</li>
+<li>
+<p>One difference, however, is that there’s no challenge period/exit game, as there can’t be double spending. Instead, there’s a non-interactive freeze period to allow time for Validators to exit people’s funds using the last validated honest block in case the Operator cheats. So earned funds do become withdrawable with a few days of latency, which is fine for many use cases, including ours.
+Although somewhat simplified, the below table summarizes some of the similarities and differences between Monoplasma and other typical implementations in the same space:</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1CCQDpY3mgEEzeBSSWpEaC3LNswVgQk4SNz188wjSvU" /></p>
+<h3 id="as-a-developer-how-can-i-try-it-out">As a developer, how can I try it out?<a class="headerlink" href="#as-a-developer-how-can-i-try-it-out" title="Permanent link"></a></h3>
+<p>Monoplasma lives in 
+<a href="https://github.com/streamr-dev/monoplasma">this repo</a>
+ within the 
+<a href="https://github.com/streamr-dev">Streamr Github</a>
+ . It ships with an interactive revenue sharing demo which showcases the functionalities of the framework. Feel free to clone the repo and play around with it yourself (as others already have done!). Instructions for running the demo are in the readme. You can also watch the demo as I presented it live at 
+<a href="https://www.ethdenver.com/">ETHDenver</a>
+ in the video below.</p>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/t7vOoLBFkUA" width="512"></iframe>
+
+<p>We hope Monoplasma will be useful to other #buidlers out there! It will be reasonably well maintained for the time being, because we will be needing it ourselves for at least as long as similar scale and cost can’t be achieved on-chain, which is probably several years away from now.
+Kudos to Juuso Takalainen of Streamr who’s done almost all of the heavy lifting, and to 
+<a href="https://www.linkedin.com/in/kelv-in">Kelvin Fichter</a>
+ of OmiseGO (and recently 
+<a href="https://plasma.group/">plasma.group</a>
+ ) for support and putting us on the right track. A shout-out also to some prior art we came across including 
+<a href="https://blog.ricmoo.com/merkle-air-drops-e6406945584d">RicMoo</a>
+ ’s airdrop utility and the 
+<a href="https://github.com/AdExNetwork/adex-protocol/blob/master/OUTPACE.md">OUTPACE</a>
+ protocol by the folks at 
+<a href="https://www.adex.network/">AdEx</a>
+ .
+You can follow the Streamr community’s progress on 
+<a href="https://peepeth.com/streamr">Peepeth</a>
+ and 
+<a href="https://twitter.com/streamr">Twitter</a>
+ and also join the 
+<a href="https://t.me/streamrdata">community on Telegram</a>
+ and our 
+<a href="http://forum.streamrdev.com">developer forum</a>
+ .
+Good luck!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Monoplasma  A simple way to broadcast money</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/monoplasma-a-simple-way-to-broadcast-money/c94efbb60cf44a8aa663c5812e7f8012/a</li>
+<li><strong>Kauri original author:</strong> Matthew Fontana (@fonty)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-04</li>
+<li><strong>Kauri original tags:</strong> ethereum, scaling, plasma, scalability</li>
+<li><strong>Kauri original hash:</strong> QmTo9QKa3VbYBmPTRBAL5gRG5NgVJLViWYrY21UKxHxG8H</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../top-5-ways-to-scale-your-ethereum-blockchain-appl/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../top-5-ways-to-scale-your-ethereum-blockchain-appl/" class="btn btn-xs btn-link">
+        Top 5 ways to scale your Ethereum blockchain application (dApp)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../minimum-viable-plasma-the-kyokan-implementation/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../minimum-viable-plasma-the-kyokan-implementation/" class="btn btn-xs btn-link">
+        Minimum Viable Plasma - The Kyokan Implementation
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/monoplasma--a-simple-way-to-broadcast-money.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/solving-the-%22the-following-signatures-were-invali/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Solving the \"The following signatures were invalid  KEYEXPIRED\" apt-get update linux error", url: "#_top", children: [
+              {title: "The Error", url: "#the-error" },
+              {title: "The Solution", url: "#the-solution" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="solving-the-the-following-signatures-were-invalid-keyexpired-apt-get-update-linux-error">Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error<a class="headerlink" href="#solving-the-the-following-signatures-were-invalid-keyexpired-apt-get-update-linux-error" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR8rqR4Ae7CziNmRgxLKE1c61dXie3PUTJWhjLKd1jpg7" /></p>
+<h3 id="the-error">The Error<a class="headerlink" href="#the-error" title="Permanent link"></a></h3>
+<p>My travis CI pipeline builds randomly starting failing recently, with the following exception:</p>
+<pre><code class="language-bash">...
+Reading package lists...
+W: GPG error: http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.4 Release: The following signatures were invalid: KEYEXPIRED 1578250443
+E: The repository 'http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.4 Release' is not signed.
+The command &quot;sudo apt update&quot; failed and exited with 100 during 
+...
+</code></pre>
+<p>The mongoDB certificates had expired!  </p>
+<h3 id="the-solution">The Solution<a class="headerlink" href="#the-solution" title="Permanent link"></a></h3>
+<p>Luckily, I stumbled upon a simple, one-line command that updates all the expired keys from the ubuntu keyserver:</p>
+<pre><code class="language-bash">sudo apt-key list | \
+ grep &quot;expired: &quot; | \
+ sed -ne 's|pub .*/\([^ ]*\) .*|\1|gp' | \
+ xargs -n1 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys
+</code></pre>
+<p>This command first lists all the keys in the sytem, then narrows this list down to only expired keys.  The expired keys are then extracted and updated.</p>
+<p><em>Thanks to <a href="https://askubuntu.com/users/606875/peter">Peter</a> and <a href="https://stackoverflow.com/users/1160933/dlopatin">dlopatin</a> for this solution.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/solving-the-the-following-signatures-were-invalid/05b3ec26a2e548909fa2df0222d4f222/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-10</li>
+<li><strong>Kauri original tags:</strong> apt, linux, apt-get</li>
+<li><strong>Kauri original hash:</strong> QmXZ9Fyq9YztojR2rSppZbmNqqrSYqpWCqy1Q8BGoEnBnp</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../getting-return-values-from-a-solidity-transaction/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../getting-return-values-from-a-solidity-transaction/" class="btn btn-xs btn-link">
+        Getting return values from a solidity transaction
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-restart-a-spring-application-context-withi/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-restart-a-spring-application-context-withi/" class="btn btn-xs btn-link">
+        How to Restart a Spring Application Context within a JUnit test
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/solving-the-"the-following-signatures-were-invali.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

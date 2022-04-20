@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/OpenZeppelin%20101/openzeppelin-part-3--token-standards/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenZeppelin Part 3  Token Standards - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenZeppelin Part 3  Token Standards", url: "#_top", children: [
+              {title: "Token Standards", url: "#token-standards" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openzeppelin-part-3-token-standards">OpenZeppelin Part 3  Token Standards<a class="headerlink" href="#openzeppelin-part-3-token-standards" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG" /></p>
+<h2 id="token-standards">Token Standards<a class="headerlink" href="#token-standards" title="Permanent link"></a></h2>
+<p>OpenZeppelin has incorporated a series of token contracts to assist with creating and managing them.</p>
+<h3 id="what-is-a-token">What is a Token?<a class="headerlink" href="#what-is-a-token" title="Permanent link"></a></h3>
+<p>In Ethereum, tokens are a digital asset that can represent anything. It can be a protocol, physical object, or even cryptocurrency. People use them for a variety of actions such as buying or even voting. A token is a smart contract and a smart contract is a piece of code. To send a token you need to write a contract. Keep in mind that this contract must conform to a set of special standards to be able to interact with other tokens and smart contracts.</p>
+<h3 id="types-of-standards">Types of Standards<a class="headerlink" href="#types-of-standards" title="Permanent link"></a></h3>
+<p>In this tutorial, we cover the two types of standards that OpenZeppelin has made contracts for. Keep in mind that there are more standards.</p>
+<h4 id="erc20">ERC20<a class="headerlink" href="#erc20" title="Permanent link"></a></h4>
+<p>This standard is the most common for Ethereum tokens to follow. It describes the way tokens are transferred between addresses and how their data is accessed. Every ERC20 token is identical and equal to each other.</p>
+<h4 id="erc721">ERC721<a class="headerlink" href="#erc721" title="Permanent link"></a></h4>
+<p>This standard is for a non-fungible token. Non-fungible means that people cannot interchange these tokens whereas ERC20 tokens can be. ERC721 tokens are all unique and have special standards in relation to how they are managed, owned, and traded.</p>
+<h3 id="openzeppelin-erc20">OpenZeppelin &amp; ERC20<a class="headerlink" href="#openzeppelin-erc20" title="Permanent link"></a></h3>
+<p>OpenZeppelin provides different contracts to assist with creating and interacting with an ERC20 token.</p>
+<ul>
+<li><strong>IER20</strong>: Defines the implementation all tokens should conform to.</li>
+<li><strong>ERC20</strong>: Basic implementation of the token.</li>
+<li><strong>ERC20Detailed</strong>: Allows you to add more information to your tokens such as name, symbol, and decimals.</li>
+<li><strong>ERC20Mintable</strong>: Allows anyone with the minter role to mint tokens aka create tokens.</li>
+<li><strong>ERC20Burnable</strong>: Allows you to destroy the token.</li>
+<li><strong>ERC20Capped</strong>: Maximum cap on tokens allowed.</li>
+<li><strong>ERC20Pausable</strong>: Allows anyone with the pauser role to freeze the transfer of tokens to and from users.</li>
+<li><strong>safeERC20</strong>: Forces transfers and approvals to succeed or the transaction reverts.</li>
+<li><strong>TokenTimelock</strong>: To release tokens after a specified timeout. Useful in an Escrow situation.</li>
+</ul>
+<pre><code>pragma solidity ^ 0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/token/ERC20/ERC20-option-you-choose.sol&quot;;
+
+contract ERC20Contract is ERC20-option-you-choose {
+  // the rest of your code
+}
+</code></pre>
+<h3 id="openzeppelin-erc721">OpenZeppelin &amp; ERC721<a class="headerlink" href="#openzeppelin-erc721" title="Permanent link"></a></h3>
+<p>OpenZeppelin provides contracts for creating and interacting with an ERC721 token.</p>
+<ul>
+<li><strong>IERC721</strong>: Interface for the token.</li>
+<li><strong>ERC721</strong>: Basic implementation of ERC721.</li>
+<li><strong>IERC721Receiver</strong>: How to handle ERC721 tokens and not mistake it for an ERC20 token.</li>
+<li><strong>ERC721Mintable</strong>: Allows anyone with the minter role to mint tokens aka create tokens.</li>
+<li><strong>ERC721Pausable</strong>: Allows anyone with the pauser role to freeze the transfer of tokens to and from users.</li>
+</ul>
+<pre><code>pragma solidity ^ 0.5 .2;
+
+import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721-option-you-choose.sol&quot;;
+
+contract ERC721Contract is ERC721-option-you-choose {
+  // the rest of your code
+}
+</code></pre>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<p>To use any of the features from the token library, import them at the top of your contract. <code>import "openzeppelin-solidity/contracts/token/chosen standard"</code>. This allows you to inherit its functions into your contract.</p>
+<p><strong>Note</strong>: You can have multiple inheritances but they must all be for the same standard of token.</p>
+<pre><code>pragma solidity ^ 0.5 .2;
+
+import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721Mintable.sol&quot;;
+import &quot;openzeppelin-solidity/contracts/token/ERC721/ERC721Burnable.sol&quot;;
+
+contract ERC721Contract is ERC721Mintable , ERC20Burnable {
+  // the rest of your code
+}
+</code></pre>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://openzeppelin.org/api/docs/learn-about-tokens.html">https://openzeppelin.org/api/docs/learn-about-tokens.html</a></li>
+<li><a href="https://beta.kauri.io/article/b282e90cb260459fb8a8cc6e24ae34fa/v1/ethereum-101-part-v-tokenization">https://beta.kauri.io/article/b282e90cb260459fb8a8cc6e24ae34fa/v1/ethereum-101-part-v-tokenization</a></li>
+<li><a href="https://openzeppelin.org/api/docs/token_ERC20_ERC20.html">https://openzeppelin.org/api/docs/token_ERC20_ERC20.html</a></li>
+<li><a href="https://openzeppelin.org/api/docs/token_ERC721_ERC721.html">https://openzeppelin.org/api/docs/token_ERC721_ERC721.html</a></li>
+</ul>
+<p>For more examples of how to use ERC20 and ERC721 inheritable features check out the following links:</p>
+<ul>
+<li><a href="https://github.com/search?q=import+%22openzeppelin-solidity%2Fcontracts%2Ftoken%2FERC721%22&amp;type=Code">ERC721</a></li>
+<li><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=import+%22openzeppelin-solidity%2Fcontracts%2Ftoken%2FERC20%22&amp;type=Code">ERC20</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenZeppelin Part 3  Token Standards</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-part-3-token-standards/cbd1b524cd284bf6ae6ab76e71f5ea56/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-28</li>
+<li><strong>Kauri original tags:</strong> erc20, smart-contract, openzeppelin, zeppelin, erc721, token</li>
+<li><strong>Kauri original hash:</strong> QmPEgopHVfZtSdyBrmqoPWMNWrN8LZpBxbnGLciErLNZjT</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../openzeppelin-part-4--crowdsales/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../openzeppelin-part-4--crowdsales/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 4  Crowdsales
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../openzeppelin-part-2--access-control/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../openzeppelin-part-2--access-control/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 2  Access Control
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/OpenZeppelin 101/openzeppelin-part-3--token-standards.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

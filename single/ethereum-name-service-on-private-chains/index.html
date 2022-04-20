@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ethereum-name-service-on-private-chains/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum Name Service on Private Chains - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum Name Service on Private Chains", url: "#_top", children: [
+              {title: "1. Introduction to the ENS architecture", url: "#1-introduction-to-the-ens-architecture" },
+              {title: "2. ENS deployment", url: "#2-ens-deployment" },
+              {title: "3. Registering domains and associating data with it", url: "#3-registering-domains-and-associating-data-with-it" },
+              {title: "4. Lookup", url: "#4-lookup" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-name-service-on-private-chains">Ethereum Name Service on Private Chains<a class="headerlink" href="#ethereum-name-service-on-private-chains" title="Permanent link"></a></h1>
+<p>ENS is a set of smart contracts which enables users to assign additional information, most importantly human-readable names, to Ethereum accounts.
+ENS has many uses on the main chain (you can check <a href="https://docs.ens.domains/">the official introduction</a> if you don't know about them!) and is <a href="https://etherscan.io/address/0x6090a6e47849629b7245dfa1ca21d94cd15878ef">with over a transaction a minute</a> on average since its inception two years ago <a href="https://blockspur.com/ethereum_contracts/transactions">one of the most used</a> pieces of on-chain infrastructure.
+Naturally, you may want to set it up on your private network as well.
+However instructions on how to set up ENS from scratch have to be pieced together from various repositories and sources.
+This guide is aimed at developers with some experience with Solidity and Truffle who want to learn to work with ENS.
+It comes with <a href="https://github.com/MaibornWolff/private-ens">this Truffle project on github</a> which bundles the official ENS contracts (<a href="https://github.com/ensdomains/ens">@ensdomains/ens</a>, <a href="https://github.com/ensdomains/resolvers">@ensdomains/resolver</a> on github) and provides several scripts and pieces of code that tie everything together to make getting started and working with ENS on a private network easier. </p>
+<p>We will cover the following:</p>
+<ol>
+<li>Basic ENS architecture</li>
+<li>Setting up ENS: Deploying the registry, registrar, and resolver contracts</li>
+<li>Writing to ENS: Registering a name and storing data</li>
+<li>Reading data from ENS, both on- and off-chain</li>
+</ol>
+<h3 id="1-introduction-to-the-ens-architecture">1. Introduction to the ENS architecture<a class="headerlink" href="#1-introduction-to-the-ens-architecture" title="Permanent link"></a></h3>
+<p>Before going into the technical details, let's briefly recap how the ENS contracts work.</p>
+<h4 id="terminology"><a href="https://docs.ens.domains/terminology">Terminology</a><a class="headerlink" href="#terminology" title="Permanent link"></a></h4>
+<p>A complete ENS identifier such as "mycontract.eth" is uniquely identifiable by its <strong>node</strong>. The node is the result of applying the <a href="https://docs.ens.domains/#namehash">namehash</a>, which hashes the domain components recursively (e.g. <code>namehash("mycontract.eth") = keccak256(namehash("eth"), keccak256("mycontract"))</code>).</p>
+<p>A <strong>label</strong> is a component of an ENS identifier such as "mycontract" in the previous example. Within contracts this usually refers to the hash of the label, <code>keccak256("mycontract")</code>. When you register the label "mycontract" with the registrar that administrates "eth" you become the owner of "mycontract.eth". Once a label is registered, the resulting node is how the domain is identified.</p>
+<h4 id="ens-registry">ENS Registry<a class="headerlink" href="#ens-registry" title="Permanent link"></a></h4>
+<p>This is the central smart contract and stores ownership information as well as the address of a resolver (which we will get to a bit later) for each node.</p>
+<pre><code>mapping (bytes32 =&gt; Record) records;
+
+struct Record {
+    address owner;
+    address resolver;
+    uint64 ttl;
+}
+</code></pre>
+<p>The remainder of the functionality of the registry is primarily getters and setters for those values.</p>
+<pre><code>pragma solidity &gt;=0.4.24;
+
+interface ENS {
+
+    // Logged when the owner of a node assigns a new owner to a subnode.
+    event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);
+
+    // Logged when the owner of a node transfers ownership to a new account.
+    event Transfer(bytes32 indexed node, address owner);
+
+    // Logged when the resolver for a node changes.
+    event NewResolver(bytes32 indexed node, address resolver);
+
+    // Logged when the TTL of a node changes
+    event NewTTL(bytes32 indexed node, uint64 ttl);
+
+
+    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external;
+    function setResolver(bytes32 node, address resolver) external;
+    function setOwner(bytes32 node, address owner) external;
+    function setTTL(bytes32 node, uint64 ttl) external;
+    function owner(bytes32 node) external view returns (address);
+    function resolver(bytes32 node) external view returns (address);
+    function ttl(bytes32 node) external view returns (uint64);
+}
+</code></pre>
+<h4 id="registrar">Registrar<a class="headerlink" href="#registrar" title="Permanent link"></a></h4>
+<p>Since the registry contains only basic access control (only the owner of a node can create subnodes, initially the deployer owns the root node) it only allows manual domain allocation.
+Fortunately, contracts can also own nodes.
+This means we can set up a registrar contract as the owner of a node, e.g. "eth", in the registry which enables it to distribute subdomains such as "mycontract.eth".
+It allows us to have custom, on-chain logic which governs domain allocation.
+Once we own a (sub-)node we are free to repeat this process and set up another registrar.
+If you are part of the "myorg" organisation you could register "myorg.eth" and let it point to your custom registrar which only allows certified members of your organisation to claim subdomains such as "bob.myorg.eth".</p>
+<p>Until May 2019 the mainnet used an auction-based registrar. On a private net, however, a 'first come, first served' registrar is sufficient, because there is no need to prevent squatting.</p>
+<pre><code class="language-js">pragma solidity ^0.5.0;
+
+import &quot;./ENS.sol&quot;;
+
+/**
+ * A registrar that allocates subdomains to the first person to claim them.
+ */
+contract FIFSRegistrar {
+    ENS ens;
+    bytes32 rootNode;
+
+    modifier only_owner(bytes32 label) {
+        address currentOwner = ens.owner(keccak256(abi.encodePacked(rootNode, label)));
+        require(currentOwner == address(0x0) || currentOwner == msg.sender);
+        _;
+    }
+
+    /**
+     * Constructor.
+     * @param ensAddr The address of the ENS registry.
+     * @param node The node that this registrar administers.
+     */
+    constructor(ENS ensAddr, bytes32 node) public {
+        ens = ensAddr;
+        rootNode = node;
+    }
+
+    /**
+     * Register a name, or change the owner of an existing registration.
+     * @param label The hash of the label to register.
+     * @param owner The address of the new owner.
+     */
+    function register(bytes32 label, address owner) public only_owner(label) {
+        ens.setSubnodeOwner(rootNode, label, owner);
+    }
+}
+</code></pre>
+<h4 id="resolver">Resolver<a class="headerlink" href="#resolver" title="Permanent link"></a></h4>
+<p>While the registry only contains ownership information about nodes and a pointer to the resolver, the resolver is where detailed information about a node is actually stored. The core use-case is to have the resolver store a node's account address, but it could also store a contract ABI, custom text, and more.
+Resolvers can also implement authorization schemes of who can modify the stored information.
+Usually there is either a single owner of the resolver that may modify it, or more simple: the resolver relies on the node ownership information of the registrar.
+The <code>PublicResolver</code> used here provides this authorization scheme and brings several specialized resolvers such as the <code>ABIResolver</code> or <code>AddrResolver</code> together. Similar to the registry, their logic is very simple. Usually they just contain a mapping from node to whatever information they store and the corresponding getters and setters.</p>
+<pre><code class="language-js">pragma solidity ^0.5.0;
+
+import &quot;@ensdomains/ens/contracts/ENS.sol&quot;;
+import &quot;./profiles/ABIResolver.sol&quot;;
+import &quot;./profiles/AddrResolver.sol&quot;;
+import &quot;./profiles/ContentHashResolver.sol&quot;;
+import &quot;./profiles/InterfaceResolver.sol&quot;;
+import &quot;./profiles/NameResolver.sol&quot;;
+import &quot;./profiles/PubkeyResolver.sol&quot;;
+import &quot;./profiles/TextResolver.sol&quot;;
+
+/**
+ * A simple resolver anyone can use; only allows the owner of a node to set its
+ * address.
+ */
+contract PublicResolver is ABIResolver, AddrResolver, ContentHashResolver, InterfaceResolver, NameResolver, PubkeyResolver, TextResolver {
+    ENS ens;
+
+    /**
+     * A mapping of authorisations. An address that is authorised for a name
+     * may make any changes to the name that the owner could, but may not update
+     * the set of authorisations.
+     * (node, owner, caller) =&gt; isAuthorised
+     */
+    mapping(bytes32=&gt;mapping(address=&gt;mapping(address=&gt;bool))) public authorisations;
+
+    event AuthorisationChanged(bytes32 indexed node, address indexed owner, address indexed target, bool isAuthorised);
+
+    constructor(ENS _ens) public {
+        ens = _ens;
+    }
+
+    /**
+     * @dev Sets or clears an authorisation.
+     * Authorisations are specific to the caller. Any account can set an authorisation
+     * for any name, but the authorisation that is checked will be that of the
+     * current owner of a name. Thus, transferring a name effectively clears any
+     * existing authorisations, and new authorisations can be set in advance of
+     * an ownership transfer if desired.
+     *
+     * @param node The name to change the authorisation on.
+     * @param target The address that is to be authorised or deauthorised.
+     * @param isAuthorised True if the address should be authorised, or false if it should be deauthorised.
+     */
+    function setAuthorisation(bytes32 node, address target, bool isAuthorised) external {
+        authorisations[node][msg.sender][target] = isAuthorised;
+        emit AuthorisationChanged(node, msg.sender, target, isAuthorised);
+    }
+
+    function isAuthorised(bytes32 node) internal view returns(bool) {
+        address owner = ens.owner(node);
+        return owner == msg.sender || authorisations[node][owner][msg.sender];
+    }
+}
+</code></pre>
+<pre><code class="language-js">pragma solidity ^0.5.0;
+
+import &quot;../ResolverBase.sol&quot;;
+
+contract AddrResolver is ResolverBase {
+    bytes4 constant private ADDR_INTERFACE_ID = 0x3b3b57de;
+
+    event AddrChanged(bytes32 indexed node, address a);
+
+    mapping(bytes32=&gt;address) addresses;
+
+    /**
+     * Sets the address associated with an ENS node.
+     * May only be called by the owner of that node in the ENS registry.
+     * @param node The node to update.
+     * @param addr The address to set.
+     */
+    function setAddr(bytes32 node, address addr) external authorised(node) {
+        addresses[node] = addr;
+        emit AddrChanged(node, addr);
+    }
+
+    /**
+     * Returns the address associated with an ENS node.
+     * @param node The ENS node to query.
+     * @return The associated address.
+     */
+    function addr(bytes32 node) public view returns (address) {
+        return addresses[node];
+    }
+
+    function supportsInterface(bytes4 interfaceID) public pure returns(bool) {
+        return interfaceID == ADDR_INTERFACE_ID || super.supportsInterface(interfaceID);
+    }
+}
+</code></pre>
+<h3 id="2-ens-deployment">2. ENS deployment<a class="headerlink" href="#2-ens-deployment" title="Permanent link"></a></h3>
+<p>From here on out we will work with <a href="https://github.com/MaibornWolff/private-ens">this code</a>. We fetch the ENS registry and registrar (<a href="https://github.com/ensdomains/ens">@ensdomains/ens</a> on github) and the resolver (<a href="https://github.com/ensdomains/resolvers">@ensdomains/resolver</a> on github) from npm and deploy them at once.
+To distinguish our private network ENS from the one on the mainnet we will use the "example" namespace instead of "eth" (see <a href="https://docs.ens.domains/frequently-asked-questions#can-i-register-a-tld-of-my-own-in-the-ens">here</a>).</p>
+<h4 id="short-version">Short version<a class="headerlink" href="#short-version" title="Permanent link"></a></h4>
+<ol>
+<li><code>npm install</code></li>
+<li><code>npm run deployContracts</code> to deploy the registry, registrar, and resolver</li>
+</ol>
+<h4 id="under-the-hood">Under the hood<a class="headerlink" href="#under-the-hood" title="Permanent link"></a></h4>
+<p>The migration script <code>migrations\2_deploy_ens.js</code> does the following:
+1. Deploy <code>ENSRegistry</code>. By default the deployer will own the root node <code>0x00</code>
+2. Deploy a TLD "example" <code>FIFSRegistrar</code>. Any label registered here will automatically receive the suffix ".example" in the registry resulting in the domain "label.example". The registrar is deployed with parameters:
+    - <code>ensAddr</code>: Address of the ENSRegistry deployed in step 1
+    - <code>node</code>: Namehash, for  "example" this is <code>0xbb0807b9d6e8c2bb1dc2b84cfacb442a45a0de252e47e1f142f56db08a3327e4</code>.
+3. Set the registrar to be subnode owner of "example" by calling <code>setSubnodeOwner</code> in the registry with parameters:
+    - <code>node</code>: <code>0x00</code> (initial root node)
+    - <code>label</code>: Label of the node that the registrar should be the owner of, for "example" the this is <code>keccak256("example")</code> which is <code>0x6fd43e7cffc31bb581d7421c8698e29aa2bd8e7186a394b85299908b4eb9b175</code>.
+    - <code>owner</code>: Address of the registrar deployed in step 2
+4. Deploy the <code>PublicResolver</code> which allows owners of domains to set the stored address, ABI, etc. It is deployed with the parameter
+    - <code>ens</code>: address of the registry deployed in step 1. Domain ownership will be looked up there.</p>
+<p>For the TLD "eth" used on the mainnet the node is <code>0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae</code> and the label hash <code>0x4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0</code>.</p>
+<h3 id="3-registering-domains-and-associating-data-with-it">3. Registering domains and associating data with it<a class="headerlink" href="#3-registering-domains-and-associating-data-with-it" title="Permanent link"></a></h3>
+<p>With the basic infrastructure in place, everybody on the network can now register and resolve domains since we used the publicly accessible <code>FIFSRegistrar</code> and <code>PublicResolver</code>. Say we have a contract <code>MyContract</code> for which we want to register "mycontract.example" and store the ABI. We follow the general rule of thumb of doing computation off-chain if possible and register names and populate the resolver as part of the <code>MyContract</code> migration script.</p>
+<h4 id="registering-a-domain-with-the-registrar">Registering a domain with the registrar<a class="headerlink" href="#registering-a-domain-with-the-registrar" title="Permanent link"></a></h4>
+<p>First we register "mycontract.example" by calling the registrar's <code>register</code> function with the parameters:
+  - <code>label</code>: <code>keccak256("mycontract")</code> = <code>0xc2ee66541dbf7d268381bd6e91338cac022b888ebf1ec6b02059b7e4ecc2b2fd</code>
+  - <code>owner</code>: Address of an account, probably the sender of the registration transaction</p>
+<p>To check whether this worked, we can look up the owner of the node (<code>namehash("mycontract.example")</code> = <code>0xb1fb37e96e7338878b6a0c1bbdd3df3ee6f93d0a483d334fb29707ba03085149</code>) in the registry.</p>
+<h4 id="setting-a-resolver-in-the-registry">Setting a resolver in the registry<a class="headerlink" href="#setting-a-resolver-in-the-registry" title="Permanent link"></a></h4>
+<p>Now that we own the node "mycontract.example" we can change the resolver by calling the registry's <code>setResolver(node)</code> with the address of the resolver contract. Note that this can only be done by the owner we set in the previous step. Calling the registry's <code>resolver</code> function with our node should now return the resolver address.</p>
+<h4 id="store-an-address-and-other-data-with-the-resolver">Store an address and other data with the resolver<a class="headerlink" href="#store-an-address-and-other-data-with-the-resolver" title="Permanent link"></a></h4>
+<p>Similarly, we can now call <code>resolver.setAddr(node, contractAddress)</code> to store the address with the resolver.  The ABI, a name, etc. are stored the same way.</p>
+<h4 id="in-code">In code<a class="headerlink" href="#in-code" title="Permanent link"></a></h4>
+<p>The test folder contains examples of the calls to the registry, registrar, and resolver described here (some taken from the repositories mentioned above). To demonstrate how this setup can be performed during the migration of a contract the migrations folder also includes the <code>ENSHelper.js</code>. It should be imported in a migration script. Then, it registers a domain, associates the resolver, and stores the contract address and ABI with a single function call (see <code>migrations\example_3_deploy_contract.js</code> for a usage example, remove "example_" to run).</p>
+<h3 id="4-lookup">4. Lookup<a class="headerlink" href="#4-lookup" title="Permanent link"></a></h3>
+<p>Once "mycontract.example" is properly registered and resolvable, we can look up the associated information in a two step process: First we fetch the resolver that handles the data for our node (<code>registry.resolver(node)</code>). Then, we can query the resolver for the information about our node we are looking for, e.g. <code>resolver.addr(node)</code>.</p>
+<p>Unlike storing records, which is rarely necessary to do from an on-chain contract, reading them is often helpful both from off-chain applications and on-chain contracts. The test at <code>test\testWorkflow.js</code> demonstrates how to get domain records with web3. For on-chain lookup this repo also includes the helper contract <code>ENSReader.sol</code> which can be inherited from to handle registry and registrar lookups on-chain (see <code>test\TestContractWorkflow.sol</code>).</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum Name Service on Private Chains</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-name-service-on-private-chains/30ed03248cc2432ba5565375c4413608/a</li>
+<li><strong>Kauri original author:</strong> null (@d68b300ccdf5795ac5cbf64a483518b89bfe6e8e)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-31</li>
+<li><strong>Kauri original tags:</strong> ethereum, truffle, ens, tutorial</li>
+<li><strong>Kauri original hash:</strong> QmaNmH6qULk4TwrW32z7H6AiB9RpoUcUenLJqPPEUvBr6V</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../a-linked-list-implementation-for-ethereum/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../a-linked-list-implementation-for-ethereum/" class="btn btn-xs btn-link">
+        A Linked List Implementation for Ethereum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../interacting-with-the-ipfs-protocol--a-tutorial-fo/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../interacting-with-the-ipfs-protocol--a-tutorial-fo/" class="btn btn-xs btn-link">
+        Interacting with the IPFS protocol  a tutorial for beginner
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ethereum-name-service-on-private-chains.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

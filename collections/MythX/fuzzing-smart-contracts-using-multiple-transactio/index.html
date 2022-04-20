@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/MythX/fuzzing-smart-contracts-using-multiple-transactio/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Fuzzing Smart Contracts Using Multiple Transactions - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Fuzzing Smart Contracts Using Multiple Transactions", url: "#_top", children: [
+              {title: "Motivating Example", url: "#motivating-example" },
+              {title: "Fuzzing Sequences of Transactions Exhaustively", url: "#fuzzing-sequences-of-transactions-exhaustively" },
+              {title: "Demand-driven Sequence Fuzzing", url: "#demand-driven-sequence-fuzzing" },
+              {title: "Mutation Operations", url: "#mutation-operations" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="fuzzing-smart-contracts-using-multiple-transactions">Fuzzing Smart Contracts Using Multiple Transactions<a class="headerlink" href="#fuzzing-smart-contracts-using-multiple-transactions" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPGrTmXhqNeVGJ85nYeqAijteW7xeaW4CbXbmzF496u7y" /></p>
+<p>In previous posts, we 
+<a href="https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2">introduced Harvey</a>
+ , a fuzzer for Ethereum smart contracts, and presented a 
+<a href="https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c">novel input prediction technique</a>
+ to improve its effectiveness.</p>
+<p><em>Harvey is being developed by</em></p>
+<p><a href="https://consensys.net/diligence">ConsenSys Diligence</a></p>
+<p><em>in collaboration with</em></p>
+<p><a href="https://mariachris.github.io">Maria Christakis</a></p>
+<p><em>from MPI-SWS. It is one of the tools that powers the</em></p>
+<p><a href="https://mythx.io">MythX analysis platform</a></p>
+<p><em>.</em></p>
+<p>Most real-world contracts transition through many different states (e.g., one for each user bidding during an auction or betting in a game) during their lifetime and it is crucial not to focus a security analysis exclusively on the states reachable after one or very few transactions. In other words, an analysis should not ignore 
+<em>deep vulnerabilities</em>
+ which only manifest themselves after executing a number of transactions first.
+In this article, we will look at how to detect such deep vulnerabilities in Ethereum smart contracts. More specifically, we will look at how fuzzers can generate sequences of transactions that ultimately exploit a vulnerability.</p>
+<h3 id="motivating-example">Motivating Example<a class="headerlink" href="#motivating-example" title="Permanent link"></a></h3>
+<p>Let’s look at the following smart contract (written in the Solidity programming language) to illustrate the challenges faced by fuzzers that want to make the assertion in function 
+<code>Bar</code>
+ fail.</p>
+<pre><code>contract Foo {
+  int256 private x;
+  int256 private y;
+
+  constructor () public {
+    x = 0;
+    y = 0;
+  }
+
+  function Bar() public view returns (int256) {
+    if (x == 42) {
+      assert(false);
+      return 1;
+    }
+    return 0;
+  }
+
+  function SetY(int256 ny) public {
+    y = ny;
+  }
+
+  function IncX() public {
+    x++;
+  }
+
+  function CopyY() public {
+    x = y;
+  }
+}
+
+</code></pre>
+<p>The constructor initializes the (persistent) storage variable 
+<code>x</code>
+ to zero (on Line 6). Let’s assume that this is our initial state. In its initial state, it is not possible to trigger the assertion violation (on Line 12) by sending a single transaction to the contract. In fact, it requires at least three transactions invoking functions 
+<code>SetY(42)</code>
+ , 
+<code>CopyY()</code>
+ , and finally 
+<code>Bar()</code>
+ . Alternatively, the same could be achieved by invoking function 
+<code>IncX</code>
+ 42 times and subsequently calling 
+<code>Bar</code>
+ . Finding the right sequence of transactions with just the right arguments can be challenging.
+A simple fuzzer might instead perform additional fuzzing operations that modify the state directly; for instance, by setting variable 
+<code>x</code>
+ to 42 even though there is no setter function. However, this can lead to reporting spurious errors if there is no valid sequence of transactions that are able to change the state in such a way. For instance, there could be input validation for function 
+<code>SetY</code>
+ that makes sure that 
+<code>y</code>
+ is never set to 42 and function 
+<code>IncX</code>
+ could be changed to only increment up to 16.
+In Harvey we want to avoid any such spurious errors.</p>
+<h3 id="fuzzing-sequences-of-transactions-exhaustively">Fuzzing Sequences of Transactions Exhaustively<a class="headerlink" href="#fuzzing-sequences-of-transactions-exhaustively" title="Permanent link"></a></h3>
+<p>To avoid spurious errors, a fuzzer might instead try to explore all possible sequences of transactions. A grey-box fuzzer could easily achieve this by including all transactions when computing the path identifier (see the 
+<a href="https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2">previous post</a>
+ for more details); essentially making the path span all transactions. However, the number of possible sequences grows exponentially in the number of transactions, let alone the number of paths. As a consequence, the test suite would likely grow very quickly and the fuzzer would find it challenging to decide which “promising” test inputs (i.e., sequences of transactions) to focus on for increasing coverage most effectively.
+In our example, the only branch that cannot be covered with a single transaction is the one leading to the assertion. Therefore, a fuzzer might want to focus on sequences that end with an invocation of 
+<code>Bar</code>
+ . Similarly, there is little to be gained from exploring sequences that repeatedly call 
+<code>SetY</code>
+ .</p>
+<h3 id="demand-driven-sequence-fuzzing">Demand-driven Sequence Fuzzing<a class="headerlink" href="#demand-driven-sequence-fuzzing" title="Permanent link"></a></h3>
+<p>Harvey uses a number of techniques to avoid these issues. First, Harvey only adds test inputs to the test suite if they increase path coverage for the 
+<em>final step</em>
+ (i.e., transaction), which in our case is 
+<code>Bar</code>
+ . The intuition behind this design is to consider the steps before the final step primarily as a way to incrementally change the state of the contract such that we can explore a given path in the final step.
+Second, before considering additional steps, Harvey will check if there is actually something to be gained in terms of path coverage. More specifically, Harvey is designed to periodically fuzz a selected input by allowing direct mutations of the state before the last step (similar to the simple approach described above of directly fuzzing 
+<code>x</code>
+ ). Unless this more aggressive fuzzing uncovers new paths, we will not even consider inserting additional steps before the last step. In other words, Harvey only considers longer sequences 
+<em>on demand</em>
+ . Note that new inputs found during this more aggressive fuzzing are never added to the test suite to avoid spurious errors.
+In our example, Harvey will only consider longer sequences of steps for finding the input that invokes 
+<code>Bar</code>
+ and executes the assertion. Once it finds and adds the sequence that triggers the assertion violation (after roughly 18 seconds), it will stop considering longer sequences completely (since the aggressive fuzzing can no longer increase coverage). Note that this also demonstrates how our 
+<a href="https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c">technique for input prediction</a>
+ is easily applied across several transactions; it is responsible for predicting the right argument for 
+<code>SetY</code>
+ that will trigger the assertion in 
+<code>Bar</code>
+ .</p>
+<h3 id="mutation-operations">Mutation Operations<a class="headerlink" href="#mutation-operations" title="Permanent link"></a></h3>
+<p>To actually come up with new sequences, Harvey uses several types of mutation operations that are applied to the selected input. For each of them it first picks an existing step 
+<code>S</code>
+ . It then applies one of the following operations: (1) fuzzing step 
+<code>S</code>
+ (i.e., changing the inputs of the transaction), (2) inserting a new step before step 
+<code>S</code>
+ , and (3) replacing the steps before 
+<code>S</code>
+ with a sequence of new steps.
+For the last two types of operations, Harvey uses both a pool of individual steps and a pool of sequences that are populated as new tests are added to the test suite. For our example, the step pool will, for instance, contain a step that invokes 
+<code>SetY</code>
+ whereas the sequence pool will eventually contain the sequence invoking 
+<code>SetY</code>
+ followed by 
+<code>CopyY</code>
+ . Picking from the pools is more efficient than building steps from scratch every time they might be needed; they can subsequently be “tweaked” by applying operations of the first type.
+In this post, we have illustrated the challenges in finding deep vulnerabilities and we described a few techniques to address those challenges when fuzzing smart contracts. In practice, Harvey uses additional techniques to quickly find such vulnerabilities and we might cover some of these in later posts. Finding deep vulnerabilities is generally one of the most challenging aspects of analyzing smart contracts.
+In the next post of this series, we will look at how we can use Harvey to automatically detect 
+<a href="https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-107">reentrancy</a>
+ issues — a well-known source of smart contract vulnerabilities. Stay tuned!
+Thanks to 
+<a href="https://mariachris.github.io">Maria Christakis</a>
+ , 
+<a href="https://twitter.com/joranhonig">Joran Honig</a>
+ , and 
+<a href="https://twitter.com/muellerberndt">Bernhard Mueller</a>
+ for feedback on drafts of this article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Fuzzing Smart Contracts Using Multiple Transactions</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/fuzzing-smart-contracts-using-multiple-transaction/566c70b35d564ac8a8fcc08c37fb5859/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-02</li>
+<li><strong>Kauri original tags:</strong> fuzzing, security, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmP3eFb7sZg7C91YSZ54chACWkxR29wh9vHMoCicB1RD3z</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../fuzzing-smart-contracts-using-input-prediction/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../fuzzing-smart-contracts-using-input-prediction/" class="btn btn-xs btn-link">
+        Fuzzing Smart Contracts Using Input Prediction
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../SecureETH/secureth-guidelines-introduction/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../SecureETH/secureth-guidelines-introduction/" class="btn btn-xs btn-link">
+        SecurEth Guidelines Introduction
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/MythX/fuzzing-smart-contracts-using-multiple-transactio.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

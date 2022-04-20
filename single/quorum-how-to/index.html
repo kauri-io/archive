@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/quorum-how-to/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Quorum how-to - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Quorum how-to", url: "#_top", children: [
+              {title: "Setting up your own Quorum network", url: "#setting-up-your-own-quorum-network" },
+              {title: "Running the Quorum network", url: "#running-the-quorum-network" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="quorum-how-to">Quorum how-to<a class="headerlink" href="#quorum-how-to" title="Permanent link"></a></h1>
+<blockquote>
+<p>The original article may be consulted at https://github.com/ConsenSys/qbc/blob/master/docs/HOWTO.md</p>
+</blockquote>
+<h2 id="setting-up-your-own-quorum-network">Setting up your own Quorum network<a class="headerlink" href="#setting-up-your-own-quorum-network" title="Permanent link"></a></h2>
+<h3 id="set-up-the-quorum-node-network">Set up the Quorum node network<a class="headerlink" href="#set-up-the-quorum-node-network" title="Permanent link"></a></h3>
+<h4 id="generate-enode-and-nodekey">Generate Enode and nodekey<a class="headerlink" href="#generate-enode-and-nodekey" title="Permanent link"></a></h4>
+<p>Each node in the network is identified by a unique id assigned to it called the enode.  This enode is the public key corresponding to a private nodekey.</p>
+<p>Generate public enode from the private nodekey:</p>
+<pre><code>nodekey=`docker run -v &lt;PATH TO DATA FOLDER&gt;:/var/qdata/ consensys/quorum:latest sh -c &quot;/opt/bootnode -genkey /var/qdata/dd/nodekey -writeaddress;cat /var/qdata/dd/nodekey&quot;`;
+enode=`docker run -v &lt;PATH TO DATA FOLDER&gt;:/var/qdata/ consensys/quorum:latest sh -c &quot;/opt/bootnode -nodekeyhex $nodekey -writeaddress&quot;`;
+</code></pre>
+<p>Only nodes who's enodes are listed in the static-nodes.json file can participate in the consensus mechanism.</p>
+<p>Here is an example of how to generate a static-nodes.json file:</p>
+<pre><code>ips=(&quot;10.5.0.15&quot; &quot;10.5.0.16&quot; &quot;10.5.0.17&quot; &quot;10.5.0.18&quot;)
+i=1
+mkdir -p $WORKDIR/q1/dd/
+echo &quot;[&quot; &gt; $WORKDIR/q1/dd/static-nodes.json;
+for ip in ${ips[*]}; do
+    mkdir -p $WORKDIR/q${i}/logs;
+    mkdir -p $WORKDIR/q${i}/dd/{keystore,geth};
+    enode=`docker run -v $WORKDIR/q${i}:/var/qdata/ consensys/quorum:latest sh -c &quot;/opt/bootnode -genkey /var/qdata/dd/nodekey -writeaddress; cat /var/qdata/dd/nodekey&quot;`;
+    enode=`docker run -v $WORKDIR/q${i}:/var/qdata/ consensys/quorum:latest sh -c &quot;/opt/bootnode -nodekeyhex $enode -writeaddress&quot;`;
+    sep=`[[ $i &lt; ${#ips[@]} ]] &amp;&amp; echo &quot;,&quot;`;
+    echo '  &quot;enode://'$enode'@'$ip':21000?discport=0&quot;'$sep &gt;&gt; $WORKDIR/q${i}/dd/static-nodes.json;
+    let i++;
+done
+echo &quot;]&quot; &gt;&gt; $WORKDIR/q1/dd/static-nodes.json
+
+</code></pre>
+<p>The output should look something like this:</p>
+<pre><code>$ cat $WORKDIR/q1/dd/static-nodes.json
+[
+  &quot;enode://07f75277b1bb17329d91dde84d2e4d2d01d67b50a8e6974fbc19602edd3a832b@10.5.0.15:21000?discport=0&quot;,
+  &quot;enode://48ef4d4bdcb04db9bb0095dde90ed49abb4be995b6c673e8e2715e3c0cb34614@10.5.0.16:21000?discport=0&quot;,
+  &quot;enode://bf94844598cbfe955952076ba046ed143fec160968eed12d3fa93256c6e7a8b0@10.5.0.17:21000?discport=0&quot;,
+  &quot;enode://14d2b9dc41c34638bf736cd84d43b30e733d94a98e60190ee760c6b73548c26c@10.5.0.18:21000?discport=0&quot;
+]
+
+</code></pre>
+<h4 id="create-an-initial-account">Create an initial account<a class="headerlink" href="#create-an-initial-account" title="Permanent link"></a></h4>
+<p>Run:
+<code>/opt/geth --datadir=$WORKDIR/dd account new</code></p>
+<p>You will be prompted for a password.</p>
+<p>Keep a copy of the address returned by the program. You can also see the private key has been stored as a file under <code>$WORKDIR/dd/keystore</code>.</p>
+<h4 id="create-a-genesis-file">Create a genesis file<a class="headerlink" href="#create-a-genesis-file" title="Permanent link"></a></h4>
+<p>All nodes should have in common the first block (the genesis block) and a set of common parameters to operate the network.</p>
+<p>An example of genesis JSON file is in this repository under <code>tests/crux_quorum/istanbul-genesis.json</code>.</p>
+<p>Please edit the genesis file and add your account to it with a non-zero balance, so you have some Ether when you start the chain.</p>
+<p>The JSON file is ingested by the geth init command to initialize the first block.</p>
+<p><code>docker run -it -v &lt;PATH TO DATA FOLDER&gt;:/var/qdata/ -v &lt;PATH TO JSON FILE&gt;:/tmp/genesis.json \
+    consensys/quorum:latest /opt/geth --datadir /var/qdata/dd init /tmp/genesis.json</code></p>
+<h4 id="create-a-list-of-static-and-permissioned-nodes">Create a list of static and permissioned nodes<a class="headerlink" href="#create-a-list-of-static-and-permissioned-nodes" title="Permanent link"></a></h4>
+<p>As you create the Quorum network, you will need to organize your nodes so they can connect to each other.</p>
+<p>You can use two separate files to organize the network:</p>
+<p><code>static-nodes.json</code>: this file contains the list of nodes this Quorum instance will connect to.</p>
+<p><code>permissioned-nodes.json</code>:  nodes listed in this file are explicitly allowed to send data to the Quorum instance.</p>
+<p>Both files have the same format. Here is an example.</p>
+<pre><code>[&quot;enode://abcde....1234@10.5.0.11:21000?discport=0, &quot;enode://abcdde...6543@10.5.0.12:21000?discport=0]
+</code></pre>
+<p>Each enode URI is built with the public key of the node, associated with its host name and RPC port. The discport parameter is set to zero as no discovery is performed on the network.</p>
+<h4 id="quorum-data-folder-structure">Quorum. data folder structure<a class="headerlink" href="#quorum-data-folder-structure" title="Permanent link"></a></h4>
+<p>Create the folders as follows:</p>
+<p><code>mkdir -p dd/keystore logs</code></p>
+<p>Copy the files created earlier so it conforms to the structure below:</p>
+<pre><code>├── dd
+│   ├── keystore
+│   │   └── key
+│   ├── permissioned-nodes.json
+│   └── static-nodes.json
+├── logs
+│   └── node.log
+├── nodekey
+└── passwords.txt
+</code></pre>
+<h3 id="set-up-tessera-or-crux-nodes">Set up Tessera or Crux nodes<a class="headerlink" href="#set-up-tessera-or-crux-nodes" title="Permanent link"></a></h3>
+<h4 id="generate-constellation-keys">Generate Constellation keys<a class="headerlink" href="#generate-constellation-keys" title="Permanent link"></a></h4>
+<p>For each Constellation instance, you will need a unique keypair.</p>
+<p>This command generates a keypair under /tmp/out.key and /tmp/out.pub.</p>
+<p><code>docker run -v /tmp:/tmp -it consensys/crux:latest /opt/crux --generate-keys /tmp/out</code></p>
+<h4 id="constellation-data-folder-structure">Constellation data folder structure<a class="headerlink" href="#constellation-data-folder-structure" title="Permanent link"></a></h4>
+<p>Create the logs folder: <code>mkdir -p logs</code></p>
+<p>Copy the files created earlier so it conforms to the structure below. Make sure to rename the keypair to tm.key and tm.pub respectively.</p>
+<pre><code>├── logs
+│   └── crux.log
+├── tm.key
+└── tm.pub
+</code></pre>
+<h2 id="running-the-quorum-network">Running the Quorum network<a class="headerlink" href="#running-the-quorum-network" title="Permanent link"></a></h2>
+<h3 id="running-docker">Running Docker<a class="headerlink" href="#running-docker" title="Permanent link"></a></h3>
+<p>On each node participating in the network, you will need to run Quorum and Constellation (either Crux or Tessera).</p>
+<p>Assuming you followed the instructions above, you should have a data folder for Quorum and Constellation respectively.</p>
+<p>You can then start Crux with:</p>
+<p><code>env HOSTNAME=&lt;hostname of the crux node&gt; OTHER_NODES=http://&lt;hostname of an other crux node to discover&gt; docker run -p 9000:9000 -v &lt;path to constellation data&gt;:/var/cdata/ &lt;path to quorum data&gt;:/var/qdata/ -it consensys/crux:latest</code></p>
+<p>You can start Quorum with:</p>
+<p><code>docker run -p 22000:22000 -p 21000:21000 -v &lt;path to quorum data&gt;:/var/qdata/ consensys/quorum:latest</code></p>
+<p>You can also use a docker compose yaml configuration file to run both containers together:</p>
+<pre><code>version: &quot;3.4&quot;
+services:
+  crux:
+    image: consensys/crux:latest
+    container_name: crux
+    ports:
+      - 9000:9000
+    restart: always
+    environment:
+      - HOSTNAME=&lt;hostname of the crux node&gt;
+      - OTHER_NODES=&lt;hostname of an other crux node to discover&gt;
+    volumes:
+      - ${WORKDIR}/c1:/var/cdata/
+      - ${WORKDIR}/q1:/var/qdata/
+  node:
+    image: consensys/quorum:latest
+    container_name: quorum
+    ports:
+      - 22000:22000
+      - 21000:21000
+    restart: always
+    volumes:
+      - ${WORKDIR}/q1:/var/qdata/
+
+</code></pre>
+<h3 id="check-the-network-is-up-and-running">Check the network is up and running.<a class="headerlink" href="#check-the-network-is-up-and-running" title="Permanent link"></a></h3>
+<p>On the node, perform the following to check Constellation is up and running:</p>
+<p><code>curl -vv http://localhost:19001/upcheck</code></p>
+<p>Check the quorum logs to check the node came up without issues.</p>
+<p><code>less &lt;path to quorum data&gt;/logs/node.log</code></p>
+<h3 id="private-transactions">Private Transactions<a class="headerlink" href="#private-transactions" title="Permanent link"></a></h3>
+<p>Example of how to send a private transaction:</p>
+<p><strong><em>Send Private Transaction</em></strong></p>
+<pre><code>$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_sendTransaction&quot;,&quot;params&quot;:[{&quot;from&quot;: &quot;0xed9d02e382b34818e88b88a309c7fe71e65f419d&quot;, &quot;to&quot;: &quot;0xca843569e3427144cead5e4d5999a3d0ccf92b8e&quot;, &quot;gas&quot;: &quot;0x76c0&quot;, &quot;data&quot;: &quot;0xca843569e3427144cead5e4d5999a3d0ccf92b8eed9d02e382b34818e88b88a309c7fe71e65f419d&quot;, &quot;privateFor&quot;: [&quot;QfeDAys9MPDs2XHExtc84jKGHxZg/aj52DTh0vtA3Xc=&quot;]}],&quot;id&quot;:1}' 0.0.0.0:22001
+
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:&quot;0xdcbe81138963dc32993ec0a83f6d974e1e3c0ec27fc88f09bfe8c7b54ab51de1&quot;}
+</code></pre>
+<p>Copy <code>0xdcbe81138963dc32993ec0a83f6d974e1e3c0ec27fc88f09bfe8c7b54ab51de1</code> from the  result field for the next step</p>
+<p><strong><em>Get Transaction Input</em></strong></p>
+<pre><code>$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_getTransactionByHash&quot;,&quot;params&quot;:[&quot;0xdcbe81138963dc32993ec0a83f6d974e1e3c0ec27fc88f09bfe8c7b54ab51de1&quot;],&quot;id&quot;:1}' 0.0.0.0:22001
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:{&quot;blockHash&quot;:&quot;0xe98fc1b2110f60407e9bfefddadf16e5b210b9e12dd0e78b4fe277552078c353&quot;,&quot;blockNumber&quot;:&quot;0x58&quot;,&quot;from&quot;:&quot;0xed9d02e382b34818e88b88a309c7fe71e65f419d&quot;,&quot;gas&quot;:&quot;0x76c0&quot;,&quot;gasPrice&quot;:&quot;0x0&quot;,&quot;hash&quot;:&quot;0xdcbe81138963dc32993ec0a83f6d974e1e3c0ec27fc88f09bfe8c7b54ab51de1&quot;,&quot;input&quot;:&quot;0x7e5b0b4effedf9a3d8c393e2e669a73296066032a0c779d28d5b35234be5da2d529a096efadc8944cc4dfd9bae4ed1efe75c7f7b431584a35dc38c942177884e&quot;,&quot;nonce&quot;:&quot;0x0&quot;,&quot;to&quot;:&quot;0xca843569e3427144cead5e4d5999a3d0ccf92b8e&quot;,&quot;transactionIndex&quot;:&quot;0x0&quot;,&quot;value&quot;:&quot;0x0&quot;,&quot;v&quot;:&quot;0x25&quot;,&quot;r&quot;:&quot;0x174ba76866bea2d7520e004e3f9b573ca058e219347880fc86ab70b4a708a4dc&quot;,&quot;s&quot;:&quot;0x30eba5e128884ce1f5a659b8e978d62d9d438173d2f3cc11c0020f7cdd6a48a5&quot;}}
+</code></pre>
+<p>Copy <code>0x7e5b0b4effedf9a3d8c393e2e669a73296066032a0c779d28d5b35234be5da2d529a096efadc8944cc4dfd9bae4ed1efe75c7f7b431584a35dc38c942177884e</code> from the input field for the next step</p>
+<p><strong><em>Get Payload from Sending node</em></strong></p>
+<pre><code>$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;eth_getQuorumPayload&quot;, &quot;params&quot;:[&quot;0x7e5b0b4effedf9a3d8c393e2e669a73296066032a0c779d28d5b35234be5da2d529a096efadc8944cc4dfd9bae4ed1efe75c7f7b431584a35dc38c942177884e&quot;], &quot;id&quot;:2}' 0.0.0.0:22001
+
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;result&quot;:&quot;0xca843569e3427144cead5e4d5999a3d0ccf92b8eed9d02e382b34818e88b88a309c7fe71e65f419d&quot;}
+</code></pre>
+<p><strong><em>Get Payload from Receiving node</em></strong></p>
+<pre><code>$ curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;, &quot;method&quot;:&quot;eth_getQuorumPayload&quot;, &quot;params&quot;:[&quot;0x7e5b0b4effedf9a3d8c393e2e669a73296066032a0c779d28d5b35234be5da2d529a096efadc8944cc4dfd9bae4ed1efe75c7f7b431584a35dc38c942177884e&quot;], &quot;id&quot;:2}' 0.0.0.0:22001
+
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;result&quot;:&quot;0xca843569e3427144cead5e4d5999a3d0ccf92b8eed9d02e382b34818e88b88a309c7fe71e65f419d&quot;}
+</code></pre>
+<p>For all other nodes, 0x should be the result:</p>
+<blockquote>
+<p>0x means that the privateFor public key doesn't match any nodes in the network</p>
+</blockquote>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link"></a></h3>
+<p>Open a shell to a container:</p>
+<pre><code>docker exec -it &lt;container_name&gt; /bin/bash
+</code></pre>
+<p>Node Info</p>
+<pre><code>curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;admin_nodeInfo&quot;,&quot;id&quot;:1}' 0.0.0.0:22001
+</code></pre>
+<p>Get list of connected peers</p>
+<pre><code>curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;admin_peers&quot;,&quot;id&quot;:1}' 0.0.0.0:22001
+</code></pre>
+<p>Get blocknumber</p>
+<pre><code>curl -X POST --data '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' 0.0.0.0:22001
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Quorum how-to</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/quorum-howto/97e916abb4b5431bbb297f42d0ce8b88/a</li>
+<li><strong>Kauri original author:</strong> Antoine Toulme (@tmio)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-05</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmfJX3gid9PV68FJSCYbQNDiAsUQ6YbkidbjRRt3w4hsJ5</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-create-a-metamask-plugin/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-create-a-metamask-plugin/" class="btn btn-xs btn-link">
+        How to create a Metamask Plugin
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../reducing-mainnet-transactions-with-a-sidechain/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../reducing-mainnet-transactions-with-a-sidechain/" class="btn btn-xs btn-link">
+        Reducing Mainnet Transactions with a Sidechain
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/quorum-how-to.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

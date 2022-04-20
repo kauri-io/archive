@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/3box-builders-series--how-to-integrate-with-profi/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>3Box Builders Series  How to Integrate with Profiles - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "3Box Builders Series  How to Integrate with Profiles", url: "#_top", children: [
+              {title: "3Box Profiles Overview", url: "#3box-profiles-overview" },
+              {title: "Get Started Developing with Profiles", url: "#get-started-developing-with-profiles" },
+              {title: "\ud83d\udcc1 Install 3Box.js in your Project", url: "#install-3boxjs-in-your-project" },
+              {title: "\u2699\ufe0f Configure User Profiles", url: "#configure-user-profiles" },
+              {title: "\ud83c\udf08 Display Profiles Throughout Your App", url: "#display-profiles-throughout-your-app" },
+              {title: "\ud83d\udc4b Get in touch", url: "#get-in-touch" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="3box-builders-series-how-to-integrate-with-profiles">3Box Builders Series  How to Integrate with Profiles<a class="headerlink" href="#3box-builders-series-how-to-integrate-with-profiles" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVRP9wYpyZg52iYMDaFeJx8wdJ7rnUaaCi7WWnZLJGFjj" /></p>
+<p><em>The Builders Series is a collection of blog posts aimed at helping developers easily build better distributed apps using the 3Box </em><a href="https://github.com/3box/3box-js/blob/develop/README.md">suite of APIs</a></p>
+<p><em>. This article is the first in the series, and contains everything you need to start adding profiles to your app today. For more information on Profiles, view our </em><a href="https://github.com/3box/3box-js">Github documentation</a></p>
+<p><em>.</em></p>
+<h3 id="3box-profiles-overview">3Box Profiles Overview<a class="headerlink" href="#3box-profiles-overview" title="Permanent link"></a></h3>
+<h4 id="why-profiles">Why profiles?<a class="headerlink" href="#why-profiles" title="Permanent link"></a></h4>
+<p><a href="https://github.com/3box/3box-js#profiles-api">3Box Profiles</a>
+ are a quick and easy way to make your decentralized application more social, useable, and interactive with basic social identity that works natively with Ethereum. We provide the infrastructure that makes it easy for distributed application developers to replace user hex addresses with human-readable names, images, descriptions, and other social metadata in their application’s UI.</p>
+<h4 id="why-3box">Why 3Box?<a class="headerlink" href="#why-3box" title="Permanent link"></a></h4>
+<p><a href="https://github.com/3box/3box">3Box</a>
+ is a distributed data storage and identity network built on IPFS and OrbitDB, where users are always in control of their information. By storing data on 3Box, developers don’t need to operate a centralized backend service to store and manage all of this user information, nor do they need to store it on the blockchain where it’s expensive and exists forever. Rather, 3Box data lives directly with users and is available to be shared across various application front-ends.</p>
+<h4 id="summary-of-benefits">Summary of Benefits<a class="headerlink" href="#summary-of-benefits" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>Humanize your application by replacing hex addresses with user profiles</p>
+</li>
+<li>
+<p>Support for both public and encrypted profile data</p>
+</li>
+<li>
+<p>Support for both general and application-specific profiles</p>
+</li>
+<li>
+<p>Generate network effects by sharing profiles across applications</p>
+</li>
+<li>
+<p>Store data with users on IPFS, not on a backend or the blockchain</p>
+</li>
+<li>
+<p>Native support for Ethereum accounts</p>
+</li>
+</ul>
+<h4 id="example-integrations">Example Integrations<a class="headerlink" href="#example-integrations" title="Permanent link"></a></h4>
+<p>Experience 3Box profiles at any of our partner applications: 
+<a href="https://3box.io">3Box Hub</a>
+ , 
+<a href="https://ethstats.io">EthStats</a>
+ , 
+<a href="https://niftyfootball.cards">NiftyFootball</a>
+ ( 
+<em>coming soon</em>
+ ), 
+<a href="https://mainnet.aragon.org/#/">Aragon</a>
+ ( 
+<em>coming soon</em>
+ ), 
+<a href="https://explorer.livepeer.org">Livepeer</a>
+ ( 
+<em>coming soon</em>
+ ), 
+<a href="https://beta.giveth.io/">Giveth</a>
+ ( 
+<em>coming soon</em>
+ ), 
+<a href="https://molochdao.com/">MolochDAO</a>
+ ( 
+<em>coming soon</em>
+ ), 
+<a href="https://metamask.io">MetaMask</a>
+ ( 
+<em>coming soon</em>
+ )</p>
+<h4 id="user-experience-demo">User Experience Demo<a class="headerlink" href="#user-experience-demo" title="Permanent link"></a></h4>
+<p>Below is a video demonstration of how profiles could integrate natively into an application, in this case — the Livepeer Explorer app. This example is for demonstration purposes only and does not reflect an actual live Livepeer integration. Thanks to 
+<a href="https://medium.com/@jbrukh">Jake Brukhman</a>
+ for letting me use him and 
+<a href="https://medium.com/@coinfund_io">CoinFund</a>
+ as example profiles. 🙏</p>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/k9tayKOowVE" width="512"></iframe>
+
+<p>We will reference this Livepeer example for user and application flows, as well as code examples for the remainder of this tutorial.</p>
+<h3 id="get-started-developing-with-profiles">Get Started Developing with Profiles<a class="headerlink" href="#get-started-developing-with-profiles" title="Permanent link"></a></h3>
+<p>Follow these steps to get profiles running smoothly in your app:</p>
+<ul>
+<li>
+<p>Install <a href="https://github.com/3box/3box-js">3Box.js</a> in your project</p>
+</li>
+<li>
+<p>Configure the user’s profile, usually on their account page</p>
+</li>
+<li>
+<p>Display the user’s profile, throughout your application UI</p>
+</li>
+</ul>
+<h3 id="install-3boxjs-in-your-project">📁 Install 3Box.js in your Project<a class="headerlink" href="#install-3boxjs-in-your-project" title="Permanent link"></a></h3>
+<p><a href="https://github.com/3box/3box">3Box</a>
+ provides a JavaScript client library that allows browser-based web applications to interact with the 3Box data network without requiring the user to install any software. 
+<a href="https://github.com/3box/3box-js">3Box.js</a>
+ provides the functionality required to perform all of the profile functions below. Let’s get started building!
+To get started, install 3Box.js in your project:</p>
+<pre><code>$ npm install 3box
+</code></pre>
+<h3 id="configure-user-profiles">⚙️ Configure User Profiles<a class="headerlink" href="#configure-user-profiles" title="Permanent link"></a></h3>
+<p>This section describes the application logic and code that should be implemented on the 
+<strong>account or profile page</strong>
+ of your application.</p>
+<h4 id="1-detect-and-display-default-user-profile-information">1. Detect and display default user profile information.<a class="headerlink" href="#1-detect-and-display-default-user-profile-information" title="Permanent link"></a></h4>
+<p>When the user arrives at their profile page, your app should check whether or not they have previously configured their profile for your app. This is indicated by the presence of a 
+<code>defaultProfile</code>
+ setting saved in your app's space. The 
+<code>defaultProfile</code>
+ key functions as a pointer to where profile information for your application should be fetched.
+This code snippet checks for the 
+<code>defaultProfile</code>
+ setting, stored in your app's space:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/oed/09723b0d6245d1fd26b8b7034334dea5.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>const livepeerProfile = await Box.getSpace(
+&lt;eth-address&gt;
+ , 'livepeer')
+console.log(livepeerProfile.defaultProfile)
+&lt;/eth-address&gt;
+</code></pre>
+<p><code>defaultProfile</code>
+ can be either 
+<code>'3box'</code>
+ , 
+<code>'livepeer'</code>
+ (i.e. your app’s space), or 
+<code>undefined</code>
+ . Depending on the value, your app should do 1 of 3 things:</p>
+<ul>
+<li>
+<p>If <code>livepeerProfile.defaultProfile</code> has the value <code>'livepeer'</code> , display the <code>livepeerProfile</code> information (name, image, URL) in the user’s profile fields. <em>Skip steps 3 and 4 below.</em> </p>
+</li>
+<li>
+<p>If <code>livepeerProfile.defaultProfile</code> has the value <code>'3box'</code> , call <code>Box.getProfile(&lt;eth-address&gt;)</code> and display the returned profile information (name, image, URL) in the user’s profile fields. <em>Skip steps 3 and 4 below.</em> </p>
+</li>
+<li>
+<p>If no value is returned, the user has never configured their profile for your app before. Display a blank profile. <em>Complete all steps below.</em> </p>
+</li>
+</ul>
+<h4 id="2-ask-permission-to-update-their-profile">2. Ask permission to update their profile.<a class="headerlink" href="#2-ask-permission-to-update-their-profile" title="Permanent link"></a></h4>
+<p>Regardless of the user’s 
+<code>defaultProfile</code>
+ setting, since they came to their profile page they likely want to create or update their profile, which requires saving data to 3Box. To allow your application to update a user’s 3Box, you will need to ask for the user’s consent then you will need to sync their data.
+Consent is given by the user signing two consent messages with their web3 wallet: one to access their 3Box and one to access your space. This approval process only needs to be executed once and then it is automatically stored in browser localStorage, so users will only need to sign messages the first time they open their profile page on a new browser.
+Once the user approves these signature requests in their web3 wallet, their browser can fetch and sync data from the 3Box network. The syncing process must be completed before you can update the user’s 3Box. During this time, you may choose to display a small loading indicator, or block users from making updates to their 3Box profile.
+This code snippet allows your app to request consent from the user, then sync their data:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/oed/929f4a38f129e60e469a001a5db8eb55.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>const box = await Box.openBox(
+&lt;eth-address&gt;
+ )
+const boxSyncPromise = new Promise((resolve, reject) =&amp;gt; box.onSyncDone(resolve))
+let livepeerSpace
+const spaceSyncPromise = new Promise((resolve, reject) =&amp;gt; {
+  livepeerSpace = await box.openSpace('livepeer', { onSyncDone: resolve })
+})
+await boxSyncPromise
+await spaceSyncPromise
+&lt;/eth-address&gt;
+</code></pre>
+<p><em>**Note: Steps 3–4 below are only relevant for new users who have no existing defaultProfile setting for your app. At this point, all other users with preconfigured profiles should be able to use and update their profile with no problems.</em></p>
+<h4 id="3-configure-default-profile-if-not-done-previously">3. Configure default profile, if not done previously.<a class="headerlink" href="#3-configure-default-profile-if-not-done-previously" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZEv5vhUz5gVsKSf3ngfX1p5Mp3WTFojt5JWW8wGhktoa" /></p>
+<p>Since the user has not previously set up or configured their profile for your app, they should see a blank profile, but you should offer them the option to set one up. After the user clicks “Set up my profile”, you should determine which options to present to the user for setting a default profile in your application: 1) using their existing 3Box profile (if one exists); or 2) setting up a new profile for your application.</p>
+<p><strong>Check if existing 3Box profile is present:</strong>
+ Call 
+<code>Box.getProfile(&lt;eth-addr&gt;)</code>
+ to check if a user has previously saved profile information (name, image, URL, email) to their general 3Box profile. If they have, display their basic profile info (such as 
+<code>name</code>
+ and 
+<code>image</code>
+ ) in something like a modal, and present the user with the option to use it, or to create a new profile for your app.
+If the user doesn’t have a pre-existing 3Box profile, you don’t need to provide them with this option, and you can instead just save your app as 
+<code>defaultProfile</code>
+ (option 2 in the code block below), and proceed to Step 4b.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6W2NiJKL3sPjxvPUC5LZoVac8NwsxBHyVto8NjBhvxP" /></p>
+<p>This code snippet describes the data that should be saved to your app’s space, as a result of the user’s selection above:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/oed/21de1471e1407bf44ad3627d7365d1e9.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>// Option 1: Set public space data, if 3Box is chosen as default
+
+livepeerSpace.public.set('defaultProfile', '3box')
+
+// OR
+
+// Option 2: Set public space data, if your app is chosen as default
+
+livepeerSpace.public.set('defaultProfile', 'livepeer')
+
+</code></pre>
+<h4 id="4a-display-profile-information-if-3box-is-chosen-as-default">4a. Display profile information, if 3Box is chosen as default.<a class="headerlink" href="#4a-display-profile-information-if-3box-is-chosen-as-default" title="Permanent link"></a></h4>
+<p><strong>Display profile with 3Box as default:</strong>
+ If the user opts to use their 3Box profile for your app, you should display their 3Box profile information (name, image, URL) on screen using: 
+<code>Box.getProfile(&lt;eth-addres&gt;)</code>
+ .</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW5oc97SP6AB2j4KNuMvjQ99hV4mNAp3jkXRKWR6aATK5" /></p>
+<p><strong>Edit profile with 3Box as default:</strong>
+ If your user has chosen 3Box as default and wishes to edit their profile, it’s advisable to send them to 
+<a href="http://3box.io">3box.io</a>
+ to make the updates — since these changes will be reflected across every other application accessed with 3Box, and it might be hard or confusing to communicate that from within your app.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYmvDpPjp3YCScnFzTxXHQff8cCkYnryJhsmYu25aC8WX" /></p>
+<h4 id="4b-display-profile-information-if-your-app-is-chosen-as-default">4b. Display profile information, if your app is chosen as default.<a class="headerlink" href="#4b-display-profile-information-if-your-app-is-chosen-as-default" title="Permanent link"></a></h4>
+<p><strong>Save new app profile data</strong>
+ : If users opt for creating a new profile in your app, then you should provide them with an interface to enter their new profile information.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY" /></p>
+<p>When the user clicks “SAVE”, write this information to their 3Box, in your app’s space:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/oed/ffa8d514524954a5fb49377dfaee38f4.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>// Set the public app profile data
+livepeerSpace.public.set('defaultProfile', 'livepeer')
+livepeerSpace.public.set('name', 'yourname')
+const imageObject = [{
+  &quot;@type&quot;:&quot;ImageObject&quot;,
+  &quot;contentUrl&quot;: &quot;
+&lt;https: ipfs=&quot;&quot; ipfs.infura.io=&quot;&quot;&gt;
+&lt;/https:&gt;
+&lt;ipfs-hash-of-image&gt;
+ &quot;,
+  &quot;cid&quot;: {&quot;/&quot;:&quot;
+ &lt;ipfs-hash-of-image&gt;
+  &quot;}
+}]
+livepeerSpace.public.set('image', imageObject)
+livepeerSpace.public.set('url', '
+  &lt;https: yoursite.com=&quot;&quot;&gt;
+   ')
+
+
+// Set the private app profile data
+livepeerSpace.private.set('email', 'youremail@gmail.com')
+  &lt;/https:&gt;
+ &lt;/ipfs-hash-of-image&gt;
+&lt;/ipfs-hash-of-image&gt;
+</code></pre>
+<p><strong>Display app profile:</strong>
+ When they’re done creating their profile, it should look something like this.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmaxike5BZq2yhrCDhMNrZRmm4QZgpqo4kwADJojVHTNWn" /></p>
+<p><strong>Edit app profile:</strong>
+ In this case, it would look the same as the save app profile data step above. You would just re-save the data to your app’s space with new values.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUrsS7nCHitHoMaSx77a1sP2WEHFi93bpyisoZjqkR1xY" /></p>
+<h3 id="display-profiles-throughout-your-app">🌈 Display Profiles Throughout Your App<a class="headerlink" href="#display-profiles-throughout-your-app" title="Permanent link"></a></h3>
+<p>Now that a user has configured their profile for your app, you will want to display it in your app’s UI, making it available to this user and other users on various pages. This section describes the application logic and code that should be implemented on other pages of your app where you wish to display user profiles.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXvJYxMayWGCcYrcxMvwCp3Paev2AZLsXydfXa32tSNiD" /></p>
+<h4 id="how-to-display-user-profiles">How to Display User Profiles<a class="headerlink" href="#how-to-display-user-profiles" title="Permanent link"></a></h4>
+<p>When your app displays a profile in the UI, you must first check the users’ default profile settings to determine which information to display.
+This code snippet checks for the 
+<code>defaultProfile</code>
+ setting, stored in your app's space:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/oed/09723b0d6245d1fd26b8b7034334dea5.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>const livepeerProfile = await Box.getSpace(
+&lt;eth-address&gt;
+ , 'livepeer')
+console.log(livepeerProfile.defaultProfile)
+&lt;/eth-address&gt;
+</code></pre>
+<p><code>defaultProfile</code>
+ can be either 
+<code>'3box'</code>
+ , 
+<code>'livepeer'</code>
+ or 
+<code>undefined</code>
+ . Depending on the value, your app should do 1 of 3 things:</p>
+<ul>
+<li>
+<p>If <code>livepeerProfile.defaultProfile</code> has the value <code>'livepeer'</code> , display the <code>livepeerProfile</code> information (name, image, URL) that you wish</p>
+</li>
+<li>
+<p>If <code>livepeerProfile.defaultProfile</code> has the value <code>'3box'</code> , call <code>Box.getProfile(&lt;eth-address&gt;)</code> and display the returned profile information (name, image, URL) that you wish</p>
+</li>
+<li>
+<p>If no value is returned, the user has never configured their profile for your app before. Display a blank profile, or keep their Ethereum hex address.</p>
+</li>
+</ul>
+<h3 id="get-in-touch">👋 Get in touch<a class="headerlink" href="#get-in-touch" title="Permanent link"></a></h3>
+<p>We love to hear about your use cases and we’re happy to answer any questions that arise as you build with our profiles API. Join our Discord at 
+<a href="https://chat.3box.io">chat.3box.io</a>
+ .
+View more documentation on 
+<a href="https://github.com/3box/3box-js">Github</a></p>
+<p>Subscribe to our 
+<a href="http://eepurl.com/dFVXCj">newsletter</a></p>
+<p>Happy building! ⚒️</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> 3Box Builders Series  How to Integrate with Profiles</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/3box-builders-series-how-to-integrate-with-profile/389cbed20fc8404ebf631634153dc76f/a</li>
+<li><strong>Kauri original author:</strong> Danny Zuckerman (@dazuck)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-04</li>
+<li><strong>Kauri original tags:</strong> 3box, data, buidl</li>
+<li><strong>Kauri original hash:</strong> QmNXByYbx48aReDXJ5o3USGKuetAmGtdNrRmHNxp3gMv5w</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../eth-pages/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../eth-pages/" class="btn btn-xs btn-link">
+        ETH Pages
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../transactions-with-a-button-click-event-using-ethj/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../transactions-with-a-button-click-event-using-ethj/" class="btn btn-xs btn-link">
+        Transactions With a Button Click Event using EthJs
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/3box-builders-series--how-to-integrate-with-profi.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

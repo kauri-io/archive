@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Decentralized%20Storage/storj--decentralized-cloud-object-storage/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Storj  Decentralized Cloud Object Storage - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Storj  Decentralized Cloud Object Storage", url: "#_top", children: [
+              {title: "Storj Test Network", url: "#storj-test-network" },
+              {title: "Installation and configuration", url: "#installation-and-configuration" },
+              {title: "Running the test network", url: "#running-the-test-network" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="storj-decentralized-cloud-object-storage">Storj  Decentralized Cloud Object Storage<a class="headerlink" href="#storj-decentralized-cloud-object-storage" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXS1sVX9Fyq3X137dW5KYw8hqtNwPyZLvkv9w3HwCytiA" /></p>
+<blockquote>
+<p>Storj is an open-source protocol and network for decentralized cloud object storage with client-side encryption</p>
+</blockquote>
+<p><em>This article originally appeared in the <a href="https://github.com/storj/storj/wiki">Storj wiki</a></em></p>
+<h2 id="storj-test-network">Storj Test Network<a class="headerlink" href="#storj-test-network" title="Permanent link"></a></h2>
+<p>The <code>storj-sim</code> tool enables you to run all the components of the Storj network (Satellite, Storage Nodes, Console and Gateway) and test them on your local machine.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYvsEQznkm9cdkKh7Q1eQ9AdmqFEtREDswUbbKmnowGkQ" /></p>
+<p>In every day Storj usage, the Satellite, Storage Node, and Uplink are run
+on separate servers and computers, but for the purposes of the test network,
+all of the components are run locally.</p>
+<h2 id="installation-and-configuration">Installation and configuration<a class="headerlink" href="#installation-and-configuration" title="Permanent link"></a></h2>
+<p>First, you'll need at least <a href="https://www.golang.org/">Go 1.11</a>. Once Go is
+installed run:</p>
+<pre><code class="language-bash">git clone https://github.com/storj/storj.git storj
+cd storj
+make install-sim
+</code></pre>
+<p><em>Ensure that <code>storj</code> folder is outside of <code>GOPATH</code>, otherwise you may see errors.</em></p>
+<p>This will install the storj-sim satellite storage node gateway and uplink binaries to wherever Go is configured to output binaries on your system. By default, this is <code>~/go/bin</code>.</p>
+<p>Next, run setup:</p>
+<pre><code class="language-bash">storj-sim network setup
+</code></pre>
+<p>You now have a configured Storj test network with default configuration options.</p>
+<p>You might also want to take a look at the config by navigating to the root 
+directory <code>--config-dir</code> where all the configs are specified.
+You can tweak the configuration settings there as needed.</p>
+<p>For insight into what is happening under the hood you can use <code>-x</code> or <code>--print-commands</code> to see how the processes are started.</p>
+<p>The next step is to run it!</p>
+<h2 id="running-the-test-network">Running the test network<a class="headerlink" href="#running-the-test-network" title="Permanent link"></a></h2>
+<p>Now that the configuration has been completed, we can fire up the test network with:</p>
+<pre><code class="language-bash">storj-sim network run
+</code></pre>
+<p>Your test network is now running. You should see output containing your
+Amazon S3 gateway access and secret keys, which you will need to connect
+Amazon S3 compatible clients.</p>
+<p>At the moment it's assinging ports in the following way:</p>
+<ul>
+<li>Gateways start from port <code>9000</code></li>
+<li>Bootstrap server is at port <code>9999</code></li>
+<li>Satellites start from port <code>10000</code></li>
+<li>Satellite Console starts on port <code>10100</code></li>
+<li>Storage Nodes public ports start from port <code>12000</code></li>
+<li>Storage Nodes private ports start from port <code>13000</code></li>
+</ul>
+<p>To get access to a gateway and test your keys, you open http://127.0.0.1:9000 in a web browser.</p>
+<p>You can access a storage node dashboard using the storage command. For example for accessing storage node 4 dashboard using the default configuration:</p>
+<pre><code class="language-bash">storagenode dashboard --config-dir ~/.local/share/storj/local-network/storagenode/4/ --identity-dir ~/.local/share/storj/local-network/storagenode/4 --address :13004 --color
+</code></pre>
+<h4 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link"></a></h4>
+<p><code>storj-sim network test &lt;command&gt;</code> can be used to run tests.</p>
+<p><code>storj-sim</code> will start up the network and once it's up and running it will execute the specified <code>&lt;command&gt;</code>.</p>
+<p>The information about the network is exposed via environment flags. All the flags start with a prefix and an index.</p>
+<ul>
+<li>Address: <code>STORAGENODE_0_ADDR</code>, <code>SATELLITE_0_ADDR</code>, <code>GATEWAY_0_ADDR</code></li>
+<li>Keys: <code>GATEWAY_0_ACCESS_KEY</code>, <code>GATEWAY_0_SECRET_KEY</code></li>
+<li>Directory: <code>STORAGENODE_0_DIR</code>, <code>SATELLITE_0_DIR</code>, <code>GATEWAY_0_DIR</code></li>
+</ul>
+<p>You can obtain the list of environment flags by running:</p>
+<pre><code class="language-bash">storj-sim network env
+</code></pre>
+<p>For a real-world example you can take a look in <a href="https://github.com/storj/storj/blob/master/scripts/test-sim.sh">test-sim.sh</a> and <a href="https://github.com/storj/storj/blob/master/scripts/test-sim-aws.sh">test-sim-aws.sh</a>.</p>
+<h4 id="wiping-the-testnet">Wiping the Testnet<a class="headerlink" href="#wiping-the-testnet" title="Permanent link"></a></h4>
+<p><code>storj-sim network destroy</code> can be used to wipe the network easily.</p>
+<p>While developing it's often nice to be able to delete the network and set it up from scratch.</p>
+<p>For convenience, you may run the command in a single line, like so:</p>
+<p><code>storj-sim network destroy &amp;&amp; storj-sim network setup &amp;&amp; storj-sim network test bash my-test-script.sh</code></p>
+<hr />
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>Please see the <a href="https://github.com/storj/docs/blob/master/Uplink-CLI.md">Uplink CLI</a> or <a href="https://github.com/storj/docs/blob/master/S3-Gateway.md">S3 Gateway</a>
+tutorial for how to upload and download data to the test network.</p>
+<p>Let's 'be the cloud' and decentralize all the things together!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Storj  Decentralized Cloud Object Storage</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/storj-decentralized-cloud-object-storage/a585dad1cd354e49994f3235452a8bb1/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-15</li>
+<li><strong>Kauri original tags:</strong> storage</li>
+<li><strong>Kauri original hash:</strong> QmYvQt1cw5iUPULTdqu1s61dBm1uAoEZhKTurTWFL3DEcF</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sia--decentralized-cloud-storage/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sia--decentralized-cloud-storage/" class="btn btn-xs btn-link">
+        Sia  Decentralized Cloud Storage
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../orbitdb--serverless-distributed-peer-to-peer-data/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../orbitdb--serverless-distributed-peer-to-peer-data/" class="btn btn-xs btn-link">
+        OrbitDB  Serverless, Distributed, Peer-to-Peer Database
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Decentralized Storage/storj--decentralized-cloud-object-storage.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

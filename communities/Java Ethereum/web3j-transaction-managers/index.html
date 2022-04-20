@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Java%20Ethereum/web3j-transaction-managers/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Web3j Transaction Managers - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Web3j Transaction Managers", url: "#_top", children: [
+              {title: "ClientTransactionManager", url: "#clienttransactionmanager" },
+              {title: "RawTransactionManager", url: "#rawtransactionmanager" },
+              {title: "FastRawTransactionManager", url: "#fastrawtransactionmanager" },
+              {title: "ReadonlyTransactionManager", url: "#readonlytransactionmanager" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="web3j-transaction-managers">Web3j Transaction Managers<a class="headerlink" href="#web3j-transaction-managers" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaxTCcpfWnCSvMpXDZUQxZKEgDkh1xcRHzhiQ8SGQdBF7" /></p>
+<p>A Transaction Manager in Web3j is an abstraction that controls how transactions are signed and broadcast to the Ethereum network, via a connected client.  You can pass an implementation to a <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b/generate-a-java-wrapper-from-your-smart-contract">smart contract wrapper</a> when deploying or loading a contract, or you can use it to directly send transactions in a more manual way.</p>
+<p>There are multiple different Transaction Manager implementations included, all extending the <code>TransactionManager</code> abstract class.  Each extending class must implement the abstract <code>sendTransaction(..)</code> method:</p>
+<pre><code class="language-java">public abstract EthSendTransaction sendTransaction(
+            BigInteger gasPrice, BigInteger gasLimit, String to,
+            String data, BigInteger value)
+            throws IOException;
+</code></pre>
+<p>In this article we describe and compare the Transaction Managers provided by Web3j.</p>
+<h3 id="clienttransactionmanager">ClientTransactionManager<a class="headerlink" href="#clienttransactionmanager" title="Permanent link"></a></h3>
+<h4 id="signing">Signing<a class="headerlink" href="#signing" title="Permanent link"></a></h4>
+<p>The client transaction manager does not perform any transaction signing, and instead, delegates to the connected Ethereum client to sign, using one of its managed accounts.  Because of this, the client must unlock the sender account which means that the client has access to the private key of the account.</p>
+<h4 id="sending">Sending<a class="headerlink" href="#sending" title="Permanent link"></a></h4>
+<p>The non-signed transaction data is passed to the Ethereum client via the <code>eth_sendTransaction</code> JSON RPC endpoint of the connected client.  For more information on this endpoint, read the <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendtransaction">geth JSON RPC documentation</a>.</p>
+<h4 id="nonce-management">Nonce Management<a class="headerlink" href="#nonce-management" title="Permanent link"></a></h4>
+<p>Like signing, calculating the transaction nonce is delegated to the connected node.</p>
+<h4 id="use-cases">Use Cases<a class="headerlink" href="#use-cases" title="Permanent link"></a></h4>
+<p>For most production use cases it is not recommended to use the <code>ClientTransactionManager</code>.  This is because the sender account needs to be unlocked, which adds a significant attack vector into your architecture.  If the client is not configured correctly,  or the server security is generally lacking, then an attacker could potentially steal the funds from the unlocked account.</p>
+<p>To reduce risk, you should only use the <code>ClientTransactionManager</code> for testing purposes, or for unlocked accounts with a small Ether balance.</p>
+<p><a href="https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/ClientTransactionManager.java">Source Code</a></p>
+<h3 id="rawtransactionmanager">RawTransactionManager<a class="headerlink" href="#rawtransactionmanager" title="Permanent link"></a></h3>
+<h4 id="signing_1">Signing<a class="headerlink" href="#signing_1" title="Permanent link"></a></h4>
+<p>The <code>RawTransactionManager</code> takes a <code>Credentials</code> file as a constructor argument, and uses the private key of these credentials to sign the transaction on the Java side, before forwarding to the connected Ethereum client.  This means that account management is not handled on the client side at all, and the account does not need to be unlocked.</p>
+<h4 id="sending_1">Sending<a class="headerlink" href="#sending_1" title="Permanent link"></a></h4>
+<p>The encoded and signed raw transaction is broadcast to the Ethereum network via the <code>eth_sendRawTransaction</code> <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendrawtransaction">JSON RPC endpoint.</a></p>
+<h4 id="nonce-management_1">Nonce Management<a class="headerlink" href="#nonce-management_1" title="Permanent link"></a></h4>
+<p>Before generating and signing the raw transaction, retrieve the nonce for the sender account by calling <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactioncount">eth_getTransactionCount</a> on the Ethereum client.  As you can probably see, this retrieves the total number of transactions sent from the account, including pending transactions that have not yet been included in a block.  As the nonce is zero indexed, this count <strong>should</strong>  equal the nonce for the next transaction to be sent.</p>
+<h4 id="use-cases_1">Use Cases<a class="headerlink" href="#use-cases_1" title="Permanent link"></a></h4>
+<p>As the <code>RawTransactionManager</code> is signing server-side before forwarding to the client, it is not a requirement for an Ethereum client account to be unlocked.  This means that you can use third party nodes, such as <a href="https://infura.io/">Infura</a>, rather than hosting your own.  However, because of the way the nonce is calculated, this transaction manager is not suitable for applications with high transaction throughput from a single account.  More on this below.</p>
+<p><a href="https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/RawTransactionManager.java">Source Code</a></p>
+<h3 id="fastrawtransactionmanager">FastRawTransactionManager<a class="headerlink" href="#fastrawtransactionmanager" title="Permanent link"></a></h3>
+<h4 id="signing_2">Signing<a class="headerlink" href="#signing_2" title="Permanent link"></a></h4>
+<p>As you've probably gathered from the name, the <code>FastRawTransactionManager</code> extends <code>RawTransactionManager</code> and builds and signs transaction exactly the same way, with the nonce value being the only exception.</p>
+<h4 id="sending_2">Sending<a class="headerlink" href="#sending_2" title="Permanent link"></a></h4>
+<p>Call <code>eth_sendRawTransaction</code>, just like in the <code>RawTransactionManager</code>.</p>
+<h4 id="nonce-management_2">Nonce Management<a class="headerlink" href="#nonce-management_2" title="Permanent link"></a></h4>
+<p>Nonce management is where the <code>FastRawTransactionManager</code> differs from the vanilla <code>RawTransactionManager</code>.  Rather than calling <code>eth_getTransactionCount</code> every time a transaction is sent, the manager maintains an in memory transaction count and increments it every time the manager sends a transaction.  The count management is synchronized and is therefore thread-safe.</p>
+<h4 id="use-cases_2">Use Cases<a class="headerlink" href="#use-cases_2" title="Permanent link"></a></h4>
+<p>As the name implies, this <code>TransactionManager</code> is useful in applications that intend to send transactions quickly from a single account, potentially on multiple threads.  With a standard <code>RawTransactionManager</code>, in high throughput situations there is a chance of a race condition where <code>RawTransactionManager</code> sends multiple transactions with the same nonce value, causing all but one of the transactions to fail.  This is not the case with the <code>FastRawTransactionManager</code> because of the thread-safe in memory transaction count.</p>
+<p><a href="https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/FastRawTransactionManager.java">Source Code</a></p>
+<h3 id="readonlytransactionmanager">ReadonlyTransactionManager<a class="headerlink" href="#readonlytransactionmanager" title="Permanent link"></a></h3>
+<p>This is a stub <code>TransactionManager</code>, which throws an <code>UnsupportedOperationException</code> if <code>sentTransaction</code> is called.</p>
+<h4 id="use-cases_3">Use Cases<a class="headerlink" href="#use-cases_3" title="Permanent link"></a></h4>
+<p>You can use this in situations where you would like to use an abstraction that takes a <code>TransactionManager</code> as an argument, such as calling the <code>load(..)</code> method of a contract wrapper, but the smart contract only makes call (read-only) operations, so you do not have to worry about credentials / private keys.</p>
+<p><a href="https://github.com/web3j/web3j/blob/master/core/src/main/java/org/web3j/tx/ReadonlyTransactionManager.java">Source Code</a></p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>There are a number of <code>TransactionManager</code> implementations bundled with Web3j, each with different characteristics.  The right choice for you depends on the manner of transactions (or lack of) that you will send from the application that you are building.  And if there isn't an implementation that fits your use case, you can always extend the existing ones with your desired functionality!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Web3j Transaction Managers</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/web3j-transaction-managers/4cb780bb4d0846438d11885a25b6d7e7/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-09</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, web3j, transaction</li>
+<li><strong>Kauri original hash:</strong> QmSzg1kCYrTe1kSXGxHiq863R1Kn17KDhGDZndQKPU5bSx</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../manage-erc20-tokens-in-java-with-web3j/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../manage-erc20-tokens-in-java-with-web3j/" class="btn btn-xs btn-link">
+        Manage ERC20 tokens in Java with Web3j
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-test-ethereum-smart-contracts-from-java/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-test-ethereum-smart-contracts-from-java/" class="btn btn-xs btn-link">
+        How to test Ethereum smart contracts from Java
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Java Ethereum/web3j-transaction-managers.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

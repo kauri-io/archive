@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-address-things-on-blockchains/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to address things on blockchains - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to address things on blockchains", url: "#_top", children: [
+              {title: "Today\u2019s solution", url: "#todays-solution" },
+              {title: "The challenge", url: "#the-challenge" },
+              {title: "Fork-resistant addresses", url: "#fork-resistant-addresses" },
+              {title: "Using the address", url: "#using-the-address" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-address-things-on-blockchains">How to address things on blockchains<a class="headerlink" href="#how-to-address-things-on-blockchains" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd" /></p>
+<p>Generally, 
+<em>addressing</em>
+ something means to unambiguously identify it. The address should also contain some information that helps to find the addressed thing. An email inbox is identified by an email address, the server is noted after the @-sign, a paper letter is addressed with name of recipient, street, number, ZIP-Code, city and country.
+In this example, the goal is to ensure that a message sent to an address can in principle reach its target and won’t accidentally go anywhere else. Additionally, when talking about a thing, addressing it unambiguously makes sure everyone is talking about the same. Addressing becomes identifying.
+<strong>In case of the ACTUS protocol, a protocol for finance on blockchain, unambiguous addressing is important to reference an asset across chains, in legal documents and compliance procedures.</strong></p>
+<p>At the first glance it’s an easy one, at least for Ethereum: just provide the address of a contract or an externally owned wallet and you’re good.
+<strong>But, unfortunately, it’s not that easy if we assume a multi-chain, multi-fork future.</strong></p>
+<p>Here are some of the challenges:</p>
+<ul>
+<li>
+<p>How to address a blockchain, e.g. Ethereum vs. Bitcoin?</p>
+</li>
+<li>
+<p>How to address a <a href="https://vitalik.ca/general/2017/03/14/forks_and_markets.html">fork</a> , e.g. ETH vs. ETC, BTC vs. BCH?</p>
+</li>
+<li>
+<p>How to address in case of network splits, e.g. Russia <a href="https://wapo.st/2SL1Ubc?tid=ss_tw&amp;utm_term=.022ca0c92047">separates its internet</a> from the rest of the world?</p>
+</li>
+<li>
+<p>Finality related challenges, e.g. reorgs, 50% attacks, etc.</p>
+</li>
+<li>
+<p>Sub contract addressing, e.g. a contract that implements a registry of assets.</p>
+</li>
+<li>
+<p>How to deal with upcoming concepts like storage rent?
+Let’s go on a quick journey that will lead us to a working approach.</p>
+</li>
+</ul>
+<h3 id="todays-solution">Today’s solution<a class="headerlink" href="#todays-solution" title="Permanent link"></a></h3>
+<p>Let’s take an interesting ERC-20 compatible token, the DAI stable coin, as an example and build and address schema for it.</p>
+<ul>
+<li>
+<p>Blockchain: DAI lives on Ethereum <em>mainnet</em>.</p>
+</li>
+<li>
+<p>Address: The token is implemented by a contract at address <em>0x89d2...0359</em>
+Using the 
+<a href="https://eips.ethereum.org/EIPS/eip-681">URL Format for transaction requests</a>
+ as a starting point, we could construct a naive address scheme for a universal crypto asset identifier:</p>
+</li>
+</ul>
+<p><em>protocol:some-on-chain-identifier</em></p>
+<p>This becomes variant #1:</p>
+<p><em>ethereum:0x89d2...0359</em></p>
+<p>(the dots are there for readability and represent the missing hex characters, 
+<a href="http://ens.domains">ENS</a>
+ could also be used)</p>
+<p>This is basically what is done today. You select the name of the blockchain in a tool like MetaMask and then send Ether to an account with a certain address.</p>
+<p><strong>It works today, because ambiguity is still limited. In a multi-chain, multi-fork ecosystem, this won’t be the case.</strong></p>
+<h3 id="the-challenge">The challenge<a class="headerlink" href="#the-challenge" title="Permanent link"></a></h3>
+<p>Darn! Ethereum and Bitcoin have already forked several times! Even though only one alternative Ethereum history has been long term sustainable (Ethereum Classic), there may and likely will be others in future. If I say: pay 5 ETH to my address 0x… on "Ethereum" — can you be sure to what fork it should go?
+Ethereum has concepts to separate different Ethereum based chains: 
+<a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md">chain IDs</a>
+ and 
+<a href="https://github.com/ethereum/wiki/wiki/Ethereum-Wire-Protocol">network IDs</a>
+ . Chain IDs are mainly a measure against 
+<a href="https://en.wikipedia.org/wiki/Replay_attack">replay-attacks</a>
+ . They are part of transaction signing and will make sure that a transaction is only valid on a network with the specified chain ID. Ethereum’s mainnet chain ID is 
+<em>1</em>, ETC’s chain ID is <em>61</em>. The network ID is <em>1</em> on both networks, though.
+This gives us a new way to address the DAI token contract for variant #2:</p>
+<p><em>ethereum:0x89d2...0359?network-id=1&amp;chain-id=1</em></p>
+<p>This is a bit better — but there are some new problems which lead us to discard this solution:</p>
+<ul>
+<li>
+<p>Chain ID and network ID are Ethereum specific concepts and won’t work for other blockchain stacks</p>
+</li>
+<li>
+<p>Anyone can start another public blockchain or testnet with the same IDs</p>
+</li>
+<li>
+<p>A contentious fork cannot be forced to change/not change these IDs.</p>
+</li>
+</ul>
+<h4 id="hash-based-addressing">Hash based addressing<a class="headerlink" href="#hash-based-addressing" title="Permanent link"></a></h4>
+<p>So we need a more universal solution.
+Ethereum mainnet is a blockchain that started on July 30th, 2015 with the block number <em>0</em> and block hash <em>0xd4e5...8fa3</em> .
+The 
+<a href="https://ethon.consensys.net/prop-blockhash.html">block hash</a>
+ in Ethereum is the 
+<a href="https://crypto.stackexchange.com/questions/15727/what-are-the-key-differences-between-the-draft-sha-3-standard-and-the-keccak-sub">Keccac 256</a>
+ hash of the block’s header data. It’s (near) impossible to create a different piece of data that will result in the same hash.
+Thus, we can identify a blockchain with the security level of that blockchain by referring to a hash of a data item in the chain, e.g a block hash, or a transaction hash.</p>
+<p><em>protocol:some-on-chain-identifier?with-block-hash=0x...</em></p>
+<p><em>ethereum:0x89d2...0359?with-block-hash=0x91b3...1aa8</em></p>
+<p>Variant #3 states:</p>
+<blockquote>
+<p>I’m addressing an Ethereum blockchain that contains a block with the hash 0x91b3...1aa8. On that blockchain I specifically refer to the contract with the address 0x89d2...0359.</p>
+</blockquote>
+<h4 id="the-annoying-phenomenon-of-forks">The annoying phenomenon of forks<a class="headerlink" href="#the-annoying-phenomenon-of-forks" title="Permanent link"></a></h4>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmemJWEq8wVcrj4nczn19tXzjh1NmMaE81WmmPxtpLUuLa" /></p>
+<p>In the above illustration of a fork it’s visible that 
+<em>contract A</em>
+ is part of the history of both, the yellow and the purple chain while 
+<em>contract B</em>
+ is only part of the purple chain. If you address 
+<em>contract A</em>
+ as shown in Variant A, the asset it represents, e.g. a token, will exist on both chains. Its balances and execution rules may be different, though.
+To make this unambiguous, one could address the following way:</p>
+<p><em>protocol:some-on-chain-identifier?recent-blockhash=0x...</em></p>
+<p><em>ethereum:0x89d2...0359?recent-blockchash=0x455b...7578</em></p>
+<p>This variant #4 ensures that only a blockchain is addressed that contains a hash which exists at a recent state of 
+<a href="https://medium.com/at-par">https://medium.com/at-par</a>
+ the chain. The 
+<em>recent-block-hash</em>
+ parameter must be as up to date as possible (but as final as necessary) to minimize the ambiguity risk.</p>
+<h4 id="resolving-addresses">Resolving addresses<a class="headerlink" href="#resolving-addresses" title="Permanent link"></a></h4>
+<p>The above schemes 3 &amp; 4 lead to addresses consisting of multiple hashes, each 256 byte long (on Ethereum). Unfortunately, these hashes don’t contain any information to help identify the blockchain fork actually containing them.
+One way to solve this is a resolve service. It can be done by centralized provider like 
+<a href="http://itsa.global">ITSA</a>
+ that provides the necessary information to identify and asset. Or it can be a key-value store on a decentralized service (e.g. IPFS) that takes a hash and resolves it to a blockchain including a proof of its existence there.
+The resolve service becomes more efficient by adding the first block hash of a chain to the address. This reduces the search space to forks of the blockchain with that 
+<a href="https://ethon.consensys.net/class-genesisblock.html">genesis block</a> .</p>
+<h3 id="fork-resistant-addresses">Fork-resistant addresses<a class="headerlink" href="#fork-resistant-addresses" title="Permanent link"></a></h3>
+<p>We have reduced the problem to finding the earliest block hash on a chain, the latest known block hash on that chain which is believed to be final and an identifier, e.g. a transaction hash or a smart contract address. The age of the latest hash is a parameter to the fork risk of the address.</p>
+<p><strong>Addressing the DAO token on Ethereum mainnet</strong></p>
+<p>a) Address of item:        0x89d2...0359
+b) Earliest known hash:    0xd4e5...8fa3
+c) Latest known hash:      0x3743...3348</p>
+<p>Variant 5: ethereum:0x89d2...0359?early-block-hash=0xd4e5...8fa3&amp;recent-block-hash=0x3743...3348</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZaWmWPwkuvpzQ5zasUmWRARm8dss6cJ3SNDqZrhtTfVd" /></p>
+<p>Revisiting the illustration from the beginning of this article we can unambiguously address 
+<em>contract A</em>
+ in the purple fork at block time of block #5 by referencing</p>
+<ul>
+<li>addressOf(contract A)</li>
+<li>hashOf(block 0) </li>
+<li>hashOf(block 5)</li>
+</ul>
+<p>To verify the address there needs to exist a valid hash-chain from 
+<em>hashOf(block 0)</em>
+ to 
+<em>hashOf(block 5)</em>
+ AND 
+_addressOf(contract A)
+_ must exist in that chain’s history.
+However, the purple chain may fork again some time in the future and could make the address ambiguous, again.</p>
+<h3 id="using-the-address">Using the address<a class="headerlink" href="#using-the-address" title="Permanent link"></a></h3>
+<p>Say you have received an address for a blockchain asset and have successfully resolved it to a debt token contract (e.g. an ACTUS Principal at Maturity contract or a Dharma debt token) on mainnet Ethereum, using an IPFS or 
+<a href="https://itsa.global/what-we-do/#ITIN">ITIN</a>
+ based resolver.
+In order to buy a share of that contract you will have to actually interact with the correct network. The tool that you use to make the transaction could do the following to assist you:</p>
+<ul>
+<li>
+<p>The tool will look the address up at a resolve service and present the result to the user</p>
+</li>
+<li>
+<p>Before executing the transaction it will verify that <em>early-block-hash</em> and <em>recent-block-hash</em> exist on the chain</p>
+</li>
+<li>
+<p>In case the newest hash in the address is older than a certain threshold time it will warn the user to check for forks</p>
+</li>
+</ul>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Addressing on blockchains is far from solved. None of the approaches known to me are satisfactory, yet. If we don’t solve this properly, there could be instances of “blockchain fishing” in the future — a new branch of scams that impersonates a whole chain.
+To deal with this proactively, we need to raise awareness and cooperate on solutions. We look forward to and are actively supporting standardization efforts such as ITSA and 
+<a href="https://multiformats.io/multiaddr/">multiaddr</a> .</p>
+<p>In this article we looked at addressing blockchains and accounting for forks. Intentional or unintentional network splits, finality related challenges, sub contract addressing and connecting to the nodes network are further challenges that will be investigated in another post. </p>
+<p><strong><a href="https://medium.com/at-par">Subscribe to the at par blog</a> to be notified.</strong></p>
+<h4 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permanent link"></a></h4>
+<p>The author is affiliated with 
+<em>ConsenSys AG</em>
+ and 
+<em>atpar AG</em>
+ . All opinions are his own an not opinions of the companies. No investment advice.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to address things on blockchains</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-address-things-on-blockchains/157c963a15e94c1a88c68da57afea09c/a</li>
+<li><strong>Kauri original author:</strong> Johannes Pfeffer (@oaeee)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-25</li>
+<li><strong>Kauri original tags:</strong> addressing, ethereum, blockchain, fintech</li>
+<li><strong>Kauri original hash:</strong> QmdoHqTdCp76MdbsVc1fCg7zibTSFpoX4RRUrQrXswNgEV</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../daihard-groundhog-team/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../daihard-groundhog-team/" class="btn btn-xs btn-link">
+        DaiHard - Groundhog Team
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cual-es-la-diferencia-entre-un-token-y-una-moneda/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cual-es-la-diferencia-entre-un-token-y-una-moneda/" class="btn btn-xs btn-link">
+        ¿Cual es la diferencia entre un token y una moneda? ¿Tipos de tokens?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-address-things-on-blockchains.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

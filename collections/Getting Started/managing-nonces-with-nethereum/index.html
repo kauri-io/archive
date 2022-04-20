@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/managing-nonces-with-nethereum/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Managing nonces with Nethereum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Managing nonces with Nethereum", url: "#_top", children: [
+              {title: "What are nonces?", url: "#what-are-nonces" },
+              {title: "Common errors when working with nonces", url: "#common-errors-when-working-with-nonces" },
+              {title: "How Nethereum helps managing nonces", url: "#how-nethereum-helps-managing-nonces" },
+              {title: "Prerequisites:", url: "#prerequisites" },
+              {title: "Usage", url: "#usage" },
+              {title: "Sending a transaction with an arbitrary nonce", url: "#sending-a-transaction-with-an-arbitrary-nonce" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="managing-nonces-with-nethereum">Managing nonces with Nethereum<a class="headerlink" href="#managing-nonces-with-nethereum" title="Permanent link"></a></h1>
+<p>The purpose of this article is to help .NET developers leverage  <a href="https://nethereum.com/">Nethereum</a>, An open source .NET integration library for blockchain.</p>
+<p>This document also exists as a <a href="https://github.com/Nethereum/Nethereum.Workbooks/blob/master/docs/nethereum-managing-nonces.workbook">Workbook</a>, find more about workbooks installation requirements  <a href="https://docs.microsoft.com/en-us/xamarin/tools/workbooks/install">here</a>.</p>
+<h3 id="what-are-nonces">What are nonces?<a class="headerlink" href="#what-are-nonces" title="Permanent link"></a></h3>
+<p>The nonce is an important component of a transaction, it is an attribute of a an address that represents the number of transactions sent by that address. Nonces act as counters that keeps track of the number of transactions sent  by an account.</p>
+<p>Nonces have two functions:
+1- Allowing to choose the order in which transactions will be executed.
+2- Avoiding replay attacks.</p>
+<p>In case 1, nonces enable to choose the order in which transactions will be executed by simply assigning nonces reflecting the order in which we want them processed (<code>0</code>for the first <code>1</code> for the second, etc...).
+In case 2, nonces prevent an attacker from copying one of our transactions and resending it until the account is drained (replay attack). Nonces make each transaction unique: there can only be one single transaction with a specific nonce, once it's confirmed it cannot be "replayed".</p>
+<p>For more details on transactions and nonces, we recommend <a href="https://github.com/ethereumbook/ethereumbook/blob/develop/06transactions.asciidoc#the-transaction-nonce">this article</a> (and more generally, the <a href="https://github.com/ethereumbook/ethereumbook">Ethereum Book</a>)</p>
+<h3 id="common-errors-when-working-with-nonces">Common errors when working with nonces<a class="headerlink" href="#common-errors-when-working-with-nonces" title="Permanent link"></a></h3>
+<p>Each node will process transactions from a specific account in a strict order according to the value of its nonce, hence the nonce value needs to be incremented precisely.</p>
+<p>Keeping track of nonces is straightforward if all transactions originate from a single source/wallet handling the account, but things can get complicated if the account is managed by concurrent processes.
+When several wallets handle transactions for the same account, duplicates and gaps can happen, resulting in transactions being cancelled or held off.</p>
+<p>Errors can also occur when Geth or Parity clients update their pending transactions queue too slowly.</p>
+<p>Two main errors can occur with nonces:</p>
+<p>Error 1/ Reusing nonce: if we send two transactions with the same nonce from the same account, one of the two will be rejected.</p>
+<p>Error 2/ Gaps: if we leave a gap between the nonces that are attributed to two consecutive transactions, the last transaction will not be processed until this gap is closed.</p>
+<p>Let's take an example with a first transaction that would have nonce <code>123</code> and a second transaction with nonce <code>126</code>. In that example, the transaction with nonce <code>126</code> wouldn't be processed until transactions with nonces <code>124</code> and <code>125</code> are sent.</p>
+<h3 id="how-nethereum-helps-managing-nonces">How Nethereum helps managing nonces<a class="headerlink" href="#how-nethereum-helps-managing-nonces" title="Permanent link"></a></h3>
+<p>Nethereum simplifies nonce management thanks to the <code>NonceService</code>.
+The <code>NonceService</code> keeps track of pending transactions thus preventing the errors mentionned above the below demonstrates how to leverage it.</p>
+<h3 id="prerequisites">Prerequisites:<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>In order to run the code in this workbook, we recommended the following setup:
+First, download the test chain matching your environment from <a href="https://github.com/nethereum/testchains">https://github.com/nethereum/testchains</a></p>
+<p>Start a geth chain (geth-clique-linux\, geth-clique-windows\ or geth-clique-mac\) using <strong>startgeth.bat</strong> (windows) or <strong>startgeth.sh</strong> (mac/linux). the chain is setup with the proof of authority consensus and will start the mining process immediately.</p>
+<pre><code class="language-csharp">##r &quot;nethereum.web3&quot;
+</code></pre>
+<pre><code class="language-csharp">##r &quot;nethereum.Accounts&quot;
+</code></pre>
+<p>Then we will need to add <code>using</code> statements:</p>
+<pre><code class="language-csharp">using Nethereum.Web3;
+using Nethereum.Web3.Accounts;
+using Nethereum.Web3.Accounts.Managed;
+using Nethereum.Signer;
+using Nethereum.Hex.HexConvertors.Extensions;
+using Nethereum.KeyStore;
+using Nethereum.Hex.HexConvertors;
+using Nethereum.Hex.HexTypes;
+using Nethereum.RPC.NonceServices;
+using Nethereum.RPC.TransactionReceipts;
+using System.Threading.Tasks;
+using Nethereum.RPC.Eth.Transactions;
+using Nethereum.RPC.Eth.DTOs;
+</code></pre>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<p>In most cases, Nethereum takes care of incrementing the <code>nonce</code> automatically (unless you need to sign a raw transaction manually, we'll explain that in the next chapter).</p>
+<p>Once you have loaded your private keys into your account, if Web3 is instantiated with that account, all the transactions will be made using the <code>TransactionManager</code>, Contract deployment or Functions will be signed offline using the latest nonce.</p>
+<p>Example:
+This example shows what happens to the <code>nonce</code> value when we send a transaction with a Nethereum account:</p>
+<p>We first need to create an instance of an account, then use it to instantiate a <code>web3</code> object.</p>
+<p>Let's first declare our new <code>Account</code>:</p>
+<pre><code class="language-csharp">var privateKey = &quot;0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7&quot;;
+var account = new Nethereum.Web3.Accounts.Account(privateKey);
+</code></pre>
+<ul>
+<li><code>web3</code> is the Web3 instance using the new <code>account</code> as constructor</li>
+</ul>
+<pre><code class="language-csharp">var web3 = new Web3(account);
+</code></pre>
+<p>We can now create an instance of the NonceService that will help us keep track of transaction.\
+Please note: when using the TransactionManager the NonceService is started automatically. The below is mostly for the sake of demontration.</p>
+<pre><code class="language-csharp">account.NonceService = new InMemoryNonceService(account.Address, web3.Client);
+</code></pre>
+<p>Let's now examine what happens to the <code>nonce</code> value before and after we send a transaction:</p>
+<h4 id="before-a-transaction-is-sent">Before a transaction is sent:<a class="headerlink" href="#before-a-transaction-is-sent" title="Permanent link"></a></h4>
+<p>The <code>NonceService</code> keeps track of all transactions, including the ones still pending, making it easy to assign the right nonce to a transaction about to be sent.</p>
+<p>Here is how to return the current number of transaction for the <code>account</code> we declared earlier:</p>
+<pre><code class="language-csharp">var currentNonce = await web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(account.Address, BlockParameter.CreatePending());
+</code></pre>
+<p><code>actualNonce</code> includes the total number of transactions including the pending transactions which have been submitted but are yet to be confirmed.</p>
+<p>It is also possible to return the next nonce that needs to be assigned to a future transaction, this nonce will be determined by the `NonceService` using the current nonce plus the pending transactions sent by our account:</p>
+<pre><code class="language-csharp">var futureNonce = await account.NonceService.GetNextNonceAsync();
+</code></pre>
+<p>Now, let's send a simple transaction, the right nonce will be automatically assigned to it by the <code>TransactionManager</code>:</p>
+<pre><code class="language-csharp">var recipientAddress = &quot;0xde0b295669a9fd93d5f28d9ec85e40f4cb697bae&quot;;
+var transaction = await web3.TransactionManager.SendTransactionAsync(account.Address, recipientAddress, new HexBigInteger(1));
+</code></pre>
+<h5 id="after-a-transaction-has-been-sent">After a transaction has been sent<a class="headerlink" href="#after-a-transaction-has-been-sent" title="Permanent link"></a></h5>
+<p>Finally, using the NonceService, we can check if our transaction count has changed:</p>
+<pre><code class="language-csharp">currentNonce = await web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(account.Address, BlockParameter.CreatePending());
+</code></pre>
+<p>As the above code demonstrates, the <code>nonce</code> was automatically incremented, thanks to the use of <code>TransactionManager</code>.</p>
+<h3 id="sending-a-transaction-with-an-arbitrary-nonce">Sending a transaction with an arbitrary nonce<a class="headerlink" href="#sending-a-transaction-with-an-arbitrary-nonce" title="Permanent link"></a></h3>
+<p>There are scenarios where we might want to supply a Nonce manually, for example if we want to sign a transaction completely offline. Here is how to verify the number of transactions sent by an account:</p>
+<p>Let's first create an object instance of <code>TransactionSigner</code></p>
+<pre><code class="language-csharp">var OfflineTransactionSigner = new TransactionSigner();
+</code></pre>
+<p>We can now declare a variable representing the next nonce for our upcoming transaction:</p>
+<pre><code class="language-csharp">futureNonce = await account.NonceService.GetNextNonceAsync();
+</code></pre>
+<p>Finally, let’s sign our transaction offline:</p>
+<pre><code class="language-csharp">var encoded = OfflineTransactionSigner.SignTransaction(privateKey, recipientAddress, 10,futureNonce);
+</code></pre>
+<p>And finally, send our transaction:</p>
+<pre><code class="language-csharp">var txId = await web3.Eth.Transactions.SendRawTransaction.SendRequestAsync(&quot;0x&quot; + encoded);
+</code></pre>
+<p>For more support get in touch with our community:  https://gitter.im/Nethereum/Nethereum</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Managing nonces with Nethereum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/managing-nonces-with-nethereum/d7e05d0b1d2e4161a0118df91cb67b89/a</li>
+<li><strong>Kauri original author:</strong> Gaël Blanchemain  (@anegg0)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-06</li>
+<li><strong>Kauri original tags:</strong> ethereum, nethereum, nonce, transaction</li>
+<li><strong>Kauri original hash:</strong> QmWd7tbNZGVBYVTvTySUryEZmap3XysWaMuKvViXvzb5Ku</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../connecting-to-an-ethereum-client-with-java-eclips/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../connecting-to-an-ethereum-client-with-java-eclips/" class="btn btn-xs btn-link">
+        Connecting to an Ethereum client with Java, Eclipse and Web3j
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../signing-messages-with-nethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../signing-messages-with-nethereum/" class="btn btn-xs btn-link">
+        Signing messages with Nethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/managing-nonces-with-nethereum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

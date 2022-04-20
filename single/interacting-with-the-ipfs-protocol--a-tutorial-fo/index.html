@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/interacting-with-the-ipfs-protocol--a-tutorial-fo/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Interacting with the IPFS protocol  a tutorial for beginner - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Interacting with the IPFS protocol  a tutorial for beginner", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="interacting-with-the-ipfs-protocol-a-tutorial-for-beginner">Interacting with the IPFS protocol  a tutorial for beginner<a class="headerlink" href="#interacting-with-the-ipfs-protocol-a-tutorial-for-beginner" title="Permanent link"></a></h1>
+<p>For Linux and Mac: <a href="https://github.com/ipfs/go-ipfs#build-from-source" target="blank7">go-ipfs github</a> and build from source<br><br>
+        For Windows user:  <a href="https://dist.ipfs.io/#go-ipfs" title="Download Prebuild package" target="blank9">Download Prebuild package</a>  and extract the go-ipfs folder.<br>
+         <br>
+Download the open source programming language software Go from <a href="https://golang.org/dl/" title="Golang.org" target="blank8">Golang.org</a><br><br>
+In your IPFS foder, move the files ipfs.exe into the bin folder of your Go folder<br><br>
+Open your terminal and type the command: </p>
+<pre><code>ipfs help
+</code></pre>
+<p>And then type: </p>
+<pre><code>ipfs init
+</code></pre>
+<p>The command line will then give you your peer identity in the form of a hash</p>
+<pre><code>ipfs init
+ initializing ipfs node at /Users/xxxx/.go-ipfs
+ generating 2048-bit RSA keypair...done
+  peer identity: Qmcpo2iLBikrdf1d6QU6vXuNb6P7hwrbNPW9kLAH8eG67z
+  to get started, enter:
+
+        ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+</code></pre>
+<p>Save your peer identity (the Hash) in a text file.<br>
+Now, try running: </p>
+<pre><code>ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+</code></pre>
+<p>You should see something like this:</p>
+<pre><code>Hello and Welcome to IPFS!
+
+██╗██████╗ ███████╗███████╗
+██║██╔══██╗██╔════╝██╔════╝
+██║██████╔╝█████╗  ███████╗
+██║██╔═══╝ ██╔══╝  ╚════██║
+██║██║     ██║     ███████║
+╚═╝╚═╝     ╚═╝     ╚══════╝
+
+If you're seeing this, you have successfully installed
+IPFS and are now interfacing with the ipfs merkledag!
+
+ -------------------------------------------------------
+| Warning:                                              |
+|   This is alpha software. use at your own discretion! |
+|   Much is missing or lacking polish. There are bugs.  |
+|   Not yet secure. Read the security notes for more.   |
+ -------------------------------------------------------
+
+Check out some of the other files in this directory:
+
+  ./about
+  ./help
+  ./quick-start     &lt;-- usage examples
+  ./readme          &lt;-- this file
+  ./security-notes
+</code></pre>
+<p>Open another terminal and type the command: </p>
+<pre><code>ipfs daemon
+</code></pre>
+<p>You will then get</p>
+<pre><code>ipfs daemon API
+Initializing daemon...
+API server listening on /ip4/127.0.0.1/tcp/4001
+Gateway server listening on /ip4/127.0.0.1/tcp/8080
+</code></pre>
+<p>Boomshakalaka your are now using an ipfs node and you can start interacted with the protocol!<br><br><br><br><br><br><br><br><br><br><br></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Interacting with the IPFS protocol  a tutorial for beginner </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/interacting-with-the-ipfs-protocol-a-tutorial-for/9376ff63f19648f0b826ec23e9023b09/a</li>
+<li><strong>Kauri original author:</strong> Michael A (@silver84)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-14</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmT4Q3p2gHxersZ3maa2yWPzgh6KwPNjssquEMQVnvRuJE</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-name-service-on-private-chains/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-name-service-on-private-chains/" class="btn btn-xs btn-link">
+        Ethereum Name Service on Private Chains
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-create-a-bitcoin-wallet-address-from-a-pri/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-create-a-bitcoin-wallet-address-from-a-pri/" class="btn btn-xs btn-link">
+        How to create a Bitcoin wallet address from a private key
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/interacting-with-the-ipfs-protocol--a-tutorial-fo.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

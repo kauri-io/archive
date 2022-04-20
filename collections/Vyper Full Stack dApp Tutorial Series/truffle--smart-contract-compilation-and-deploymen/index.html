@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/truffle--smart-contract-compilation-and-deploymen/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Truffle  Smart Contract Compilation & Deployment - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Truffle  Smart Contract Compilation &amp; Deployment", url: "#_top", children: [
+              {title: "Truffle: Smart Contract Compilation &amp; Deployment", url: "#truffle-smart-contract-compilation-deployment_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="truffle-smart-contract-compilation-deployment">Truffle  Smart Contract Compilation &amp; Deployment<a class="headerlink" href="#truffle-smart-contract-compilation-deployment" title="Permanent link"></a></h1>
+<h2 id="truffle-smart-contract-compilation-deployment_1">Truffle: Smart Contract Compilation &amp; Deployment<a class="headerlink" href="#truffle-smart-contract-compilation-deployment_1" title="Permanent link"></a></h2>
+<p>This article covers the steps required to setup Truffle and use it to compile, deploy and interact with our <em>Bounties.vy</em> smart contract. You should see that this is a much easier process than the manual steps we learned in the previous article.
+__
+<a href="https://github.com/iamonuwa/bounties">You can find the source code used in this tutorial here</a></p>
+<h3 id="what-is-truffle">What is Truffle?<a class="headerlink" href="#what-is-truffle" title="Permanent link"></a></h3>
+<p>To recap, <a href="https://truffleframework.com">Truffle</a> is a Node based development framework which is currently the most used and actively maintained smart contract deployment tool.</p>
+<h4 id="installing-truffle">Installing Truffle<a class="headerlink" href="#installing-truffle" title="Permanent link"></a></h4>
+<p>You need to have NodeJS 11.0+ installed, and then run:</p>
+<pre><code class="language-shell">npm install -g truffle
+</code></pre>
+<p>Read more on <a href="https://truffleframework.com/docs/truffle/getting-started/installation">installing truffle</a>.</p>
+<h3 id="vyper-compiler">Vyper Compiler<a class="headerlink" href="#vyper-compiler" title="Permanent link"></a></h3>
+<p>With Vyper smart contracts, truffle uses the vyper compiler. Earlier in the series we learnt how to install the vyper compiler and compile our smart contract manually. Truffle already comes prepackaged with a version of the vyper compiler:</p>
+<pre><code class="language-shell">$ truffle version
+Truffle v5.0.0-beta.2 (core: 5.0.0-beta.2)
+Solidity v0.5.0 (vyper-js)
+Node v11.4.0
+</code></pre>
+<p>Above we see truffle version v5.0.0-beta.2 comes packaged with vyper compiler v0.5.0.</p>
+<h3 id="creating-a-truffle-project">Creating a Truffle Project<a class="headerlink" href="#creating-a-truffle-project" title="Permanent link"></a></h3>
+<p>To use most Truffle commands, you need to run them against an existing Truffle project. First create a Truffle project:</p>
+<pre><code class="language-shell">$ mkdir truffle-vyper
+$ cd truffle-vyper
+$ truffle init
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:        truffle compile
+  Migrate:        truffle migrate
+  Test contracts: truffle test
+</code></pre>
+<p>The <code>truffle init</code> command sets up a truffle project with the standard project directory structure:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZkbLeZiw7CNh9VFg2cLXhRuM1MYrg5whCnGmXHr5ZHVV" /></p>
+<ul>
+<li><strong>contracts/</strong>: store original codes of the smart contract. We will place our Bounties.vy file here.</li>
+<li><strong>migrations/</strong>: instructions for deploying the smart contract(s) in the <strong>contracts</strong> folder.</li>
+<li><strong>test/</strong>: tests for your smart contract(s), truffle supports tests written in Javascript, we cover writing tests in the next article.</li>
+<li><strong>truffle.js</strong>: configuration file.</li>
+<li><strong>truffle-config.js</strong>: configuration document for windows users.</li>
+</ul>
+<p><strong>Note For Windows Users</strong>: The <strong>truffle.js</strong> configuration file is not created. Whenever the tutorial updates <strong>truffle.js</strong>, apply the changes to the <strong>truffle-config.js</strong> file instead.</p>
+<p>Create a <strong>Bounties.vy</strong> file in the <strong>contracts</strong> folder and copy the contents of <a href="https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy">Bounties.vy</a> which we previously developed.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW2Rv8J5EP5eEDbxtp5LKCyskM8CXmMZ3WRYNBRoikpqB" /></p>
+<h3 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link"></a></h3>
+<p>We’re now ready to compile our smart contract.</p>
+<pre><code class="language-shell">$ truffle compile
+Compiling ./contracts/Migrations.sol...
+Writing artifacts to ./build/contracts
+
+Compiling ./contracts/Bounties.vy...
+Writing artifacts to ./build/contracts
+</code></pre>
+<p>That's it! The 2 smart contracts in the <strong>contracts</strong> folder were both compiled and the artifacts written to <strong>./build/contracts</strong>.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTApNdhmZ7wxd2HwvZN9ynHcjFuqXhUkuTBF8y5NmwqNL" /></p>
+<p>The <strong>Bounties.json</strong> file stores the ABI and also the bytecode for deployment and linking, however, this truffle artifact contains additional features that make interacting with and deploying smart contracts using truffle a smoother experience. You can read more about the <a href="https://github.com/trufflesuite/truffle/tree/develop/packages/truffle-artifactor">truffle-artifactor here</a>.</p>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<h4 id="development-blockchain-ganache-cli">Development Blockchain: Ganache-CLI<a class="headerlink" href="#development-blockchain-ganache-cli" title="Permanent link"></a></h4>
+<p>In order to deploy our smart contracts, we need an Ethereum environment to deploy to. For this, we use <a href="https://github.com/trufflesuite/ganache-cli">Ganache-CLI</a> to run a local development environment.</p>
+<h5 id="installing-ganache-cli">Installing Ganache-CLI<a class="headerlink" href="#installing-ganache-cli" title="Permanent link"></a></h5>
+<p><strong>NOTE</strong>: If you have a windows machine you need to install the windows developer tools first:</p>
+<pre><code class="language-shell">npm install -g windows-build-tools
+</code></pre>
+<p>Then run:</p>
+<pre><code class="language-shell">npm install -g ganache-cli
+</code></pre>
+<p>Start the local development blockchain environment:</p>
+<pre><code class="language-shell">$ ganache-cli
+Ganache CLI v6.3.0 (ganache-core: 2.4.0)
+
+Available Accounts
+==================
+(0) 0x00b627e81d8abb29872729efaa999baef422e62a (~100 ETH)
+(1) 0xa21f7a04f7cdd94a62d31380645e217ea83c5200 (~100 ETH)
+(2) 0xa6052ae97e996d3eff54edf43c6d51165133690e (~100 ETH)
+(3) 0xb94939ab58ea26bcf8f7f30e41274dda608db46c (~100 ETH)
+(4) 0x95103adb218f5bf34af39056b0f95198ea9fb0bf (~100 ETH)
+(5) 0x93e897c52b4cfe3f3919c87555001a56a9a51e41 (~100 ETH)
+(6) 0xbd00518e1ef249124d981aa29b3dc89551e14e6f (~100 ETH)
+(7) 0x81e90cac7a1b99e497540b958f0a1b44c7cbef35 (~100 ETH)
+(8) 0xa98a571368af8e4f4ac75ef068751fdd82d5c7b4 (~100 ETH)
+(9) 0x6fd147510a20004b582ad77c2f559b4aa111e068 (~100 ETH)
+
+Private Keys
+==================
+(0) 0xdb11b72ecca77a37ba0951c6677dcd1ad3eaff1614cc12102e951636990cfc35
+(1) 0x0d4c985351a3ceeaee7276ce2195dd5e2c510f3fc5122a53b28d52d54a7faf83
+(2) 0x1f7c0ad5c96e42297a6819589cad6f8a7224c195370a24da13e2edc45c8841e7
+(3) 0x42752d30c3668602484ebc56f67289674ee01ad1aa8726559b63911e6f6f2083
+(4) 0x5f3366c028eadf8632e0e82f81e173e42f7ef1130043b89a6af2b76843053622
+(5) 0x2022a5354441461903cf1ba953d0e44b499ec9d4746a1da635e81e583cf794d7
+(6) 0x19ccfb7db8e2f53c8f1f767d5951027677a5d5553d9a2e9ff632a759814d52e9
+(7) 0x045c90d4e38e12e9135b3658abe764f06bc990551afa6ada6672ef4dd1a3881a
+(8) 0x0664d4849521b93ef1c545b164994460b465bae938500f8377f81a882e012b08
+(9) 0xf25afab4cae6cd8a59b5555167a79e17b6f262bea62c5cff301b20a556ff2d8f
+
+HD Wallet
+==================
+Mnemonic:      music female happy coconut census mix october supply pact indoor nothing rely
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Listening on localhost:8545
+</code></pre>
+<p>The above output shows ganache-cli has started and is listening on <code>localhost:8545</code>.</p>
+<h4 id="migrations">Migrations<a class="headerlink" href="#migrations" title="Permanent link"></a></h4>
+<p>In order to deploy to our local development environment, we need to configure truffle. If we take a look at the existing file <strong>1_initial_migration.js</strong>, it contains the following:</p>
+<pre><code class="language-javascript">var Migrations = artifacts.require(&quot;./Migrations.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(Migrations);
+};
+</code></pre>
+<p>This is the first step in the migration or deployment process. It tells truffle to first deploy the Migrations contract.</p>
+<p>Migrations contract record the history of previous run migrations/deployments on chain, this enables truffle to incrementally update deployments to a specified environment.</p>
+<p>You can read more about <a href="https://truffleframework.com/docs/truffle/getting-started/running-migrations">truffle migrations here</a>.</p>
+<h4 id="configuring-truffle">Configuring Truffle<a class="headerlink" href="#configuring-truffle" title="Permanent link"></a></h4>
+<p>First, we need to create a file in the <strong>migrations</strong> folder with the name <strong>2_deploy_contracts.js</strong></p>
+<p>The <strong>2</strong> indicates that this is the second step run in the migration process.</p>
+<p>Copy the following extract into the <strong>2_deploy_contracts.js</strong> file:</p>
+<pre><code class="language-javascript">var Bounties = artifacts.require(&quot;Bounties&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(Bounties);
+};
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV88d8DHY1dt9gXi4rDdDHpokts3HixjfW695kisLQJUU" /></p>
+<p>Update the <strong>truffle-config.js</strong> configuration file with the following extract:</p>
+<pre><code class="language-javascript">module.exports = {
+  networks: {
+    development: {
+      network_id: &quot;*&quot;,
+      host: 'localhost',
+      port: 8545
+    }
+  }
+};
+</code></pre>
+<p>This tells truffle that the default development environment to deploy to is located at <code>localhost:8545</code>, this is the address of our ganache-cli local development environment.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQJthzhQYDNWRyahwkvqQc929ZpE9pXe94bvyiC6RUcKy" /></p>
+<p>That's it, Truffle is now configured to deploy to your local ganache-cli development environment.</p>
+<h4 id="deploy">Deploy<a class="headerlink" href="#deploy" title="Permanent link"></a></h4>
+<p>To deploy run the <code>truffle migrate</code> command:</p>
+<pre><code class="language-javascript">$ truffle migrate
+
+Starting migrations...
+======================
+&gt; Network name:    'development'
+&gt; Network id:      1561664364036
+&gt; Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+    Deploying 'Migrations'
+    ----------------------
+    &gt; transaction hash:    0x1b726b8c67c078d8ad873d56f4a0a8255249821e071d6cdb3a999e5a252170fb
+    &gt; Blocks: 0            Seconds: 0
+    &gt; contract address:    0x88C18644EdDf0511Ae2E068DdA89626bBA64dC42
+    &gt; account:             0x00b627E81d8abb29872729efAa999BAef422e62A
+    &gt; balance:             99.97728622
+    &gt; gas used:            284908
+    &gt; gas price:           20 gwei
+    &gt; value sent:          0 ETH
+    &gt; total cost:          0.00569816 ETH
+
+
+    &gt; Saving migration to chain.
+    &gt; Saving artifacts
+    -------------------------------------
+    &gt; Total cost:          0.00569816 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+    Deploying 'Bounties'
+    --------------------
+    &gt; transaction hash:    0xb2b29164f7f1595c7a6f726cdedc2d1688b5595569240beabef58f93203a2447
+    &gt; Blocks: 0            Seconds: 0
+    &gt; contract address:    0xBfaCF6de455c68DfeCa3d235dDd5cdd202C75ee7
+    &gt; account:             0x00b627E81d8abb29872729efAa999BAef422e62A
+    &gt; balance:             99.96650944
+    &gt; gas used:            496805
+    &gt; gas price:           20 gwei
+    &gt; value sent:          0 ETH
+    &gt; total cost:          0.0099361 ETH
+
+
+    &gt; Saving migration to chain.
+    &gt; Saving artifacts
+    -------------------------------------
+    &gt; Total cost:           0.0099361 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.01563426 ETH
+</code></pre>
+<p>The above output show the <code>transactionHash</code> of the deployment of the <strong>Bounties.vy</strong> contract as <code>0xb2b29164f7f1595c7a6f726cdedc2d1688b5595569240beabef58f93203a2447</code>, and the address of the Bounties smart contract as <code>0xBfaCF6de455c68DfeCa3d235dDd5cdd202C75ee7</code>.</p>
+<p>We can double check the transaction receipt via the truffle console:</p>
+<pre><code class="language-shell">$ truffle console
+
+truffle(development)&gt; web3.eth.getTransactionReceipt('0xb2b29164f7f1595c7a6f726cdedc2d1688b5595569240beabef58f93203a2447')
+{ transactionHash:
+    '0xb2b29164f7f1595c7a6f726cdedc2d1688b5595569240beabef58f93203a2447',
+  transactionIndex: 0,
+  blockHash:
+    '0x55a7cb82ecf12a0df6435632cdc383a511d2847eae719ea409529da4fb27d5ae',
+  blockNumber: 7,
+  from: '0x00b627e81d8abb29872729efaa999baef422e62a',
+  to: null,
+  gasUsed: 496805,
+  cumulativeGasUsed: 496805,
+  contractAddress: '0xBfaCF6de455c68DfeCa3d235dDd5cdd202C75ee7',
+  logs: [],
+  status: true,
+  logsBloom:
+    '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
+  v: '0x1c',
+  r:
+    '0x40d0580d30e1df87d2b2c32a17ef7a250d152031f268d792d755dcf45199ded5',
+  s:
+    '0x0e15df16152ceea4ff6af203eceae1d1bc69bbf545ed7fc1816a9dc208486afa' }
+</code></pre>
+<h3 id="interacting-with-the-contract">Interacting With the Contract<a class="headerlink" href="#interacting-with-the-contract" title="Permanent link"></a></h3>
+<p>We can use the truffle console to interact with our deployed smart contract.</p>
+<p>Lets attempt to issue a bounty. To do this we need to set the <code>string _data</code> argument to some bytes32 equivalent of “some requirements", prepend 0x to it (0x736f6d6520726571756972656d656e7473) and set the <code>timestamp _deadline</code> argument to a unix timestamp in the future e.g “1691452800” August 8th 2023.</p>
+<pre><code class="language-shell">Bounties.deployed().then(instance =&gt; { instance.issueBounty('0x736f6d6520726571756972656d656e7473', '1691452800', { value: 100000, gas: 3000000}).then(tx =&gt; console.log(tx))});
+undefined
+truffle(development)&gt; { tx:
+    '0x7689bc977e6510724043a44a4cca31b9bc81e06b646d279340a873dc13900ae4',
+  receipt:
+    { transactionHash:
+      '0x7689bc977e6510724043a44a4cca31b9bc81e06b646d279340a873dc13900ae4',
+      transactionIndex: 0,
+      blockHash:
+      '0x2c14d6f9e6a192a4b0dd44eb80d49a0f461e0cf1749aefbc4f6d7b79716d555f',
+      blockNumber: 9,
+      from: '0x00b627e81d8abb29872729efaa999baef422e62a',
+      to: '0xbfacf6de455c68dfeca3d235ddd5cdd202c75ee7',
+      gasUsed: 125674,
+      cumulativeGasUsed: 125674,
+      contractAddress: null,
+      logs:
+      [ { logIndex: 0,
+          transactionIndex: 0,
+          transactionHash:
+            '0x7689bc977e6510724043a44a4cca31b9bc81e06b646d279340a873dc13900ae4',
+          blockHash:
+            '0x2c14d6f9e6a192a4b0dd44eb80d49a0f461e0cf1749aefbc4f6d7b79716d555f',
+          blockNumber: 9,
+          address: '0xBfaCF6de455c68DfeCa3d235dDd5cdd202C75ee7',
+          type: 'mined',
+          id: 'log_d9f37d2d',
+          event: 'BountyIssued',
+          args: [Result] } ] }
+</code></pre>
+<p>In the above extract we use the <code>Bounties.deployed()</code> method to return an instance of the latest deployed Bounties contract on the network.</p>
+<pre><code class="language-shell">Bounties.deployed().then(function(instance) {});
+</code></pre>
+<p>We can then call the <code>issueBounty</code> function on the retrieved instance.</p>
+<pre><code class="language-shell">instance.issueBounty(&quot;0x736f6d6520726571756972656d656e7473&quot;,&quot;1691452800&quot;,{ from: web3.eth.accounts[0], value: web3.utils.toWei('1', &quot;ether&quot;), gas: 3000000 }).then(function(tx) { console.log(tx) });
+</code></pre>
+<h3 id="test-network-rinkeby">Test Network: Rinkeby<a class="headerlink" href="#test-network-rinkeby" title="Permanent link"></a></h3>
+<p>We can also configure truffle to deploy to one of the public test Ethereum networks rather than a local development environment. Earlier in the series, we introduced the following public Ethereum test networks:</p>
+<ul>
+<li>Rinkeby</li>
+<li>Kovan</li>
+<li>Ropsten</li>
+</ul>
+<p>This part of the article covers deployment to the <strong>Rinkeby</strong> environment, however, you can use the instructions to deploy to either <strong>Kovan</strong> or <strong>Ropsten</strong>.</p>
+<h4 id="infura">Infura<a class="headerlink" href="#infura" title="Permanent link"></a></h4>
+<p>In order to send transactions to a public network, you need access to a network node. <a href="https://infura.io">Infura</a> is a public hosted Ethereum node cluster, which provides access to its nodes via an API</p>
+<p>If you do not already have an Infura account, <a href="https://infura.io/register">register for an account</a>.</p>
+<p>Once logged in, create a new project to generate a project ID, this allows you to track the usage of each individual dApp you deploy.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
+<p>Once your project is created, select the environment to deploy to, in this case <strong>Rinkeby</strong>, from the <em>Endpoint</em> drop down and copy the endpoint URL for future reference:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
+<p>Make sure you save this token and keep it private!</p>
+<h4 id="hdwallet-provider">HDWallet Provider<a class="headerlink" href="#hdwallet-provider" title="Permanent link"></a></h4>
+<p>Infura, for security reasons, does not manage your private keys. We need to add the <a href="https://github.com/trufflesuite/truffle-hdwallet-provider">Truffle HDWallet Provider</a> so that Truffle can sign deployment transactions before sending them to an Infura node.</p>
+<p>We can install the HDWallet provider via npm into our project directory:</p>
+<pre><code class="language-shell">npm install truffle-hdwallet-provider@web3-one --save
+</code></pre>
+<h4 id="generate-mnemonic">Generate Mnemonic<a class="headerlink" href="#generate-mnemonic" title="Permanent link"></a></h4>
+<p>To configure the HDWallet Provider we need to provide a mnemonic which generates the account used for deployment.</p>
+<p>If you already have a mnemonic, skip this part, or you can generate a mnemonic using an <a href="https://iancoleman.io/bip39/">online mnemonic generator</a>.</p>
+<p>In the BIP39 Mnemonic code form:</p>
+<ol>
+<li>Select “ETH — Ethereum” from the “Coin” drop down</li>
+<li>Select a minimum of “12” words</li>
+<li>Click the “Generate” button to generate the mnemonic</li>
+<li>Copy and save the mnemonic located in the field “BIP39”, <strong>remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts</strong></li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
+<ol>
+<li>Scroll down the page to the <em>Derived Addresses</em> section and copy and save the <em>Address</em> this is your Ethereum deployment account.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
+<p>Above the address we are using is: <strong>0x56fB94c8C667D7F612C0eC19616C39F3A50C3435</strong></p>
+<h4 id="configure-truffle-for-rinkeby">Configure Truffle For Rinkeby<a class="headerlink" href="#configure-truffle-for-rinkeby" title="Permanent link"></a></h4>
+<p>Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the <strong>Rinkeby</strong> environment. To do this we will need to edit the <strong>truffle.js</strong> configuration file.</p>
+<p>First let's create a <strong>secrets.json</strong> file, this file stores your mnemonic and Infura API key so the HDWallet provider can load it.</p>
+<p><strong>NOTE: Remember not to check this file into any public repository!</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
+<p>Next in the <strong>truffle.js</strong> configuration file add the following lines to define HDWalletProvider and load our mnemonic from our <strong>secrets.json</strong> file:</p>
+<pre><code class="language-javascript">const HDWalletProvider = require('truffle-hdwallet-provider');
+const fs = require('fs');
+let secrets;
+if (fs.existsSync('secrets.json')) {
+  secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
+}
+</code></pre>
+<p>Next also in <strong>truffle.js</strong> we add a new network configuration so Truffle understands where to find the <strong>Rinkeby</strong> network.</p>
+<pre><code class="language-javascript">rinkeby: {
+      provider: new HDWalletProvider(secrets.mnemonic, 'https://rinkeby.infura.io/v3/'+secrets.infuraApiKey),
+      network_id: '4'
+}
+</code></pre>
+<p>Here we define a provider, which instantiates a HDWalletProvider for the <strong>Rinkeby</strong> network. The HDWalletProvider takes two arguments:</p>
+<ol>
+<li><strong>mnemonic:</strong> The mnemonic required to derive the private key to the deployment account</li>
+<li><strong>network endpoint:</strong> The http endpoint of the required network</li>
+</ol>
+<p>We also set the network ID of the environment, in this case we set it to 4 which is <strong>Rinkeby</strong>.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc99mzUYiTgAjdciqMvEK3VzZXW79dnUcBgHKYEgaMFct" /></p>
+<h4 id="fund-your-account">Fund Your Account<a class="headerlink" href="#fund-your-account" title="Permanent link"></a></h4>
+<p>We’re almost ready to deploy! We need to make sure we have enough funds in our account to complete the transaction. We can fund our <strong>Rinkeby</strong> test account using the <a href="https://faucet.rinkeby.io/">Rinkeby ETH faucet</a>.</p>
+<p>To request ETH from the faucet we need to complete the following steps:</p>
+<ol>
+<li>Post publicly our Ethereum deployment address from one of the following social network accounts: Twitter, Google+ or Facebook, in this example we use Twitter</li>
+<li>Copy the link to the social media post</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
+<ol>
+<li>Paste the link into the <a href="https://faucet.rinkeby.io/">Rinkeby ETH faucet</a> and select the amount of ETH to send.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
+<ol>
+<li>Check the Rinkeby etherscan for the status of the transaction.</li>
+</ol>
+<p><a href="https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435">https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS></a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
+<h4 id="deploy_1">Deploy<a class="headerlink" href="#deploy_1" title="Permanent link"></a></h4>
+<p>To deploy run the <code>truffle migrate</code> command whilst specifying the network to deploy to. The networks are defined in the <strong>truffle.js</strong> configuration file we configured earlier :</p>
+<pre><code class="language-shell">$ truffle migrate --network rinkeby
+
+Starting migrations...
+======================
+&gt; Network name:    'rinkeby'
+&gt; Network id:      4
+&gt; Block gas limit: 7002047
+
+
+1_initial_migration.js
+======================
+
+    Deploying 'Migrations'
+    ----------------------
+    &gt; transaction hash:    0x813f4fce67c5520a78f8ccac95f5f50ad2cbb8d0eaea40fdbf337191adcfa838
+    &gt; Blocks: 0            Seconds: 8
+    &gt; contract address:    0xC8419C85db7BE10AEf7FcDA7017968B6A0f92995
+    &gt; account:             0x56fB94c8C667D7F612C0eC19616C39F3A50C3435
+    &gt; balance:             18.436499104
+    &gt; gas used:            283300
+    &gt; gas price:           20 gwei
+    &gt; value sent:          0 ETH
+    &gt; total cost:          0.005666 ETH
+
+
+    &gt; Saving migration to chain.
+    &gt; Saving artifacts
+    -------------------------------------
+    &gt; Total cost:            0.005666 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+    Deploying 'Bounties'
+    --------------------
+    &gt; transaction hash:    0xd1d82ac79006b6704d4f822e41f95d9561ffc2b249d6687dad8d9b84257c505a
+    &gt; Blocks: 2            Seconds: 28
+    &gt; contract address:    0x584EC00989488fBC3A10e4114B57C3246D557b48
+    &gt; account:             0x56fB94c8C667D7F612C0eC19616C39F3A50C3435
+    &gt; balance:             18.411356704
+    &gt; gas used:            1215092
+    &gt; gas price:           20 gwei
+    &gt; value sent:          0 ETH
+    &gt; total cost:          0.02430184 ETH
+
+
+    &gt; Saving migration to chain.
+    &gt; Saving artifacts
+    -------------------------------------
+    &gt; Total cost:          0.02430184 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.02996784 ETH
+</code></pre>
+<p>And that's it! We have now finally deployed our <em>Bounties.vy</em> contract to the public testnet environment Rinkeby.</p>
+<p>Later in the series, we’ll cover how to write tests within the Truffle framework, and how we can also add a frontend to our dApp so users can interact with our smart contract on the public network!</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<!-- TODO: Update -->
+
+<ul>
+<li>Read the next guide: <a href="https://kauri.io/article/ebc4a29cc1c044fdba99631796ffbd93/v2/truffle:-testing-your-smart-contract">Truffle: Testing Your Smart Contract</a></li>
+<li>Learn more about the Truffle suite of tools from the <a href="https://truffleframework.com/">website</a></li>
+</ul>
+<blockquote>
+<p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</p>
+<p>If you have found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right hand menu, and/or <a href="https://github.com/iamonuwa/Bounties">update the code</a></p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Truffle  Smart Contract Compilation &amp; Deployment</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle-smart-contract-compilation-and-deployment/1ac9d10358b94945b06b9c893cd5bfcf/a</li>
+<li><strong>Kauri original author:</strong> Onuwa Nnachi Isaac (@iamonuwa)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-29</li>
+<li><strong>Kauri original tags:</strong> smart-contract, truffle, vyper</li>
+<li><strong>Kauri original hash:</strong> QmVdaJPKMoyp2RVeoz2CGXFxWvH7JWvd5VbyPmqXbEhdkX</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Truffle  Testing your smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-link">
+        Understanding smart contract compilation and deployment
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Vyper Full Stack dApp Tutorial Series/truffle--smart-contract-compilation-and-deploymen.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

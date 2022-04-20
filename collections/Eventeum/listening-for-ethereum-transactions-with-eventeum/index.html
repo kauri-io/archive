@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Eventeum/listening-for-ethereum-transactions-with-eventeum/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Listening for Ethereum Transactions with Eventeum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Listening for Ethereum Transactions with Eventeum", url: "#_top", children: [
+              {title: "What is Eventeum?", url: "#what-is-eventeum" },
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Deploying Eventeum", url: "#deploying-eventeum" },
+              {title: "Transaction Subscriptions", url: "#transaction-subscriptions" },
+              {title: "Registering a To Address Transaction Subscription via REST", url: "#registering-a-to-address-transaction-subscription-via-rest" },
+              {title: "Transaction Message Format", url: "#transaction-message-format" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="listening-for-ethereum-transactions-with-eventeum">Listening for Ethereum Transactions with Eventeum<a class="headerlink" href="#listening-for-ethereum-transactions-with-eventeum" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR3jU48TTKEqPuyjRrQWxpZfNnhD1BzMayHSsXPJH9Hcw" /></p>
+<p>In this tutorial we will walk through how to use Eventeum to be notified when certain transactions have been mined within the Ethereum network.</p>
+<h3 id="what-is-eventeum">What is Eventeum?<a class="headerlink" href="#what-is-eventeum" title="Permanent link"></a></h3>
+<p>Eventeum is an Ethereum event listener service that provides a bridge between the Ethereum network and your middleware layer. Eventeum supports both smart contract event and transaction subscriptions.  These subscriptions can be registered dynamically, and when the subscribed event occurs, a message containing the details of the event are broadcast onto a message bus (currently either Kafka, RabbitMQ and Pulsar) which can then be consumed by your backend services.</p>
+<p>It was developed by the kauri.io team, and the source code is freely available under the Apache 2.0 license.  Click <a href="https://github.com/ConsenSys/eventeum/">here</a> to view the github repository.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<ul>
+<li>Maven</li>
+<li>Docker</li>
+<li>Metamask with Rinkeby ETH</li>
+</ul>
+<h3 id="deploying-eventeum">Deploying Eventeum<a class="headerlink" href="#deploying-eventeum" title="Permanent link"></a></h3>
+<p>Out of the box, Eventeum has dependencies on a number of external services, namely Kafka/Zookepper and MongoDB.  The easiest way to get an Eventeum instance running locally right now is to clone the repo from github and run the docker-compose script from the server folder.  This will automatically fire up all the dependant services, and connect to an Infura rinkeby node.</p>
+<p><code>git clone https://github.com/ConsenSys/eventeum.git</code></p>
+<p><code>cd eventeum/server</code></p>
+<p><code>./docker-compose.sh rinkeby</code></p>
+<h3 id="transaction-subscriptions">Transaction Subscriptions<a class="headerlink" href="#transaction-subscriptions" title="Permanent link"></a></h3>
+<p>Currently, Eventeum supports three different types of transaction subscription:</p>
+<ul>
+<li><em>Transaction Hash</em> - Listen for a mined transaction with a specific transaction hash.  Because of the nature of this subscription, it is a one time event and will be unsubscribed once the transaction has been confirmed.</li>
+<li><em>From Address</em> - Broadcast all mined transactions that originate from the specified Ethereum address.</li>
+<li><em>To Address</em> - Broadcast all mined transactions that are sent to a specific Ethereum address.</li>
+</ul>
+<p>A transaction subscription can be registered with Eventeum in one of two ways:</p>
+<ul>
+<li><em>Properties File</em> - Transactions that Eventeum should listen for can be configured in the application.yml file of Eventeum.  This only makes sense for long lived subscriptions (from / to address).  Property file configuration will not be covered in this guide, but for more information see the <a href="https://github.com/ConsenSys/eventeum/#registering-a-transaction-monitor">README</a>.</li>
+<li><em>REST API </em>- Transaction subscriptions can be registered dynamically by sending http requests to a REST endpoint. This is the approach that we will use in this tutorial.</li>
+</ul>
+<h3 id="registering-a-to-address-transaction-subscription-via-rest">Registering a To Address Transaction Subscription via REST<a class="headerlink" href="#registering-a-to-address-transaction-subscription-via-rest" title="Permanent link"></a></h3>
+<p>By default Eventeum listens on port 8060, and exposes a transaction filter registration endpoint at <code>/api/rest/v1/api/rest/v1/transaction</code>.  To subscribe to transactions, as POST request must be sent to this endpoint, with the body defining the transaction specification.</p>
+<p>The expected JSON body format is:</p>
+<pre><code>{
+    &quot;type&quot;: &quot;TO_ADDRESS&quot; ,
+    &quot;transactionIdentifierValue&quot;: &quot;0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2&quot;,
+    &quot;nodeName&quot;: &quot;default&quot;
+}
+</code></pre>
+<p>This example will instruct Eventeum to broadcast all mined transactions that are sent to the <code>0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2</code> Ethereum address, on the <code>default</code> network.  Note, the <code>nodeName</code> parameter is optional, and is assumed to be for the <code>default</code> node if it is omitted.</p>
+<p>To register this transaction monitor, use the following curl command, making sure that Eventeum is running:</p>
+<pre><code class="language-curl">curl -X POST \
+  http://localhost:8060/api/rest/v1/transaction \
+  -H 'Content-Type: application/json' \
+  -d '{
+    &quot;type&quot;: &quot;TO_ADDRESS&quot; ,
+    &quot;transactionIdentifierValue&quot;: &quot;0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2&quot;,
+    &quot;nodeName&quot;: &quot;default&quot;
+}'
+</code></pre>
+<p>Eventeum should respond with the id of the newly registered transaction subscription.</p>
+<pre><code class="language-json">{&quot;id&quot;:&quot;bde1238c3d6c26919dd95303d54ff064a957471fe03cf7741bdacfbbc5166252&quot;}
+</code></pre>
+<h4 id="testing-the-transaction-subscription">Testing the Transaction Subscription<a class="headerlink" href="#testing-the-transaction-subscription" title="Permanent link"></a></h4>
+<p>To test that the transaction subscription was successful, we must send a transaction to the <code>0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2</code> address on the Rinkeby test network.  To do this we will use Metamask, the popular browser extension.</p>
+<ol>
+<li>First ensure that metamask is connected to the Rinkeby network.  <strong>This is a very important step, as there is a risk that you may transfer real ETH if you're connected to the wrong network!!</strong></li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdS4ckxBKfzCvHqUGzszJhQ7wNPs3LivBSNKC8CE5hivD" /></p>
+<ol>
+<li>Next, paste the <code>0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2</code> address into the 'Add Recipient' box.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYFzTiqAsorTpXeG233GTx3gYWaky6A7sp9tmG1qisEqQ" /></p>
+<ol>
+<li>Enter a small value in the <code>Amount</code> box, such as 0.001 ETH.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf7m7QF1Da3XN5eqKGsX4bEDGqCjz2Y3wUomJVhrQNbFG" /></p>
+<ol>
+<li>
+<p>Click next.</p>
+</li>
+<li>
+<p>Keep the default values here, and click Confirm.</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUN6t9SM98BUiNXizSdqPqHS3kjf2vzDnd1hH2XaCS7ja" /></p>
+<ol>
+<li>Your transaction has now been broadcast to the Rinkeby network.  Once the transaction has been mined (this could potentially take a few minutes), you will see a popup similar to this one:</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVdAozLhv8BjeJsYWwd2cXP4S8KfyWFCeGgLMBDwpjxQN" /></p>
+<ol>
+<li>Now in the Eventeum terminal, check the log and you should soon see a 'Sending transaction event message' with details about the transaction that you just sent.  This means Eventeum has now broadcast the transaction onto a Kafka queue, that can be consumed by your backend services!</li>
+</ol>
+<pre><code>Sending transaction event message: 
+{&quot;id&quot;:&quot;0xe12edfd4d8e649f6d88ce6a7234fa33f7878a06e9e35aa2b3ef0a822e29e28a9&quot;,
+&quot;type&quot;:&quot;TRANSACTION&quot;,&quot;details&quot;:{... &quot;status&quot;:&quot;UNCONFIRMED&quot; ...},&quot;retries&quot;:0}
+</code></pre>
+<p>Notice that the status of the broadcast transaction message is <code>UNCONFIRMED</code>.  By default, Eventeum waits for 12 blocks before a transaction is considered confirmed, and safe from block reorganizations caused by chain forks.  Wait for 12 blocks to be mined (you should see blocks being broadcast from Eventeum in the logs), and another transaction message will be broadcast from Eventeum, with the same details, but with a <code>CONFIRMED</code> status.  The number of blocks to wait can be configured by changing the <code>broadcaster.event.confirmation.numBlocksToWait</code> configuration property (or by setting a <code>BROADCASTER_EVENT_CONFIRMATION_NUMBLOCKSTOWAIT</code> environment variable).  If this value is set to 0, then a transaction is considered confirmed as soon as it is initially mined, and there will only be one broadcast message per transaction.</p>
+<h3 id="transaction-message-format">Transaction Message Format<a class="headerlink" href="#transaction-message-format" title="Permanent link"></a></h3>
+<p>Each transaction is encoded in the following JSON format:</p>
+<pre><code class="language-json">{
+    &quot;id&quot;:&quot;0xe12edfd4d8e649f6d88ce6a7234fa33f7878a06e9e35aa2b3ef0a822e29e28a9&quot;,
+    &quot;type&quot;:&quot;TRANSACTION&quot;,
+    &quot;details: {
+        &quot;hash&quot;:&quot;0xe12edfd4d8e649f6d88ce6a7234fa33f7878a06e9e35aa2b3ef0a822e29e28a9&quot;,
+        &quot;nonce&quot;:&quot;0x59&quot;,
+        &quot;blockHash&quot;:&quot;0x184682def4f3e85b530386187d2356674411b51a1f7aa949f4502e54f97c18de&quot;,
+        &quot;blockNumber&quot;:&quot;0x4e9c01&quot;,
+        &quot;transactionIndex&quot;:&quot;0x0&quot;,
+        &quot;from&quot;:&quot;0x8ef742b9BD0413C3a0eD98E8a85ef84dFcBcBF11&quot;,
+        &quot;to&quot;:&quot;0x1fbBeeE6eC2B7B095fE3c5A572551b1e260Af4d2&quot;,
+        &quot;value&quot;:&quot;0x38d7ea4c68000&quot;,
+        &quot;nodeName&quot;:&quot;default&quot;,
+        &quot;status&quot;:&quot;UNCONFIRMED&quot;},
+    &quot;retries&quot;:0
+}
+</code></pre>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>In a few relatively simple steps, you have started a test Eventeum instance, registered a transaction subscription and triggered that subscription by sending a transaction with Metamask.  Congratulations!!</p>
+<p>If you haven't already, it would be worth checking out the other Eventeum articles in this series:</p>
+<ul>
+<li><a href="https://kauri.io/article/90dc8d911f1c43008c7d0dfa20bde298/listening-to-ethereum-events-with-eventeum">Listening to Ethereum Events with Eventeum</a></li>
+<li><a href="https://kauri.io/article/fe81ee9612eb4e5a9ab72790ef24283d/using-eventeum-to-build-a-java-smart-contract-data-cache">Using Eventeum to Build a Java Smart Contract Data Cache</a></li>
+</ul>
+<p>To learn more about Eventeum API's, message specifications or advanced configuration, checkout the github page at: https://github.com/ConsenSys/eventeum/.</p>
+<p>Lastly, Eventeum is fully open-source and we welcome community contributions, so feel free to play around with the application and modify it to your needs…just don't forget to create a pull request afterwards, to help improve the product!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Listening for Ethereum Transactions with Eventeum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/listening-for-ethereum-transactions-with-eventeum/3e31587c96a74d24b5cdd17952d983e9/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-26</li>
+<li><strong>Kauri original tags:</strong> eventeum, ethereum, transaction</li>
+<li><strong>Kauri original hash:</strong> QmVNtSzauVjx9APfucuUJBom8J27YjmFMEPiDK1YQr8A1U</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../using-eventeum-to-build-a-java-smart-contract-dat/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../using-eventeum-to-build-a-java-smart-contract-dat/" class="btn btn-xs btn-link">
+        Using Eventeum to Build a Java Smart Contract Data Cache
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../listening-to-ethereum-events-with-eventeum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../listening-to-ethereum-events-with-eventeum/" class="btn btn-xs btn-link">
+        Listening to Ethereum Events with Eventeum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Eventeum/listening-for-ethereum-transactions-with-eventeum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

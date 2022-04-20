@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2815%29-getting-started-with-elastic-stack-for-monit/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(1/5) Getting started with Elastic Stack for monitoring on Kubernetes - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(1/5) Getting started with Elastic Stack for monitoring on Kubernetes", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Prerequisite", url: "#prerequisite" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="15-getting-started-with-elastic-stack-for-monitoring-on-kubernetes">(1/5) Getting started with Elastic Stack for monitoring on Kubernetes<a class="headerlink" href="#15-getting-started-with-elastic-stack-for-monitoring-on-kubernetes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb41iri4YonbWVhjyNkuAanQJMGczpqeLKYjERh38HSUb" /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>In this article, we will learn how to set up a monitoring stack for your Kubernetes environment (<em>k8s</em> in short). This kind of solution allows your team to gain visibility on your infrastructure and each application with a minimal impact on the existing.</p>
+<p>The goal of observability is to provide tools to operators responsible of running the production to detect undesirables behaviours (service downtime, errors, slow responses) and have actionable information to find the root cause of an issue. It is usually represented under three pillars:</p>
+<ul>
+<li><strong>Metrics</strong> provide time-series information about each component of your system such as CPU, memory, disk and network consumption and usually show an overall vision and the first step to detect unusual behaviour at a certain time.</li>
+<li><strong>Logging</strong> offer operators a tools to analyse and understand those unexpected behaviours on the system with machine, service and application logs centralised in the same searchable database.</li>
+<li><strong>Tracing or APM (Application Monitoring Performance)</strong> provides a much deeper vision of an application where every requests and steps in the execution of the service is recorded (http calls, database queries, etc.). Using tracing, we can detect slow performance or debug a specific user at a low level and improve or fix our system accordingly.</li>
+</ul>
+<p><img alt="" src="https://peter.bourgon.org/img/instrumentation/01.png" />
+<em>Source: <a href="https://peter.bourgon.org/blog/2017/02/21/metrics-tracing-and-logging.html">Peter Bourgon</a></em></p>
+<p>The concept of 360 observability is fully aligned with devops and agile principles to continuously observe, detect and improve the system over time.</p>
+<p>In this article, we will use the <strong>Elastic stack</strong> (version <strong>7.3.0</strong>) composed of ElasticSearch, Kibana, Filebeat, Metricbeat and APM-Server on a Kubernetes environment to monitor and log a production environment. This article series will walk-through a standard Kubernetes deployment, which,  in my opinion, gives a better understanding overall of each step of the installation and configuration. Of course, other methods exist to install and configure some services using tools such as <em>Helm</em> or <a href="https://www.elastic.co/elasticsearch-kubernetes"><em>Elastic Cloud on Kubernetes</em></a> but the purpose of this article is to give the readers a good understanding of each component in this "fairly" complex architecture to help them tweak it for their own system, something that is sometime limited with automated installer.</p>
+<p><img alt="" src="https://imgur.com/JLPgAwx.png" /></p>
+<p><br /></p>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link"></a></h3>
+<p>This tutorial is using <strong>minikube</strong> to create a local k8s environment and deploy a simple application composed of a Spring-Boot service and a MongoDB database that will be used as example to monitor and track system and application behaviours.</p>
+<p>So in order to get started, the following tools are required:</p>
+<ul>
+<li><a href="https://docs.docker.com/install/"><strong>docker</strong></a>: Container engine</li>
+<li><a href="https://kubernetes.io/docs/setup/learning-environment/minikube/"><strong>minikube</strong></a>: Local kubernetes for development and testing</li>
+<li><a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/"><strong>kubectl</strong></a>: Kubernetes command line tool</li>
+</ul>
+<p>ElasticSearch requires to increase nmapfs (virtual memory) on the host (<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html">see details</a>)</p>
+<pre><code class="language-shell">$ sudo sysctl -w vm.max_map_count=262144
+</code></pre>
+<p><br /></p>
+<h4 id="1-configure-minikube-memory-size">1. Configure minikube memory size<a class="headerlink" href="#1-configure-minikube-memory-size" title="Permanent link"></a></h4>
+<p>First on all, we will increase the default memory size (2GB) allocated to a minikube host to 8GB. Run in a terminal the command:</p>
+<pre><code class="language-shell">$ minikube config set memory 8192
+</code></pre>
+<p><br /></p>
+<h4 id="2-start-minikube">2. Start minikube<a class="headerlink" href="#2-start-minikube" title="Permanent link"></a></h4>
+<p>Now let's start minikube using the following command. It might take a few minutes...</p>
+<pre><code class="language-shell">$ minikube start
+😄  minikube v1.2.0 on linux (amd64)
+🔥  Creating none VM (CPUs=2, Memory=8192MB, Disk=20000MB) ...
+🐳  Configuring environment for Kubernetes v1.15.0 on Docker 18.06.1-ce
+    ▪ kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+🚜  Pulling images ...
+🚀  Launching Kubernetes ...
+🤹  Configuring local host environment ...
+
+⚠️  The 'none' driver provides limited isolation and may reduce system security and reliability.
+⚠️  For more information, see:
+👉  https://github.com/kubernetes/minikube/blob/master/docs/vmdriver-none.md
+
+⚠️  kubectl and minikube configuration will be stored in /home/gjeanmart
+⚠️  To use kubectl or minikube commands as your own user, you may
+⚠️  need to relocate them. For example, to overwrite your own settings:
+
+    ▪ sudo mv /home/gjeanmart/.kube /home/gjeanmart/.minikube $HOME
+    ▪ sudo chown -R $USER $HOME/.kube $HOME/.minikube
+
+💡  This can also be done automatically by setting the env var CHANGE_MINIKUBE_NONE_USER=true
+⌛  Verifying: apiserver proxy etcd scheduler controller dns
+🏄  Done! kubectl is now configured to use &quot;minikube&quot;
+</code></pre>
+<p><br /></p>
+<h4 id="3-check-that-everything-is-up-and-running">3. Check that everything is up and running<a class="headerlink" href="#3-check-that-everything-is-up-and-running" title="Permanent link"></a></h4>
+<p>Finally, we check that everything works correctly</p>
+<pre><code class="language-shell">$ minikube status
+host: Running
+kubelet: Running
+apiserver: Running
+kubectl: Correctly Configured: pointing to minikube-vm at 10.154.0.2
+
+$ kubectl get nodes
+NAME       STATUS   ROLES    AGE   VERSION
+minikube   Ready    master   40m   v1.15.0
+</code></pre>
+<p>Bravo, we have now a running k8s local environment, you can run the command <code>$ kubectl get pods -A</code> to see what pods (containers) are currently running (mostly k8s system components).</p>
+<p><br /></p>
+<h4 id="4-deploy-a-sample-application">4. Deploy a sample application<a class="headerlink" href="#4-deploy-a-sample-application" title="Permanent link"></a></h4>
+<p>We now are going to deploy a simple application (Spring-Boot) and its database (MongoDB).</p>
+<h5 id="mongodb">MongoDB<a class="headerlink" href="#mongodb" title="Permanent link"></a></h5>
+<p>We first deploy MongoDB on the k8s environment and expose the port <code>27017</code>.</p>
+<pre><code class="language-yaml">## mongo.yml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: mongo
+  labels:
+    app: mongo
+spec:
+  ports:
+  - port: 27017
+    protocol: TCP
+  selector:
+    app: mongo
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  namespace: default
+  name: mongo
+  labels:
+    app: mongo
+spec:
+  serviceName: &quot;mongo&quot;
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-persistent-storage
+          mountPath: /data/db
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-persistent-storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: &quot;standard&quot;
+    spec:
+      accessModes: [ &quot;ReadWriteOnce&quot; ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 1Gi
+---
+</code></pre>
+<p><em>See <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/mongo.yml">full file</a></em></p>
+<p>Deploy MongoDB using the command:</p>
+<pre><code class="language-shell">$ kubectl apply -f mongo.yml
+</code></pre>
+<p>And wait until it gets running:</p>
+<pre><code class="language-shell">$ kubectl get all -l app=mongo
+NAME          READY   STATUS    RESTARTS   AGE
+pod/mongo-0   1/1     Running   0          3h35m
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)     AGE
+service/mongo        ClusterIP   10.101.156.248   &lt;none&gt;        27017/TCP   3h35m
+
+NAME                     READY   AGE
+statefulset.apps/mongo   1/1     3h35m
+</code></pre>
+<h5 id="spring-boot-simple">spring-boot-simple<a class="headerlink" href="#spring-boot-simple" title="Permanent link"></a></h5>
+<p>Let's now deploy our Spring-Boot API. It deploys the API internally on the port <code>8080</code> but <code>type=NodePort</code> also make accessible on another port from the node static IP.</p>
+<pre><code class="language-yaml">## spring-boot-simple.yml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: spring-boot-simple
+  labels:
+    app: spring-boot-simple
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+  selector:
+    app: spring-boot-simple
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: spring-boot-simple
+  labels:
+    app: spring-boot-simple
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-simple
+  template:
+    metadata:
+      labels:
+        app: spring-boot-simple
+    spec:
+      containers:
+      - image: gjeanmart/spring-boot-simple:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        name: spring-boot-simple
+        env:
+          - name: SPRING_DATA_MONGODB_HOST
+            value: mongo
+        ports:
+        - containerPort: 8080
+</code></pre>
+<p><em>See <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/spring-boot-simple.yml">full file</a></em></p>
+<p>Run the command to deploy spring-boot-simple:</p>
+<pre><code class="language-shell">$ kubectl apply -f spring-boot-simple.yml
+</code></pre>
+<p>And wait until it's deployed</p>
+<pre><code class="language-shell">$ kubectl get all -l app=spring-boot-simple
+NAME                                      READY   STATUS    RESTARTS   AGE
+pod/spring-boot-simple-7cb78f8498-xwm9k   1/1     Running   0          3m2s
+
+NAME                         TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+service/spring-boot-simple   NodePort   10.97.144.198   &lt;none&gt;        8080:30049/TCP   3m2s
+
+NAME                                 READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/spring-boot-simple   1/1     1            1           3m2s
+
+NAME                                            DESIRED   CURRENT   READY   AGE
+replicaset.apps/spring-boot-simple-7cb78f8498   1         1         1       3m2s
+</code></pre>
+<p>Note the external port of the API on the node: <code>30049</code> and get your node static IP with <code>$ minikube ip</code></p>
+<p>Once you get all the information you need, simply run the following commands to test our sample API (replace <code>&lt;IP&gt;:&lt;PORT&gt;</code> by your values).</p>
+<p><em>Greetings</em></p>
+<pre><code class="language-shell">$ curl -X GET  http://10.154.0.2:30049/
+Greetings from Spring Boot!
+</code></pre>
+<p><em>Post a message</em></p>
+<pre><code class="language-shell">$ curl -X POST http://10.154.0.2:30049/message -d 'hello world'
+{&quot;id&quot;:&quot;5d5abdebdc0e820001bc5c74&quot;,&quot;message&quot;:&quot;hello+world=&quot;,&quot;postedAt&quot;:&quot;2019-08-19T15:19:07.075+0000&quot;}
+</code></pre>
+<p><em>Get all messages</em></p>
+<pre><code class="language-shell">$ curl -X GET http://10.154.0.2:30049/message
+[{&quot;id&quot;:&quot;5d5abdebdc0e820001bc5c74&quot;,&quot;message&quot;:&quot;hello+world=&quot;,&quot;postedAt&quot;:&quot;2019-08-19T15:19:07.075+0000&quot;}]
+</code></pre>
+<p><br /></p>
+<h4 id="5-create-a-monitoring-namespace">5. Create a <code>monitoring</code> namespace<a class="headerlink" href="#5-create-a-monitoring-namespace" title="Permanent link"></a></h4>
+<p>Finally, in order to logically separate the monitoring stack from the application (namespace <code>default</code>), we will deploy everything under a namespace called <code>monitoring</code>.</p>
+<p>To create a namespace, simply run the following command:</p>
+<pre><code class="language-shell">$ kubectl create namespace monitoring
+</code></pre>
+<p>or apply the file <code>monitoring.namespace.yml</code>:</p>
+<pre><code class="language-yaml">## monitoring.namespace.yml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: monitoring
+---
+</code></pre>
+<p>like this:</p>
+<pre><code class="language-shell">$ kubectl apply -f monitoring.namespace.yml
+</code></pre>
+<p><br />
+<br /></p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>In the following article, we will get started with the installation of ElasticSearch and Kibana:
+<a href="https://kauri.io/article/e5b86351f38940b8a071267062f052cb">Install ElasticSearch and Kibana to store and visualize monitoring data</a></p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (1/5) Getting started with Elastic Stack for monitoring on Kubernetes</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/15-getting-started-with-elastic-stack-for-monitori/b3be4dbf895b433f93b3cb589d414988/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-19</li>
+<li><strong>Kauri original tags:</strong> kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat</li>
+<li><strong>Kauri original hash:</strong> QmT6U56B9Vh9VLmAKuHSTaCA1V7DhpH7ScQhaXr3yUQmmu</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2825%29-install-elasticsearch-and-kibana-to-store-an/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2825%29-install-elasticsearch-and-kibana-to-store-an/" class="btn btn-xs btn-link">
+        (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../An%20ethereum%20test%20toolkit%20in%20Go/the-geth-simulated-backend/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../An%20ethereum%20test%20toolkit%20in%20Go/the-geth-simulated-backend/" class="btn btn-xs btn-link">
+        The GETH Simulated Backend
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Monitoring Kubernetes with Elastic Stack/(15)-getting-started-with-elastic-stack-for-monit.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Java%20Ethereum/listening-for-ethereum-smart-contract-events-in-j/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Listening for Ethereum Smart Contract Events in Java - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Listening for Ethereum Smart Contract Events in Java", url: "#_top", children: [
+              {title: "What is a Smart Contract Event", url: "#what-is-a-smart-contract-event" },
+              {title: "Common Uses for Events", url: "#common-uses-for-events" },
+              {title: "Defining and Emitting an Event", url: "#defining-and-emitting-an-event" },
+              {title: "Listening for Emitted Events with Web3j", url: "#listening-for-emitted-events-with-web3j" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="listening-for-ethereum-smart-contract-events-in-java">Listening for Ethereum Smart Contract Events in Java<a class="headerlink" href="#listening-for-ethereum-smart-contract-events-in-java" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeG7oWJ5J8ZHE2p22Ww3buyAxBgWfkNBTx8Xx761n7gsG" /></p>
+<p><strong>Other articles in this series:</strong>
+- <a href="https://kauri.io/article/b9eb647c47a546bc95693acc0be72546">Connecting to an Ethereum client with Java, Eclipse and Web3j</a>
+- <a href="https://kauri.io/article/925d923e12c543da9a0a3e617be963b4">Manage an Ethereum account with Java and Web3j</a>
+- <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b">Generate a Java Wrapper from your Smart Contract</a>
+- <a href="https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e">Interacting with an Ethereum Smart Contract in Java</a>
+- <a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></p>
+<hr />
+<h3 id="what-is-a-smart-contract-event">What is a Smart Contract Event<a class="headerlink" href="#what-is-a-smart-contract-event" title="Permanent link"></a></h3>
+<p>You can emit an event from any smart contract function triggered by a transaction, and they are an important piece of the Ethereum application architecture puzzle.</p>
+<p>These events consist of a name and up to 17 arguments, with the content of these arguments provided by the emitting function.  Arguments can either be indexed or non-indexed; with indexed arguments allowing for efficient off-chain querying.</p>
+<blockquote>
+<p>For example, if event X contains an indexed string argument Y, off-chain I can retrieve all events where Y == "foo", using a filter. (More on filters later)</p>
+</blockquote>
+<p>Events are stored as logs rather than within EVM storage, and because of this, they have properties that you should be aware of:</p>
+<ul>
+<li>
+<p><strong>Not accessible from within a smart contract:</strong> Although smart contract functions emit events, smart contracts cannot access this event information after emission.  This is true for both the emitting contract and any other external contract. Therefore, you cannot use events for cross-contract communication.</p>
+</li>
+<li>
+<p><strong>Events are cheap!:</strong> As events are stored as logs, they are cheap compared to the traditional approach of updating the EVM storage state.  The exact cost depends on the event specification and the size of the data within the event.</p>
+</li>
+</ul>
+<h3 id="common-uses-for-events">Common Uses for Events<a class="headerlink" href="#common-uses-for-events" title="Permanent link"></a></h3>
+<h4 id="asynchronous-off-chain-triggers">Asynchronous Off-chain Triggers<a class="headerlink" href="#asynchronous-off-chain-triggers" title="Permanent link"></a></h4>
+<p>Most enterprise Java developers are familiar with the Event Bus pattern, where events are published to a queue such as RabbitMQ or Amazon SQS.  This pattern allows services that are interested in specific events to consume them off the bus asynchronously, and perform further processing, without any coupling between the publisher and consumer services.</p>
+<p><em>The Event Bus Pattern</em>
+<img alt="" src="https://api.dev2.kauri.io:443/ipfs/QmUwbWrK2kgPz2RpwghveWcgRQsH1BSiQhHtam6hFpxp1J" /></p>
+<p>Services can use Ethereum smart contract events in a similar way, with the Ethereum network acting as a kind of messaging queue.  Off-chain services can register an event filter with a node, and will subsequently be notified each time this event is emitted in the Ethereum network.  You can then use these event notifications as a trigger for further off-chain processing, such as updating a NoSQL based cache of the smart contract state.</p>
+<p><em>Ethereum as an 'Event Bus'</em>
+<img alt="" src="https://api.dev2.kauri.io:443/ipfs/QmaMerpsdaU6xMT7QfJpfCa8ttZa9DuiGDrQaA7GzRiY9d" /></p>
+<h4 id="cheap-data-storage-for-off-chain-consumption">Cheap Data Storage for Off-chain Consumption<a class="headerlink" href="#cheap-data-storage-for-off-chain-consumption" title="Permanent link"></a></h4>
+<p>As I mentioned above, storing data within an event rather than in EVM contract storage is significantly cheaper.</p>
+<blockquote>
+<p>Diving a little bit into the specifics in order to compare, saving 32 bytes of data to contract storage costs 20,000 gas, whereas emitting an event costs 375 plus 375 for each indexed argument, and an additional 8 gas per byte of data.</p>
+</blockquote>
+<p>Due to these cost savings, it's a common pattern to store data never read by an on-chain smart contract function soley in an event, not in contract storage.</p>
+<p>An example of a scenario where this may be the case, is a notary service where an IPFS hash is committed to the Ethereum blockchain in order to prove date of creation.  After an event has been emitted which contains the IPFS hash of the document, you can verify the timestamp of the notarisation off-chain if there is a dispute by querying the contract events, not the contract state.</p>
+<h3 id="defining-and-emitting-an-event">Defining and Emitting an Event<a class="headerlink" href="#defining-and-emitting-an-event" title="Permanent link"></a></h3>
+<p>Both defining and emitting and event within your Ethereum smart contracts are one liners:</p>
+<h4 id="defining">Defining<a class="headerlink" href="#defining" title="Permanent link"></a></h4>
+<pre><code>event Notarized(address indexed notary, string documentHash)
+</code></pre>
+<p>In this example we defined an event with the name <code>Notarized</code>, with an indexed address argument, <code>notary</code>,  and a single non-indexed string parameter, <code>documentHash</code>.</p>
+<h4 id="emitting">Emitting<a class="headerlink" href="#emitting" title="Permanent link"></a></h4>
+<pre><code>function notarizeDocument(string _documentHash) public {
+        emit Notarized(msg.sender, _documentHash);
+}
+</code></pre>
+<p>The emit keyword fires an event, with arguments passed to the event in a way that is similar to function invocation.  Here, the notary address is set as the transaction sender address via <code>msg.sender</code>, and the <code>documentHash</code> is the same as the called function argument.</p>
+<h3 id="listening-for-emitted-events-with-web3j">Listening for Emitted Events with Web3j<a class="headerlink" href="#listening-for-emitted-events-with-web3j" title="Permanent link"></a></h3>
+<p>By far the easiest way to listen for Ethereum smart contract events using web3j is to use the contract wrapper feature of the library.  For a primer on the wrapper feature, see the previous post in this series <a href="here">http://todo.com</a>.</p>
+<p>The below code snippet connects to a local Ethereum node and listens for all Notarized events emitted from a deployed Notary contract:</p>
+<pre><code class="language-java">Web3j web3j = Web3j.build(new HttpService(&quot;http://localhost:8545&quot;));
+
+//Deploys a notary contract via wrapper
+final Notary notaryContract = deployNotaryContract(web3j);
+
+notaryContract
+        .notarizedEventFlowable(DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
+        .subscribe(event -&gt; {
+            final String notary = event.notary;
+            final String documentHash = event.documentHash;
+
+            //Perform processing based on event values
+        });
+</code></pre>
+<p>The autogenerated contract wrapper code contains convenience methods for each event defined in your smart contract with the naming pattern <code>&lt;event-name&gt;EventFlowable</code>.  This method takes start and end block arguments, and as in this example, using the <code>DefaultBlockParameterName.LATEST</code> value instructs web3j to continue listening for events for new blocks indefinitely.  If you require a specific block range, you can use <code>DefaultBlockParameter.valueOf(BigInteger.valueOf(...))</code>.  A <a href="http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Flowable.html">Flowable</a> object is returned which can then be subscribed to, in order to perform processing logic on emitted events.</p>
+<p>This method simplifies the process of event listening, as it automatically converts the raw log messages into an object with fields reflecting the defined event arguments.  Without this, you would have to decode the values yourself, and although web3j provides helper methods for this, things can get complex quickly.</p>
+<h4 id="filtering-by-indexed-argument-value">Filtering by Indexed Argument Value<a class="headerlink" href="#filtering-by-indexed-argument-value" title="Permanent link"></a></h4>
+<p>Setting an argument of an event as <code>indexed</code> faciliates efficient querying of events by that arguments value.  This querying is supported in Web3j by building an <code>EthFilter</code> object manually.  Below is the code to listen for events notarized by a specific Ethereum address:</p>
+<pre><code class="language-java">final EthFilter ethFilter = new EthFilter(DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST,
+                notaryContract.getContractAddress());
+
+ethFilter.addSingleTopic(EventEncoder.encode(notaryContract.NOTARIZED_EVENT));
+ethFilter.addOptionalTopics(&quot;0x&quot; + TypeEncoder.encode(new Address(&quot;0x00a329c0648769a73afac7f9381e08fb43dbea72&quot;)));
+
+notaryContract
+        .notarizedEventFlowable(ethFilter)
+        .subscribe(event -&gt; {
+            final String notary = event.notary;
+            final String documentHash = event.documentHash;
+
+            //Perform processing based on event values
+        });
+</code></pre>
+<p>The <code>notarizedEventFlowable</code> is overloaded, and can accept an <code>EthFilter</code> as an argument, rather than a block range.  This filter is used to define which events to listen for in a more finely grained way, and is built up with the same block range as was previously passed to the method.</p>
+<p>There are also some topics that are set on the filter.  In an Ethereum filter, the first topic is always defined as the keccak hash of the event signature, with the event signature in our case being <code>'Notarised(address,string)''</code>.  This is calculated with the help of the <code>EventEncoder.encode(..)</code> method provided by Web3j, along with the event specification, <code>NOTARIZED_EVENT</code> that has been auto-generated in the wrapper class.</p>
+<p>Additional topics can be added using the <code>addOptionalTopics(..)</code> method, and these specify the values of indexed arguments to match against, in the same order as they are defined in the event specification.  Encoding varies slightly based on the type of the argument, but luckily, Web3j provides the <code>TypeEncoder</code> class which handles this for us.  In the example provided, we are only listening for events where the <code>notary</code> value is the address 0x00a329c0648769a73afac7f9381e08fb43dbea72.</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Events are a great way for backend (and frontend) services to be notified of smart contract changes and interactions in an asynchronous manner, as well a providing a cost effective way of storing data on the Ethereum blockchain that does not need to be consumed by a smart contract.</p>
+<p>As with many Ethereum interactions, the smart contract wrappers generated by Web3j are by far the simplest way to subscribe to, and process emitted events in your java backend.</p>
+<hr />
+<p><strong>Next Steps:</strong>
+- <a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Listening for Ethereum Smart Contract Events in Java</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/listening-for-ethereum-smart-contract-events-in-ja/760f495423db42f988d17b8c145b0874/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-22</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, web3j, smart-contracts, events</li>
+<li><strong>Kauri original hash:</strong> QmdxeVg9eaWcJfdLrpuSmVpGZTL8Dw9t3Xh1iSZ7Mpe5N6</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../interacting-with-an-ethereum-smart-contract-in-ja/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../interacting-with-an-ethereum-smart-contract-in-ja/" class="btn btn-xs btn-link">
+        Interacting with an Ethereum Smart Contract in Java
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../using-besu-the-java-ethereum-client-with-linuxmac/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../using-besu-the-java-ethereum-client-with-linuxmac/" class="btn btn-xs btn-link">
+        Using Besu, the Java Ethereum Client with Linux/MacOS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Java Ethereum/listening-for-ethereum-smart-contract-events-in-j.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

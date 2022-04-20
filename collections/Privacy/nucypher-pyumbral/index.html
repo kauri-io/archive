@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/nucypher-pyumbral/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>NuCypher - PyUmbral - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "NuCypher - PyUmbral", url: "#_top", children: [
+              {title: "Installing pyUmbral", url: "#installing-pyumbral" },
+              {title: "Using pyUmbral", url: "#using-pyumbral" },
+              {title: "Threshold Re-encryption", url: "#threshold-re-encryption" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="nucypher-pyumbral">NuCypher - PyUmbral<a class="headerlink" href="#nucypher-pyumbral" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWsMymRmjGBB1z3w8wb5CPwwgjWr6JDg4S4WsUiRhe3zq" /></p>
+<blockquote>
+<p>pyUmbral is the reference implementation of the <a href="https://github.com/nucypher/umbral-doc/blob/master/umbral-doc.pdf">Umbral</a> threshold proxy re-encryption scheme. It is open-source, built with Python, and uses <a href="https://www.openssl.org/">OpenSSL</a> and <a href="https://cryptography.io/en/latest/">Cryptography.io</a>.</p>
+</blockquote>
+<p><em>This article is adapted from the <a href="https://pyumbral.readthedocs.io/en/latest/">pyUmbral documentation</a></em></p>
+<p>Using Umbral, Alice (the data owner) can delegate decryption rights to Bob for any ciphertext intended to her, through a re-encryption process performed by a set of semi-trusted proxies or Ursulas. When a threshold of these proxies participate by performing re-encryption, Bob is able to combine these independent re-encryptions and decrypt the original message using his private key.</p>
+<p>pyUmbral is the cryptographic engine behind <a href="https://github.com/nucypher/nucypher,">nucypher</a>, a proxy re-encryption network to empower privacy in decentralized systems.</p>
+<h3 id="installing-pyumbral">Installing pyUmbral<a class="headerlink" href="#installing-pyumbral" title="Permanent link"></a></h3>
+<p>v0.1.3-alpha.1</p>
+<h4 id="using-pip">Using pip<a class="headerlink" href="#using-pip" title="Permanent link"></a></h4>
+<p>The easiest way to install pyUmbral is using <code>pip</code>:</p>
+<pre><code>$ pip3 install umbral
+</code></pre>
+<h4 id="build-from-source-code">Build from source code<a class="headerlink" href="#build-from-source-code" title="Permanent link"></a></h4>
+<p>pyUmbral is maintained on GitHub: <a href="https://github.com/nucypher/pyUmbral">pyUmbral</a></p>
+<p>Clone the repository to download the source code.</p>
+<pre><code>$ git clone https://github.com/nucypher/pyUmbral.git
+</code></pre>
+<p>Once you have acquired the source code, you can…</p>
+<p>…embed pyUmbral modules into your own codebase…</p>
+<pre><code>from umbral import pre, keys, config
+</code></pre>
+<p>…install pyUmbral with pipenv…</p>
+<pre><code>$ pipenv install .
+</code></pre>
+<p>…or install it with python-pip…</p>
+<pre><code>$ pip3 install .
+</code></pre>
+<h4 id="install-dependencies">Install dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link"></a></h4>
+<p>The NuCypher team uses pipenv for managing pyUmbral’s dependencies. The recommended installation procedure is as follows:</p>
+<pre><code>$ sudo pip3 install pipenv
+$ pipenv install
+</code></pre>
+<p>Post-installation, you can activate the pyUmbral’s virtual environment in your current terminal session by running <code>pipenv shell</code>.</p>
+<p>If your installation is successful, the following command will succeed without error.</p>
+<pre><code>$ pipenv run python
+&gt;&gt;&gt; import umbral
+</code></pre>
+<p>For more information on pipenv, The official documentation is located here: https://docs.pipenv.org/.</p>
+<h4 id="development-installation">Development Installation<a class="headerlink" href="#development-installation" title="Permanent link"></a></h4>
+<p>If you want to participate in developing pyUmbral, you’ll probably want to run the test suite and / or build the documentation, and for that, you must install some additional development requirements.</p>
+<pre><code>$ pipenv install --dev --three
+</code></pre>
+<p>To build the documentation locally:</p>
+<pre><code>$ pipenv run make html --directory=docs
+</code></pre>
+<h3 id="using-pyumbral">Using pyUmbral<a class="headerlink" href="#using-pyumbral" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZ2ijWK12hEgrfyuWD2fcj2gE8mx1q834xbEYHZ4HTtpo" /></p>
+<h4 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h4>
+<p><strong>Setting the default curve</strong></p>
+<p>The best way to start using pyUmbral is to decide on an elliptic curve to use and set it as your default.</p>
+<pre><code>&gt;&gt;&gt; from umbral import config
+&gt;&gt;&gt; from umbral.curve import SECP256K1
+&gt;&gt;&gt; config.set_default_curve(SECP256K1)
+</code></pre>
+<p>For more information on curves, see <a href="https://pyumbral.readthedocs.io/en/latest/choosing_and_using_curves.html">Choosing and Using Curves</a>.</p>
+<h4 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link"></a></h4>
+<p><strong>Generate an Umbral key pair</strong></p>
+<p>First, let’s generate two asymmetric key pairs for Alice: A delegating key pair and a signing key pair.</p>
+<pre><code>&gt;&gt;&gt; from umbral import keys, signing
+
+&gt;&gt;&gt; alices_private_key = keys.UmbralPrivateKey.gen_key()
+&gt;&gt;&gt; alices_public_key = alices_private_key.get_pubkey()
+
+&gt;&gt;&gt; alices_signing_key = keys.UmbralPrivateKey.gen_key()
+&gt;&gt;&gt; alices_verifying_key = alices_signing_key.get_pubkey()
+&gt;&gt;&gt; alices_signer = signing.Signer(private_key=alices_signing_key)
+</code></pre>
+<p><strong>Encrypt with a public key</strong></p>
+<p>Now let’s encrypt data with Alice’s public key. Invocation of pre.encrypt returns both the ciphertext and a capsule. Note that anyone with Alice’s public key can perform this operation.</p>
+<pre><code>&gt;&gt;&gt; from umbral import pre
+&gt;&gt;&gt; plaintext = b'Proxy Re-encryption is cool!'
+&gt;&gt;&gt; ciphertext, capsule = pre.encrypt(alices_public_key, plaintext)
+</code></pre>
+<p><strong>Decrypt with a private key</strong></p>
+<p>Since data was encrypted with Alice’s public key, Alice can open the capsule and decrypt the ciphertext with her private key.</p>
+<pre><code>&gt;&gt;&gt; cleartext = pre.decrypt(ciphertext=ciphertext, capsule=capsule, decrypting_key=alices_private_key)
+</code></pre>
+<h3 id="threshold-re-encryption">Threshold Re-encryption<a class="headerlink" href="#threshold-re-encryption" title="Permanent link"></a></h3>
+<p><strong>Bob Exists</strong></p>
+<pre><code>&gt;&gt;&gt; from umbral import keys
+&gt;&gt;&gt; bobs_private_key = keys.UmbralPrivateKey.gen_key()
+&gt;&gt;&gt; bobs_public_key = bobs_private_key.get_pubkey()
+</code></pre>
+<p><strong>Alice grants access to Bob by generating kfrags</strong></p>
+<p>When Alice wants to grant Bob access to open her encrypted messages, she creates re-encryption key fragments, or “kfrags”, which are next sent to N proxies or Ursulas.</p>
+<p>Alice must specify <code>N</code> (the total number of kfrags), and a <code>threshold</code> (the minimum number of kfrags needed to activate a capsule). In the following example, Alice creates 20 kfrags, but Bob needs to get only 10 re-encryptions to activate the capsule.</p>
+<pre><code>&gt;&gt;&gt; kfrags = pre.generate_kfrags(delegating_privkey=alices_private_key,
+...                              signer=alices_signer,
+...                              receiving_pubkey=bobs_public_key,
+...                              threshold=10,
+...                              N=20)
+</code></pre>
+<p><strong>Bob receives a capsule</strong></p>
+<p>Next, let’s generate a key pair for Bob, and pretend to send him the capsule through a side channel like S3, IPFS, Google Cloud, Sneakernet, etc.</p>
+<pre><code>## Bob receives the capsule through a side-channel: IPFS, Sneakernet, etc.
+capsule = &lt;fetch the capsule through a side-channel&gt;
+</code></pre>
+<p><strong>Bob fails to open the capsule</strong></p>
+<p>If Bob attempts to open a capsule that was not encrypted for his public key, or re-encrypted for him by Ursula, he will not be able to open it.</p>
+<pre><code>&gt;&gt;&gt; fail = pre.decrypt(ciphertext=ciphertext,
+...                    capsule=capsule,
+...                    decrypting_key=bobs_private_key)
+Traceback (most recent call last):
+    ...
+cryptography.exceptions.InvalidTag
+</code></pre>
+<p><strong>Ursulas perform re-encryption</strong></p>
+<p>Bob asks several Ursulas to re-encrypt the capsule so he can open it. Each Ursula performs re-encryption on the capsule using the <code>kfrag</code> provided by Alice, obtaining this way a “capsule fragment”, or <code>cfrag</code>. Let’s mock a network or transport layer by sampling threshold random kfrags, one for each required Ursula. Note that each Ursula must prepare the received capsule before re-encryption by setting the proper correctness keys.</p>
+<p>Bob collects the resulting cfrags from several Ursulas. Bob must gather at least threshold cfrags in order to activate the capsule.</p>
+<pre><code>&gt;&gt;&gt; import random
+&gt;&gt;&gt; kfrags = random.sample(kfrags,  # All kfrags from above
+...                        10)      # M - Threshold
+
+&gt;&gt;&gt; capsule.set_correctness_keys(delegating=alices_public_key,
+...                              receiving=bobs_public_key,
+...                              verifying=alices_verifying_key)
+(True, True, True)
+
+&gt;&gt;&gt; cfrags = list()                 # Bob's cfrag collection
+&gt;&gt;&gt; for kfrag in kfrags:
+...     cfrag = pre.reencrypt(kfrag=kfrag, capsule=capsule)
+...     cfrags.append(cfrag)        # Bob collects a cfrag
+</code></pre>
+<p><strong>Bob attaches cfrags to the capsule</strong></p>
+<p>Bob attaches at least <code>threshold</code> cfrags to the capsule, which has to be prepared in advance with the necessary correctness keys. Only then it can become activated.</p>
+<pre><code>&gt;&gt;&gt; capsule.set_correctness_keys(delegating=alices_public_key,
+...                              receiving=bobs_public_key,
+...                              verifying=alices_verifying_key)
+(False, False, False)
+
+&gt;&gt;&gt; for cfrag in cfrags:
+...     capsule.attach_cfrag(cfrag)
+</code></pre>
+<p><strong>Bob activates and opens the capsule</strong></p>
+<p>Finally, Bob decrypts the re-encrypted ciphertext using the activated capsule.</p>
+<pre><code>&gt;&gt;&gt; cleartext = pre.decrypt(ciphertext=ciphertext, capsule=capsule, decrypting_key=bobs_private_key)
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> NuCypher - PyUmbral</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/nucypher-pyumbral/7368f23b5e894a9bab71e1deb663f128/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-17</li>
+<li><strong>Kauri original tags:</strong> encryption, nucypher, umbral, privacy, proxy-re-encryption</li>
+<li><strong>Kauri original hash:</strong> QmejhqbRRm41d5EaGnNZMCuFNNPNF2JEVe2KjgzR9CLYtt</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../nightfall-private-token-and-nft-transfers-on-ethe/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../nightfall-private-token-and-nft-transfers-on-ethe/" class="btn btn-xs btn-link">
+        Nightfall - Private Token and NFT Transfers on Ethereum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../data-privacy-with-the-nucypher-network/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../data-privacy-with-the-nucypher-network/" class="btn btn-xs btn-link">
+        Data Privacy with the NuCypher Network
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/nucypher-pyumbral.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

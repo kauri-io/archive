@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/an-introduction-to-smart-contracts-with-vyper/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>An Introduction to Smart Contracts with Vyper - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "An Introduction to Smart Contracts with Vyper", url: "#_top", children: [
+              {title: "Introductory Open Auction Example", url: "#introductory-open-auction-example" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="an-introduction-to-smart-contracts-with-vyper">An Introduction to Smart Contracts with Vyper<a class="headerlink" href="#an-introduction-to-smart-contracts-with-vyper" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUUT6kMFq1jqXJQPKizRqq9ziGKSBejSjAG7yFjgPAotD" /></p>
+<p>Vyper is a smart contract-oriented, pythonic programming language that targets the Ethereum Virtual Machine (EVM).</p>
+<p>It aims to follow the similar simplicity, security and readability principles of Python and provides the following features:</p>
+<ul>
+<li><strong>Bounds and overflow checking</strong>: On array accesses as well as on arithmetic level.</li>
+<li><strong>Support for signed integers and decimal fixed point numbers</strong></li>
+<li><strong>Decidability</strong>: It should be possible to compute a precise upper bound for the gas consumption of any function call.</li>
+<li><strong>Strong typing</strong>: Including support for units (e.g., timestamp, timedelta, seconds, wei, wei per second, meters per second squared).</li>
+<li><strong>Small and understandable compiler code</strong></li>
+<li><strong>Limited support for pure functions</strong>: Anything marked constant is not allowed to change the state.</li>
+</ul>
+<p>And to follow similar principles, Vyper does not support:</p>
+<ul>
+<li><strong>Modifiers</strong></li>
+<li><strong>Class inheritance</strong></li>
+<li><strong>Inline assembly</strong></li>
+<li><strong>Function overloading</strong></li>
+<li><strong>Operator overloading</strong></li>
+<li><strong>Recursive calling</strong></li>
+<li><strong>Infinite-length loops</strong></li>
+<li><strong>Binary fixed point</strong></li>
+</ul>
+<h3 id="introductory-open-auction-example">Introductory Open Auction Example<a class="headerlink" href="#introductory-open-auction-example" title="Permanent link"></a></h3>
+<p>As an introductory example of a smart contract written in Vyper, we begin with an open auction contract. All Vyper syntax is valid Python3 syntax, however not all Python3 functionality is available in Vyper.</p>
+<p>In this contract, participants can submit bids during a limited time period. When the auction period ends, a predetermined beneficiary receives the amount of the highest bid.</p>
+<pre><code class="language-python">## Open Auction
+
+## Auction params
+## Beneficiary receives money from the highest bidder
+beneficiary: public(address)
+auctionStart: public(timestamp)
+auctionEnd: public(timestamp)
+
+## Current state of auction
+highestBidder: public(address)
+highestBid: public(wei_value)
+
+## Set to true at the end, disallows any change
+ended: public(bool)
+
+## Keep track of refunded bids so we can follow the withdraw pattern
+pendingReturns: public(map(address, wei_value))
+
+## Create a simple auction with `_bidding_time`
+## seconds bidding time on behalf of the
+## beneficiary address `_beneficiary`.
+@public
+def __init__(_beneficiary: address, _bidding_time: timedelta):
+    self.beneficiary = _beneficiary
+    self.auctionStart = block.timestamp
+    self.auctionEnd = self.auctionStart + _bidding_time
+
+## Bid on the auction with the value sent
+## together with this transaction.
+## The value will only be refunded if the
+## auction is not won.
+@public
+@payable
+def bid():
+    # Check if bidding period is over.
+    assert block.timestamp &lt; self.auctionEnd
+    # Check if bid is high enough
+    assert msg.value &gt; self.highestBid
+    # Track the refund for the previous high bidder
+    self.pendingReturns[self.highestBidder] += self.highestBid
+    # Track new high bid
+    self.highestBidder = msg.sender
+    self.highestBid = msg.value
+
+## Withdraw a previously refunded bid. The withdraw pattern is
+## used here to avoid a security issue. If refunds were directly
+## sent as part of bid(), a malicious bidding contract could block
+## those refunds and thus block new higher bids from coming in.
+@public
+def withdraw():
+    pending_amount: wei_value = self.pendingReturns[msg.sender]
+    self.pendingReturns[msg.sender] = 0
+    send(msg.sender, pending_amount)
+
+## End the auction and send the highest bid
+## to the beneficiary.
+@public
+def endAuction():
+    # It is a good guideline to structure functions that interact
+    # with other contracts (i.e. they call functions or send Ether)
+    # into three phases:
+    # 1. checking conditions
+    # 2. performing actions (potentially changing conditions)
+    # 3. interacting with other contracts
+    # If these phases are mixed up, the other contract could call
+    # back into the current contract and modify the state or cause
+    # effects (Ether payout) to be performed multiple times.
+    # If functions called internally include interaction with external
+    # contracts, they also have to be considered interaction with
+    # external contracts.
+
+    # 1. Conditions
+    # Check if auction endtime has been reached
+    assert block.timestamp &gt;= self.auctionEnd
+    # Check if this function has already been called
+    assert not self.ended
+
+    # 2. Effects
+    self.ended = True
+
+    # 3. Interaction
+    send(self.beneficiary, self.highestBid)
+</code></pre>
+<p>This example only has a constructor, two methods to call, and variables to manage the contract state. This is all we need for a basic implementation of an auction smart contract.</p>
+<p>Let’s get started!</p>
+<pre><code class="language-python">## Auction params
+## Beneficiary receives money from the highest bidder
+beneficiary: public(address)
+auctionStart: public(timestamp)
+auctionEnd: public(timestamp)
+
+## Current state of auction
+highestBidder: public(address)
+highestBid: public(wei_value)
+
+## Set to true at the end, disallows any change
+ended: public(bool)
+</code></pre>
+<p>We begin by declaring variables to keep track of our contract state. We initialize a global variable beneficiary by calling <code>public</code> on the datatype <code>address</code>. The beneficiary will be the receiver of money from the highest bidder. We also initialize the variables <code>auctionStart</code> and <code>auctionEnd</code> with the datatype <code>timestamp</code> to manage the open auction period and <code>highestBid</code> with datatype <code>wei_value</code>, the smallest denomination of ether, to manage auction state. The variable <code>ended</code> is a boolean to determine whether the auction is officially over.</p>
+<p>All the variables are passed into the public function. By declaring the variable public, the variable is callable by external contracts. Initializing the variables without the public function defaults to a private declaration and thus only accessible to methods within the same contract. The public function additionally creates a ‘getter’ function for the variable, accessible through an external call such as <code>contract.beneficiary()</code>.</p>
+<p>Now, the constructor.</p>
+<p>The contract is initialized with two arguments: <code>_beneficiary</code> of type <code>address</code> and <code>_bidding_time</code> with type <code>timedelta</code>, the time difference between the start and end of the auction. We store these two pieces of information into the contract variables <code>self.beneficiary</code> and <code>self.auctionEnd</code>. We have access to the current time by calling <code>block.timestamp</code>. <code>block</code> is an object available within any Vyper contract and provides information about the block at the time of calling. Similar to block, another important object available to us within the contract is <code>msg</code>, which provides information on the method caller.</p>
+<p>With initial setup out of the way, lets look at how our users can make bids.</p>
+<p>The <code>@payable</code> decorator allows a user to send some ether to the contract in order to call the decorated method. In this case, a user wanting to make a bid calls the <code>bid()</code> method while sending an amount equal to their desired bid (not including gas fees). When calling any method within a contract, we are provided with a built-in variable <code>msg</code> and we can access the public address of any method caller with <code>msg.sender</code>. Similarly, the amount of ether a user sends can be accessed by calling <code>msg.value</code>.</p>
+<p>We first check whether the current time is before the auction’s end time using the <code>assert</code> function which takes any boolean statement. We also check to see if the new bid is greater than the highest bid. If the two assert statements pass, we can safely continue to the next lines; otherwise, the <code>bid()</code> method throws an error and reverts the transaction. If the two assert statements and the check that the previous bid is not equal to zero pass, we can safely conclude that we have a valid new highest bid. We send back the previous <code>highestBid</code> to the previous <code>highestBidder</code> and set our new <code>highestBid</code> and <code>highestBidder</code>.</p>
+<p>With the <code>endAuction()</code> method, we check whether our current time is past the <code>auctionEnd</code> time we set upon initialization of the contract. We also check that <code>self.ended</code> had not previously been set to <code>True</code>. We do this to prevent any calls to the method if the auction had already ended, which could potentially be malicious if the check had not been made. We then officially end the auction by setting <code>self.ended</code> to <code>True</code> and sending the highest bid amount to the beneficiary.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>This introduction and example was taken from <a href="https://vyper.readthedocs.io/">the official Vyper documentation</a>, which is your best resource. Recommended next steps are:</p>
+<ul>
+<li><a href="https://vyper.readthedocs.io/en/latest/vyper-by-example.html">Vyper by example</a></li>
+<li><a href="https://vyper.readthedocs.io/en/latest/structure-of-a-contract.html">Structure of a contract</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> An Introduction to Smart Contracts with Vyper</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/an-introduction-to-smart-contracts-with-vyper/af913a853eaf4db88627b3ff9572b770/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-30</li>
+<li><strong>Kauri original tags:</strong> ethereum, smart-contracts, vyper</li>
+<li><strong>Kauri original hash:</strong> QmZy9DsHhcRGeR3QsnsRPinxQv56YdXoRirYu9wYANDjLk</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../cute-kitties-and-where-to-find-them-an-introducti/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../cute-kitties-and-where-to-find-them-an-introducti/" class="btn btn-xs btn-link">
+        Cute Kitties and Where to Find Them — An Introduction to Non-Fungible Tokens
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../an-introduction-to-smart-contracts-with-solidity/" class="btn btn-xs btn-link">
+        An Introduction to Smart Contracts with Solidity
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/an-introduction-to-smart-contracts-with-vyper.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

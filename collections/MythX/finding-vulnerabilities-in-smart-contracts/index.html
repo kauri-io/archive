@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/MythX/finding-vulnerabilities-in-smart-contracts/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Finding Vulnerabilities in Smart Contracts - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Finding Vulnerabilities in Smart Contracts", url: "#_top", children: [
+              {title: "What\u2019s a Fuzzer?", url: "#whats-a-fuzzer" },
+              {title: "Introducing Harvey", url: "#introducing-harvey" },
+              {title: "Harvey in Practice", url: "#harvey-in-practice" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="finding-vulnerabilities-in-smart-contracts">Finding Vulnerabilities in Smart Contracts<a class="headerlink" href="#finding-vulnerabilities-in-smart-contracts" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcAFocEnAuZMe1bckBs3cDeesoFPybTMkamgTidPqhUZo" /></p>
+<p>Smart contracts are increasingly complex programs that often hold and manage large amounts of assets. Getting their business logic right is challenging and developers should use tools to analyze their smart contracts before deploying them.
+Starting with the mother of all smart contract hacks — the infamous DAO attack — we have seen a number of high-profile hacks over the last years that resulted in tens of millions of dollars in damages. The majority of these hacks were pulled off by locating holes in smart contracts that left them vulnerable to exploitation.
+This mini-series will cover various techniques for efficiently finding vulnerabilities in smart contracts. It also introduces 
+<em>Harvey</em>
+ : a fuzzer for Ethereum smart contracts being developed by 
+<a href="https://consensys.net/diligence/">ConsenSys Diligence: Smart contract auditing</a>
+ , in collaboration with 
+<a href="https://mariachris.github.io">Maria Christakis</a>
+ from MPI-SWS and that will be one of the tools powering our 
+<a href="https://mythx.io">MythX analysis platform</a>
+.</p>
+<h3 id="whats-a-fuzzer">What’s a Fuzzer?<a class="headerlink" href="#whats-a-fuzzer" title="Permanent link"></a></h3>
+<p>Conceptually, fuzzers are easy to understand: they take a set of program inputs (also known as seed inputs) and generate new ones automatically. However, not all fuzzers are created equal and, thus, have different strengths and weaknesses (just one reason why the MythX platform relies on several different security analysis techniques). Typically, we distinguish fuzzers based on how much information they collect about a program.
+On one end of the spectrum, we find 
+<em>black-box fuzzers</em>
+ that do not collect any information about the program and typically perform random mutations to an input before running the program with it. They are easy to implement and can try millions of different inputs within minutes. However, they struggle with achieving high code coverage for complex code.
+On the other end of the spectrum, we find 
+<em>white-box fuzzers</em>
+ that symbolically execute each instruction run by a given input and use automated solvers (e.g., SMT/SAT solvers) to find new inputs to cover a new execution path. Typically, these tools are very effective at covering new paths. However, for most non-trivial programs it is infeasible to explore them all. This is known as the path explosion problem and most fuzzers use heuristic search strategies to cover “interesting paths”.
+Over the last few years, a third type of fuzzer has emerged: so-called 
+<em>grey-box fuzzers</em>
+ . They use a light-weight program instrumentation to record the execution path for each tested input and compute its path identifier. This short identifier allows the fuzzer to determine inputs that cover new paths and, for instance, avoid fuzzing the same path over and over. Many state-of-the-art tools use sophisticated evolutionary algorithms to select which inputs to fuzz. Unlike black-box fuzzers they are able to achieve high code coverage even for complex code without using more expensive techniques, such as automated solvers, to reason about the program.</p>
+<h3 id="introducing-harvey">Introducing Harvey<a class="headerlink" href="#introducing-harvey" title="Permanent link"></a></h3>
+<p>Harvey is a new fuzzer for Ethereum smart contracts being developed by the ConsenSys Diligence team in collaboration with Maria Christakis from MPI-SWS.
+Harvey started out as a grey-box fuzzer, but over time we added new techniques to turn it into a lighter shade of grey in order to more efficiently explore complex programs. We will cover some of these techniques in subsequent posts.
+At their core, all grey-box fuzzers rely on the following basic algorithm to build up a test suite 
+<code>TS</code>
+ for a given program 
+<code>P</code>
+ starting from seed inputs 
+<code>S</code>
+ :</p>
+<pre><code>TS := run_seed_inputs(P, S)
+while (not interrupted) {
+  i := select_input(TS)
+  e := assign_energy(i)
+  while (0 &lt; e) {
+    f := fuzz_input(i)
+    pid := run_input(P, f)
+    if pid not in TS {
+      TS[pid] := f
+    }
+    e := e - 1
+  }
+}
+</code></pre>
+<p>As mentioned earlier, the fuzzer assigns each input a path identifier (PID) based on the execution path it explored. The test suite stores the corresponding input for each PID and is initialized by running all the seed inputs 
+<code>S</code>
+ .
+The fuzzer can be interrupted at any point (e.g., after exceeding a user-provided time limit). Until then, it will keep fuzzing existing inputs to expand the test suite. To do so, it selects an input 
+<code>i</code>
+ (e.g., randomly or in a round-robin fashion) from the test suite and assigns it energy 
+<code>e</code>
+ . The energy specifies how many times the given input should be fuzzed. The fuzzing operation itself produces a new input 
+<code>f</code>
+ from the existing one. After running the new input, the fuzzer will know its PID and can determine if it found a new path. If so, the input is added to the test suite.
+This basic algorithm can be improved easily by developing new techniques for selecting inputs to fuzz and for assigning energy to them. Harvey implements several such improvements.</p>
+<h3 id="harvey-in-practice">Harvey in Practice<a class="headerlink" href="#harvey-in-practice" title="Permanent link"></a></h3>
+<p>To illustrate how this works in practice let’s look at the following simple smart contract written in the Solidity programming language:</p>
+<pre><code>contract Foo {
+  function Bar(int256 a, int256 b, int256 c) returns (int256) {
+    int256 d = b + c;
+    if (d &amp;lt; 1) {
+      if (b &amp;lt; 3) {
+        return 1;
+      }
+      if (a == 42) {
+        assert(false);
+        return 2;
+      }
+      return 3;
+    } else {
+      if (c &amp;lt; 42) {
+        return 4;
+      }
+      return 5;
+    }
+  }
+}
+
+</code></pre>
+<p>Suppose we want to check if the assertion in function 
+<code>Bar</code>
+ is reachable. Instead of manually reasoning about the code, we can use Harvey to help us with this task.
+Since Harvey works directly with bytecode for the Ethereum virtual machine (EVM), we need to compile the contract first. The Solidity compiler will provide us with the following snippet of bytecode that will create a contract 
+<code>Foo</code>
+ on the blockchain:</p>
+<pre><code>608060405234801561001057600080fd5b5060e88061001f6000396000f300608060405260043610603e5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632121699a81146043575b600080fd5b348015604e57600080fd5b50605e6004356024356044356070565b60408051918252519081900360200190f35b60008282016001811215609f576003841215608d576001915060b4565b84602a1415609757fe5b6003915060b4565b602a83121560af576004915060b4565b600591505b5093925050505600a165627a7a7230582056907da61e430dcc2b1631bc3800ce597d7eb43bac887ae350e94527c7511ee70029
+</code></pre>
+<p>This is all that Harvey needs to get started. In our context, an input consists of a sequence of transactions that each invoke functions of a smart contract. Let’s assume that our seed transaction invokes 
+<code>Bar</code>
+ with all arguments being zero.
+It will explore the path that returns 
+<code>4</code>
+ (on Line 15) and the sequence of transactions (of length one in this case) will be added to the test suite.
+For lack of other options, the fuzzer will now fuzz this transaction sequence until it finds one that explores a new path. For instance, it might eventually change input 
+<code>c</code>
+ to 100, which will explore the path that returns 
+<code>5</code>
+ (on Line 17).
+After roughly 14 seconds (on a regular desktop machine) and trying around 30,000 transaction sequences, it will eventually generate a test that violates the assertion and achieves full path coverage. In contrast, for a black-box fuzzer this could take forever since the input space is huge! The probability of setting 
+<code>a</code>
+ to 42 is tiny ( 
+<em>1/(2²⁵⁶)</em>
+ to be precise).
+Harvey is able to achieve high coverage quickly by implementing several techniques and optimizations that go beyond traditional greybox-fuzzing. In fact, even 
+<a href="http://lcamtuf.coredump.cx/afl">AFL</a>
+ , a state-of-the-art grey-box fuzzer, was not able to generate such a test within 12 hours.
+In subsequent posts, we will cover some more advanced techniques (e.g., 
+<a href="https://medium.com/consensys-diligence/fuzzing-smart-contracts-using-input-prediction-29b30ba8055c">input prediction</a>
+ ) that make it possible to achieve the same 
+<em>within less than a second</em>
+ . Stay tuned for more!
+Thanks to Rocky Bernstein, Maria Christakis, Joran Honig, Everett Muzzy, and Gerhard Wagner for feedback on drafts of this article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Finding Vulnerabilities in Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/finding-vulnerabilities-in-smart-contracts/b34134b451b04911ba7295df4b86a234/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-02</li>
+<li><strong>Kauri original tags:</strong> fuzzing, security, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmTBZYkFXytfbcCnbWVy3BH8Um3umKmJUn1VqhgSQCZnYC</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mythx-is-real./" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mythx-is-real./" class="btn btn-xs btn-link">
+        MythX is real.
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../mythx-is-upping-the-smart-contract-security-game/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../mythx-is-upping-the-smart-contract-security-game/" class="btn btn-xs btn-link">
+        MythX is Upping the Smart Contract Security Game
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/MythX/finding-vulnerabilities-in-smart-contracts.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

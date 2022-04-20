@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/embark--testing-your-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Embark  Testing Your Smart Contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Embark  Testing Your Smart Contract", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Setting up a test file", url: "#setting-up-a-test-file" },
+              {title: "Writing a Test", url: "#writing-a-test" },
+              {title: "Error Path", url: "#error-path" },
+              {title: "Try it yourself", url: "#try-it-yourself" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="embark-testing-your-smart-contract">Embark  Testing Your Smart Contract<a class="headerlink" href="#embark-testing-your-smart-contract" title="Permanent link"></a></h1>
+<p>Earlier in the series, we took a look at how to setup Embark and use it to compile, deploy and interact with our Bounties.sol smart contract.</p>
+<p>This article will walk through the steps required to write tests for our smart contract within the Embark framework. 
+Tests in Embark projects are written in [Javascript] (http://truffleframework.com/docs/getting_started/javascript-tests).</p>
+<p>Embark uses the [Mocha] (https://mochajs.org/) testing framework to provide an easy way to write tests in Javascript and uses [Node.js] (https://nodejs.org/api/assert.html/) for assertions. You can read more about [testing in Embark here] (https://truffleframework.com/docs/truffle/testing/testing-your-contracts).</p>
+<p>[Source code for this tutorial can be found here] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/embark-writing-tests)</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p><strong>NODEJS 7.6+</strong></p>
+<p>Since web3.js and truffle executions are asynchronous, we'll be using [async/await] (https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9) to simplify our test code. You’ll have to upgrade to Node 7.6 or higher. </p>
+<p><strong>Embark</strong></p>
+<pre><code>npm install -g embark
+</code></pre>
+<p><strong>Note: On linux systems you may see an error when you attempt to run embark. If you see the following error:</strong></p>
+<pre><code>$ embark --version
+env: node\r: No such file or directory
+</code></pre>
+<p>This is a common issue with Node.js when using files with Windows line endings. [See: npm/npm#12371] (https://github.com/npm/npm/issues/12371)</p>
+<p>To resolve we’re going to have to use <code>dos2unix</code> to convert the embark js file to Unix format</p>
+<ol>
+<li>Find the location embark js file on your system</li>
+</ol>
+<pre><code>$ which embark
+/usr/local/bin/embark
+cd /usr/local/bin/
+ls -lrt | grep embark
+lrwxr-xr-x  1 joshuacassidy  admin        37 15 Aug 21:41 embark -&gt; *../lib/node_modules/embark/bin/embark*
+</code></pre>
+<p>From the output above we see that on my machine, the relative path of the embark js file is located here:<code>../lib/node_modules/embark/bin/embark</code></p>
+<ol>
+<li>Install dos2unix</li>
+</ol>
+<pre><code>$ brew install dos2unix
+</code></pre>
+<ol>
+<li>Convert the file</li>
+</ol>
+<pre><code>$ sudo dos2unix ../lib/node_modules/embark/bin/embark
+dos2unix: converting file ../lib/node_modules/embark/bin/embark to Unix format...
+</code></pre>
+<p>That's it! Now when you run embark — version you should see something like the following:</p>
+<pre><code>$ embark --version
+3.1.9
+</code></pre>
+<p><strong>Embark Project</strong></p>
+<p>In order to test our Bounties.sol smart contract we'll need to have a truffle project set up to compile and deploy our smart contract. Let's start with the truffle project we created earlier in the series:</p>
+<pre><code>$ git clone https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series.git
+$ cd kauri-fullstack-dapp-tutorial-series
+$ cp -R embark-compilation-and-deploy dapp-series-bounties
+$ cd dapp-series-bounties
+</code></pre>
+<p><strong>Development Blockchain: Ganache-CLI</strong></p>
+<p>In order to deploy our smart contract, we’re going to need an Ethereum environment to deploy to. For this, we will use Ganache-CLI to run a local development environment</p>
+<pre><code>$ npm install -g ganache-cli
+</code></pre>
+<h3 id="setting-up-a-test-file">Setting up a test file<a class="headerlink" href="#setting-up-a-test-file" title="Permanent link"></a></h3>
+<p>Now that we have our project setup we'll create our first test:</p>
+<ul>
+<li>First, we need to create a file named bounties_spec,js  inside the <strong>/test</strong> folder</li>
+<li>Within our bounties_spec.js file we need to import the Bounties.sol artifact so we can use it within our tests</li>
+</ul>
+<pre><code>const Bounties = embark.require('Embark/contracts/Bounties');
+</code></pre>
+<ul>
+<li>We now also define our config, this tells the test which contracts to deploy and returns in a callback the accounts from the deployment environment</li>
+</ul>
+<pre><code>let accounts;
+
+config({
+
+}, (err, theAccounts) =&gt; {
+  accounts = theAccounts;
+});
+</code></pre>
+<ul>
+<li>We'll also now define a contract container which where our tests for this contract will live, usually set this to the name of the contract, however, this is not required, you can use any text you like.</li>
+</ul>
+<pre><code>contract(&quot;Bounties&quot;, function () {
+  this.timeout(0);
+
+  let bountiesInstance;
+
+
+  beforeEach(async () =&gt; {
+      bountiesInstance = await Bounties.deploy().send()
+  })
+
+});
+</code></pre>
+<ul>
+<li>Within the contract container, we also define a variable to hold the contract instance being tested <em>bountiesInstance</em>, and a <strong>beforeEach</strong> block</li>
+<li>The <strong>beforeEach</strong> block will execute before each test and will deploy an instance of the Bounties.sol smart contract. This ensures each test is executed against a clean contract state</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYG7ATMCzjLjSLMP3Pd1r9xHdKzyahVkgtDyU1kSdUSku" /></p>
+<p>At this point, we have the basic skeleton of our test file and we can test everything is set up correctly by executing the following:</p>
+<p>First in a separate window run <code>embark simulator</code>:</p>
+<pre><code>$ embark simulator
+
+running: ganache-cli -p 8555 -a 10 -e 100 -l 8000000 --mnemonic &quot;example exile argue silk regular smile grass bomb merge arm assist farm&quot;
+Ganache CLI v6.1.3 (ganache-core: 2.1.2)
+</code></pre>
+<p>Next, run the embark test command:</p>
+<pre><code>$ embark test
+
+Compiling contracts
+
+
+  0 passing (0ms)
+
+
+
+  0 passing (0ms)
+
+ &gt; All tests passed
+</code></pre>
+<p>Running embark test executes all tests in your truffle projects <strong>/test</strong> folder. This does the following:</p>
+<ol>
+<li>Compiles your contracts</li>
+<li>Deploys the contracts to the network</li>
+<li>Runs tests against the contracts deployed on the network</li>
+</ol>
+<h3 id="writing-a-test">Writing a Test<a class="headerlink" href="#writing-a-test" title="Permanent link"></a></h3>
+<p>Let's take a look at the issueBounty function:</p>
+<pre><code>function issueBounty(
+  string _data,
+  uint64 _deadline
+)
+  public
+  payable
+  hasValue()
+  validateDeadline(_deadline)
+  returns (uint)
+{
+  bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+  emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);
+  return (bounties.length - 1);
+}
+</code></pre>
+<p>There are a few things we would want to test within this function:</p>
+<ul>
+<li><strong>happy path</strong>: Issuing a bounty should emit a BountyIssued event</li>
+<li><strong>happy path:</strong> Calling issueBounty should return an integer</li>
+<li><strong>payable</strong> keyword: Issuing a bounty without sending a value should fail</li>
+<li><strong>hasValue</strong> modifier: Issuing a bounty with a value of 0 should fail</li>
+<li><strong>validateDeadline</strong> modifier: Issuing a bounty with a deadline not greater than now should fail</li>
+</ul>
+<p><strong>Helper Functions</strong></p>
+<p>Where we are expecting the input validation to fail, we expect to get a <em>revert</em> error from the EVM. You can [read more about error handling in Solidity here] (https://solidity.readthedocs.io/en/v0.4.24/control-structures.html?highlight=revert#error-handling-assert-require-revert-and-exceptions)</p>
+<p>Also to create our bounty, we'll need to pass in a deadline which is greater than the current timestamp on the EVM.</p>
+<p>To do this we'll need to write some helper functions to assist us in writing our tests:</p>
+<ul>
+<li>First, create a folder in the <strong>/test</strong> directory named <strong>utils</strong> and create the file <strong>time.js</strong></li>
+<li>Copy the following extract into <strong>time.js</strong></li>
+</ul>
+<pre><code>function getCurrentTime() {
+  var block = web3.eth.getBlock(&quot;latest&quot;);
+  return block.timestamp;
+}
+
+Object.assign(exports, {
+  getCurrentTime
+});
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPj67qKz1WKQKndejXdtMs5XtYDoh4J6jd4XHCKutMdpb" /></p>
+<p>The above extract uses the web3 library to get the <strong>latest</strong> block from the EVM and from that return its timestamp. </p>
+<ul>
+<li>Create a file named <strong>assertRevert.js</strong> inside the <strong>/test/utils</strong> directory</li>
+<li>Copy the following extract into <strong>assertRevert.js</strong></li>
+</ul>
+<pre><code>var assertRevert = async (promise, message) =&gt; {
+  let noFailureMessage;
+  try {
+    await promise;
+
+    if (!message) { 
+      noFailureMessage = 'Expected revert not received' 
+    } else {
+      noFailureMessage = message;
+    }
+
+    assert.fail();
+  } catch (error) {
+    if (noFailureMessage) {
+      assert.fail(0, 1, message);
+    }
+    const revertFound = error.message.search('revert') &gt;= 0;
+    assert(revertFound, `Expected &quot;revert&quot;, got ${error} instead`);
+  }
+};
+
+Object.assign(exports, {
+  assertRevert
+});
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWaFwv1udeBqcEwHixre55igXssD9RaLNPeuQyvirwsmX" /></p>
+<p>The above extract takes a promise as its first argument, which would be a web3 transaction, and an assertion fail message as the next. It wraps the promise in a try and catches the error,  if the promise fails it checks if the error message contains the string <strong>"revert”</strong>.</p>
+<p>We can now import our helper function into our bounties.js test file, by adding the following lines:</p>
+<pre><code>const getCurrentTime = require('./utils/time').getCurrentTime;
+const assertRevert = require('./utils/assertRevert').assertRevert;
+const dayInSeconds = 86400;
+</code></pre>
+<p>We also added a <strong>dayInSeconds</strong> constant, to help us add days.</p>
+<h4 id="happy-path">Happy Path<a class="headerlink" href="#happy-path" title="Permanent link"></a></h4>
+<p>The test for our first happy path looks like this:</p>
+<pre><code>it(&quot;Should allow a user to issue a new bounty&quot;, async () =&gt; {
+
+    let currentTime = await getCurrentTime();
+    let tx = await bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                              currentTime + (dayInSeconds * 2)).send({from: accounts[0], value: 500000000000000000});
+
+    assert.strictEqual(Object.keys(tx.events).length, 1, &quot;issueBounty() call did not log 1 event&quot;);
+    const logBountyIssued = tx.events.BountyIssued;
+    assert.equal(logBountyIssued.returnValues.bounty_id,0, &quot;BountyIssued event logged did not have expected bounty_Id&quot;);
+    assert.equal(logBountyIssued.returnValues.issuer, accounts[0], &quot;BountyIssued event logged did not have expected issuer&quot;);
+    assert.equal(logBountyIssued.returnValues.amount,500000000000000000, &quot;BountyIssued event logged did not have expected amount&quot;);
+
+});
+</code></pre>
+<p>There is alot going on here but its quite simple:</p>
+<ul>
+<li>
+<p>Each test starts with the function <code>it()</code> which takes a description of the test as its first arguments and a callback function as the next. We use <code>async()</code> as the callback so we can use <code>await</code>.</p>
+</li>
+<li>
+<p>We then use our <code>getCurrentTime()</code> helper to get the current timestamp from the EVM</p>
+</li>
+<li>
+<p>We then invoke an <code>issueBounty</code> transaction on our <code>bountyInstance</code> object, we use the <code>.send</code> funtion to send a transation setting passing our transaction parameters as arguements.</p>
+</li>
+<li>
+<p>The transaction is sent from <code>account[0]</code> with a value of <code>500000000000000000</code></p>
+</li>
+<li>
+<p>We then assert that our transaction receipt contains a log of exactly 1 event.</p>
+</li>
+<li>
+<p>We then assert that the details of the event are as expected</p>
+</li>
+</ul>
+<p>Our second happy path which tests making a call to issueBounty rather than sending a transaction looks like this:</p>
+<pre><code>it(&quot;Should return an integer when calling issueBounty&quot;, async () =&gt; {
+
+    let currentTime = await getCurrentTime();
+    let result = await bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                          currentTime + (dayInSeconds * 2)).call(
+                          {from: accounts[0], value: 500000000000000000});
+
+    assert.equal(result, 0, &quot;issueBounty() call did not return correct id&quot;);
+});
+</code></pre>
+<p>Above we add <code>.call</code> to <code>issueBounty</code> to make a call to the function rather than issuing a transaction. This returns the return value of the function rather than a transaction receipt.</p>
+<h3 id="error-path">Error Path<a class="headerlink" href="#error-path" title="Permanent link"></a></h3>
+<p>Our error path tests will involve us sending a transaction with invalid inputs as an argument to our <code>assertRevert</code> helper function</p>
+<p>To test our <code>payable</code> keyword, we invoke a transaction without a value being set:</p>
+<pre><code>it(&quot;Should not allow a user to issue a bounty without sending ETH&quot;, async () =&gt; {
+
+    let currentTime = await getCurrentTime();
+
+    assertRevert(bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                          currentTime + (dayInSeconds * 2)).send(
+                          {from: accounts[0]}), &quot;Bounty issued without sending ETH&quot;);
+
+});
+</code></pre>
+<p>To test our <code>hasValue()</code> modifier, we invoke our transaction with a value of 0:</p>
+<pre><code>it(&quot;Should not allow a user to issue a bounty when sending value of 0&quot;, async () =&gt; {
+
+    let currentTime = await getCurrentTime();
+
+    assertRevert(bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                        currentTime + (dayInSeconds * 2))
+                        .send({from: accounts[0], value: 0}), &quot;Bounty issued when sending value of 0&quot;);
+
+});
+</code></pre>
+<p>To test our <code>validateDeadline</code> modifier, we need to send two transactions, one with a deadline set in the past, and another with a deadline set as now:</p>
+<pre><code>it(&quot;Should not allow a user to issue a bounty with a deadline in the past&quot;, async () =&gt; {
+
+ let currentTime = await getCurrentTime();
+
+ assertRevert(bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                        currentTime - 1).send({from: accounts[0], value: 0}), &quot;Bounty issued with deadline in the past&quot;);
+
+});
+
+it(&quot;Should not allow a user to issue a bounty with a deadline of now&quot;, async () =&gt; {
+
+ let currentTime = await getCurrentTime();
+
+ assertRevert(bountiesInstance.methods.issueBounty(&quot;data&quot;,
+                        currentTime)
+                        .send({from: accounts[0], value: 0}), &quot;Bounty issued with deadline of now&quot;);
+
+});
+</code></pre>
+<p>So now if we run the embark test command we should see the following:</p>
+<pre><code>$ embark test
+
+Compiling contracts
+
+
+  Bounties
+    ✓ Should allow a user to issue a new bounty (120ms)
+    ✓ Should return an integer when calling issueBounty (83ms)
+    ✓ Should not allow a user to issue a bounty without sending ETH
+    ✓ Should not allow a user to issue a bounty when sending value of 0
+    ✓ Should not allow a user to issue a bounty with a deadline in the past
+    ✓ Should not allow a user to issue a bounty with a deadline of now
+
+
+  6 passing (666ms)
+
+
+
+  0 passing (0ms)
+
+ &gt; All tests passed
+</code></pre>
+<h4 id="time-travel">Time travel<a class="headerlink" href="#time-travel" title="Permanent link"></a></h4>
+<p>One of the main tests is to check that a fulfilment should not be accepted if the deadline has passed. In order to test this, we will need to add a helper function which advances the timestamp of the EVM:</p>
+<p>In the <strong>/test/utils/time.js</strong> file add the following:</p>
+<pre><code>function increaseTimeInSeconds(increaseInSeconds) {
+    return new Promise(function(resolve) {
+        web3.currentProvider.sendAsync({
+            jsonrpc: &quot;2.0&quot;,
+            method: &quot;evm_increaseTime&quot;,
+            params: [increaseInSeconds],
+            id: new Date().getTime()
+        }, resolve);
+    });
+};
+</code></pre>
+<p>This function calls the <code>evm_increaseTime</code> RPC function of the ganache EVM to increase the EVM block timestamp.</p>
+<p>Add the new <code>increaseTimeInSeconds</code> function to the exports section of the file:</p>
+<pre><code>Object.assign(exports, {
+  increaseTimeInSeconds,
+  getCurrentTime
+});
+</code></pre>
+<p>In the <strong>bounties.js</strong> test file add the following line to import our new helper function:</p>
+<pre><code>const increaseTimeInSeconds = require('./utils/time').increaseTimeInSeconds;
+</code></pre>
+<p>We can then use this in our test as follows:</p>
+<pre><code>it(&quot;Should not allow a user to fulfil an existing bounty where the deadline has passed&quot;, async () =&gt; {
+
+     let currentTime = await getCurrentTime();
+     await bountiesInstance.issueBounty(&quot;data&quot;,
+                     currentTime).send({from: accounts[0], value: 500000000000000000});
+
+    await increaseTimeInSeconds((dayInSeconds * 2)+1)
+
+    assertRevert(bountiesInstance.fulfillBounty(0,&quot;data&quot;).send({from: accounts[1]}), &quot;Fulfillment accepted when deadline has passed&quot;);
+
+});
+</code></pre>
+<h3 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link"></a></h3>
+<p>Now that you have seen how to test the issueBounty function, try adding tests for the following functions:</p>
+<ul>
+<li>fulfilBounty</li>
+<li>acceptFulfilment</li>
+<li>cancelBounty</li>
+</ul>
+<p>You can find the [complete bounties.js test file here for reference] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-writing-tests/test/bounties.complete.js).</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Embark  Testing Your Smart Contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/embark-testing-your-smart-contract/e8f18d0643c14756b43d698122bba9d9/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-12</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmbqwpbMfyJh8dasREBhs7meyk7MYP1bydPQQiNoik3yDp</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../populus--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../populus--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-link">
+        Populus  Smart contract compilation and deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../embark--smart-contract-compilation-and-deployment/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../embark--smart-contract-compilation-and-deployment/" class="btn btn-xs btn-link">
+        Embark  Smart Contract Compilation & Deployment
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/embark--testing-your-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

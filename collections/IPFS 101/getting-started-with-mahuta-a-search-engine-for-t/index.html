@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/IPFS%20101/getting-started-with-mahuta-a-search-engine-for-t/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Getting started with Mahuta - A Search engine for the IPFS - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Getting started with Mahuta - A Search engine for the IPFS", url: "#_top", children: [
+              {title: "Features", url: "#features" },
+              {title: "Getting Started", url: "#getting-started" },
+              {title: "Java library", url: "#java-library" },
+              {title: "Spring-Data", url: "#spring-data" },
+              {title: "HTTP API with Docker", url: "#http-api-with-docker" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="getting-started-with-mahuta-a-search-engine-for-the-ipfs">Getting started with Mahuta - A Search engine for the IPFS<a class="headerlink" href="#getting-started-with-mahuta-a-search-engine-for-the-ipfs" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWMrtdrHCU5J7N4BQ9SX5Uy1NXK7viCNZT9pqEkt2C3wP" /></p>
+<p><a href="https://github.com/ConsenSys/Mahuta"><strong>Mahuta</strong></a> (formerly known as IPFS-Store) is a convenient library and API to aggregate and consolidate files or documents stored by your application on the IPFS network. It provides a solution to collect, store, index and search data used.</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h3>
+<ul>
+<li><strong>Indexation</strong>: Mahuta stores documents or files on IPFS and index the hash with optional metadata.</li>
+<li><strong>Discovery</strong>: Documents and files indexed can be searched using complex logical queries or fuzzy/full text search)</li>
+<li><strong>Scalable</strong>: Optimised for large scale applications using asynchronous writing mechanism and caching</li>
+<li><strong>Replication</strong>: Replica set can be configured to replicate (pin) content across multiple nodes (standard IPFS node or IPFS-cluster node)</li>
+<li><strong>Multi-platform</strong>: Mahuta can be used as a simple embedded Java library for your JVM-based application or run as a simple, scalable and configurable Rest API.</li>
+</ul>
+<p><img alt="Mahuta.jpg" src="https://imgur.com/tIdQRD8.png" /></p>
+<hr />
+<h3 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h3>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
+<h5 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h5>
+<p>Mahuta depends of two components:
+- an IPFS node (<a href="https://github.com/ipfs/go-ipfs">go</a> or <a href="https://github.com/ipfs/js-ipfs">js</a> implementation)
+- a search engine (currently only ElasticSearch is supported)</p>
+<p>See how to run those two components first <a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/run_ipfs_and_elasticsearch.md">run IPFS and ElasticSearch</a></p>
+<h3 id="java-library">Java library<a class="headerlink" href="#java-library" title="Permanent link"></a></h3>
+<ol>
+<li>Import the Maven dependencies (core module + indexer)</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;net.consensys.mahuta&lt;/groupId&gt;
+    &lt;artifactId&gt;mahuta-core&lt;/artifactId&gt;
+    &lt;version&gt;${MAHUTA_VERSION}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;net.consensys.mahuta&lt;/groupId&gt;
+    &lt;artifactId&gt;mahuta-indexing-elasticsearch&lt;/artifactId&gt;
+    &lt;version&gt;${MAHUTA_VERSION}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol>
+<li>Configure Mahuta to connect to an IPFS node and an indexer</li>
+</ol>
+<pre><code>Mahuta mahuta = new MahutaFactory()
+    .configureStorage(IPFSService.connect(&quot;localhost&quot;, 5001))
+    .configureIndexer(ElasticSearchService.connect(&quot;localhost&quot;, 9300, &quot;cluster-name&quot;))
+    .defaultImplementation();
+</code></pre>
+<ol>
+<li>Execute high-level operations</li>
+</ol>
+<pre><code>IndexingResponse response = mahuta.prepareStringIndexing(&quot;article&quot;, &quot;## This is my first article&quot;)
+    .contentType(&quot;text/markdown&quot;)
+    .indexDocId(&quot;article-1&quot;)
+    .indexFields(ImmutableMap.of(&quot;title&quot;, &quot;First Article&quot;, &quot;author&quot;, &quot;greg&quot;))
+    .execute();
+
+GetResponse response = mahuta.prepareGet()
+    .indexName(&quot;article&quot;)
+    .indexDocId(&quot;article-1&quot;)
+    .loadFile(true)
+    .execute();
+
+SearchResponse response = mahuta.prepareSearch()
+    .indexName(&quot;article&quot;)
+    .query(Query.newQuery().equals(&quot;author&quot;, &quot;greg&quot;))
+    .pageRequest(PageRequest.of(0, 20))
+    .execute();
+</code></pre>
+<p>For more info, <a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_java_api.md">Mahuta Java API</a></p>
+<h3 id="spring-data">Spring-Data<a class="headerlink" href="#spring-data" title="Permanent link"></a></h3>
+<ol>
+<li>Import the Maven dependencies </li>
+</ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;net.consensys.mahuta&lt;/groupId&gt;
+    &lt;artifactId&gt;mahuta-springdata&lt;/artifactId&gt;
+    &lt;version&gt;${MAHUTA_VERSION}&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol>
+<li>Configure your spring-data repository</li>
+</ol>
+<pre><code>@IPFSDocument(index = &quot;article&quot;, indexConfiguration = &quot;article_mapping.json&quot;, indexContent = true)
+public class Article {
+
+    @Id
+    private String id;
+
+    @Hash
+    private String hash;
+
+    @Fulltext
+    private String title;
+
+    @Fulltext
+    private String content;
+
+    @Indexfield
+    private Date createdAt;
+
+    @Indexfield
+    private String createdBy;
+}
+
+
+
+public class ArticleRepository extends MahutaRepositoryImpl&lt;Article, String&gt; {
+
+    public ArticleRepository(Mahuta mahuta) {
+        super(mahuta);
+    }
+}
+</code></pre>
+<p>For more info, <a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_spring_data.md">Mahuta Spring Data</a></p>
+<h3 id="http-api-with-docker">HTTP API with Docker<a class="headerlink" href="#http-api-with-docker" title="Permanent link"></a></h3>
+<h4 id="prerequisites_1">Prerequisites<a class="headerlink" href="#prerequisites_1" title="Permanent link"></a></h4>
+<ul>
+<li>Docker</li>
+<li><a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/run_ipfs_and_elasticsearch.md#Docker">run IPFS and ElasticSearch with Docker</a></li>
+</ul>
+<h4 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link"></a></h4>
+<pre><code>$ docker run -it --name mahuta \ 
+    -p 8040:8040 \
+    -e MAHUTA_IPFS_HOST=ipfs \
+    -e MAHUTA_ELASTICSEARCH_HOST=elasticsearch \
+    gjeanmart/mahuta
+</code></pre>
+<h4 id="docker-compose">Docker Compose<a class="headerlink" href="#docker-compose" title="Permanent link"></a></h4>
+<p><a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_docker-compose.md">Docker-compose sample file</a></p>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link"></a></h4>
+<p>To access the API documentation, go to <a href="https://github.com/ConsenSys/Mahuta/blob/master/mahuta-docs/mahuta_http-api.md">Mahuta HTTP API</a></p>
+<h5 id="create-the-index-article">Create the index <code>article</code><a class="headerlink" href="#create-the-index-article" title="Permanent link"></a></h5>
+<ul>
+<li><em>Sample Request:</em></li>
+</ul>
+<pre><code>curl -X POST \
+  http://localhost:8040/mahuta/config/index/article \
+  -H 'Content-Type: application/json' 
+</code></pre>
+<ul>
+<li>
+<p><em>Success Response:</em></p>
+<ul>
+<li>Code: 200<br />
+    Content:</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+    &quot;status&quot;: &quot;SUCCESS&quot;
+}
+</code></pre>
+<h5 id="store-and-index-an-article-and-its-metadata">Store and index an article and its metadata<a class="headerlink" href="#store-and-index-an-article-and-its-metadata" title="Permanent link"></a></h5>
+<ul>
+<li><em>Sample Request:</em></li>
+</ul>
+<pre><code>curl -X POST \
+  'http://localhost:8040/mahuta/index' \
+  -H 'content-type: application/json' \
+  -d '{&quot;content&quot;:&quot;# Hello world,\n this is my first file stored on **IPFS**&quot;,&quot;indexName&quot;:&quot;article&quot;,&quot;indexDocId&quot;:&quot;hello_world&quot;,&quot;contentType&quot;:&quot;text/markdown&quot;,&quot;index_fields&quot;:{&quot;title&quot;:&quot;Hello world&quot;,&quot;author&quot;:&quot;Gregoire Jeanmart&quot;,&quot;votes&quot;:10,&quot;date_created&quot;:1518700549,&quot;tags&quot;:[&quot;general&quot;]}}'
+</code></pre>
+<ul>
+<li>
+<p><em>Success Response:</em></p>
+<ul>
+<li>Code: 200<br />
+    Content:</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+  &quot;indexName&quot;: &quot;article&quot;,
+  &quot;indexDocId&quot;: &quot;hello_world&quot;,
+  &quot;contentId&quot;: &quot;QmWHR4e1JHMs2h7XtbDsS9r2oQkyuzVr5bHdkEMYiqfeNm&quot;,
+  &quot;contentType&quot;: &quot;text/markdown&quot;,
+  &quot;pinned&quot;: true,
+  &quot;indexFields&quot;: {
+    &quot;title&quot;: &quot;Hello world&quot;,
+    &quot;author&quot;: &quot;Gregoire Jeanmart&quot;,
+    &quot;votes&quot;: 10,
+    &quot;createAt&quot;: 1518700549,
+    &quot;tags&quot;: [
+      &quot;general&quot;
+    ]
+  },
+  &quot;status&quot;: &quot;SUCCESS&quot;
+}
+</code></pre>
+<h5 id="search-by-query">Search by query<a class="headerlink" href="#search-by-query" title="Permanent link"></a></h5>
+<ul>
+<li><em>Sample Request:</em></li>
+</ul>
+<pre><code>curl -X POST \
+ 'http://localhost:8040/mahuta/query/search?index=article' \
+ -H 'content-type: application/json' \
+ -d '{&quot;query&quot;:[{&quot;name&quot;:&quot;title&quot;,&quot;operation&quot;:&quot;CONTAINS&quot;,&quot;value&quot;:&quot;Hello&quot;},{&quot;name&quot;:&quot;author.keyword&quot;,&quot;operation&quot;:&quot;EQUALS&quot;,&quot;value&quot;:&quot;Gregoire Jeanmart&quot;},{&quot;name&quot;:&quot;votes&quot;,&quot;operation&quot;:&quot;GT&quot;,&quot;value&quot;:&quot;5&quot;}]}'
+</code></pre>
+<ul>
+<li>
+<p><em>Success Response:</em></p>
+<ul>
+<li>Code: 200<br />
+    Content:</li>
+</ul>
+</li>
+</ul>
+<pre><code>{
+  &quot;status&quot;: &quot;SUCCESS&quot;,
+  &quot;page&quot;: {
+    &quot;pageRequest&quot;: {
+      &quot;page&quot;: 0,
+      &quot;size&quot;: 20,
+      &quot;sort&quot;: null,
+      &quot;direction&quot;: &quot;ASC&quot;
+    },
+    &quot;elements&quot;: [
+      {
+        &quot;metadata&quot;: {
+          &quot;indexName&quot;: &quot;article&quot;,
+          &quot;indexDocId&quot;: &quot;hello_world&quot;,
+          &quot;contentId&quot;: &quot;Qmd6VkHiLbLPncVQiewQe3SBP8rrG96HTkYkLbMzMe6tP2&quot;,
+          &quot;contentType&quot;: &quot;text/markdown&quot;,
+          &quot;pinned&quot;: true,
+          &quot;indexFields&quot;: {
+            &quot;author&quot;: &quot;Gregoire Jeanmart&quot;,
+            &quot;votes&quot;: 10,
+            &quot;title&quot;: &quot;Hello world&quot;,
+            &quot;createAt&quot;: 1518700549,
+            &quot;tags&quot;: [&quot;general&quot;]
+          }
+        }
+      }
+    ],
+    &quot;totalElements&quot;: 1,
+    &quot;totalPages&quot;: 1
+  }
+}
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Getting started with Mahuta - A Search engine for the IPFS</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/getting-started-with-mahuta-a-search-engine-for-th/874b1fe11d00406bbbef053405fd4538/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-10</li>
+<li><strong>Kauri original tags:</strong> ipfs-store, elasticsearch, ipfs, mahuta, search-engine, caching</li>
+<li><strong>Kauri original hash:</strong> QmbaS915QBSxes6g5WU5jFVZVuv4T13xxTVd4uSkWbnsrD</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem--crowd-psych/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem--crowd-psych/" class="btn btn-xs btn-link">
+        Ethereum community and its ecosystem  crowd psychology analysis part 1
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../installing-ipfs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../installing-ipfs/" class="btn btn-xs btn-link">
+        Installing IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/IPFS 101/getting-started-with-mahuta-a-search-engine-for-t.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

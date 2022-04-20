@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Ethereum%20Node%20Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Running an Ethereum Full Node on a RaspberryPi 4 (model B) - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Running an Ethereum Full Node on a RaspberryPi 4 (model B)", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Hardware", url: "#hardware" },
+              {title: "Installation", url: "#installation" },
+              {title: "Syncing", url: "#syncing" },
+              {title: "Transition to full-node", url: "#transition-to-full-node" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "Special thanks", url: "#special-thanks" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="running-an-ethereum-full-node-on-a-raspberrypi-4-model-b">Running an Ethereum Full Node on a RaspberryPi 4 (model B)<a class="headerlink" href="#running-an-ethereum-full-node-on-a-raspberrypi-4-model-b" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYqK1cmTmUA29EUX39UY1n7PdQwXLkTXGyaNgPXmraVLc" /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>My wife recently offered me the latest <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/"><strong>Raspberry Pi 4 (model B) 4GB</strong></a>. So I was really excited to try to sync an <strong>Ethereum Full Node</strong> on the number one Single-Board Computer (SBC).</p>
+<p>Syncing Ethereum has always been a pain point for many people because it's a complex process with multiple options, including different verification modes which requires different setup that can cost a lot of money and takes weeks to sync.</p>
+<p>Here is a summary of the different options available to synchronise the Ethereum blockchain with <a href="https://github.com/ethereum/go-ethereum">Geth (Go-Ethereum)</a>:</p>
+<p><strong>Blockchain sync mode [<code>--syncmode</code>]:</strong></p>
+<ul>
+<li>
+<p><strong><code>full</code> sync</strong>: A full sync downloads all the data (block headers and block bodies), processes the entire blockchain one link at a time, and replays all transactions that ever happened in history (transaction processing and PoW verification). This method is the most traditional and stable but can take a very a long time (up to a few weeks) and would require a more powerful machine. At the end of the process, the node is a full node.</p>
+</li>
+<li>
+<p><strong><code>fast</code> sync</strong>: A fast sync also downloads all the data (block headers and block bodies) but exchanges processing power for bandwidth usage. Instead of processing all the transactions that ever happened, fast sync downloads all the transaction receipts and the entire recent state database and perform a PoW verification.
+When the chain reaches a recent state (head - 1024 blocks), geth switches to full sync mode, import the remaining blocks and process them as in the classical sync (full) to obtain a full node.</p>
+</li>
+<li>
+<p><strong><code>light</code> sync</strong>: Light mode syncs directly to the last few blocks, does not store the whole blockchain in database. Unlike full and fast, is not a full node as it doesn't store the entire blockchain but only the block headers, and it depends on full nodes. But this approach, less secure and more suitable for IOT/mobiles, only uses 100MB of space.</p>
+</li>
+</ul>
+<p><strong>Blockchain garbage collection mode [<code>--gcmode</code>]:</strong>
+Garbage collection is used to discard old state tries and save some space.</p>
+<ul>
+<li>
+<p><strong><code>--gcmode full</code></strong> enables the garbage collection to keep in memory only the latest 128 tries. This saves a lot of space and it takes less than 200 GB at this stage (Sept 2019) to run a full node in this setup.</p>
+</li>
+<li>
+<p><strong><code>--gcmode archive</code></strong> disables the garbage collection and keep all the historical state data blocks after blocks of Ethereum since the Genesis. (bear in mind, it takes more than 2.3 TB of space). But very few people (such as Block Explorers) need an archive node. </p>
+</li>
+</ul>
+<p><br /></p>
+<p>In this guide we will follow the second synchronisation mode, <strong>fast</strong> (with <strong>full</strong> garbage collection), to run a full-node on a RaspberryPi 4. Some people might ask what the benefits are of running your own node. Here are some examples:</p>
+<ul>
+<li>You will own a trusted Ethereum stack you can rely on to manage your assets and send transactions to the network yourself (remote nodes are generally reliable but are controlled by 3rd parties and typically throttle heavy usage).</li>
+<li>You can help secure the network; the more independent nodes running the more copies there are of the blockchain and the more resilient it is.</li>
+<li>You want to make the network faster and more secure; the more nodes the lower the latency in sharing blocks and the more copies of the blockchain that exist.</li>
+<li>It is fun!</li>
+</ul>
+<p><br /></p>
+<h3 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link"></a></h3>
+<p>We will start with an example of setup using a Raspberry Pi 4, a SSD and all the necessary components. But you can try alternative and equivalent solutions which should work depending on the following requirements:</p>
+<ul>
+<li>Memory: 4GB RAM DDR3</li>
+<li>Fast SSD (recommended to use NVME SSD if the board has a PCIe interface – <em>this is not the case with the RPi4</em>)</li>
+<li>High-speed Internet</li>
+</ul>
+<h4 id="board">Board<a class="headerlink" href="#board" title="Permanent link"></a></h4>
+<p>As mentioned, the board is the latest <a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry 4 (model B) - 4GB</a> with the following specification:</p>
+<p><img alt="" src="https://i.imgur.com/NOOqKVV.png" /></p>
+<p><img alt="" src="https://i.imgur.com/OqyPXwO.png" /></p>
+<p><strong>Recommended price:</strong> $55</p>
+<p><br /></p>
+<h4 id="sd-card">SD Card<a class="headerlink" href="#sd-card" title="Permanent link"></a></h4>
+<p>To host the operating system (OS), I use a <a href="https://www.amazon.com/Sandisk-Ultra-Micro-UHS-I-Adapter/dp/B073K14CVB">SanDisk 16GB Ultra microSD</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRfSNZLcX56Y9FunZQxT3aMY7Z69d2xBVznT2RHxwsJdw" /></p>
+<p><strong>Recommended price:</strong> $5</p>
+<p><br /></p>
+<h4 id="disk-ssd">Disk SSD<a class="headerlink" href="#disk-ssd" title="Permanent link"></a></h4>
+<p>In order to store the large Ethereum state database, which requires very high Disk IO performance, we connect a <a href="https://www.amazon.com/Samsung-T5-Portable-SSD-MU-PA500B/dp/B073GZBT36">Samsung SSD T5 (500GB)</a> to the board via USB3.0.</p>
+<p><img alt="" src="https://i.imgur.com/Ig3lawZ.png" /></p>
+<p>It is recommended that you use at least a 500GB SSD because the actual size of the Ethereum mainnet after a fast sync is about 200GB. That should give you a few years before rebuilding the whole thing on a larger disk.</p>
+<p><strong>Recommended price:</strong> $90</p>
+<p><br /></p>
+<h4 id="power-supply">Power Supply<a class="headerlink" href="#power-supply" title="Permanent link"></a></h4>
+<p>Finally we use a <a href="https://www.amazon.com/CanaKit-Raspberry-Power-Supply-USB-C/dp/B07TYQRXTK">3.5A USB-C power supply</a> to power up the SBC.</p>
+<p><strong>Recommended price:</strong> $10</p>
+<p><br /></p>
+<h4 id="extra-stuff">Extra stuff<a class="headerlink" href="#extra-stuff" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p>If you would like to connect to the Internet through Ethernet, you would need an Ethernet Cable</p>
+</li>
+<li>
+<p>Headless installation might be difficult for beginners, so it is sometime easier to connect the Pi to a screen via HDMI (mini) and a keyboard.</p>
+</li>
+<li>
+<p>A Heatsink is recommended to keep the CPU cool and reduce the risk of hardware failure due to overheating.</p>
+</li>
+<li>
+<p>A case to protect the board.</p>
+</li>
+</ul>
+<p><br /></p>
+<h4 id="total-cost">Total cost<a class="headerlink" href="#total-cost" title="Permanent link"></a></h4>
+<p>The total cost for this setup is <strong>$160</strong> with an estimated annual recurring cost of $10/year for electricity. </p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi 4 (model B) 4GB</td>
+<td>$55</td>
+</tr>
+<tr>
+<td>16GB SanDisk Ultra Class 10 MicroSD</td>
+<td>$5</td>
+</tr>
+<tr>
+<td>Samsung SSD T5 (500GB)</td>
+<td>$90</td>
+</tr>
+<tr>
+<td>3.5A USB-C power supply</td>
+<td>$10</td>
+</tr>
+<tr>
+<td></td>
+<td>$160</td>
+</tr>
+</tbody>
+</table>
+<p><br /></p>
+<p><img alt="" src="https://i.imgur.com/3exyprE.png" /></p>
+<p><em>Result of the hardware installation</em></p>
+<p><br /></p>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h3>
+<h4 id="install-and-configure-the-os">Install and configure the OS<a class="headerlink" href="#install-and-configure-the-os" title="Permanent link"></a></h4>
+<p>In the first part of the installation, we are going to install the <strong>Raspbian</strong> Linux Operating System and configure it in a reliable and secure way.</p>
+<p><strong>1. Download the latest version of the Raspbian Linux OS for RaspberryPi</strong></p>
+<p>Go to <a href="https://www.raspberrypi.org/downloads/raspbian/">download page</a> and download <em>Raspbian Buster Lite</em>.</p>
+<ul>
+<li>Raspbian is a Debian-based computer operating system for Raspberry Pi.</li>
+<li>Buster Lite is a minimal version of Raspbian that doesn't contain a Desktop or Recommended software. We can start from a very clean, light and fresh install using this version.</li>
+</ul>
+<p><strong>2. Unzip the archive to obtain the Image <code>2019-07-10-raspbian-buster-lite.img</code></strong></p>
+<p><strong>3. Plug an SD Card (minimum 8GB) into your laptop</strong></p>
+<p><strong>4. Use Etcher and flash the image on the SD card</strong></p>
+<p>Download <a href="https://www.balena.io/etcher/">Etcher</a> to flash OS images to SD cards &amp; USB drives, safely and easily.</p>
+<p>Launch Etcher, select first the image extracted of Raspbian, select the Media (SD card) and click on Flash.</p>
+<p><img alt="" src="https://i.imgur.com/JCmCc9u.png" /></p>
+<p><img alt="" src="https://i.imgur.com/Q806NWp.png" /></p>
+<p><strong>5. Once flashed, navigate to the folder <code>/boot</code> of the SD card and create an empty file <code>ssh</code></strong></p>
+<pre><code class="language-shell">$ cd /media/&lt;pi&gt;/boot
+$ touch ssh
+</code></pre>
+<p><strong>6. Unplug the SD Card from your laptop and plug it to the Raspberry Pi</strong></p>
+<p><strong>7. Plug the power to the Raspberry Pi as well as an Ethernet cable</strong></p>
+<p><strong>8. Determine its IP address (default hostname of the machine is <code>raspberrypi</code>)</strong></p>
+<p>Your network router should provide the list of all the connected devices via Ethernet and WIFI.</p>
+<p><img alt="" src="https://i.imgur.com/lo1w44G.png" /></p>
+<p><em>Example - VirginMedia Hub</em></p>
+<p><strong>9. Connect via SSH with default user <code>pi</code> and enter the default password <code>raspberry</code></strong></p>
+<p>We enabled ssh by default during step 5, so it is possible to connect remotely via SSH from a Linux terminal (or using Putty if you use Windows) to the system.</p>
+<pre><code class="language-shell">$ ssh pi@192.168.0.38
+pi@192.168.0.38's password: raspberry
+Linux raspberrypi 4.19.57-v7l+ #1244 SMP Thu Jul 4 18:48:07 BST 2019 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+
+SSH is enabled and the default password for the 'pi' user has not been changed.
+This is a security risk - please login as the 'pi' user and type 'passwd' to set a new password.
+</code></pre>
+<p><strong>10. Change the default password of user <code>pi</code></strong></p>
+<p>The default password configured by Raspbian is well known, so it is highly recommended to change it to something else:</p>
+<pre><code class="language-shell">$ passwd
+Changing password for pi.
+Current password: raspberry
+New password: $3cret
+Retype new password: $3cret
+passwd: password updated successfully
+</code></pre>
+<p><strong>11. Install VIM as a command line editor</strong></p>
+<pre><code class="language-shell">$ sudo apt install vim
+</code></pre>
+<p><strong>11. Change the hostname</strong></p>
+<p>The default hostname attributed by Raspbian is <code>raspberrypi</code>, this can cause confusion if you have multiple devices, so it's recommended to rename the machine with a more specific hostname related to its purpose. </p>
+<p>Open the file <code>/etc/hostname</code> and replace the content by <code>geth</code>:</p>
+<pre><code class="language-shell">$ sudo vi /etc/hostname
+</code></pre>
+<p>Then change <code>/etc/hosts</code> and replace the line <code>127.0.1.1 raspberrypi</code> by <code>127.0.1.1 geth</code></p>
+<pre><code class="language-shell">$ sudo vi /etc/hosts
+</code></pre>
+<p><strong>12. Upgrade the OS</strong></p>
+<p>Upgrade the system in order to get the latest patches.</p>
+<pre><code class="language-shell">$ sudo apt-get update &amp;&amp; sudo apt-get upgrade
+</code></pre>
+<p><strong>13. Configure a static IP</strong></p>
+<p>We are now going to configure the static IP <code>192.168.0.24</code> so the router won't assign a different IP each time the Raspberry PI restarts. 
+You can either do this via your router DHCP configuration or directly in the network configuration of the machine or even both.</p>
+<p>a. Assign a static private IP address to Raspberry Pi with a router</p>
+<p>Go to your network router console and configure the static IP in the DHCP section.</p>
+<p><img alt="" src="https://i.imgur.com/oDHTLY5.png" /></p>
+<p><em>Example - VirginMedia Hub</em></p>
+<p>b. Assign a static private IP address to Raspberry Pi with dhcpcd</p>
+<p>Edit the file <code>/etc/dhcpcd.conf</code> and add the following lines at the end</p>
+<pre><code class="language-shell">$ sudo vi /etc/dhcpcd.conf
+
+interface eth0
+static ip_address=192.168.0.24/24
+static routers=192.168.0.1
+static domain_name_servers=192.168.100.4
+</code></pre>
+<p><em>Change the interface <code>eth0</code>, router address and DNS servers accordingly to your network config.</em></p>
+<p><strong>14. Reboot</strong></p>
+<p>Reboot the machine and log in with the static IP and the new password.</p>
+<pre><code class="language-shell">$ sudo reboot
+
+(... wait a few seconds)
+
+$ ssh pi@192.168.0.24
+pi@192.168.0.24's password: &lt;new password&gt;
+</code></pre>
+<p><br /></p>
+<h4 id="mount-the-ssd">Mount the SSD<a class="headerlink" href="#mount-the-ssd" title="Permanent link"></a></h4>
+<p>In the second part of this guide, We will mount an SSD connected to one of the two USB3.0 ports. </p>
+<p>As explained, only SSDs are fast enough (I/O speed) to sync Geth to the Ethereum mainnet.</p>
+<p><img alt="" src="https://www.memecreator.org/static/images/memes/4926846.jpg" /></p>
+<p><strong>1. Plug the SSD to the USB3.0 (blue) port</strong></p>
+<p><strong>2. Find the disk name (drive)</strong></p>
+<p>Run the command <code>fdisk -l</code> to list all the connected disks to the system (includes the RAM) and try to identify the SSD. The disk which has a size of <em>465.6 GiB</em> and a model name <em>Portable SSD T5</em> and located into <code>/dev/sda</code> is our SSD.</p>
+<pre><code class="language-shell">$ sudo fdisk -l
+Disk /dev/ram0: 4 MiB, 4194304 bytes, 8192 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+
+(...)
+
+Disk /dev/sda: 465.8 GiB, 500107862016 bytes, 976773168 sectors
+Disk model: Portable SSD T5 
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 33553920 bytes
+Disklabel type: dos
+Disk identifier: 0x41d0909f
+</code></pre>
+<p><strong>3. Create a partition</strong></p>
+<p>If you disk is new and just out of the package, you will need to create a partition.</p>
+<pre><code class="language-shell">$ sudo mkfs.ext4 /dev/sda
+mke2fs 1.44.5 (15-Dec-2018)
+/dev/sda contains a ext4 file system
+    last mounted on /mnt/ssd on Mon Sep  9 21:06:47 2019
+Proceed anyway? (y,N) y
+Creating filesystem with 58609664 4k blocks and 14655488 inodes
+Filesystem UUID: 5c3a8481-682c-4834-9814-17dba166f591
+Superblock backups stored on blocks: 
+    32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+    4096000, 7962624, 11239424, 20480000, 23887872
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (262144 blocks): 
+done
+Writing superblocks and filesystem accounting information: done     
+</code></pre>
+<p><strong>4. Manually mount the disk</strong></p>
+<p>You can manually mount the disk to the folder <code>/mnt/ssd</code>.</p>
+<pre><code class="language-shell">$ sudo mkdir /mnt/ssd
+$ sudo chown -R pi:pi /mnt/ssd/
+$ sudo mount /dev/sda /mnt/ssd
+</code></pre>
+<p><strong>5. Automatically mount the disk on startup</strong></p>
+<p>Next step consists to configure <code>fstab</code> to automatically mount the disk when the system starts.</p>
+<p>You first need to find the Unique ID of the disk using the command <code>blkid</code>.</p>
+<pre><code class="language-shell">$ sudo blkid
+
+/dev/mmcblk0p1: LABEL_FATBOOT=&quot;boot&quot; LABEL=&quot;boot&quot; UUID=&quot;F661-303B&quot; TYPE=&quot;vfat&quot; PARTUUID=&quot;a91dd8a2-01&quot;
+/dev/mmcblk0p2: LABEL=&quot;rootfs&quot; UUID=&quot;8d008fde-f12a-47f7-8519-197ea707d3d4&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;a91dd8a2-02&quot;
+/dev/mmcblk0: PTUUID=&quot;a91dd8a2&quot; PTTYPE=&quot;dos&quot;
+/dev/sda: UUID=&quot;5c3a8481-682c-4834-9814-17dba166f591&quot; TYPE=&quot;ext4&quot;
+</code></pre>
+<p>Our SSD located in <code>/dev/sda</code> has a unique ID <code>5c3a8481-682c-4834-8814-17dba166f591</code>.</p>
+<p>Edit the file <code>/etc/fstab</code> and add the following line to configure auto-mount of the disk on startup.</p>
+<pre><code class="language-shell">$ sudo vi /etc/fstab
+</code></pre>
+<p>Add this line at the end:</p>
+<pre><code class="language-shell">UUID=5c3a8481-682c-4834-9814-17dba166f591 /mnt/ssd ext4 defaults 0 0
+</code></pre>
+<p>Reboot the system</p>
+<pre><code class="language-shell">$ sudo reboot
+</code></pre>
+<p>You can verify the disk is correctly mounted on startup with the following command:</p>
+<pre><code class="language-shell">$ df -ha /dev/sda
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda        458G   73M  435G   1% /mnt/ssd
+</code></pre>
+<p><strong>6. Configure Swap on the SSD</strong></p>
+<p>Geth can consume a lot of memory during the syncing process so it is highly suggested that you create a swap file (overflow RAM) to prevent any kind of OutOfMemory error. It is also strongly advised to put the swap file on the fastest disk, which is the SSD in our case.</p>
+<p><img alt="" src="https://imgur.com/W4h1A90.png" /></p>
+<p>Edit the file <code>/etc/dphys-swapfile</code> </p>
+<ul>
+<li>replace <code>CONF_SWAPSIZE=100</code> by <code>CONF_SWAPSIZE=8192</code> to allocate a 8GB SWAP</li>
+<li>replace <code>CONF_SWAPFILE=/var/swap</code> by <code>CONF_SWAPFILE=/mnt/ssd/swap.file</code> to locate the swap on the SSD</li>
+</ul>
+<pre><code class="language-shell">$ sudo vi /etc/dphys-swapfile
+
+CONF_SWAPSIZE=8192
+CONF_MAXSWAP=8192
+CONF_SWAPFILE=/mnt/ssd/swap.file
+</code></pre>
+<p>Restart the swap</p>
+<pre><code class="language-shell">$ sudo /etc/init.d/dphys-swapfile restart
+</code></pre>
+<p><strong>7. Disk performance checkpoint</strong></p>
+<p>Before moving forward, your setup requires a very high-speed disk IO throughput. You can test the performance of your SSD disk using the following commands:</p>
+<p><em>Disk write:</em></p>
+<pre><code class="language-shell">$ dd if=/dev/zero  of=/mnt/ssd/deleteme.dat bs=32M count=64 oflag=direct
+64+0 records in
+64+0 records out
+2147483648 bytes (2.1 GB, 2.0 GiB) copied, 13.6021 s, 158 MB/s
+</code></pre>
+<p><em>Disk read:</em></p>
+<pre><code class="language-shell">$ dd if=/mnt/ssd/deleteme.dat of=/dev/null bs=32M count=64 iflag=direct
+64+0 records in
+64+0 records out
+2147483648 bytes (2.1 GB, 2.0 GiB) copied, 22.3361 s, 96.1 MB/s
+</code></pre>
+<p>Below 50MB/s (write/read), I wouldn't recommend trying to syncing a Geth node because you might never be able to reach the head and complete the sync.</p>
+<p><em>Remove <code>/mnt/ssd/deleteme.dat</code> after the performance test.</em></p>
+<p><br /></p>
+<h4 id="other-configuration">Other configuration<a class="headerlink" href="#other-configuration" title="Permanent link"></a></h4>
+<p><strong>Port-forwarding</strong></p>
+<p>In order to communicate correctly with other peers, Geth needs to accept connections on port <strong>30303</strong> from outside. You will to configure your firewall accordingly to allows for incoming requests on port 30303 to reach the machine via port-forwarding or port-triggering.</p>
+<p><img alt="" src="https://i.imgur.com/mo4zESE.png" /></p>
+<p><em>Example - VirginMedia Hub (Port-forwarding)</em></p>
+<p><br />
+<strong>Required softwares</strong></p>
+<p>Install the following software which might be needed during the procedure.</p>
+<pre><code class="language-shell">$ sudo apt-get install git sysstat -y
+</code></pre>
+<p><br />
+<strong>Recommended options to stabilise the node</strong></p>
+<ol>
+<li>Decrease the RAM allocated to the GPU</li>
+</ol>
+<p>Edit <code>/boot/config.txt</code> and add or edit the following line:</p>
+<pre><code>gpu_mem=16
+</code></pre>
+<ol>
+<li>Invoke 64 bits kernel</li>
+</ol>
+<p>Edit <code>/etc/systemd/system.conf,</code> and add or edit the following line </p>
+<pre><code>arm_64bit=1
+</code></pre>
+<p><br /></p>
+<h4 id="install-and-configure-geth">Install and configure Geth<a class="headerlink" href="#install-and-configure-geth" title="Permanent link"></a></h4>
+<p>Now our system is ready for you to install and configure Geth.</p>
+<h5 id="a-install-and-configure-golang">a. Install and configure Golang<a class="headerlink" href="#a-install-and-configure-golang" title="Permanent link"></a></h5>
+<ol>
+<li>Download the archive in <code>~/download</code></li>
+</ol>
+<p><em>For a Raspberry Pi 4, we need to <a href="https://golang.org/dl/">download</a> Golang for Architecture ARMv6: <code>go1.13.1.linux-armv6l.tar.gz</code></em></p>
+<pre><code class="language-shell">$ mkdir ~/download
+$ cd ~/download
+$ wget https://dl.google.com/go/go1.13.1.linux-armv6l.tar.gz
+</code></pre>
+<ol>
+<li>Extract it into <code>/usr/local</code></li>
+</ol>
+<pre><code class="language-shell">$ sudo tar -C /usr/local -xvf go1.13.1.linux-armv6l.tar.gz
+</code></pre>
+<ol>
+<li>Change owner to root, and change permissions</li>
+</ol>
+<pre><code class="language-shell">$ sudo chown root:root /usr/local/go
+$ sudo chmod 755 /usr/local/go
+</code></pre>
+<ol>
+<li>Set environment variables. Edit the file <code>/etc/profile</code> and append this line at the end:</li>
+</ol>
+<pre><code class="language-shell">$ sudo vi /etc/profile 
+</code></pre>
+<pre><code class="language-shell">export PATH=$PATH:/usr/local/go/bin
+</code></pre>
+<ol>
+<li>Reboot</li>
+</ol>
+<pre><code class="language-shell">$ sudo reboot
+</code></pre>
+<ol>
+<li>Try it</li>
+</ol>
+<pre><code class="language-shell">$ go version
+go version go1.13.1 linux/arm
+</code></pre>
+<h5 id="b-install-geth-from-source">b. Install Geth from source<a class="headerlink" href="#b-install-geth-from-source" title="Permanent link"></a></h5>
+<p>To install Ethereum client <strong>Geth</strong>, we will compile it from the <a href="https://github.com/ethereum/go-ethereum">GitHub source</a>.</p>
+<ol>
+<li>Clone the repository</li>
+</ol>
+<pre><code class="language-shell">$ git clone https://github.com/ethereum/go-ethereum.git --branch v&lt;version&gt;
+</code></pre>
+<p><em>Remove <code>--branch v&lt;version&gt;</code> if you want to use the latest code (unstable).</em></p>
+<ol>
+<li>Go into the folder and build geth</li>
+</ol>
+<pre><code class="language-shell">$ cd go-ethereum
+$ make geth
+(wait a couple of minutes...)
+</code></pre>
+<ol>
+<li>Move the binary to /usr/local/bin</li>
+</ol>
+<pre><code class="language-shell">$ sudo mv ~/go-ethereum/build/bin/geth /usr/local/bin
+</code></pre>
+<ol>
+<li>Try it</li>
+</ol>
+<pre><code class="language-shell">$ geth version 
+Geth
+Version: 1.9.6-stable
+Git Commit: bd05968077f27f7eb083404dd8448157996a8788
+Architecture: arm
+Protocol Versions: [63]
+Network Id: 1
+Go Version: go1.13.1
+Operating System: linux
+GOPATH=
+GOROOT=/usr/local/go
+</code></pre>
+<h5 id="c-configure-and-run-geth">c. Configure and run Geth<a class="headerlink" href="#c-configure-and-run-geth" title="Permanent link"></a></h5>
+<p>We first need to configure Geth to synchronise in <strong>fast</strong> mode using the flag <code>--syncmode fast</code>. </p>
+<p>Geth also has a <code>--cache</code> option which specifies the amount of RAM the client can use. Raspberry Pi 4 has 4GB RAM so we can use <code>--cache 256</code> without running into Out Of Memory errors.</p>
+<p>By default, all the data are stored in <code>~/.ethereum/geth/</code> located on the SD Card. We want to store the Ethereum data on the SSD. For that, we can use the option <code>--datadir /mnt/ssd/ethereum</code> to tell Geth to read/write the datastore on the SSD.</p>
+<ol>
+<li>Create a data directory on the SSD with pi permissions</li>
+</ol>
+<pre><code class="language-shell">$ sudo mkdir /mnt/ssd/ethereum
+$ sudo chown -R pi:pi /mnt/ssd/ethereum
+</code></pre>
+<ol>
+<li>Run the following command to see if Geth starts syncing the blockchain without error.</li>
+</ol>
+<pre><code class="language-shell">$ geth --syncmode fast --cache 256 --datadir /mnt/ssd/ethereum
+
+Ctrl+C to stop it
+</code></pre>
+<p><em><a href="https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options">See the documentation</a> for command line options</em></p>
+<h5 id="d-configure-geth-as-a-service-systemd">d. Configure Geth as a service (systemd)<a class="headerlink" href="#d-configure-geth-as-a-service-systemd" title="Permanent link"></a></h5>
+<p>We want to run Geth as a service and keep the process running in the background after we close the session, and be able to recover from crashes automatically.
+We need to install a systemctl service (<a href="https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units">systemd explanation</a>)</p>
+<ol>
+<li>Create the following file:</li>
+</ol>
+<pre><code class="language-shell">$ sudo vi /etc/systemd/system/geth.service
+</code></pre>
+<pre><code class="language-shell">[Unit]
+Description=Geth Node
+After=network.target auditd.service
+Wants=network.target
+[Service]
+WorkingDirectory=/home/pi
+ExecStart=/usr/local/bin/geth --syncmode fast --cache 256 --datadir /mnt/ssd/ethereum
+User=pi
+Group=pi
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+Alias=geth.service
+</code></pre>
+<ol>
+<li>Start the service</li>
+</ol>
+<p><em>The following command updates the daemon list and starts Geth in the background using our service file definition</em></p>
+<pre><code class="language-shell">$ sudo systemctl daemon-reload
+$ sudo systemctl start geth
+</code></pre>
+<ol>
+<li>Configure the service to start at boot</li>
+</ol>
+<p><em>The following command configure Geth to automatically start after a reboot.</em></p>
+<pre><code class="language-shell">$ sudo systemctl enable geth
+</code></pre>
+<ol>
+<li>Check the logs</li>
+</ol>
+<p><em>You can visualise the service logs by watching the file <code>/var/log/syslog</code></em></p>
+<pre><code class="language-shell">$ tail -f /var/log/syslog 
+
+Sep 23 15:35:36 geth geth[1876]: INFO [09-23|15:35:36.953] Imported new state entries               count=744  elapsed=101.921ms  processed=37498448 pending=52340  retry=29  duplicate=1259 unexpected=7938
+Sep 23 15:35:37 geth geth[1876]: INFO [09-23|15:35:37.468] Imported new state entries               count=1051 elapsed=90.277ms   processed=37499499 pending=52294  retry=1   duplicate=1259 unexpected=7938
+Sep 23 15:35:37 geth geth[1876]: INFO [09-23|15:35:37.953] Imported new state entries               count=1200 elapsed=45.520ms   processed=37500699 pending=53140  retry=10  duplicate=1259 unexpected=7938
+Sep 23 15:35:38 geth geth[1876]: INFO [09-23|15:35:38.772] Imported new state entries               count=1007 elapsed=494.883ms  processed=37501706 pending=55936  retry=15  duplicate=1259 unexpected=7938
+Sep 23 15:35:39 geth geth[1876]: INFO [09-23|15:35:39.046] Imported new state entries               count=1042 elapsed=10.600ms   processed=37502748 pending=58575  retry=10  duplicate=1259 unexpected=7938
+Sep 23 15:35:39 geth geth[1876]: INFO [09-23|15:35:39.340] Imported new state entries               count=966  elapsed=5.002ms    processed=37503714 pending=61462  retry=10  duplicate=1259 unexpected=7938
+Sep 23 15:35:39 geth geth[1876]: INFO [09-23|15:35:39.950] Imported new state entries               count=1028 elapsed=35.258ms   processed=37504742 pending=62667  retry=16  duplicate=1259 unexpected=7938
+Sep 23 15:35:40 geth geth[1876]: INFO [09-23|15:35:40.419] Imported new state entries               count=1350 elapsed=73.530ms   processed=37506092 pending=61650  retry=19  duplicate=1259 unexpected=7938
+Sep 23 15:35:40 geth geth[1876]: INFO [09-23|15:35:40.657] Imported new block headers               count=2048 elapsed=12.619s    number=3369149 hash=e7fe02…172100 age=2y6mo2w
+</code></pre>
+<p><img alt="" src="https://imgur.com/a5BlorF.gif" /></p>
+<p><br /></p>
+<h3 id="syncing">Syncing<a class="headerlink" href="#syncing" title="Permanent link"></a></h3>
+<p>We've installed and configured Geth, so now we have to wait a few days until the sync ends. In the meantime, let me share some insights about the syncing process and what's going on under the hood.</p>
+<p>First of all, in <em>fast</em> sync node, the syncing process is composed of <strong>two phases</strong> running in parallel: <strong>block sync</strong> and <strong>state trie download</strong>. Both phases need to be done in order to have a full node and switch to <em>full</em> mode where every transaction is executed and verified.</p>
+<p>The <strong>block sync</strong> downloads all the block information (header, transactions). This phase uses a lot of CPU and space to store all the data. You can observe this process in the logs with the mention of <em>"Importing block headers and block receipts"</em>.</p>
+<pre><code>INFO [09-26|09:25:19.045] Imported new block headers               count=1    elapsed=80.177ms     number=8623429 hash=c064e8…4daa8b age=1m1s
+INFO [09-26|09:19:52.655] Imported new block receipts              count=65   elapsed=396.964ms    number=8623342 hash=2ef982…20344e age=17m32s    size=2.35MiB
+</code></pre>
+<p>However, in fast mode no transaction are executed, so we do not have any account state available (ie. balances, nonces, smart contract code and data). Geth needs to download and cross-check with the latest block the state trie. This phase is called <strong>state trie download</strong> and usually takes longer than the block sync. 
+This phase is describes in the logs by the following statements:</p>
+<pre><code>INFO [09-26|09:29:27.542] Imported new state entries               count=1152 elapsed=16.372ms     processed=338933905 pending=2630   retry=0   duplicate=16797 unexpected=352359
+INFO [09-26|09:29:30.307] Imported new state entries               count=768  elapsed=10.657ms     processed=338934673 pending=3075   retry=0   duplicate=16797 unexpected=352359
+</code></pre>
+<p>The charts below shows some metrics during the syncing process. We an observe that once the block sync has finished, we are storing less data and consuming less CPU and memory. However, Geth is still downlading and writing the state entries at a high rate.</p>
+<p><img alt="" src="https://imgur.com/sGkyPwA.png" /></p>
+<p><em>Follow <a href="https://kauri.io/article/5ab5c4d558e04a73accebc652ef2246b">this article</a> to learn how to monitor Geth with GoogleSheet.</em></p>
+<p>During the process, you will observe some strange behaviours which are common to many people.</p>
+<ul>
+<li>
+<p><strong>Between 64 and 128 blocks behind</strong>
+After you finished the <strong>block sync</strong> phase and during the <strong>state trie download</strong> phase, the block number count will always oscillate between 64 and 128 block behind the latest block mined on Ethereum. 
+This is normal until the state trie download phase ends and your node is fully synced.</p>
+</li>
+<li>
+<p><strong>Pivot became stale</strong>
+If you can’t download all the state in 30 minutes (spoiler alert: you can’t), then you need to “pivot.” Pivoting means switching to a new launch block, and starting to sync again. Pivoting doesn’t mean starting from scratch, but it does increase the time spent downloading and verifying state.</p>
+</li>
+</ul>
+<pre><code>WARN [09-25|09:29:05.328] Pivot became stale, moving               old=8616956 new=8617021
+</code></pre>
+<ul>
+<li><strong>Dropping peer</strong>
+Geth is connected to multiple peers in order to retrieve the necessary information to run a full node. However, a peer can sometime be dysfunctional. That's why Geth automatically drops a peer when it detects an anomaly.</li>
+</ul>
+<pre><code>WARN [09-26|07:20:30.946] Stalling state sync, dropping peer       peer=68938142fde11a0d
+
+WARN [09-26|09:03:22.737] Dropping unsynced node during fast sync  id=032cb470bedcc353 conn=inbound addr=54.224.xx.xx:43396   type=Geth/v1.8.27-stable-4bcc0a37/linux-amd64/go1.11.9
+</code></pre>
+<p><br /></p>
+<h3 id="transition-to-full-node">Transition to full-node<a class="headerlink" href="#transition-to-full-node" title="Permanent link"></a></h3>
+<p>After exactly <strong>3 days, 23 hours and 49 minutes</strong> we observed the transition from fast mode to full mode:</p>
+<pre><code>INFO [09-27|11:23:14.601] Fast sync complete, auto disabling
+</code></pre>
+<p>Then you should see</p>
+<pre><code>INFO [09-27|11:24:14.848] Block synchronisation started
+INFO [09-27|11:24:29.351] Importing sidechain segment              start=8630211 end=8630283
+INFO [09-27|11:24:37.381] Imported new chain segment               blocks=4 txs=739 mgas=39.838 elapsed=8.029s mgasps=4.961 number=8630214 hash=0bcc00…b0ec25 age=19m27s dirty=4.79MiB
+INFO [09-27|11:24:46.358] Imported new chain segment               blocks=8 txs=736 mgas=59.772 elapsed=8.977s mgasps=6.658 number=8630222 hash=5bd330…be76b7 age=17m40s dirty=10.36MiB
+INFO [09-27|11:24:54.970] Imported new chain segment               blocks=8 txs=706 mgas=69.874 elapsed=8.612s mgasps=8.113 number=8630230 hash=0be45c…f85f32 age=16m34s dirty=15.65MiB
+</code></pre>
+<p>The website <a href="https://ethstats.net/">ethstats</a> retrieves the latest state of the Ethereum mainnet in real time and we can compare to see if we are synced.</p>
+<p><img alt="" src="https://i.imgur.com/i2n8hMx.png" /></p>
+<p><br /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>In conclusion, this article shows how simple and affordable it is to run a full-node on the Ethereum mainet and contribute to the good health of the network.</p>
+<p><img alt="" src="https://giphygifs.s3.amazonaws.com/media/OiZxRF6PUUkhO/giphy.gif" /></p>
+<p><br /></p>
+<h3 id="special-thanks">Special thanks<a class="headerlink" href="#special-thanks" title="Permanent link"></a></h3>
+<p>This guide began from a discussion about how hard it is to keep an Ethereum node stable and synced on a Single-Board Computer. So thank you for the interesting discussions and for your help in the last few weeks to make this experiment a success!</p>
+<ul>
+<li>Coogan Brennan</li>
+<li><a href="https://kauri.io/zigguratt/p">Daniel Ellison</a></li>
+<li>Lorenzo Sicilia</li>
+</ul>
+<p><br /></p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://github.com/ethereum/go-ethereum/issues/16218#issuecomment-371454280">Péter Szilágyi (aka karalabe) on Github - fast sync - March 2018</a></li>
+<li><a href="https://github.com/ethereum/go-ethereum/pull/1889">Péter Szilágyi (aka karalabe) on Github - fast synchronization algorithm - Oct 2015</a></li>
+<li><a href="https://hackernoon.com/getting-deep-into-geth-why-syncing-ethereum-node-is-slow-1edb04f9dc5">Getting Deep Into Geth: Why Syncing Ethereum Node Is Slow (Vaibhav Saini) - July 2018</a></li>
+<li><a href="https://medium.com/coinmonks/how-a-pruned-ethereum-node-can-fully-verify-the-blockchain-bbe9f29663ed">Dispelling Myths: How a Pruned Ethereum Node Can Fully Verify the Blockchain (Julian Martinez) - Sept 2018</a></li>
+<li><a href="https://medium.com/@jason.carver/intro-to-beam-sync-a0fd168be14a">Intro to Beam Sync (Jason Carver) - Sept 2019</a></li>
+<li><a href="https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options">geth - command line options</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Running an Ethereum Full Node on a RaspberryPi 4 (model B)</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/running-an-ethereum-full-node-on-a-raspberrypi-4-m/9695fcca217f46feb355245275835fc0/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-23</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, go-ethereum, raspberrypi, full-node, sync</li>
+<li><strong>Kauri original hash:</strong> QmZ4LHgqB57BkCTfMNyABupf3EiWbTEZxWjsmCvYzQgHGr</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../IPFS/building-a-twitter-bot-using-ipfs-cluster/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../IPFS/building-a-twitter-bot-using-ipfs-cluster/" class="btn btn-xs btn-link">
+        Building a Twitter Bot using IPFS Cluster 🤖
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../monitor-your-geth-node-with-google-sheet/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../monitor-your-geth-node-with-google-sheet/" class="btn btn-xs btn-link">
+        Monitor your Geth node with Google Sheet
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Ethereum Node Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

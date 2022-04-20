@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Tron/tron-quickstart/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Tron Quickstart - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Tron Quickstart", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Dependencies", url: "#dependencies" },
+              {title: "Setup TRON Quickstart", url: "#setup-tron-quickstart" },
+              {title: "MetaCoin DApp", url: "#metacoin-dapp" },
+              {title: "TronBox 2.1+ Configuration", url: "#tronbox-21-configuration" },
+              {title: "TronWeb Interaction", url: "#tronweb-interaction" },
+              {title: "Known Issues", url: "#known-issues" },
+              {title: "Docker Commands", url: "#docker-commands" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="tron-quickstart">Tron Quickstart<a class="headerlink" href="#tron-quickstart" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZADJcvUd7937t4ZSkBkp3ARbKpLBUiYLqrDyydFLSXTN" /></p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>This guide walks the user through the TRON Quickstart (v2.0.0) image setup. The image exposes a Full Node, Solidity Node, and Event Server. Through TRON Quickstart, the user can deploy DApps, smart contracts, and interact via the TronWeb library.   </p>
+<p><span id="dependency"></p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link"></a></h2>
+<p></span></p>
+<p><strong>Docker</strong>
+Please refer to the Docker official website to download and install the latest Docker version: </p>
+<p><strong><a href="https://docs.docker.com/docker-for-mac/install/" target="_blank">Docker Installation for Mac</a></strong>
+<strong><a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker Installation for Windows</a></strong></p>
+<p><strong>Node.JS Console</strong>
+This will be used to interact with the Full and Solidity Nodes via Tron-Web. </p>
+<p><strong><a href="https://nodejs.org/en/" target="_blank">Node.JS Console Download</a></strong></p>
+<p><strong>Clone TRON Quickstart</strong> </p>
+<pre><code>git clone https://github.com/tronprotocol/docker-tron-quickstart.git
+</code></pre>
+<h2 id="setup-tron-quickstart">Setup TRON Quickstart<a class="headerlink" href="#setup-tron-quickstart" title="Permanent link"></a></h2>
+<h3 id="tron-quickstart-build">TRON Quickstart Build<a class="headerlink" href="#tron-quickstart-build" title="Permanent link"></a></h3>
+<p>Navigate into the cloned <code>docker-tron-quickstart</code> directory and perform the build. </p>
+<pre><code>cd docker-tron-quickstart
+
+docker build -t tron .
+</code></pre>
+<h3 id="tron-quickstart-run">TRON Quickstart Run<a class="headerlink" href="#tron-quickstart-run" title="Permanent link"></a></h3>
+<p>Run the <code>docker run</code> command to launch TRON Quickstart. TRON Quickstart exposes port 9090 for Full Node, Solidity Node, and Event Server. </p>
+<pre><code>docker run -it --rm -p 9090:9090 --name tron -e &quot;defaultBalance=100000&quot; -e &quot;showQueryString=true&quot; -e &quot;showBody=true&quot; -e &quot;formatJson=true&quot; tron
+</code></pre>
+<p><em>Run Output:</em></p>
+<pre><code>Tron Quickstart v2.0.0
+
+
+Start nodes and event server...
+[PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+[PM2] PM2 Successfully daemonized
+[PM2][WARN] Applications eventron not running, starting...
+[PM2] App [eventron] launched (1 instances)
+┌──────────┬────┬─────────┬──────┬─────┬────────┬─────────┬────────┬─────┬───────────┬──────┬──────────┐
+│ App name │ id │ version │ mode │ pid │ status │ restart │ uptime │ cpu │ mem       │ user │ watching │
+├──────────┼────┼─────────┼──────┼─────┼────────┼─────────┼────────┼─────┼───────────┼──────┼──────────┤
+│ eventron │ 0  │ N/A     │ fork │ 48  │ online │ 0       │ 0s     │ 0%  │ 24.8 MB   │ root │ disabled │
+└──────────┴────┴─────────┴──────┴─────┴────────┴─────────┴────────┴─────┴───────────┴──────┴──────────┘
+ Use `pm2 show &lt;id|name&gt;` to get more details about an app
+Start the http proxy for dApps...
+[HPM] Proxy created: /  -&gt;  http://127.0.0.1:18191
+[HPM] Proxy created: /  -&gt;  http://127.0.0.1:18190
+[HPM] Proxy created: /  -&gt;  http://127.0.0.1:8060
+
+ Tron Quickstart listening on http://127.0.0.1:9090 
+
+
+
+ADMIN /admin/accounts-generation
+Sleeping for 1 second... Slept.
+Waiting when nodes are ready to generate 10 accounts...
+(1) Waiting for sync...
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+(2) Waiting for sync...
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+(3) Waiting for sync...
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+(4) Waiting for sync...
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+Sleeping for 1 second... Slept.
+(5) Waiting for sync...
+...
+Loading the accounts and waiting for the node to mine the transactions...
+(1) Waiting for receipts...
+Sending 100000 TRX to TU8E4BzdGg4adqTyRCEZrrkq2EXsUYHG2k
+Sending 100000 TRX to TGBN88CQN74i89Gy25749SUZr1HcTufF6z
+Sending 100000 TRX to TWtStDLxF7gAkYbrMgSAbKsNdXY2qMUSv5
+Sending 100000 TRX to TTvYtVvHKpdg9Q2Sfhc4uSsrNbtJV8DiJS
+Sending 100000 TRX to TTiJtZRijXeGDEQgQUK5eXcTchTt69siva
+Sending 100000 TRX to TDT6oLuRmVkHp3npeztqQR1g63KxcugFK9
+Sending 100000 TRX to TE8BVrC4MoqtFfsMJviERPn8vW1Uh8Mcdn
+Sending 100000 TRX to TADf7t8afXBTaHqyYLqRqxyrsPvwykxndv
+Sending 100000 TRX to TJ71yAB1Cq4Cw2TEq6Z6dwP6dJTB7vH75C
+Sending 100000 TRX to TPF46hEmM3AYWz9D2ix3yVpdePvyjdmJXd
+Sleeping for 3 seconds... Slept.
+(2) Waiting for receipts...
+Sleeping for 3 seconds... Slept.
+(3) Waiting for receipts...
+Sleeping for 3 seconds... Slept.
+(4) Waiting for receipts...
+Sleeping for 3 seconds... Slept.
+(5) Waiting for receipts...
+Sleeping for 3 seconds... Slept.
+(6) Waiting for receipts...
+Done.
+
+Available Accounts
+==================
+
+(0) TU8E4BzdGg4adqTyRCEZrrkq2EXsUYHG2k (100000 TRX)
+(1) TGBN88CQN74i89Gy25749SUZr1HcTufF6z (100000 TRX)
+(2) TWtStDLxF7gAkYbrMgSAbKsNdXY2qMUSv5 (100000 TRX)
+(3) TTvYtVvHKpdg9Q2Sfhc4uSsrNbtJV8DiJS (100000 TRX)
+(4) TTiJtZRijXeGDEQgQUK5eXcTchTt69siva (100000 TRX)
+(5) TDT6oLuRmVkHp3npeztqQR1g63KxcugFK9 (100000 TRX)
+(6) TE8BVrC4MoqtFfsMJviERPn8vW1Uh8Mcdn (100000 TRX)
+(7) TADf7t8afXBTaHqyYLqRqxyrsPvwykxndv (100000 TRX)
+(8) TJ71yAB1Cq4Cw2TEq6Z6dwP6dJTB7vH75C (100000 TRX)
+(9) TPF46hEmM3AYWz9D2ix3yVpdePvyjdmJXd (100000 TRX)
+
+Private Keys
+==================
+
+(0) be3179ecdde173172001922024e631f42dbedda4a897990d6f67a8f3075d4b4a
+(1) 6983092e286ee240e13e404d828d4ff65eb048c06958b7c956fcc35d8dc72dfa
+(2) 14afd09c60731007d728491529dc5e60d416dac0a41cc585fcbf7b24456216af
+(3) 3858720883b55c215e8d6cf1c3a273cc1f7f2885bdbf9039908835bc9386c3d8
+(4) 2ee3e1b2939b4369c603d53c10c8a0b0365438ab21a6f3bc0dba944a07c3e3b6
+(5) 7fe368488e8e291b518733e577c9ba6086831fbd6cb6c15ad1d488641604949b
+(6) 415f6afbe240e60d39cb813756d74a9fd596ea37ec188993738f1cc273285ce3
+(7) c65f5bb0eb63d6894d56b78a3a07208446e6ed1395fc380d5d6aa90355aa8785
+(8) 4c43f458d7866b80ba56a02ad664b3bcd393990efbabebaaca7aa154b4d08362
+(9) 93363a1e9ead687aeac03ed40abe30fee72d990b578bf6d36ab90438561dd037
+
+HD Wallet
+==================
+Mnemonic:      slice beach ensure roof mercy tired sail achieve payment flower suggest sad
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+GET 200  - 41874.921 ms
+</code></pre>
+<h2 id="metacoin-dapp">MetaCoin DApp<a class="headerlink" href="#metacoin-dapp" title="Permanent link"></a></h2>
+<p>The cloned TRON Quickstart repository contains a MetaCoin DApp located in the folders <code>test</code> -&gt; <code>metacoin-box</code>. After setting up the TRON Quickstart private network, you can deploy the MetaCoin DApp. Open another terminal, and execute the commands below:</p>
+<pre><code>cd test
+cd metacoin-box         // Navigate into test -&gt; metacoin-box directory
+
+tronbox compile --all   // Compile the smart contracts
+tronbox migrate         // Deploys the DApp
+tronbox test --reset    // Performs 5 Javascript tests 
+</code></pre>
+<h2 id="tronbox-21-configuration">TronBox 2.1+ Configuration<a class="headerlink" href="#tronbox-21-configuration" title="Permanent link"></a></h2>
+<p>The MetaCoin DApp bundled with TRON Quickstart has a pre-configured <code>tronbox.js</code> file. However, in creating your own DApps for TRON Quickstart testing, you will need to configure the <code>tronbox.js</code> file for connecting to the 9090 port:</p>
+<pre><code>module.exports = {
+  networks: {
+    development: {
+      privateKey: 'da146374a75310b9666e834ee4ad0866d6f4035967bfc76217c5a495fff9f0d0',
+      fullNode: &quot;http://127.0.0.1:9090&quot;,
+      solidityNode: &quot;http://127.0.0.1:9090&quot;,
+      eventServer: &quot;http://127.0.0.1:9090&quot;,
+      network_id: &quot;*&quot;
+    }
+  }
+};
+</code></pre>
+<h2 id="tronweb-interaction">TronWeb Interaction<a class="headerlink" href="#tronweb-interaction" title="Permanent link"></a></h2>
+<p>TronWeb is the best way for your DApp to interact with the TRON Quickstart private network. To use TronWeb, instantiate it as follows:</p>
+<pre><code>const TronWeb = require('tronweb')
+
+const tronWeb = new TronWeb(
+  &quot;http://127.0.0.1:9090&quot;,
+  &quot;http://127.0.0.1:9090&quot;,
+  &quot;http://127.0.0.1:9090&quot;,
+  'private key',
+)
+</code></pre>
+<h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link"></a></h2>
+<p><strong>The "SERVER_BUSY" error</strong></p>
+<p>Running TronBox can heavily stress the local network. If the FullNode is busy, it returns the "SERVER_BUSY" error. If the error is returned, just repeat the command.</p>
+<h2 id="docker-commands">Docker Commands<a class="headerlink" href="#docker-commands" title="Permanent link"></a></h2>
+<p>A few Docker commands are useful for managing the TRON Quickstart Docker container on your machine. </p>
+<p>To list all active containers on your machine, run:</p>
+<pre><code>docker container ps
+</code></pre>
+<p><em>Output:</em></p>
+<pre><code>docker container ps
+
+CONTAINER ID        IMAGE               COMMAND                 CREATED             STATUS              PORTS                                              NAMES
+513078dc7816        tron                &quot;./quickstart v2.0.0&quot;   About an hour ago   Up About an hour    0.0.0.0:9090-&gt;9090/tcp, 0.0.0.0:18190-&gt;18190/tcp   tron
+</code></pre>
+<p>To kill an active container, run:</p>
+<pre><code>docker container kill 513078dc7816   // use your container ID
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Tron Quickstart</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/tron-quickstart/86d71acb737444e390e3fbf9d461c36c/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-01</li>
+<li><strong>Kauri original tags:</strong> beginner, tron</li>
+<li><strong>Kauri original hash:</strong> QmZM2AAPSPSCFNyCoijLh9jcH2yyvi2s9K8MXPzzX4VdKC</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../trc10-transfer-in-smart-contracts/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../trc10-transfer-in-smart-contracts/" class="btn btn-xs btn-link">
+        TRC10 Transfer in Smart Contracts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../SecurEth/secureth-guidelines-getting-started/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../SecurEth/secureth-guidelines-getting-started/" class="btn btn-xs btn-link">
+        SecurEth Guidelines - Getting Started
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Tron/tron-quickstart.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

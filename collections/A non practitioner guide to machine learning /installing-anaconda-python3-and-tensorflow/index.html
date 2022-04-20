@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20non%20practitioner%20guide%20to%20machine%20learning%20/installing-anaconda-python3-and-tensorflow/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Installing Anaconda, Python3 and Tensorflow - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Installing Anaconda, Python3 and Tensorflow", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="installing-anaconda-python3-and-tensorflow">Installing Anaconda, Python3 and Tensorflow<a class="headerlink" href="#installing-anaconda-python3-and-tensorflow" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZLkzEbnFEsJNPF47NUwfJgPVpEnsKJ5sEg6qUzUhr7M2" /></p>
+<p>First thing first, here's a list of the things we need to start playing around with some data:
+- Python
+- Anaconda
+- Jupiter Notebook
+- A bunch of data manipulation tools like Numpy, Scikit etc..</p>
+<p>Luckily for us, the Anaconda distribution includes all of them, head on to https://www.anaconda.com/distribution/#download-section and follow the instructions.</p>
+<p><img alt="Anaconda homepage" src="https://ipfs.infura.io/ipfs/QmWhCsbMdjfn12ZpvmnWG7RnR4fxoDdwo4LTCrgQMjKK6M" /></p>
+<p>On linux is as easy as downloading the file, opening the terminal and type <code>~$ bash Anaconda3-&lt;release&gt;</code> from the folder you downloaded the installer in.</p>
+<pre><code>Welcome to Anaconda3 2019.07
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+&gt;&gt;&gt; 
+</code></pre>
+<p>then tap the Enter key. A wall of text will show up, you can read it (or not) and just skip to accepting the license terms, type <code>yes</code></p>
+<pre><code>Anaconda3 will now be installed into this location:
+/home/davide/anaconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/home/davide/anaconda3] &gt;&gt;&gt; 
+</code></pre>
+<p>Once the installer has finished it will ask you if you want to initialise Anaconda, type <code>yes</code></p>
+<pre><code>installation finished.
+Do you wish the installer to initialize Anaconda3
+by running conda init? [yes|no]
+[no] &gt;&gt;&gt; 
+</code></pre>
+<p>All done! But wait...</p>
+<p>If you try to start the Python REPL by typing <code>python</code> in your terminal, you'll still get the default python edition shipped with your system, or an error if no python was shipped with your OS. We need to add Anaconda to our PATH</p>
+<pre><code>~$ source .bashrc
+~$ python
+~$ python
+Python 3.7.3 (default, Mar 27 2019, 22:11:17) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt; 
+</code></pre>
+<p>the Anaconda distribution is now running on your system, well done!</p>
+<p>Now let's check that a few more things are working correctly type the following in your terminal</p>
+<pre><code>~$ jupyter notebook
+</code></pre>
+<p>You should see the Jupyter Notebook starting up in a new tab in your default browser.</p>
+<p><img alt="Jupyter notebook file browser" src="https://ipfs.infura.io/ipfs/QmYKoL55dk3MbPxmmgJddirEkhsJRQV5mZ5nXv8ZdMvnob" /></p>
+<p>Create a new Jupyter Notebook document and type the following</p>
+<pre><code>from sklearn.ensemble import RandomForestRegressor
+?RandomForestRegressor
+</code></pre>
+<p>The first line will import a Regressor from sci-kit learn and the second line will display the source code of that function thanks to the <code>?</code></p>
+<p><img alt="Jupyter notebook" src="https://ipfs.infura.io/ipfs/Qmf58ig45auRigrBQA6ykZDcX1Rbh8uxT6LXHo5e28oG9k" /></p>
+<p>Finally, we want to install Tensorflow. Tensorflow is Google's open source framework for building and evaluating neural network systems and it does have libraries for Python, JS and a lite version for mobile and IOT. To install it type <code>pip install tensorflow</code> and on your newly created notebook add the following:</p>
+<pre><code class="language-python">import tensorflow as tf
+print(tf.__version__)
+</code></pre>
+<p>You should see the tensorflow version printed out, <code>1.14.0</code> at the time of writing.</p>
+<p>We are ready to go! The Anaconda distribution installed the <code>conda</code> package manager, Python3, Jupyter Notebook and a bunch of libraries we'll need to build our models.</p>
+<p>Well done so far and let's start building our first model!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Installing Anaconda, Python3 and Tensorflow</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/installing-anaconda-python3-and-tensorflow/5bf3a311af45420781dfbb3963b253b1/a</li>
+<li><strong>Kauri original author:</strong> Davide Scalzo (@davidescalzo)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-22</li>
+<li><strong>Kauri original tags:</strong> artificial-intelligence, machine-learning, python, anaconda</li>
+<li><strong>Kauri original hash:</strong> QmaR5o3VN6CEYauCBYBYn8WnALPbM1vK6PdiUNfLfNTSSK</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../regression-with-python-keras-and-tensorflow/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../regression-with-python-keras-and-tensorflow/" class="btn btn-xs btn-link">
+        Regression with Python, Keras and Tensorflow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started-with-machine-learning-%28non-practi/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started-with-machine-learning-%28non-practi/" class="btn btn-xs btn-link">
+        Getting Started With Machine Learning (Non practitioner guide)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A non practitioner guide to machine learning /installing-anaconda-python3-and-tensorflow.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Decentralized%20Storage/sia--decentralized-cloud-storage/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sia  Decentralized Cloud Storage - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sia  Decentralized Cloud Storage", url: "#_top", children: [
+              {title: "Setup and Configuration", url: "#setup-and-configuration" },
+              {title: "Basics", url: "#basics" },
+              {title: "Uploading and Downloading Files", url: "#uploading-and-downloading-files" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="sia-decentralized-cloud-storage">Sia  Decentralized Cloud Storage<a class="headerlink" href="#sia-decentralized-cloud-storage" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbKjyrRHif6WS2vkVErss1vdnWUDBv64eBk2ZfkJgvpRi" /></p>
+<blockquote>
+<p>Sia is a decentralized cloud storage platform and data storage marketplace. Sia encrypts and distributes your files across it's network, keeping your data private.</p>
+</blockquote>
+<p><em>This article originally appeared in the <a href="https://www.notion.so/kauriofficial/Sia-becc9fd14d6c41e9b01f33ccd6fe62d8">Sia docs</a></em></p>
+<p>This guide will walk you through uploading a file to Sia using the API. Complete API reference documentation can be found 
+<a href="https://gitlab.com/NebulousLabs/Sia/blob/master/doc/API.md">here</a>
+ .
+Examples are given in Curl and 
+<a href="https://github.com/NebulousLabs/Nodejs-Sia">Sia.js</a></p>
+<p>If you have questions, reach out to us on the 
+<a href="https://discord.gg/sia">#app-dev channel on Discord</a>
+ .</p>
+<h3 id="setup-and-configuration">Setup and Configuration<a class="headerlink" href="#setup-and-configuration" title="Permanent link"></a></h3>
+<p>If you haven’t already, download the 
+<a href="https://github.com/NebulousLabs/Sia/releases/latest">Sia Daemon</a>
+ . The Sia Daemon runs a Sia node as well as hosts the API.
+By default the API listens on 
+<code>localhost:9980</code>
+ . You can change this using the 
+<code>--api-addr</code>
+ flag. Be sure to specify 
+<code>localhost:port</code>
+ , otherwise you may be exposing your daemon’s API to the internet, which can result in stolen coins.
+The API is secured by a password, which can be specified in a few different ways. If you don’t supply a password yourself, one will be generated for you. (This is the recommended approach.) The password will be stored in a file that varies based on your OS. Refer to the complete API docs for the location of this file. The examples below will assume that the API password is 
+<code>foobar</code>
+ .
+By default the daemon stores persist data (such as your wallet) in the current directory. You can specify a directory to use with the 
+<code>-d</code>
+ flag. Go ahead and start the Sia Daemon. 
+<code>siad -d sia-data</code></p>
+<p>You can also start the daemon from sia.js. All of the following examples given in SiaJS will assume that the daemon has been launched like so.</p>
+<pre><code>import { launch } from 'sia.js'
+
+try {  
+  const daemon = launch('/path/to/your/siad', {
+    'sia-directory': 'sia-data',
+  })
+  daemon.on('error', (err) =&gt; console.log('siad encountered an error ' + err))
+} catch (e) {
+  console.error('error launching siad: ' + e.toString())
+}
+</code></pre>
+<h3 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link"></a></h3>
+<p>Let’s check the status of blockchain download using the 
+<code>/consensus</code>
+ endpoint.</p>
+<h4 id="curl">Curl<a class="headerlink" href="#curl" title="Permanent link"></a></h4>
+<pre><code>$curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar localhost:9980/consensus
+
+HTTP/1.1 200 OK  
+Content-Type: application/json; charset=utf-8  
+Date: Mon, 17 Oct 2016 05:50:47 GMT  
+Content-Length: 186
+
+{
+    &quot;synced&quot;: false,
+    &quot;height&quot;: 0,
+    &quot;currentblock&quot;: &quot;25f6e3b9295a61f69fcb956aca9f0076234ecf2e02d399db5448b6e22f26e81c&quot;,
+    &quot;target&quot;: [0,0,0,0,32,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+}
+</code></pre>
+<h4 id="siajs">SiaJS<a class="headerlink" href="#siajs" title="Permanent link"></a></h4>
+<pre><code>try {  
+  const consensus = await daemon.call('/consensus')
+  // do something with result consensus
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>Note that the user agent needs to be set to “Sia-Agent”. This happens automatically in Sia.js. This is necessary to prevent certain classes of browser based attacks.
+The consensus endpoint returns the current state of the blockchain. You should not attempt to spend coins or upload files until the blockchain has been downloaded. This may take several hours. When the 
+<code>/consensus</code>
+ endpoints returns 
+<code>"synced": true</code>
+ the blockchain has been downloaded.
+While we are waiting we can setup the wallet. If this is your first time running the daemon you’ll need to initialize a new wallet.</p>
+<h4 id="curl_1">Curl<a class="headerlink" href="#curl_1" title="Permanent link"></a></h4>
+<pre><code>$curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar -X POST localhost:9980/wallet/init
+
+HTTP/1.1 200 OK  
+Content-Type: application/json; charset=utf-8  
+Date: Mon, 17 Oct 2016 06:48:24 GMT  
+Content-Length: 209
+
+{
+    &quot;primaryseed&quot;: &quot;foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar“
+}
+</code></pre>
+<h4 id="siajs_1">SiaJS<a class="headerlink" href="#siajs_1" title="Permanent link"></a></h4>
+<pre><code>try {  
+  const wallet = await daemon.call({
+    url: '/wallet/init',
+    method: 'POST',
+  })
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>The primary seed can be used to recover your wallet should you lose the sia-data directory. Write it down and keep it in a safe place. By default the seed is also used as the encryption password.
+Now that we have initialize a wallet, we need to unlock it. The wallet needs to be unlocked to spend Siacoins, including uploading files. You’ll need to unlock the wallet every time you start Sia Daemon. This call will block while the wallet is unlocking and may therefore take several minutes to complete.</p>
+<h4 id="curl_2">Curl<a class="headerlink" href="#curl_2" title="Permanent link"></a></h4>
+<pre><code>$curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar -X POST localhost:9980/wallet/unlock?encryptionpassword=foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar%20baz%20foo%20bar
+
+HTTP/1.1 204 No Content  
+Date: Mon, 17 Oct 2016 07:01:12 GMT
+</code></pre>
+<h4 id="siajs_2">SiaJS<a class="headerlink" href="#siajs_2" title="Permanent link"></a></h4>
+<pre><code>try {  
+  await daemon.call({
+    url: '/wallet/unlock',
+    method: 'POST',
+    qs: {
+      encryptionpassword: 'foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar baz foo bar',
+    },
+  })
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>You’ll need Siacoins in your wallet before you can upload any files to the network. To do this you must send coins to your wallet. The wallet provides an endpoint for getting a new wallet address. Send coins to this address.</p>
+<h4 id="curl_3">Curl<a class="headerlink" href="#curl_3" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar localhost:9980/wallet/address
+
+HTTP/1.1 200 OK  
+Content-Type: application/json; charset=utf-8  
+Date: Mon, 17 Oct 2016 20:15:13 GMT  
+Content-Length: 91
+
+{
+    &quot;address&quot;: &quot;1234567890abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789ab&quot;
+}
+</code></pre>
+<h4 id="siajs_3">SiaJS<a class="headerlink" href="#siajs_3" title="Permanent link"></a></h4>
+<pre><code>try {  
+  const wallet = await daemon.call('/wallet/address')
+  // do something with wallet.address
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>Before continuing, wait for 
+<code>/consensus</code>
+ to return 
+<code>"synced": true</code>
+ .</p>
+<h3 id="uploading-and-downloading-files">Uploading and Downloading Files<a class="headerlink" href="#uploading-and-downloading-files" title="Permanent link"></a></h3>
+<p>Before we can upload files we must configure the renter. Primarily, we need to allocate funds and specify the contract period. The contract period is the minimum duration of time we want to store files, and is also the minimum amount of time you pay for at once. For example, to allocate 1000 SC (1000000000000000000000000000 Hastings) for the renter with a 1 month (4320 blocks) contract period:</p>
+<h4 id="curl_4">Curl<a class="headerlink" href="#curl_4" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar -X POST &quot;localhost:9980/renter?funds=1000000000000000000000000000&amp;period=4320&quot;
+
+HTTP/1.1 204 No Content  
+Date: Mon, 17 Oct 2016 07:01:12 GMT
+</code></pre>
+<h4 id="siajs_4">SiaJS<a class="headerlink" href="#siajs_4" title="Permanent link"></a></h4>
+<pre><code>try {  
+  await daemon.call({
+    url: '/renter',
+    method: 'POST',
+    qs: {
+      funds: '1000000000000000000000000000',
+      period: 4320,
+    },
+  })
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>This call will block until the Sia Daemon has formed contracts with a sufficient number of hosts.
+We can now upload files to the network. The following call will upload the local file 
+<code>/home/foo/bar.txt</code>
+ to 
+<code>/qux/bar.txt</code>
+ on the network.</p>
+<h4 id="curl_5">Curl<a class="headerlink" href="#curl_5" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar -X POST localhost:9980/renter/upload/qux/bar.txt?source=/home/foo/bar.txt
+
+HTTP/1.1 204 No Content  
+Date: Mon, 17 Oct 2016 07:01:12 GMT
+</code></pre>
+<h4 id="siajs_5">SiaJS<a class="headerlink" href="#siajs_5" title="Permanent link"></a></h4>
+<pre><code>try {  
+  await daemon.call({
+    url: '/renter/upload/qux/bar.txt',
+    method: 'POST',
+    qs: {
+      source: '/home/foo/bar.txt',
+    },
+  })
+} catch (e) {
+  // do something with error e
+} 
+</code></pre>
+<p>This call will return immediately. We can check the progress of the upload with the following call</p>
+<h4 id="curl_6">Curl<a class="headerlink" href="#curl_6" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar localhost:9980/renter/files
+
+HTTP/1.1 200 OK  
+Content-Type: application/json; charset=utf-8  
+Date: Wed, 19 Oct 2016 22:26:36 GMT  
+Content-Length: 125
+
+{
+    &quot;files&quot;: [
+      {
+        &quot;siapath&quot;:        &quot;qux/bar.txt&quot;,
+        &quot;filesize&quot;:       8192,
+        &quot;available&quot;:      false,
+        &quot;renewing&quot;:       true,
+        &quot;redundancy&quot;:     0.5,
+        &quot;uploadprogress&quot;: 10
+      }
+    ]
+}
+</code></pre>
+<h4 id="siajs_6">SiaJS<a class="headerlink" href="#siajs_6" title="Permanent link"></a></h4>
+<pre><code>try {  
+  const renter = await daemon.call('/renter/files')
+  // use renter.files to check the upload progress
+} catch (e) {
+  // do something with error e
+}
+</code></pre>
+<p>Once 
+<code>/renter/files</code>
+ returns 
+<code>"available": true</code>
+ , that file can be downloaded. Files may become available for download before 
+<code>uploadprogress</code>
+ reaches 100. This is because files are uploaded with redundancy.
+We can download files with the 
+<code>/renter/download</code>
+ endpoint.</p>
+<h4 id="curl_7">Curl<a class="headerlink" href="#curl_7" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar localhost:9980/renter/download/qux/bar.txt?destination=/home/foo/bar.txt
+
+HTTP/1.1 204 No Content  
+Date: Mon, 17 Oct 2016 07:01:12 GMT
+</code></pre>
+<h4 id="siajs_7">SiaJS<a class="headerlink" href="#siajs_7" title="Permanent link"></a></h4>
+<pre><code>try {  
+  await daemon.call({
+    url: '/renter/download/qux/bar.txt',
+    qs: {
+      source: '/home/foo/bar.txt',
+    },
+  })
+} catch (e) {
+  // do something with error e
+} 
+</code></pre>
+<p>The call will block until the file has been downloaded. While the file is downloading you can check the progress with the 
+<code>/renter/downloads</code>
+ endpoint.</p>
+<h4 id="curl_8">Curl<a class="headerlink" href="#curl_8" title="Permanent link"></a></h4>
+<pre><code>$ curl -i -A &quot;Sia-Agent&quot; -u &quot;&quot;:foobar localhost:9980/renter/downloads
+
+HTTP/1.1 200 OK  
+Content-Type: application/json; charset=utf-8  
+Date: Wed, 19 Oct 2016 22:26:36 GMT  
+Content-Length: 125
+
+{
+    &quot;downloads&quot;: [
+      {
+        &quot;siapath&quot;:     &quot;qux/bar.txt&quot;,
+        &quot;destination&quot;: &quot;/home/foo/bar.txt&quot;,
+        &quot;filesize&quot;:    8192,
+        &quot;received&quot;:    4096,
+        &quot;starttime&quot;:   &quot;2009-11-10T23:00:00Z&quot;,
+      },
+    ]
+}
+</code></pre>
+<h4 id="siajs_8">SiaJS<a class="headerlink" href="#siajs_8" title="Permanent link"></a></h4>
+<pre><code>try {  
+  const renter = await daemon.call('/renter/downloads')
+  // use renter.downloads to check the download progress
+} catch (e) {
+  // do something with error e
+} 
+</code></pre>
+<p>Now that we’ve covered the basics of using the API, you can find the complete API documentation 
+<a href="https://github.com/NebulousLabs/Sia/blob/master/doc/API.md">here</a>
+ .</p>
+<p><a href="http://sia.tech/">Sia</a></p>
+<p><em>, by Nebulous Inc., is a blockchain-based decentralized cloud storage platform.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Sia  Decentralized Cloud Storage</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/sia-decentralized-cloud-storage/c9958fbe0a7f4a2abb6e25ad37ee1107/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-14</li>
+<li><strong>Kauri original tags:</strong> storage</li>
+<li><strong>Kauri original hash:</strong> QmT85UP6ZiMvyzXEtpKMoYLas1cA8jdazzMqgURbVXpkgk</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../bluzelle-a-decentralized-data-cache/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../bluzelle-a-decentralized-data-cache/" class="btn btn-xs btn-link">
+        Bluzelle - A decentralized data cache
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../storj--decentralized-cloud-object-storage/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../storj--decentralized-cloud-object-storage/" class="btn btn-xs btn-link">
+        Storj  Decentralized Cloud Object Storage
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Decentralized Storage/sia--decentralized-cloud-storage.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

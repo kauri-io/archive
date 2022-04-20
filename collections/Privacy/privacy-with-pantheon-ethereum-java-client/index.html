@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/privacy-with-pantheon-ethereum-java-client/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Privacy with Pantheon Ethereum Java Client - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Privacy with Pantheon Ethereum Java Client", url: "#_top", children: [
+              {title: "Privacy in Pantheon: How PegaSys Has Redefined Blockchain for Enterprises", url: "#privacy-in-pantheon-how-pegasys-has-redefined-blockchain-for-enterprises" },
+              {title: "Private Transaction Manager", url: "#private-transaction-manager" },
+              {title: "Private Transaction Attributes", url: "#private-transaction-attributes" },
+              {title: "Pantheon and Orion Keys", url: "#pantheon-and-orion-keys" },
+              {title: "Privacy Groups", url: "#privacy-groups" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="privacy-with-pantheon-ethereum-java-client">Privacy with Pantheon Ethereum Java Client<a class="headerlink" href="#privacy-with-pantheon-ethereum-java-client" title="Permanent link"></a></h1>
+<p>This article is taken from the <a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Privacy-Overview.md">pantheon documentation</a></p>
+<blockquote>
+<p>Privacy in Pantheon refers to the ability to keep transactions private between the involved parties. 
+Other parties cannot access the transaction content, sending party, or list of participating parties. </p>
+</blockquote>
+<p>For production systems requiring private transactions, we recommend using a network  with a consensus mechanism supporting transaction finality. For example, <a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Consensus-Protocols/IBFT.md">IBFT 2.0</a>. </p>
+<h3 id="privacy-in-pantheon-how-pegasys-has-redefined-blockchain-for-enterprises">Privacy in Pantheon: How PegaSys Has Redefined Blockchain for Enterprises<a class="headerlink" href="#privacy-in-pantheon-how-pegasys-has-redefined-blockchain-for-enterprises" title="Permanent link"></a></h3>
+<div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/8l7SSZLyFL8" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+<p></br></p>
+<h3 id="private-transaction-manager">Private Transaction Manager<a class="headerlink" href="#private-transaction-manager" title="Permanent link"></a></h3>
+<p>Pantheon uses a Private Transaction Manager to implement privacy. For example, <a href="http://docs.orion.pegasys.tech">Orion</a>.<br />
+Each Pantheon node that sends or receives private transactions requires an associated Orion node. </p>
+<p><img alt="Orion Nodes" src="https://raw.githubusercontent.com/PegaSysEng/pantheon/master/docs/images/OrionNodes.png" /></p>
+<p>Private transactions are passed from the Pantheon node to the associated Orion node. The Orion node
+encrypts and directly distributes (that is, point to point) the private transaction to Orion nodes 
+participating in the transaction. Private Transaction Managers are also known as Enclaves.  </p>
+<h3 id="private-transaction-attributes">Private Transaction Attributes<a class="headerlink" href="#private-transaction-attributes" title="Permanent link"></a></h3>
+<p>Private transactions have additional attributes to public Ethereum transactions: </p>
+<ul>
+<li><code>privateFrom</code> - Orion public key of transaction sender</li>
+<li><code>privateFor</code> - Orion public keys of transaction recipients </li>
+<li>
+<p><code>restriction</code> - Private transactions are <code>restricted</code> or <code>unrestricted</code>:  </p>
+<ul>
+<li>
+<p>In <code>restricted</code> private transactions the payload of the private transaction is received and stored only by 
+the nodes participating in the transaction. </p>
+</li>
+<li>
+<p>In <code>unrestricted</code> private transactions the payload of the private transaction is transmitted to all nodes
+in the network but is readable only by nodes participating in the transaction.   </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Pantheon implements <code>restricted</code> private transactions only.</p>
+<h3 id="pantheon-and-orion-keys">Pantheon and Orion Keys<a class="headerlink" href="#pantheon-and-orion-keys" title="Permanent link"></a></h3>
+<p>Pantheon and Orion nodes both have public/private key pairs identifying them. The private transaction 
+submitted from the Pantheon node to the Orion node is signed with the Pantheon node private key. The 
+<code>privateFrom</code> and <code>privateFor</code> attributes specified in the RLP-encoded transaction string for 
+<a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Reference/JSON-RPC-API-Methods.md#eea_sendrawtransaction"><code>eea_sendRawTransaction</code></a> are the public keys
+of the Orion nodes sending and receiving the transaction.  </p>
+<p>The mapping of Pantheon node addresses to Orion node public keys is off-chain.  That is, the 
+    sender of a private transaction must know the Orion node public key of the recipient.  </p>
+<h3 id="privacy-groups">Privacy Groups<a class="headerlink" href="#privacy-groups" title="Permanent link"></a></h3>
+<p>The group of nodes specified by <code>privateFrom</code> and  <code>privateFor</code> form a privacy group and 
+are given a unique privacy group ID by Orion. The private transaction is stored in Orion with the privacy group ID. </p>
+<p>The Pantheon nodes maintain the public world state for the blockchain and a private state for each privacy group. 
+The private states contain data that is not shared in the globally replicated world state. Private transactions read 
+and write to the private world state for the privacy group, and read from the public world state.</p>
+<p><img alt="Privacy Groups" src="https://raw.githubusercontent.com/PegaSysEng/pantheon/master/docs/images/PrivacyGroups.png" /></p>
+<p>The Orion nodes are not shown above for clarity only.  To send private transactions, 
+    each Pantheon node must have an associated Orion node. </p>
+<p>The above illustrates two privacy groups enabling: </p>
+<pre><code>* A, B, and C to send transactions that are private from D 
+* A, C, and D to send transactions that are private from B
+
+To send private transactions between A, B, and C, A initialises a contract in a private transaction with
+B and C specified as the `privateFor` and A specified as the `privateFrom`. Initialising the contract 
+creates a privacy group consisting of A, B, and C. For the ABC private state to remain consistent, 
+A, B, and C must be included on transactions (as either `privateFrom` or `privateFor`) even if they are 
+between two of the three parties.
+
+To send private transactions between A, C, and D, C initialises a different contract in a private transaction with
+A and D specified as the `privateFor` and C specified as the `privateFrom`. Initialising the contract 
+creates a privacy group consisting of  A, C, and D. For the ACD private state to remain consistent, 
+A, C, and D must be included on transactions (as either `privateFrom` or `privateFor`) even if they are 
+between two of the three parties.
+</code></pre>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Getting-Started/Getting-Started.md">Getting started with Pantheon</a></li>
+<li><a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Configuring-Privacy.md">Configuring a network for private transactions</a></li>
+<li><a href="https://github.com/PegaSysEng/pantheon/blob/master/docs/Privacy/Private-Transaction-Processing.md">Processing Private Transactions</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Privacy with Pantheon Ethereum Java Client</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/privacy-with-pantheon-ethereum-java-client/f0758bcdfad84d70a5d1adf43baa59d4/a</li>
+<li><strong>Kauri original author:</strong> PegaSys (@pegasys)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-03</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, blockchain, privacy, pantheon</li>
+<li><strong>Kauri original hash:</strong> Qmae75UbjYFrNk6mUBEgy1UmgbAwQTQK4ZJ1AiWftMKetw</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../parity-private-transactions/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../parity-private-transactions/" class="btn btn-xs btn-link">
+        Parity - Private Transactions
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../nightfall-private-token-and-nft-transfers-on-ethe/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../nightfall-private-token-and-nft-transfers-on-ethe/" class="btn btn-xs btn-link">
+        Nightfall - Private Token and NFT Transfers on Ethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/privacy-with-pantheon-ethereum-java-client.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

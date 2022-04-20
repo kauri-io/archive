@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Quick%20start%20web3.0%20series/3box-social-profiles-for-web3-applications/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>3Box - Social profiles for  web3 applications - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "3Box - Social profiles for  web3 applications", url: "#_top", children: [
+              {title: "What is 3Box", url: "#what-is-3box" },
+              {title: "Integration", url: "#integration" },
+              {title: "Usage", url: "#usage" },
+              {title: "Make your data accessible", url: "#make-your-data-accessible" },
+              {title: "Use our other functionality", url: "#use-our-other-functionality" },
+              {title: "Use 3Box profiles &amp; data to make great user experiences", url: "#use-3box-profiles-data-to-make-great-user-experiences" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="3box-social-profiles-for-web3-applications">3Box - Social profiles for  web3 applications<a class="headerlink" href="#3box-social-profiles-for-web3-applications" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXDGDWxxnGaCoD8o6sMS3kJUe3PApo9fSDzdjrGmC5eQW" /></p>
+<p>3Box provides social infrastructure to power decentralized applications and networks. <a href="http://3box.io">Ethereum Profiles</a> allow users to create a rich social presence that unites and gives them control over their data and experiences on the decentralized web. These built on our <a href="https://github.com/uport-project/3box">distributed social databases</a> that let developers store and access information in users' profiles, making distributed data infrastructure and sharing information between dapps much simpler. </p>
+<h3 id="what-is-3box">What is 3Box<a class="headerlink" href="#what-is-3box" title="Permanent link"></a></h3>
+<p>Head to <a href="http://3box.io">3Box.io</a> and create your own profile to see how users can view, edit and control their 3Box data and profile. All functionality in the 3Box dapp can also be accessed from our APIs. </p>
+<p>Next, integrate <a href="https://github.com/uport-project/3box-js">3Box-JS</a> into your application to ease user onboarding and deliver a richer user experience via profiles and social connections. <code>3box-js</code> will enable you to Get, Set and Remove data associated with an Ethereum account. </p>
+<h3 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link"></a></h3>
+<h4 id="install-3box">Install 3Box<a class="headerlink" href="#install-3box" title="Permanent link"></a></h4>
+<pre><code>$ npm install 3Box
+</code></pre>
+<h4 id="import-3box-into-your-project">Import 3Box into your project<a class="headerlink" href="#import-3box-into-your-project" title="Permanent link"></a></h4>
+<p>Import the 3box module</p>
+<pre><code>const Box = require('3box')
+</code></pre>
+<p>or use the dist build in your html code</p>
+<pre><code>&lt;script type="text/javascript" src="../dist/3box.js"&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<h4 id="get-public-user-data-using-getprofile">Get public user data using getProfile<a class="headerlink" href="#get-public-user-data-using-getprofile" title="Permanent link"></a></h4>
+<p>You can retrieve publicly saved data (e.g., name, photo) about ethereum addresses using the <code>getProfile</code> static method directly from the Box message, with no user signing.</p>
+<p>Using <code>async/await</code></p>
+<pre><code>const profile = await Box.getProfile('0x12345abcde')
+console.log(profile)
+</code></pre>
+<p>or using <code>.then</code></p>
+<pre><code>Box.getProfile('0x12345abcde').then(profile =&gt; {
+  console.log(profile)
+})
+</code></pre>
+<h4 id="interacting-with-private-data">Interacting with private data<a class="headerlink" href="#interacting-with-private-data" title="Permanent link"></a></h4>
+<p>To get data in a user's 3Box or read private data, you must call the openBox method. This will prompt the user to authenticate your dapp. </p>
+<p><strong>openBox</strong></p>
+<p>Using <code>async/await</code> <em>('0x123..' represents an Ethereum address)</em></p>
+<pre><code>const box = await Box.openBox('0x12345abcde', ethereumProvider)
+</code></pre>
+<p>We recommend adding a listener using the <code>onSyncDone</code> method to let you know when all the users data has synced to the network after the first time you open a user's 3Box, making it safe to <em>set</em> data. </p>
+<pre><code>box.onSyncDone(yourCallbackFunction)
+</code></pre>
+<p><strong>Get, Set and Remove data</strong></p>
+<p>Once a user has authenticated your dapp, you can use the box instance object to interact with data in the users private store and profile. In both the profile and the private store you use a key to set a value.</p>
+<p>Using <code>async/await</code></p>
+<pre><code>// use the public profile
+// get
+const nickname = await box.public.get('name')
+console.log(nickname)
+// set
+await box.public.set('name', 'oed')
+// remove
+await box.public.remove('name')
+// use the private store
+// get
+const email = await box.private.get('email')
+console.log(email)
+// set
+await box.private.set('email', 'oed@email.service')
+// remove
+await box.private.remove('email')
+</code></pre>
+<p>You can see the 3Box <a href="https://github.com/uport-project/3box-js#-api-documentation">API documentation</a> for further information. </p>
+<h3 id="make-your-data-accessible">Make your data accessible<a class="headerlink" href="#make-your-data-accessible" title="Permanent link"></a></h3>
+<p>We encourage you to use or add to our <a href="https://github.com/uport-project/3box-js/blob/master/KEY-CONVENTIONS.md">key conventions</a> to build strong cross-dapp experiences and sharing. </p>
+<h3 id="use-our-other-functionality">Use our other functionality<a class="headerlink" href="#use-our-other-functionality" title="Permanent link"></a></h3>
+<p>You can also use our <a href="https://github.com/uport-project/3box-activity">3box-activity</a> to get a users Ethereum activity feed, our verified fields to get a more trusted view of who a user is, and more coming soon. Follow the latest <a href="https://discord.gg/3fzMe8x">here</a>. </p>
+<h2 id="use-3box-profiles-data-to-make-great-user-experiences">Use 3Box profiles &amp; data to make great user experiences<a class="headerlink" href="#use-3box-profiles-data-to-make-great-user-experiences" title="Permanent link"></a></h2>
+<p>Our mission is to enable anyone to create trust and connection online, and we do that by helping you create great communities and experiences. Here are some of the things are partners are using 3Box for - let us know how you use it. </p>
+<ul>
+<li>Improved onboarding for users, letting them use previously saved info from other dapps rather than re-entering contact and profile information each time</li>
+<li>Decentralizing user data infrastructure, saving user information on 3Box so there's no need to store sensitive info on a hosted server</li>
+<li>Bootstrapping reputation on a marketplace by showing previous on-chain activity and dapp activity in one place</li>
+<li>Sharing data across dapps and devices, so preferences saved in one wallet can be synced to others, or contacts created in one social dapp can be carried over to others</li>
+<li>Saving posts, messages or threads on a social platform in a way that gives users the power to control and delete their own content</li>
+</ul>
+<h3 id="chat-with-us">Chat with us<a class="headerlink" href="#chat-with-us" title="Permanent link"></a></h3>
+<p>Stop by our <a href="https://discord.gg/3fzMe8x">Discord Community</a> for support, the latest news, or good conversation about our latest <code>#book-club</code> reading.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> 3Box - Social profiles for  web3 applications</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/3box-social-profiles-for-web3-applications/204bee70b23549f2acdc873d265d98f8/a</li>
+<li><strong>Kauri original author:</strong> Danny Zuckerman (@dazuck)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-04</li>
+<li><strong>Kauri original tags:</strong> Ethereum</li>
+<li><strong>Kauri original hash:</strong> QmWu8CSSGU9rkLefQicihztTsTQeWXgAxQVwoZbiAnBNUN</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Scaling%20Today/analysis--the-state-of-ethereum-today/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Scaling%20Today/analysis--the-state-of-ethereum-today/" class="btn btn-xs btn-link">
+        Analysis  The State of Ethereum Today
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started-with-rhombus/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started-with-rhombus/" class="btn btn-xs btn-link">
+        Getting started with Rhombus
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Quick start web3.0 series/3box-social-profiles-for-web3-applications.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

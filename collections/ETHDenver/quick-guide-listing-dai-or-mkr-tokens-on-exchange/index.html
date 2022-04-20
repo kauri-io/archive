@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHDenver/quick-guide-listing-dai-or-mkr-tokens-on-exchange/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Quick guide - Listing DAI or MKR tokens on exchange - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Quick guide - Listing DAI or MKR tokens on exchange", url: "#_top", children: [
+              {title: "Github page:", url: "#github-page" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="quick-guide-listing-dai-or-mkr-tokens-on-exchange">Quick guide - Listing DAI or MKR tokens on exchange<a class="headerlink" href="#quick-guide-listing-dai-or-mkr-tokens-on-exchange" title="Permanent link"></a></h1>
+<h2 id="github-page"><a href="https://github.com/makerdao/developerguides/blob/master/exchanges/exchanges-guide-01/exchanges-guide-01.md">Github page:</a><a class="headerlink" href="#github-page" title="Permanent link"></a></h2>
+<p><strong>Quick guide - Listing DAI or MKR tokens on exchange</strong></p>
+<p>This document contains the necessary resources for an exchange to integrate the DAI and MKR ERC-20 tokens.</p>
+<h3 id="prerequisites"><strong>Prerequisites</strong><a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>This document assumes familiarity with Ethereum, how to integrate ERC-20 tokens, and basic knowledge of the <a href="https://www.makerdao.com/">Maker platform</a>.</p>
+<h3 id="token-contracts"><strong>Token contracts</strong><a class="headerlink" href="#token-contracts" title="Permanent link"></a></h3>
+<p>In order to interact directly with the tokens, you can find the Ethereum mainnet smart contract addresses, source code, and ABIs in the links below. The tokens follow the <a href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md">ERC20 token standard</a>, and thus should be interoperable with contracts that implement this standard interface.</p>
+<p><strong>Ethereum Mainnet</strong></p>
+<p>Live Ethereum mainnet deployments:</p>
+<ul>
+<li>DAI:      <a href="https://etherscan.io/address/0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359#code">0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359</a></li>
+<li>MKR:    <a href="https://etherscan.io/address/0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2#code">0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2</a></li>
+</ul>
+<p><strong>Kovan Testnet</strong></p>
+<p>For testing, token contracts on the Kovan testnet can be found here:</p>
+<ul>
+<li>DAI:      <a href="https://kovan.etherscan.io/address/0xC4375B7De8af5a38a93548eb8453a498222C4fF2#code">0xC4375B7De8af5a38a93548eb8453a498222C4fF2</a></li>
+<li>MKR:    <a href="https://kovan.etherscan.io/address/0xaaf64bfcc32d0f15873a02163e7e500671a4ffcd#code">0xAaF64BFCC32d0F15873a02163e7E500671a4ffcD</a></li>
+</ul>
+<p><strong>Listing symbols</strong></p>
+<p>When listing Dai or Maker tokens on exchanges or in wallets, you should use the following currency notations.</p>
+<ul>
+<li>DAI      <a href="https://github.com/makerdao/Overview-of-MakerDAO-design/tree/master/DAI">Icon source</a></li>
+<li>MKR    <a href="https://github.com/makerdao/Overview-of-MakerDAO-design/tree/master/MKR">Icon source</a></li>
+</ul>
+<p>A style guide and additional logos can <a href="https://github.com/makerdao/Overview-of-MakerDAO-design#style-guide">be found here</a>.</p>
+<h3 id="additional-source-code-and-developer-docs"><strong>Additional source code and developer docs</strong><a class="headerlink" href="#additional-source-code-and-developer-docs" title="Permanent link"></a></h3>
+<p><strong>DSToken (token standard for Maker tokens)</strong></p>
+<ul>
+<li>Docs: <a href="https://dapp.tools/dappsys/ds-token.html">https://dapp.tools/dappsys/ds-token.html</a></li>
+<li>Source: <a href="https://github.com/dapphub/ds-token">https://github.com/dapphub/ds-token</a></li>
+</ul>
+<p><strong>Current Dai credit system implementation</strong></p>
+<ul>
+<li>Docs: <a href="https://developer.makerdao.com/dai/1/api/">https://developer.makerdao.com/dai/1/api/</a></li>
+<li>Docs: <a href="https://github.com/makerdao/sai/blob/master/DEVELOPING.md">https://github.com/makerdao/sai/blob/master/DEVELOPING.md</a></li>
+<li>Source: <a href="https://github.com/makerdao/sai">https://github.com/makerdao/sai</a></li>
+</ul>
+<h4 id="token-libraries"><strong>Token libraries</strong><a class="headerlink" href="#token-libraries" title="Permanent link"></a></h4>
+<p><strong>Javascript Library</strong></p>
+<p><a href="https://makerdao.com/documentation/">Dai.js</a> is a javascript library that exposes the functionality of the smart contracts in a javascript environment, mitigating the need to integrate directly with the smart contract layer. It can, among other things, be used to <a href="https://github.com/makerdao/dai.js#usage">implement token transfers</a>.</p>
+<ul>
+<li>Docs: <a href="https://makerdao.com/documentation/">https://makerdao.com/documentation/</a></li>
+<li>Source: <a href="https://github.com/makerdao/dai.js">https://github.com/makerdao/dai.js</a></li>
+</ul>
+<p><strong>Python API</strong></p>
+<p>Similarly to the library above, the <a href="https://github.com/makerdao/pymaker">Python API</a> provides endpoints to interact with the smart contracts in a Python environment, such as <a href="https://github.com/makerdao/pymaker#token-transfer">endpoints for token transfers</a>.</p>
+<ul>
+<li>Docs/source: <a href="https://github.com/makerdao/pymaker">https://github.com/makerdao/pymaker</a></li>
+</ul>
+<p><strong>Maker platform in general</strong></p>
+<ul>
+<li><a href="https://makerdao.com/whitepaper/">Dai Credit System Whitepaper</a></li>
+</ul>
+<h3 id="need-help"><strong>Need help?</strong><a class="headerlink" href="#need-help" title="Permanent link"></a></h3>
+<p>Contact <a href="mailto:integrate@makerdao.com">integrate@makerdao.com</a> or #dev channel on chat.makerdao.com</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Quick guide - Listing DAI or MKR tokens on exchange</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/quick-guide-listing-dai-or-mkr-tokens-on-exchange/c7b0426e21404c7cb4d06380219bf18d/a</li>
+<li><strong>Kauri original author:</strong> David Utrobin (@davidutro)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-06</li>
+<li><strong>Kauri original tags:</strong> EthDenver</li>
+<li><strong>Kauri original hash:</strong> QmeJZBiiNyYUfaWpX1sRjM5PTt8J7gPBe5eTZJG1Ubf8iB</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../keepers-on-makerdao--resources/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../keepers-on-makerdao--resources/" class="btn btn-xs btn-link">
+        Keepers on MakerDAO  Resources
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../rhombus-has-your-oracle-needs-covered-at-ethdenve/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../rhombus-has-your-oracle-needs-covered-at-ethdenve/" class="btn btn-xs btn-link">
+        Rhombus has your oracle needs covered at ETHDenver
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHDenver/quick-guide-listing-dai-or-mkr-tokens-on-exchange.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

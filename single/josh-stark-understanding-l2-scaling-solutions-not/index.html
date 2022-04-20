@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/josh-stark-understanding-l2-scaling-solutions-not/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Josh Stark - Understanding L2 scaling solutions  notes - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Josh Stark - Understanding L2 scaling solutions  notes", url: "#_top", children: [
+              {title: "Goal of talk", url: "#goal-of-talk" },
+              {title: "Context", url: "#context" },
+              {title: "Two ways to scale", url: "#two-ways-to-scale" },
+              {title: "Layer 2 solutions", url: "#layer-2-solutions" },
+              {title: "State channels", url: "#state-channels" },
+              {title: "Plasma", url: "#plasma" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="josh-stark-understanding-l2-scaling-solutions-notes">Josh Stark - Understanding L2 scaling solutions  notes<a class="headerlink" href="#josh-stark-understanding-l2-scaling-solutions-notes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK" /></p>
+<p><em>Josh Stark - L4, Counterfactual</em><br />
+<em>DEVCON 4 MainStage, October 31st 2018</em><br />
+<strong><em>Recording:</em></strong> Starts at 3 hours and 33 mins, https://slideslive.com/38911427/devcon4-day-1</p>
+<h2 id="goal-of-talk">Goal of talk<a class="headerlink" href="#goal-of-talk" title="Permanent link"></a></h2>
+<p><strong>Leave you with a clear conceptual understanding of what Layer 2 means and why it matters.</strong></p>
+<ol>
+<li>Fundamental limits of blockchains</li>
+<li>What is Layer 2</li>
+<li>State Channels</li>
+<li>Plasma</li>
+</ol>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link"></a></h2>
+<p>Blockchains are <strong>expensive</strong> and <strong>slow</strong></p>
+<p>FB ~175,000 tps<br />
+Visa 2,000 - 45,000 tps<br />
+PayPal 200 tps<br />
+Ethereum 20 tps  </p>
+<blockquote>
+<p>Ethereum is made of many individual nodes which are separately processing everything that is happening on the blockchain and this is the fundamental limitation. Nodes don’t have to trust others as they process everything themselves</p>
+</blockquote>
+<p>Simple ways to overcome are everyone processes more transactions say 2x, but it is more expensive to run a node and less can participate.<br />
+Fewer nodes, less decentralized, less secure… </p>
+<h2 id="two-ways-to-scale">Two ways to scale<a class="headerlink" href="#two-ways-to-scale" title="Permanent link"></a></h2>
+<p>We want to break that trade-off and there are two ways<br />
+1) Don’t have every node process every transaction
+ - A nodes and B nodes can separately process transactions and double the processing power of the network
+ - Base insight behind sharing or serenity, the L1 improvement pathway for Ethereum 2.0</p>
+<p>2) Instead of changing layer 1, use it radically more effectively
+ - hard kernel of certainty that will execute code as written
+ - Do everything on top and leverage that base layer of security, retaining as many of those security properties as possible </p>
+<h2 id="layer-2-solutions">Layer 2 solutions<a class="headerlink" href="#layer-2-solutions" title="Permanent link"></a></h2>
+<p><strong><em>Definition:</em></strong> Off chain techniques where a user does not have to trust a separate environment  </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRAyKuDDWADM3zCSjVWcukZy2Xsxmq3FiSxSvjNHyoysK" /></p>
+<ol>
+<li>Build apps where most of the “work” is done off-chain</li>
+<li>Only use layer 1 to build anchors that tie the off-chain environment to layer 1s security </li>
+<li>Preserve same risk model as Layer 1 (or preserve as much as possible)</li>
+</ol>
+<p>All without changing layer 1 - it’s all just smart contracts and software that refer back to layer 1 when necessary<br />
+Layer 2 is not: Just any technique that moves operations to an off-chain environment, in order to obtain performance enhancements (e.g. a naive side chain that does not anchor back in some way to preserve the risk model of Layer 1) </p>
+<blockquote>
+<p>Apps can use ethereum even when they rarely interact with layer 1. Layer 1 is expensive and slow but is reliable and authoritative. The fact that they could retreat to Layer 1 at any time is enough.  </p>
+</blockquote>
+<h2 id="state-channels">State channels<a class="headerlink" href="#state-channels" title="Permanent link"></a></h2>
+<p><strong><em>Foundational layer 2 technique</em></strong><br />
+Messages over any communication protocol that have fields and signatures of a transaction <br />
+Pay out based on last transaction, which has been signed by both parties   </p>
+<p>IF one of them lies 
+ - Rule 1 most recent update is true
+ - Rule 2 punish someone who tries to lie</p>
+<h4 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link"></a></h4>
+<ul>
+<li>Can pay each other instantly for free</li>
+<li>Worst case submit on chain transaction to resolve</li>
+<li>Privacy! Outside observer can only see unchain multi-sig but no information of what is happening off chain in the channel</li>
+</ul>
+<h4 id="state-channel-vs-payment-channel">State channel vs payment channel<a class="headerlink" href="#state-channel-vs-payment-channel" title="Permanent link"></a></h4>
+<p>Same technique for payments can let us do arbitrary state updates rather than just the balance of payments, and can be used for anything e.g. games or complex financial contracts</p>
+<ol>
+<li>Most of work done off chain: Txs exchanged in off-chain message</li>
+<li>Only use L1 for anchor: Only on-chain piece is the multisig, which is used to create channels, withdraw, or dispute.  </li>
+<li>Preserve L1 risk model: Users have rules they can rely on that are coded in the multi-sig to resolve disputes and can always submit txs to main-chain maintaining the security of L1</li>
+</ol>
+<h2 id="plasma">Plasma<a class="headerlink" href="#plasma" title="Permanent link"></a></h2>
+<p><strong><em>Framework for building scalable applications on Ethereum</em></strong>
+ - Side-chains are cool! But they are trusting that side chains security 
+ - What if we had a side chain that was layer2-ified
+ - If something goes wrong on the side chain can withdraw and maintain the security of L1</p>
+<h4 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h4>
+<ul>
+<li>Root and side chain which can communicate back and forth  </li>
+<li>Alice and Bob transact on the side chain  </li>
+<li>Games or exchanges could live on side chains  </li>
+<li>Plasma root needs to know what is happening on side chain - report the state to the root  </li>
+<li>This is important for when people want to exit and move their assets on main chain  </li>
+<li>
+<p>Root checks the chain and waits for any challenges then lets Alice withdraw</p>
+</li>
+<li>
+<p>Most of work done off chain: Everything happens on plasma chain not main chain</p>
+</li>
+<li>Only use L1 for anchor: On chain root ensures that users can always withdraw </li>
+<li>Preserve L1 risk model: If users follow protocol and layer 1 is available there are no additional risks</li>
+</ul>
+<h4 id="three-primary-versions-of-plasma">Three primary versions of plasma<a class="headerlink" href="#three-primary-versions-of-plasma" title="Permanent link"></a></h4>
+<ul>
+<li>Plasma MVP - UTXO for payments only, not smart contracts</li>
+<li>Plasma Cash - NFTs which are traded but cannot use fractions</li>
+<li>Plasma Debit - Like cash, assets are NFTs but assets are also payment channels between user and master-validator</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXmDuqP5eBbewstQRuNGr72HxacYx7RShrZkUerwABBSi" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Josh Stark - Understanding L2 scaling solutions  notes </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/josh-stark-understanding-l2-scaling-solutions-note/17fb968e07a14e05bb69e1e448741a7b/a</li>
+<li><strong>Kauri original author:</strong> Andreas Wallendahl (@andreaswallend1)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-10-31</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQ5S2j6qovQQmfRqE3ZZ6B2opAZbqJDesX8V1hxmwY2NM</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../vyper.fun--learn-vyper-by-building-a-pokemon-game/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../vyper.fun--learn-vyper-by-building-a-pokemon-game/" class="btn btn-xs btn-link">
+        Vyper.fun  Learn Vyper by building a Pokemon Game
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethberlin-2019-decentralized-heatathon/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethberlin-2019-decentralized-heatathon/" class="btn btn-xs btn-link">
+        ETHBerlin 2019 - Decentralized Heatathon
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/josh-stark-understanding-l2-scaling-solutions-not.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

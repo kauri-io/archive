@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-amazon-ec2/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Deploying a full-stack dApp to Amazon EC2 - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Deploying a full-stack dApp to Amazon EC2", url: "#_top", children: [
+              {title: "Deploying a full-stack dApp to Amazon Elastic Cloud Computing (AWS-EC2)", url: "#deploying-a-full-stack-dapp-to-amazon-elastic-cloud-computing-aws-ec2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="deploying-a-full-stack-dapp-to-amazon-ec2">Deploying a full-stack dApp to Amazon EC2<a class="headerlink" href="#deploying-a-full-stack-dapp-to-amazon-ec2" title="Permanent link"></a></h1>
+<h2 id="deploying-a-full-stack-dapp-to-amazon-elastic-cloud-computing-aws-ec2">Deploying a full-stack dApp to Amazon Elastic Cloud Computing (AWS-EC2)<a class="headerlink" href="#deploying-a-full-stack-dapp-to-amazon-elastic-cloud-computing-aws-ec2" title="Permanent link"></a></h2>
+<p>In the previous <a href="https://kauri.io/collection/5b8e401ee727370001c942e3">tutorials in this series</a>, we saw how to develop a full-stack ethereum-based blockchain dApp.</p>
+<p>In this tutorial, we learn how to deploy the dApp to an Amazon web services (AWS) elastic cloud computing (EC2) instance. We also create a private ethereum blockchain node using <a href="https://kaleido.io/">kaleido</a> and configure the dApp to work with this blockchain node.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>To complete this tutorial, you need a good understanding of the following concepts:</p>
+<ul>
+<li>Connecting to a remote server via SSH.</li>
+<li>Basic Linux Command Line Interface (CLI) knowledge.</li>
+<li>A good understanding of how the blockchain works is recommended, but not necessary for completing this tutorial.</li>
+</ul>
+<h3 id="launch-and-connect-to-an-ec2-instance">Launch and Connect to an EC2 Instance<a class="headerlink" href="#launch-and-connect-to-an-ec2-instance" title="Permanent link"></a></h3>
+<!-- TODO: Replace -->
+
+<p>To launch an EC2 instance, follow the instructions in this <a href="https://hackernoon.com/launching-an-ec2-instance-fbfd50894aac">tutorial</a></p>
+<ul>
+<li>Make sure the instance state in the console is running and there is a green tick under status checks.</li>
+<li>Make sure you are able to SSH into the EC2 instance as detailed in the article above.</li>
+</ul>
+<p>Next install the apache server <code>httpd</code> , <code>node.js</code> and <code>git</code> by running the following commands on the EC2 instance.</p>
+<pre><code class="language-sh">sudo yum update -y
+sudo yum install -y httpd git nodejs
+sudo service httpd start
+sudo chkconfig httpd on
+</code></pre>
+<h3 id="create-a-private-ethereum-blockchain-node-using-kaleido">Create a Private Ethereum Blockchain Node using <a href="https://kaleido.io/">Kaleido</a><a class="headerlink" href="#create-a-private-ethereum-blockchain-node-using-kaleido" title="Permanent link"></a></h3>
+<p>To create a private ethereum blockchain node in kaleido, do the following:</p>
+<ol>
+<li>Create a new Kaleido account, sign in/log in, and complete the sign up process.</li>
+<li>
+<p>After logging in, create a <em>Consortium</em>, by clicking the <em>Create Consortium</em> button and then do the following:</p>
+<ol>
+<li>Enter the name and mission of the consortium.</li>
+<li>Set your home region e.g. Ohio if you had selected USA as your country.</li>
+<li>Click <em>NEXT</em> and then click <em>FINISH</em> in the next tab.</li>
+</ol>
+</li>
+<li>
+<p>Setup a new environment by clicking the <em>SETUP ENVIRONMENT</em> button and doing the following:</p>
+<ol>
+<li>Enter the name of the enviroment, or leave it blank and click <em>NEXT</em>.</li>
+<li>In the <em>Protocol</em> tab, select <em>Geth</em> under <em>PROVIDER</em>. This is important because you need to create an Ethereum blockchain node, the other 2 options create blockchain nodes for other providers not covered by this tutorial.</li>
+<li>By default, <em>PoA</em> is selected under <em>CONSENSUS ALGORITHM</em>.</li>
+<li>Click <em>FINISH</em> to complete set up.</li>
+</ol>
+</li>
+<li>
+<p>Next, add the ethereum node by clicking on the <code>ADD NODE</code> and doing the following:</p>
+<ol>
+<li>Select the correct <em>OWNING MEMBER</em> for the node,  enter the name of the node, and click <em>NEXT</em>.</li>
+<li>Click <em>NEXT</em> in the <em>CLOUD CONFIGURATION</em> tab and leave the settings as default. Note under the free plan, you won't be able to change any of the settings.</li>
+<li>In the <em>SIZE</em> tab, select the <em>Node Size</em> you want. Note again under the free plan, only the small node size is available.</li>
+<li>Click <em>FINISH</em> to complete set up.</li>
+</ol>
+</li>
+</ol>
+<p>Give the newly created node about 3 minutes to finish initializing and starting.</p>
+<p>To connect to the newly created node, you need to add new app credentials in Kaleido, by doing the following:</p>
+<ol>
+<li>Click the <em>+ADD</em> dropdown and choose the <em>New App Credentials</em> option.</li>
+<li>Make sure you select the correct membership under the <em>MEMBERSHIP</em> option and enter a new name for the credential.</li>
+<li>
+<p>Note the <em>USERNAME</em> and <em>PASSWORD</em> shown.</p>
+<ol>
+<li>Copy the password shown and save it in a secure place. This is the only time the password is shown, so if you lose it, you'll have to create new app credentials to connect to the node.</li>
+</ol>
+</li>
+<li>
+<p>Click <em>DONE</em> to save the app credentials.</p>
+</li>
+</ol>
+<h3 id="create-a-kaleido-ipfs-node">Create a Kaleido IPFS Node<a class="headerlink" href="#create-a-kaleido-ipfs-node" title="Permanent link"></a></h3>
+<p>Because the dApp needs to connect to an IPFS node, you need to create a new node by doing the following:</p>
+<ol>
+<li>Navigate to an existing environment, and click the <em>+ADD</em> dropdown in the top right of the screen.</li>
+<li>Select the <em>Add Services</em> option. This opens a new panel exposing the available Kaleido Services.</li>
+<li>Click the <em>ADD</em> button beneath <em>IPFS File Store</em> option.</li>
+<li>Name the node and click <em>ADD</em>. Click <em>DONE</em> to finish the deployment.</li>
+<li>The newly created IPFS node appears at the bottom of your environment panel under <em>MEMBER SERVICES</em>.</li>
+</ol>
+<p>Save the IPFS URL created in a safe place because you need it later in the tutorial by doing the following:</p>
+<ul>
+<li>In the kaleido dashboard <em>environment</em> section, click on the ipfs node created under <em>MEMBER SERVICES</em>.</li>
+<li>A new <em>Application Credentials</em> page appears, select the <em>App Credentials</em> created above under <em>CREDENTIAL NAME</em> and under <em>SECRET KEY</em>  enter the passoword saved from above and click <em>SUBMIT</em>.</li>
+<li>Copy the URL under <em>MY COMPANY ORGANIZATION - IPFS GATEWAY ENDPOINT</em> and append the <em>APPLICATION CREDENTIALS</em> displayed to this URL. i.e., if the url is <code>https://u0b2fvaghe-u0kzkqcb5x-ipfs.us0-aws.kaleido.io/ipfs</code> and the credentials are <code>u0hnyi99nm:8abPcEHO1ioxo7pckJKcxw3VzKl8D19TsFp5o7pE-cj4</code> the new url is <code>u0hnyi99nm:8abPcEHO1ioxo7pckJKcxw3VzKl8D19TsFp5o7pE-cj4@u0b2fvaghe-u0kzkqcb5x-ipfs.us0-aws.kaleido.io</code>.</li>
+<li>Save this url in a secure place.</li>
+</ul>
+<h3 id="deploy-the-dapp-to-aws">Deploy the dApp to AWS<a class="headerlink" href="#deploy-the-dapp-to-aws" title="Permanent link"></a></h3>
+<p>For this tutorial, we use the <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend">react project</a> from previous steps. Fork the repo to make the changes described below and deploy the dApp to the AWS EC2 instance.</p>
+<h4 id="generate-a-new-ethereum-wallet-and-mnemonic">Generate a new Ethereum Wallet and Mnemonic<a class="headerlink" href="#generate-a-new-ethereum-wallet-and-mnemonic" title="Permanent link"></a></h4>
+<p>This step is optional if you already have an existing Ethereum wallet and are comfortable using it's mnemonic from the above dApp.</p>
+<p>To generate a new wallet go to <a href="https://iancoleman.io/bip39">https://iancoleman.io/bip39</a> and in the BIP39 Mnemonic code form, do the following:</p>
+<ol>
+<li>Select <em>ETH — Ethereum</em> from the <em>Coin</em> drop down.</li>
+<li>Select a minimum of 12 words.</li>
+<li>Click the <em>Generate</em> button to generate the mnemonic.</li>
+<li>Copy and save the mnemonic located in the field <em>BIP39 Mnemonic</em>, remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts.</li>
+</ol>
+<p>You can also get the address of the wallet in the table under <em>Derived Addresses</em> in the first row under the column Address. i.e. <code>0x06c6b9bfF7281e97DE8455df05f0EC62528f4DEC</code></p>
+<h4 id="setup-truffle">Setup Truffle<a class="headerlink" href="#setup-truffle" title="Permanent link"></a></h4>
+<p>In the repo forked above, create a <code>secrets.json</code> file in the root path of the <code>truffle-react-box-frontend</code> folder.</p>
+<p>Then get the kaleido connection Url by doing the following:</p>
+<ul>
+<li>Click on the newly created ethereum node above.</li>
+<li>Click on the <em>+ Connect Node</em> button.</li>
+<li>Under <em>Select a Connection Type</em> click the <em>VIEW DETAILS</em> button under <em>NATIVE JSON/RPC</em>.</li>
+<li>Select the <em>App Credential</em> you created above and enter the password for it in the <em>SECRET KEY</em> field and click the <em>SUBMIT</em> button</li>
+<li>In the new page, select <em>HTTPS</em> under the <em>JSON/RPC</em> panel, scroll to the <em>Auth Type - INURL</em> section and copy the <em>CONNECTION URL</em> displayed there.</li>
+</ul>
+<p>Then save the kaleido config by setting the "mnemonic" phrase you got when creating the wallet and also the "CONNECTION URL" copied from the above step. The <code>secrets.json</code> file should look like below:</p>
+<pre><code class="language-json">{
+    &quot;mnemonic&quot;: &quot;YOUR SECRET MNEMONIC&quot;,
+    &quot;kaleidoUrl&quot;: &quot;username:password@kaleidonodeurl&quot;
+}
+</code></pre>
+<p>In the <code>truffle.js</code> file replace the current infura configuration with the kaleido configuration. By replacing the lines:</p>
+<pre><code class="language-javascript">    rinkeby: {
+        provider: new HDWalletProvider(secrets.mnemonic, &quot;https://rinkeby.infura.io/v3/&quot;+secrets.infuraApiKey),
+        network_id: '4'
+    }
+</code></pre>
+<p>with the lines:</p>
+<pre><code class="language-javascript">    production: {
+        provider:  new HDWalletProvider(secrets.mnemonic, secrets.kaleidoUrl),
+        network_id: '*',
+        gas: 4700000
+    }
+</code></pre>
+<h4 id="setup-metamask">Setup Metamask<a class="headerlink" href="#setup-metamask" title="Permanent link"></a></h4>
+<p>You also need to install and setup <a href="https://metamask.io/">metamask</a> which is a web3 provider for browsers.</p>
+<p>Once metamask is setup in your browser, do the following:</p>
+<ul>
+<li>Click on the metamask extension/add-on in your browser to open it.</li>
+<li>Click on the <em>Import using account seed phrase</em> link displayed on the extension before you login.</li>
+<li>In the new page enter the mnemonic phrase copied from above and enter a new password for the account.<ul>
+<li>Be careful with this step as it overwrites any existing accounts you had in metamask. Make sure you <strong>backup</strong> the seed phrases of any existing accounts before importing the above phrase, otherwise you <strong>will lose</strong> access to your account(s) if they are not backed up anywhere else.</li>
+</ul>
+</li>
+<li>Then login into metamask using the password you created in the above step and copy the address of the wallet by clicking on the account name.</li>
+<li>This address should match the address derived when creating the new mnemonic phrase above.</li>
+</ul>
+<p>Configure metamask to connect to the above kaleido node by doing the following:</p>
+<ul>
+<li>Login to MetaMask.</li>
+<li>In the <em>networks</em> dropdown, select the <em>Custom RPC</em> option.</li>
+<li>Enter "Kaleido" under <em>network name</em> in the new page and enter the kaleido connection url from above i.e., "username:password@kaleidonodeurl" as the network <em>New RPC URL</em> and click <em>Save</em>. You can leave the rest of the fields blank for now.</li>
+</ul>
+<h4 id="fund-the-ethereum-wallet">Fund the Ethereum Wallet<a class="headerlink" href="#fund-the-ethereum-wallet" title="Permanent link"></a></h4>
+<p>To fund the Ethereum wallet created above do the following:</p>
+<ul>
+<li>Go the kaleido dashboard, select your consortium and then your environment.</li>
+<li>Under the <em>SERVICES</em> table, click on the <em>Ether Pool</em> option i.e., the 3 dots at the end of the row and then select <em>Fund Account</em>.</li>
+<li>On the new page, paste the wallet address copied from metamask above, enter the amount of ETH you want to fund the account with, and click <em>FUND</em>.</li>
+</ul>
+<p>This now adds the funds to the address associated with the wallet and metamask reflects this if you select the <em>kaleido</em> network created above. Note that these funds are <strong>not real</strong> and can't be used for transactions in the main Ethereum network, but can be used for blockchain transactions in the private kaleido network.</p>
+<h4 id="setup-the-dapp-in-aws">Setup the dApp in AWS<a class="headerlink" href="#setup-the-dapp-in-aws" title="Permanent link"></a></h4>
+<p>After connecting to the kaleido node created above via metamask and funding the account, its time to deploy the dApp to AWS by taking the following steps:</p>
+<ol>
+<li>SSH login to the newly created AWS EC2 instance.</li>
+<li>Clone via git the <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend">react project</a> repo forked above to the instance.</li>
+<li>
+<p>Change directory (<code>cd</code>) to the <code>truffle-react-box-frontend</code> folder to deploy the contracts via truffle by doing the following:</p>
+<ol>
+<li>Install the truffle package globally via the command <code>npm i truffle -g</code>.</li>
+<li>Compile the smart contracts via the command <code>truffle compile</code>.</li>
+<li>Deploy the contracts to the Kaleido private Ethereum Blockchain node created above via the command <code>truffle migrate</code>.</li>
+<li>If you take a look at the Block Explorer in Kaleido, you should see that new transactions executed for the <code>Bounties</code> smart contract.</li>
+<li>You can test the contract in the Truffle Console via the command <code>truffle console --network production</code> which opens a console where you can interact with the deployed contract.</li>
+<li>If you make any changes to the smart contract, you need to re-deploy them to the kaleido node via the commands <code>truffle compile &amp;&amp; truffle migrate</code>.</li>
+</ol>
+</li>
+<li>
+<p>After the contract deployment, change directory (<code>cd</code>) to the react project i.e., <code>cd truffle-react-box-frontend/client/</code> and install the required node dependencies via the command <code>npm install</code>.</p>
+</li>
+<li>Edit the file <code>truffle-react-box-frontend/client/src/App.js</code> to reflect the above kaleido changes and replace the following lines.</li>
+</ol>
+<pre><code class="language-js">const etherscanBaseUrl = &quot;https://rinkeby.etherscan.io&quot;;
+const ipfsBaseUrl = &quot;https://ipfs.infura.io/ipfs&quot;;
+</code></pre>
+<p>with</p>
+<pre><code class="language-js">const etherscanBaseUrl = &quot;https://console.kaleido.io/environments/{consortiumId}/{environmentId}/explorer&quot;;
+const ipfsBaseUrl = &quot;username:password@kaleidoIPFSUrl/ipfs&quot;;
+</code></pre>
+<p>You can get the <code>consortiumId</code> and <code>environmentId</code> variables by manually opening the kaleido block explorer in your browser and then copy and pasting the url generated.</p>
+<p>The <code>kaleidoIPFSUrl</code> is the IPFS Url we generated when setting up an IPFS node above.</p>
+<p>Change the file <code>/truffle-react-box-frontend/client/src/utils/IPFS.js</code> and replace the line:</p>
+<pre><code class="language-js">const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+</code></pre>
+<p>With the line:</p>
+<pre><code class="language-js">const ipfs = new IPFS({ provider: 'username:password@kaleidoIPFSUrl', protocol: 'https' });
+</code></pre>
+<ol>
+<li>Edit <code>/etc/httpd/conf/httpd.conf</code> to the following:</li>
+</ol>
+<pre><code class="language-conf">&lt;Directory &quot;/var/www/html&quot;&gt;
+    #
+    # Possible values for the Options directive are &quot;None&quot;, &quot;All&quot;,
+    # or any combination of:
+    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
+    #
+    # Note that &quot;MultiViews&quot; must be named *explicitly* --- &quot;Options All&quot;
+    # doesn't give it to you.
+    #
+    # The Options directive is both complicated and important.  Please see
+    # http://httpd.apache.org/docs/2.4/mod/core.html#options
+    # for more information.
+    #
+    Options Indexes FollowSymLinks
+
+    #
+    # AllowOverride controls what directives may be placed in .htaccess files.
+    # It can be &quot;All&quot;, &quot;None&quot;, or any combination of the keywords:
+    #   Options FileInfo AuthConfig Limit
+    #
+    AllowOverride All
+
+    Options -MultiViews
+    &lt;IfModule mod_rewrite.c&gt;
+        RewriteEngine On
+        # If an existing asset or directory is requested go to it as it is
+        RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+        RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+        RewriteRule ^ - [L]
+        # If the requested resource doesn't exist, use index.html
+        RewriteRule ^ /index.html
+    &lt;/IfModule&gt;
+
+    #
+    # Controls who can get stuff from this server.
+    #
+    Require all granted
+&lt;/Directory&gt;
+</code></pre>
+<ol>
+<li>Restart the apache server for these changes to apply, with the command <code>sudo service httpd start</code>.</li>
+<li>Build the dApp for production running the CLI command <code>npm run build</code> inside the folder <code>truffle-react-box-frontend/client/</code>.</li>
+<li>Copy and paste all the files and folders inside the <code>truffle-react-box-frontend/client/dist/</code> folder into the apache folder i.e., <code>cd dist/ &amp;&amp; cp -R * /var/www/html/</code>.</li>
+<li>Navigate to the IP address of the EC2 instance and the dApp is displayed. You should be able to interact with the dApp via metamask using the <code>Kaleido Custom RPC</code> as expected.<ol>
+<li>If you change the dApp, repeat steps 7 to 9 to see your changes.</li>
+</ol>
+</li>
+</ol>
+<!-- TODO: Do you need Apache? What about node server? -->
+
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Deploying a full-stack dApp to Amazon EC2</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/deploying-a-fullstack-dapp-to-amazon-ec2/26165036e74b44a69e6aeb2137c71d54/a</li>
+<li><strong>Kauri original author:</strong> Mulili Nzuki (@mulili)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-27</li>
+<li><strong>Kauri original tags:</strong> ethereum, dapp, ec2, kaleido, aws</li>
+<li><strong>Kauri original hash:</strong> QmasJddMj3KSnxAGxVgsaFRJJL9hzzygFydJJ1t9Ubu59r</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deploying-a-full-stack-dapp-to-google-cloud/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deploying-a-full-stack-dapp-to-google-cloud/" class="btn btn-xs btn-link">
+        Deploying a full-stack dApp to Google Cloud
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deploying-your-dapp-frontend-to-heroku/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deploying-your-dapp-frontend-to-heroku/" class="btn btn-xs btn-link">
+        Deploying Your dApp Frontend to Heroku
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/deploying-a-full-stack-dapp-to-amazon-ec2.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

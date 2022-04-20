@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/metadata-and-hosting-options/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Metadata and Hosting Options - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Metadata and Hosting Options", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="metadata-and-hosting-options">Metadata and Hosting Options<a class="headerlink" href="#metadata-and-hosting-options" title="Permanent link"></a></h1>
+<p>As awesome as NFTs are, without metadata they are just numbers! Fortunately, a metadata standard was included in EIP721, along with some additions (background color, stats) to improve the rendering on markets like OpenSea. </p>
+<p><strong>Note:</strong>
+This “standard” is more of a suggestion than a fully agreed upon specification. As we'll show below, there are several versions currently adhered too.</p>
+<p>The EIP721 standard:</p>
+<pre><code>{
+    &quot;title&quot;: &quot;Asset Metadata&quot;,
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;properties&quot;: {
+        &quot;name&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Identifies the asset to which this NFT represents&quot;,
+        },
+        &quot;description&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Describes the asset to which this NFT represents&quot;,
+        },
+        &quot;image&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive.&quot;,
+        }
+    }
+}
+</code></pre>
+<p>This content should be hosted at an HTTP or IPFS URL (using an IPFS gateway like ipfs.io (http://ipfs.io/)), and should be unique for <strong>EACH</strong> NFT.  </p>
+<p>For example, tokenId 1 should be hosted at https://ipfs.io/kauriToken1, and tokenId 2 should be hosted at https://ipfs.io/kauriToken2. Sending a request to the URL should return the unique JSON blob, like the above.</p>
+<p>Showcase Site Metadata:
+Showcase and auction sites like OpenSea and Rarebits tend to have their own supported versions of the standard. We'll touch on those two hear, as they are currently the most popular.</p>
+<p>OpenSea: https://opensea.readme.io/docs/2-adding-metadata</p>
+<p>The following attributes are available, and will customize how your NFTs are displayed in the OpenSea store:
+<img alt="" src="https://ipfs.infura.io/ipfs/QmceYfeyoZTKk3CbMZpbEMtMXafLE7poVc7sPrZe1i2XHH" /></p>
+<p>And an example:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;Kauri Original Contributor&quot;,
+  &quot;image&quot;: &quot;https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png&quot;, 
+  &quot;description&quot;: &quot;This badge was awarded to one of the first 100 users on Kauri!&quot;, 
+  &quot;attributes&quot;: {
+    &quot;level&quot;: 1,
+  },
+  &quot;external_url&quot;: &quot;https://rinkeby.kauri.io/&quot;, 
+  &quot;background_color&quot;: &quot;00000&quot;
+}
+</code></pre>
+<p>Rarebits: https://docs.rarebits.io/v1.0/docs/listing-your-assets</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZkTCZcoGwZqsLfM3uXzPU6V1XKZqFNGbWXi8ehcQAC8E" /></p>
+<p>And an example:</p>
+<pre><code>{
+  &quot;name&quot;: &quot;Robot token #14&quot;,
+  &quot;image_url&quot;: &quot;https://www.robotgame.com/images/14.png&quot;,
+  &quot;home_url&quot;: &quot;https://www.robotgame.com/robots/14.html&quot;,
+  &quot;description&quot;: &quot;This is the amazing Robot #14, please buy me!&quot;,
+  &quot;properties&quot;: [
+    {&quot;key&quot;: &quot;generation&quot;, &quot;value&quot;: 4, type: &quot;integer&quot;}, 
+    {&quot;key&quot;: &quot;cooldown&quot;, &quot;value&quot;: &quot;slow&quot;, type: &quot;string&quot;}
+  ],
+  &quot;tags&quot;: [&quot;red&quot;,&quot;rare&quot;,&quot;fire&quot;]
+}
+</code></pre>
+<p><strong>Hosting the Metadata</strong></p>
+<p>An important consideration for your NFT is where the metadata will be hosted, as a dead link effectively kills your token! While the ERC721 standard allows these URIs to be updated, really this behavior should be prevented at the implementation level to avoid an asset having it's information changed after creation (which can be used maliciously). Not too mention that even a bit of downtime on a URI can be problematic, at the very least negatively affecting the user experience.</p>
+<p>So to minimize these possibilities, we suggest using a distributed storage solution like IPFS, and eventually Swarm.
+An easy way to upload content to IPFS is to use an app like https://globalupload.io/. </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQPRcPf7SLhL2cZ2G6YutH7nHPZoZtosPJ8uzPhWbKc13" /></p>
+<p>This app allows you to just drag and drop a properly formatted .json file (using the standard), and will return a URL with the IPFS hash, which you can use in your token!</p>
+<p><strong>Important note:</strong>
+Your data in IPFS only exists as long as it is pinned (flagged for storage on an IPFS node). While nodes like Infura are reliable, ultimately running your own node(s) is the safest choice, at least until Filecoin or similar products are ready. If you're planning to build a fully-featured application around your NFT, consider using something like https://github.com/ConsenSys/IPFS-Store, built and maintained by our very own Greg Jeanmart! </p>
+<p>Another option for adding and storing metadata is to use Abacus Protocol: https://docs.abacusprotocol.com/tutorial, which is a method recommended by OpenSea.</p>
+<p>The metadata patterns for NFTs are still evolving (along with the storage options), and we'll continue to update this document as new options and best practices emerge.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Metadata and Hosting Options</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/metadata-and-hosting-options/e931dca3476f49b4ba7433a747ab5022/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-03</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmRqANyoHAKLBLf4zXLeooYdvc9ehonw8YCCALzHBih44s</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../secret-rock-paper-scissors/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../secret-rock-paper-scissors/" class="btn btn-xs btn-link">
+        Secret Rock, Paper, Scissors
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethergram/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethergram/" class="btn btn-xs btn-link">
+        Ethergram
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/metadata-and-hosting-options.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

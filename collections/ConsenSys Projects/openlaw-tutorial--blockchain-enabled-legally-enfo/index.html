@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ConsenSys%20Projects/openlaw-tutorial--blockchain-enabled-legally-enfo/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts", url: "#_top", children: [
+              {title: "What is OpenLaw?", url: "#what-is-openlaw" },
+              {title: "Creating a Legally Enforceable Contract with OpenLaw\u2019s Markup Language", url: "#creating-a-legally-enforceable-contract-with-openlaws-markup-language" },
+              {title: "Signing the Contract on OpenLaw", url: "#signing-the-contract-on-openlaw" },
+              {title: "Interacting with the Ethereum Blockchain", url: "#interacting-with-the-ethereum-blockchain" },
+              {title: "Developing an Example Smart Contract", url: "#developing-an-example-smart-contract" },
+              {title: "Integrating Blockchain Programming with OpenLaw", url: "#integrating-blockchain-programming-with-openlaw" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openlaw-tutorial-blockchain-enabled-legally-enforceable-smart-contracts">OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts<a class="headerlink" href="#openlaw-tutorial-blockchain-enabled-legally-enforceable-smart-contracts" title="Permanent link"></a></h1>
+<p>By: Michael Rice</p>
+<p>In this article, we’ll explore how to use the 
+<a href="https://openlaw.io/">OpenLaw</a>
+ Core to create a blockchain-based, legally enforceable smart contract. We’ll start by explaining how to create a legal contract on OpenLaw. Then we’ll demonstrate how OpenLaw can facilitate the signature process and store evidence of the agreement on the blockchain. Lastly, we’ll explore how that contract can further interact with a blockchain through a smart contract.</p>
+<h3 id="what-is-openlaw">What is OpenLaw?<a class="headerlink" href="#what-is-openlaw" title="Permanent link"></a></h3>
+<p>OpenLaw is a blockchain-based protocol for the creation and execution of legal agreements. Our aim is to comprehensively stitch together traditional legal agreements with blockchain-based smart contracts in a user-friendly (through our 
+<a href="https://docs.openlaw.io/markup-language/#variables">markup language</a>
+ ) and legally compliant manner. Using OpenLaw, users can more efficiently engage in transactional work and digitally sign and store legal agreements in a highly secure manner, all while leveraging next generation blockchain-based smart contracts.</p>
+<h4 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h4>
+<p>This tutorial assumes the following:
+1. You have an OpenLaw account. If you don’t already have one, you can 
+<a href="https://app.openlaw.io/signup">sign up for a free account</a>
+ at OpenLaw.io.
+2. You have some experience developing smart contracts using the Solidity programming language.
+3. You have the tooling in place to develop smart contracts, such as 
+<a href="https://metamask.io">MetaMask</a>
+ or the 
+<a href="https://github.com/ethereum/mist">Mist Wallet</a>
+ and understand how to develop code locally or via an online development tool such as 
+<a href="https://remix.ethereum.org/">Remix</a>
+ .</p>
+<h3 id="creating-a-legally-enforceable-contract-with-openlaws-markup-language">Creating a Legally Enforceable Contract with OpenLaw’s Markup Language<a class="headerlink" href="#creating-a-legally-enforceable-contract-with-openlaws-markup-language" title="Permanent link"></a></h3>
+<p>In OpenLaw, the first step is to create (or reuse) a legally enforceable contract. A contract is created by first writing a template. Templates contain natural language, such as legal terms and conditions of the agreement between the parties, as well as 
+<a href="https://docs.openlaw.io/markup-language/">markup tags</a>
+ . OpenLaw uses common, well-known markup tag syntax as well as some special tags, which are specific to our protocol. Once the template has been defined, a draft of the contract can be sent to the parties to electronically sign the contract. Evidence of the signature and the agreement will be memorialized on the blockchain once executed.</p>
+<h4 id="start-with-a-blank-document">Start with a Blank Document<a class="headerlink" href="#start-with-a-blank-document" title="Permanent link"></a></h4>
+<p>Normally, contract professionals start with an example and then tailor it to meet the needs of the parties. In this tutorial, however, we will start from scratch to show you how to construct a template using the powerful OpenLaw markup language.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTKbRkaFrEiCfr3c4zSqXXg1AXD4mtuEt39JKCWQJoVZ3" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbxRQUkWKZPhHMigdMFKP4t4EXApXkr9TvFrZ8jwbY8SC" /></p>
+<h4 id="creating-a-legal-document">Creating a Legal Document<a class="headerlink" href="#creating-a-legal-document" title="Permanent link"></a></h4>
+<p>In this tutorial, we’ll write up a legal contract where a buyer will buy a Volkswagen bus from a seller for 200 ether (a cryptocurrency on the Ethereum blockchain). A traditional paper-based agreement to support this commercial transaction might look like this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQgf32E3xijWFwM4txSZfwiUX9tV92YtE8E2U7cmNFMLN" /></p>
+<p>We’re going to recreate this simplistic legal agreement with OpenLaw’s markup and blockchain-enabled capabilities by inputting the following markup as a template, as shown here:
+\centered <strong> BILL OF SALE </strong>
+Seller at Ethereum address [[Seller Address: EthAddress]] (“Seller”) agrees to sell a <strong>[[Purchased Item]]</strong>, and buyer at Ethereum address [[Buyer Address: EthAddress]] (“Buyer”) agrees to pay [[Purchase Price: Number]] ether.
+SELLER:
+[[Seller Signatory Email: Identity | Signature]]</p>
+<hr />
+<p>BUYER:
+[[Buyer Signatory Email: Identity | Signature]]</p>
+<hr />
+<p>In the title field above the markup, you can enter a name that’s meaningful for you, such as “Car Sale Agreement” (or another name, if that one is already taken).
+In this marked up version of the traditional legal document, some important features of the markup language should be described. First, the OpenLaw markup language provides most of the formatting tags that you’ll need to develop professional looking legal contracts, similar to what you’d find with traditional word processors. For example, you can bold, italicize, and align text through a toolbar. The example text above includes a simple example:
+\centered <strong> BILL OF SALE </strong>
+Using the combination of \centered and asterisks, the text will formatted as bold and centered.
+Second, the markup language also makes it possible for you to genericize the template so anyone can reuse it over and over for different transactions with different parties. In this example, instead of specifying that the buyer wants to buy a Volkswagen Bus, we have marked a blank field with this markup language:
+[[Purchased Item]]
+Using this field allows users to enter any text an input field, whether it’s a Volkswagen Bus or a Freightliner eighteen wheeled tractor trailer.
+Similarly, we left the purchase price open with the following markup:
+[[Purchase Price: Number]]
+This field is slightly different from the last example in that it constrains the field to a numeric value by adding the suffix Number. There are many different types of constraints, such as dates, Ethereum addresses (in the example above), and more. We’ll describe how those fields work their way onto the blockchain in the next section.
+After updating the markup, saving the document on OpenLaw, and clicking the “Draft” button, we should see a screen that looks like the following:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdDGqHztLNPvKXAseFyatUh6Pup3TnBiXHsmCgjverDc3" /></p>
+<h3 id="signing-the-contract-on-openlaw">Signing the Contract on OpenLaw<a class="headerlink" href="#signing-the-contract-on-openlaw" title="Permanent link"></a></h3>
+<p>In draft mode we can fill in the fields with the buyer’s address, seller’s address, a description of the Volkswagen Bus, and the purchase price, so now the parties can sign the document.
+The first step is to insert the buyer and seller email addresses as this will serve as their identity in OpenLaw (in the future, more options will be available). This is available on the left hand set of fields above like the other fields. Then click the send button to send the document out for signature.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXTvRnAsNEzxagVidJ31XeNViPgrWksVDYJavH41Zp96g" /></p>
+<p>Since, in this example, we were logged into OpenLaw as one of the signing parties, we are immediately taken to the signature page, which looks something like the following:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRBvsPoGN7ETEs1qHKttUdQTREBvMe9sN6ArnJieGerbd" /></p>
+<p>Each party will receive notification that they have a contract to sign via email.
+A key aspect of the signature process comes from special markup tag instructions to the OpenLaw interpreter. For example:
+[[Seller Signatory Email: Identity | Signature]]
+In the example markup above, we are using the email address of the seller as the seller’s electronic signature (and, likewise, the buyer’s email for his or her signature). To indicate our intent to the OpenLaw platform, we added Identity and Signature to the markup tag.
+The Identity suffix notifies OpenLaw that this field will serve as the user’s identity on OpenLaw. The Signature suffix informs the OpenLaw interpreter that the email addresses of the seller and buyer will be used as their electronic signature. For more about these tags, review the 
+<a href="https://docs.openlaw.io/markup-language/#identity-and-signatures">Identity and Signature topic of the markup language documentation</a>
+ .</p>
+<h3 id="interacting-with-the-ethereum-blockchain">Interacting with the Ethereum Blockchain<a class="headerlink" href="#interacting-with-the-ethereum-blockchain" title="Permanent link"></a></h3>
+<p>Contracts developed on the OpenLaw platform can also interact with Ethereum-based blockchains. They do this through smart contracts. Smart contracts are small programs deployed on the blockchain at an Ethereum address which can transfer digital assets (i.e., crypto, property, etc.) among many other uses. OpenLaw is able to interact with smart contracts via function calls at those addresses using the same markup language we used to document the legal terms between the parties.</p>
+<h3 id="developing-an-example-smart-contract">Developing an Example Smart Contract<a class="headerlink" href="#developing-an-example-smart-contract" title="Permanent link"></a></h3>
+<p>Returning to our example above, the parties can automate the purchase and sale of the Volkswagen Bus using a smart contract, such as the follow example in 
+<a href="https://solidity.readthedocs.io/">the Solidity programming language</a>
+ , the most popular language for developing smart contracts on the Ethereum blockchain.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWYZhQf2sdovwoVvg84c7VqRFEw4DfRYRSG5zVMX2URUZ" /></p>
+<p>A description of the Solidity programming language is far beyond the scope of this short tutorial, but if you’ve developed in any language, it should be clear that the function recordContract takes four parameters: the object to be sold, the purchase price, and the buyer and seller’s Ethereum addresses. An experienced reader will probably spot many issues with the smart contract code, but please keep in mind this is simply for demonstration.
+Now, using a tool like MetaMask or the Mist Wallet, the buyer can transfer his or her ether to the smart contract to be held pending confirmation that the vehicle was delivered. Once the buyer approves using a smart contract aware wallet like Mist or separate dApp by calling confirmReceipt, the funds will be released to the seller.
+Now that we have our smart contract language, we can deploy it using whatever tool you like. Common tools used for this purpose are 
+<a href="https://remix.ethereum.org/">Remix</a>
+ , 
+<a href="https://truffleframework.com">Truffle</a>
+ , and the 
+<a href="https://github.com/ethereum/mist/releases/">Mist Wallet</a>
+ browser. When you do so, you will have access to the ABI (“application binary interface,” which is a JSON description of the functions your smart contract exposes) and the address on the Ethereum network where the contract was deployed.</p>
+<h3 id="integrating-blockchain-programming-with-openlaw">Integrating Blockchain Programming with OpenLaw<a class="headerlink" href="#integrating-blockchain-programming-with-openlaw" title="Permanent link"></a></h3>
+<p>The last step in our process is to connect our template to the smart contract we created above. To do that, we need to edit our template and add a few more tags.
+The first declares the smart contract’s key features. Using the example above, we can add additional markup tags to the source above:
+[[@Purchase Price in Wei = Purchase Price * 1000000000000000000]]
+[[Record Contract:EthereumCall(
+contract:”0xe4A87aaF8134e473976Fc04b68dBd5B9A5bd139C”;
+interface:[ { “constant”: false, . . . “type”: “function” } ];
+function:”recordContract”;
+Arguments: Purchased Item, Purchase Price in Wei, Seller Address, Buyer Address)]]
+The EthereumCall tag is very powerful but requires only four simple parameters to get started (more are available, please see the documentation):</p>
+<ul>
+<li>
+<p>“Contract”: tells the OpenLaw platform where the contract is deployed on the Ethereum blockchain</p>
+</li>
+<li>
+<p>“Interface”: is the (sometimes long) ABI text that you can copy and paste from your development tool such as Remix</p>
+</li>
+<li>
+<p>“Function”: is the name of the function that you want to call</p>
+</li>
+<li>
+<p>“Arguments”: allows you to pass data from the OpenLaw platform into the blockchain
+You may have noticed we included another tag to do some calculations on the purchase price. This tag, which preceded the EthereumCall tag, is called an 
+<a href="https://docs.openlaw.io/markup-language/#calculations-and-aliasing">Alias</a>
+ ; it starts with an @ symbol. Aliases are useful for many things and in this case we used it to dynamically change in the markup to convert the purchase price into a denomination that the Ethereum blockchain works with natively, which is Wei.
+Now we need to add one final tag to the markup language:
+[[Record Contract]]
+This tag simply instructs the OpenLaw interpreter to call the smart contract once the contract has been signed by all the parties. In our example, OpenLaw will invoke the recordContract function and store the purchase price, a description of the Volkswagen Bus, the buyer’s address, and the seller’s address on the blockchain.
+Now, when our Volkswagen Bus buyer and seller execute their contract on OpenLaw, OpenLaw will interact with the blockchain via the smart contract and automate the flow of ether between the parties, as well as providing low cost safeguards for the buyer through the use of the smart contract — with just a little more work on the smart contract code to enable that feature.
+Using a smart contract enabled wallet like Mist, the buyer can confirm that he or she received the vehicle as promised by calling recordContract, which will then transfer the ether to the seller.</p>
+</li>
+</ul>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Since the law pervades every part of our life, as you can imagine, there are several use cases where OpenLaw can create, execute and automate legal contracts while leveraging blockchain-based technology. Using OpenLaw, we’re bringing users an speedy and secure way digitally sign and store legal agreements. To learn more about OpenLaw, check out our 
+<a href="https://openlaw.io/">site</a>
+ and 
+<a href="https://docs.openlaw.io/">documentation</a>
+ for an overview and detailed reference guide and. You can also find us at 
+<a href="mailto:hello@openlaw.io">hello@openlaw.io</a>
+ or tune in in our community 
+<a href="https://openlaw-community.slack.com">Slack channel</a>
+ . Follow our 
+<a href="https://medium.com/@OpenLawOfficial">Medium</a>
+ and 
+<a href="https://twitter.com/OpenLawOfficial">Twitter</a>
+ for further announcements, tutorials, and helpful tips over the upcoming weeks and months.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenLaw Tutorial  Blockchain-Enabled, Legally Enforceable Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openlaw-tutorial-blockchainenabled-legally-enforce/3a4016d6e3bd4c1fbba839244f1802e8/a</li>
+<li><strong>Kauri original author:</strong> Priyanka Desai (@priyanka-desai)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmU3TVPnGEFAHKTwKc9RFxGC4ExrtcifWeX6ECCuXu2hha</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../infura-101-infrastructure-for-dapps/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../infura-101-infrastructure-for-dapps/" class="btn btn-xs btn-link">
+        Infura 101 - Infrastructure for Dapps
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../3box-social-profiles-for-web3-applications/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../3box-social-profiles-for-web3-applications/" class="btn btn-xs btn-link">
+        3Box - Social profiles for  web3 applications
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ConsenSys Projects/openlaw-tutorial--blockchain-enabled-legally-enfo.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

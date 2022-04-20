@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Vyper%20Full%20Stack%20dApp%20Tutorial%20Series/remix-ide-your-first-vyper-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Remix IDE - Your first Vyper smart contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Remix IDE - Your first Vyper smart contract", url: "#_top", children: [
+              {title: "Remix IDE - Your first Vyper smart contract", url: "#remix-ide-your-first-vyper-smart-contract_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="remix-ide-your-first-vyper-smart-contract">Remix IDE - Your first Vyper smart contract<a class="headerlink" href="#remix-ide-your-first-vyper-smart-contract" title="Permanent link"></a></h1>
+<h2 id="remix-ide-your-first-vyper-smart-contract_1">Remix IDE - Your first Vyper smart contract<a class="headerlink" href="#remix-ide-your-first-vyper-smart-contract_1" title="Permanent link"></a></h2>
+<p>The easiest place to start writing smart contracts in Vyper in with the online <a href="https://remix.ethereum.org/">Remix IDE</a>.</p>
+<p>As it's an online IDE, there's no need for installation or development environment setup, you can open the site and get started!</p>
+<p>Remix provides tools for debugging, static analysis, and deployment all within the online environment. To use Remix with Vyper, you first need to enable the Vyper plugin from the <em>Plugin Manager</em> tab.</p>
+<p><a href="https://github.com/iamonuwa/Bounties">You can find the source code used in this tutorial on GitHub.</a></p>
+<p>Before we get started, a quick reminder of what we are building:</p>
+<ul>
+<li>A dapp which allows any user to issue a bounty in ETH</li>
+<li>Any user with an Ethereum account can issue a bounty in ETH along with some requirements</li>
+<li>Any user can submit a fulfilment of the bounty along with some evidence</li>
+<li>The bounty issuer can accept a fulfilment which would result in the fulfiller being paid out</li>
+</ul>
+<p>Clear the content of the editor, and name the file <em>Bounty.vy</em>.</p>
+<!-- TODO: Update -->
+
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMV1Xu841fpMpyqSaVYQAvnJ5xuXHKmpn9DjeUtsXpac" /></p>
+<p>We first define structs for the contract.</p>
+<blockquote>
+<p>Structs are custom defined types that can group several variables.</p>
+</blockquote>
+<pre><code class="language-vyper">struct Bounty:
+    issuer: address
+    deadline: timestamp
+    data: bytes32
+    status: uint256
+    amount: wei_value
+
+struct Fulfillment:
+    accepted: bool
+    fulfiller_address: address
+    data: bytes32
+</code></pre>
+<p>To test if everything is working, click the <em>Compile</em> button to compile the contract.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNQH4ytWiWeHSRgLTQofbnkzYRRuiRtmwLguVTWXHCKoS" /></p>
+<p>If everything is ok, you should see output in the <em>Bytecode</em>, <em>Runetime Bytecode</em> and <em>LLL</em> tabs, this indicates the compilation was successful.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTLoPwXJ1TooRbC9hagxHcBXkPNAJsFULvCnhfUBzWpdg" /></p>
+<p>If there is an error, you should see an error message when you open any of the tab links.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcTdx9ifH6nipE2KeaWjkz6EtDMgk3m3ib4zGCX1vyipM" /></p>
+<h3 id="issuing-a-bounty">Issuing a Bounty<a class="headerlink" href="#issuing-a-bounty" title="Permanent link"></a></h3>
+<p>Now that we have the basic skeleton of our smart contract, we can start adding functions. First we tackle allowing a user to issue a bounty.</p>
+<h4 id="declare-state-variables">Declare state variables<a class="headerlink" href="#declare-state-variables" title="Permanent link"></a></h4>
+<p>Just like in Solidity, Vyper has state variables. State variables are values which are permanently stored in a contract storage.</p>
+<p><a href="https://vyper.readthedocs.io/en/latest/types.html">You can read a full list of Vyper types in the documentation </a></p>
+<p>Next we define events for the contract. Vyper can log events caught during runtime and display it for the user.</p>
+<pre><code class="language-vyper">BountyIssued: event({_id: int128, _issuer: indexed(address), _amount: wei_value, data: bytes32 })
+BountyCancelled: event({ _id: int128, _issuer: indexed(address), _amount: uint256 })
+BountyFulfilled: event({ _bountyId: int128, _issuer: indexed(address), _fulfiller: indexed(address), _fulfillmentId: int128, _amount: uint256})
+FulfillmentAccepted: event({ _bountyId: int128, _issuer: indexed(address), _fulfiller: indexed(address), _fulfillmentId: int128, _amount: uint256 })
+</code></pre>
+<p>We have four events that have different fields. A client may want to listen to the events for changes on the contract.</p>
+<p>Declare constant values which we use to keep track of a bounties state:</p>
+<pre><code class="language-vyper">CREATED: constant(uint256) = 0
+ACCEPTED: constant(uint256) = 1
+CANCELLED: constant(uint256) = 2
+</code></pre>
+<p>Define 2 arrays where we store data about each issued bounty and the fulfillment:</p>
+<pre><code class="language-vyper">bounties: map(int128, Bounty)
+fulfillments: map(int128, Fulfillment)
+</code></pre>
+<p>Define indexes for each fulfillment and bounty. We need this to get the current position of the fulfillment and bounty that exists.</p>
+<pre><code>nextBountyIndex: int128
+nextFulfillmentIndex: int128
+</code></pre>
+<p><strong>Note</strong>: If you fail to define the indexes, you'll encounter this error at the end when you attempt test the contract.</p>
+<p><code>Persistent variable undeclared: nextBountyIndex</code></p>
+<p>Define indexes for each fulfillment and bounty. We need this to get the current position of the fulfillment and bounty that exists.</p>
+<pre><code class="language-vyper">nextBountyIndex: int128
+nextFulfillmentIndex: int128
+</code></pre>
+<h4 id="issue-bounty-function">Issue Bounty Function<a class="headerlink" href="#issue-bounty-function" title="Permanent link"></a></h4>
+<p>Now that we have declared our state variables we can add functions to allow users to interact with our smart contract</p>
+<p>Add the <code>public</code> decorator to the function so that external users can call it from the contract. In order to send ETH to our contract we need to add the <code>payable</code> keyword to the function. Without this <code>payable</code> keyword the contract rejects all attempts to send ETH to it via this function. Read more about <a href="https://vyper.readthedocs.io/en/latest/structure-of-a-contract.html#functions">decorators</a>.</p>
+<pre><code class="language-vyper">@public
+@payable
+def issueBounty(_data: bytes32, _deadline: timestamp):
+    assert msg.value &gt; 0
+    assert _deadline &gt; block.timestamp
+
+    bIndex: int128 = self.nextBountyIndex
+
+    self.bounties[bIndex] = Bounty({ issuer: msg.sender, deadline: _deadline, data: _data, status: 0, amount: msg.value })
+    self.nextBountyIndex = bIndex + 1
+
+    log.BountyIssued(bIndex, msg.sender, msg.value, _data)
+</code></pre>
+<p>The function <code>issueBounty</code> receives a <code>bytes32</code> variable called <code>_data</code> and a <code>timestamp</code> <code>_deadline</code> as arguments.</p>
+<pre><code class="language-vyper">assert msg.value &gt; 0
+assert _deadline &gt; block.timestamp
+</code></pre>
+<p>Since Vyper does not support modifiers, we use the <code>assert</code> keyword check to ensure that the every condition is met. The function returns an error if any of the conditions are not met.</p>
+<pre><code class="language-vyper">bIndex: int128 = self.nextBountyIndex
+</code></pre>
+<p>We define a variable of <code>int128</code> to hold the current <code>Index</code> position of the bounty. This is necessary because we need to use it to store the new bounty on the bounties list.</p>
+<p>The body of our function has two lines:</p>
+<pre><code class="language-vyper">self.bounties[bIndex] = Bounty({ issuer: msg.sender, deadline: _deadline, data: _data, status: 0, amount: msg.value })
+self.nextBountyIndex = bIndex + 1
+</code></pre>
+<p>First we insert a new <code>Bounty</code> into our <code>bounties</code> array using the <code>bIndex</code>, setting the <code>BountyStatus</code> to <code>CREATED</code>.</p>
+<p>In Vyper, <code>msg.sender</code> is automatically set as the address of the sender, and <code>msg.value</code> is set to the amount of Wei (1 ETH = 1000000000000000000 Wei).</p>
+<p>We set the <code>msg.sender</code> as the issuer and the <code>msg.value</code> as the bounty amount.</p>
+<pre><code class="language-vyper">log.BountyIssued(bIndex, msg.sender, msg.value, _data)
+</code></pre>
+<p>Finally, we log the event <code>BountyIssued</code> for the user to subscribe to.</p>
+<h4 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link"></a></h4>
+<p>Now that you have seen how to add a function to issue a bounty, try adding the following functions to the Bounties contract:</p>
+<ul>
+<li><code>fulfilBounty(uint _bountyId, string _data)</code> This function stores a fulfilment record attached to the given bounty. The <code>msg.sender</code> should be recorded as the fulfiller.</li>
+<li><code>acceptFulfilment(uint _bountyId, uint _fulfilmentId)</code> This function accepts the given fulfilment, and if a record of it exists against the given bounty. It should then pay the bounty to the fulfiller.</li>
+<li><code>function cancelBounty(uint _bountyId)</code> This function cancels the bounty, if it has not already been accepted, and send the funds back to the issuer</li>
+</ul>
+<p>You can find the <a href="https://github.com/iamonuwa/Bounties/blob/master/contracts/Bounties.vy">complete Bounties.vy file here for reference</a>.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<!-- TODO: Update -->
+
+<ul>
+<li>Read the next guide: <a href="https://kauri.io/article/195c5784663e4963b16d914900ba5cf5/v1/understanding-smart-contract-compilation-and-deployment">Understanding smart contract compilation and deployment</a></li>
+<li>Learn more about Remix-IDE from the <a href="https://remix.readthedocs.io/en/latest/">documentation</a> and <a href="https://github.com/ethereum/remix-ide">github</a></li>
+</ul>
+<blockquote>
+<p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</p>
+<p>If you found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right hand menu, and/or <a href="https://github.com/iamonuwa/Bounties">update the code</a></p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Remix IDE - Your first Vyper smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/remix-ide-your-first-vyper-smart-contract/15b95281c17a4954a5278865bbc0f515/a</li>
+<li><strong>Kauri original author:</strong> Onuwa Nnachi Isaac (@iamonuwa)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-29</li>
+<li><strong>Kauri original tags:</strong> smart-contract, vyper, remix</li>
+<li><strong>Kauri original hash:</strong> QmPm7a67kersmmvLSR6Mr9bCmbY3tZoXLj4Pdi4hSj33rp</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../understanding-smart-contract-compilation-and-depl/" class="btn btn-xs btn-link">
+        Understanding smart contract compilation and deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Founder%20interviews/embleema--the-blockchain-that-lets-you-own-your-h/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Founder%20interviews/embleema--the-blockchain-that-lets-you-own-your-h/" class="btn btn-xs btn-link">
+        Embleema  The Blockchain That Lets You Own Your Health Data
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Vyper Full Stack dApp Tutorial Series/remix-ide-your-first-vyper-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

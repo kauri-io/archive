@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/deploying-your-dapp-frontend-to-heroku/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Deploying Your dApp Frontend to Heroku - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Deploying Your dApp Frontend to Heroku", url: "#_top", children: [
+              {title: "Deploying Your App to Heroku", url: "#deploying-your-app-to-heroku" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="deploying-your-dapp-frontend-to-heroku">Deploying Your dApp Frontend to Heroku<a class="headerlink" href="#deploying-your-dapp-frontend-to-heroku" title="Permanent link"></a></h1>
+<h2 id="deploying-your-app-to-heroku">Deploying Your App to Heroku<a class="headerlink" href="#deploying-your-app-to-heroku" title="Permanent link"></a></h2>
+<p>Earlier in the series, we deployed our <em>Bounties.sol</em> smart contract using Truffle, and added a react.js front end to interact with the contract through a web browser. In this tutorial we deploy our front-end application to <a href="https://www.heroku.com">Heroku</a>.</p>
+<p>This tutorial uses the source code from the tutorial, <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend">Truffle: Adding a frontend with react box</a>. You have to add a <em>Procfile</em> to the project, but no other changes are required.</p>
+<h3 id="heroku">Heroku<a class="headerlink" href="#heroku" title="Permanent link"></a></h3>
+<p>Heroku is a Platform-as-a-Service (PaaS) that enables developers to quickly build, deploy, and scale web applications. We use Heroku to deploy our application and make it publicly accessible.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>You need to configure the application, as defined in an earlier tutorial, <a href="https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box">Truffle: Adding a frontend with react box</a>.</p>
+<p>Additionally, you need to install the Heroku CLI.</p>
+<p>The Heroku CLI is available on Mac through Homebrew:</p>
+<pre><code class="language-bash">brew tap heroku/brew &amp;&amp; brew install heroku
+</code></pre>
+<p>Also available through Snap for Linux:</p>
+<pre><code class="language-bash">sudo snap install --classic heroku
+</code></pre>
+<p>Heroku provides a graphical installer for Windows and Mac as well as ways of installing for various operating systems which you can find in the <a href="https://devcenter.heroku.com/articles/heroku-cli">Heroku Dev Center</a>.</p>
+<h3 id="setup-heroku">Setup Heroku<a class="headerlink" href="#setup-heroku" title="Permanent link"></a></h3>
+<p>Navigate to the project directory in your terminal as you need to need to run some <code>git</code> commands from the top level of the working tree. For the purposes of this tutorial, let's assume that you have an independent copy of the <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend">react project from the previous tutorial</a>.</p>
+<p>If you haven't already, initialize your project as a git repository. Heroku uses Git to update your code.</p>
+<pre><code class="language-bash">git init
+</code></pre>
+<p>Here we create a new Heroku app and indicate we want to use the <a href="https://github.com/mars/create-react-app-buildpack">create-react-app buildpack</a>. This buildpack deploys the React UI as a static site.</p>
+<pre><code class="language-bash">heroku create --buildpack mars/create-react-app
+</code></pre>
+<p>Heroku automatically assigns your application a random name. Alternatively, you can give you application a memorable name accessible at <em>your-app-name.herokuapp.com</em>.</p>
+<pre><code class="language-bash">heroku create mynewdapp --buildpack mars/create-react-app
+</code></pre>
+<p>If you initialized the Git repository before running <code>heroku create</code> you are able to see the heroku remote by running <code>git remote</code>.</p>
+<p>If you don't see a remote named 'remote', you can add it manually.</p>
+<pre><code class="language-shell">git remote add heroku [your heroku git remote url here]
+</code></pre>
+<h3 id="create-a-procfile-optional">Create a Procfile (Optional)<a class="headerlink" href="#create-a-procfile-optional" title="Permanent link"></a></h3>
+<p>When using the create-react-app buildpack, you don't need to include a <em>Procfile</em>, but you can if you want to customize the app's processes. The implicit <em>Procfile</em> from the buildpack contains the following:</p>
+<pre><code>web: bin/boot
+</code></pre>
+<p>You can read more about Procfiles <a href="https://devcenter.heroku.com/articles/procfile">in the documentation</a>.</p>
+<h3 id="configure-and-deploy-the-smart-contract">Configure and Deploy the Smart Contract<a class="headerlink" href="#configure-and-deploy-the-smart-contract" title="Permanent link"></a></h3>
+<p>Just like when configuring the web application to deploy locally, you need to deploy your smart contract. However, since the web application is now on a remote server, you won't be able to use a locally deployed smart contract.</p>
+<p>You can follow any of the previous guides, for example the deployment as shown in <a href="https://kauri.io/article/86903f66d39d4379a2e70bd583700ecf/v14/truffle:-adding-a-frontend-with-react-box#deploy">Truffle: Adding a frontend with react box</a> using Infura. You can use any public Ethereum blockchain, as long as you update the contract address <em>in client/src/contracts/Bounties.json</em>.</p>
+<h3 id="deploy-your-application">Deploy Your Application<a class="headerlink" href="#deploy-your-application" title="Permanent link"></a></h3>
+<p>You are now ready to deploy your front-end application. Heroku needs to ingest the contents of the <em>/client</em> directory. The current repository also includes source code for your smart contract, which Heroku does not know how to handle. Additionally, Heroku requires that your <em>package.json</em> file be in the root of the directory stored on the server.</p>
+<p>Start by commiting your code locally, if you haven't already.</p>
+<pre><code class="language-bash">git add -A
+git commit -m 'your commit message'
+</code></pre>
+<p>In order to avoid restructuring the application folders, you can instead just push the <em>/client</em> directory to the Heroku remote on the master branch.</p>
+<pre><code class="language-bash">`git push heroku `git subtree split --prefix client [branch (optional)]`:master --force`
+</code></pre>
+<p>Here we push the local repository to the remote called <code>heroku</code>, using the local branch programmatically defined using <code>git subtree split --prefix client</code>, to a remote branch called <code>master</code>, and force the push. You can get a better sense of what is happening by first running <code>git subtree split --prefix client master</code>. This returns a hash associated with the branch and directory you are pushing, for example <code>206ac9684c0e8e169121198ee6d1d19d0e4a06a7</code>. You may specify a local branch to push. In this example, we used the branch called <code>master</code> but you can change that to any local branch.</p>
+<p>This command only works once the master branch is established on the remote. If this is your first commit pushed to Heroku, run this instead.</p>
+<pre><code class="language-bash">git subtree push --prefix client heroku master
+</code></pre>
+<p>Note, you can use the second command exclusively, but occassionally draws issues when the Heroku remote gets out of sync with another remote (for example an origin remote on GitHub).</p>
+<p>Note, if you are working out of the root directory of this series' code (if your <em>.git</em> file is in <em>kauri-fullstack-dapp-tutorial-series</em> instead of <em>kauri-fullstack-dapp-tutorial-series/truffle-react-box-frontend</em>), you have to push from the top level of your working tree. That is, navigate to the <em>/kauri-fullstack-dapp-tutorial-series</em> directory. From there, change the prefix to push only the code in <em>/truffle-react-box-frontent/client</em>.</p>
+<pre><code class="language-bash">`git push heroku `git subtree split --prefix kauri-fullstack-dapp-tutorial-series/client [branch (optional)]`:master --force`
+</code></pre>
+<h3 id="run-the-app">Run the App<a class="headerlink" href="#run-the-app" title="Permanent link"></a></h3>
+<p>You should now see a URL to access your application. It should look like "your-app-name.herokuapp.com". You can also run <code>heroku open</code> from the command line to open a browser to the appropriate url.</p>
+<p>Once you navigate to the right webpage, you are able to configure metamask. Be sure to set MetaMask to use the right Ethereum network to interface with your deployed contract. Now you are able to interact with your smart contract through the browser anywhere with an internet connection.</p>
+<p>Here's an example of the application running remotely in the browser.</p>
+<p><img alt="Running Remotely" src="https://ipfs.infura.io/ipfs/QmNRLm9qFQfzkMRUCo1V63TxEFAhD1aYdeN7RAJ5gPEKEd" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Deploying Your dApp Frontend to Heroku</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/deploying-your-dapp-frontend-to-heroku/a2e8c4a594344f7a951613a73f463fe7/a</li>
+<li><strong>Kauri original author:</strong> Crawford Leeds (@crawfordleeds)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-23</li>
+<li><strong>Kauri original tags:</strong> dapp, heroku, deploy</li>
+<li><strong>Kauri original hash:</strong> Qma9h4zEKG6kDo2Da2RcRFxgUtgc4qptCGtjyXAinyGo59</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deploying-a-full-stack-dapp-to-amazon-ec2/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deploying-a-full-stack-dapp-to-amazon-ec2/" class="btn btn-xs btn-link">
+        Deploying a full-stack dApp to Amazon EC2
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deploying-a-full-stack-dapp-to-microsoft-azure/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deploying-a-full-stack-dapp-to-microsoft-azure/" class="btn btn-xs btn-link">
+        Deploying a full-stack dapp to Microsoft Azure
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/deploying-your-dapp-frontend-to-heroku.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

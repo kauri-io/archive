@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/cdp-liquidator/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>CDP Liquidator - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "CDP Liquidator", url: "#_top", children: [
+              {title: "Inspiration", url: "#inspiration" },
+              {title: "What it does", url: "#what-it-does" },
+              {title: "Challenges we ran into", url: "#challenges-we-ran-into" },
+              {title: "Accomplishments that we're proud of", url: "#accomplishments-that-were-proud-of" },
+              {title: "What we learned", url: "#what-we-learned" },
+              {title: "What's next for cdp-liquidator", url: "#whats-next-for-cdp-liquidator" },
+              {title: "Try it out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="cdp-liquidator">CDP Liquidator<a class="headerlink" href="#cdp-liquidator" title="Permanent link"></a></h1>
+<p>A Collateralized Debt Position (CDP) is an ETH lockup mechanism by which DAI is created. In extreme liquidity scenarios, some users will need a convenient way to exit risky positions. This project is a cool experiment to let a user send their at-risk CDPs to a contract to pay off debts and return remaining collateral to the user. - Hugh Lang (ECF)</p>
+<p>https://devpost.com/software/cdp-liquidator</p>
+<h4 id="inspiration">Inspiration<a class="headerlink" href="#inspiration" title="Permanent link"></a></h4>
+<p>MakerDAO is a set of smart contracts that manage the operation of a dollar pegged cryptocurrency called DAI. CDP's (Collateralized Debt Positions) are the mechanism by which DAI is created. Users of the system lock up collateral (ETH) in a smart contract called a CDP, and gain the right to mint a certain amount of DAI in return.</p>
+<p>If the value of their collateral falls below 1.5x their outstanding debt, the loan is considered too risky, and the system will take their collateral and sell it to cover the debt. Any surplus collateral is returned to to the user (minus a 13% liquidation fee).</p>
+<p>The liquidation fee obviously makes this an expensive and undesirable prospect for CDP holders.</p>
+<p>If the value of the collateral falls very suddenly, CDP holders can be left in a position where their CDP is rapidly approaching liquidation, but they do not have enough easily available funds to close their position themselves.</p>
+<p>These holders would be very happy to have a service that would allow them to close their positions without paying the liquidation fee.</p>
+<h4 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link"></a></h4>
+<p>We have created a service that allows users who do not have enough liquidity to pay a smart contract to close their CDP for them (and thus significantly reduce the cost of liqudation).</p>
+<p>Since the CDPs are overcollateralized, the contract is paid with a cut of the excess collateral. All remaining collateral is returned to the user.</p>
+<p>The contract will be funded with DAI, and funders receive a portion of the fees proportional to their contribution.</p>
+<p>This creates a market for CDP's and allows CDP holders to conveniently exit risky positions.</p>
+<p>Users will send their risky CDP's to the contract and then the contract will do the following:</p>
+<p>Pay off the outstanding debt
+Close the CDP
+Return the remaining collateral (minus the fee) to the original owner of the CDP
+Distributes the fee amongst the funders of the contract
+How we built it
+We created a set of smart contracts (see the liquidator-contracts repo), and forked and modified the oasis.direct frontend to serve as a user interface for the contracts.</p>
+<p>In order to guarantee atomicity of the liquidation process we made use of a proxy contract (ds-proxy) that bundles multiple transactions together into one.</p>
+<h4 id="challenges-we-ran-into">Challenges we ran into<a class="headerlink" href="#challenges-we-ran-into" title="Permanent link"></a></h4>
+<p>Solidity tooling sucks. We are bad at maths.</p>
+<h4 id="accomplishments-that-were-proud-of">Accomplishments that we're proud of<a class="headerlink" href="#accomplishments-that-were-proud-of" title="Permanent link"></a></h4>
+<p>Working MVP.</p>
+<h4 id="what-we-learned">What we learned<a class="headerlink" href="#what-we-learned" title="Permanent link"></a></h4>
+<p>Maths. Tooling for command line blockchain interaction &amp; scripting (seth / dapp.tools)</p>
+<h4 id="whats-next-for-cdp-liquidator">What's next for cdp-liquidator<a class="headerlink" href="#whats-next-for-cdp-liquidator" title="Permanent link"></a></h4>
+<p>The contract should sell any collateral it holds for DAI.
+Polish UI
+Smart contract auditing
+Main deployment
+???
+profit</p>
+<h4 id="try-it-out">Try it out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="http://cdp-liquidator.surge.sh/">http://cdp-liquidator.surge.sh/</a></p>
+<p><a href="https://github.com/xwvvvvwx/liquidator-contracts">GitHub: Smart Contracts</a></p>
+<p><a href="https://github.com/xwvvvvwx/liquidator-frontend">GitHub: Frontend</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> CDP Liquidator</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/cdp-liquidator/5843d9b8b7dd4a8ba889eb1b7619b27f/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmdV6J3u3c4JpjjhGnXWrV9g8tmTixKd9BczX67eSjxS9B</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../myens-wallet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../myens-wallet/" class="btn btn-xs btn-link">
+        MyENS Wallet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started-with-web3-and-react/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started-with-web3-and-react/" class="btn btn-xs btn-link">
+        Getting Started with Web3 and React
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/cdp-liquidator.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-build-a-decentralized-oracle-on-ethereum-a/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to build a Decentralized Oracle on Ethereum \u2014 A Step-by-Step Guide", url: "#_top", children: [
+              {title: "0. Pre-Requirements", url: "#0-pre-requirements" },
+              {title: "1. Initialize the project", url: "#1-initialize-the-project" },
+              {title: "2. Deploy your off-chain application", url: "#2-deploy-your-off-chain-application" },
+              {title: "3. Deploy your on-chain DOracle Smart Contract", url: "#3-deploy-your-on-chain-doracle-smart-contract" },
+              {title: "4. Update your DOracle (as a requester)", url: "#4-update-your-doracle-as-a-requester" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-build-a-decentralized-oracle-on-ethereum-a-step-by-step-guide">How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide<a class="headerlink" href="#how-to-build-a-decentralized-oracle-on-ethereum-a-step-by-step-guide" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf38iLbTvFqmagCFcVdvXfw8QMoVP99dQ2rDEGXr7PiSB" /></p>
+<p>Whether you are a developer, tech enthusiast or enterprise, iExec offers one of the most complete and simple-to-use decentralized oracle solutions. This guide will show you how to start feeding Web 2.0 API data into your Ethereum smart contract in no time. For a general overview of what a decentralized oracle is and why it is needed, have a look at our previous article:</p>
+<p><a href="https://medium.com/iex-ec/why-your-dapp-needs-a-decentralized-oracle-2f2403f9fd7">Why your Decentralized Application Needs a Decentralized Oracle
+</a></p>
+<p>If earning some RLC while learning about decentralized oracles is something that interests you, check out <a href="https://medium.com/iex-ec/decentralized-oracles-get-started-earn-rlc-6064aa95a2f9">our developer training reward program</a>!</p>
+<p><a href="https://medium.com/iex-ec/how-to-build-a-decentralized-oracle-on-ethereum-a-step-by-step-guide-d8c14719b69f">The Medium version of this tutorial</a> is also available. </p>
+<p>In the following guide, we are going to see how to fetch the price of any crypto pair (ex: ETH/USD) from an API on the internet and put it back into a smart contract on the Ethereum Blockchain. Such a mechanism is called a price feed oracle and is one of the many use cases enabled by iExec’s decentralized cloud.</p>
+<p>All the terminal commands part of this tutorial were run on a macOS machine. If using Linux, you can use almost all the same commands. However, Windows users may need to adapt OS-specific commands and install apps such as Git Bash — but we can not provide full tech support. If you encounter any issues while following the tutorial, our developers we’ll be happy to help or receive feedback on <a href="http://slack.iex.ec">Slack</a>, <a href="https://gitter.im/iExecBlockchainComputing/Lobby">Gitter</a>, or <a href="https://t.me/iexec_discussion">Telegram</a>.</p>
+<h3 id="0-pre-requirements">0. Pre-Requirements<a class="headerlink" href="#0-pre-requirements" title="Permanent link"></a></h3>
+<h4 id="install-os-specific-compiling-libs">Install OS specific compiling libs<a class="headerlink" href="#install-os-specific-compiling-libs" title="Permanent link"></a></h4>
+<h5 id="on-macos">On MacOS<a class="headerlink" href="#on-macos" title="Permanent link"></a></h5>
+<p>Make sure that the <a href="https://stackoverflow.com/a/53078282/10182638">Xcode Command Line Tool</a> is installed.</p>
+<h5 id="on-linux">On Linux<a class="headerlink" href="#on-linux" title="Permanent link"></a></h5>
+<p>sudo apt-get update
+sudo apt-get install python
+sudo apt-get install build-essential</p>
+<h5 id="on-windows-10">On Windows 10<a class="headerlink" href="#on-windows-10" title="Permanent link"></a></h5>
+<p>Unless you are a Windows power user or Windows addict, and installing Visual Studio to be able to compile c++ doesn’t sound terrifying for you, then you may consider using Windows Subsystem for Linux (to get a linux shell integrated in Windows) or you could just install Virtualbox and launch a Linux VM.</p>
+<h4 id="install-docker">Install Docker<a class="headerlink" href="#install-docker" title="Permanent link"></a></h4>
+<h5 id="on-macos_1">On MacOS<a class="headerlink" href="#on-macos_1" title="Permanent link"></a></h5>
+<p>Go on Docker website, sign up and install Docker Desktop. Once successfully installed, log in Docker Desktop. Ensure that Docker Desktop is up by running in your terminal:</p>
+<pre><code>docker --version
+
+</code></pre>
+<h5 id="on-linux_1">On Linux<a class="headerlink" href="#on-linux_1" title="Permanent link"></a></h5>
+<p>Go on this <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">Docker documentation page</a> explaining how to install Docker on Ubuntu (all Linux flavors are supported). Ensure Docker is installed by running:</p>
+<pre><code>docker --version
+
+</code></pre>
+<h4 id="create-a-repository-on-dockerhub">Create a repository on DockerHub.<a class="headerlink" href="#create-a-repository-on-dockerhub" title="Permanent link"></a></h4>
+<p>Head over <a href="https://hub.docker.com/">dockerhub</a>, create a repository and name it price-feed.</p>
+<h4 id="install-nodejs">Install NodeJS<a class="headerlink" href="#install-nodejs" title="Permanent link"></a></h4>
+<p>The cleanest way to install node on Linux &amp; MacOS is by using the <a href="https://github.com/nvm-sh/nvm">NVM installer</a>. Run the command below to install NodeJS on your system:</p>
+<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash  #works for MacOS &amp; Linux
+command -v nvm #should output 'nvm' if installation worked
+nvm install node 10.12  # this will install latest stable node version
+nvm use node  #make nvm installed node the system's default node
+</code></pre>
+<p>Ensure that NodeJS is up by running in your terminal.</p>
+<pre><code>node --version
+
+</code></pre>
+<p>On Windows, download the NodeJS Windows installer from <a href="https://nodejs.org/en/">their official website</a>.</p>
+<h4 id="instal-the-iexec-sdk">Instal the iExec SDK<a class="headerlink" href="#instal-the-iexec-sdk" title="Permanent link"></a></h4>
+<p>The iExec SDK is a node module. To install it, just run:</p>
+<pre><code>npm -g install iexec
+
+</code></pre>
+<p>Ensure that iExec SDK is correctly installed by running:</p>
+<pre><code>iexec --version
+
+</code></pre>
+<p>That’s it for the prerequisites, that’s a one shot install. Next part is about setting up your DOracle project (like create and fill your Ethereum wallet).</p>
+<h3 id="1-initialize-the-project">1. Initialize the project<a class="headerlink" href="#1-initialize-the-project" title="Permanent link"></a></h3>
+<p>Now let’s initialize our new price-feed oracle project:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma1Djst8y5thvKFvHpZBxiwuomQxBKzrP8Byy7thLNrQw" /></p>
+<pre><code>mkdir price-feed  #new folder
+cd price-feed  #enter the folder
+iexec init  #init iexec project. If you already have an iExec wallet, run iexec init --skip-wallet to keep using your current wallet
+
+</code></pre>
+<p>The last command will create an Ethereum wallet.</p>
+<p><strong>Important</strong>: choose a password and save it (you will need it after).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT7JKod4t8Zag7kpwRutjLvL4RWqJyZUgioF22f8p5a9a" /></p>
+<p>Great! Now that you have a wallet (it is saved as a .json file in your machine user folder. ex: ) let’s get some ETH to interact with the Ethereum Blockchain, and some RLC to interact with the iExec’s platform.</p>
+<p>Reminder: All commands in this tutorial that interact with the Blockchain will use the Kovan testnet blockchain. It works identically to Ethereum Mainnet, but doesn’t require real money to get started. Perfect for testing!</p>
+<p>Let’s ask iExec for some free Kovan RLC:</p>
+<pre><code>iexec wallet getRLC --chain kovan
+
+</code></pre>
+<p>At this stage, you should see your Wallet displayed in your terminal with a credit of 200 nRLC.</p>
+<p>Now to get some free Kovan ETH, you will need to post your Ethereum wallet address in a Gitter group chat. Let’s show our wallet address:</p>
+<pre><code>iexec wallet show --chain kovan
+
+</code></pre>
+<p>Let’s go over the <a href="https://gitter.im/kovan-testnet/faucet">Kovan Faucet Gitter</a>, sign in to Gitter and copy-paste your wallet address in the discussion.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWQVJvHP7wxvWRi9X58RqEFt6d2w9fRwcfN5nKcXR9vzt" /></p>
+<p>Paste your wallet address on the chatbox to receive 3.0 Kovan ETH.</p>
+<p>Before going further, we need to ensure that our wallet received the ETH and the RLC we asked for. Run this command to check your wallet balance:</p>
+<pre><code>iexec wallet show --chain kovan
+
+</code></pre>
+<p>Your balance should show you 3.0 ETH and 200 nRLC. If not, wait for a minute.</p>
+<p>Now let’s top up our iExec account and move on to the next section:</p>
+<pre><code>iexec account deposit 200 --chain kovan
+
+</code></pre>
+<h3 id="2-deploy-your-off-chain-application">2. Deploy your off-chain application<a class="headerlink" href="#2-deploy-your-off-chain-application" title="Permanent link"></a></h3>
+<p>In order to run the price-feed application on the iExec’s decentralized cloud, we need to go through the following steps:</p>
+<ol>
+<li>Dockerize the “price-feed” application,</li>
+<li>Push it on the DockerHub public registry</li>
+<li>Deploy it on the iExec’s Platform</li>
+</ol>
+<p>Ensure that your terminal is in the price-feed folder, and let’s create a new folder named app, containing the off-chain logic:</p>
+<pre><code>mkdir app 
+cd app  # enter the folder
+</code></pre>
+<p>Then download the price-feed JS script that implements the price fetching logic (we encourage you to have a look at the JS code):</p>
+<pre><code>curl -o ./price-feed.js https://raw.githubusercontent.com/iExecBlockchainComputing/iexec-apps/master/PriceFeed/src/oracle.js
+</code></pre>
+<p>Now, let’s dockerize our JS application. The first step is to open your IDE (Developer environment), create a file named Dockerfile in the app folder, and paste below content in it:</p>
+<pre><code>FROM node:11-alpine
+COPY price-feed.js /src/price-feed.js
+RUN npm i https ethers fs
+ENTRYPOINT [&quot;node&quot;, &quot;src/price-feed.js&quot;]
+
+</code></pre>
+<p>At this stage, we are ready to build the Docker image and publish it to dockerhub. In your terminal, run these commands:</p>
+<pre><code>docker build .  #write down your image ID (it appears after the text &quot;successfully built 19acce70289d&quot; &lt;-- that is the image ID)
+</code></pre>
+<p>You’ve built a docker image. Now we want to tag this image with our dockerhub username:</p>
+<pre><code>docker tag &lt;IMAGE_ID&gt; &lt; YOUR_DOCKERHUB_NAME &gt;/price-feed:1.0.0  #ex: docker tag 19acce70289d iexechub/price-feed
+</code></pre>
+<p>Finally, we can push our local image to the dockerhub public repository:</p>
+<pre><code>docker push &lt;YOUR_DOCKERHUB_NAME&gt;/price-feed  #write down your image digest (it appears after sha256:959eb75b13efb41a8f37495784150574d66175adebd0c6c18216b482c574d109 &lt;-- this is your image digest)
+Now we are just a few steps from having our application being “iExec’s ready”:
+cd ..  #move to upper folder
+iexec app init  #tell the SDK that you want to create an app
+</code></pre>
+<p>Then, open the newly created “iexec.json” file, and edit these four fields:</p>
+<ul>
+<li><strong>owner</strong>: “Your_key_wallet”</li>
+<li><strong>name</strong>: We name it “PriceFeed”.</li>
+<li><strong>multiaddr</strong>: replace by dockerhub repository name. "registry.hub.docker.com/&lt; YOUR DOCKERHUB NAME &gt;/price-feed:1.0.0".</li>
+<li><strong>checksum</strong>: given by the command docker push. (add 0x before the sha256:)</li>
+</ul>
+<p>Now let’s deploy your price-feed application on iExec, in the terminal:</p>
+<pre><code>iexec app deploy --chain kovan  #that is a blockchain transaction
+</code></pre>
+<p>Congrats! Your Price-Feed App is now deployed on the iExec platform.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbpEfN9nt7Vyh5d7VEQTuj8SpaS3pU8TSMV99jLPqcYio" /></p>
+<p>Finally, let’s publish sell orders for your application, so iExec platform users are able to use your application at the price you write on the orders:</p>
+<pre><code>iexec order init --app
+iexec order sign --app
+iexec order publish --app # publish your apporder on the marketplace and get an orderHash
+iexec order show --app [orderHash]
+</code></pre>
+<h3 id="3-deploy-your-on-chain-doracle-smart-contract">3. Deploy your on-chain DOracle Smart Contract<a class="headerlink" href="#3-deploy-your-on-chain-doracle-smart-contract" title="Permanent link"></a></h3>
+<p>Let’s clone the repo on your terminal, enter the smart-contract folder, and install JS dependencies:</p>
+<pre><code>git clone https://github.com/iExecBlockchainComputing/price-feed-doracle.git smart-contract
+cd smart-contract
+npm install
+</code></pre>
+<p>In order to deploy the smart contract on the Blockchain, you need to tell Truffle your wallet private key. Here is how you can show your wallet’s private key:</p>
+<pre><code>cd ..  # move to upper folder
+iexec wallet show --show-private-key  # copy your private key for next step
+</code></pre>
+<p>Now you are ready to deploy. Thanks to truffle, that’s as simple as this:</p>
+<pre><code>cd smart-contract # move back to the smart-contract folder
+MNEMONIC=&lt;YOUR_PRIVATE_KEY&gt; ./node_modules/.bin/truffle migrate --network kovan # Deploy your smart contract to the Blockchain
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXGPhn8fYCYyi2ctznrCXmpAtPFwhyTvh2Zwtq8F21aHw" /></p>
+<p>Great, your DOracle smart contract is now deployed on Kovan testnet blockchain. How about feeding it with the ETH/USD price?</p>
+<h3 id="4-update-your-doracle-as-a-requester">4. Update your DOracle (as a requester)<a class="headerlink" href="#4-update-your-doracle-as-a-requester" title="Permanent link"></a></h3>
+<p>Now let’s buy a “price-feed” run on iExec by running these commands on your terminal:</p>
+<pre><code>cd ..  # move back to parent folder price-feed
+</code></pre>
+<p>Let’s show the unique ID (order hash) of the orders we want to buy. One is the workerpool order, and the other one is our price feed app order:</p>
+<pre><code>iexec orderbook workerpool --category 2 # copy the workerpool order hash
+iexec orderbook app &lt;address&gt;  # copy the app order hash
+</code></pre>
+<p>Now we want to fill the orders (workerpool + app), that’s as simple as running:</p>
+<pre><code>iexec order fill --app &lt;APP_ORDER_HASH&gt; --workerpool &lt;WORKERPOOL_ORDER_HASH&gt; --params &quot;RLC BTC 9 2019-07-09T13:27:24.909Z&quot; --chain kovan  # start the DOracle computation!
+</code></pre>
+<p>That’s it! we sent to the iExec platform the computation request. To ensure we all talk the same language, you now have a deal, and in that deal, there is one task (that’s a way to enable the coming bag of task feature). Let’s track the progress of the computation by using these commands:</p>
+<pre><code>iexec deal show &lt;DEAL_ID&gt; --tasks 0 --chain kovan
+iexec task show &lt;TASK_ID&gt; --watch --chain kovan
+</code></pre>
+<p>You can also head over the <a href="https://explorer.iex.ec">iExec Explorer</a> to track your tasks. After a few minutes, the status should turn to “completed”.</p>
+<p>So what happened so far? We ask a workerpool to run our price-feed application, the workers fetched the ETH/USD price, the result is validated by the PoCo, and as soon as there is consensus, it is stored back into iExec’s smart contracts. Last step consists of calling the function named “_iexecDoracleGetVerifiedResult” on your DOracle smart contract, so it will check the result stored on the iExec’s smart contract, run some filtering logic (ex: is the new price associated with a UTC date more recent than the previous one I pulled), and if all your custom conditions are fulfilled, then it will update itself with the new ETH/USD price! Makes sense?</p>
+<p>We will soon update the article with a truffle script to show this last step. If you can’t wait, just try by yourself! Also, we encourage you to try out our price-feed frontend to see what the end-user experience could look like: <a href="https://explorer.iex.ec">https://price-feed-doracle.iex.ec</a></p>
+<p>That’s it! We hope you realized how easy it is to build a decentralized oracle on iExec.</p>
+<p>If you liked it, then you definitely want to learn more about our dev training reward program that makes building DOracle on iExec fun &amp; financially rewarding:</p>
+<p><a href="https://medium.com/iex-ec/decentralized-oracles-get-started-earn-rlc-6064aa95a2f9">Decentralized Oracles: Get Started &amp; Earn RLC</a></p>
+<p>Bear in mind that the dev team is reachable on <a href="http://slack.iex.ec">Slack</a>, <a href="https://gitter.im/iExecBlockchainComputing/Lobby">Gitter</a>, and <a href="https://t.me/iexec_discussion">Telegram</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to build a Decentralized Oracle on Ethereum — A Step-by-Step Guide</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-build-a-decentralized-oracle-on-ethereum-a/980d76e9595d401c8fac6af3045033d4/a</li>
+<li><strong>Kauri original author:</strong> Julien Béranger (@julienbrg)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-01</li>
+<li><strong>Kauri original tags:</strong> ethereum, oracles, data, web3, iexec, docker</li>
+<li><strong>Kauri original hash:</strong> QmQ5E4VfM9VZU6zDuzNtdNpzBfduaGgHpnWQmcpjQssyce</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../eth-this-then-that-%28ifttt-for-ethereum%29/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../eth-this-then-that-%28ifttt-for-ethereum%29/" class="btn btn-xs btn-link">
+        Eth This Then That (IFTTT for Ethereum)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../writing-on-kauri/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../writing-on-kauri/" class="btn btn-xs btn-link">
+        Writing on Kauri
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-build-a-decentralized-oracle-on-ethereum-a.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

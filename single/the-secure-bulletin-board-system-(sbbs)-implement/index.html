@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/the-secure-bulletin-board-system-%28sbbs%29-implement/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The Secure Bulletin Board System (SBBS) implementation in Beam - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The Secure Bulletin Board System (SBBS) implementation in Beam", url: "#_top", children: [
+              {title: "Computerized Bulletin Board Systems \u2014 A Dinosaur from the eighties?", url: "#computerized-bulletin-board-systems-a-dinosaur-from-the-eighties" },
+              {title: "Beam\u2019s Secure BBS", url: "#beams-secure-bbs" },
+              {title: "Alice and Bob connect", url: "#alice-and-bob-connect" },
+              {title: "Alice sends a message", url: "#alice-sends-a-message" },
+              {title: "Bob receives the message", url: "#bob-receives-the-message" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-secure-bulletin-board-system-sbbs-implementation-in-beam">The Secure Bulletin Board System (SBBS) implementation in Beam<a class="headerlink" href="#the-secure-bulletin-board-system-sbbs-implementation-in-beam" title="Permanent link"></a></h1>
+<p>Beam is built on 
+<a href="https://docs.beam.mw/Mimblewimble.pdf">Mimblewimble</a>
+ protocol¹, a wonderful piece of technology that achieves confidentiality while significantly improving blockchain scalability. However, this comes with a significant caveat. In Mimblewimble there are no addresses, and transactions need to be built interactively by the participating parties.
+That poses a challenge: if Alice wants to send money to Bob, both their wallets have to connect and perform the necessary actions. Creating a direct socket connection every time is not really practical (most people sit behind 
+<a href="https://en.wikipedia.org/wiki/Network_address_translation">NATs</a>
+ ). Also, what if Bob’s computer is offline at the moment Alice wants to send funds?</p>
+<p><a href="https://www.beam.mw/">Beam</a>
+ ’s Secure Bulletin Board (SBBS) system solves this problem and makes Beam user experience exactly the same as we are used to on Bitcoin and other currencies.
+With SBBS client wallets can exchange messages even if they are currently offline by store-and-forward Beam nodes. The system is cryptographically secure with public key cryptography, encrypted over state-of-the-art elliptic curve cryptography (ECC). It leverages the existing public key infrastructure of Beam to implement a bulletin board system, relayed by Beam’s nodes and received by client wallets. This will usher in messaging in crypto with the same privacy, security, and decentralization, as expected from the highest standards of cryptography, and with no central point of failure.</p>
+<h3 id="computerized-bulletin-board-systems-a-dinosaur-from-the-eighties">Computerized Bulletin Board Systems — A Dinosaur from the eighties?<a class="headerlink" href="#computerized-bulletin-board-systems-a-dinosaur-from-the-eighties" title="Permanent link"></a></h3>
+<p>A bulletin board system is a computer server running a software that allows users to connect with a client. Once logged, the user can upload or download messages through public message boards or private email, as well as file downloads (often text files), and if the client allowed, direct chatting and even text-based multiplayer games.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPg5VmNbbwGkLpWD1LyaUgY8jqvtB6LNZFJrezP9Ws7oL" /></p>
+<p>It used to dominate the internet experience during the decade of the 80s due to the introduction of modems. BBSes were a precursor to the modern internet. They required a direct point-to-point connection with your modem to the server. In modern terms, there wasn’t a website URL, but a phone number which had to be dialed. Users were welcomed to a subculture of elaborate ASCII-art logos and text files with instructions. Relics of that era have been curated in 
+<a href="http://textfiles.com">textfiles.com</a>
+ , as well as documented in 
+<a href="http://www.bbsdocumentary.com/">bbsdocumentary.com</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmX292nQ7ve26YUeuY7mKFPLUJwV7X3r1g2earozdF29SF" /></p>
+<p>Fido became the first network of BBSes, which means that BBSes could call other Fido nodes and exchange messages between them worldwide, 
+<a href="https://www.fidonet.org/inet92_Randy_Bush.txt">FidoNet</a>
+ . This was particularly challenging since different hardware couldn’t communicate with each other at them time, Fido abstracted all this from the user. A university network equivalent was 
+<a href="https://en.wikipedia.org/wiki/BITNET">BITNET</a>
+ . The nodes were maintained by volunteer “SysOps.” It was the first time users would send electronic messages relayed across the planet with the only expense of dialing a local node.
+Run by hobbyists, FidoNet had become highly efficient in compression and transfer, and peaked to 45,000 systems with millions of users across the world and a whopping 8MB a day of compressed public messages.
+BBSes reached their peak during the first half of the 90s, until ISP dial-up internet and the user-friendliness of web browsers like Mosaic took over. Faster internet allowed general-purpose protocol like TCP/IP to take over, which were prohibitive on slower networks. Dial-ups required a single connection to the ISP, which serve as gateways to the entire network over the World Wide Web with hypertext, text with embedded 
+<a href="https://medium.com/@Ronenl/the-secure-bulletin-board-system-sbbs-implementation-in-beam-a01b91c0e919">links</a>
+ to other texts which can be accessed by web browsers.
+When logged into a BBS, users would see a list of messages and a list of files from the node. These messages would be the equivalent of email, yet some of them were addressed to a bulletin board, which meant they are public for anyone to read. Public messages were an equivalent to social networks such as Twitter, in which public messages can be filtered by threads and topics (in Fido it was termed “ 
+<em>echoes</em>
+ ”). It was far from instantaneous, a message from across the world could take several days to be relayed across nodes.</p>
+<h3 id="beams-secure-bbs">Beam’s Secure BBS<a class="headerlink" href="#beams-secure-bbs" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSkCy4EF2v46YxRr69si3Hkkvmvu53ibTwR4h65Rn1ywW" /></p>
+<p>The architecture of BBS can be replicated with Beam’s nodes and wallets, as described in the 
+<a href="https://github.com/BeammW/beam/wiki/Secure-bulletin-board-system-%28SBBS%29">GitHub repository</a>
+ . The wallet is the computer terminal with a modem, Beam’s full nodes are the BBS nodes, and they relay the message between them. In BBSes, messages are private when addressed to an individual, with Beam’s secure-BBS, such messages are encrypted with a public key before they are sent, using state-of-the-art elliptic curve cryptography. Other messages can be public, that is, not encrypted, and sent to specific channels.
+Users will be able to communicate with each other in a secure asynchronous way. They can be offline, and their message will be waiting on the node, received upon sync.
+The full nodes form a store-and-forward network, which receives messages and stores them in a database, relaying them with a distributed hash table (DHT). Clients (wallets, in out case) subscribe to notifications from the nodes for new messages. They select a channel to listen and timestamp the call to avoid receiving old messages. If a message is addressed to him, he will be able to decrypt it.
+The public key infrastructure is already in place. The cryptographic primitives are those from libsecp256k1, which are both modern and battle-tested in Bitcoin, as well as other cryptocurrencies. The recipient’s public key is his Beam cryptocurrency address. The only work left to do is establish a messaging protocol based on computerized BBSes.</p>
+<h3 id="alice-and-bob-connect">Alice and Bob connect<a class="headerlink" href="#alice-and-bob-connect" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Alice and Bob pick or generate a keypair: public ( <em>pK</em> ) and private ( <em>sK</em> ).</p>
+</li>
+<li>
+<p>They choose a channel or ask the BBS server (a node) for one suitable.</p>
+</li>
+<li>
+<p>They subscribe to the channel if needed.</p>
+</li>
+</ul>
+<h3 id="alice-sends-a-message">Alice sends a message<a class="headerlink" href="#alice-sends-a-message" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Alice chooses the recipient, Bob, and uses his public key ( <em>B-pK</em> ).</p>
+</li>
+<li>
+<p>She creates a message, includes in it her public key ( <em>A-pK</em> ) for a response.</p>
+</li>
+<li>
+<p>She encrypts the message with Bob’s public key ( <em>B-pK</em> ).</p>
+</li>
+<li>
+<p>She sends to the BBS server (the node).</p>
+</li>
+</ul>
+<h3 id="bob-receives-the-message">Bob receives the message<a class="headerlink" href="#bob-receives-the-message" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p>Bob receives a message from the BBS server (the node).</p>
+</li>
+<li>
+<p>He updates timestamps for the message channel.</p>
+</li>
+<li>
+<p>He tries to decrypt the message using his known key for the message channel.</p>
+</li>
+<li>
+<p>If successful, he notifies the wallet.</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTLtNBbpqwoD6dhrHwdhZ6iFxZmq7SKdsgmmUJh3TmUw6" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<blockquote>
+<p>“Privacy is necessary for an open society in the electronic age. Privacy is not secrecy.” “Privacy is the power to selectively reveal oneself to the world.” “Since we desire privacy, we must ensure that each party to a transaction have knowledge only of that which is directly necessary for that transaction.”</p>
+</blockquote>
+<p>These are snippets from the 
+<a href="https://www.activism.net/cypherpunk/manifesto.html">cypherpunk’s manifesto</a>
+ , by Eric Hughes, published in March 1993. They battled in code to build a system in which anonymity is the default and one discloses his identity when desired, and only when desired. For this, they required an anonymous electronic transaction system, of which the first successful implementation with no central point of failure was Bitcoin. Beam improved on it with its Mimblewimble implementation, improving privacy in a scalable way with Confidential Transactions and CoinJoin.
+Beam will furthermore open its nodes to allow for private communication channels and a decentralized message relay protocol. Thus, both value and communication can be sent in a secure channel. Beam believes this will not only make it easier for the user to transact, but also will enable to verify an address before irretrievably sending funds. Payment requests could be issued, as well as official notifications.
+Furthermore, thanks to public key cryptography, the authenticity of the sender can be verified with their digital signature. Public keys can be exchanged in person, allowing for increased confidence in the communication channel.
+As the cryptocurrency networks mature, so must communications on the networks, and not rely on black-boxed, non-sovereign third-party apps like Telegram, Slack, or Discord. No private company, government, or army would rely on these for confidential communication as they do with public key cryptography and elliptic curve encryption.
+Beam pays a lot of attention to user experience, and SBBS comes in to hide the complexities of Mimblewimble from the end user and the experience easy. I believe that if a cryptocurrency hopes for mass adoption, it must be necessarily be decentralized, permissionless, have great privacy and great user experience.
+Beam is offering these properties and more. Hopefully other cryptocurrencies will follow suit.</p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li>Poelstra, A. (2016). Mimblewimble. Retrieved from <a href="https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf">https://download.wpsoftware.net/bitcoin/wizardry/mimblewimble.pdf</a> </li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The Secure Bulletin Board System (SBBS) implementation in Beam</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-secure-bulletin-board-system-sbbs-implementati/cc964fc41c434ed3a51cafab51ebbc2c/a</li>
+<li><strong>Kauri original author:</strong> Beni Issembert (@bissembert)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-23</li>
+<li><strong>Kauri original tags:</strong> beam, mimblewimble, privacy, privacy-blockchain</li>
+<li><strong>Kauri original hash:</strong> QmT3CdcBo73cog6XACwZVC8HBdHPoYAiYrdFmiEVrbmbCZ</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../defi-and-opfi-lending-and-borrowing-platforms-%28us/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../defi-and-opfi-lending-and-borrowing-platforms-%28us/" class="btn btn-xs btn-link">
+        Defi and Opfi lending and borrowing platforms (Users perspective)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cross-chain-pacman/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cross-chain-pacman/" class="btn btn-xs btn-link">
+        Cross-Chain Pacman
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/the-secure-bulletin-board-system-(sbbs)-implement.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

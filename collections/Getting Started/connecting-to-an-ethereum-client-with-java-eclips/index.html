@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/connecting-to-an-ethereum-client-with-java-eclips/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Connecting to an Ethereum client with Java, Eclipse and Web3j - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Connecting to an Ethereum client with Java, Eclipse and Web3j", url: "#_top", children: [
+              {title: "Prerequisite", url: "#prerequisite" },
+              {title: "Start a new project", url: "#start-a-new-project" },
+              {title: "Add Web3j library to our project", url: "#add-web3j-library-to-our-project" },
+              {title: "Create a Main class", url: "#create-a-main-class" },
+              {title: "Connect to an Ethereum node with Web3j.", url: "#connect-to-an-ethereum-node-with-web3j" },
+              {title: "Result", url: "#result" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="connecting-to-an-ethereum-client-with-java-eclipse-and-web3j">Connecting to an Ethereum client with Java, Eclipse and Web3j<a class="headerlink" href="#connecting-to-an-ethereum-client-with-java-eclipse-and-web3j" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZjb5Kp3LFcXTVxneoJN3aco6NF91M7TbVfxUq4B4ySsX" /></p>
+<p><strong>Other articles in this series:</strong>
+- <a href="https://kauri.io/article/925d923e12c543da9a0a3e617be963b4">Manage an Ethereum account with Java and Web3j</a>
+- <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b">Generate a Java Wrapper from your Smart Contract</a>
+- <a href="https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e">Interacting with an Ethereum Smart Contract in Java</a>
+- <a href="https://kauri.io/article/760f495423db42f988d17b8c145b0874">Listening for Ethereum Smart Contract Events in Java</a>
+- <a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></p>
+<hr />
+<p><a href="https://www.ethereum.org/"><strong>Ethereum</strong></a> is a Blockchain, which means it operates on a <a href="https://en.wikipedia.org/wiki/Peer-to-peer">peer-to-peer network</a> composed of thousand of nodes where each node agrees on the next state.</p>
+<p>In order to interact with the Ethereum global state (distributed database), a program needs to connect to a node that exposes the standard <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC#json-rpc-api">JSON-RPC API</a> which can be used to execute operations on the Ethereum blockchain.</p>
+<p>In this article, we will learn how to start an Ethereum Java project and connect to a node using the Java library <strong><a href="https://web3j.io/">Web3j</a></strong>, a lightweight and modular library implementing all the functionallities required to work with Ethereum (JSON-RPC API client, wallet account management, Java Smart Contract wrapper, support for ENS, ERC20 and ERC721 and much more).</p>
+<p><img alt="" src="https://web3j.readthedocs.io/en/latest/_images/web3j_network.png" /></p>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link"></a></h3>
+<p>To run this tutorial, we must have the following installed:</p>
+<ul>
+<li><a href="https://java.com/en/download/">Java programming language</a> (&gt; 8)</li>
+</ul>
+<pre><code class="language-shell">$ java -version
+java version &quot;1.8.0_201&quot;
+</code></pre>
+<ul>
+<li>A package and dependancy manager, for example <a href="https://maven.apache.org/">Maven</a> or <a href="https://gradle.org/install/">Gradle</a></li>
+<li>An IDE (Integrated development environment), for this tutorial, we use <a href="https://www.eclipse.org/downloads/">Eclipse</a></li>
+</ul>
+<h3 id="start-a-new-project">Start a new project<a class="headerlink" href="#start-a-new-project" title="Permanent link"></a></h3>
+<p>First create a new Maven project called <code>java_ethereum</code> in Eclipse.</p>
+<h4 id="1-create-a-new-maven-project">1. Create a new Maven project<a class="headerlink" href="#1-create-a-new-maven-project" title="Permanent link"></a></h4>
+<p>Once Eclipse is launched, we need to create a new Maven project. Go to <em>File &gt; New &gt; Project &gt; Maven &gt; Maven Project</em></p>
+<p>Check the box <em>Create a simple project (skip archetype selection)</em> and click on <em>Next &gt;</em>.</p>
+<p>Next screen, enter the <em>Group ID</em> and <em>Artifact ID</em> of our project then click <em>Finish</em>.</p>
+<p>Group Id: <code>io.kauri.tutorials.java-ethereum</code></p>
+<p>Artifact Id: <code>java-ethereum</code></p>
+<p><img alt="" src="https://imgur.com/IpEZ6gX.png" /></p>
+<p>It should result of a new project in the <em>Project Explorer</em></p>
+<p><img alt="" src="https://imgur.com/7uiey3U.png" /></p>
+<h4 id="2-configure-our-project-to-use-java-8">2. Configure our project to use Java 8<a class="headerlink" href="#2-configure-our-project-to-use-java-8" title="Permanent link"></a></h4>
+<p>Finally, we need to tell Eclipse and Maven to use Java version 8.</p>
+<p>Edit the file <code>pom.xml</code> and add the following lines before <code>&lt;/project&gt;</code></p>
+<pre><code class="language-xml">  &lt;properties&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+  &lt;/properties&gt;
+</code></pre>
+<p>Now, right click on the project name in the <em>Project Explorer</em> and click on <em>Maven &gt; Update Project</em>. Click <em>OK</em> in the dialog box that pops up.</p>
+<p>In the <em>Project Explorer</em>, You should see the <em>JRE System library</em> changing from <strong>JavaSE-1.5</strong> to <strong>JavaSE-1.8</strong>.</p>
+<p><img alt="" src="https://imgur.com/7Pvq9hJ.png" /></p>
+<h3 id="add-web3j-library-to-our-project">Add Web3j library to our project<a class="headerlink" href="#add-web3j-library-to-our-project" title="Permanent link"></a></h3>
+<p>In this step, we import the latest version of Web3j to our project via maven.</p>
+<p>In Eclipse, edit the file <code>pom.xml</code> and add the following lines before <code>&lt;/project&gt;</code>:</p>
+<pre><code class="language-xml">  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.web3j&lt;/groupId&gt;
+      &lt;artifactId&gt;core&lt;/artifactId&gt;
+      &lt;version&gt;4.3.0&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+</code></pre>
+<p><em>Full pom.xml file available <a href="https://github.com/gjeanmart/kauri-content/blob/master/java-ethereum/pom.xml">here</a></em></p>
+<p>Save file and dependencies will import. In your package explorer you will see a Maven dependencies folder with all the JAR (Java ARchive) packages for web3j and its dependencies.</p>
+<h3 id="create-a-main-class">Create a Main class<a class="headerlink" href="#create-a-main-class" title="Permanent link"></a></h3>
+<p>Now, we have all the required dependencies to use Web3j, we can start coding our Ethereum Java program.</p>
+<p>Create a Java class <code>Main.java</code> in your project by right-clicking on the project and selecting <em>New &gt; Class</em>.
+Enter the package name <code>io.kauri.tutorials.java_ethereum</code>, the class name <code>Main</code> and check <em>public static void main(String[] args)</em>.</p>
+<p><img alt="" src="https://imgur.com/iipSbO0.png" /></p>
+<p>Click on <em>Finish</em> to generate the skeleton file.</p>
+<pre><code class="language-java">//Main.java
+package io.kauri.tutorials.java_ethereum;
+
+public class Main {
+  public static void main(String[] args) {
+    // TODO Auto-generated method stub
+  }
+}
+</code></pre>
+<h3 id="connect-to-an-ethereum-node-with-web3j">Connect to an Ethereum node with Web3j.<a class="headerlink" href="#connect-to-an-ethereum-node-with-web3j" title="Permanent link"></a></h3>
+<p>Now we have created our project, imported the Web3j library and prepared a program to run our code. We can now connect to an Ethereum node and start executing operations over the JSON-RPC API abstracted by Web3j.</p>
+<h4 id="1-add-imports">1. Add imports<a class="headerlink" href="#1-add-imports" title="Permanent link"></a></h4>
+<p>First import the packages needed for our code, or allow your IDE to automatically import them for you:</p>
+<pre><code class="language-java">import java.io.IOException;
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.http.HttpService;
+import org.web3j.protocol.core.methods.response.EthBlockNumber;
+import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+</code></pre>
+<h4 id="2-connect-to-the-node">2. Connect to the node<a class="headerlink" href="#2-connect-to-the-node" title="Permanent link"></a></h4>
+<p>To connect to the node, Web3j requires the JSON-RPC API endpoint:</p>
+<pre><code class="language-java">Web3j web3 = Web3j.build(new HttpService(&quot;&lt;NODE ENDPOINT&gt;&quot;));
+</code></pre>
+<h5 id="local-ethereum-node-or-ganache-cli">Local Ethereum node or ganache-cli<a class="headerlink" href="#local-ethereum-node-or-ganache-cli" title="Permanent link"></a></h5>
+<p>If you are running locally a <a href="https://geth.ethereum.org/">Geth</a>, <a href="https://www.parity.io/">Parity</a>, <a href="https://github.com/PegaSysEng/pantheon">Pantheon</a> client or <a href="https://github.com/trufflesuite/ganache-cli">ganache-cli</a>. Your node JSON-RPC API endpoint is <code>http://localhost:8545</code> by default</p>
+<pre><code class="language-java">Web3j web3 = Web3j.build(new HttpService(&quot;http://localhost:8545&quot;));
+</code></pre>
+<h5 id="ganache-application-local-development-blockchain">Ganache application: Local development blockchain<a class="headerlink" href="#ganache-application-local-development-blockchain" title="Permanent link"></a></h5>
+<p>If you are running the <a href="https://www.trufflesuite.com/ganache">Ganache</a> application on your machine. Your node JSON-RPC API endpoint is <code>http://localhost:7545</code> by default. <em>ganche-cli uses port 8545</em></p>
+<pre><code class="language-java">Web3j web3 = Web3j.build(new HttpService(&quot;http://localhost:7545&quot;));
+</code></pre>
+<p><em>Note: As a test network, Ganache doesn't support all the JSON-RPC API operations specified, for example <code>net_peercount</code>.</em></p>
+<h5 id="infura-hosted-nodes-for-public-mainet-and-testnets">Infura: Hosted nodes for public mainet and testnets<a class="headerlink" href="#infura-hosted-nodes-for-public-mainet-and-testnets" title="Permanent link"></a></h5>
+<p>If you use <a href="https://infura.io">Infura</a>. The node JSON-RPC API endpoint is <code>https://&lt;network&gt;.infura.io/v3/&lt;project key&gt;</code>.</p>
+<pre><code class="language-java">Web3j web3 = Web3j.build(new HttpService(&quot;https://mainnet.infura.io/v3/&lt;project key&gt;&quot;));
+</code></pre>
+<h4 id="3-execute-api-operations">3. Execute API operations<a class="headerlink" href="#3-execute-api-operations" title="Permanent link"></a></h4>
+<p>Web3j implements a JSON-RPC API client for Ethereum which can be used in the following way <code>&lt;response&gt; = web3.&lt;operation&gt;.send()</code>. For example:</p>
+<pre><code class="language-java">try {
+  // web3_clientVersion returns the current client version.
+  Web3ClientVersion clientVersion = web3.web3ClientVersion().send();
+
+  //eth_blockNumber returns the number of most recent block.
+  EthBlockNumber blockNumber = web3.ethBlockNumber().send();
+
+  //eth_gasPrice, returns the current price per gas in wei.
+  EthGasPrice gasPrice =  web3.ethGasPrice().send();
+
+} catch(IOException ex) {
+  throw new RuntimeException(&quot;Error whilst sending json-rpc requests&quot;, ex);
+}
+</code></pre>
+<p><strong>Note:</strong> Serilization of the JSON-RPC request can raise an <code>IOException</code> exception, so you need to handle it.</p>
+<h3 id="result">Result<a class="headerlink" href="#result" title="Permanent link"></a></h3>
+<p>The following code shows the entire Java program which connects to an Ethereum node and runs some JSON-RPC calls.</p>
+<pre><code class="language-java">//Main.java
+package io.kauri.tutorials.java_ethereum;
+
+import java.io.IOException;
+
+import org.web3j.protocol.Web3j;
+import org.web3j.protocol.core.methods.response.EthBlockNumber;
+import org.web3j.protocol.core.methods.response.EthGasPrice;
+import org.web3j.protocol.core.methods.response.Web3ClientVersion;
+import org.web3j.protocol.http.HttpService;
+
+public class Main {
+
+  public static void main(String[] args) {
+    System.out.println(&quot;Connecting to Ethereum ...&quot;);
+    Web3j web3 = Web3j.build(new HttpService(&quot;http://localhost:8545&quot;));
+    System.out.println(&quot;Successfuly connected to Ethereum&quot;);
+
+    try {
+      // web3_clientVersion returns the current client version.
+      Web3ClientVersion clientVersion = web3.web3ClientVersion().send();
+
+      // eth_blockNumber returns the number of most recent block.
+      EthBlockNumber blockNumber = web3.ethBlockNumber().send();
+
+      // eth_gasPrice, returns the current price per gas in wei.
+      EthGasPrice gasPrice = web3.ethGasPrice().send();
+
+      // Print result
+      System.out.println(&quot;Client version: &quot; + clientVersion.getWeb3ClientVersion());
+      System.out.println(&quot;Block number: &quot; + blockNumber.getBlockNumber());
+      System.out.println(&quot;Gas price: &quot; + gasPrice.getGasPrice());
+
+    } catch (IOException ex) {
+      throw new RuntimeException(&quot;Error whilst sending json-rpc requests&quot;, ex);
+    }
+  }
+}
+</code></pre>
+<p><em>Full file available <a href="https://github.com/gjeanmart/kauri-content/blob/master/java-ethereum/src/main/java/io/kauri/tutorials/java_ethereum/Main.java">here</a></em></p>
+<p>To run the program, right-click on the file <code>Main.java</code> and click on <em>Run As &gt; Java Application</em>. You should see in the console the following result.</p>
+<pre><code class="language-shell">Connecting to Ethereum ...
+Successfuly connected to Ethereum
+Client version: Geth/v1.8.22-omnibus-260f7fbd/linux-amd64/go1.11.1
+Block number: 7983049
+Gas price: 3000000000
+</code></pre>
+<p><img alt="" src="https://imgur.com/MWJqowg.gif" /></p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://github.com/gjeanmart/kauri-content/tree/master/java-ethereum">GitHub Project code</a></li>
+<li><a href="https://web3j.io/">Web3j website</a></li>
+<li><a href="https://web3j.readthedocs.io/en/latest/">Web3j documentation</a></li>
+<li><a href="https://github.com/web3j/web3j">Web3j Github repo</a></li>
+<li><a href="https://github.com/ethereum/wiki/wiki/JSON-RPC">Ethereum JSON-RPC API</a></li>
+</ul>
+<hr />
+<p><strong>Next Steps:</strong></p>
+<ul>
+<li><a href="https://kauri.io/article/925d923e12c543da9a0a3e617be963b4">Manage an Ethereum account with Java and Web3j</a></li>
+<li><a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b">Generate a Java Wrapper from your Smart Contract</a></li>
+<li><a href="https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e">Interacting with an Ethereum Smart Contract in Java</a></li>
+<li><a href="https://kauri.io/article/760f495423db42f988d17b8c145b0874">Listening for Ethereum Smart Contract Events in Java</a></li>
+<li><a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Connecting to an Ethereum client with Java, Eclipse and Web3j</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/connecting-to-an-ethereum-client-with-java-eclipse/b9eb647c47a546bc95693acc0be72546/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-19</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, maven, web3j, json-rpc, eclipse</li>
+<li><strong>Kauri original hash:</strong> QmdCsaJm7ajyh3ZyxacmSc94FFoBgSPWeWJLLYTCEMUUxf</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Privacy/introduction-to-cryptography/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Privacy/introduction-to-cryptography/" class="btn btn-xs btn-link">
+        Introduction to Cryptography
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../managing-nonces-with-nethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../managing-nonces-with-nethereum/" class="btn btn-xs btn-link">
+        Managing nonces with Nethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/connecting-to-an-ethereum-client-with-java-eclips.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/IPFS%20101/installing-ipfs/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Installing IPFS - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Installing IPFS", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Downloading", url: "#downloading" },
+              {title: "Initializing", url: "#initializing" },
+              {title: "Basic Commands", url: "#basic-commands" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="installing-ipfs">Installing IPFS<a class="headerlink" href="#installing-ipfs" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVmFg2MiFVxb4Ro967CaubE8ytjWD5gDFgsNzRCnrVUj9" /></p>
+<p>In this tutorial, we install IPFS and learn its basic commands.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>Familiar with the command line and IPFS concepts.</p>
+<h3 id="downloading">Downloading<a class="headerlink" href="#downloading" title="Permanent link"></a></h3>
+<p>There are 3 ways to install IPFS:</p>
+<ul>
+<li><a href="https://dist.ipfs.io/#go-ipfs">from a prebuilt package</a></li>
+<li>from ipfs-update</li>
+<li>building from source</li>
+</ul>
+<p>In this post, we install from a prebuilt package. Download the appropriate binary from the link above.</p>
+<p>Unzip the package where you want to store the IPFS binary, and add the IPFS binary to your <code>PATH</code>.</p>
+<p>Open your terminal and try the following to test that your install works:</p>
+<p><strong>Note</strong>: For Windows users, I recommend Powershell over Command Prompt.</p>
+<pre><code class="language-shell">ipfs help
+</code></pre>
+<p>That's It! You now have the IPFS installation on your machine.</p>
+<h3 id="initializing">Initializing<a class="headerlink" href="#initializing" title="Permanent link"></a></h3>
+<p>Before we can use IPFS, we must initialize a local repository. This repository contains the settings and internal data for your user account. It also generates a peer identity key to sign any content you create cryptographically.</p>
+<pre><code class="language-shell">ipfs init
+</code></pre>
+<p>The <code>init</code> command outputs your peer identity key. This key is similar to an account number. The <code>init</code> command suggests the following command to try:</p>
+<pre><code class="language-shell">ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+</code></pre>
+<p>You should see something like the below:</p>
+<pre><code class="language-shell">    Hello and Welcome to IPFS!
+
+    ██╗██████╗ ███████╗███████╗
+    ██║██╔══██╗██╔════╝██╔════╝
+    ██║██████╔╝█████╗  ███████╗
+    ██║██╔═══╝ ██╔══╝  ╚════██║
+    ██║██║     ██║     ███████║
+    ╚═╝╚═╝     ╚═╝     ╚══════╝
+
+    If you see this, you have successfully installed
+    IPFS and are now interfacing with the ipfs merkledag!
+
+    -------------------------------------------------------
+    | Warning:                                              |
+    |   This is alpha software. use at your own discretion! |
+    |   Much is missing or lacking polish. There are bugs.  |
+    |   Not yet secure. Read the security notes for more.   |
+    -------------------------------------------------------
+
+    Check out some of the other files in this directory:
+
+      ./about
+      ./help
+      ./quick-start     &lt;-- usage examples
+      ./readme          &lt;-- this file
+      ./security-notes
+</code></pre>
+<p>You can try the other files suggested by replacing <em>readme</em> in the last command.</p>
+<p>It's important to know where your IPFS repository is located because this is where all your content is stored. The default location is a <em>.ipfs</em> folder in your home folder.</p>
+<h3 id="basic-commands">Basic Commands<a class="headerlink" href="#basic-commands" title="Permanent link"></a></h3>
+<p><strong>Note</strong>: The quick start guide from the readme gives a list of all commands to assist with getting started.</p>
+<h4 id="creating-adding-a-file-to-ipfs">Creating &amp; Adding a File to IPFS<a class="headerlink" href="#creating-adding-a-file-to-ipfs" title="Permanent link"></a></h4>
+<p>Navigate to a directory where you would like to create a file and try the following:</p>
+<pre><code class="language-shell">mkdir hello-ipfs
+cd hello-ipfs
+</code></pre>
+<p>Now let's create a file inside this folder.</p>
+<pre><code class="language-shell">echo &quot;hello world 1&quot; &gt; helloworld.txt
+</code></pre>
+<p>The text file <em>helloworld.txt</em> contains <strong>"hello world 1"</strong>. Next, add the file to IPFS.</p>
+<pre><code class="language-shell">ipfs add hellowworld.txt
+</code></pre>
+<p>You see the following output:</p>
+<pre><code class="language-shell">added QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8 helloworld.txt
+</code></pre>
+<p>The combination of letters and numbers is the hash that's associated with this text file. The hash is created based on the contents of the file. If you change the contents of the file, the hash changes, save this hash to access the file later on.</p>
+<h4 id="reading-content">Reading content<a class="headerlink" href="#reading-content" title="Permanent link"></a></h4>
+<p>Without using IPFS, we can read the contents of the <em>helloworld.txt</em> file with the following command:</p>
+<pre><code class="language-shell">cat mytextfiletxt
+</code></pre>
+<p>We can read it through IPFS as well. Using the hash generated earlier, enter the following to return the contents of the file:</p>
+<pre><code class="language-shell">ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+</code></pre>
+<h4 id="changing-the-content">Changing the Content<a class="headerlink" href="#changing-the-content" title="Permanent link"></a></h4>
+<p>Let's see what happens if we change the text inside our <em>helloworld.txt</em> file.</p>
+<pre><code class="language-shell">$ echo &quot;hello world 2&quot; &gt; helloworld.txt
+$ ipfs add helloworld.txt`
+
+&gt; added QmfEKnXvgW7gbbxPj7e3LF4ZsaX8hxW427ASiGUKXDUZnB
+
+$ cat helloworld.txt
+&gt; hello world 2
+</code></pre>
+<p>We changed the text to say <strong>"hello world 2"</strong> and when we added it to IPFS, we received a new hash. Using the <code>cat</code> command, we see that our <em>helloworld.txt</em> file was updated with the new text.</p>
+<p>It's also possible to still read the "hello world 1" phrase that we had earlier.</p>
+<pre><code class="language-shell">$ ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+&gt; hello world 1
+
+$ cat helloworld.txt
+&gt; hello world 2
+</code></pre>
+<p>Using the first hash, IPFS outputs <strong>"hello world 1"</strong>. We read the contents of the hash rather than the contents of the file. Reading the <em>helloworld.txt</em> file we see that the contents haven't changed.</p>
+<p>We can revert to the <strong>"hello world 1"</strong> text if we wish.</p>
+<pre><code class="language-shell">$ ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8 &gt; helloworld.txt
+$ cat helloworld.txt
+&gt; hello world 1
+</code></pre>
+<h4 id="pinning">Pinning<a class="headerlink" href="#pinning" title="Permanent link"></a></h4>
+<p>As mentioned earlier, content on your node stays there for a short period. Pinning allows you to tell IPFS what you want to keep for an extended period.</p>
+<p>Using the file, we created earlier, use the command below to pin it:</p>
+<pre><code class="language-shell">ipfs pin add QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+</code></pre>
+<p>Once pinned, it stays on our node. Let's see what happens when we try to clean our node of all hosted files (garbage collection):</p>
+<pre><code class="language-shell">$ ipfs repo gc
+$ ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+&gt; hello world 1
+</code></pre>
+<p>We couldn't collect the file couldn't because we pinned to our node.</p>
+<h4 id="remove-a-pin">Remove a Pin<a class="headerlink" href="#remove-a-pin" title="Permanent link"></a></h4>
+<pre><code class="language-shell">ipfs pin rm QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+ipfs repo gc
+ipfs cat QmYBmnUzkvvLxPksYUBGHy2sqbvwskLQw5gK6whxHGcsa8
+</code></pre>
+<p>The first command removes the pin. When we garbage collect, it's removed from our node. The file is still available in our local directory stored on our computer, but we are no longer hosting it on the node.</p>
+<h4 id="connecting-to-the-web">Connecting to the Web<a class="headerlink" href="#connecting-to-the-web" title="Permanent link"></a></h4>
+<p>So far we've worked with IPFS locally. Now we're ready to try things online. Open another terminal and run the daemon command.</p>
+<pre><code class="language-shell">ipfs daemon
+</code></pre>
+<p>The daemon allows us to interact with the IPFS network through localhost in our browser. Switch back to the other terminal to take a look at our peers.</p>
+<pre><code class="language-shell">ipfs swarm peers
+</code></pre>
+<p>This command results in a bunch of addresses flashing across the terminal. We opened the swarm component that allows us to listen and maintain connections with other peers on the network. The <code>peers</code> command allows us to see every peer that has an open connection.</p>
+<p><strong>Note</strong>: If you ever get an error message saying "API not found," run the daemon command and continue where you left off. <strong>To ensure that IPFS runs correctly it is suggested to run the daemon command every time you use IPFS, even locally.</strong></p>
+<p>We've successfully connected to the IPFS network and from here can get content from other nodes if we know the hash of the content.</p>
+<p>If we know the hash of a file and want to save it on our computer we can do the following:</p>
+<pre><code class="language-shell">ipfs name/ipfs/hash-here/name-of-file &gt; name.jpg
+</code></pre>
+<p>We can also view a file directly in our browser using the path <em><a href="http://127.0.0.1:8080/ipfs/Qmdh9Sk33zbLgPCPsadcSrvaJt4YUifP3njYbZT9W7B9zG">http://127.0.0.1:8080/ipfs/Qmdh9Sk33zbLgPCPsadcSrvaJt4YUifP3njYbZT9W7B9zG</a></em>.</p>
+<p>You should see a picture of a dog. If you know the hash of another file, just replace the hash!</p>
+<h4 id="web-console">Web Console<a class="headerlink" href="#web-console" title="Permanent link"></a></h4>
+<p>Now that we've connected our node to the network we can use the IPFS Web Console.</p>
+<p><em><a href="http://localhost:5001/webui">http://localhost:5001/webui</a></em></p>
+<p>In the console, we can:</p>
+<ul>
+<li>check the status of your node</li>
+<li>upload files to IPFS</li>
+<li>explore files</li>
+<li>see your peers</li>
+<li>adjust settings for your node</li>
+</ul>
+<p>The web console is the best tool for managing IPFS node.</p>
+<h4 id="command-summary">Command Summary<a class="headerlink" href="#command-summary" title="Permanent link"></a></h4>
+<p>We've covered the basics of working with IPFS. Here is a summary of all the commands covered, and a handful of other useful ones:</p>
+<ul>
+<li><code>ipfs add name-of-file</code> : Adds a file to IPFS.</li>
+<li><code>ipfs cat hash-of-file</code> : Shows the contents of the file.</li>
+<li><code>ipfs pin add hash-of-file</code> : Pin file to local IPFS storage.</li>
+<li><code>ipfs pin rm hash-of-file</code> : Removes pinned file from local IPFS storage.</li>
+<li><code>ipfs repo gc</code> : Removes files from IPFS storage.</li>
+<li><code>ipfs daemon</code> : Starts an online connection to the network.</li>
+<li><code>ipfs swarm peers</code> : List peers with open connections.</li>
+<li><code>ipfs commands</code> : Lists all commands.</li>
+<li><code>ipfs id</code> : Tells you your id as well as other node id information.</li>
+<li><code>ipfs version</code> : The version of IPFS you are running.</li>
+<li><code>ipfs help</code> : Provides you with help information.</li>
+</ul>
+<p><strong>Note</strong>: Try any command in the following format: <code>ipfs base-command</code> , and the terminal displays the usage of that command.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://medium.freecodecamp.org/ipfs-101-understand-by-doing-it-9f5622c4d4ed">https://medium.freecodecamp.org/ipfs-101-understand-by-doing-it-9f5622c4d4ed</a></li>
+<li><a href="https://docs.ipfs.io/introduction/usage/">https://docs.ipfs.io/introduction/usage/</a></li>
+<li><a href="https://flyingzumwalt.gitbooks.io/decentralized-web-primer/content/">https://flyingzumwalt.gitbooks.io/decentralized-web-primer/content/</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Installing IPFS</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/installing-ipfs/b01b9b7bebcd4ebf80edf021bdd0e232/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-19</li>
+<li><strong>Kauri original tags:</strong> ipfs, web, installation, peer2peer</li>
+<li><strong>Kauri original hash:</strong> Qmd7KF8uSN8i5xRAvNHHJieYLc5FCVdEPXSuGLDh2qxjGU</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../getting-started-with-mahuta-a-search-engine-for-t/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../getting-started-with-mahuta-a-search-engine-for-t/" class="btn btn-xs btn-link">
+        Getting started with Mahuta - A Search engine for the IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-link">
+        Peer-to-peer hypermedia with IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/IPFS 101/installing-ipfs.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

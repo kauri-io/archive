@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/the-forgotten-side-of-decentralization/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The Forgotten Side of Decentralization - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The Forgotten Side of Decentralization", url: "#_top", children: [
+              {title: "Where should content live on Web3?", url: "#where-should-content-live-on-web3" },
+              {title: "Storage Option #1: On-chain Index", url: "#storage-option-1-on-chain-index" },
+              {title: "Storage Option #2: Sidechain Index", url: "#storage-option-2-sidechain-index" },
+              {title: "Storage Option #3: Read-only Public Index on IPFS", url: "#storage-option-3-read-only-public-index-on-ipfs" },
+              {title: "The Ask Required of Kauri Users For Each Storage Option", url: "#the-ask-required-of-kauri-users-for-each-storage-option" },
+              {title: "Best Bet: Why Levying Storage Costs to the User is Wise", url: "#best-bet-why-levying-storage-costs-to-the-user-is-wise" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-forgotten-side-of-decentralization">The Forgotten Side of Decentralization<a class="headerlink" href="#the-forgotten-side-of-decentralization" title="Permanent link"></a></h1>
+<h2 id="where-should-content-live-on-web3">Where should content live on Web3?<a class="headerlink" href="#where-should-content-live-on-web3" title="Permanent link"></a></h2>
+<p>One of the most challenging, and overlooked, aspects of decentralization is storage. Where should content live in Web3, and how should we securely and efficiently distribute it?</p>
+<p>The Kauri knowledge network is designed to curate a high volume of long-form documentation, which may include graphs, pictures, videos, and other data rich file formats. Theoretically, you could store anything on the Ethereum blockchain, though gas costs increase substantially as the file size grows (at our current mid-September 2018 gas prices, 1 MB of storage would cost several hundreds dollars). </p>
+<p>To handle this long-form documentation more economically, we’ve leveraged the <a href="https://ipfs.io/">InterPlanetary File System</a> (IPFS) as a distributed storage layer. However, handling both an index of the Ethereum address of the documentation author and the IPFS hash where that documentation is stored is still a challenge. </p>
+<p>We’ve distilled our research down into essentially three decentralized solutions: on-chain index, side-chain index, and an IPFS read-only public index––the on-chain index being the most decentralized and the IPFS read-only public index being the least decentralized of the three options. </p>
+<p>The core data required on the Kauri network is an index of at least the author address and the article hash. This index allows timestamping of user article submissions to the decentralized environment. The advantages and disadvantages of each option is discussed in greater detail below. </p>
+<h2 id="storage-option-1-on-chain-index">Storage Option #1: On-chain Index<a class="headerlink" href="#storage-option-1-on-chain-index" title="Permanent link"></a></h2>
+<p><em>Setup</em> </p>
+<p>With an on-chain index, our data is stored on IPFS (though you can use Swarm, Storj, Sia, or any other distributed storage solution), and the fixed-length unique IPFS hash that points to the data is stored on the Ethereum blockchain via a transaction. </p>
+<p><em>Advantages</em> </p>
+<p>By keeping the index on the main chain, a user can prove article ownership globally. The article is on the main chain and can be used by other dApps for a multitude of purposes: building on top of Kauri, creating and collecting badges, distributing your content, creating a global reputation. Imagine a global professional profile gathering your Kauri technical publications, <a href="https://gitcoin.co/">Gitcoin</a> solutions, <a href="https://peepeth.com/welcome">Peepeth</a> feeds, attendance at <a href="https://media.consensys.net/mesh-news-09-13-18-this-is-why-we-buidl-f9991f8883e1">blockchain events and meetups</a>, and so forth. On-chain storage is the most decentralized option of the three. </p>
+<p><em>Disadvantages</em> </p>
+<p>The primary disadvantage is the cost of storing data to the main chain, which can be quite volatile. To alleviate costs, we’ve considered using a batching mechanism similar to Peepeth, where up to 15 actions are stored off-chain before being written as a batch to the main chain. Presumably, this 15 action limit is a figure based on the 280 character limit per “peep” and other Peepeth features such as following another user. There are some innate differences between Kauri and Peepeth, namely that Kauri is geared towards long-form documentation while Peepeth is geared towards tweet-like actions. </p>
+<p><em>Cost-Reducing Batch Escalation</em> </p>
+<p>Escalating a batch of articles on Kauri requires storing and later retrieving the list of non-escalated articles from a MongoDB database prior to writing the data to the blockchain. Upon obtaining the non-escalated articles, a checkpoint file is generated and the root hash and checkpoint hash is signed, the checkpoint file is then uploaded to IPFS, the root hash, checkpoint hash, and trustee signature is returned to the frontend. The frontend then submits all the prior information to the smart contract which then generates an event. Following successful smart contract submission, the checkpoint file in IPFS is updated. </p>
+<p>For the batch escalation solution, all the content is still stored on IPFS, though the index is centralized until someone either triggers the on-chain escalation or all articles are escalated periodically (e.g. every 24 hours, every other day, once a week). One issue with this batching solution is that while a user is storing their articles off-chain, someone could steal the original author’s work and claim ownership of an article that does not belong to them. </p>
+<h2 id="storage-option-2-sidechain-index">Storage Option #2: Sidechain Index<a class="headerlink" href="#storage-option-2-sidechain-index" title="Permanent link"></a></h2>
+<p><em>Setup</em> </p>
+<p>With a sidechain index, our data is stored on a “layer two” sidechain with the Ethereum blockchain as its base layer. That sidechain would use its own consensus rulesets specific to the use case, whether it be proof of stake (POS), delegated proof of stake (DPOS), proof of authority (POA), or other protocol. <a href="https://loomx.io/">Loom Network</a> and <a href="https://poa.network/">POA Network</a> are two sidechain implementations we’ve researched for viability. </p>
+<p><em>Advantages</em> </p>
+<p>By migrating article data to a sidechain, a user will enjoy only some of the benefits provided by the main chain (e.g. security, accessibility, transparency, multi-participants), but not all (e.g. loss of fault tolerance). A Kauri sidechain would be fast and free by definition, as it would presumably run in a less global environment with a POA or DPOS consensus protocol. The sidechain communicates bi-directionally with the main chain, allowing users to transfer an asset from the sidechain to the main chain. Lastly, other sidechain participants would be able to build on top of Kauri and its sidechain.</p>
+<p><em>Disadvantages</em> </p>
+<p>For the uptick in speed and significantly decreased on-chain data storage costs made possible by a POS/DPOS/POA consensus ruleset on the sidechain, users forfeit decentralization, although the option to exit to the main chain should theoretically always remain available. Additionally, the sidechain can also experience data loss in the event that all participants shut down. It is also likely that at the outset a Kauri sidechain would be a single node implementation. </p>
+<h2 id="storage-option-3-read-only-public-index-on-ipfs">Storage Option #3: Read-only Public Index on IPFS<a class="headerlink" href="#storage-option-3-read-only-public-index-on-ipfs" title="Permanent link"></a></h2>
+<p><em>Setup</em> </p>
+<p>Within the current Kauri environment, a read-only public index would be uploaded to IPFS periodically, presumably by the Kauri team, the current maintainers of the Kauri network. This is easy enough to implement, as the index could be scheduled for upload nightly, every-other-night, or weekly. </p>
+<p><em>Advantages</em> </p>
+<p>By utilizing a public index on IPFS, users can still verify the consistency of the data served by the Kauri network. It’s also readily accessible via IPNS to anyone with the hash. </p>
+<p><em>Disadvantages</em> </p>
+<p>On IPFS, only one participant can publish the index under a static unique name. Consequently, this solution is not censorship resistant (as it is maintained solely by Kauri). A read-only public index on IPFS also suffers with regard to speed, as publishing to IPNS currently takes approximately two minutes. </p>
+<h2 id="the-ask-required-of-kauri-users-for-each-storage-option">The Ask Required of Kauri Users For Each Storage Option<a class="headerlink" href="#the-ask-required-of-kauri-users-for-each-storage-option" title="Permanent link"></a></h2>
+<p><em>Option #1 On-chain index - Cost</em> </p>
+<p>For on-chain articles, Kauri users trust and transact directly with the main chain and pay the associated gas costs. The primary ask to the user is the transaction cost. Once the index is written to the blockchain, it can be extended to any other dApp and any other user in the blockchain. </p>
+<p><em>Option #2 Sidechain index - Time &amp; effort</em> </p>
+<p>For sidechain articles, in the case of a Loom or POA Network sidechain implementation, users do not pay main chain storage costs but are heavily leaned upon and must be positioned to immediately request exit from the sidechain in the event of any malicious activity. Exits from the sidechain are not instantaneous as challenge periods exist. </p>
+<p><em>Option #3 Read-only Public Index on IPFS - Time &amp; effort, with diminished ‘decentralization’</em> </p>
+<p>For an IPFS read-only index, users would need to verify the consistency of the data served by the Kauri middleware API against the public index. In short, users will not be able to solely trust the main chain or the sidechain implementation with the expectation that the Kauri maintainers consistently and reliably publish the index in a timely manner. </p>
+<h2 id="best-bet-why-levying-storage-costs-to-the-user-is-wise">Best Bet: Why Levying Storage Costs to the User is Wise<a class="headerlink" href="#best-bet-why-levying-storage-costs-to-the-user-is-wise" title="Permanent link"></a></h2>
+<p>Option #1, an on-chain index, remains the most promising decentralized storage solution for Web3. The price paid by users ensures that the index is persistent on the main chain and that data is reliably extensible to any other dApp or any other user browsing the Ethereum blockchain. Sidechains, with a reliable implementation, offer some of the benefits of decentralization but introduce further complexity to the user, as data must be transferred from the main chain to the sidechain and the user must monitor the sidechain for malfeasance. A read-only public index on IPFS moves away from chain-related decentralization, instead distributing the index across IPFS nodes––a centralized environment in which only one participant under a static unique name can publish the index.</p>
+<p>A secure, efficient, and elegant storage solution remains an ongoing challenge for the Ethereum ecosystem. The trilemma between security, decentralization, and scaling exists as much for handling transaction volume as for managing longer-form content. But between batching and sidechains, a number of compelling and decentralized storage options have emerged.</p>
+<p>As developers test drive these Layer 2 solutions over the coming months––for both scaling and storage––the Kauri team looks forward to not just documenting their progress, but counting ourselves among the dApps who are also actively building these solutions for Web3. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The Forgotten Side of Decentralization</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-forgotten-side-of-decentralization/1dce7ead0840458d930e5980ce879728/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-14</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qma31dqtG726FBttTs1DpRjQhx58FhfrAk4aaNGfx3FQuV</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../using-besu-the-java-ethereum-client-with-windows/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../using-besu-the-java-ethereum-client-with-windows/" class="btn btn-xs btn-link">
+        Using Besu, the Java Ethereum Client with Windows
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../eventlink---incentivizedverified-event-outcomes/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../eventlink---incentivizedverified-event-outcomes/" class="btn btn-xs btn-link">
+        EventLINK   Incentivized/Verified Event Outcomes
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/the-forgotten-side-of-decentralization.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

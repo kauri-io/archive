@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/tools-for-dapp-development/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Tools for dApp development - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Tools for dApp development", url: "#_top", children: [
+              {title: "Smart Contract Programming Languages", url: "#smart-contract-programming-languages" },
+              {title: "Web3 Libraries", url: "#web3-libraries" },
+              {title: "Development frameworks", url: "#development-frameworks" },
+              {title: "IDEs", url: "#ides" },
+              {title: "Development Blockchains", url: "#development-blockchains" },
+              {title: "Ethereum Networks", url: "#ethereum-networks" },
+              {title: "dApp Browsers", url: "#dapp-browsers" },
+              {title: "SaaS / Cloud Infra", url: "#saas-cloud-infra" },
+              {title: "DataStorage", url: "#datastorage" },
+              {title: "Ethereum Developer Tools List", url: "#ethereum-developer-tools-list" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="tools-for-dapp-development">Tools for dApp development<a class="headerlink" href="#tools-for-dapp-development" title="Permanent link"></a></h1>
+<p>This article will introduce you to the relevant tools required for developing a simple dApp. We will introduce tools in the following areas:</p>
+<ul>
+<li>Smart Contract Programming Languages</li>
+<li>Web3 Libraries</li>
+<li>Development frameworks</li>
+<li>IDEs</li>
+<li>Development blockchains</li>
+<li>Ethereum Networks</li>
+<li>Wallets (Key Stores)</li>
+<li>SaaS / Cloud Infra</li>
+<li>Data Storage</li>
+</ul>
+<h2 id="smart-contract-programming-languages">Smart Contract Programming Languages<a class="headerlink" href="#smart-contract-programming-languages" title="Permanent link"></a></h2>
+<p>Because a smart contract is deployed on the blockchain in its bytecode form, any language that comes with an EVM compiler could be used to write a smart contract. Nobody really wants to write bytecode!</p>
+<p><strong>Solidity</strong></p>
+<p>Currently, Solidity is the preferred/most used language used to write smart contracts for the Ethereum platform. For this reason it has the most examples, tutorials and references available. Its the recommended place to start for any new smart contract developer.</p>
+<p>It is a statically typed language heavily influenced by C++ and Javascript with the aim being to reduce the onboarding time for developers more familiar with these types of languages.</p>
+<p>https://github.com/ethereum/solidity</p>
+<p>Documentation: http://solidity.readthedocs.io/en/v0.4.24/</p>
+<p><strong>LLL</strong></p>
+<p>LLL, “Low-level Lisp-Like Language”, is an alternative language for writing smart contracts. As the name suggests it is a lower-level language than Solidity.</p>
+<p>LLL operators translate directly to EVM opcodes and developers have direct access to both memory and storage.</p>
+<p>[Include a link to the LLL project page]</p>
+<p>Documentation: https://readthedocs.org/projects/lll-docs/</p>
+<p><strong>VYPER</strong></p>
+<p>Vyper is an experimental language which is still in alpha. It imposes strict rules which aim to increase both the security and auditability of smart contracts.</p>
+<p>Note: Vyper is still alpha software, it is not recommended to write smart contracts for production software with it just yet.</p>
+<p>https://github.com/ethereum/vyper</p>
+<p>Documentation: https://vyper.readthedocs.io/en/latest/installing-vyper.html</p>
+<h2 id="web3-libraries">Web3 Libraries<a class="headerlink" href="#web3-libraries" title="Permanent link"></a></h2>
+<p>Ethereum nodes expose a JSON-RPC API (a stateless, lightweight remote procedure call) protocol which clients can use to interact with a node.</p>
+<p>Web3 libraries are convenient wrappers around this JSON-RPC protocol which provide an interface for interacting with an Ethereum node in the language of your choice.</p>
+<p>Later in the series, we’ll see how we can use these web3 libraries to build clients/UIs which users can use to interact with our dApp.</p>
+<p>https://github.com/ethereum/wiki/wiki/JSON-RPC</p>
+<p>Below is a list of web3 libraries that can be used to interface with your preferred programming language.</p>
+<p><strong>Javascript</strong></p>
+<h5 id="web3js">WEB3.js<a class="headerlink" href="#web3js" title="Permanent link"></a></h5>
+<p>https://github.com/ethereum/web3.js/</p>
+<p>Documentation: https://web3js.readthedocs.io/en/1.0/</p>
+<h5 id="ethersjs">ETHERS.js<a class="headerlink" href="#ethersjs" title="Permanent link"></a></h5>
+<p>https://github.com/ethers-io/ethers.js/</p>
+<p>Documentation: https://docs.ethers.io/ethers.js/html/</p>
+<p><strong>Java</strong></p>
+<h5 id="web3j">WEB3J<a class="headerlink" href="#web3j" title="Permanent link"></a></h5>
+<p>https://github.com/web3j/web3j</p>
+<p>Documentation: https://docs.web3j.io/</p>
+<p><strong>Python</strong></p>
+<h5 id="web3py">WEB3.PY<a class="headerlink" href="#web3py" title="Permanent link"></a></h5>
+<p>https://github.com/ethereum/web3.py</p>
+<p>Documentation: https://web3py.readthedocs.io/en/stable/</p>
+<p><strong>.NET</strong></p>
+<h5 id="nethereum">Nethereum<a class="headerlink" href="#nethereum" title="Permanent link"></a></h5>
+<p>https://github.com/Nethereum/Nethereum</p>
+<p>Documentation: https://nethereum.readthedocs.io/en/latest/</p>
+<h2 id="development-frameworks">Development frameworks<a class="headerlink" href="#development-frameworks" title="Permanent link"></a></h2>
+<p>When developing dApps, and especially writing smart contracts, there are many repetitive tasks you will undertake. Such as compiling source code, generating ABIs, testing, and deployment. Development frameworks hide the complexity of these tasks and enable you as a developer to focus on developing your dApp/idea.</p>
+<p><strong>Truffle</strong></p>
+<p>Node based framework which is currently the most used and actively maintained in the space.</p>
+<p>https://truffleframework.com/</p>
+<p>Documentation: https://truffleframework.com/docs</p>
+<p><strong>Embark</strong></p>
+<p>Node based framework</p>
+<p>https://embark.status.im/</p>
+<p>Documentation: https://embark.status.im/docs/</p>
+<p><strong>Populous</strong></p>
+<p>Python based framework</p>
+<p>https://github.com/ethereum/populus</p>
+<p>Documentation: https://populus.readthedocs.io/en/latest/</p>
+<p>When you first start playing around with contracts, you should avoid using a framework until you understand the value it provides, much in the same way you shouldn’t start learning how to write HTML with rails new . The easiest thing to do at first is use Remix (https://remix.ethereum.org/) to play around with the language and ideas.</p>
+<h2 id="ides">IDEs<a class="headerlink" href="#ides" title="Permanent link"></a></h2>
+<p>Many developers have their IDE of choice where they are most comfortable developing. There are plugins available which can help you develop dApps in your natural habitat!</p>
+<h4 id="remix">REMIX<a class="headerlink" href="#remix" title="Permanent link"></a></h4>
+<p>https://remix.ethereum.org/</p>
+<p>Remix in an online IDE developed and maintained by the Ethereum Foundation. It’s an easy to use development environment which requires no installation/setup.
+This is a great place to quickly prototype and play around with Solidity smart contacts.</p>
+<h4 id="etheratom-atom-plugin">ETHERATOM (ATOM PLUGIN)<a class="headerlink" href="#etheratom-atom-plugin" title="Permanent link"></a></h4>
+<p>https://github.com/0mkara/etheratom</p>
+<h4 id="intellij-solidity-intellij-plugin">INTELLIJ-SOLIDITY (INTELLIJ PLUGIN)<a class="headerlink" href="#intellij-solidity-intellij-plugin" title="Permanent link"></a></h4>
+<p>https://github.com/intellij-solidity/intellij-solidity</p>
+<h4 id="solidity-visual-studio-extension">SOLIDITY (VISUAL STUDIO EXTENSION)<a class="headerlink" href="#solidity-visual-studio-extension" title="Permanent link"></a></h4>
+<p>https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity</p>
+<h2 id="development-blockchains">Development Blockchains<a class="headerlink" href="#development-blockchains" title="Permanent link"></a></h2>
+<p>When developing dApps, and especially writing smart contracts in your local development environment. It can be useful to spin up a development blockchain where you can quickly deploy your contracts, and run tests, whilst being in control of how the chain operates.</p>
+<p><strong>Ganache</strong></p>
+<p>Part of the truffle suite family, ganache allows you to quickly run a development blockchain on your local machine.
+It comes in 2 parts:</p>
+<ul>
+<li><strong>ganache-cli</strong> formally known as testrpc, a Node.js based Ethereum client</li>
+<li><strong>ganache</strong> a frontend on top of the Node.js client, which provides a blockexplorer for visualising transactions, blocks, and contracts deployed to the test client.</li>
+</ul>
+<p>https://truffleframework.com/ganache</p>
+<h2 id="ethereum-networks">Ethereum Networks<a class="headerlink" href="#ethereum-networks" title="Permanent link"></a></h2>
+<p><strong>Mainnet</strong> — the main Ethereum network, think of this as the production network. ETH here has real world fiat value.</p>
+<p><strong>Test Networks</strong></p>
+<p>As these are test networks, ETH here has no real world fiat value. You can use the provided faucet links to request test ETH from each network.</p>
+<p><strong>Rinkeby</strong>— A geth-client only testnet which seems to be the most reliable and consistent</p>
+<p>[https://faucet.rinkeby.io] (https://faucet.rinkeby.io/)</p>
+<p><strong>Kovan</strong>— A parity-client only testnet</p>
+<p>https://github.com/kovan-testnet/faucet</p>
+<p><strong>Ropsten</strong> — The primary Ethereum testnet using Proof of Work. This network, seems to be the most inconsistent/unrealisable out of the 3</p>
+<p>[https://faucet.ropsten.be] (https://faucet.ropsten.be/)</p>
+<h2 id="dapp-browsers">dApp Browsers<a class="headerlink" href="#dapp-browsers" title="Permanent link"></a></h2>
+<p><strong>Metamask</strong> —  Metamask is a crypto wallet that allows you to run Ethereum dApps in your browser without running a full Ethereum node. We use Metamask on Kauri. </p>
+<p>https://metamask.io/</p>
+<p>Documentation: https://metamask.github.io/metamask-docs/</p>
+<p><strong>Toshi(Coinbase Wallet)</strong> — Crypto wallet that can store multiple different kinds of tokens. </p>
+<p>https://www.toshi.org/</p>
+<p><strong>Cipher Browser</strong> — Mobile Web3 dApp browser and wallet for Ethereum.</p>
+<p>https://www.cipherbrowser.com/</p>
+<h2 id="saas-cloud-infra">SaaS / Cloud Infra<a class="headerlink" href="#saas-cloud-infra" title="Permanent link"></a></h2>
+<p><strong>Infura</strong> — A public hosted Ethereum node cluster, which provides access to its nodes via an API.</p>
+<p>https://infura.io/</p>
+<p>Documentation: https://infura.io/docs</p>
+<p><strong>The Graph</strong> — A protocol for building dApps using GraphQL.</p>
+<p>https://thegraph.com/</p>
+<h2 id="datastorage">DataStorage<a class="headerlink" href="#datastorage" title="Permanent link"></a></h2>
+<p><strong>IPFS</strong> —  IPFS (InterPlanetary File System) is a peer to peer protocol for distributing files. Think of it as a filesystem using the ideas behind <strong>bittorrent</strong>and <strong>git</strong> where data is content-addressable and immutable.</p>
+<p>https://ipfs.io/</p>
+<p>Documentation: https://docs.ipfs.io/</p>
+<p><strong>SWARM</strong> — Swarm is a decentralised storage network being developed within the Ethereum ecosystem. It is similar to IPFS, however, uses a different protocol and aims to provide an incentives layer to encourage nodes to persist data indefinitely.</p>
+<p>https://swarm-gateways.net/bzz:/theswarm.eth (https://swarm-gateways.net/bzz:/theswarm.eth/)</p>
+<p>Documentation: https://swarm-guide.readthedocs.io/en/latest/introduction.html</p>
+<p>Read Swarm and IPFS comparison (https://github.com/ethersphere/go-ethereum/wiki/IPFS-&amp;-SWARM)</p>
+<h2 id="ethereum-developer-tools-list">Ethereum Developer Tools List<a class="headerlink" href="#ethereum-developer-tools-list" title="Permanent link"></a></h2>
+<p>Consensys Labs along with the Ethereum developer community, have been aggregating a list of open source tools, frameworks, and components, to help developers get started with building on Ethereum. This will be a useful resource to bookmark as you continue your journey into dApp development!</p>
+<p>[ConsenSysLabs/ethereum-developer-tools-list] (https://github.com/ConsenSysLabs/ethereum-developer-tools-list)</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Tools for dApp development</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/tools-for-dapp-development/9a7d8927c9484f879d761981d70a42df/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-16</li>
+<li><strong>Kauri original tags:</strong> Ethereum</li>
+<li><strong>Kauri original hash:</strong> QmVfRNCi22Lrz5MvHnY4pYoWyUP2zE8nVgMgawu1xyafSy</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../tools-for-working-with-solidity/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../tools-for-working-with-solidity/" class="btn btn-xs btn-link">
+        Tools for Working With Solidity
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../full-stack-dapp-tutorial-series-intro/" class="btn btn-xs btn-link">
+        Full Stack dApp Tutorial Series - Intro
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/tools-for-dapp-development.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/reducing-mainnet-transactions-with-a-sidechain/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Reducing Mainnet Transactions with a Sidechain - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Reducing Mainnet Transactions with a Sidechain", url: "#_top", children: [
+              {title: "Why Care About Transactions?", url: "#why-care-about-transactions" },
+              {title: "What Options Did We Consider?", url: "#what-options-did-we-consider" },
+              {title: "The Kauri Sidechain Design", url: "#the-kauri-sidechain-design" },
+              {title: "Summary", url: "#summary" },
+              {title: "Thanks", url: "#thanks" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="reducing-mainnet-transactions-with-a-sidechain">Reducing Mainnet Transactions with a Sidechain<a class="headerlink" href="#reducing-mainnet-transactions-with-a-sidechain" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZe6PFEZx9y9LAMSYDeYkeGWH73Nt9ZP2bpG69u8YGrDP" /></p>
+<p>At Kauri, we think its important that article attribution is open and permanent on the immutable Ethereum blockchain, but we also believe that limiting the number of transactions that a user has to send when interacting with the platform is critical to a great user experience.  These two somewhat conflicting goals left us with a tricky dilemma; not requiring a transaction to be sent for every article that is published, but also providing a timestamped way to prove ownership on the Ethereum mainnet for every article.</p>
+<h2 id="why-care-about-transactions">Why Care About Transactions?<a class="headerlink" href="#why-care-about-transactions" title="Permanent link"></a></h2>
+<p>Before explaining our approach we should first cover why we want to reduce the number of transactions in the first place. </p>
+<p>To send a transaction, a gas fee must be paid in ether, which adds friction into the system.  Users really aren't used to using a product where they have to pay actual money (albeit a small amount) per interaction, and this can make them feel uncomfortable.  They may not even currently own any cryptocurrency, and will have to go through the process of depositing fiat to an exchange in order to buy Ether before they can fully use your application.  Some people just won't bother, and turn away.</p>
+<p>Also, there is the issue of fluctuating gas costs during network congestion.  There are times when the cost of sending a transaction is significantly higher than average, such as during the infamous <a href="https://www.cryptokitties.co/">CryptoKitties</a> network spike towards the end of 2017.  If / when this happens again, users of your application will probably see their transactions stuck in the mempool for hours or days, which could cause confusion and a negative perception of your application if they don't fully understand what's going on behind the scenes.  Experienced users will end up having to pay exorbitant fees to interact with your DApp, or will simply refuse to use it until the average gas price lowers to an acceptable amount.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWiL7u78CTbQWegkyRwZV9d7eFiJWTgK6CRWqtUtVQe6A" />
+<em>Peak Cryptokitties Network Congestion</em></p>
+<p>The Ethereum space is quite unique in the software development space because of the fact that backend architecture decisions can significantly affect the overall UX of the entire application.</p>
+<blockquote>
+<p>Fewer transactions == Less usage friction!</p>
+</blockquote>
+<h2 id="what-options-did-we-consider">What Options Did We Consider?<a class="headerlink" href="#what-options-did-we-consider" title="Permanent link"></a></h2>
+<p>There were a number of approaches that we considered, when trying to come up with a solution that reasonably balances decentralization and UX.</p>
+<h3 id="completely-off-chain-articles">Completely Off-Chain Articles<a class="headerlink" href="#completely-off-chain-articles" title="Permanent link"></a></h3>
+<p>We briefly flirted with the idea of storing article data completely off-chain.  As the content is stored in IPFS, we would need to store links between article id's and IPFS hashes in a centralized database.  However, this is obviously not very open, and to counterbalance this, we would be required to publish our centralized index publicly at certain intervals.  Besides the fact that article authorship cannot be verified on chain, this index publication brings up further issues: Where should the index be published?  How can a third party be sure that the data hasn't been censored or modified by us? The requirement of trust was way too large in this approach.</p>
+<h3 id="batching-article-transactions">Batching Article Transactions<a class="headerlink" href="#batching-article-transactions" title="Permanent link"></a></h3>
+<p>A strategy that has been utilised successfully by <a href="https://peepeth.com">Peepeth</a>, batching is the process of combining data that would otherwise be sent in multiple transactions into a single transaction in order to save on gas costs.  This involves storing the article data in a centralized database for a period of time, until the user decides to commit the articles to the Ethereum network in a single transaction.  </p>
+<p>Batching only provides significant cost savings if the base transaction cost (21,000 gas) is higher than the cost of 'storing each article'.  This is the case in Peepeth because 'peeps' are stored by emitting an event, rather than by storing anything in the EVM state.  Although this means that data is cheap to store, the flipside is that this data cannot be verified on-chain, as smart contracts do not have access to events.  Within the Kauri smart contracts, we want to be able to verify article id against IPFS content hash and author address on-chain (at a bare minimum), which would require 3 32 byte words of storage at 20,000 gas each.  If publishing 10 articles in a batch, the cost would be 621,000 in gas, vs 810,000 for sending individual transactions.  This is a around a 25% saving, which, whilst not a terrible saving, is not cheap enough for our use case.</p>
+<h3 id="a-sidechain">A Sidechain<a class="headerlink" href="#a-sidechain" title="Permanent link"></a></h3>
+<p>A sidechain is a blockchain that runs in parallel with the main Ethereum blockchain (the mainchain), coupled with a mechanism that allows data (usually tokens) to be transferred from this sidechain to the mainchain and vice versa.  As fees for transactions sent to a sidechain are either free or extremely low depending on the implementation, articles can be published to a sidechain cost effectively.  The tricky part is ensuring that there is a system in place for 'transferring' these articles to the mainchain.  This is required because there are tasks that involve monetary value, such as tipping articles and claiming bounties, which we want to occur on the mainchain and so proof of article authorship must also be possible on the main Etheruem network.</p>
+<h4 id="trusted-relayer">Trusted Relayer<a class="headerlink" href="#trusted-relayer" title="Permanent link"></a></h4>
+<p>The most basic approach would be to build a trusted relayer service that sits in-between the mainchain and the sidechain.  The job of this relayer is to retrieve the article details from the sidechain, and then return a signed message back to the user, confirming these details.</p>
+<h5 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h5>
+<ol>
+<li>Alice decides that she wants to move her sidechain article onto the mainchain.</li>
+<li>The article id in question is passed to the trusted relayer service by Alice.</li>
+<li>The trusted relayer obtains the details of the article in question from the sidechain.</li>
+<li>The relayer signs the article details and returns this signature to Alice.</li>
+<li>Alice now has proof of the article details and authorship, and can send this signature to a mainchain smart contract function in order to 'claim' the article on the mainchain.</li>
+</ol>
+<p>With this trusted relay approach, the trusted relayer is of great importance for the entire duration of the lifecycle of a side-chain article.  As far as the mainnet smart contract is concerned, a user will not ‘own’ an article until the article has been relayed to the mainnet.  If the relay goes down, they will have no way to prove authorship of an article on the mainnet until it comes back up.  If the relay never comes back up (or we decide to turn off our servers and move to New Zealand!) then the ownership of the article can never be proven on-chain.  </p>
+<p>A user that cares about decentralization and not losing the ownership of their article would therefore be inclined to send a relay transaction per article, securing their ownership on the main network.  We are then back to the one-transaction-per-article situation that we want to try and avoid.</p>
+<p>We could rectify the single point of failure partially by allowing third parties to apply to be a trusted relayer, but this opens up a different can of worms (community governance, incentivization of running a relay and punishment of malicious relayer actions).</p>
+<h4 id="plasma-cash">Plasma Cash<a class="headerlink" href="#plasma-cash" title="Permanent link"></a></h4>
+<p>Plasma Cash is an implementation of Plasma geared towards Non-Fungible assets.  It allows these assets to be transferred between the mainchain and the sidechain and provides guarantees that a user can always 'exit' their assets from the sidechain regardless of the behaviour of the 'operator'.  Amongst other things, the operator is responsible for creating a Sparse Merkle Tree with each leaf containing details of Non-Fungible assets transferred in this period on the sidechain.  The hash of this tree must be published by the operator to the mainchain at specified intervals.  </p>
+<p>I'm not going into specific details about how Plasma Cash works; for more information I recommend you check out <a href="https://blog.ujomusic.com/a-plasma-cash-primer-27dcfd1d5ddc">this</a> excellent primer by Simon De La Rouviere, or watch Vitalik Buterin explain the concepts below:</p>
+<div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/uyuA11PDDHE" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+
+<p>Although Plasma Cash sidechains have not been proven in the wild yet, they should provide an excellent scaling solution for implementations where there is a lot of monetary value at stake on the sidechain, such as in a decentralized exchange.  However, there are a few caveats which makes it tricky to implement and provide a reasonable user experience:</p>
+<ul>
+<li><strong>The Challenge Period</strong>: A user has to wait for a fixed period of time before being able to complete a transfer from the sidechain to the mainchain.  This is called the challenge period and exists so that another user can block the transfer if they can prove that they are the rightful owner of the asset, not the intiating user.</li>
+<li><strong>Storing tx history</strong>: In order to challenge false exits, a user must store the transaction history of the assets which they own.</li>
+<li><strong>Monitoring for exits</strong>: Asset owners must also continuously monitor the mainchain plasma contract for any malicious exits for assets in which they are the rightful owner.</li>
+</ul>
+<h4 id="somewhere-in-between">Somewhere In-Between...<a class="headerlink" href="#somewhere-in-between" title="Permanent link"></a></h4>
+<p>We realised that most of the awkward implementation intricacies of the Plasma Cash specification were due to the fact that it is assumed that the ownership of entities can be transferred on the sidechain.  The challenge period predominantly exists so that a user cannot maliciously attempt to exit the sidechain with an entity that they used to own, but don't any longer.  In our use case, by enforcing that articles cannot be transferred in the sidechain smart contracts, then challenges and the challenge period are not needed.</p>
+<h2 id="the-kauri-sidechain-design">The Kauri Sidechain Design<a class="headerlink" href="#the-kauri-sidechain-design" title="Permanent link"></a></h2>
+<p>Influenced by the Plasma specification, by utilising Merkle Trees to ‘checkpoint’ the sidechain-only articles to the main Ethereum network we can reduce both the reliance on a trusted relay for proof of ownership, along with the gas cost of these sidechain-to-mainnet article transfers.  As articles cannot be transferred on the sidechain, assuming the checkpointer is trusted, a user can prove that they have authored an article if they can provide a Merkle Proof that their article exists within a checkpoint root hash.</p>
+<p>If you are unfamilar with the concept of Merkle Trees, its worth reading <a href="https://media.consensys.net/ever-wonder-how-merkle-trees-work-c2f8b7100ed3">this</a> excellent primer by ConsenSys.</p>
+<h3 id="the-checkpointer">The Checkpointer<a class="headerlink" href="#the-checkpointer" title="Permanent link"></a></h3>
+<p>Analogous to an operator in Plasma, the checkpointers job is to gather up all the sidechain articles that have not yet been committed to the mainchain and create a Merkle tree of these articles.  They must also publish a 'checkpoint document' to IPFS, which is essentially all the data required to reconstruct the Merkle tree, in order to create a Merkle proof.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcxXuwa5jPdsQDZroZ2t3hvBE6cRXFPKMSFwbKbY5nZ1S" /></p>
+<h3 id="article-lifecycle">Article Lifecycle<a class="headerlink" href="#article-lifecycle" title="Permanent link"></a></h3>
+<h4 id="publication">Publication<a class="headerlink" href="#publication" title="Permanent link"></a></h4>
+<ol>
+<li>An article is written by a user, Alice.</li>
+<li>A transaction is sent to the sidechain with the details of this article (along with a signature of these details, signed by the creators private key)</li>
+<li>This article is added to the sidechain state.</li>
+</ol>
+<h4 id="moving-an-article-from-side-chain-to-mainnet">Moving an Article from Side-chain to Mainnet<a class="headerlink" href="#moving-an-article-from-side-chain-to-mainnet" title="Permanent link"></a></h4>
+<ol>
+<li>At a later time, a user, Bob, decides that they want to move Alice’s article to mainnet, in order to tip the article. (Note: this could also be performed by Alice, or anyone!)</li>
+<li>They make a call to the trusted checkpointer to initiate an escalation to mainnet.</li>
+<li>The checkpointer establishes a list of ALL articles that do not yet exist within a Merkle Root on the main Ethereum network.</li>
+<li>Details of these articles (id, owner, version, content hash) are included within a checkpoint document, and then pinned to IPFS (this is an important document so should be pinned in multiple places and backed up).</li>
+<li>A binary Merkle Tree is then constructed by the checkpointer, with each leaf being a hash of:
+<code>articleid:articleVersion:articleOwner:contentHash:timestamp</code></li>
+<li>The Merkle Root and checkpoint document are returned to Bob, along with a signature of these values, signed by the checkpointers trusted key.</li>
+<li>Bob then sends a transaction to a Kauri smart contract on the Ethereum main network, with the details from the checkpointer.</li>
+<li>The smart contract verifies that the signature has been signed by a trusted checkpointer, the Merkle Root is stored, and an ArticlesCheckpointed event is emitted containing the Merkle Root and IPFS hash of the checkpoint document.</li>
+<li>The checkpointer listens for the ArticlesCheckpointed event, and sets the checkpoint IPFS hash on all sidechain articles included within the checkpoint (they are then considered 'checkpointed').</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeSS7priz6SfLW6Z93daCpVM8nQhZtaf6NUZdyZtgK51h" /></p>
+<h4 id="proving-article-authorship">Proving Article Authorship<a class="headerlink" href="#proving-article-authorship" title="Permanent link"></a></h4>
+<ol>
+<li>Sometime afterwards, Alice wants to claim a request bounty for the article that she wrote in step 1.</li>
+<li>In order to do, she must first obtain the checkpoint document containing the article in question.</li>
+<li>The binary Merkle Tree is constructed from the articles within the checkpoint document, and the Merkle Root calculated.</li>
+<li>She can then calculate the minimum number of values required to prove that her article was included in the Merkle Tree, the Merkle Proof.</li>
+<li>This Merkle Proof should be provided to the function within the Kauri smart contract that allows the claiming of a bounty.</li>
+<li>The smart contract confirms that the Merkle Proof hashes to a known Merkle Root in state.  If so, the contract can be certain (assuming the trusted checkpointer is not acting maliciously) that the article with the specified id exists, and is indeed owned by Alice.</li>
+</ol>
+<p><em>Note: Steps 2 - 4 will generally be performed by the Kauri middleware on behalf of the user for efficiency, but this is not a necessity, and could be done in the browser.</em></p>
+<p><em>Proving Authorship using Kauri Middleware to Generate Proof</em>
+<img alt="" src="https://ipfs.infura.io/ipfs/QmX8xE4JyfjdkqL9vbsp9tQSVbA5KrRcxhFHhNKqGKthff" /></p>
+<h3 id="automatic-checkpointing">Automatic Checkpointing<a class="headerlink" href="#automatic-checkpointing" title="Permanent link"></a></h3>
+<p>This description assumes that it will always be a Kauri user that instigates the checkpointing, but it would be great if we could provide some guarantees on how long it will take for a written article to be relayed to the mainnet.  Therefore, we are planning on building a service that is scheduled to checkpoint every 24 hours, which will allow us to provide guarantees around article ownership after that time frame.  In theory, as network activity grows on the Kauri platform, this service will become less useful as checkpointing will occur naturally at more regular intervals.</p>
+<h3 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link"></a></h3>
+<ul>
+<li><strong>Enabling proof of ownership for all non-checkpointed articles on the sidechain will only cost the price of storing a single bytes32 value and emitting an event, regardless of how many articles are to be checkpointed.</strong></li>
+<li>Although there still needs to be the concept of a trusted ‘relayer’, it does not play as vital a role in the proof of ownership of an article over time, as it is expected that a Merkle Root containing a published article will be sent to the mainnet within 24 hours.  </li>
+<li>We are less reliant on the sidechain and our middleware layer, because details about all articles that have been checkpointed to the mainnet can be obtained in a decentralized manner by iterating over the ArticlesCheckpointed smart contract events and obtaining the article data from the checkpoint documents in IPFS.</li>
+</ul>
+<h3 id="the-importance-of-checkpoint-documents">The Importance of Checkpoint Documents<a class="headerlink" href="#the-importance-of-checkpoint-documents" title="Permanent link"></a></h3>
+<p>Having access to the checkpoint documents is vital in order to prove ownership of an article.  As mentioned earlier, this should therefore be pinned in multiple places, and the checkpointer should keep a backup, centralized copy in a database so that it can be re-added to IPFS if it somehow gets unpinned everywhere.  It would also be a good idea to provide a way for users to download all checkpoint documents for articles that they have written.  If they store these securely then article ownership can always be proven.  If even more decentralization is required, then a Kauri client could be created for running on a users desktop machine, which would constantly listen for ArticlesCheckpointed events, and store any checkpoint documents for articles that the user is interested in.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVebkZqyx3DVhWGsgLAWwNPsuVSRp8YSedwv6CzX1cNRT" /></p>
+<h3 id="what-can-go-wrong">What Can Go Wrong?<a class="headerlink" href="#what-can-go-wrong" title="Permanent link"></a></h3>
+<h4 id="malicious-checkpointing">Malicious Checkpointing<a class="headerlink" href="#malicious-checkpointing" title="Permanent link"></a></h4>
+<p>The checkpointer is inherently a trusted party in this system, which will initially be operated by Kauri.  What is stopping us from lying whilst checkpointing, and changing the article details so that they do not match the data within the sidechain?  On the flipside to this question, what is there to gain by Kauri acting in this way?  As all the data is open and transparent, this abuse can be easily proven off-chain.  Kauri has substantial skin-in-the-game; we are a known entity with reputation on the line (a similar argument is made for node operators in a POA network), and it is also in our best interests for this platform to succeed.  No one will want to use the Kauri platform or protocol if it is proven that we have been acting maliciously.  In a Plasma chain, users are guaranteed to be able to exit with their funds if an operator is a bad actor; no funds are at risk in the Kauri sidechain, but article writers will 'exit' by simply refusing to use the platform anymore.</p>
+<p>That being said, for resilience and availability sake, in the future we would love to see third parties running checkpointer nodes, but this requires a tightly aligned incentive model and we aren't there yet.</p>
+<h4 id="kauri-disbanding">Kauri Disbanding<a class="headerlink" href="#kauri-disbanding" title="Permanent link"></a></h4>
+<p><em>In a worst case scenario, where we decide to turn all our servers off and quit, record of authorship on the mainnet will only be lost for articles written in the last 24 hours.</em>  There would also be the issue of an address under our control being set as the ‘trusted checkpointer’ within the smart contracts, which would mean that no further articles can be added to the mainnet.  If a user or group of users wanted to continue the Kauri efforts, they could deploy a new version of the smart contract (which will be open sourced) and change the ‘trusted checkpointer’ address, then manage multiple contracts in their frontend and middleware (also open sourced).  This pattern is already used by some DAPPS for upgrades (Ether/Fork Delta for example).  Also, it should be noted that we never intend for this scenario to happen, but its worth mentioning.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h2>
+<p>To summarise, by enforcing that articles on the Kauri sidechain cannot be transferred, exiting from the sidechain to the mainchain is made much simpler, with a better user experience compared to Plasma Cash.  We do not require a challenge period, and there is no concept of a transaction history for the articles, meaning that custom client software is not needed in order to track these transactions.  By introducing a trusted checkpointer who’s job is to create Merkle trees from non-checkpointed articles which can then be committed to the mainchain (by a third party with signature verification), article authorship can be proven on the mainchain by providing a Merkle proof.  </p>
+<p>One further benefit of this approach is that when a checkpointing is instigated by a user, all non-checkpointed articles will be committed to the mainchain, not just articles for the instigating user.  This does not cost any extra gas, as only a single bytes32 value (the Merkle root) regardless of how many articles are included within the checkpoint.</p>
+<p>The checkpointer actor does introduce a layer of trust.  The checkpointer(s) should be known parties with skin-in-the-game, so that it is in their best interests to function fairly and correctly.  All data is transparent and open, so any misbehaviour can be easily proven off-chain, and as there is no monetary value held in the sidechain, the main thing that will be lost is trust in the Kauri platform and protocol.</p>
+<h2 id="thanks">Thanks<a class="headerlink" href="#thanks" title="Permanent link"></a></h2>
+<p>Thanks to the entire Kauri team, for helping with the design and suggesting edits to this article.  A special shoutout to Gregoire "Diagram Master" Jeanmart for producing the images in the article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Reducing Mainnet Transactions with a Sidechain</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/reducing-mainnet-transactions-with-a-sidechain/a66d50655f8746edb7df90de4b8eb416/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-13</li>
+<li><strong>Kauri original tags:</strong> scaling, dapp, kauri, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmdTJXDrQnFK4sSd4yHrKEbeuoShwgw2LnExttiw7TsPPs</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../quorum-how-to/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../quorum-how-to/" class="btn btn-xs btn-link">
+        Quorum how-to
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/" class="btn btn-xs btn-link">
+        Среда разработки Remix - создайте свой первый Smart Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/reducing-mainnet-transactions-with-a-sidechain.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

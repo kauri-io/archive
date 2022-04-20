@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ethereum-101-chast-1-chto-takoe-ethereum/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Часть 1 - Что такое Ethereum? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - \u0427\u0430\u0441\u0442\u044c 1 - \u0427\u0442\u043e \u0442\u0430\u043a\u043e\u0435 Ethereum?", url: "#_top", children: [
+              {title: "\u0426\u0435\u043b\u044c \u0441\u0442\u0430\u0442\u044c\u0438", url: "#_1" },
+              {title: "\u0427\u0442\u043e \u0442\u0430\u043a\u043e\u0435 Ethereum?", url: "#ethereum" },
+              {title: "\u0420\u043e\u0434\u043d\u0430\u044f \u0432\u0430\u043b\u044e\u0442\u0430 Ethereum \u0438 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e", url: "#ethereum_2" },
+              {title: "\u0414\u0435\u0446\u0435\u043d\u0442\u0440\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f (Decentralized Apps, DApps)", url: "#decentralized-apps-dapps" },
+              {title: "\u041f\u0440\u0438\u0447\u0438\u043d\u044b \u0434\u043b\u044f \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u044f DApp", url: "#dapp" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-1-ethereum">Ethereum 101 - Часть 1 - Что такое Ethereum?<a class="headerlink" href="#ethereum-101-1-ethereum" title="Permanent link"></a></h1>
+<h2 id="_1">Цель статьи<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>Цель данной статьи – дать базовое представление о сети Ethereum (Эфириум) каждому, кто захочет ее использовать.</p>
+<h2 id="ethereum">Что такое Ethereum?<a class="headerlink" href="#ethereum" title="Permanent link"></a></h2>
+<p>Объяснить, что такое Ethereum, можно по-разному, и у разных людей будут разные представления о нем. К концу этой статьи Вы сформируете собственное виденье Ethereum. Хочется процитировать Андреаса Антонопулуса, который, как мне кажется, довольно точно и лаконично описал Ethereum и с практической, и с точки зрения компьютерных наук.</p>
+<p>Цитата из книги «<a href="https://github.com/ethereumbook/ethereumbook">Mastering Ethereum</a>» за авторством Андреаса Антонопулоса и Гэвина Вуда:</p>
+<blockquote>
+<p>Ethereum часто описывают как «Всемирный компьютер» («the world computer»). Но что же это означает? Для начала, рассмотрим определение с точки зрения компьютерных наук, а потом попробуем расшифровать его с помощью практического анализа возможностей и характеристик Ethereum, а так же сравнения его с Bitcoin (Биткоином) и другими децентрализованными платформами обмена информацией (так называемые блокчейнами).
+  С точки зрения компьютерных наук, Ethereum является детерминированной, но в то же время практически неограниченной, машиной состояний,  которая состоит из глобально доступного единого состояния (singleton state) и виртуальной машины, которая применяет изменения к этому самому состоянию.
+  С более практичной точки зрения, Ethereum – это глобально децентрализованная вычислительная инфраструктура с открытым исходным кодом, которая выполняет программы, называемые смарт-контрактами. Эта инфраструктура использует блокчейн для синхронизации и хранения состояний системы, а также криптовалюту ether (эфир) для измерения и ограничения затрат ресурсов на выполнение.
+  Платформа Ethereum дает разработчикам возможность делать мощные децентрализованные приложения со встроенными экономическими функциями. Кроме обеспечения высокой доступности, возможности аудита, прозрачности и нейтральности, она так же снижает или полностью убирает цензуру и значительно сокращает риск контрагента.</p>
+</blockquote>
+<p>Цитата из книги «<a href="https://github.com/ethereumbook/ethereumbook/blob/develop/01what-is.asciidoc">Mastering Ethereum, Section 1 - What is Ethereum?</a>» за авторством Андреаса Антонопулоса и Гэвина Вуда.</p>
+<h4 id="ethereum_1">Ethereum как «Всемирный компьютер»<a class="headerlink" href="#ethereum_1" title="Permanent link"></a></h4>
+<p>В определении Ethereum Антонопулос использует несколько примечательных терминов: всемирный компьютер, блокчейн, детерминированный, состояние, машина состояний, децентрализованная вычислительная инфраструктура, смарт-контракты, децентрализованные приложения и прочие.</p>
+<p>Давайте рассмотрим эти термины, но сначала стоит также обратить внимание на последнее предложение последнего параграфа:</p>
+<blockquote>
+<p>Кроме обеспечения высокой доступности, возможности аудита, прозрачности и нейтральности, она так же снижает или полностью убирает цензуру и значительно сокращает риск контрагента.</p>
+</blockquote>
+<p>Это очень примечательно. Держите это в уме, пока мы будем дальше разбираться с Ethereum.</p>
+<p>Давайте рассмотрим некоторые из вышеупомянутых терминов и, в качестве мысленного упражнения, дадим им свободное определение:
+* Всемирный компьютер – компьютер, доступный всем, не имеющий географических ограничений;
+* Блокчейны – связанные блоки данных, Ethereum является блокчейном;
+* Детерминированный – независимо от узла, на котором запущена программа, результат вычислений будет одинаковым;
+* Состояние — сохраненная информация о программе или системе;
+* Машина состояний — механизм, который изменяет вышеупомянутое состояние, соблюдая некий консенсус;
+* Децентрализованная вычислительная инфраструктура – децентрализованная инфраструктура, в котором все узлы, поддерживающие сеть, имеют одинаковы; привилегии и являются равноправными,
+* Смарт-контракт – код, выполнение которого можно ожидать в децентрализованной вычислительной инфраструктуре;
+* Децентрализованные приложения – приложения, которые касаются децентрализованной вычислительной инфраструктуры либо используют смарт-контракты, или и то, и то.</p>
+<p>Отдельные лица, проекты и бизнесы обычно предпочитают использовать устойчивые, стабильные системы, на которые можно положиться. Это именно то, что Ethereum предлагает своим разработчикам.</p>
+<p>Ethereum отказоустойчив. Это значит, что узлы могут пропадать из сети без какого-либо существенного эффекта на безопасность или пропускную способность транзакций сети. Узлы синхронизируются к текущему состоянию при следующем подключении к сети.</p>
+<p>Ethereum позволяет разработчикам писать и развертывать иммутабельные (неизменяемые) программы в блокчейн. После развертывания, этим программам можно доверить выполнение без какого-либо вмешательства внешних для блокчейна событий. Такие программы принято называть смарт-контрактами.</p>
+<h2 id="ethereum_2">Родная валюта Ethereum и не только<a class="headerlink" href="#ethereum_2" title="Permanent link"></a></h2>
+<p>Для лаконичности приведем несколько проверенных и верных определений:</p>
+<blockquote>
+<p>В связи с тем, что Ethereum нацелен на любые приложения, не обязательно валютные или финансовые, существует фундаментальная единица стоимости в сети для предотвращения возможности злоупотребления сетью путем излишних вычислительных нагрузок. Эта единица называется газ (gas),...  </p>
+</blockquote>
+<p>Автор: Майка Дамерон, <a href="https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf">«Beigepaper: An Ethereum Technical Specification»</a> Раздел 1.1 Native Currency</p>
+<p>Чтобы использовать сеть Ethereum для отправки данных с одного аккаунта на другой или развертывания смарт-контрактов в блокчейне нужно заплатить майнерам, которые обеспечивают безопасность сети, комиссию, вышеупомянутый газ (gas fee).</p>
+<p>Ether (эфир) используется для оплаты данной комиссии. Ether является родной валютой для блокчейна Ethereum. Ether можно делить на части, в таблице ниже представлены некоторые соотношения.</p>
+<table>
+<thead>
+<tr>
+<th>Единица</th>
+<th>Ether</th>
+<th>Wei</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ether</td>
+<td>Ξ1.00000000000000000</td>
+<td>1,000,000,000,000,000,000</td>
+</tr>
+<tr>
+<td>Finney</td>
+<td>Ξ0.001000000000000000</td>
+<td>1,000,000,000,000,000</td>
+</tr>
+<tr>
+<td>Ether</td>
+<td>Ξ0.000001000000000000</td>
+<td>1,000,000,000,000</td>
+</tr>
+<tr>
+<td>Ether</td>
+<td>Ξ0.000000000000000001</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Из: <a href="https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf">«Beigepaper: An Ethereum Technical Specification»</a></p>
+<p>(WEI - это наименьшая и неделимая частица Ethereum, 1 Ether = 10^18 Wei - прим. перевод.)</p>
+<h2 id="decentralized-apps-dapps">Децентрализованные приложения (Decentralized Apps, DApps)<a class="headerlink" href="#decentralized-apps-dapps" title="Permanent link"></a></h2>
+<p>В самом узком определении, децентрализованные приложения являются смарт-контрактом с фронтендом (пользовательским интерфейсом). В контексте данной статьи, децентрализованное приложение – это приложение, которое распространяет свою логику, хранилище данных или коммуникацию с помощью протокола Ethereum или другого web3 протокола.</p>
+<ul>
+<li>«web3» – разговорный термин для децентрализованного веба;</li>
+<li>«web2» – разговорный термин для текущего состояния интернета.</li>
+</ul>
+<h2 id="dapp">Причины для использования DApp<a class="headerlink" href="#dapp" title="Permanent link"></a></h2>
+<p>В список примеров децентрализованных приложений, которые появились за последние несколько лет, можно отнести:
+* Децентрализованные обмены;
+* Рынки прогнозирования;
+* Децентрализованные базы знаний (такие как Kauri);
+* Системы идентификации с открытым исходным кодом;
+* Казино;
+* Игры и множество других.</p>
+<p>Список далеко не исчерпывающий, быстрый поиск в интернете покажет множество текущих проектов децентрализованных приложений, многие из которых решают проблемы реального мира.</p>
+<p>Более подробный список можно найти на https://www.stateofthedapps.com/.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Часть 1 - Что такое Ethereum?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-chast-1-chto-takoe-ethereum/ad4ff9164fc04320a55de6d774d300e0/a</li>
+<li><strong>Kauri original author:</strong> Anton (@random-char)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-31</li>
+<li><strong>Kauri original tags:</strong> ethereum, dapp, blockchain, ----, tutorial</li>
+<li><strong>Kauri original hash:</strong> QmWCbokS1ybtE3jHUWXeZePYifiP72YbG6SN1XsyGQZckD</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../3box.js--7-use-cases-for-social-dapps/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../3box.js--7-use-cases-for-social-dapps/" class="btn btn-xs btn-link">
+        3Box.js  7 Use Cases for Social Dapps
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../poap-submission/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../poap-submission/" class="btn btn-xs btn-link">
+        POAP SUBMISSION
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ethereum-101-chast-1-chto-takoe-ethereum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

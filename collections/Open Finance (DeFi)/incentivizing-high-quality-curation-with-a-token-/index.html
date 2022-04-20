@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/incentivizing-high-quality-curation-with-a-token-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Incentivizing high-quality curation with a Token-Curated Registry - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Incentivizing high-quality curation with a Token-Curated Registry", url: "#_top", children: [
+              {title: "What is a Token-Curated Registry", url: "#what-is-a-token-curated-registry" },
+              {title: "Economics", url: "#economics" },
+              {title: "Examples of TCRs", url: "#examples-of-tcrs" },
+              {title: "Creating a TCR", url: "#creating-a-tcr" },
+              {title: "Potential attacks", url: "#potential-attacks" },
+              {title: "Limitations and improvement ideas", url: "#limitations-and-improvement-ideas" },
+              {title: "Further reading", url: "#further-reading" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="incentivizing-high-quality-curation-with-a-token-curated-registry">Incentivizing high-quality curation with a Token-Curated Registry<a class="headerlink" href="#incentivizing-high-quality-curation-with-a-token-curated-registry" title="Permanent link"></a></h1>
+<h3 id="what-is-a-token-curated-registry">What is a Token-Curated Registry<a class="headerlink" href="#what-is-a-token-curated-registry" title="Permanent link"></a></h3>
+<p>The idea behind Token-Curated Registry (TCR) is simple. To create a list around a certain topic. For example, a list of people, companies, or schools.</p>
+<p>Lists are inherent to people: we create, maintain, and consume them all the time. With token-curated registries, this process can become decentralized, as there are no central parties who maintain it. Once deployed, such a list is fully autonomous from its creator.</p>
+<p>There are three groups of users of a registry: consumers, producers, and candidates. Consumers are the “readers“ of the registry, who use the information for their own goals. Producers are the “writers” of the registry, they vote on whether to include given item to the list or not. Candidates nominate items to be included in the list.</p>
+<h3 id="economics">Economics<a class="headerlink" href="#economics" title="Permanent link"></a></h3>
+<p>Each TCR has an internal token, which is used to coordinate producers and incentivize honest behavior.</p>
+<p>Candidates stake tokens when they nominate new items. Once the proposal is complete, any member of the list can challenge it by making a deposit.</p>
+<p>Token holders resolve the challenge. Once a new item is proposed, each holder can vote for a limited period of time. Then, the votes are added together and the outcome executed. The more tokens a user owns, the more voting power they have.</p>
+<p>If an item ends up included on the list, a candidate keeps their stake. If the item is rejected, the stake is split between challenger and voters that were in majority.</p>
+<p>Existing registry members, or listees, can also be challenged at any time. For that case, they must keep a minimum deposit that will be seized in case a challenge is successful so the challenger and majority voters can share it. In case a challenge fails, the listee keeps the deposit, and the challenger stake is split between listee and majority voters.</p>
+<h3 id="examples-of-tcrs">Examples of TCRs<a class="headerlink" href="#examples-of-tcrs" title="Permanent link"></a></h3>
+<p>You can create a list to curate anything meaningful: from comedy movies and best cafes in Beijing to the top MBA schools and approved drugs.</p>
+<p>Sticking with the “good comedy movies” example, let’s look at how it would work. In this scenario, good candidates for the list producers might be movie enthusiasts with lots of experience analyzing movies. The candidates for the list might be the movie creators themselves, as they have the incentive to add their movies to the list. As for consumers, the list is useful for anyone who loves comedy and wants to decide what to watch in the evening.</p>
+<p>Speaking of TCRs that are live on Ethereum, <a href="https://www.foam.space/">FOAM project</a> uses a Token-Curated Registry to curate points-of-interest. Other use cases include curating URLs (<a href="https://www.adchain.com/">AdChain</a>), tokens (<a href="https://messari.io/">Messari</a>), and smart contracts (<a href="https://www.panvala.com">Panvala</a>).</p>
+<h3 id="creating-a-tcr">Creating a TCR<a class="headerlink" href="#creating-a-tcr" title="Permanent link"></a></h3>
+<p>In this tutorial, we create a “Best comedy movies” dapp. It consists of a smart contract that you can then use (with slight modification) for the curation of other items, and a web app that connects to the deployed instance of that contract and allows people to consume the list without directly interacting with the contract.</p>
+<h4 id="smart-contract">Smart contract<a class="headerlink" href="#smart-contract" title="Permanent link"></a></h4>
+<p>The token-curated registry has several configurable parameters. These parameters should be governed in a decentralized manner, but how to achieve that is an open question. For the sake of simplicity, we keep the parameters stable and let the creator set them at the time of deploying the contract.</p>
+<p>The parameters of TCR are:</p>
+<ul>
+<li>token deposit required to make a proposal</li>
+<li>length of the apply stage</li>
+<li>length of the vote commit stage</li>
+<li>length of the vote reveal stage</li>
+<li>the percent of the stake that goes to the listee or the challenger in case of a challenge</li>
+<li>the percent of votes that form vote quorum</li>
+</ul>
+<pre><code>constructor(
+    address _token,
+    uint256 _deposit,
+    uint256 _applyStageLength,
+    uint256 _voteCommitStageLength,
+    uint256 _voteRevealStageLength,
+    uint256 _dispensationPercent,
+    uint256 _voteQuorumPercent
+) public {
+    token = IERC20(_token);
+    deposit = _deposit;
+    applyStageLength = _applyStageLength;
+    voteCommitStageLength = _voteCommitStageLength;
+    voteRevealStageLength = _voteRevealStageLength;
+    dispensationPercent = _dispensationPercent;
+    voteQuorumPercent = _voteQuorumPercent;
+}
+</code></pre>
+<p>Movies in the registry pass through the different stages:</p>
+<ul>
+<li>applied to the list</li>
+<li>challenged</li>
+<li>listed</li>
+<li>kicked out</li>
+</ul>
+<p>To keep track of the current stage of each movie in the listing, we need to create a <code>Stage</code> enumerator, as well as <code>Movie</code> structure:</p>
+<pre><code>enum Status { Applied, Challenged, Listed, Kicked }
+
+struct Movie {
+    address producer;
+    string title;
+    uint256 lastUpdated;
+    uint256 challengeId;
+    Status status;
+}
+
+Movie[] public movies;
+</code></pre>
+<p>Behind each TCR is an ERC20 token. The token is used for staking during proposing and challenging, and to determine the voting power of the voters.</p>
+<p>When a producer proposes a new movie for inclusion in the list, we create a new <code>Movie</code> object with the status “Applied”:</p>
+<pre><code>function propose(string calldata _title) external {
+    // Require proposing deposit
+    token.transferFrom(msg.sender, address(this), deposit);
+    movies.push(Movie(msg.sender, _title, now, 0, Status.Applied));
+}
+</code></pre>
+<p>For challenging, we need a <code>Challenge</code> structure, which we use mostly to distribute voting rewards.</p>
+<pre><code>struct Challenge {
+    address challenger;
+    mapping(address =&gt; bool) tokensClaimed;
+    uint256 totalTokens;
+    uint256 reward;
+    bool resolved;
+}
+
+Challenge[] public challenges;
+</code></pre>
+<p>When a challenger appears, we need to update the status of the proposal, as well as initiate the <code>Challenge</code> object.</p>
+<pre><code>function challenge(uint256 _index) external {
+    require(_index &lt; movies.length);
+    require(movies[_index].status == Status.Listed ||
+        movies[_index].status == Status.Applied &amp;&amp; movies[_index].lastUpdated + applyStageLength &gt;= now);
+
+    movies[_index].challengeId = challenges.length;
+    challenges.push(Challenge({
+        challenger: msg.sender,
+        totalTokens: 0,
+        reward: (100 - dispensationPercent) * deposit / 100,
+        resolved: false
+    }));
+
+    _changeStatus(_index, Status.Challenged);
+
+    // Require challenging deposit
+    token.transferFrom(msg.sender, address(this), deposit);
+}
+</code></pre>
+<p>Voting happens via <a href="https://en.wikipedia.org/wiki/Commitment_scheme">commit-reveal scheme</a>. Token holders <em>commit</em> by staking the tokens along with the hash of their vote, and then <em>reveal</em> their choice and receive their tokens back.</p>
+<p>For each vote, we create a <code>Vote</code> object. We will use it later to calculate voter rewards.</p>
+<p>When the votes are revealed, we tally them so we can calculate the output of the voting later.</p>
+<pre><code>struct Vote {
+    bytes32 hash;
+    uint256 weight;
+    bool accept;
+    bool revealed;
+}
+
+function commitVote(uint256 _index, uint256 _weight, bytes32 _voteHash) external {
+    require(_index &lt; movies.length);
+    require(movies[_index].status == Status.Challenged);
+    require(movies[_index].lastUpdated + voteCommitStageLength &gt;= now);
+
+    uint256 challengeIndex = movies[_index].challengeId;
+    require(_votes[challengeIndex][msg.sender].weight == 0);
+
+    token.transferFrom(msg.sender, address(this), _weight);
+
+    _votes[challengeIndex][msg.sender] = Vote(_voteHash, _weight, false, false);
+}
+
+function revealVote(uint256 _index, bool _vote, bytes32 _salt) external {
+    require(_index &lt; movies.length);
+    require(movies[_index].status == Status.Challenged);
+    require(movies[_index].lastUpdated + voteCommitStageLength + voteRevealStageLength &gt;= now);
+
+    uint256 challengeIndex = movies[_index].challengeId;
+    require(_votes[challengeIndex][msg.sender].hash == getHash(_index, _vote, _salt));
+    require(!_votes[challengeIndex][msg.sender].revealed);
+
+    token.transfer(msg.sender, _votes[_index][msg.sender].weight);
+
+    _votes[challengeIndex][msg.sender].accept = _vote;
+    _votes[challengeIndex][msg.sender].revealed = true;
+    _tally[challengeIndex][_vote] += _votes[challengeIndex][msg.sender].weight;
+}
+
+function getHash(uint256 _index, bool _vote, bytes32 _salt) pure public returns(bytes32) {
+    return keccak256(abi.encodePacked(_index, _vote, _salt));
+}
+</code></pre>
+<p>After the vote is finished, we need to get the result. We calculate the share of the tokens used to vote “Accept” and compare the value to the percent of votes required to reach the quorum. If there were enough votes supporting the inclusion, we mark it as “Listed”. Otherwise, we mark it as “Kicked”.</p>
+<p>Based on the outcome, we need to compensate either producer or challenger by returning their original stake as well as part of the stake of their opponent. Everything else goes to the voters based on their impact.</p>
+<pre><code>function resolve(uint256 _index) external {
+    require(_index &lt; movies.length);
+    require(movies[_index].status == Status.Challenged);
+    require(movies[_index].lastUpdated + voteCommitStageLength + voteRevealStageLength &lt; now);
+
+    uint256 challengeIndex = movies[_index].challengeId;
+    uint256 totalWeight = _tally[challengeIndex][false] + _tally[challengeIndex][true];
+    uint256 acceptVoteShare = _tally[challengeIndex][true] * 100 / totalWeight;
+    uint256 reward = dispensationPercent * deposit / 100; // dispensation reward
+
+    Challenge storage challengeInstance = challenges[challengeIndex];
+    challengeInstance.resolved = true;
+
+    if (acceptVoteShare &gt;= voteQuorumPercent) {
+        // Reward producer
+        token.transfer(movies[_index].producer, reward);
+        _changeStatus(_index, Status.Listed);
+    } else {
+        // Reward challenger
+        token.transfer(challengeInstance.challenger, reward + deposit);
+        _changeStatus(_index, Status.Kicked);
+    }
+}
+</code></pre>
+<p>Finally, let’s allow voters to receive their reward in case they ended up in a majority. For that, we compare their votes with the winning outcome. If they match, we reward voters based on their voting weight, i.e., how many tokens they staked during voting.</p>
+<pre><code>function claimReward(uint256 _challengeIndex) external {
+    require(_challengeIndex &lt; challenges.length); // There was a challenge
+
+    Challenge storage challengeInstance = challenges[_challengeIndex];
+    require(challengeInstance.resolved); // The challenge is over
+    require(!challengeInstance.tokensClaimed[msg.sender]); // Voter didn't claimed the reward yet
+
+    uint256 voterWeight = _getVoterWeight(_challengeIndex);
+    uint256 voterReward = voterWeight * challengeInstance.reward / challengeInstance.totalTokens;
+
+    challengeInstance.reward -= voterReward;
+    challengeInstance.totalTokens -= voterWeight;
+
+    challengeInstance.tokensClaimed[msg.sender] = true;
+
+    token.transfer(msg.sender, voterReward);
+}
+</code></pre>
+<p>For simplicity, we didn’t focus on the proposer's ability to leave the TCR. The only way to remove the listing is to challenge it. Also, the proposer has no way to recover their stake. It either stays locked in a TCR along with the listing or seized in case it is challenged.</p>
+<h4 id="front-end">Front-end<a class="headerlink" href="#front-end" title="Permanent link"></a></h4>
+<p>To allow users access to the TCR without touching the smart contract directly, we need to create a front-end application. For the sake of this tutorial, we focus on a dapp for consumers. This dapp shows all movies that applied to the registry, as well as the outcome for each one.</p>
+<p>We create a single-page application using Vue and ethers.js.</p>
+<p>First, let’s initiate an app by connecting to the Ethereum provider and the TCR contract that was deployed on Kovan.</p>
+<pre><code class="language-js">import { ethers } from 'ethers';
+import tcrAbi from './abi/tcr.json';
+const provider = new ethers.providers.InfuraProvider('kovan');
+const tcrAddress = '0xb47204b754FB84D0c4e91097Cb62ca2aFd99F355';
+const tcrContract = new ethers.Contract(tcrAddress, tcrAbi, provider);
+</code></pre>
+<p>Once an application starts, we want to load all movies that were submitted to the TCR.</p>
+<pre><code class="language-js">async loadMovies() {
+    const movieCount = await tcrContract.getMovieCount();
+    for (let i = 0; i &lt; movieCount; i++) {
+        const movie = await tcrContract.movies(i);
+        this.movies.push(movie);
+    }
+}
+</code></pre>
+<p>Let’s now display each movie in the list based on its status.</p>
+<pre><code class="language-html">&lt;div v-for=&quot;(movie, index) in movies&quot; class=&quot;movie-card&quot; :class=&quot;{
+    'movie-applied': isApplied(movie),
+    'movie-challenge': isChallenged(movie),
+    'movie-listed': isListed(movie),
+    'movie-kicked': isKicked(movie)
+}&quot; &gt;
+    &lt;div class=&quot;number&quot;&gt;#{{ (index + 1) }}&lt;/div&gt;
+    &lt;div class=&quot;info&quot;&gt;
+        &lt;div&gt;{{ movie.title }}&lt;/div&gt;
+        &lt;div&gt;{{ showStatus(movie) }}&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>The <code>showStatus</code> method provides a quick summary of the listing, displaying its current state and the date it was last changed.</p>
+<pre><code class="language-js">showStatus(movie) {
+    const action =
+        movie.status == 0 ? 'Applied' :
+        movie.status == 1 ? 'Challenged' :
+        movie.status == 2 ? 'Listed' :
+        movie.status == 3 ? 'Kicked' :
+        'None';
+    const timestamp = movie.lastUpdated.toNumber();
+    const time = new Date(timestamp * 1000);
+    return `${action} at ${time.toDateString()}`
+}
+</code></pre>
+<p>That’s it!</p>
+<h3 id="potential-attacks">Potential attacks<a class="headerlink" href="#potential-attacks" title="Permanent link"></a></h3>
+<p>This TCR design, though, has several attack vectors.</p>
+<p>First, one or more malicious voters can spam the TCR by creating a bunch of low-quality proposals. However, as each proposal requires a deposit, it requires significant capital investment. Moreover, as those items are expected to be low-quality, they will likely be challenged and lose the vote, meaning that the attacker loses their entire deposit. Therefore, this attack is unlikely to be feasible and attractive to the rational person.</p>
+<p>Another potential danger is a reduction in quality of the items already included in the registry, or so-called “Registry poisoning”. This might happen both maliciously or not. In any case, token holders and challengers are expected to constantly keep track of the quality of the included items, and challenge them to be kicked in case they degrade. Again, kicked items lose their stake so it's costly to spoil listings intentionally.</p>
+<p>Finally, voters can choose to vote in any other way besides picking what they think is a good choice. One tactic the voters might pursue is “vote splitting“, where voters vote “Yes” with half of their tokens and “No” with the other half. This way, they are guaranteed to receive part of the reward while not putting any thought into voting. Another tactic is “vote memeing“ where voters collude on an outcome whether they perceive it as valid or not. This technique is much more dangerous for the TCR because unlike vote splitting, it can affect the voting outcome. The biggest countermeasure to memeing is an ability to fork the TCR, leaving colluded voters with now worthless tokens.</p>
+<h3 id="limitations-and-improvement-ideas">Limitations and improvement ideas<a class="headerlink" href="#limitations-and-improvement-ideas" title="Permanent link"></a></h3>
+<p>The implementation of TCR described in this guide focuses on simplicity, so it has limited functionality and several problems. Additionally, there are some problems that are relevant to all TCR designs.</p>
+<p>Currently, tokens can’t be used simultaneously for more than one vote. This limits the powers of the token holders. It also reduces the security of TCR: in case there are several votes running at the same time, the voting power is split between them, so the cost of attacking one of the votes by staking tokens is reduced. Luckily, there is an improvement of the current voting scheme called partial-lock commit/reveal (PLCR) voting, which allows token holders to participate in several voting simultaneously using the same tokens.</p>
+<p>Another challenge is tweaking the parameters. Ideally, the parameters could be changed at any time in a decentralized manner. One idea is to use another TCR to make governance proposals and vote with the same tokens.</p>
+<p>Continuing with the “Comedy movie TCR” example, it would be nice not only to curate good comedy movies but also rank and compare them with each other, creating some kind of a leaderboard. Graded TCRs allow ranking items over several tiers.</p>
+<p>Token-curated registry is still a nascent concept. Use cases exist, but it’s too early to say that they will succeed long-term. Besides, it’s unknown how broadly TCRs can be used in practice.</p>
+<p>Another open question is how to bootstrap the registry. TCRs are a three-sided marketplace that has “chicken-and-egg” problem. Initially, there are no items, so consumers are not interested in it, and thus producers don’t want to apply, meaning that there are no items. One way to kickstart the registry is to fill it with items from a centralized list if items are known to be high-quality.</p>
+<h3 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link"></a></h3>
+<p>A token-curated registry is a powerful mechanism to incentivize decentralized and permissionless curation. However, it has a lot of nuances and potential shortcomings, as there are a few opportunities to game a system. Developers who want to leverage TCR in their dapps should keep in mind potential shortcomings.</p>
+<p>I’ve put everything that we’ve made in this guide to the <a href="https://github.com/Destiner/tcr-guide">monorepo on Github</a>. Feel free to clone, fork, and otherwise play with it.</p>
+<p>You can access the live demo of the dapp <a href="https://destiner.github.io/tcr-guide/">here</a>.</p>
+<p>TCRs is a broad topic that goes beyond technical specifics. If you want to learn more, I recommend going through the following resources:</p>
+<ul>
+<li>The first public description of the Token-curated registry: <a href="https://medium.com/@ilovebagels/token-curated-registries-1-0-61a232f8dac7">Token-Curated Registries 1.0 – Mike Goldin</a></li>
+<li><a href="https://medium.com/@ilovebagels/token-curated-registries-1-1-2-0-tcrs-new-theory-and-dev-updates-34c9f079f33d">Update by the author of the original paper, Mike Goldin</a>, where he proposes improvements to the TCR design.</li>
+<li>“Awesome token-curated registries” repository on Github: <a href="https://github.com/miguelmota/awesome-token-curated-registries">GitHub - miguelmota/awesome-token-curated-registries: Curated list of awesome Token Curated Registry (TCR) resources.</a></li>
+<li>A reference TCR implementation: <a href="https://github.com/skmgoldin/tcr">GitHub - skmgoldin/tcr: A generic token-curated registry</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Incentivizing high-quality curation with a Token-Curated Registry</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/incentivizing-highquality-curation-with-a-tokencur/5d256b3a16c3430080718f29d6758366/a</li>
+<li><strong>Kauri original author:</strong> Timur Badretdinov (@destiner)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-18</li>
+<li><strong>Kauri original tags:</strong> cryptoeconomics, solidity</li>
+<li><strong>Kauri original hash:</strong> QmdjaQcQ1CxNHerNkZLdQqAyhF88qGX8Dr1SNs2t9ksTyh</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../DevOps/lint-your-solidity-contracts-with-solhint/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../DevOps/lint-your-solidity-contracts-with-solhint/" class="btn btn-xs btn-link">
+        Lint your Solidity contracts with Solhint
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../an-introduction-to-bonding-curves/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../an-introduction-to-bonding-curves/" class="btn btn-xs btn-link">
+        An Introduction to Bonding Curves
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/incentivizing-high-quality-curation-with-a-token-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

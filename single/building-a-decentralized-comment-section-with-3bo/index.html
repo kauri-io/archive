@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-a-decentralized-comment-section-with-3bo/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a Decentralized Comment Section with 3Box - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a Decentralized Comment Section with 3Box", url: "#_top", children: [
+              {title: "About 3Box", url: "#about-3box" },
+              {title: "Setup", url: "#setup" },
+              {title: "Behind the Scenes", url: "#behind-the-scenes" },
+              {title: "Let's Get Down to Business", url: "#lets-get-down-to-business" },
+              {title: "Optional Settings", url: "#optional-settings" },
+              {title: "Making It Your Own", url: "#making-it-your-own" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-decentralized-comment-section-with-3box">Building a Decentralized Comment Section with 3Box<a class="headerlink" href="#building-a-decentralized-comment-section-with-3box" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZ4mqt9me1b5Hvj8EegoiggXho5eGmn5KDquRVDvXFGRn" /></p>
+<p>User comments are an important part of any content-driven application. Traditional web applications usually pair commenting systems with a corresponding user profile system. When we create commenting systems for the decentralized web we also need decentralized user profiles. Luckily, the <a href="https://docs.3box.io/build/plugins/comments">3Box Comments Plugin</a> has us covered.</p>
+<p>The 3Box Comments Plugin is an easy to use <a href="https://reactjs.org/">React</a> component that adds a decentralized commenting system to your app. It connects directly to your users' Ethereum wallets, so there's no need to implement yet another profile system. It also integrates with <a href="https://3box.io/">3Box</a> to upload comments to a database that your users have control over. If you're looking for the ultimate decentralized commenting system, look no further.</p>
+<p>In this tutorial, we build a small React app that implements the 3Box Comments Plugin. We cover all the steps you need to take in order to get a decentralized commenting system running. If you're feeling adventurous, you're more than welcome to follow along while adding the plugin to an existing project.</p>
+<h3 id="about-3box">About 3Box<a class="headerlink" href="#about-3box" title="Permanent link"></a></h3>
+<p><a href="https://3box.io/">3Box</a> is a framework for managing user data in a secure and decentralized way. The <a href="https://docs.3box.io/build/plugins/comments">3Box Comments Plugin</a> is only one of <a href="https://3box.io/products">the many free and open source tools</a> in the 3Box ecosystem. 3Box can help you easily integrate various decentralized components, like user profiles or chat systems, into your application. Check out <a href="https://3box.io/">their website</a> and <a href="https://docs.3box.io/why-3box">documentation page</a> if you'd like to learn more!</p>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link"></a></h3>
+<p>The <a href="https://docs.3box.io/build/plugins/comments">3Box Comments Plugin</a> is a <a href="https://reactjs.org/">React</a> component. We need to create a React project base first. We use React's <a href="https://reactjs.org/docs/create-a-new-react-app.html#create-react-app">create-react-app</a> tool to set everything up, so make sure you've got <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a> installed on your machine.</p>
+<h4 id="creating-the-project-base">Creating the Project Base<a class="headerlink" href="#creating-the-project-base" title="Permanent link"></a></h4>
+<p>Once you're ready, open up your terminal and run the following to create the base:</p>
+<pre><code class="language-sh">npx create-react-app 3box-comments-demo
+cd 3box-comments-demo
+</code></pre>
+<p>You can check that everything's working as expected by starting the app and heading over to localhost:3000:</p>
+<pre><code class="language-sh">npm start
+</code></pre>
+<p>You should see a placeholder page with some basic information about React:</p>
+<p><img alt="Initial React app screenshot" src="https://ipfs.infura.io/ipfs/QmRdD96Qf7FhyFNSGahNz2myAFyrpDFWR9FkVNhZMF2CWJ" /></p>
+<p><strong>Note</strong>: You'll have an easier time with this demo if you keep the development server running in one terminal window and edit your code in another.</p>
+<h4 id="installing-3box">Installing 3Box<a class="headerlink" href="#installing-3box" title="Permanent link"></a></h4>
+<p>Next, we install the 3Box Comments Plugin and the <a href="https://github.com/3box/3box-js">3Box.js SDK</a>. 3Box.js connects our plugin to the 3Box data storage system that gives users control over their comments. In your terminal:</p>
+<pre><code class="language-sh">npm install 3box 3box-comments-react --save
+</code></pre>
+<h5 id="bug-fix-multicodec">Bug Fix: <code>multicodec</code><a class="headerlink" href="#bug-fix-multicodec" title="Permanent link"></a></h5>
+<p>3Box makes use of the <code>ipfs</code> Node.js package, which itself imports a library called <code>multicodec</code>. Due to a breaking change in the current version of <code>multicodec</code>, it's necessary at the moment to downgrade the library to version <code>0.5.6</code>. Install this library in your terminal via:</p>
+<pre><code class="language-sh">npm install multicodec@0.5.6 --save
+</code></pre>
+<h4 id="installing-an-ethereum-wallet">Installing an Ethereum Wallet<a class="headerlink" href="#installing-an-ethereum-wallet" title="Permanent link"></a></h4>
+<p>Finally, make sure you've got an Ethereum wallet (like <a href="https://metamask.io/">MetaMask</a>) installed in your browser. You need this in order to get an instance of <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider"><code>ethereum</code></a> injected into your webpage. You can also easily use a tool like <a href="https://github.com/ethereum/web3.js">Web3</a> to create an <code>ethereum</code> instance, but we'll use a browser wallet to keep things focused.</p>
+<p>Once you've installed everything, you're all set to start experimenting with decentralized comments!</p>
+<h3 id="behind-the-scenes">Behind the Scenes<a class="headerlink" href="#behind-the-scenes" title="Permanent link"></a></h3>
+<p>Before we continue, let's take a quick look at how the 3Box Comments Plugin actually works. </p>
+<p>The plugin handles two key features, user profile generation and comment storage. It connects to a <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider"><code>3box</code></a> instance and an <a href="https://metamask.github.io/metamask-docs/API_Reference/Ethereum_Provider"><code>ethereum</code></a> instance (either injected by a browser wallet like <a href="https://metamask.io/">MetaMask</a> or created by a tool like <a href="https://github.com/ethereum/web3.js">Web3</a>) to automatically create a <a href="https://docs.3box.io/build/web-apps/profiles">3Box Profile</a> linked to the user's Ethereum wallet. The <code>3box</code> and <code>ethereum</code> instances should exist globally within your application, so your users only need to authenticate once. The plugin then opens a websocket connection via <code>3box</code> to stream comments to/from a 3Box database. Users can manage and control all of their comments and data on the <a href="https://3box.io/hub">3Box Hub</a>.</p>
+<p>The Comments Plugin can be created in <a href="https://docs.3box.io/build/plugins/comments#2-choose-your-authentication-pattern">a few different ways</a>, depending on when and how your instances of <code>ethereum</code> and <code>3box</code> are initialized. For the best possible user experience, <code>ethereum</code> and <code>3box</code> should both be initialized either before or after the Comments component is <a href="https://docs.3box.io/build/plugins/comments#2-choose-your-authentication-pattern">mounted</a>. It's possible to use the component without initializing an instance of <code>3box</code>, but users have to re-authenticate on each page using the plugin. More information about the different initialization and authentication flows is available on the <a href="https://docs.3box.io/build/plugins/comments">documentation page</a> for the plugin.</p>
+<h3 id="lets-get-down-to-business">Let's Get Down to Business<a class="headerlink" href="#lets-get-down-to-business" title="Permanent link"></a></h3>
+<p>Now that we've covered the internals, let's get started with our demo application. We start by modifying <code>src/App.js</code>. We don't need of React's demo code in <code>src/App.js</code>, so go ahead and delete the file's contents.</p>
+<h4 id="creating-an-app-component">Creating an App Component<a class="headerlink" href="#creating-an-app-component" title="Permanent link"></a></h4>
+<p>First, we create a basic <a href="https://reactjs.org/docs/react-component.html">React component</a> to hold the contents of our app. There's nothing special here, we're just setting things up:</p>
+<pre><code class="language-js">// src/App.js
+import React from 'react';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;div className=&quot;comments-container&quot;&gt;
+          Hello!
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre>
+<p>Your development server should automatically compile the app again once you've made these changes. The webpage should now look like this:</p>
+<p><img alt="React app setup screenshot" src="https://ipfs.infura.io/ipfs/QmRjzWCLes8gz47zTtYzN5q4Dt3coxAXYpD2uNAv5bMCPs" /></p>
+<h4 id="importing-3box">Importing 3Box<a class="headerlink" href="#importing-3box" title="Permanent link"></a></h4>
+<p>Now we start setting up our <code>3box</code> instance. We import <code>3box</code> and <code>3box-comments-react</code> at the top of <code>src/App.js</code> file:</p>
+<pre><code class="language-js">// src/App.js
+import React from 'react';
+import Box from '3box';
+import BoxComments from '3box-comments-react';
+
+...
+</code></pre>
+<h4 id="adding-component-state">Adding Component State<a class="headerlink" href="#adding-component-state" title="Permanent link"></a></h4>
+<p>Our <code>App</code> component needs to <a href="https://reactjs.org/docs/state-and-lifecycle.html#adding-local-state-to-a-class">store some state</a> for later. Particularly, we need to store a <code>3box</code> instance, the user's Ethereum address, the user's 3Box profile (if any), and a readiness flag:</p>
+<pre><code class="language-js">// src/App.js
+...
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      box: {},
+      profile: {},
+      address: '',
+      ready: false,
+    };
+  }
+
+  ...
+}
+
+...
+</code></pre>
+<h4 id="initializing-3box">Initializing 3Box<a class="headerlink" href="#initializing-3box" title="Permanent link"></a></h4>
+<p>We're ready to initialize 3Box. We create our <code>3box</code> instance after the component is mounted by listening for the <a href="https://reactjs.org/docs/react-component.html#componentdidmount"><code>componentDidMount</code></a> lifecycle hook. We need to create a function <code>login()</code> that handles the <code>3box</code> initialization logic.</p>
+<p><strong>Note</strong> We need access to an <code>ethereum</code> instance in order to initialize <code>3box</code>. Again, you can create an <code>ethereum</code> instance with a library like Web3, but our browser wallet automatically injects an <code>ethereum</code> instance on our behalf.</p>
+<p>Our <code>login()</code> function pulls the user's address from <code>ethereum</code> and then uses that address to connect to <code>3box</code>. We'll be ready to create the component once this first step is complete. Our <code>3box</code> instance does some light synchronization in the background, so we also update the component once synchronization has finished.</p>
+<p>Add these new functions:</p>
+<pre><code class="language-js">// src/App.js
+...
+
+class App extends React.Component {
+  // Constructor from above.
+  ...
+
+  componentDidMount() {
+    this.login();
+  }
+
+  async login() {
+    // Request access to wallet and pull addresses.
+    const addresses = await window.ethereum.enable();
+    const address = addresses[0];
+
+    // Create the 3Box instance.
+    const box = await Box.openBox(address, window.ethereum, {});
+    const profile = await Box.getProfile(address);
+
+    // Update the box in our state once we've synced.
+    box.onSyncDone(() =&gt; {
+      this.setState({
+        box: box
+      });
+    });
+
+    // Update our state immediately with current values.
+    this.setState({
+      box: box,
+      profile: profile,
+      address: address,
+      ready: true,
+    });
+  }
+
+  ...
+  // Render function from above.
+}
+
+...
+</code></pre>
+<h4 id="creating-the-component">Creating the Component<a class="headerlink" href="#creating-the-component" title="Permanent link"></a></h4>
+<p>We're finally ready to create our component. We update our <a href="https://reactjs.org/docs/react-component.html#render"><code>render()</code></a> function so that it renders the component we imported from <code>3box-comments-react</code>. Once we're finished with this step, we have have a working comment section!</p>
+<p>The Comments component takes a few required parameters. These parameters are:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spaceName</code></td>
+<td><code>string</code></td>
+<td>A <a href="https://docs.3box.io/api/storage">3Box Space</a> name for your application. You usually want to use a single <code>spaceName</code> throughout your entire application.</td>
+</tr>
+<tr>
+<td><code>threadName</code></td>
+<td><code>string</code></td>
+<td>A <a href="https://docs.3box.io/api/messaging">3Box Thread</a> name for this specific component. Each component typically has its own <code>threadName</code>.</td>
+</tr>
+<tr>
+<td><code>adminEthAddr</code></td>
+<td><code>string</code></td>
+<td>An Ethereum address for the admin of your application. Admins are able to moderate comments in the comment thread.</td>
+</tr>
+<tr>
+<td><code>box</code></td>
+<td><code>Object</code></td>
+<td>A <code>3box</code> instance. In our case, the one we initialized and added to our <code>state</code>.</td>
+</tr>
+<tr>
+<td><code>currentUserAddr</code></td>
+<td><code>string</code></td>
+<td>The address of the user viewing the component. We pulled this from the <code>ethereum</code> instance earlier.</td>
+</tr>
+</tbody>
+</table>
+<p>Let's go ahead and create the component using the values we initialized in <code>login()</code> by modifying our existing <code>render()</code> function. Make sure to replace <code>spaceName</code>, <code>threadName</code>, and <code>adminEthAddr</code> with your own values:</p>
+<pre><code class="language-js">// src/App.js
+...
+
+class App extends React.Component {
+  ...
+
+  render() {
+    const {
+      box,
+      address,
+      profile,
+      ready,
+    } = this.state;
+
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;div className=&quot;comments-container&quot;&gt;
+          &lt;BoxComments
+            spaceName=&quot;your-3box-space-name&quot;
+            threadName=&quot;your-3box-thread-name&quot;
+            adminEthAddr=&quot;your-eth-address&quot;
+
+            box={box}
+            currentUserAddr={address}
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+...
+</code></pre>
+<p>Wait for the development server to recompile the app. You should be able to see the working demo! When you initially load the page, you should get a few popups from your browser wallet. Specifically, you should see:</p>
+<ol>
+<li>A <a href="https://medium.com/metamask/eip-1102-preparing-your-dapp-5027b2c9ed76">wallet access request</a>.</li>
+<li>(Optionally) A request to for a signature to create a 3Box account linked to your Ethereum address, if you don't have one already.</li>
+<li>A request for a signature to access your 3Box profile.</li>
+</ol>
+<p>Once you've accepted these requests, you should be able to leave a comment:</p>
+<p><img alt="First 3Box comment screenshot" src="https://ipfs.infura.io/ipfs/QmSvSXL63yCZbYAyxZLsBsCzunPSWyPPy2JPPhQQ7Qg5iA" /></p>
+<p>And we're off!</p>
+<h3 id="optional-settings">Optional Settings<a class="headerlink" href="#optional-settings" title="Permanent link"></a></h3>
+<p>We managed to get the basic comments component running, but <code>3box-comments-react</code> also provides <a href="https://docs.3box.io/build/plugins/comments#3-configure-application-settings">a few additional customization options</a>. Here's a full list:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>members</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Whether or not this thread is only open to members of your 3Box Space. If <code>false</code>, anyone will be able to comment.</td>
+</tr>
+<tr>
+<td><code>showCommentCount</code></td>
+<td><code>number</code></td>
+<td><code>30</code></td>
+<td>The number of comments initially loaded as well as the number of additional comments loaded when <code>Load More</code> is clicked.</td>
+</tr>
+<tr>
+<td><code>useHovers</code></td>
+<td><code>boolean</code></td>
+<td><code>false</code></td>
+<td>Whether or not to show a 3Box Profile popup when hovering over a comment.</td>
+</tr>
+<tr>
+<td><code>currentUser3BoxProfile</code></td>
+<td><code>Object</code></td>
+<td></td>
+<td>A reference to the 3Box <code>profile</code> object for the current user.</td>
+</tr>
+<tr>
+<td><code>userProfileURL</code></td>
+<td><code>string</code></td>
+<td></td>
+<td>Link to the user's profile on your application. Usually something along the lines of <code>https://yourapp.com/user/${address}</code></td>
+</tr>
+<tr>
+<td><code>spaceOpts</code></td>
+<td><code>Object</code></td>
+<td></td>
+<td><a href="">Additional options</a>https://docs.3box.io/api/storage/get#box-getspace-address-name-opts to pass to the 3Box Space.</td>
+</tr>
+<tr>
+<td><code>threadOpts</code></td>
+<td><code>Object</code></td>
+<td></td>
+<td><a href="">Additional options</a>https://docs.3box.io/api/messaging#box-getthread-space-name-firstmoderator-members-opts to pass to the 3Box Thread.</td>
+</tr>
+</tbody>
+</table>
+<p>Let's try changing a few of these variables:</p>
+<pre><code class="language-js">// src/App.js
+...
+
+class App extends React.Component {
+  ...
+
+  render() {
+    const {
+      box,
+      address,
+      profile,
+      ready,
+    } = this.state;
+
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;div className=&quot;comments-container&quot;&gt;
+          &lt;BoxComments
+            spaceName=&quot;your-3box-space-name&quot;
+            threadName=&quot;your-3box-thread-name&quot;
+            adminEthAddr=&quot;your-ethereum-address&quot;
+
+            box={box}
+            currentUserAddr={address}
+
+        // Optional settings.
+            showCommentCount={10}
+            useHovers={true}
+            currentUser3BoxProfile={profile}
+            userProfileURL={address =&gt; `https://yourapp.com/user/${address}`}
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+...
+</code></pre>
+<p>Wait for your app to compile again and head over to the webpage. You should see these new features in action:</p>
+<p><img alt="3Box comments with more features screenshot" src="https://ipfs.infura.io/ipfs/QmaSZoJHibTv2svPgs6CGK1pgnqxKkfFEXmhdtCbi5rscW" /></p>
+<h3 id="making-it-your-own">Making It Your Own<a class="headerlink" href="#making-it-your-own" title="Permanent link"></a></h3>
+<p>Now that you've played around with <code>3box-comments-react</code>, you're ready to integrate it into your own app. You can easily customize the visual style of the component by adding some CSS rules. Let's try making our comment text red. Open up <code>src/index.css</code> and add the following:</p>
+<pre><code class="language-css">// src/index.css
+...
+
+.comment_content_text {
+  color: red;
+}
+</code></pre>
+<p>And here's what that looks like:</p>
+<p><img alt="3Box comments with red text screenshot" src="https://ipfs.infura.io/ipfs/QmerHkbaEZNXZHBPExKVWqj4vppsJM8VSQ1KMUgjWFMLue" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>We did it! We managed to get the 3Box Comments Plugin added to a simple React app in just a short period of time. The decentralized future awaits. </p>
+<p>A final version of the code we wrote in this tutorial is available in <a href="https://github.com/kfichter/3box-comments-tutorial">this repository</a>. 3Box has <a href="https://3box.io/products">a lot of other cool tools</a> that you can check out on their <a href="https://3box.io/">website</a> and <a href="https://docs.3box.io/products">documentation page</a>. Since you've just tried out the Comments Plugin, you might want to look at the <a href="https://docs.3box.io/build/plugins/chatbox">Chatbox Plugin</a> next.</p>
+<p>Thanks for checking out this tutorial, see you in the next one!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a Decentralized Comment Section with 3Box</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-decentralized-comment-section-with-3box/8c85ac6937d5481ca485ec2ee2be178d/a</li>
+<li><strong>Kauri original author:</strong> Kelvin Fichter (@kfichter)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-04</li>
+<li><strong>Kauri original tags:</strong> 3box, ethereum, plugin, tutorial, decentralized</li>
+<li><strong>Kauri original hash:</strong> Qma78zfKjjdGCRHiTqtHqmJk4n92pjSHB2xHLS1nxor2vA</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../blockchain---separating-the-hope-from-hype/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../blockchain---separating-the-hope-from-hype/" class="btn btn-xs btn-link">
+        Blockchain   Separating the Hope from Hype
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../kauri--the-knowledge-network-for-the-ethereum-eco/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../kauri--the-knowledge-network-for-the-ethereum-eco/" class="btn btn-xs btn-link">
+        Kauri  The Knowledge Network for the Ethereum Ecosystem
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-a-decentralized-comment-section-with-3bo.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

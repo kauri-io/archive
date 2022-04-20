@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-write-upgradeable-smart-contracts-with-tru/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0 - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0", url: "#_top", children: [
+              {title: "Context", url: "#context" },
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Truffle ^5.0", url: "#truffle-50" },
+              {title: "Deploy a Smart Contract", url: "#deploy-a-smart-contract" },
+              {title: "ZeppelinOS", url: "#zeppelinos" },
+              {title: "Wrap-Up", url: "#wrap-up" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-write-upgradeable-smart-contracts-with-truffle-50-and-zeppelinos-20">How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0<a class="headerlink" href="#how-to-write-upgradeable-smart-contracts-with-truffle-50-and-zeppelinos-20" title="Permanent link"></a></h1>
+<h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link"></a></h3>
+<p>In this post, we'll learn how to write upgradeable smart contracts with the latest versions of Truffle and ZeppelinOS. In particular, version ^5.0 of Truffle introduces a plethora of updates, with the most prominent one being the integration with web3 ^1.0. Let's unpack these updates and introduce upgradeable smart contracts with the state-of-the-art ZeppelinOS.</p>
+<p>This is not an introductory article to Ethereum development, if you want that, take a look at the following resources:</p>
+<ul>
+<li><a href="https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05">The Hitchhiker’s Guide to Smart Contracts in Ethereum</a></li>
+<li><a href="https://blog.zeppelin.solutions/a-gentle-introduction-to-ethereum-programming-part-1-783cc7796094">Gentle Introduction to Ethereum Programming</a></li>
+</ul>
+<p>Do note that the blockchain world moves at a ridiculous pace, giving little to no time for standards to sink in. This means that a lot of code snippets from the articles above may not work as expected, but don't panic and return here when that happens.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>Make sure you are equipped with the following:</p>
+<ul>
+<li>node.js and npm</li>
+<li>ganache-cli or the <a href="https://truffleframework.com/ganache">Ganache</a> desktop app</li>
+<li>curiosity to learn more</li>
+</ul>
+<h3 id="truffle-50">Truffle ^5.0<a class="headerlink" href="#truffle-50" title="Permanent link"></a></h3>
+<p><img alt="Truffle Logo" src="https://paulrberg.com/post/upgradeable-smart-contracts/truffle.png" /></p>
+<p>To install truffle globally, go to your terminal and write:</p>
+<pre><code>$ npm install truffle@^5.0.0 --global
+</code></pre>
+<p>And let's create our project:</p>
+<pre><code>$ mkdir MyProject
+$ cd myProject
+$ npm init -y
+$ truffle init
+</code></pre>
+<p>This will initialise a bunch of files. If you used older versions of Truffle, you may notice that "truffle-config.js" is more verbose now and has many more configurable options. Let's go through the important changes.</p>
+<h4 id="web3-10">Web3 ^1.0<a class="headerlink" href="#web3-10" title="Permanent link"></a></h4>
+<p>This is a major API change, but it's a good one, because the new library is much more elegant and intuitive to use. Of course, there are transition costs if you had already written your Truffle tests using older versions, so bookmark the web3 ^1.0 <a href="https://web3js.readthedocs.io/en/1.0/">documentation</a> just in case.</p>
+<h4 id="hd-wallet-provider">HD Wallet Provider<a class="headerlink" href="#hd-wallet-provider" title="Permanent link"></a></h4>
+<p>If you were previously using the "truffle-hdwallet-provider" npm module, you <strong>must</strong> upgrade to "truffle-hdwallet-provider@web3-one" to make it work with Truffle ^5.0:</p>
+<pre><code>$ npm install truffle-hdwallet-provider@web3-one --save-dev
+</code></pre>
+<p>To load your mnemonic, you can either use the "fs" module natively provided by node or you can install "dotenv". Never hardcode it in JavaScript!</p>
+<h4 id="bring-your-own-compiler">Bring Your Own Compiler<a class="headerlink" href="#bring-your-own-compiler" title="Permanent link"></a></h4>
+<p>It used to be a huge <a href="https://ethereum.stackexchange.com/questions/17551/how-to-upgrade-solidity-compiler-in-truffle">pain in the neck</a> to change the Solidity compiler when compiling with Truffle, but fear not any more! You can define whatever (remote) version you want by doing this:</p>
+<pre><code>compilers: {
+  solc: {
+    optimizer: {
+      enabled: true,
+      runs: 200,
+    },
+    version: &quot;0.4.25&quot;,
+  },
+}
+</code></pre>
+<p>In this particular example, we set the compiler version to "0.4.25", but you can choose "0.4.24" or "0.4.18" if you want to. To list all the available versions:</p>
+<pre><code>$ truffle compile --list
+</code></pre>
+<h4 id="support-for-async-await">Support for Async, Await<a class="headerlink" href="#support-for-async-await" title="Permanent link"></a></h4>
+<p>If you're a fan of JavaScript ES8's super duper cool "async" and "await", you can now make good use of them when running <code>$ truffle develop</code> or <code>$ truffle console</code>.</p>
+<h4 id="others">Others<a class="headerlink" href="#others" title="Permanent link"></a></h4>
+<p>There a few other new features, such as the added support for plugins, but they are outside the scope of this tutorial. Check out the <a href="https://github.com/trufflesuite/truffle/releases/tag/v5.0.0">changelog</a> if you're looking for an exhaustive list.</p>
+<h3 id="deploy-a-smart-contract">Deploy a Smart Contract<a class="headerlink" href="#deploy-a-smart-contract" title="Permanent link"></a></h3>
+<p><img alt="Smart Contract" src="https://paulrberg.com/post/upgradeable-smart-contracts/smart-contract.png" /></p>
+<p>This is the mock-up Solidity contract we're going to use:</p>
+<pre><code>// Note.sol
+pragma solidity ^0.4.25;
+
+contract Note  {
+  uint256 private number;
+
+  constructor(uint256 _number) public {
+    number = _number;
+  }
+
+  function getNumber() public view returns (uint256 _number) {
+    return number;
+  }
+}
+</code></pre>
+<p>Create a new file called "Note.sol" in your "contracts" folder and copy and paste the code above in there. Now, make sure you've done all the steps correctly by compiling the contract:</p>
+<pre><code>$ truffle compile
+</code></pre>
+<p>You should get no error and the following logs:</p>
+<blockquote>
+<p>Compiling ./contracts/Migrations.sol...<br />
+Compiling ./contracts/Note.sol...<br />
+Writing artifacts to ./build/contracts</p>
+</blockquote>
+<p>Now, let's write the migration file.</p>
+<pre><code>// 2_migrate_note.js
+
+var Note = artifacts.require(&quot;./Note.sol&quot;);
+
+module.exports = function (deployer) {
+  deployer.deploy(Note, 64);
+};
+</code></pre>
+<p>In the "migrations" folder, create a new file called "2_migrate_note.js" and copy and paste the code above. To verify the set up, you have to first spin up an Ethereum node, but don't worry, for local development there are tools like <a href="https://truffleframework.com/ganache">Ganache</a>. You can run it either by opening a new terminal window and executing <code>$ ganache-cli</code> or by launching the desktop app. Then:</p>
+<pre><code>$ truffle migrate
+</code></pre>
+<p>If you encounter problems, make sure that your "truffle-config.js" file looks like this (I stripped the comments for brevity):</p>
+<pre><code>// truffle-config.js
+
+module.exports = {
+  compilers: {
+    solc: {
+      version: &quot;0.4.25&quot;,
+      settings: {
+        optimizer: {
+          enabled: false,
+          runs: 200
+        }
+      }
+    }
+  },
+  networks: {
+    development: {
+      host: &quot;127.0.0.1&quot;,
+      port: 8545,
+      network_id: &quot;*&quot;,
+    }
+  }
+};
+</code></pre>
+<p>If it works, you should get a beautiful report like the <a href="https://gist.github.com/PaulRBerg/e582f77a6e59da1e4719b5877dd88cd8">one here</a>. Awesome! Now you know how to compile and deploy a contract with Truffle ^5.0, but you haven't got your hands dirty with the cooler part yet: making the smart contracts upgradeable.</p>
+<h3 id="zeppelinos">ZeppelinOS<a class="headerlink" href="#zeppelinos" title="Permanent link"></a></h3>
+<p><img alt="ZeppelinOS Logo" src="https://paulrberg.com/post/upgradeable-smart-contracts/zeppelinOS.png" /></p>
+<h4 id="set-up">Set Up<a class="headerlink" href="#set-up" title="Permanent link"></a></h4>
+<p>If you're completely unfamiliar with upgradeable smart contracts, go watch Elena Nadolinski's <a href="https://www.youtube.com/watch?v=FzmzUHLiutg">presentation</a> on the topic. It's totally worth it and it can do a much better job than someone can on a blog.</p>
+<p>The gist of it is that we're aiming to reconcile traditional development practices with smart contracts:</p>
+<ol>
+<li>When running A/B testing with real users and there's a bug, we should patch the code and fix it asap.</li>
+<li>The upgradeability processes should remain fully transparent and not grant total power to the developer(s).</li>
+</ol>
+<p>Point no. 2 is currently under research with many people actively <a href="https://blog.zeppelinos.org/exploring-upgradeability-governance-in-zeppelinos-with-a-gnosis-multisig/">proposing</a> transparent governance models. However, we won't mind decentralised autonomous organisations (DAOs) for now and focus on the technical part of the story.</p>
+<p>Let's install ZeppelinOS and its library dependency:</p>
+<pre><code>npm install zos --global
+npm install zos-lib --save-dev
+</code></pre>
+<p>And then initialise it within our Truffle project:</p>
+<pre><code>zos init MyProject
+</code></pre>
+<p>A file called "zos.json" should've been initialised:</p>
+<pre><code>{
+  &quot;zosversion&quot;: &quot;2&quot;,
+  &quot;name&quot;: &quot;MyProject&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;contracts&quot;: {}
+}
+</code></pre>
+<p>Importantly, make sure to <strong>update the Note contract</strong> as follows:</p>
+<pre><code>// Note.sol
+pragma solidity ^0.4.25;
+
+import &quot;zos-lib/contracts/Initializable.sol&quot;;
+
+contract Note is Initializable {
+  uint256 private number;
+
+  function initialize(uint256 _number) public initializer {
+    number = _number;
+  }
+
+  function getNumber() public view returns (uint256 _number) {
+    return number;
+  }
+}
+</code></pre>
+<p>ZeppelinOS contracts don't use normal Solidity constructors but instead rely on an "Initializable" base contract which needs to have its "initialize" function overridden. Let's continue by adding the edited contract to ZeppelinOS:</p>
+<pre><code>$ zos add Note
+</code></pre>
+<p>The following JavaScript object should've been added to "zos.json":</p>
+<pre><code>&quot;contracts&quot;: {
+  &quot;Note&quot;: &quot;Note&quot;
+}
+</code></pre>
+<p>Before deployment, ZeppelinOS requires you to create a session:</p>
+<pre><code>$ zos session --network development --from YOUR_DEPLOYMENT_ACCOUNT --expires 7200
+</code></pre>
+<p>Explaining each parameter:</p>
+<ul>
+<li>network: one of the networks defined under "truffle-config.js"</li>
+<li>from: because of a known <a href="https://docs.zeppelinos.org/docs/pattern.html">transparent proxy issue</a>, the deployment account mustn't be the default address designated by truffle or ganache</li>
+<li>expires: the time-to-live of the session, measured in seconds</li>
+</ul>
+<p>Now, to clarify a few things:</p>
+<ol>
+<li>The session is sort of a "behavioural sugar" - while deploying, you don't have to specify the "network" and the "from" parameters.</li>
+<li>You might wonder what "from" parameter to set. Simply put, any account <strong>except</strong> the first one. Find a picture below for an example on the Ganache desktop app:</li>
+</ol>
+<p><img alt="Ganache Screenshot" src="https://paulrberg.com/post/upgradeable-smart-contracts/ganache-account.png" /></p>
+<p>Ready for prime time?</p>
+<pre><code>$ zos push
+</code></pre>
+<p>If it worked, you should've got something like this:</p>
+<blockquote>
+<p>Compiling contracts<br />
+Compiling ./contracts/Migrations.sol...<br />
+Compiling ./contracts/Note.sol...<br />
+Compiling zos-lib/contracts/Initializable.sol...<br />
+Writing artifacts to ./build/contracts  </p>
+<p>Validating contract Note<br />
+Uploading Note contract as Note<br />
+Deploying logic contract for Note<br />
+Created zos.dev-7923.json  </p>
+</blockquote>
+<p>This command finally deploys your smart contract to the blockchain. This is where you can find important information about your project, such as the addresses of your deployed contracts.</p>
+<h4 id="upgradeability">Upgradeability<a class="headerlink" href="#upgradeability" title="Permanent link"></a></h4>
+<p>It is highly important to understand that ZeppelinOS, under the hood, works by creating two contracts:</p>
+<ol>
+<li>Proxy</li>
+<li>Logic</li>
+</ol>
+<p>The catch is that the Proxy redirects the end user to the Logic, but the Proxy "retains" the storage. That is, even if you update the Logic, the state of your smart contracts stays the same.</p>
+<p>Previously, you created and deployed a Logic contract. Let's create an instance of a Proxy:</p>
+<pre><code>$ zos create Note --init initialize --args 64
+</code></pre>
+<p>This deploys and logs the address of the new Proxy contract. Open a new terminal window and initialise a Truffle console:</p>
+<pre><code>truffle console --network development
+let abi = require(&quot;./build/contracts/Note.json&quot;).abi
+let contract = new web3.eth.Contract(abi, &quot;your-proxy-address&quot;)
+contract.methods.getNumber().call();
+</code></pre>
+<p>It should print "64".</p>
+<p><em>Head to the web3 ^1.0 <a href="https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html">docs</a> for more information on how to work with the new Contract API.</em></p>
+<p>What if you want to change the number? Fortunately, you can make an upgrade to the logic of the contract, while preserving the storage.</p>
+<p>Firstly, update the contract by adding a new function:</p>
+<pre><code>// Note.sol
+pragma solidity ^0.4.25;
+
+import &quot;zos-lib/contracts/Initializable.sol&quot;;
+
+contract Note is Initializable {
+  uint256 private number;
+
+  function initialize(uint256 _number) public initializer {
+    number = _number;
+  }
+
+  function getNumber() public view returns (uint256 _number) {
+    return number;
+  }
+
+  function setNumber(uint256 _number) public {
+    number = _number;
+  }
+}
+</code></pre>
+<p>And then:</p>
+<pre><code>$ zos push
+$ zos update Note
+</code></pre>
+<p>Logs should look like this:</p>
+<blockquote>
+<p>Using session with network development, sender address 0xd833B5fa468A5a430a890390D8Ec652142836019<br />
+Upgrading proxy to logic contract 0xe6d6d1cd339f129275e5b5e7ab39d85bc5642010<br />
+Instance at 0x746bb4a872bdfd861c4af5dd9391b3fb5b22fb7a upgraded<br />
+0x746bb4a872bdfd861c4af5dd9391b3fb5b22fb7a<br />
+Updated zos.dev-7923.json</p>
+</blockquote>
+<p>Now, start a new Truffle console and call your new "setNumber" function:</p>
+<pre><code>$ truffle console --network development
+let abi = require(&quot;./build/contracts/Note.json&quot;).abi;
+let contract = new web3.eth.Contract(abi, &quot;your-proxy-address&quot;);
+contract.methods.getNumber().call();
+contract.methods.setNumber(65).send({ from: YOUR_OTHER_ACCOUNT });
+contract.methods.getNumber().call();
+</code></pre>
+<p>It should print "65".</p>
+<p>Voilà! You just wrote, deployed and upgraded an Ethereum smart contract.</p>
+<h4 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link"></a></h4>
+<ul>
+<li>"YOUR_DEPLOYMENT_ACCOUNT" must only be used when setting up a session, for any other interaction with the contract, you have to use other account.</li>
+<li>If you got a <code>A network name must be provided to execute the requested action</code> error, just start a new session, the old one expired.</li>
+<li>You might've noticed that we didn't use TruffleContract to interact with the deployed contracts and instead relied on the web3 ^1.0 implementation. This is because I find the former confusing and, on many occasions[<a href="https://github.com/trufflesuite/truffle/issues/1455">1</a>][<a href="https://github.com/trufflesuite/truffle/issues/1601">2</a>], not even functional.</li>
+<li>There is more to upgradeable smart contracts than what we discussed here. Head to Zeppelin's awesome <a href="https://docs.zeppelinos.org/docs/start.html">documentation</a> to get the whole picture. In particular, I recommend looking over the <a href="https://docs.zeppelinos.org/docs/start.html">limitations</a> to upgrading storage variables.</li>
+<li>~~If you're planning to migrate to Solidity ^0.5.0, I'm sorry to disappoint you that ZeppelinOS doesn't support it yet, as of Dec 2018. There is an option called "--skip-compile", but I felt that it added too much complexity to be worth it.~~ Santiago Palladino from Zeppelin <a href="https://twitter.com/smpalladino/status/1080460733333336065">reached out</a> on Twitter and announced that they now do support the ^0.5.0 versions of Solidity. If you want to test it out, just do <code>npm install zos-lib@2.1.0-rc.0 --global</code>.</li>
+</ul>
+<h3 id="wrap-up">Wrap-Up<a class="headerlink" href="#wrap-up" title="Permanent link"></a></h3>
+<p>I hope you enjoyed this tutorial and you're as excited about blockchain development as I am, despite the occasional versioning and coordination issues. </p>
+<p>I compiled the code used throughout this article in this GitHub <a href="https://github.com/PaulRBerg/truffle-zos-tutorial">repo</a>. There are three branches (master, zos, zos-upgraded) with the correspondent code of the Note contract for every stage we've been through.</p>
+<p>Find me on <a href="https://twitter.com/PaulRBerg">Twitter</a> or <a href="https://keybase.io/PaulRBerg">Keybase</a> if you want to chat.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-write-upgradeable-smart-contracts-with-truf/315cbd6c71574e2686e15f0a20003089/a</li>
+<li><strong>Kauri original author:</strong> Paul Berg (@paulrberg-old-account)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-16</li>
+<li><strong>Kauri original tags:</strong> ethereum, truffle</li>
+<li><strong>Kauri original hash:</strong> QmV17ugGfaECarUVoerS1GCBoJcYmgAKj2vakqXZT1NkTG</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mint-any-erc-721-you-want-in-seconds-manage-all-y/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mint-any-erc-721-you-want-in-seconds-manage-all-y/" class="btn btn-xs btn-link">
+        Mint any ERC-721 you want in seconds -Manage all your 721 assets — easily.
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../storing-files-in-a-distributed-file-system-using-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../storing-files-in-a-distributed-file-system-using-/" class="btn btn-xs btn-link">
+        Storing files in a distributed file system using blockchain technology
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-write-upgradeable-smart-contracts-with-tru.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

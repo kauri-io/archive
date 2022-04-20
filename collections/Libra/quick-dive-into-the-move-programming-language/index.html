@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Libra/quick-dive-into-the-move-programming-language/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Quick Dive into the Move Programming Language - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Quick Dive into the Move Programming Language", url: "#_top", children: [
+              {title: "Two Different Types of Programs: Transaction Scripts &amp; Modules", url: "#two-different-types-of-programs-transaction-scripts-modules" },
+              {title: "Move Global State", url: "#move-global-state" },
+              {title: "Drawing Comparisons", url: "#drawing-comparisons" },
+              {title: "Move VM Nuances", url: "#move-vm-nuances" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="quick-dive-into-the-move-programming-language">Quick Dive into the Move Programming Language<a class="headerlink" href="#quick-dive-into-the-move-programming-language" title="Permanent link"></a></h1>
+<p><strong>NOTE:</strong> This is a quick summary on my thoughts as I read through Libra's Move Technical Paper, learning as I type. </p>
+<h2 id="two-different-types-of-programs-transaction-scripts-modules">Two Different Types of Programs: Transaction Scripts &amp; Modules<a class="headerlink" href="#two-different-types-of-programs-transaction-scripts-modules" title="Permanent link"></a></h2>
+<ul>
+<li><strong><em>Transaction scripts</em></strong> are more single-use, and can invoke modules</li>
+<li><strong><em>Modules</em></strong> are long-term pieces of code stored in Libra's global state</li>
+</ul>
+<h2 id="move-global-state">Move Global State<a class="headerlink" href="#move-global-state" title="Permanent link"></a></h2>
+<ul>
+<li>Libra's global state is a mapping of account addresses =&gt; accounts.</li>
+<li>Think 0x0, 0x1, 0x2 in succession, with each of these account addresses able to hold zero or more modules and at least one resource values. </li>
+<li>Say at account address 0x1337 I have module deployed named 'Multisig' and a resource type called 'Wallet.'</li>
+<li>0x1337 would consist of our 'module/Multisig' module and our '0x1337.Multisig.Wallet' resource type.</li>
+<li>More modules and resource types can still be added to our 0x1337 address.</li>
+<li>"<em>Accounts can contain at most one resource value of a given type and at most one module with a given name</em>" [4.1, 1st sentence] </li>
+<li>Move is designed so that malicious actors outside the module cannot affect the resource types within the module. </li>
+</ul>
+<h2 id="drawing-comparisons">Drawing Comparisons<a class="headerlink" href="#drawing-comparisons" title="Permanent link"></a></h2>
+<h4 id="libra-ethereum-1-transactions-are-nearly-identical">Libra &amp; Ethereum 1 transactions are nearly identical<a class="headerlink" href="#libra-ethereum-1-transactions-are-nearly-identical" title="Permanent link"></a></h4>
+<ul>
+<li>Both include gas price &amp; gas supply mechanisms.</li>
+<li>Libra's 'sequence' == Ethereum's 'nonce.'</li>
+<li>Both implement 'all-or-nothing' transactions; out-of-gas, failed require/assert, result in reversion of whole transaction.</li>
+</ul>
+<h3 id="libra-modules-ethereum-smart-contracts">Libra 'Modules' &amp; Ethereum 'Smart Contracts'<a class="headerlink" href="#libra-modules-ethereum-smart-contracts" title="Permanent link"></a></h3>
+<ul>
+<li>Fairly similar, with nuances</li>
+<li>Modules enforce strong data abstraction: "Critical operations on a resource type T may only be performed inside a module that defines T." [Section 3.1, last sentence]</li>
+<li>A struct, or presumably any resource type, within a module can only be changed by that module. </li>
+</ul>
+<h4 id="move-vm-ethereum-virtual-machine-evm">Move VM &amp; Ethereum Virtual Machine (EVM)<a class="headerlink" href="#move-vm-ethereum-virtual-machine-evm" title="Permanent link"></a></h4>
+<ul>
+<li>"<em>Move bytecode instructions are executed by a stack-based interpreter similar to the Common Language Runtime and Java Virtual Machine</em>." [5.1 1st paragraph, 1st sentence]</li>
+<li>"<em>Execution of Move programs is metered in a manner similar to the EVM. Each bytecode instructed has an associated gas unit cost, and any transaction to be executed must include a gas unit budget. The interpreter track sthe gas units remaining during execution and halts with an error if the amount remaining reaches zero</em>." [5.1 4th paragraph, 1st sentence]</li>
+</ul>
+<h4 id="a-note-on-transaction-scripts">A Note on Transaction Scripts<a class="headerlink" href="#a-note-on-transaction-scripts" title="Permanent link"></a></h4>
+<ul>
+<li>A rough parallel for a transaction script would be the 'main.rs' in Rust or 'main.py' in Python.</li>
+<li>"[...] scripts can perform either expressive one-off behaviors (such as paying a specific set of recipients) or reusable behaviors (by invoking a single procedure that encapsulates the reusable logic)_" [3.2, 1st paragraph, 5th sentence]</li>
+</ul>
+<h2 id="move-vm-nuances">Move VM Nuances<a class="headerlink" href="#move-vm-nuances" title="Permanent link"></a></h2>
+<h3 id="no-dynamic-dispatch">No Dynamic Dispatch<a class="headerlink" href="#no-dynamic-dispatch" title="Permanent link"></a></h3>
+<ul>
+<li>Dynamic dispatching in Ethereum, or the process of determining which function to call at runtime, was the culprit behind a pivotal event that literally split the chain in two.  </li>
+<li>No dynamic dispatch in Move, code execution is decided at compile time.</li>
+</ul>
+<h3 id="duplicating-currency-by-changing-movecoin-to-copycoin">"Duplicating currency by changing move(coin) to copy(coin)"<a class="headerlink" href="#duplicating-currency-by-changing-movecoin-to-copycoin" title="Permanent link"></a></h3>
+<ul>
+<li>Currency can't be duplicated through use of the 'copy()' function (though unrestricted values like u64 and address can be copied). </li>
+<li>Double-spending is prevented using the account sequence. </li>
+</ul>
+<h3 id="reusing-currency-by-writing-movecoin-twice">"Reusing currency by writing move(coin) twice"<a class="headerlink" href="#reusing-currency-by-writing-movecoin-twice" title="Permanent link"></a></h3>
+<ul>
+<li>Calling 'move()' twice on a resource results in a bytecode verification error. </li>
+</ul>
+<h3 id="losing-currency-by-neglecting-to-movecoin">"Losing currency by neglecting to move(coin)"<a class="headerlink" href="#losing-currency-by-neglecting-to-movecoin" title="Permanent link"></a></h3>
+<ul>
+<li>You can't use 'move()' twice. Not moving the coin also triggers a bytecode verification error. </li>
+</ul>
+<p>We're going to conclude here. This was simply a quick primer on the Move language with some rough comparisons to the current state of Ethereum. </p>
+<p>This guide will be updated over time as I gain more experience working with the tech. Additionally, I intend on penning a technical dive into transaction scripts and modules. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Quick Dive into the Move Programming Language</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/quick-dive-into-the-move-programming-language/b5ca6a19711240ac8e3a55076177d9de/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-20</li>
+<li><strong>Kauri original tags:</strong> move, libra</li>
+<li><strong>Kauri original hash:</strong> QmRBjyHtfhr5nXZqZkXEryQG4v2YHYsWuGvnvhwyWzQYjc</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Bitcoin/bitcoin-blockchain-overview/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Bitcoin/bitcoin-blockchain-overview/" class="btn btn-xs btn-link">
+        Bitcoin Blockchain Overview
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../whitepaper-deep-dive-move--facebook-libra-blockch/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../whitepaper-deep-dive-move--facebook-libra-blockch/" class="btn btn-xs btn-link">
+        Whitepaper Deep Dive — Move  Facebook Libra Blockchain’s New Programming Language
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Libra/quick-dive-into-the-move-programming-language.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

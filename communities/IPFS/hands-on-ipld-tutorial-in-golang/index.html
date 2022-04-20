@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/IPFS/hands-on-ipld-tutorial-in-golang/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Hands-on IPLD Tutorial in Golang - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Hands-on IPLD Tutorial in Golang", url: "#_top", children: [
+              {title: "Understanding IPLD", url: "#understanding-ipld" },
+              {title: "Playing With IPLD", url: "#playing-with-ipld" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "About the authors", url: "#about-the-authors" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="hands-on-ipld-tutorial-in-golang">Hands-on IPLD Tutorial in Golang<a class="headerlink" href="#hands-on-ipld-tutorial-in-golang" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcPFE5hvGL2XNThLHJmzKqacxpJc8XdRxBgZDxUgbj2Es" /></p>
+<p>This article was first published on our open-source platform, <a href="https://simpleaswater.com/hands-on-ipld-tutorial-in-golang/">SimpleAsWater.com</a>. If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out <a href="https://simpleaswater.com">SimpleAsWater</a>.</p>
+<hr />
+<p>In this first post of the hands-on series, we will understand the basic concepts of IPLD followed by coding in Golang to persist key-value entries. </p>
+<ul>
+<li>Understanding IPLD</li>
+<li>Install Golang</li>
+<li>Use <code>go-ipfs-api</code> to write &amp; fetch data via IPLD.</li>
+<li>Use IPLD explorer to explore the data that we wrote using the command line.</li>
+</ul>
+<p>Here is a preview of the final implementation.
+<img alt="Final application preview" src="https://simpleaswater.com/content/images/2020/01/go-ipld-3.gif" /></p>
+<p><strong>You can check out the complete code for the tutorial <a href="https://github.com/0zAND1z/ipld-crud/blob/182e480df484bd028be88535db9d77701004cb6c/main.go">here</a>.</strong></p>
+<h3 id="understanding-ipld">Understanding IPLD<a class="headerlink" href="#understanding-ipld" title="Permanent link"></a></h3>
+<p>When you add the photo to IPFS, this is what happens: </p>
+<p><img alt="Adding images to IPFS flow" src="https://simpleaswater.com/content/images/2019/12/ipfs_add_cat01.87881e57.png" /></p>
+<p>When we add something to IPFS, we get something like this: </p>
+<pre><code class="language-bash">$ ipfs add cat.png 
+added QmQgQUbBeMTnH1j3QWwNw9LkXjpWDJrjyGYfZpnPp8x5Lu cat.png
+ 717.23 KiB / 717.23 KiB [=============================================] 100.00%
+
+</code></pre>
+<p>You can see the final hash here: </p>
+<blockquote>
+<p>QmQgQUbBeMTnH1j3QWwNw9LkXjpWDJrjyGYfZpnPp8x5Lu</p>
+</blockquote>
+<p>But we don’t see anything related to the 2 steps(<strong><em>Raw</em></strong> and <strong><em>Digest</em></strong>). This all happens under the hood. </p>
+<p>When we added the image, we converted the image into the Raw data which the computer can understand. Now, to make it <strong><em><a href="https://simpleaswater.com/ipfs-cids/">content-addressable</a></em></strong> we have to come up with a method by which we can convert this image data to a label that uniquely identifies it’s content.</p>
+<p>This is where hash functions come into play. </p>
+<p><img alt="Hash functions overview" src="https://simpleaswater.com/content/images/2019/12/hashing.7ae85ed9-1.png" /></p>
+<p>Hash functions take the data(any data from texts, photos, whole bible, etc.) as input and give us an output(Digest) which is <strong><em>unique</em></strong> with respect to its output. If we change even a pixel in this image then the output will be different. This shows its <strong><em>tamper-proof</em></strong> property, hence making IPFS a <strong><em>Self-certifying File System</em></strong>. So if you transfer this image to anybody, he/she can check that if the photo received has been tampered with or not. </p>
+<p>Also, you cannot tell what was the input(in this case, a cat photo), but just seeing its output(the <em>Digest</em>). So, this also ensures a great amount of <strong><em>security</em></strong>. </p>
+<p>Now we pass the <em>Raw</em> image data into <a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a> hash function and get the unique <em>Digest</em>. Now, we need to convert this <em>Digest</em> into a <a href="https://simpleaswater.com/ipfs-cids">CID(Content Identifier)</a>. This CID is what IPFS will search for when we try to get back the image. For doing this, IPFS uses something called <a href="https://multiformats.io/multihash/#the-multihash-format">Multihash</a>. </p>
+<p>To understand the significance of <em>Multihash</em>, consider this situation. </p>
+<p>You stored this image on the internet and you have its CID, which you can give to anybody who wants to get this image. Now, what if you discover in future that SHA256 is broken(this would mean that this process is NO more tamper-proof and secure) and you want to use SHA3(to ensure <em>tamper-proofing and security</em>) instead? This would mean changing the whole process of converting your photo to CID, and the previous CIDs will be useless… </p>
+<p>This above problem may seem a small issue in this context, but you should know that these <strong><em>hash functions secure TRILLIONS of dollars</em></strong>. All the Banks, National security agencies, etc. use these hash functions to operate securely. <strong><em>Even the green lock that you see beside the address of every site on the browser will not work without it.</em></strong> </p>
+<p>In order to solve this problem, IPFS uses <em>Multihash</em>. Multihash allows us to define hashes that are self-defining. So, we can have multiple versions of CIDs, according to the hash function used. We will talk more about it below. </p>
+<p>Well, now we have added our photo to IPFS, but this was not the whole story. What is actually happening is something like this: </p>
+<p><img alt="Image chunking overview" src="https://simpleaswater.com/content/images/2019/12/ipfs_add_cat02.1cadd598.png" /></p>
+<p>If the files are bigger than 256 kB, then they are broken down into smaller parts, so that all the parts are equal or smaller than 256 kb. We can see the chunks of our photo using this command: </p>
+<pre><code class="language-bash">$ ipfs object get QmQgQUbBeMTnH1j3QWwNw9LkXjpWDJrjyGYfZpnPp8x5Lu
+
+</code></pre>
+<p>This gives us 3 chunks, each of which is smaller than 256kb. Each of these chunks is first converted into a <em>digest</em> and then into CIDs. </p>
+<pre><code class="language-json">{
+    &quot;Links&quot;: [
+        {
+            &quot;Name&quot;: &quot;&quot;,
+            &quot;Hash&quot;: &quot;QmYN9f4cRGPReJDSi3YoFTt5eTVS2Jo9ePN3wH3TfgbB8u&quot;,
+            &quot;Size&quot;: 262158
+        },
+        {
+            &quot;Name&quot;: &quot;&quot;,
+            &quot;Hash&quot;: &quot;QmTJ1rwQQ7FC4HiwmxS1jFe2eJeb6kyxgRWKGyHjf7nYMN&quot;,
+            &quot;Size&quot;: 262158
+        },
+        {
+            &quot;Name&quot;: &quot;&quot;,
+            &quot;Hash&quot;: &quot;QmSEuztdUaJNLGhf3Hrpd9f8eHXftusY8QCbqUbzGv7LNX&quot;,
+            &quot;Size&quot;: 210174
+        }
+    ],
+    &quot;Data&quot;: &quot;\u0008\u0002\u0018��, ��\u0010 ��\u0010 ��\u000c&quot;
+}
+
+</code></pre>
+<p>IPFS uses IPLD (IPLD uses Merkle DAG, or directed acyclic graph) for managing all the chunks and linking it to the base CID. </p>
+<p>IPLD (objects) consist of 2 components: </p>
+<ul>
+<li><code>Data</code> — a blob of unstructured binary data of size &lt; 256 kB.</li>
+<li><code>Links</code> — array of Link structures. These are links to other IPFS objects.</li>
+</ul>
+<p>Every IPLD Link(in our case the 15 links that we got above) has 3 parts: </p>
+<ul>
+<li><code>Name</code> — name of the Link</li>
+<li><code>Hash</code> — the hash of the linked IPFS object</li>
+<li><code>Size</code> — the cumulative size of linked IPFS object, including following its links</li>
+</ul>
+<p>IPLD is built on the ideas of Linked Data, which is actually something that folks in the decentralized web community have been talking about for quite some time. It’s something Tim Berners-Lee has been working on for ages, and his new company, <a href="https://solid.mit.edu/">Solid</a>, is building a business around it. </p>
+<p>Using IPLD has also other benefits. To see this, let’s create a folder named <code>photos</code> and add 2 photos into it (the cat pic and a copy of the same pic). </p>
+<p><img alt="Adding photos with IPFS" src="https://simpleaswater.com/content/images/2019/12/image-1.png" /></p>
+<p>As you can see both the photos have the same hash(which proves that I haven’t changed anything in the copy of the image). This adds <strong><em>De-duplication</em></strong> property to IPFS. So even if your friend adds the same cat photo to IPFS, he will not duplicate the image. This saves a lot of storage space. </p>
+<p><a href="https://youtu.be/Bqs_LzBjQyk">Here is a talk by Juan Benet</a> explaining the significance and features of IPLD that we just discussed. </p>
+<p>Now, as we have understood what is IPLD, how it works and its significance, let’s get our hands dirty! </p>
+<h3 id="playing-with-ipld">Playing With IPLD<a class="headerlink" href="#playing-with-ipld" title="Permanent link"></a></h3>
+<p>In IPFS, IPLD helps to structure and link all the data chunks/objects. So, as we saw above, IPLD was responsible for organizing all the data chunks that constituted the image of the kitty🐱. </p>
+<p>In this part, we will use <code>go-ipfs-api</code> to write and fetch data via IPLD. Let's get started! </p>
+<h4 id="install-golang">Install Golang<a class="headerlink" href="#install-golang" title="Permanent link"></a></h4>
+<p>We recommend you to install the latest version of Golang from the official website](https://golang.org/doc/install). There are instructions available for installing Golang on Windows, Linux, FreeBSD &amp; MacOS. </p>
+<h4 id="writing-to-ipfs-via-ipld">Writing to IPFS via IPLD<a class="headerlink" href="#writing-to-ipfs-via-ipld" title="Permanent link"></a></h4>
+<p>The purpose of the code is to get access to some of the deeper abstractions of IPFS that can allow developers to store information apart from files. This was possible by operating directly on the <a href="https://simpleaswater.com/merkle-dag">Merkle DAGs</a>. Although versions of <a href="https://simpleaswater.com/chat-using-libp2p">similar implementations are available in Javascript</a>, we wanted to <a href="https://github.com/0zAND1z/ipld-crud">implement something in Golang</a>. </p>
+<h4 id="coding-the-ipld-operations-block-by-block">Coding the IPLD operations block-by-block<a class="headerlink" href="#coding-the-ipld-operations-block-by-block" title="Permanent link"></a></h4>
+<p>The code primarily depends upon the go package called <a href="https://github.com/ipfs/go-ipfs-api"><code>go-ipfs-api</code></a>. It is maintained by IPFS and offers wrappers to many core HTTP APIs. </p>
+<p>Our code is a single file that defines every key-value through a simple mapping: </p>
+<pre><code class="language-go">// Mapping-based structure to record key-value information
+keyValueMap := make(map[string]interface{})
+
+</code></pre>
+<p>Followed by the definition of key-value structure, we read the user inputs. Once we read the user inputs of key and value, we set them in the mapping using the following code: </p>
+<pre><code class="language-go">scanner := bufio.NewScanner(os.Stdin)
+
+fmt.Println(&quot;Enter value for the key field: &quot;)
+scanner.Scan()
+inputKey := scanner.Text()
+
+fmt.Println(&quot;Enter value for value field: &quot;)
+scanner.Scan()
+inputValue := scanner.Text()
+
+// Setting the key and values in the mapping
+m[inputKey] = inputValue
+
+</code></pre>
+<p>The mapping set with user inputs will now be converted into a JSON object and printed on the console with the following code: </p>
+<pre><code class="language-go">// Converting into JSON object
+entryJSON, err := json.Marshal(m)
+if err != nil {
+    fmt.Println(err)
+}
+
+// Display the marshaled JSON object before sending it to IPFS
+jsonStr := string(entryJSON)
+fmt.Println(&quot;The JSON object of your key-value entry is:&quot;)
+fmt.Println(jsonStr)
+
+
+</code></pre>
+<p>Once the JSON object is created and <a href="https://en.wikipedia.org/wiki/Marshalling_(computer_science)">marshaled</a>, we now add this to the <a href="https://simpleaswater.com/merkle-dag/">DAG</a> by calling the <code>DagPut()</code> function: </p>
+<pre><code class="language-go">// Dag PUT operation which will return the CID for futher access or pinning etc.
+cid, err := sh.DagPut(entryJSON, &quot;json&quot;, &quot;cbor&quot;)
+if err != nil {
+    fmt.Fprintf(os.Stderr, &quot;error: %s&quot;, err)
+    os.Exit(1)
+}
+fmt.Println(&quot;------\nOUTPUT\n------&quot;)
+fmt.Printf(&quot;WRITE: Successfully added %sHere's the IPLD Explorer link: https://explore.ipld.io/#/explore/%s \n&quot;, string(cid+&quot;\n&quot;), string(cid+&quot;\n&quot;))
+
+
+</code></pre>
+<p>Once the JSON object is written, the <code>DagPut()</code> returns the <a href="https://simpleaswater.com/ipfs-cids/">CID</a>. </p>
+<p>We can now access the IPLD entry by passing along the returned CID to the <code>GetDag()</code> function. Once we receive the entry, we also print it on the console using the following code: </p>
+<pre><code class="language-go">// Fetch the details by reading the DAG for key &quot;inputKey&quot;
+fmt.Printf(&quot;READ: Value for key \&quot;%s\&quot; is: &quot;, inputKey)
+res, err := GetDag(cid, inputKey)
+if err != nil {
+    fmt.Println(err)
+}
+fmt.Println(res)
+
+</code></pre>
+<p>The full implementation can be found <a href="https://github.com/0zAND1z/ipld-crud/blob/master/main.go">here</a>.</p>
+<p>Here is how our code looks in action😎 </p>
+<p><img alt="Final code in action" src="https://simpleaswater.com/content/images/2020/01/go-ipld-3.gif" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>In summary, we have covered the basic concepts of hashing, IPFS and how IPLD is used. Further, we have also provided a hands-on code demonstration in Golang to effectively building a key-value based data interface using the <a href="https://github.com/ipfs/go-ipfs-api"><code>go-ipfs-api</code></a> package. </p>
+<p>In the upcoming part of the series, we will be introducing how to extend this code for enacting the storage of <code>docstore</code> entries. </p>
+<h3 id="about-the-authors">About the authors<a class="headerlink" href="#about-the-authors" title="Permanent link"></a></h3>
+<p><strong>Ganesh Prasad Kumble</strong> </p>
+<p><img alt="Photo of Ganesh Prasad Kumble" src="https://simpleaswater.com/content/images/2020/01/ganesh_22.jpg" /></p>
+<p>Ganesh is an expert in emerging technologies and business strategy. He has co-founded, bootstrapped, mentored several start-ups and initiatives across SaaS, eCommerce, IoT, Blockchain &amp; AI. </p>
+<p>He is a contributor to several open-source projects including Ethereum and IPFS. He is also a moderator at the Ethereum Research forum. </p>
+<p>He is currently leading Platform Innovation efforts at <a href="https://www.aicumen.com/">Aicumen Technologies Inc.</a> &amp; <a href="https://www.kip.foundation/">KIP Foundation</a>, building a general purpose business protocol featuring identity management, third party services, distributed compute and immutable storage. </p>
+<p>Ganesh is the author of the <a href="https://www.amazon.com/dp/B07X42XFD3/ref=cm_sw_su_dp">Hands-On Artificial Intelligence for Blockchain</a> book. </p>
+<p>You can know more about him <a href="https://www.linkedin.com/in/kumblegp/">here</a>. </p>
+<p><strong>Vaibhav Saini</strong> </p>
+<p>Vaibhav is the Co-founder of <a href="https://towardsblockchain.com">TowardsBlockchain</a>, <a href="https://simpleaswater.com">SimpleAsWater</a> &amp; <a href="https://dappkit.io">Dappkit</a>. You can know more about him <a href="https://www.linkedin.com/in/vasadev/">here</a>. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Hands-on IPLD Tutorial in Golang</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/handson-ipld-tutorial-in-golang/d1e5568bc5204ec4a81b9e7249bb3fe9/a</li>
+<li><strong>Kauri original author:</strong> Vaibhav Saini (@vasa)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-13</li>
+<li><strong>Kauri original tags:</strong> ipfs, simpleaswater, golang, dag, tutorial, ipld</li>
+<li><strong>Kauri original hash:</strong> QmPSoCECkemwDqr6wf65vjfjV5e37UBmvyYixRvYGpW3CS</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../understanding-ipfs-in-depth%2816%29--a-beginner-to-ad/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../understanding-ipfs-in-depth%2816%29--a-beginner-to-ad/" class="btn btn-xs btn-link">
+        Understanding IPFS in Depth(1/6)  A Beginner to Advanced Guide
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../understanding-ipfs-in-depth%2826%29--what-is-interpla/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../understanding-ipfs-in-depth%2826%29--what-is-interpla/" class="btn btn-xs btn-link">
+        Understanding IPFS in Depth(2/6)  What is InterPlanetary Linked Data(IPLD)?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/IPFS/hands-on-ipld-tutorial-in-golang.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract", url: "#_top", children: [
+              {title: "Introduction to ZeppelinOS and Package Managers", url: "#introduction-to-zeppelinos-and-package-managers" },
+              {title: "What you will learn", url: "#what-you-will-learn" },
+              {title: "Who this tutorial is meant for", url: "#who-this-tutorial-is-meant-for" },
+              {title: "What are EVM packages?", url: "#what-are-evm-packages" },
+              {title: "What are we going to build?", url: "#what-are-we-going-to-build" },
+              {title: "What do I need to get started?", url: "#what-do-i-need-to-get-started" },
+              {title: "Creating the LinkedList contract", url: "#creating-the-linkedlist-contract" },
+              {title: "Deploying to our development network", url: "#deploying-to-our-development-network" },
+              {title: "Adding our contract", url: "#adding-our-contract" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="evm-package-deployment-with-zeppelinos-part-i-introduction-and-creating-a-linkedlist-contract">EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract<a class="headerlink" href="#evm-package-deployment-with-zeppelinos-part-i-introduction-and-creating-a-linkedlist-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSqVDNgfVx5E4PpuiJykBwfvaMd44Z8z9GPzdo1nakMng" /></p>
+<h3 id="introduction-to-zeppelinos-and-package-managers">Introduction to ZeppelinOS and Package Managers<a class="headerlink" href="#introduction-to-zeppelinos-and-package-managers" title="Permanent link"></a></h3>
+<p>If you're familiar with Node.js, then you will be familiar with NPM
+(<em>Node Package Manager)</em>. You will also know that the ability
+to <code>npm install</code> existing code in your project makes your life as a
+programmer easier and, frequently, more secure.
+Being able to import existing code is a hallmark of a mature developer
+ecosystem and one of the fundamental tools that allow a programming
+language to reach an ecosystem of scale. The immense success of Node.js
+is due in no small part to the NPM ecosystem. In the last month alone,
+NPM saw <strong>33,839,343,034</strong> downloads (at the time of writing)!</p>
+<p>In comparison, Ethereum, and the primary language for smart contracts,
+Solidity, is in its infancy. Yet the Solidity ecosystem is growing
+rapidly, and as it grows, so does the complexity of tasks programmers
+are trying to solve. Starting from scratch on every project can be a
+major impediment to progress, especially when code can potentially store
+(and lose!) millions of dollars in real money. A frugal blockchain
+developer will try to write as little "new code" as possible, instead
+importing existing audited code libraries so as to reduce introducing
+new and unforeseen bugs as much as possible.</p>
+<p>To this end, Zeppelin created
+<a href="https://github.com/OpenZeppelin/openzeppelin-solidity">OpenZeppelin</a>,
+an open source framework of battle-tested, reusable smart contracts for
+Ethereum (as well as other EVM and eWASM blockchains). OpenZeppelin
+smart contracts allow you to get up and running with standard blockchain
+tasks, with the confidence that the code you're using has been through
+rigorous testing by auditors and the open source community.</p>
+<p><a href="https://zeppelinos.org/?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">ZeppelinOS</a>
+takes this idea even further by offering a development platform designed
+specifically for smart contract projects. It allows for seamless
+upgrades and provides economic incentives for creating a healthy
+ecosystem of secure applications. Most importantly, it allows you to
+build projects that leverage the power of code that is <strong>already deployed on-chain</strong>. Not only does this dramatically increase the transparency of
+your project to your potential users, but it also saves you money, as
+you don't need to pay the gas cost to deploy entirely new copies of the
+existing code to the network. You just reuse the logic from contracts
+that someone else has already deployed!</p>
+<p>With ZeppelinOS, not only can you now create upgradable smart
+contracts (where the upgrading process can be controlled by any number
+of governance techniques), you can also create EVM packages to allow
+others to reuse, remix, and develop on an open ecosystem.</p>
+<h3 id="what-you-will-learn">What you will learn<a class="headerlink" href="#what-you-will-learn" title="Permanent link"></a></h3>
+<p>In this series, we're going to go over the complete process for
+creating, deploying, and linking on-chain bytecode using NPM and the
+ZeppelinOS system.</p>
+<h4 id="topics">Topics<a class="headerlink" href="#topics" title="Permanent link"></a></h4>
+<ul>
+<li>What EVM packages are and what they're good for.</li>
+<li>The complete setup process for ZeppelinOS. How to create a basic EVM
+  package along with basic testing in Truffle Console.</li>
+<li>Deploying your EVM package to test-networks as well as Ethereum
+  mainnet.</li>
+<li>Creating a new project and linking to your published EVM package.</li>
+<li>Interacting with your newly deployed on-chain library.</li>
+</ul>
+<h3 id="who-this-tutorial-is-meant-for">Who this tutorial is meant for<a class="headerlink" href="#who-this-tutorial-is-meant-for" title="Permanent link"></a></h3>
+<p>This tutorial aims to be as detailed as possible to cater to Solidity
+developers at all levels of experience. For beginners, it's best to
+follow the entire document, as I will build on steps from previous
+sections. For more advanced Solidity developers, feel free to skip
+ahead.</p>
+<h3 id="what-are-evm-packages">What are EVM packages?<a class="headerlink" href="#what-are-evm-packages" title="Permanent link"></a></h3>
+<p><a href="https://blog.zeppelinos.org/open-source-collaboration-in-the-blockchain-era-evm-packages/?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">EVM packages</a>
+are collections of deployed on-chain code that you can
+incorporate and reuse in your own project via package managers such as
+NPM. This makes it easy to build upon open source libraries created and
+verified by others in the ecosystem. ZeppelinOS makes the process of
+creating and using EVM packages simple.</p>
+<h3 id="what-are-we-going-to-build">What are we going to build?<a class="headerlink" href="#what-are-we-going-to-build" title="Permanent link"></a></h3>
+<p>For this tutorial, we're going to create our own EVM package for a
+Solidity Linked List implementation: custom code that tackles a real use
+case. Our linked list will give your Solidity projects an easy-to-use
+data structure that we will deploy on-chain and that you can reuse over
+and over for any project you might like. No <code>Hello World</code> here!</p>
+<h3 id="what-do-i-need-to-get-started">What do I need to get started?<a class="headerlink" href="#what-do-i-need-to-get-started" title="Permanent link"></a></h3>
+<p>If you are an existing Solidity developer familiar with tools such as
+Truffle, Ganache, Node.js, and Remix, you're probably already set up. If
+not, don't worry, we'll cover the steps necessary to get you started.</p>
+<h4 id="software">Software<a class="headerlink" href="#software" title="Permanent link"></a></h4>
+<ul>
+<li>Code editor (VSCode, Atom, or Sublime)</li>
+<li>Node.js, <a href="#">Truffle</a>, <a href="#">Ganache</a> (we'll be using the command line interface version)</li>
+<li><a href="https://zeppelinos.org/?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">ZeppelinOS</a></li>
+<li>Xcode tools (if you're on macOS, this is not strictly necessary, but if you run into installation problems with NPM, sometimes it can help).</li>
+</ul>
+<p>While this guide will be oriented toward Unix-based operating systems
+such as Ubuntu or macOS, as long as you can get the core requirements
+running, you should be able to follow along with this guide.</p>
+<h5 id="ganache">Ganache<a class="headerlink" href="#ganache" title="Permanent link"></a></h5>
+<p>Ganache is a development blockchain that runs locally on your computer
+and is used for testing. Previously called TestRPC, Ganache runs a full
+ephemeral Ethereum blockchain on our machine that behaves and acts like
+the real thing (with customizable differences). We'll use it for testing
+our contracts.</p>
+<pre><code class="language-shell">npm install -g ganache-cli
+</code></pre>
+<h5 id="zeppelinos">ZeppelinOS<a class="headerlink" href="#zeppelinos" title="Permanent link"></a></h5>
+<p>ZeppelinOS is the development platform that will allow us to not only
+create and deploy our EVM package but also to upgrade smart contracts
+when we want to add new features or fix bugs. Additionally, ZeppelinOS
+introduces economic incentives to support a healthy ecosystem of secure
+applications. Learn more at
+<a href="https://zeppelinos.org/?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">ZeppelinOS</a>.</p>
+<pre><code class="language-shell">npm install --global zos
+</code></pre>
+<p>To see a list of command line options once they're installed:</p>
+<pre><code class="language-shell">zos --help
+</code></pre>
+<p>To learn more, check out <a href="https://docs.zeppelinos.org/docs/apis.html?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">the API reference docs</a>.</p>
+<h5 id="truffle">Truffle<a class="headerlink" href="#truffle" title="Permanent link"></a></h5>
+<p>Go ahead and get <a href="https://truffleframework.com/truffle">Truffle</a>.
+Truffle is one of several development frameworks for Ethereum that can
+make developing dApps (distributed applications) easier. Recently,
+Truffle upgraded to v5, which introduces a number of breaking changes.
+If you have Truffle v4, be sure to upgrade.</p>
+<pre><code class="language-shell">npm install truffle@5.0.1
+</code></pre>
+<h4 id="project-setup">Project Setup<a class="headerlink" href="#project-setup" title="Permanent link"></a></h4>
+<p>First, create a new directory and navigate into it.</p>
+<pre><code class="language-shell">mkdir LinkedList
+cd LinkedList
+</code></pre>
+<p>Feel free to name your directory and project whatever suits you best.</p>
+<p>We'll now use NPM to create your <strong>package.json</strong> file.</p>
+<pre><code class="language-shell">npm init
+</code></pre>
+<p>Take care to answer the prompts, as this information will be needed when
+you publish to NPM.</p>
+<p>Now we're ready to initialize our ZeppelinOS project.</p>
+<pre><code class="language-shell">zos init LinkedList&gt;&gt;Successfully written zos.json
+</code></pre>
+<p>Like <code>npm init</code> , <code>zos init</code> will create its own JSON file,
+<em>zos.json</em>, to track the details of your ZeppelinOS project. The
+command will also initialize <a href="https://truffleframework.com/">Truffle</a>,
+which will create two directories, <strong>contracts</strong> and <strong>migrations</strong>, as well
+as a <em>truffle-config.js</em> file.</p>
+<p>Your directory structure should look like this:</p>
+<pre><code class="language-shell">contracts
+migrations
+package.json
+truffle-config.js
+zos.json
+</code></pre>
+<p>Both <strong>contracts</strong> and <strong>migrations</strong> are empty folders.</p>
+<p>The <em>truffle-config.js</em> file exports an object that defines the
+networks Truffle can use and the settings for deployment. For now, you
+should only see a "local" network. This network will be our development
+network.</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+module.exports = {
+  networks: {
+    local: {
+      host: &quot;localhost&quot;,
+      port: 9545,
+      gas: 5000000,
+      gasPrice: 5e9,
+      network_id: &quot;*&quot;
+    }
+  }
+};
+</code></pre>
+<p>The <em>zos.json</em> file will fill up as soon as you start adding and
+deploying contracts. The information about our contracts will be stored
+here.</p>
+<pre><code class="language-json">{
+  &quot;zosversion&quot;: &quot;2&quot;,
+  &quot;name&quot;: &quot;LinkedList&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;contracts&quot;: {}
+}
+</code></pre>
+<p>The files and folders so far are <em>package.json</em> (created by
+<code>npm init</code>), two empty directories named <strong>contracts</strong> and <strong>migrations</strong>
+(created by <code>zos</code> for Truffle), and a <em>zos.json</em> file (created by
+<code>zos</code> for ZeppelinOS).</p>
+<h3 id="creating-the-linkedlist-contract">Creating the LinkedList contract<a class="headerlink" href="#creating-the-linkedlist-contract" title="Permanent link"></a></h3>
+<p>The goal of the <em>LinkedList.sol</em> contract is to create a data
+structure that will allow us to add and remove nodes from the head of a
+list. In essence, we're going to create a <strong>stack</strong>. Custom data
+structures are useful, because Solidity has limited built-in array
+methods, and array manipulation can quickly become an expensive (or even
+impossible!) operation to complete on-chain because of gas costs.</p>
+<p>Need a linked list refresher? Here are some references I used for this
+tutorial:</p>
+<p><a href="https://hackernoon.com/the-little-guide-of-linked-list-in-javascript-9daf89b63b54">The Little Guide of Linked List in JavaScript</a> A
+Linked List is a list of nodes that are represented by a head that is
+the first node in the list and the tail that is the last one. Read more
+at <a href="https://hackernoon.com/">hackernoon</a>.</p>
+<p><a href="https://codeburst.io/js-data-structures-linked-list-3ed4d63e6571">JS Data Structures: Linked List</a>Learn
+what a Linked List is and how to write one in JavaScript. Read more at
+<a href="https://codeburst.io/">codeburst.io</a>Open your code editor of choice and navigate to
+your project. Create a Solidity contract called <em>LinkedList.sol</em> and
+save it in the <strong>contracts</strong> folder.</p>
+<p>If you're interested in an excellent tutorial about building a linked
+list in Solidity, I highly recommend Austin Thomas Griffith's "<a href="https://medium.com/coinmonks/linked-lists-in-solidity-cfd967af389b">Linked Lists inSolidity</a>",
+which I used as a starting point for the following code:</p>
+<pre><code>pragma solidity &gt;=0.4.24 &amp;lt;0.6.0;
+
+import &quot;zos-lib/contracts/Initializable.sol&quot;;
+
+contract LinkedList is Initializable{
+
+    event EntryAdded(bytes32 head, string data, bytes32 next);
+
+    //Struct will be our Node
+    struct Node {
+        bytes32 next;
+        string data;
+    }
+
+
+    //Mappping will hold nodes
+    mapping (bytes32 =&gt; Node) public nodes;
+
+    //Length of LinkedList (initialize with constructor/initalizer)
+    uint public length;
+
+    //Head of list;
+    bytes32 public head;
+
+    //Name of LinkedList (the purpose for the list)
+    string public listName;
+
+    function initialize(string memory _listName) initializer public {
+        require(bytes(_listName).length &gt;= 0);
+        length = 0;
+        listName = _listName;
+    }
+
+    function addNode(string memory _data) public returns (bool){
+        Node memory node = Node(head, _data);
+        bytes32 id = keccak256(abi.encodePacked(node.data, length, now));
+        nodes[id] = node;
+        head = id;
+        length = length+1;
+
+        emit EntryAdded(head, node.data, node.next);
+    }
+
+    //popNode
+    function popHead() public returns (bool) {
+        require(length &gt; 0, &quot;error...head is empty&quot;);
+        //hold this to delete it
+        bytes32 newHead = nodes[head].next;
+        //delete it
+        delete nodes[head];
+        head = newHead;
+        length = length-1;
+    }
+
+    //Contract interface
+    function getNodeExternal(bytes32 _node) external view returns (bytes32, string memory){
+        return (nodes[_node].next, nodes[_node].data);
+    }
+
+}
+</code></pre>
+<p>On line 3, we're importing:</p>
+<pre><code>import &quot;zos-lib/contracts/Initializable.sol&quot;;
+</code></pre>
+<p><em>Initializable.sol</em> is not installed by default with ZeppelinOS, but
+you will need it in order to compile the contract. To install it:</p>
+<pre><code class="language-shell">npm install zos-lib
+</code></pre>
+<p>Here we're importing from the <strong>zos-lib</strong> a contract called
+<em>Initializable.sol</em>, and we're  telling the compiler on line 5 that
+our contract <strong>LinkedList</strong> is initializable. Then on line 26, we create
+a function called <code>initialize()</code>, which uses the library modifier
+<strong>initializer</strong> which can be found in the
+<em>zos-lib/contract/Initializable.sol</em> contract.</p>
+<p>It's not entirely critical to understand the purpose of the initializer
+pattern for this tutorial, but you should know that when building
+upgradable smart contracts using the ZeppelinOS system, you must use
+initializer functions instead of constructor functions in your
+contracts. Constructor functions are incompatible with the way
+ZeppelinOS proxy contracts manage upgradable smart contracts. Learn more
+from "<a href="https://docs.zeppelinos.org/docs/deploying.html?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">Deploying your first contract</a>."</p>
+<p>Strictly speaking, in this example it's not really necessary to use the
+initializer function, as the <em>LinkedList.sol</em> contract only uses the
+<code>initialize()</code> function to set the value of <code>length</code> to zero. In
+Solidity, undeclared values are by default zero, making this initializer
+redundant. I am including it as a reminder that in the ZeppelinOS
+system, we do not use constructor functions.</p>
+<h3 id="deploying-to-our-development-network">Deploying to our development network<a class="headerlink" href="#deploying-to-our-development-network" title="Permanent link"></a></h3>
+<p>To get started with testing the contract (to be sure it works!), first
+deploy it to Ganache, our development blockchain environment.</p>
+<p>Open a new terminal window and type the following:</p>
+<pre><code class="language-shell">ganache-cli --port 9545 --deterministic
+</code></pre>
+<p>You will want to run this in a new window, because you'll need to keep
+it running during development. If you close it, you will lose your
+development blockchain state, including all of your locally deployed
+contracts, and be forced to start again. After starting ganache-cli, you
+should see an output like this:</p>
+<pre><code class="language-shell">Ganache CLI v6.1.8 (ganache-core: 2.2.1)
+ Available Accounts
+ (0) 0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1 (~100 ETH)
+ (1) …
+ …
+ (9) 0x1df62f291b2e969fb0849d99d9ce41e2f137006e (~100 ETH)
+ Private Keys
+ (0) 0xca9aca918d1c47237a858be560fa444k4qoid23s4e46d63ffc5edeeab2918f
+ (1) …
+ …
+ (9)0x42e4a1f700a5ce2d2a99c262755520f284b324sae37ad8711411f9a245ef3ce8
+ HD Wallet
+ Mnemonic: &lt;&gt;;
+ Base HD Path: m/44'/60'/0'/0/{account_index}
+ Gas Price
+ 20000000000
+ Gas Limit
+ 6721975
+ Listening on 127.0.0.1:8545
+</code></pre>
+<p>This is a list of pre-generated and pre-funded accounts that you can use
+on your development blockchain, along with a generated mnemonic, details
+about gas price, gas limit, and base HD (hierarchical deterministic)
+wallet path.</p>
+<p><strong>IMPORTANT: NEVER USE THIS MNEMONIC FOR ANYTHING OTHER THAN DEVELOPMENT PURPOSES. IT IS NOT SECURE, AND YOU WILL LOSE ALL YOUR ETH.</strong></p>
+<p>Note that as arguments for the command <code>ganache-cli</code>, we have both <code>--port</code> and <code>--deterministic</code>.</p>
+<p>The <code>--port</code> argument has the same value (9545) as we saw in our
+<em>truffle-config.js</em> file.</p>
+<p>The <code>--deterministic</code> argument means that every time we run
+<code>ganache-cli</code>, we're going to use the same mnemonic so that we can
+ensure we get the same test wallet addresses and corresponding private
+keys. Without this flag, we would have a list of random addresses each
+time, which can be confusing when testing projects.</p>
+<p>I like to try and keep a single development mnemonic for all my dev
+work, so I recommend copying down this mnemonic and saving it. If you're
+doing development work across multiple teams or platforms, it can be
+useful for everyone to work with the same set of addresses. To use your
+mnemonic, run <code>ganache-cli</code> with the following additional argument:</p>
+<pre><code class="language-shell">–mnemonic &quot;your twelve word mnemonic here&quot;
+</code></pre>
+<p>Remember that this mnemonic is for <strong>DEVELOPMENT ONLY</strong>. For a complete list
+of command line options, see <a href="https://github.com/trufflesuite/ganache-cli">GitHub for ganache-cli</a>.</p>
+<p>Return to your original terminal window and create a new session for
+ZeppelinOS in the top-level folder of your project.</p>
+<pre><code class="language-shell">zos session --network local --from 0x1df62f291b2e969fb0849d99d9ce41e2f137006e --expires 3600
+</code></pre>
+<p>The command line argument <code>--network local</code> instructs <code>zos</code> to use the
+local network as specified in our <em>truffle-config.js</em> file, while the
+<code>--from</code> argument specifies the address from which ZeppelinOS will be
+deploying contracts and managing them. In this case, the <code>--from</code>
+address is the <strong>tenth</strong> address that <code>ganache-cli</code> generated.\
+Notice that we're using the tenth address that Ganache provides as the
+address for our ZeppelinOS session. Essentially, the proxy contract that
+is deployed when creating upgradable contracts responds differently
+depending on whether or not the address calling the contract is the same
+as the address that manages it. Only the address that deploys the proxy
+can interact <strong>directly</strong> with the proxy, while all other addresses that
+call the proxy will be proxied <strong>transparently</strong> onward toward the
+contract that the proxy points to.</p>
+<p><img alt="" src="Dennison.png" /></p>
+<p>Fortunately, ZeppelinOS takes care of proxies for us, and as a
+developer, it is only important to remember that  <code>--from</code> needs to be
+an address that will never be used to interact with the contract except
+for upgrading it. So in this case we use the last address Ganache
+offers: the tenth. But you can use any address as long as you remember
+that it controls the proxy but won't be proxied itself. To read more,
+see <a href="https://docs.zeppelinos.org/docs/pattern.html?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">ZeppelinOS upgrades pattern section</a>.</p>
+<p>Finally, <code>--expires 3600</code> sets the duration for which we want to keep
+the ZeppelinOS session open. f you time out, the command will need to be
+re-entered. You will know your session has timed out if you receive this
+message when you try to execute other <code>zos</code> commands:</p>
+<pre><code class="language-shell">A network name must be provided to execute the requested action.
+</code></pre>
+<p>Not to worry, re-enter the following and you'll have a new
+session to work with.</p>
+<pre><code class="language-shell">zos session --network local --from 0x1df62f291b2e969fb0849d99d9ce41e2f137006e --expires 3600
+</code></pre>
+<p>Once you have a ZeppelinOS session running, you can always check the
+file <em>.zos.session</em> in your main project. Here you will see the
+information regarding your current session; the <strong>network</strong> you're
+using, the <strong>from</strong> address, and when the session expires.</p>
+<h3 id="adding-our-contract">Adding our contract<a class="headerlink" href="#adding-our-contract" title="Permanent link"></a></h3>
+<p>Now that you have set up your ZeppelinOS session, created your contract,
+and have your development blockchain running, you need to add your
+contract to the ZeppelinOS project. In the same terminal window, in the
+top-level folder of your project, run the following:</p>
+<pre><code class="language-shell">zos add LinkedList
+</code></pre>
+<p>If you look at the <em>zos.json</em> file, you will see that your JSON object
+now contains our contract "LinkedList" under the "contracts" key value.</p>
+<p>Similarly, you now have a top-level folder in your project named <em>build</em>
+that contains a subfolder called <em>contracts</em>, which is where the JSON
+objects representing the contract's ABI (application binary interface)
+are stored.</p>
+<p>Now that you have added your <em>LinkedList.sol</em> contract to the
+ZeppelinOS project, we can deploy the project to the development
+blockchain.</p>
+<pre><code class="language-shell">zos push
+</code></pre>
+<p>When it comes time to deploy to a different network (such as a public
+test-net or mainnet), you will run the <code>zos session</code> command again with
+a new network, as defined in your <em>truffle-config.js</em> file. You can also
+add the <code>--network</code> flag followed by your network name if you want to
+push without starting a session.</p>
+<p>Note that if you take a look at your second terminal where Ganache is
+running, you'll see that a transaction has been created.</p>
+<p>Return to your first terminal window where you issued the <code>zos push</code>
+command. The final line of output should be something like this:</p>
+<pre><code class="language-shell">Created zos.dev-{some number here}.json
+</code></pre>
+<p>If you look at your project folder structure, you will see a new JSON
+file has been created in your project with the filename
+<em>zos.dev-{ome number here}.json</em>. The "{some number
+here}" will be the network-id of your development blockchain. This
+will most likely be a pseudo-random number when working with a
+development chain and is used just to identify the network. There's an
+<a href="https://ethereum.stackexchange.com/questions/17051/how-to-select-a-network-id-or-is-there-a-list-of-network-ids?noredirect=1&amp;lq=1">unofficial list of public networks</a>
+and their identification numbers.</p>
+<p>The <em>zos.dev-{some number here}.json</em> file holds all the
+information regarding the current deployment of our contracts on this
+particular network. If you open it up, you'll see the address the
+contracts are deployed at along with information about them.</p>
+<p>Here's more
+<a href="https://docs.zeppelinos.org/docs/configuration.html?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress#zos-network-json">information</a>
+regarding networks.</p>
+<h5 id="creating-an-instance-of-our-contract">Creating an instance of our contract<a class="headerlink" href="#creating-an-instance-of-our-contract" title="Permanent link"></a></h5>
+<p>Now that we have deployed our project, we need to make an instance of
+our contract to interact with it.</p>
+<pre><code class="language-shell">zos create LinkedList --init initialize --args &quot;NameOfYourLinkedListHere&quot;
+</code></pre>
+<p>This command creates an instance of our LinkedList.sol and calls the
+initialize function in place of what would normally have been a
+constructor. It will return an address where the instance was created
+(these addresses will be unique to your project):</p>
+<pre><code class="language-shell">Using session with network local, sender address 0x1df62f291b2e969fb0849d99d9ce41e2f137006e
+Creating proxy to logic contract 0x2adf8b30d4dd24a05ccd9afbdc06a5b49c9c758d and initializing by calling initialize with:
+
+Instance created at 0x25f96b23947f3e57b29d15760fd8af926694fa81
+0x25f96b23947f3e57b29d15760fd8af926694fa81
+</code></pre>
+<p>The <code>zos create</code> command creates an instance of the contract on the
+blockchain that we can directly interact with. While <code>zos push</code> deploys
+the project, our project isn't intended to be directly manipulated.
+Rather, ZeppelinOS gives us the ability to create <strong>proxies</strong> of contracts
+that point to the original contracts we wrote. This gives us the ability
+to upgrade our contracts by telling ZeppelinOS we want to point our
+instance of a contract to a newer version of our original contract.</p>
+<p>If you take a look again at the <em>zos.dev-{some number here}.json</em> file and scroll to the bottom, you will now see a
+top-level value named "proxies" near the bottom of the file. This is
+where ZeppelinOS keeps track of your contract deployments on this
+particular network. The <strong>address</strong> refers to the location of the proxy
+of your contract, version is the version of our instance, and
+<strong>implementation</strong> points to the logic contract our contract calls will
+be proxied to.</p>
+<p>The <strong>address</strong> entry will be the address that you will use when you
+want to connect to your contract (via the proxy) for something like
+testing or via web3 in a dApp.</p>
+<p><em>Thanks to</em> <a href="https://twitter.com/smpalladino"><em>Santiago Palladino</em></a> <em>for
+reading early drafts and providing feedback.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> EVM package deployment with ZeppelinOS - Part I  Introduction and Creating a LinkedList Contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/evm-package-deployment-with-zeppelinos-part-i-intr/307e1eb5f1044e3e8aabb33e12f60c9d/a</li>
+<li><strong>Kauri original author:</strong> Dennison Bertram (@dennisonbertram1)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-07</li>
+<li><strong>Kauri original tags:</strong> zeppelinos, packages, evm, solidity</li>
+<li><strong>Kauri original hash:</strong> QmXaEk6YckSTAub8HAs1uq6fjz7kwyq4DE3ak2c2Yo2Fxu</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../evm-package-deployment-with-zeppelinos-part-ii--d/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../evm-package-deployment-with-zeppelinos-part-ii--d/" class="btn btn-xs btn-link">
+        EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../OpenZeppelin%20101/openzeppelin-part-5--there-s-more%21/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../OpenZeppelin%20101/openzeppelin-part-5--there-s-more%21/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 5  There's More!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-i--in.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/open-zeppelin-escrow-smart-contract/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Open-Zeppelin Escrow Smart contract - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Open-Zeppelin Escrow Smart contract", url: "#_top", children: [
+              {title: "What is escrow?", url: "#what-is-escrow" },
+              {title: "Open zeppelin Escrow Contract-", url: "#open-zeppelin-escrow-contract-" },
+              {title: "Permission manager Smart contract (Secondary.sol)", url: "#permission-manager-smart-contract-secondarysol" },
+              {title: "Escrow Smart contract", url: "#escrow-smart-contract" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="open-zeppelin-escrow-smart-contract">Open-Zeppelin Escrow Smart contract<a class="headerlink" href="#open-zeppelin-escrow-smart-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY9EN1miTFb4k1P6w15d5rVw1rYZFsVBo8arf5g6bwV2V" /></p>
+<p>Today, we will look in smart contract escrow and understand open-zeppelin escrow smart contract.</p>
+<h4 id="what-is-escrow">What is escrow?<a class="headerlink" href="#what-is-escrow" title="Permanent link"></a></h4>
+<p><a href="https://www.escrow.com/what-is-escrow">An escrow is a financial arrangement where a third party holds and regulates the payment of the funds required for two parties involved in a given transaction.</a>
+ Escrow is used by businesses as a trusted party for a financial agreement. There are many online escrow services, we can also build an escrow service using smart contract.</p>
+<h4 id="open-zeppelin-escrow-contract-">Open zeppelin Escrow Contract-<a class="headerlink" href="#open-zeppelin-escrow-contract-" title="Permanent link"></a></h4>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/buddies2705/538000dd91f3d99c6c6ed4200102bb0a.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>pragma solidity ^0.4.24;
+
+import &quot;../../math/SafeMath.sol&quot;;
+import &quot;../../ownership/Secondary.sol&quot;;
+
+ /**
+ * @title Escrow
+ * @dev Base escrow contract, holds funds designated for a payee until they
+ * withdraw them.
+ * @dev Intended usage: This contract (and derived escrow contracts) should be a
+ * standalone contract, that only interacts with the contract that instantiated
+ * it. That way, it is guaranteed that all Ether will be handled according to
+ * the Escrow rules, and there is no need to check for payable functions or
+ * transfers in the inheritance tree. The contract that uses the escrow as its
+ * payment method should be its primary, and provide public methods redirecting
+ * to the escrow's deposit and withdraw.
+ */
+contract Escrow is Secondary {
+  using SafeMath for uint256;
+
+  event Deposited(address indexed payee, uint256 weiAmount);
+  event Withdrawn(address indexed payee, uint256 weiAmount);
+
+  mapping(address =&amp;gt; uint256) private _deposits;
+
+  function depositsOf(address payee) public view returns (uint256) {
+    return _deposits[payee];
+  }
+
+  /**
+  * @dev Stores the sent amount as credit to be withdrawn.
+  * @param payee The destination address of the funds.
+  */
+  function deposit(address payee) public onlyPrimary payable {
+    uint256 amount = msg.value;
+    _deposits[payee] = _deposits[payee].add(amount);
+
+    emit Deposited(payee, amount);
+  }
+
+  /**
+  * @dev Withdraw accumulated balance for a payee.
+  * @param payee The address whose funds will be withdrawn and transferred to.
+  */
+  function withdraw(address payee) public onlyPrimary {
+    uint256 payment = _deposits[payee];
+
+    _deposits[payee] = 0;
+
+    payee.transfer(payment);
+
+    emit Withdrawn(payee, payment);
+  }
+}
+
+</code></pre>
+<h4 id="permission-manager-smart-contract-secondarysol">Permission manager Smart contract (Secondary.sol)<a class="headerlink" href="#permission-manager-smart-contract-secondarysol" title="Permanent link"></a></h4>
+<p>Before diving into open-zeppelin escrow smart contract, we will first look at 
+<code>Secondary.sol</code>
+ which is also provided by open-zeppelin. It’s essentially a permission manager wrapper which gets used in 
+<code>Escrow.sol</code>
+ .</p>
+<p><strong>Why Secondary.sol?</strong></p>
+<p><strong>Secondary.sol</strong>
+ will help in establishing a primary party for our contract. This primary party is us (Escrow service). This defines modifier which will be used to enforce ownership while interacting with our escrow system. Of course, we can build this functionality in escrow smart contract itself but creating 
+<code>Secondary.sol</code>
+ helps us in reusability, modularity and separation of concerns.</p>
+<p><strong>Here is code for the</strong></p>
+<p><code>Secondary.sol</code>
+ .</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/buddies2705/a8bcb120e030672340547bdb9ffe08c7.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>pragma solidity ^0.4.24;
+
+import &quot;../../math/SafeMath.sol&quot;;
+import &quot;../../ownership/Secondary.sol&quot;;
+
+contract Escrow is Secondary {
+  using SafeMath for uint256;
+
+  event Deposited(address indexed payee, uint256 weiAmount);
+  event Withdrawn(address indexed payee, uint256 weiAmount);
+
+  mapping(address =&amp;gt; uint256) private _deposits;
+
+  function depositsOf(address payee) public view returns (uint256) {
+    return _deposits[payee];
+  }
+
+
+  function deposit(address payee) public onlyPrimary payable {
+    uint256 amount = msg.value;
+    _deposits[payee] = _deposits[payee].add(amount);
+
+    emit Deposited(payee, amount);
+  }
+
+
+  function withdraw(address payee) public onlyPrimary {
+    uint256 payment = _deposits[payee];
+
+    _deposits[payee] = 0;
+
+    payee.transfer(payment);
+
+    emit Withdrawn(payee, payment);
+  }
+}
+
+</code></pre>
+<p>Now, Let’s look at this contract.</p>
+<p><strong>Constructor</strong>
+ - Account which deploys this contract on blockchain will be the 
+<code>_primary</code>
+ (Primary party) for this smart contract and will control this contract.</p>
+<p><strong>Modifier-</strong>
+ There is a modifier if used in any function will check that function is getting called by the primary party or not.</p>
+<p><strong>Transfer ownership</strong>
+ - of course there is a function to change the primary party.</p>
+<h4 id="escrow-smart-contract">Escrow Smart contract<a class="headerlink" href="#escrow-smart-contract" title="Permanent link"></a></h4>
+<p>Because we are providing escrow service. We will control funds in our escrow(We will be the primary party in 
+<code>Secondary.sol</code>
+ ), we will deposit and withdraw for a party and keep tracks of deposits. Anyone can check how much amount is deposited to a corresponding address for a given address.
+That’s it now we can dive into our Escrow smart contract. So now let's understand 
+<code>Escrow.sol</code>
+ .
+We are defining a mapping to track the deposits. It maps address with deposit values in escrow contract.</p>
+<pre><code>mapping(address =&gt; uint256) private _deposits;
+</code></pre>
+<p><strong>Events</strong>
+ - Smart contract also defines two events, One for deposits and one for withdraws.</p>
+<pre><code>event Deposited(address indexed payee, uint256 weiAmount);
+event Withdrawn(address indexed payee, uint256 weiAmount);
+</code></pre>
+<p><strong>Methods</strong>
+ - now let’s see our methods in escrow smart contract.</p>
+<p><strong>deposit</strong>
+ — This is a simple method which only allows contract owner(primary party) to submit a deposit for any party. Look we have used 
+<code>onlyPrimary</code>
+ modifier from 
+<code>Secondary.sol</code>
+ for this permission management. We are also storing the address of the party for whom we deposit the ether. We are also emitting deposited at the end.</p>
+<pre><code>function deposit(address payee) public onlyPrimary payable {
+    uint256 amount = msg.value;
+    _deposits[payee] = _deposits[payee].add(amount);
+
+     emit Deposited(payee, amount);
+  }
+</code></pre>
+<p><strong>withdraw</strong>
+ — We will use this method to transfer the ether back to the party for whom we deposit the ether. We will update our mapping and emit an event in case of a successful transaction. Here also we are using 
+<code>onlyPrimary</code>
+ to make sure that only we can perform withdraw.</p>
+<pre><code>function withdraw(address payee) public onlyPrimary {
+    uint256 payment = _deposits[payee];
+</code></pre>
+<pre><code>    _deposits[payee] = 0;
+</code></pre>
+<pre><code>    payee.transfer(payment);
+</code></pre>
+<pre><code>    emit Withdrawn(payee, payment);
+  }
+</code></pre>
+<p><strong>depositsOf</strong>
+ — This is a function which returns deposited value for a given address and it’s a public, so anyone can check the escrow balance for a given account.</p>
+<pre><code>function depositsOf(address payee) public view returns (uint256) {
+    return _deposits[payee];
+}
+</code></pre>
+<p>That’s it, our smart contract is complete. We can add extra functionality on top of it and also it’s well tested but you can test it just for getting an idea that how things are working. We will look at other 2 escrow contracts (Conditional Escrow and RefundEscrow)provided by open-zeppelin library in next tutorials which are built upon this Escrow smart contract.
+If you don’t understand anything or learn anything about smart contracts, you can comment below. And if you find this useful you can 👏 and follow me on medium.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Open-Zeppelin Escrow Smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-escrow-smart-contract/ef4c7847d2844f88b3dab887b79b72e5/a</li>
+<li><strong>Kauri original author:</strong> Coinmonks (@coinmonks)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-06</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmVy2vfoQdTRmqPht5dZEsmhLRnni22ojcNKwQ4niUTEsq</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../introduction-to-pantheon-the-java-ethereum-client/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../introduction-to-pantheon-the-java-ethereum-client/" class="btn btn-xs btn-link">
+        Introduction to Pantheon — The Java Ethereum Client
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../publishing-to-the-decentralized-web-with-android-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../publishing-to-the-decentralized-web-with-android-/" class="btn btn-xs btn-link">
+        Publishing to the Decentralized Web with Android, Ethereum, and IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/open-zeppelin-escrow-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

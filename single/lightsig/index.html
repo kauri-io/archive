@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/lightsig/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>LightSig - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "LightSig", url: "#_top", children: [
+              {title: "LightSig", url: "#lightsig_1" },
+              {title: "A more secure and efficient MultiSig for Ethereum", url: "#a-more-secure-and-efficient-multisig-for-ethereum" },
+              {title: "James Poole, Greg Prouty", url: "#james-poole-greg-prouty" },
+              {title: "poole_party", url: "#poole_party" },
+              {title: "Existing Multisig contracts are being used that have 2 problems.  First, the contracts unnecessarily use the blockchain as a database to store proposed transactions that are being approved by the owners of the wallet, causing many ETH transactions on chain to move funds.  Second, the contracts expose management functions that increase the risk of a security vulnerability.  By taking the signature process off-chain and removing all administrative functions in the smart contract, LightSig creates a more usable and safer alternative.", url: "#existing-multisig-contracts-are-being-used-that-have-2-problems-first-the-contracts-unnecessarily-use-the-blockchain-as-a-database-to-store-proposed-transactions-that-are-being-approved-by-the-owners-of-the-wallet-causing-many-eth-transactions-on-chain-to-move-funds-second-the-contracts-expose-management-functions-that-increase-the-risk-of-a-security-vulnerability-by-taking-the-signature-process-off-chain-and-removing-all-administrative-functions-in-the-smart-contract-lightsig-creates-a-more-usable-and-safer-alternative" },
+              {title: "A solidity smart contract is the base of the project.  To interact with the smarty contract, we are using a mobile wallet based on React Native.", url: "#a-solidity-smart-contract-is-the-base-of-the-project-to-interact-with-the-smarty-contract-we-are-using-a-mobile-wallet-based-on-react-native" },
+              {title: "Open", url: "#open" },
+              {title: "https://github.com/tokensoft/lightsig", url: "#httpsgithubcomtokensoftlightsig" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="lightsig">LightSig<a class="headerlink" href="#lightsig" title="Permanent link"></a></h1>
+<h2 id="lightsig_1">LightSig<a class="headerlink" href="#lightsig_1" title="Permanent link"></a></h2>
+<h2 id="a-more-secure-and-efficient-multisig-for-ethereum">A more secure and efficient MultiSig for Ethereum<a class="headerlink" href="#a-more-secure-and-efficient-multisig-for-ethereum" title="Permanent link"></a></h2>
+<h2 id="james-poole-greg-prouty">James Poole, Greg Prouty<a class="headerlink" href="#james-poole-greg-prouty" title="Permanent link"></a></h2>
+<h2 id="poole_party">poole_party<a class="headerlink" href="#poole_party" title="Permanent link"></a></h2>
+<h2 id="existing-multisig-contracts-are-being-used-that-have-2-problems-first-the-contracts-unnecessarily-use-the-blockchain-as-a-database-to-store-proposed-transactions-that-are-being-approved-by-the-owners-of-the-wallet-causing-many-eth-transactions-on-chain-to-move-funds-second-the-contracts-expose-management-functions-that-increase-the-risk-of-a-security-vulnerability-by-taking-the-signature-process-off-chain-and-removing-all-administrative-functions-in-the-smart-contract-lightsig-creates-a-more-usable-and-safer-alternative">Existing Multisig contracts are being used that have 2 problems.  First, the contracts unnecessarily use the blockchain as a database to store proposed transactions that are being approved by the owners of the wallet, causing many ETH transactions on chain to move funds.  Second, the contracts expose management functions that increase the risk of a security vulnerability.  By taking the signature process off-chain and removing all administrative functions in the smart contract, LightSig creates a more usable and safer alternative.<a class="headerlink" href="#existing-multisig-contracts-are-being-used-that-have-2-problems-first-the-contracts-unnecessarily-use-the-blockchain-as-a-database-to-store-proposed-transactions-that-are-being-approved-by-the-owners-of-the-wallet-causing-many-eth-transactions-on-chain-to-move-funds-second-the-contracts-expose-management-functions-that-increase-the-risk-of-a-security-vulnerability-by-taking-the-signature-process-off-chain-and-removing-all-administrative-functions-in-the-smart-contract-lightsig-creates-a-more-usable-and-safer-alternative" title="Permanent link"></a></h2>
+<h2 id="a-solidity-smart-contract-is-the-base-of-the-project-to-interact-with-the-smarty-contract-we-are-using-a-mobile-wallet-based-on-react-native">A solidity smart contract is the base of the project.  To interact with the smarty contract, we are using a mobile wallet based on React Native.<a class="headerlink" href="#a-solidity-smart-contract-is-the-base-of-the-project-to-interact-with-the-smarty-contract-we-are-using-a-mobile-wallet-based-on-react-native" title="Permanent link"></a></h2>
+<h2 id="open">Open<a class="headerlink" href="#open" title="Permanent link"></a></h2>
+<h2 id="httpsgithubcomtokensoftlightsig">https://github.com/tokensoft/lightsig<a class="headerlink" href="#httpsgithubcomtokensoftlightsig" title="Permanent link"></a></h2>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> LightSig</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/lightsig/6b2b6b849f464bf5a00ce89e36a63352/a</li>
+<li><strong>Kauri original author:</strong> Poole Party (@poole-party)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-17</li>
+<li><strong>Kauri original tags:</strong> ethdenver-2019-submission</li>
+<li><strong>Kauri original hash:</strong> QmVMa2diAFYsubzbJ8n3tj4FXfZ8pGX3GEz5LZTXYNLLma</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../colony-unsdg/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../colony-unsdg/" class="btn btn-xs btn-link">
+        Colony UNSDG
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ignition/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ignition/" class="btn btn-xs btn-link">
+        Ignition
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/lightsig.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

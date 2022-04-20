@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/MythX/auditing-the-0x-protocol-v2-with-consensys-dilige/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Auditing the 0x Protocol v2 with ConsenSys Diligence - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Auditing the 0x Protocol v2 with ConsenSys Diligence", url: "#_top", children: [
+              {title: "Scope", url: "#scope" },
+              {title: "Issue Overview", url: "#issue-overview" },
+              {title: "Recommendations", url: "#recommendations" },
+              {title: "Report", url: "#report" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="auditing-the-0x-protocol-v2-with-consensys-diligence">Auditing the 0x Protocol v2 with ConsenSys Diligence<a class="headerlink" href="#auditing-the-0x-protocol-v2-with-consensys-diligence" title="Permanent link"></a></h1>
+<p><em>ConsenSys Diligence is a ConsenSys service providing <a href="https://consensys.net/diligence/">audits of smart contracts and programs built off the Ethereum network</a>. Periodically, ConsenSys Diligence will publish a summary of an audit, including weaknesses and recommendations for clients. Recently, the Diligence team completed an audit for the 0x protocol v2 upgrade. Read a recap of the team’s conclusions below.</em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPyrBr5KpJg4b8sCk6GHPnoJE3s4F7qyHDEfUFP6o5s1Y" /></p>
+<h3 id="scope">Scope<a class="headerlink" href="#scope" title="Permanent link"></a></h3>
+<p>The in-scope items can be divided into the following three distinct parts:</p>
+<ul>
+<li><strong>Exchange:</strong> contains the bulk of the business logic within the 0x protocol. It is the entry point for filling orders, canceling orders, executing transactions, validating signatures and registering new ERC Proxy contracts into the system.</li>
+<li><strong>Asset Proxy</strong> is responsible for decoding asset-specific metadata contained within an order, performing the actual asset transfer and authorizing/unauthorizing Exchange contract addresses from calling the transfer methods.</li>
+<li><strong>Forwarder</strong> enables users to buy assets (ERC20 or ERC721 tokens) with ETH. It removes the required knowledge of WETH and allowances.</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT1AMYm75XjuogAY7JCmoH1h6JvbNmCxdaoQ6TAgEHZsU" /></p>
+<h3 id="issue-overview">Issue Overview<a class="headerlink" href="#issue-overview" title="Permanent link"></a></h3>
+<p>25 issues were identified during the audit. About half of the issues have been prioritised and already fixed during the initial audit phase. Remediation efforts to fix the remaining issues are currently ongoing. The full list of issues can be found in the issue table overview.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNQ8xqUDtpfg74Ew9cNo235G3ZvTuWF1SE6R7UKdLUier" /></p>
+<h3 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link"></a></h3>
+<p>We found the quality of the code base to be high, which is especially appreciated when approaching a complex protocol. In particular:</p>
+<ul>
+<li>The specification documents are thorough and well written. The diagrams of the system’s interactions help to visualize the system.</li>
+<li>The code is well commented, particularly in sections where understanding the developer’s intent is essential.</li>
+<li>
+<p>The organization of the contract repository is thoughtful and consistent. For example, the names of Solidity contracts which are inherited but not deployed are differentiated with the prefix <code>Mixin_</code> . Interfaces are prefixed with <code>M_</code> .
+Relative to the v1 version of the system, the v2 updates introduce features that significantly improve the user experience. They also introduce many new edge cases, which directly resulted in two critical issues, that have been already fixed during the initial audit phase. These features include:</p>
+</li>
+<li>
+<p>Support for multiple <code>SignatureType</code> values especially <code>Caller</code> , which was unique in that it did not check the signature. It rather assumed that if <em>msg.sender</em> is equal to <em>order.makerAddress</em> then the order is valid and was in fact created by the <em>msg.sender</em> . See section <a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#32-mixinsignaturevalidator-insecure-signature-validator-signaturetypecaller">3.2</a> for more information on the resulting issue.</p>
+</li>
+<li>Enabling a 3rd party to call Exchange functions on behalf of a user. See section <a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#31-a-malicious-maker-can-empty-a-takers-account-of-all-tokens">3.1</a> for the resulting issue, and remediations.
+We believe that the system lacks a rigorous and systematic testing strategy that ensures comprehensive test coverage beyond mere line/branch coverage. We found that many important behaviors were untested during a spot check of the test suite. For more detailed information see issues 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#34-assetproxyowner-insufficient-testing">3.4</a>
+ , 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#37-libbytes-insufficient-testing">3.7</a>
+ , 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#310-mixinauthorizable-insufficient-testing">3.10</a>
+ , 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#311-erc721proxy-insufficient-testing">3.11</a>
+ and 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23#314-erc20proxy-insufficient-testing">3.14</a>
+ .</li>
+</ul>
+<h3 id="report">Report<a class="headerlink" href="#report" title="Permanent link"></a></h3>
+<p>The complete report for the audit has been published 
+<a href="https://github.com/ConsenSys/0x_audit_report_2018-07-23">here</a>
+ . Github issues were created in a separate audit working repository and links contained in the report are only accessible to the 0x team and the ConsenSys Diligence audit team.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW8tro1jwV1iJ7vNQ4pra6Sho9XcDv2ZfQd693RemSxhW" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Auditing the 0x Protocol v2 with ConsenSys Diligence</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/auditing-the-0x-protocol-v2-with-consensys-diligen/db4ae4880b3e4bc399279ada15b04411/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-04</li>
+<li><strong>Kauri original tags:</strong> security, audit, 0x, smart-contracts, diligence</li>
+<li><strong>Kauri original hash:</strong> QmXugvwuZzJVMuseNCMBHh8MQGQUYVmDhtnG8ivkh7WXSB</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../mythx-is-upping-the-smart-contract-security-game/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../mythx-is-upping-the-smart-contract-security-game/" class="btn btn-xs btn-link">
+        MythX is Upping the Smart Contract Security Game
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../fuzzing-smart-contracts-using-input-prediction/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../fuzzing-smart-contracts-using-input-prediction/" class="btn btn-xs btn-link">
+        Fuzzing Smart Contracts Using Input Prediction
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/MythX/auditing-the-0x-protocol-v2-with-consensys-dilige.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

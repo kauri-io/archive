@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/the-game-of-snarks/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The Game of Snarks - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The Game of Snarks", url: "#_top", children: [
+              {title: "Rationale", url: "#rationale" },
+              {title: "The game of SNARKs (and STARKs later)", url: "#the-game-of-snarks-and-starks-later" },
+              {title: "Description and rationale", url: "#description-and-rationale" },
+              {title: "How to run", url: "#how-to-run" },
+              {title: "Intended functionality", url: "#intended-functionality" },
+              {title: "Authors (team)", url: "#authors-team" },
+              {title: "Try It Out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-game-of-snarks">The Game of Snarks<a class="headerlink" href="#the-game-of-snarks" title="Permanent link"></a></h1>
+<p>Game of Snarks is a super cool demonstration of zkSNARKs and in fact one of the best applications to help regular users understand their power since the functionality was introduced to Ethereum in Byzantium. In short, Alex Vlasov came up with the idea to implement a game of “Battleship” (where each player has to guess the location of the other player’s ships on their respective grids) and used zkSNARKs to reveal whether a ship has been hit without fully revealing the state of the opposing player’s board. Realizing that it would be hard to manage all of the state of the game on chain, Alex and his team also started work towards a “plasmafied” version of the game where a fraud-proof exists if the Plasma operator doesn’t update the state of the game (whether a battleship has been hit) properly. - Scott Moore (Gitcoin)</p>
+<p>https://devpost.com/software/gameofsnarks_contracts</p>
+<div align="center"><iframe width="560" height="315" src="https://www.youtube.com/embed/undefined" frameborder="0" allow="encrypted-media" allowfullscreen></iframe></div>
+
+<p>Initial snark prover/verifier, set of smart-contracts for game setup and fraud-proof, and a backend bridge for the game of SNARKs</p>
+<h4 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link"></a></h4>
+<p>When the game will be "Plasmafied" there should exist a set of fraud-proof if Plasma operator does not correctly update the state of the game. In addition, challenges should be implemented if one of the players goes offline.</p>
+<h4 id="the-game-of-snarks-and-starks-later">The game of SNARKs (and STARKs later)<a class="headerlink" href="#the-game-of-snarks-and-starks-later" title="Permanent link"></a></h4>
+<p>HODL the door!</p>
+<h4 id="description-and-rationale">Description and rationale<a class="headerlink" href="#description-and-rationale" title="Permanent link"></a></h4>
+<p>During the ETHBerlin we've tried to make a good demonstration of the power of zkSNARKs by implementing a "Battleships" game where an interaction between the players is governed by the SNARKs. During the development we understood that it's actually is quite abstract two-party state-channel with some kind of a smart-contract inside. Keeping the state updates is expensive in the mainnet, so such interaction can be moved to Plasma, where the operator verifies SNARKs upon transaction submissions and updates a "state". Many people forget that Plasma was introduced not only as L2 solution for payments, but also as kind of map-reduce system.</p>
+<p>Other repositories related to this work, developers were working in their own repos or reusing the current R&amp;D code:</p>
+<ul>
+<li>Gadget lib for libsnark developed by the Matter Inc. is here. (test_branch branch)</li>
+<li>Smart-contracts that are for game setup and further fraud proofs from Plasma operator - here.</li>
+<li>Simple UI brought to you here.</li>
+<li>Backend assembled here (current repo).</li>
+<li>Limitations</li>
+<li>Due to a huge pain of building a libsnark anywhere but Linux this repo contains a binary assembled under Ubuntu16.04, that is called through the command line(!) from the Go backend. In principle Go backend is ready to verify proofs itself, it's just a matter of pain with proof serialization.</li>
+</ul>
+<h4 id="how-to-run">How to run<a class="headerlink" href="#how-to-run" title="Permanent link"></a></h4>
+<p>Keep in mind the limitations above!</p>
+<ul>
+<li>go get github.com/shamatar/go-snarks</li>
+<li>cd $GOPATH/src/github/shamatar/go-snarks</li>
+<li>go run -v ./main.go</li>
+<li>open your browser at http://127.0.0.1:8080/public/index.html</li>
+<li>place the ships. Right now limits are hardcoded - 4 ships 1x1, 3 ships 1x2, 2 ships 1x3, 1 ship 1x4</li>
+<li>if you made a mistake - reload a page</li>
+<li>if you have placed ships properly (in the right amounts and without adjustency) - click a "submit" button to send the position to the backend to make a proof of the correct positioning</li>
+<li>if you did make a mistake - you will see an error in a window below</li>
+<li>if your position was correct you will see a quasi-serialized proof. You can either click "verify" to verify it at the backend, or change one of the big numbers (not zeroes!) there and click "verify" and get a negative result - you have corrupted a proof and it's not longer valid</li>
+<li>right now commitment to the position is not produced, just the position in verified</li>
+</ul>
+<p>That's all for now</p>
+<h4 id="intended-functionality">Intended functionality<a class="headerlink" href="#intended-functionality" title="Permanent link"></a></h4>
+<p>[x] zkSNARK that proves the correctness of position
+[ ] produce a salted commitment to position (used further as a public input)
+[x] create a smart-contract for players to start a game
+[ ] make a zkSNARK for a state updates, that checks turns one by one
+[ ] check whos turn it is now
+[ ] check the signature of the current player (for shooting)
+[ ] check that position under the commitment is correct
+[ ] if there is a "hit" - update the corresponding score
+[ ] keep the history of shots and don't allow duplicates
+[ ] update the scores
+[ ] have a win condition
+[ ] bring further state updates to Plasma
+[ ] implement fraud proofs
+Much work to do!</p>
+<h4 id="authors-team">Authors (team)<a class="headerlink" href="#authors-team" title="Permanent link"></a></h4>
+<p>Alex Vlasov, shamatar</p>
+<p>Konstantin Panarin, Konstantce</p>
+<p>Artem Vorobyev, artall64</p>
+<h4 id="try-it-out">Try It Out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="https://github.com/shamatar/go-snarks">GitHub Repo</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The Game of Snarks</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-game-of-snarks/b5c16a6c2b754ed08f25210c4983bc31/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmYXVALR2WpMjNr3wnNrJbcuAWkCNNtSZUsD7NkkLF8bvx</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gorli-testnet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gorli-testnet/" class="btn btn-xs btn-link">
+        Gorli Testnet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../myens-wallet/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../myens-wallet/" class="btn btn-xs btn-link">
+        MyENS Wallet
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/the-game-of-snarks.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

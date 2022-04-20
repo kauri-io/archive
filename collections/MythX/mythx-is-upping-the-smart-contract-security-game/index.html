@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/MythX/mythx-is-upping-the-smart-contract-security-game/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>MythX is Upping the Smart Contract Security Game - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "MythX is Upping the Smart Contract Security Game", url: "#_top", children: [
+              {title: "Smart Contract Security 2.0", url: "#smart-contract-security-20" },
+              {title: "MythX Tools Marketplace", url: "#mythx-tools-marketplace" },
+              {title: "Third-Party Integration", url: "#third-party-integration" },
+              {title: "Become Active in the Mythril Community", url: "#become-active-in-the-mythril-community" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="mythx-is-upping-the-smart-contract-security-game">MythX is Upping the Smart Contract Security Game<a class="headerlink" href="#mythx-is-upping-the-smart-contract-security-game" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY1nU5qRqkk2yywgY4cxZT8DdUbFQVHAGRMXUdEBjPPNn" /></p>
+<p>Ethereum is in a dire situation. No, I’m not talking about the price of ETH. I’m talking about the prevalence of high-profile hacks that are harming trust towards decentralized applications and 
+<a href="https://medium.com/@jimmysong/the-truth-about-smart-contracts-ae825271811f">providing talking points for Bitcoin maximalists</a>
+ and blockchain skeptics. What’s especially frustrating is that most, if not all, of the recent hacks that have impeded the growth of the Ethereum ecosystem could have been prevented.</p>
+<p>Security analyzers like 
+<a href="https://github.com/ConsenSys/mythril-classic">Mythril Classic</a>
+ — 
+<a href="https://hackernoon.com/scanning-ethereum-smart-contracts-for-vulnerabilities-b5caefd995df">an open-source tool for bug hunting in smart contracts</a>
+ — could have detected 
+<a href="https://techcrunch.com/2018/04/25/overflow-error-shuts-down-token-trading/">batchOverflow</a>
+ , the Rubixi vulnerability, and the 
+<a href="https://github.com/paritytech/parity-ethereum/issues/6995">Parity “Accidental Suicide” bug</a>
+ . If only the developers had run a free tool on their code, a whole lot of pain would have been prevented.
+Let’s be honest: Existing smart contract security tools aren’t optimal for developers. They’re difficult to install, use and keep updated and don’t integrate well with development environments and build pipelines. False positive rates are high, and the reported results are only comprehensible to security experts. Techniques such as symbolic execution and input fuzzing are resource-intensive, resulting in long analysis times and further reducing usability.</p>
+<p>The Mythril team and community are attempting to solve this problem. We’re creating an ecosystem of tools that bring advanced security analysis into development environments and build pipelines everywhere. Whether you’re using Truffle on a Mac, Sublime Text on Linux, Visual Studio Code, emacs, CircleCI, or any combination of the above, you’ll soon have a turnkey solution that will allow you to verify smart contracts using the most advanced analysis engine on the market. Our mission is to raise the baseline security level of all smart contracts deployed on the Ethereum blockchain.</p>
+<p>This project has been under wraps for a long time, and I’m super excited to finally write about it. In this article, I’ll give a brief high-level overview of the system. Detailed articles about different aspects of the project will follow.</p>
+<h3 id="smart-contract-security-20">Smart Contract Security 2.0<a class="headerlink" href="#smart-contract-security-20" title="Permanent link"></a></h3>
+<p>MythX was developed by the team who built 
+<a href="https://github.com/ConsenSys/mythril">Mythril</a>
+ (now named “Mythril Classic”), a popular smart contract analyzer. With a total of 300,000+ downloads from the official Dockerhub and Pypi repositories, Mythril Classic is widely used by developers and 
+<a href="https://consensys.net/diligence/">auditors throughout the Ethereum ecosystem</a>
+ .
+Unbeknownst to the public, our team has spent the last six months cooking up the next generation of analyzers, including:</p>
+<ul>
+<li><strong>Harvey</strong> , a dynamic analyzer and input fuzzer developed by <a href="http://www.wuestholz.com">Valentin Wüstholz</a> ;</li>
+<li><strong>Maru</strong> , a static code analyzer and linter developed by a team around <a href="https://www.linkedin.com/in/gerhard-wagner-04852b31/">Gerhard Wagner</a> ;</li>
+<li><strong>Mythril++</strong> , an improved version of the Mythril symbolic analyzer built by <a href="http://about.joranhonig.nl">Joran Honig</a> , <a href="https://www.linkedin.com/in/nikhil-parasaram-1956b5134/">Nikhil Parasaram</a> and others.
+We’re also building composite analysis tech that orchestrates the various components. For example, static analysis informs symbolic analysis, and the result of both are used to configure dynamic analysis. This allows us to produce highly accurate results with a minimum of false positives. The result is far beyond what any standalone tool on the market can deliver.</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPUn1Yp5PLSDFH7D7ZpUBvFUJi6EJqrLZUR8LWyGSwoav" /></p>
+<p>All of this will be packaged into a SaaS solution called 
+<a href="https://mythx.io">MythX</a>
+ . The service will be free for casual use, but professional users will require licenses to unlock the full functionality (more on this below).
+Mythril Classic will remain available under a MIT license and we’ll continue maintaining it. Anyone is free to use it however they like, including for commercial purposes.</p>
+<h3 id="mythx-tools-marketplace">MythX Tools Marketplace<a class="headerlink" href="#mythx-tools-marketplace" title="Permanent link"></a></h3>
+<p>Having the best security analysis tech is great. Unfortunately, if it comes in the form of a slow and clunky command line tool, only security enthusiasts will use it. Ethereum devs in the real world don’t have time to mess around with this stuff.
+We can’t possibly account for the individual preferences of every Ethereum developer. Therefore, we’re enabling our community and partners to build a whole ecosystem of security tools on top of our platform. These tools will be available in package managers, app stores, and products everywhere. MythX tool developers will earn a share of the revenue generated through the use of their tools. To make this happen, we’re working closely with partners like 
+<a href="https://gitcoin.co">Gitcoin</a>
+ , 
+<a href="https://www.topcoder.com">TopCoder</a>
+ and 
+<a href="https://maddevs.io">MadDevs</a>
+ .
+We’re currently running a closed alpha of the API and the community has already come up with some cool prototypes. Join our 
+<a href="https://discord.gg/kktn8Wt">Discord server</a>
+ for updates.</p>
+<h3 id="third-party-integration">Third-Party Integration<a class="headerlink" href="#third-party-integration" title="Permanent link"></a></h3>
+<p>Besides building a tools marketplace, we’re also 
+<a href="https://media.consensys.net/powered-by-mythril-introducing-the-mythril-partner-program-8acbca470503">signing up partners</a>
+ that want to use the MythX stack in their own products and services. For example, MythX technology will be integrated into the 
+<a href="https://quantstamp.com">Quantstamp</a>
+ protocol. By leveraging Quantstamp’s distributed computing infrastructure, we‘ll enable “deep” security verification that wouldn’t be possible on a standalone system.</p>
+<h3 id="become-active-in-the-mythril-community">Become Active in the Mythril Community<a class="headerlink" href="#become-active-in-the-mythril-community" title="Permanent link"></a></h3>
+<p>Whether you have an idea for a MythX tool, have developed a novel analysis technique, or want add value to the project in some other way, now is the best time to get involved.
+The best way to get in contact is to ping the team on 
+<a href="https://discord.gg/kktn8Wt">Discord</a>
+ . There are also a whole lot of 
+<a href="https://mythril.ai/faq-partners">partner programs</a>
+ that companies can apply for. Check out the FAQ section on our 
+<a href="https://mythril.ai">website</a>
+ and the 
+<a href="https://mythril.ai/files/whitepaper.pdf">whitepaper</a>
+ for more information.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> MythX is Upping the Smart Contract Security Game</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/mythx-is-upping-the-smart-contract-security-game/b9057f45fcf247a586eaebee612568ec/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-04</li>
+<li><strong>Kauri original tags:</strong> mythril, security, dilligence, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmYhwunizUSVBixthrj23nw1dKuqvaMaxXkiRAYhnBxxKN</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../finding-vulnerabilities-in-smart-contracts/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../finding-vulnerabilities-in-smart-contracts/" class="btn btn-xs btn-link">
+        Finding Vulnerabilities in Smart Contracts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../auditing-the-0x-protocol-v2-with-consensys-dilige/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../auditing-the-0x-protocol-v2-with-consensys-dilige/" class="btn btn-xs btn-link">
+        Auditing the 0x Protocol v2 with ConsenSys Diligence
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/MythX/mythx-is-upping-the-smart-contract-security-game.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-par/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages", url: "#_top", children: [
+              {title: "The EVM and High-Level Smart Contract Programming Languages", url: "#the-evm-and-high-level-smart-contract-programming-languages" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="a-deep-dive-into-the-ethereum-virtual-machine-part-4-the-evm-and-high-level-programming-languages">A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages<a class="headerlink" href="#a-deep-dive-into-the-ethereum-virtual-machine-part-4-the-evm-and-high-level-programming-languages" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUMhcFK1M1iCoT5cuFc77xBkouQis2kkQ4HoWmDvZhPLN" /></p>
+<h2 id="the-evm-and-high-level-smart-contract-programming-languages">The EVM and High-Level Smart Contract Programming Languages<a class="headerlink" href="#the-evm-and-high-level-smart-contract-programming-languages" title="Permanent link"></a></h2>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>The Ethereum platform offers the power of a peer to peer, secured, decentralized virtual computer that can execute smart contracts to perform a vast array of tasks.  A smart contract is the same as a program that runs on any standard PC instance.  The use cases for which smart contracts have been created range from very simple to extremely complex.  Underneath those cute crypto-kitties or that defi lending platform is a symphony of digital logic, instructions, data manipulation, and interaction between other smart contracts or users.  This article explores the different programming languages that are used to create smart contracts on the Ethereum Virtual Machine.  An analysis of the machine code mechanism in the EVM as it relates to higher-level languages is explored.  The current limitations of these languages in terms of usability, functionality, and security are assessed.  Finally, the potential road map of expanding the functionality and user-friendliness of EVM programming languages will wrap up the four article series: A Deep Dive into the EVM.</p>
+<h3 id="ethereum-virtual-machine-logical-features">Ethereum Virtual Machine Logical Features<a class="headerlink" href="#ethereum-virtual-machine-logical-features" title="Permanent link"></a></h3>
+<p>The Ethereum Virtual Machine is a powerful and isolated computing environment that keeps records eternally for all to see. Smart contracts are the "app", ".exe", "executable", ".dmg" equivalent in the Ethereum Virtual Machine (EVM).  Before introducing the languages themselves, it is important to look at the logical features that can be built or accessed in the EVM.  These complex digital characteristics elevate the computing power of the EVM to a "high-level":</p>
+<ul>
+<li>Predefined function libraries </li>
+<li>Function constructors and destructors</li>
+<li>Function overrides </li>
+<li>High-level logic</li>
+<li>Looping and recursion </li>
+<li>Full range of expressions for logical and mathematical arguments</li>
+<li>Control structures</li>
+<li>More than one variable can pass in and out of a function </li>
+<li>User ability to define custom functions </li>
+<li>Inheritance</li>
+<li>Polymorphism </li>
+<li>Sandboxing </li>
+<li>Two-way interaction with other smart contracts </li>
+</ul>
+<p>There are, however, fundamental flaws in the implementation of these features.  The EVM execution model leaves some things out of the built-in software architecture, leaving it up to the language implementer to create and include:</p>
+<ul>
+<li>True library support, instead of just blessed CALL targets at well-known addresses</li>
+<li>Richer data types</li>
+<li>Direct support and enforcement of interfaces/APIs</li>
+</ul>
+<p>The demand put on smart contract developers to build these crucial high-level components into a contract versus a library creates a security risk.  Re-duplicated effort and additional modules expose the smart contract to the possibility of security vulnerabilities and bugs.</p>
+<h3 id="solidity">Solidity<a class="headerlink" href="#solidity" title="Permanent link"></a></h3>
+<p>Created in 2014, this language features human-readable nomenclature for easier code writing.  An example smart contract in Solidity looks like this:</p>
+<pre><code>
+pragma solidity &gt;=0.5.0 &lt;0.7.0;
+
+contract Coin {
+    // The keyword &quot;public&quot; makes variables
+    // accessible from other contracts
+    address public minter;
+    mapping (address =&gt; uint) public balances;
+
+    // Events allow clients to react to specific
+    // contract changes you declare
+    event Sent(address from, address to, uint amount);
+
+    // Constructor code is only run when the contract
+    // is created
+    constructor() public {
+        minter = msg.sender;
+    }
+
+    // Sends an amount of newly created coins to an address
+    // Can only be called by the contract creator
+    function mint(address receiver, uint amount) public {
+        require(msg.sender == minter);
+        require(amount &lt; 1e60);
+        balances[receiver] += amount;
+    }
+
+    // Sends an amount of existing coins
+    // from any caller to an address
+    function send(address receiver, uint amount) public {
+        require(amount &lt;= balances[msg.sender], &quot;Insufficient balance.&quot;);
+        balances[msg.sender] -= amount;
+        balances[receiver] += amount;
+        emit Sent(msg.sender, receiver, amount);
+    }
+}
+</code></pre>
+<p>Solidity is an object-oriented programming language.  There have been some serious flaws in Solidity that have lead to a severe loss of assets and time.  The language allows recursion and looping such that a GAS payment to send a transaction can be depleted.  Solidity is blamed for the 2016 DAO hack costing millions of US Dollars.  Investigators stated that the EVM was running as intended when these exploits were utilized, but Solidity lacked the functionality to fully utilize the EVM security schema.</p>
+<p>Solidity, when compiled, is turned into bytecode.  This long chain of hexadecimal digits becomes the machine code of the EVM.  The way it compiles from high-level language directly to machine code without any kind of application wrapper presents security risks and exposes the smart contract at the deepest possible level.  This removes the abstraction layer that exists between the language and the hardware.  In so doing, it exposes an attack vector for manipulating a smart contract in a nefarious way.</p>
+<h3 id="vyper">Vyper<a class="headerlink" href="#vyper" title="Permanent link"></a></h3>
+<p>Vyper is essentially the "only other" choice in high-level programming language library of smart contracts.  Vyper is a language that is based on Python, therefore, easier for experienced developers to use.  Another advantage of being derived from Python is the lower amount of development time and the inclusion of better features and more security.  The additional security does come at a cost.  There are logic functionalities that are prohibited in Vyper, due to the exploitation experienced in Solidity.  This is an example of a smart contract written with Vyper:</p>
+<pre><code>
+// Open Auction
+
+// Auction params
+//Beneficiary receives money from the highest bidder
+beneficiary: public(address)
+auctionStart: public(timestamp)
+auctionEnd: public(timestamp)
+
+// urrent state of auction
+highestBidder: public(address)
+highestBid: public(wei_value)
+
+// Set to true at the end, disallows any change
+ended: public(bool)
+
+// Keep track of refunded bids so we can follow the withdraw pattern
+pendingReturns: public(map(address, wei_value))
+
+// Create a simple auction with `_bidding_time`
+// seconds bidding time on behalf of the
+// beneficiary address `_beneficiary`.
+@public
+def __init__(_beneficiary: address, _bidding_time: timedelta):
+    self.beneficiary = _beneficiary
+    self.auctionStart = block.timestamp
+    self.auctionEnd = self.auctionStart + _bidding_time
+
+/* Bid on the auction with the value sent
+together with this transaction.
+The value will only be refunded if the
+auction is not won. */
+@public
+@payable
+def bid():
+    // Check if bidding period is over.
+    assert block.timestamp &lt; self.auctionEnd
+    // Check if bid is high enough
+    assert msg.value &gt; self.highestBid
+    // Track the refund for the previous high bidder
+    self.pendingReturns[self.highestBidder] += self.highestBid
+    // Track new high bid
+    self.highestBidder = msg.sender
+    self.highestBid = msg.value
+
+/* Withdraw a previously refunded bid. The withdraw pattern is
+used here to avoid a security issue. If refunds were directly
+sent as part of bid(), a malicious bidding contract could block
+those refunds and thus block new higher bids from coming in. */
+@public
+def withdraw():
+    pending_amount: wei_value = self.pendingReturns[msg.sender]
+    self.pendingReturns[msg.sender] = 0
+    send(msg.sender, pending_amount)
+
+// End the auction and send the highest bid
+// to the beneficiary.
+@public
+def endAuction():
+    /* It is a good guideline to structure functions that interact
+    with other contracts (i.e. they call functions or send Ether)
+    into three phases:
+    1. checking conditions
+    2. performing actions (potentially changing conditions)
+    3. interacting with other contracts
+    If these phases are mixed up, the other contract could call
+    back into the current contract and modify the state or cause
+    effects (Ether payout) to be performed multiple times.
+    If functions called internally include interaction with external
+    contracts, they also have to be considered interaction with
+    external contracts. */
+
+    // 1. Conditions
+    // Check if auction endtime has been reached
+    assert block.timestamp &gt;= self.auctionEnd
+    // Check if this function has already been called
+    assert not self.ended
+
+    // 2. Effects
+    self.ended = True
+
+    // 3. Interaction
+    send(self.beneficiary, self.highestBid)
+
+</code></pre>
+<p>A control loop cannot iterate infinitely, as this was the method for exhausting GAS in transactions.  Infinite looping will throw a compiler exception.  Messages cannot be accessed inside of private functions, and so on.  This link leads to the full Vyper documentation stack, including <a href="https://vyper.readthedocs.io/en/latest/compiler-exceptions.html">Compiler Exceptions</a>.</p>
+<h3 id="k-framework-kevm-and-semantics">K Framework, KEVM, and Semantics<a class="headerlink" href="#k-framework-kevm-and-semantics" title="Permanent link"></a></h3>
+<p>Smart contract implementation creates a unique combination of security concerns.  Consider these factors about the decentralized nature of smart contracts:</p>
+<ul>
+<li>
+<p>They are designed to store cryptocurrency, which when stolen can be transferred irreversibly, can be
+difficult to trace, and can be laundered effectively.</p>
+</li>
+<li>
+<p>The quantity of the money stored in these contracts tends to be high, with contracts often storing in
+excess of 100M US, a strong attack incentive.</p>
+</li>
+<li>
+<p>All contract code is stored publicly on the blockchain, allowing attackers to probe the
+system with full knowledge and test a range of attacks.</p>
+</li>
+<li>
+<p>The Ethereum environment is adversarial, with all actors, from the miners involved in processing transactions, to nodes involved in relaying, are assumed to be potentially malicious. </p>
+</li>
+</ul>
+<p>These features that entice hackers, in combination with a lack of software quality tools, create an extreme security risk that must be at the forefront of all consideration when writing smart contracts.  KEVM is a smart contract analysis tool built out of the K framework designed to analyze the security and performance of smart contracts.  K Framework takes components of the machine code programming language and lays out a logical semantic structure.  The foundation of K is Reach-ability Logic, a logic for reasoning symbolically about potentially infinite transition systems.  Three tiers of logical evaluation exist for smart contracts:  </p>
+<ul>
+<li>
+<p>data.k - Data representations and their associated data structures used in the low-level EVM client code,
+and their definition in terms of K-native data structures.</p>
+</li>
+<li>
+<p>evm.k - Formalization of the EVM semantics in K, including execution semantics of the various opcodes,
+world and network state, gas semantics, and various errors that can occur during execution.</p>
+</li>
+<li>
+<p>ethereum.k - Extra execution environment/drivers that run EVM code, with a mode to parse the JSON
+test-files used to test reference EVM implementations.</p>
+</li>
+</ul>
+<p>For further technical details, the academic research article on KEVM and EVM Semantics can be accessed in the resources section below: KEVM: A Complete Semantics of the Ethereum Virtual Machine.</p>
+<p>The challenge that KEVM tries to overcome is turning bytecode into usable language for developers in the structure of a programming language.  Bytecode is not intuitive in any way of making a vocabulary for building functions, data structures, and control mechanisms.  KEVM via the K Framework lays out a vernacular that is consistent, human-readable, and intuitive for writing smart contracts.  Furthermore, this particular vernacular is how smart contract performance is analyzed.  This includes security and efficient use of resources.</p>
+<h3 id="iele">IELE<a class="headerlink" href="#iele" title="Permanent link"></a></h3>
+<p>IELE is a smart contract programming language, developed in the wake of KEVM creation.  Building KEVM exposed many limitations of the current smart contract language schema.  IELE has various high-level features, such as
+function calls/returns, static jumps, arbitrary-precision integer arithmetic among others, that both
+make automatic formal verification more straight-forward and the language itself more secure.</p>
+<p>Five high-level properties are the core that created IELE: </p>
+<ul>
+<li>Security</li>
+<li>Formal Verification</li>
+<li>Human Readable</li>
+<li>Determinism</li>
+<li>GAS Model</li>
+</ul>
+<p>Moreover, IELE is cross-blockchain compatible.  It can be used in conjunction with a wide array of token, coin, and data.  For further information read IELE: An Intermediate-Level Blockchain Language Designed
+and Implemented Using Formal Semantics; listed in the reference section.</p>
+<p>IELE was officially introduced in scholarly journal articles mid-2018, it is relatively new.  Efforts in creating and implementing IELE as a mainstream blockchain smart contract language are not known at this time.</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>The Ethereum Virtual Machine is an extraordinary and practical creation that brings about solutions to a wide variety of use cases.  In so doing, a unique set of characteristics has laid out a rigorous set of obstacles for ensuring security, efficiency, and usability.  While a good portion of the learning curve in the language development of the EVM happened after a serious loss or incident occurred, progress is getting ahead of the cybercriminals.  Tools are being developed for smart contract QA and analysis.  Languages are being evaluated and scrutinize like never before.  New ways of closing security gaps and including data abstraction are being tested and implemented.</p>
+<p>The nature of the EVM and how it is built on a blockchain present a host of benefits and an equal amount of new security considerations that have not been native to software development until now.  It will be exciting to see where technology takes a creation like the EVM and builds upon the design flaws to create efficient, powerful, secure virtual computing environments.  </p>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p><a href="https://techcoins.net/ethereum-virtual-machine/">What is the Ethereum Virtual Machine?</a></p>
+</li>
+<li>
+<p><a href="https://solidity.readthedocs.io/en/develop/index.html">Solidity</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vyperlang/vyper">Vyper</a></p>
+</li>
+<li>
+<p><a href="https://blockgeeks.com/guides/solidity/">How to Learn Solidity:  The Ultimate Ethereum Coding Tutorial</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Solidity">Solidity</a></p>
+</li>
+<li>
+<p><a href="https://hackernoon.com/the-evm-is-fundamentally-unsafe-d69f2e3b908b">The EVM is Fundamentally Unsafe</a></p>
+</li>
+<li>
+<p><a href="https://vyper.readthedocs.io/en/latest/compiling-a-contract.html">Vyper Smart Contract Programming Language Documentation</a></p>
+</li>
+<li>
+<p><a href="https://www.ideals.illinois.edu/bitstream/handle/2142/97207/hildenbrandt-saxena-zhu-rodrigues-guth-daian-rosu-2017-tr_0818.pdf?sequence=3&amp;isAllowed=y">KEVM: A Complete Semantics of the Ethereum Virtual Machine</a></p>
+</li>
+<li>
+<p><a href="https://www.ideals.illinois.edu/bitstream/handle/2142/100319/paper.pdf?sequence=2&amp;isAllowed=y">IELE: An Intermediate-Level Blockchain Language Designed
+and Implemented Using Formal Semantics</a></p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-deep-dive-into-the-ethereum-virtual-machine-part/7a04c82396fd416892e07db4915eb233/a</li>
+<li><strong>Kauri original author:</strong> Adrian Hacker (@adrian-h)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-17</li>
+<li><strong>Kauri original tags:</strong> bytecode, languages, execution-model, evm, ethereum-virtual-machine</li>
+<li><strong>Kauri original hash:</strong> QmRGEyz8vPwBgpVoGskB17VYrPosERLfbY6JkUAuDTpDsg</li>
+<li><strong>Kauri original checkpoint:</strong> QmZdtBB4fpmwj59DYo9qNeuTBKYDHwcKWapbYa5WAtrFdn</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2818%29-build-your-very-own-self-hosting-platform-wi/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2818%29-build-your-very-own-self-hosting-platform-wi/" class="btn btn-xs btn-link">
+        (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../a-deep-dive-into-the-ethereum-virtual-machine-%28ev/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../a-deep-dive-into-the-ethereum-virtual-machine-%28ev/" class="btn btn-xs btn-link">
+        A Deep Dive into the Ethereum Virtual Machine (EVM) - Part 3  Execution Model of the EVM
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Deep Dive Into The Ethereum Virtual Machine (EVM) Series/a-deep-dive-into-the-ethereum-virtual-machine-par.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

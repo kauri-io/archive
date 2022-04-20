@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/deploying-a-full-stack-dapp-to-microsoft-azure/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Deploying a full-stack dapp to Microsoft Azure - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Deploying a full-stack dapp to Microsoft Azure", url: "#_top", children: [
+              {title: "Deploy Blockchain Workbench", url: "#deploy-blockchain-workbench" },
+              {title: "Deploy Blockchain applications", url: "#deploy-blockchain-applications" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="deploying-a-full-stack-dapp-to-microsoft-azure">Deploying a full-stack dapp to Microsoft Azure<a class="headerlink" href="#deploying-a-full-stack-dapp-to-microsoft-azure" title="Permanent link"></a></h1>
+<p>In the previous <a href="https://kauri.io/collection/5b8e401ee727370001c942e3">tutorials in this series</a> we saw how to develop a full-stack blockchain dapp. In this tutorial, we learn how to deploy a dapp using <a href="https://azure.microsoft.com/en-us/features/blockchain-workbench/">Microsoft Workbench Blockchain</a>.</p>
+<h3 id="deploy-blockchain-workbench">Deploy Blockchain Workbench<a class="headerlink" href="#deploy-blockchain-workbench" title="Permanent link"></a></h3>
+<p>Blockchain Workbench allows you to deploy a blockchain ledger along with a set of Azure services used to build a dapp. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.</p>
+<p>The following steps highlight on how to deploy blockchain workbench:</p>
+<ol>
+<li>Sign in to the <a href="https://portal.azure.com/">Azure portal</a>. If you don't have an account, create one and select a suitable service/subscription plan. You can try the "free plan" for 30 days to test the waters.</li>
+<li>In the left pane, select <strong>Create a resource</strong>. Search for <code>Azure Blockchain Workbench</code> in the <strong>Search the Marketplace</strong> search bar. Select <strong>Azure Blockchain Workbench</strong> and then <strong>Create</strong></li>
+<li>Complete the basic settings and click <strong>OK</strong>, the wizard offers help text on each setting.</li>
+<li>In <strong>Advanced Settings</strong>, choose if you want to create a new blockchain network or use an existing blockchain network. To create a new blockchain network, select <strong>Create New</strong> option under <em>Blockchain Network</em> and then choose the <em>Azure Blockchain Service Pricing Tier</em> and <em>Azure Active Directory Settings</em>. To use an existing blockchain network, select <strong>Use Existing</strong> under <em>Blockchain Network</em> and set the <em>Ethereum RPC Endpoint</em>. Then choose <em>Azure Active Directory Settings</em> and change the <em>VM Selection</em> options if you need to. Click <strong>OK</strong> to finish the Advanced Settings.</li>
+<li>Check your settings are correct and click <strong>OK</strong> to deploy your Azure Blockchain Workbench.</li>
+</ol>
+<p>Once the deployment of the Blockchain Workbench has completed (which can take around 90 minutes), it creates a new <em>resource group</em> with your Blockchain Workbench resources. You access Blockchain Workbench services through a web URL.</p>
+<p>The following steps show you how to retrieve the web URL of the deployed framework:</p>
+<ol>
+<li>In the left-hand navigation pane, select <strong>Resource groups</strong></li>
+<li>Choose the resource group name you specified when deploying Blockchain Workbench.</li>
+<li>Select the <strong>TYPE</strong> column heading to sort the list alphabetically by type.</li>
+<li>There are two resources with type <strong>App Service</strong>. Select the resource of type <strong>App Service</strong> <em>without</em> the "-api" suffix.</li>
+<li>In the App Service overview screen, copy the <strong>URL</strong> value, which represents the web URL to your deployed Blockchain Workbench.</li>
+</ol>
+<h4 id="azure-active-directory-ad-configuration">Azure Active Directory (AD) configuration<a class="headerlink" href="#azure-active-directory-ad-configuration" title="Permanent link"></a></h4>
+<p>Azure Blockchain Workbench requires Azure AD configuration and application registration. You can choose to do the Azure AD <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/deploy#azure-ad-configuration">configurations manually</a> before deployment or run a script post-deployment. If you are redeploying Blockchain Workbench, read <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/deploy#azure-ad-configuration">Azure AD configuration</a> to verify your Azure AD configuration.</p>
+<h3 id="deploy-blockchain-applications">Deploy Blockchain applications<a class="headerlink" href="#deploy-blockchain-applications" title="Permanent link"></a></h3>
+<p>To create a blockchain dapp read the previous <a href="https://kauri.io/collection/5b8e401ee727370001c942e3">tutorials in this series</a> on how to create a full-stack dapp.</p>
+<p>Deploying the dapp to Azure needs a JSON configuration file to represent the workflow, application roles and interaction with the blockchain application. View a sample configuration file <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/create-app#configuration-file">here</a> and find more documentation <a href="https://docs.microsoft.com/en-us/azure/blockchain/workbench/configuration">here</a>.</p>
+<p>To create a new contract, you need to be a member specified as a contract <strong>initiator</strong>. For information defining application roles and initiators for the contract, see <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/configuration#workflows">workflows in the configuration overview</a>. For information on assigning members to application roles, see <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/manage-users#add-member-to-application">add a member to application</a>.</p>
+<p>To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.</p>
+<ol>
+<li>In a web browser, navigate to the Blockchain Workbench web address which is in the format <code>https://{workbench URL}.azurewebsites.net/</code>.</li>
+<li>Sign in as a <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/manage-users#manage-blockchain-workbench-administrators">Blockchain Workbench administrator</a> to assign roles to users.</li>
+<li>Select <strong>Applications</strong> &gt; <strong>New</strong>, which displays the <strong>New application</strong> pane.</li>
+<li>Select <strong>Upload the contract configuration</strong> &gt; <strong>Browse</strong> to locate the configuration file you created. The configuration file is automatically validated. Select the <strong>Show</strong> link to display validation errors. Fix validation errors before you deploy the application. Repeat the same for smart contract code file by selecting <strong>Upload the contract code</strong> &gt; <strong>Browse</strong> to locate the smart contract code file.</li>
+<li>Click <strong>Deploy</strong> to create the blockchain application based on the configuration and smart contract files.</li>
+</ol>
+<p>Deployment of the blockchain application takes a few minutes. When the deployment is finished, it displays the new application in <strong>Applications</strong>.</p>
+<h4 id="modifying-a-smart-contract">Modifying a smart contract<a class="headerlink" href="#modifying-a-smart-contract" title="Permanent link"></a></h4>
+<p>Depending on the state the contract is in, members can take actions to transition to the next state of the contract. Actions are defined as <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/configuration#transitions">transitions</a> within a <a href="https://docs.microsoft.com/en-gb/azure/blockchain/workbench/configuration#states">state</a>. Members belonging to an allowed application or instance role for the transition can take action.</p>
+<ol>
+<li>In the Blockchain Workbench application section, select the application tile that contains the contract to take action.</li>
+<li>Select the contract in the list, and this displays details about the contract in different sections.</li>
+<li>In the <strong>Action</strong> section, select <strong>Take action</strong>.</li>
+<li>This displays the details about the current state of the contract in a pane. Choose the action you want to take in the drop-down.</li>
+<li>Select <strong>Take action</strong> to initiate the action.</li>
+<li>If the action requires parameters, specify the values for the action.</li>
+<li>Select <strong>Take action</strong> to execute the action.</li>
+</ol>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>With active directory support and the permissions it brings, Azure's blockchain support aims itself at enterprise users looking to use Blockchain in their businesses. It offers graphical management of contracts and actions upon them, and a way to update and deploy them, again with permissions to determine who can take these actions. Its setup is not for the faint-hearted, but <a href="https://account.azure.com/signup?offer=ms-azr-0044p&amp;appId=102&amp;ref=azureplat-generic&amp;redirectURL=https%3a%2f%2fazure.microsoft.com%2fen-gb%2fget-started%2fwelcome-to-azure%2f&amp;l=en-gb&amp;correlationId=06AC26C311DF6D6E0E532B7010B46CF4">sign up for a free trial</a> to see if it suits your use-case.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Deploying a full-stack dapp to Microsoft Azure</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/deploying-a-fullstack-dapp-to-microsoft-azure/d37518870cba4caeab6a95624254a6b8/a</li>
+<li><strong>Kauri original author:</strong> Sri Sanketh Uppalapati (@srisankethu)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-16</li>
+<li><strong>Kauri original tags:</strong> dapp, blockchain, microsoft, azure</li>
+<li><strong>Kauri original hash:</strong> QmZADMyymaP9dZstE6NNMHjQEGL16y4oSX4Vw7sq2KD2fS</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deploying-your-dapp-frontend-to-heroku/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deploying-your-dapp-frontend-to-heroku/" class="btn btn-xs btn-link">
+        Deploying Your dApp Frontend to Heroku
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../populus--testing-your-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../populus--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Populus  Testing your smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/deploying-a-full-stack-dapp-to-microsoft-azure.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

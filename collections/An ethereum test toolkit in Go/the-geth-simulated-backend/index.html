@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/An%20ethereum%20test%20toolkit%20in%20Go/the-geth-simulated-backend/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The GETH Simulated Backend - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The GETH Simulated Backend", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-geth-simulated-backend">The GETH Simulated Backend<a class="headerlink" href="#the-geth-simulated-backend" title="Permanent link"></a></h1>
+<p>I am in the process of releasing my very "hacky" golang test environment that deep links into the go-ethereum  code base.</p>
+<p>I first developed it in 2017 to test the HelloGold GOLDX token which required simulating up to 20 years of admin fees and monthly reward allocations. </p>
+<p>I am creating a series of really small easy to understand posts that both explain what I have done as well as force me to rewrite everything from the old chaotic hack to what is hopefully a far cleaner (but still hacky) version.</p>
+<p>The single main component that makes the testing environment possible is the Simulated Backend built into the GETH source libraries. The simulated backend is a GETH Ethereum Virtual Machine that you can initialise, submit transactions to, seal blocks and, in fact, treat as if it were a private blockchain node.</p>
+<p>So let's start with an insanely simple example - creating a simulated blockchain with a single account holding a specific amount of ether. I usually use a function called getClient to connect to whatever backend I am using.</p>
+<p>To understand this </p>
+<ul>
+<li>we use <code>getAddress</code> from my memorykeys library that returns an address tied to a role. [1][2]</li>
+<li>we use <code>StrToEther</code> from my etherUtils library to return a big Int value representing the ether value a string[3]</li>
+</ul>
+<pre><code>var baseClient *backends.SimulatedBackend
+
+func getClient() (client *backends.SimulatedBackend, err error) {
+    if baseClient != nil {
+        return baseClient, nil
+    }
+    funds, _ := etherUtils.StrToEther(&quot;10000.0&quot;)
+    baseClient = backends.NewSimulatedBackend(core.GenesisAlloc{
+        getAddress(&quot;banker&quot;): {Balance: funds},
+    }, 8000000)
+    return baseClient, nil
+}
+</code></pre>
+<p>We now have a backend with one account (which I called the banker) with a balance of 10,000 ether</p>
+<p>you can check this with the following code</p>
+<pre><code>func main() {
+    client, err := getClient()
+    if err != nil {
+        log.Fatal(err)
+    }
+    bal, err := client.BalanceAt(context.Background(), getAddress(&quot;banker&quot;), nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(etherUtils.EtherToStr(bal))
+}
+</code></pre>
+<p>Assuming that you have added GETH, memorykeys and etherUtils , your environment should now set up the imports for you and you will see balance of 10k ether displayed</p>
+<pre><code>go run sbe.go keyUtils.go 
+10000.000000000000000000
+</code></pre>
+<p>Now that we have the simulated back end working - in the next post we will get some transactions moving</p>
+<p>Notes :</p>
+<ol>
+<li>https://github.com/DaveAppleton/memorykeys</li>
+<li>https://kauri.io/article/7a0c7497951548b8837634305e62977b/v2/generating-a-load-of-keys-for-testing-in-go</li>
+<li>https://github.com/DaveAppleton/etherUtils</li>
+</ol>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The GETH Simulated Backend</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-geth-simulated-backend/6285c9692883411aa041b6b970405a17/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-08</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, go-programming-language, testing, golang, abi, evm</li>
+<li><strong>Kauri original hash:</strong> QmUjWrv6XTYbe11Rt5krNgc1KfabftjFAmKmewVjwehc4X</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2815%29-getting-started-with-elastic-stack-for-monit/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2815%29-getting-started-with-elastic-stack-for-monit/" class="btn btn-xs btn-link">
+        (1/5) Getting started with Elastic Stack for monitoring on Kubernetes
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../generating-a-load-of-keys-for-testing-in-go/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../generating-a-load-of-keys-for-testing-in-go/" class="btn btn-xs btn-link">
+        Generating a load of keys for testing in Go
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/An ethereum test toolkit in Go/the-geth-simulated-backend.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

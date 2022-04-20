@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/plasma-group-s-plasma-spec/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Plasma Group’s Plasma Spec - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Plasma Group\u2019s Plasma Spec", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Properties of our Plasma Chain Implementation", url: "#properties-of-our-plasma-chain-implementation" },
+              {title: "Table of Contents", url: "#table-of-contents" },
+              {title: "Repos &amp; Architecture", url: "#repos-architecture" },
+              {title: "1. General Definitions and Data Structures", url: "#1-general-definitions-and-data-structures" },
+              {title: "2. Transactions over ranges of coins", url: "#2-transactions-over-ranges-of-coins" },
+              {title: "3. Block Structure Specification", url: "#3-block-structure-specification" },
+              {title: "5. Proof Structure and Checking", url: "#5-proof-structure-and-checking" },
+              {title: "4. Contract and Exit Games", url: "#4-contract-and-exit-games" },
+              {title: "6. The Future", url: "#6-the-future" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="plasma-groups-plasma-spec">Plasma Group’s Plasma Spec<a class="headerlink" href="#plasma-groups-plasma-spec" title="Permanent link"></a></h1>
+<p><em>TLDR: We created a spec for a Plasma Cash variant and implemented it in Node.js and Vyper. This document covers the design specification, providing references to the implementation along the way. Our code supports deploying a new chain to testnet, an on-chain registry of other plasma chains and their block explorers, and transacting via a command-line wallet.</em></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>The vision of a network of blockchains as a scalability solution has been spreading rapidly. A multi-chain approach for parallelizing transactions is a promising way to increasing throughput… unfortunately, it also imposes significant challenges:</p>
+<ul>
+<li>
+<p>We don’t want to divide security, e.g. 100 chains with 1% of total security each.</p>
+</li>
+<li>
+<p>Advanced solutions like sharding are promising, but not yet ready.
+We need a solution to scalability that:</p>
+</li>
+<li>
+<p>Provides similar levels of security to the Ethereum mainnet, without paying millions of dollars in mining fees.</p>
+</li>
+<li>
+<p><strong>Can be implemented on Ethereum as it exists today.</strong> 
+We believe that the strongest candidate to meet these criteria is a network of chains, each secured to mainnet via the Plasma framework.
+Plasma is a family of protocols which allow individuals to easily deploy high-throughput, secure blockchains. A smart contract on Ethereum’s main chain can ensure that users’ funds are secure, even if the “plasma chain” acts fully maliciously. This eliminates the need for a trusted pegging mechanism like that of sidechains. Plasma chains are non-custodial, allowing the prioritization of scalability without sacrificing security.
+We envision a future with many Plasma chains, giving users choice over where they transact. So, along with releasing our plasma chain implementation, we have created a 
+<code>PlasmaRegistry.vy</code>
+ . The registry allows new chains to join the network by listing their IP/DNS address, a custom “name” string, and their contract address. The registry contract does the verifies trusted deployment, so users can be assured that any contract on that registry is safe to deposit into — 
+<em>even if its operator is malicious</em>
+ .</p>
+</li>
+</ul>
+<h3 id="properties-of-our-plasma-chain-implementation">Properties of our Plasma Chain Implementation<a class="headerlink" href="#properties-of-our-plasma-chain-implementation" title="Permanent link"></a></h3>
+<p>This post specifies Plasma Group’s current protocol and implementation, which draws from recent developments within the research community.</p>
+<p><strong>Our specification has the following properties:</strong></p>
+<ul>
+<li>
+<p>Single transactions over large ranges of coins, solving the <a href="https://ethresear.ch/t/plasma-cash-was-a-transaction-format/4261">“fixed-denomination” problem</a> in Plasma Cash.</p>
+</li>
+<li>
+<p>Block size which scales with the number of transactions, not the number of deposits.</p>
+</li>
+<li>
+<p>Light client proofs which scale in the logarithm of the block size and linear in blocks since deposit, making the operator the system’s only (computational) bottleneck.</p>
+</li>
+<li>
+<p>A simplified, optimistic exit procedure that allows exits to specify only the most recent transaction, instead of <a href="https://ethresear.ch/t/plasma-cash-plasma-with-much-less-per-user-data-checking/1298">both a transaction and its parent</a> .</p>
+</li>
+<li>
+<p>Interchain atomic swaps, which lay the groundwork for decentralized exchange protocols.</p>
+</li>
+<li>
+<p>Unlimited deposit capacity.</p>
+</li>
+</ul>
+<p><strong>Our implementation follows the above specification, providing the following:</strong></p>
+<ul>
+<li>
+<p>A command line <a href="https://github.com/plasma-group/plasma-chain-operator">plasma chain operator</a> written in Javascript.</p>
+</li>
+<li>
+<p>A <a href="https://github.com/plasma-group/plasma-core">plasma client implementation</a> written in Javascript with a command-line wallet.</p>
+</li>
+<li>
+<p>A <a href="https://github.com/plasma-group/plasma-contracts">smart contract</a> supporting ETH and ERC20 tokens written in Vyper.</p>
+</li>
+<li>
+<p>An integrated JSON RPC which allows clients to download and verify <a href="https://github.com/plasma-group/plasma-node">light client proofs</a> and transact.</p>
+</li>
+<li>
+<p>A <a href="https://github.com/plasma-group/plasma-explorer">block explorer</a> hosted by the plasma operator.</p>
+</li>
+<li>
+<p>A <a href="https://github.com/plasma-group/plasma-chain-operator">simulated client swarm</a> which generates transactions to load test.</p>
+</li>
+<li>
+<p>A Plasma “registry” contract which lists a set of verified-as-safe contracts and operator IP addresses for users to explore.
+If you’re interested in checking out the protocol and the code implementation, you’ve come to the right place!</p>
+</li>
+</ul>
+<p><strong>However, a few disclaimers before we dig in:</strong></p>
+<ul>
+<li>
+<p>Our plasma implementation is beta software currently only suitable for testnet use. <strong>There are surely critical bugs at this time.</strong> </p>
+</li>
+<li>
+<p>The main difference (explained below!) between this protocol and other Plasma implementations is the block structure: a Merkle <em>sum</em> tree. This has significant benefits, but adds complexity. Plasma is already complex in comparison to sidechains.</p>
+</li>
+<li>
+<p>Code has yet to be audited or formally verified, and has not undergone any optimization.</p>
+</li>
+<li>
+<p>While the operator is the only <em>computational</em> bottleneck, the primary performance limit today remains bandwidth. Custody proofs require downloads which are linear in the number of blocks. Our code is an improvement per block, but still linear. This <a href="https://ethresear.ch/t/rsa-accumulators-for-plasma-cash-history-reduction/3739">active</a>  <a href="https://ethresear.ch/t/log-coins-sized-proofs-of-inclusion-and-exclusion-for-rsa-accumulators/3839/7">area</a> of <a href="https://ethresear.ch/t/plasma-prime-design-proposal/4222">research</a> is yet unready for implementation.</p>
+</li>
+<li>
+<p>Though our safety mechanisms and exit games are both implemented and tested, we have not yet built an automated guard service, meaning challenges and responses must be manually constructed.
+With that out of the way, let’s jump in! The rest of this post will take comprehensive dive into our spec, where the code lives, and what it does.</p>
+</li>
+</ul>
+<h3 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link"></a></h3>
+<ul>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#4d91">General Definitions and Data Structures</a> a. <a href="https://medium.com/p/9d98d0f2fccf#3d22">Coin ID Assignment</a> b. <a href="https://medium.com/p/9d98d0f2fccf#db53">Denominations</a> </p>
+</li>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#2bda">Transactions over ranges of coins</a> a. <a href="https://medium.com/p/9d98d0f2fccf#b6ad">Transfers</a> b. <a href="https://medium.com/p/9d98d0f2fccf#ae5f">Typed and Untyped Bounds</a> c. <a href="https://medium.com/p/9d98d0f2fccf#012f">Multisends and Transfer/Transaction Atomicity</a> d. <a href="https://medium.com/p/9d98d0f2fccf#6f99">Serialization</a> </p>
+</li>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#d8b0">Block Structure Specification</a> a. <a href="https://medium.com/p/9d98d0f2fccf#ac79">Sum Tree Node Specification</a> b. <a href="https://medium.com/p/9d98d0f2fccf#6122">Parent Calculation</a> c. <a href="https://medium.com/p/9d98d0f2fccf#6b7b">Calculating a Branch’s Range</a> d. <a href="https://medium.com/p/9d98d0f2fccf#c8c9">Parsing Transfers as Leaves</a> e. <a href="https://medium.com/p/9d98d0f2fccf#54db">Branch Validity and Implicit NoTx</a> f. <a href="https://medium.com/p/9d98d0f2fccf#762f">Atomic Multisends</a> </p>
+</li>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#8c86">Proof Structure and Checking</a> a. <a href="https://medium.com/p/9d98d0f2fccf#e963">Proof Format</a> b. <a href="https://medium.com/p/9d98d0f2fccf#b697">Transaction Proofs</a> c. <a href="https://medium.com/p/9d98d0f2fccf#f3a8">Transfer Proofs</a> d. <a href="https://medium.com/p/9d98d0f2fccf#eb52">Proof Steps</a> e. <a href="https://medium.com/p/9d98d0f2fccf#9862">Snapshot Objects</a> f. <a href="https://medium.com/p/9d98d0f2fccf#8056">Deposit records</a> g. <a href="https://medium.com/p/9d98d0f2fccf#239c">TransactionProof Validity</a> </p>
+</li>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#6eff">Contract and Exit Games</a> a. <a href="https://medium.com/p/9d98d0f2fccf#3b74">Keeping track of deposits and exits</a> b. <a href="https://medium.com/p/9d98d0f2fccf#bb29">Exit games’ relationship to vanilla Plasma Cash</a> c. <a href="https://medium.com/p/9d98d0f2fccf#a4d4">Blocknumber-specified transactions</a> d. <a href="https://medium.com/p/9d98d0f2fccf#a8f0">Per-coin transaction validity</a> e. <a href="https://medium.com/p/9d98d0f2fccf#600f">How the contract handles transaction checking</a> f. <a href="https://medium.com/p/9d98d0f2fccf#20c2">Challenges which immediately cancel exits</a> g. <a href="https://medium.com/p/9d98d0f2fccf#8de1">Optimistic exits and inclusion challenges</a> h. <a href="https://medium.com/p/9d98d0f2fccf#eb3a">Invalid History Challenges</a> </p>
+</li>
+<li>
+<p><a href="https://medium.com/p/9d98d0f2fccf#2078">The Future</a> a. <a href="https://medium.com/p/9d98d0f2fccf#487d">Missing pieces in implementation</a> b. <a href="https://medium.com/p/9d98d0f2fccf#c7f3">Missing pieces in the spec</a> </p>
+</li>
+</ul>
+<h3 id="repos-architecture">Repos &amp; Architecture<a class="headerlink" href="#repos-architecture" title="Permanent link"></a></h3>
+<p><a href="https://github.com/plasma-group/">Our Github</a>
+ offers all of our implementations under the MIT License:</p>
+<ul>
+<li>
+<p><code>plasma-chain-operator</code> : spin up your own plasma chain and deploy to testnet.</p>
+</li>
+<li>
+<p><code>plasma-core</code> : Core plasma client functionality —portable meat of the logic.</p>
+</li>
+<li>
+<p><code>plasma-node</code> : Node.js wrapper for <code>plasma-core</code> implementing a CLI</p>
+</li>
+<li>
+<p><code>plasma-js-lib</code> : JS helper for building web applications integrating plasma transactions.</p>
+</li>
+<li>
+<p><code>plasma-contracts</code> : The <code>PlasmaChain.vy</code> and <code>PlasmaRegistry.vy</code> Vyper contracts.</p>
+</li>
+<li>
+<p><code>plasma-explorer</code> : A block explorer hosted by the operator.</p>
+</li>
+<li>
+<p><code>plasma-utils</code> : Shared utilities for building on our plasma spec.</p>
+</li>
+<li>
+<p><code>plasma</code> : Integration testing for the above components.
+Here’s the architecture that 
+<code>plasma-core</code>
+ implements:</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVKbwL35B1Pc1d5tABZTSygmFsgkFRaqcd8xjAMmg4mUj" /></p>
+<p>Here’s the architecture that 
+<code>plasma-chain-operator</code>
+ implements:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWsoXsxmebL4DvM9q5vWq4bG4fyMpUzpdoEjSXza6nZQJ" /></p>
+<h3 id="1-general-definitions-and-data-structures">1. General Definitions and Data Structures<a class="headerlink" href="#1-general-definitions-and-data-structures" title="Permanent link"></a></h3>
+<p>This section will cover terminology and intuitions for the protocol’s components. These data structures are encoded and decoded by 
+<code>plasma-utils</code>
+ ’ library 
+<code>serialization</code>
+ . The exact byte-per-byte binary representations of all data structures for each structure can be found in 
+<a href="https://github.com/plasma-group/plasma-utils/tree/master/src/serialization/schemas">schemas</a>
+ .</p>
+<h4 id="coin-id-assignment">Coin ID Assignment<a class="headerlink" href="#coin-id-assignment" title="Permanent link"></a></h4>
+<p>The base unit of any plasma asset is represented as a coin. Like in standard Plasma Cash, these coins are non-fungible, and we call the index of a coin its 
+<code>coinID</code>
+ , which is 16 bytes. They are assigned in order of deposit on a per-asset (ERC 20/ETH) basis. Notably, all assets in the chain share the same ID-space, even if they are different ERC20s or ETH. This means that transactions across all asset classes (which we refer to as the 
+<code>tokenType</code>
+ or 
+<code>token</code>
+ ) share the same tree, providing maximum compression.
+We achieve this by having the first 4 bytes refer to the 
+<code>tokenType</code>
+ of a coin, and the next 12 represent all possible coins of that specific 
+<code>tokenType</code>
+ .
+For example: the 0th 
+<code>tokenType</code>
+ is always 
+<code>ETH</code>
+ , so the first 
+<code>ETH</code>
+ deposit will give spending rights for coin 
+<code>0x00000000000000000000000000000000</code>
+ to the depositer.
+The total coins received per deposit is precisely 
+<code>(amount of token deposited)/(minimum token denomination)</code>
+ many.
+For example: let’s say that 
+<code>tokenType</code>
+ 1 is 
+<code>DAI</code>
+ , the coin denomination is 
+<code>0.1 DAI</code>
+ , and the first depositer sends 
+<code>0.5 DAI</code>
+ . That means its 
+<code>tokenType == 1</code>
+ , so the first depositer will recieve the 
+<code>coinID</code>
+ s from 
+<code>0x00000001000000000000000000000000</code>
+ up to and including coin 
+<code>0x00000001000000000000000000000004</code>
+ .</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZFEWnCuXykXdbyqSE1zcjuDAhXa74Dh96k7DyQzZho5h" /></p>
+<h4 id="denominations">Denominations<a class="headerlink" href="#denominations" title="Permanent link"></a></h4>
+<p>In practice, denominations will be much lower than 
+<code>0.1</code>
+ . Instead of storing denominations directly in the contract, it stores a 
+<code>decimalOffset</code>
+ mapping for each 
+<code>tokenType</code>
+ which represents the shift in decimal places between the amount of deposited 
+<code>ERC20</code>
+ (or 
+<code>wei</code>
+ for ETH) and the number of received plasma coins. These calculations can be found in the 
+<code>depositERC20</code>
+ , 
+<code>depositETH</code>
+ , and 
+<code>finalizeExit</code>
+ functions in the 
+<a href="https://github.com/plasma-group/plasma-contracts/blob/master/contracts/PlasmaChain.vy">smart contract</a></p>
+<p><em>//Note:</em></p>
+<p><code>decimalOfset</code></p>
+<p><em>s are hardcoded to 0 for this release, as we lack support in the client/operator code.</em></p>
+<h3 id="2-transactions-over-ranges-of-coins">2. Transactions over ranges of coins<a class="headerlink" href="#2-transactions-over-ranges-of-coins" title="Permanent link"></a></h3>
+<h4 id="transfers">Transfers<a class="headerlink" href="#transfers" title="Permanent link"></a></h4>
+<p>A transaction consists of a specified 
+<code>block</code>
+ number and an array of 
+<code>Transfer</code>
+ objects, which describe the details of each range of the transaction. From the 
+<a href="https://github.com/plasma-group/plasma-utils/blob/master/src/serialization/schemas/transfer.js">schema</a>
+ in 
+<code>plasma-utils</code>
+ ( 
+<code>length</code>
+ s in bytes):</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/2c3818f78846289a15be1aa175f35ca5.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>...
+const TransferSchema = new Schema({
+ sender: {
+   type: Address,
+   required: true
+ },
+ recipient: {
+   type: Address,
+   required: true
+ },
+ token: {
+   type: Number,
+   length: 4,
+   required: true
+ },
+ start: {
+   type: Number,
+   length: 12,
+   required: true
+ },
+ end: {
+   type: Number,
+   length: 12,
+   required: true
+ }
+...
+
+</code></pre>
+<p>We can see that each 
+<code>Transfer</code>
+ in a 
+<code>Transaction</code>
+ specifies a 
+<code>tokenType</code>
+ , 
+<code>start</code>
+ , 
+<code>end</code>
+ , 
+<code>sender</code>
+ , and 
+<code>recipient</code>
+ .</p>
+<h4 id="typed-and-untyped-bounds">Typed and Untyped Bounds<a class="headerlink" href="#typed-and-untyped-bounds" title="Permanent link"></a></h4>
+<p>One thing to note above is that the 
+<code>start</code>
+ and 
+<code>end</code>
+ values are not 16 bytes, as 
+<code>coinID</code>
+ s are, but rather 12. This should make sense in the context of the above sections on deposits. To get the actual 
+<code>coinID</code>
+ s described by the transfer, we concatenate the 
+<code>token</code>
+ field’s 4 bytes to the left of 
+<code>start</code>
+ and 
+<code>end</code>
+ . We generally refer to the 12-byte versions as a 
+<code>transfer</code>
+ ’s 
+<code>untypedStart</code>
+ and 
+<code>untypedEnd</code>
+ , with the concatenated version being called 
+<code>typedStart</code>
+ and 
+<code>typedEnd</code>
+ . These values are 
+<a href="https://github.com/plasma-group/plasma-utils/blob/master/src/serialization/models/transfer.js">also exposed by the serializer</a>
+ .
+Another note: in any transfer the corresponding 
+<code>coinID</code>
+ s are defined with 
+<code>start</code>
+ inclusive and 
+<code>end</code>
+ exclusive. That is, the exact 
+<code>coinID</code>
+ s transferred are 
+<code>[typedStart, typedEnd)</code>
+ . For example, the first 100 ETH coins can be sent with a 
+<code>Transfer</code>
+ with 
+<code>transfer.token = 0</code>
+ , 
+<code>transfer.start = 0</code>
+ , and 
+<code>transfer.end = 100</code>
+ . The second 100 would have 
+<code>transfer.start = 100</code>
+ and 
+<code>transfer.end = 200</code>
+ .</p>
+<h4 id="multisends-and-transfertransaction-atomicity">Multisends and Transfer/Transaction Atomicity<a class="headerlink" href="#multisends-and-transfertransaction-atomicity" title="Permanent link"></a></h4>
+<p>The 
+<code>Transaction</code>
+ schema consists of a 4-byte 
+<code>block</code>
+ number (the transaction is only valid if included in that particular plasma block), and an 
+<em>array</em>
+ of 
+<code>Transfer</code>
+ objects. This means that a transaction can describe several transfers, which are either all atomically executed or not depending on the 
+<em>entire transaction’s</em>
+ inclusion and validity. This will form the basis for both decentralized exchange and 
+<a href="https://ethresear.ch/t/plasma-cash-defragmentation-take-3/3737">defragmentation</a>
+ in later releases.</p>
+<h4 id="serialization">Serialization<a class="headerlink" href="#serialization" title="Permanent link"></a></h4>
+<p>As exemplified above, 
+<code>plasma-utils</code>
+ implements a custom serialization library for data structures. Both the JSON RPC and the smart contract use the byte arrays as encoded by the serializer.
+The encoding is quite simple, being the concatenation of each value fixed to the number of bytes defined by the schema.
+For encoding which involve variable-sized arrays, such as 
+<code>Transaction</code>
+ objects which contain 1 or more 
+<code>Transfer</code>
+ s, a single byte precedes for the number of elements. Tests for the serialization library can be found 
+<a href="https://github.com/plasma-group/plasma-utils/blob/master/test/serialization/test-serialization.js">here</a>
+ .
+Currently, we have schemas for the following objects:</p>
+<ul>
+<li>
+<p><code>Transfer</code> </p>
+</li>
+<li>
+<p><code>UnsignedTransaction</code> </p>
+</li>
+<li>
+<p><code>Signature</code> </p>
+</li>
+<li>
+<p><code>SignedTransaction</code> </p>
+</li>
+<li>
+<p><code>TransferProof</code> </p>
+</li>
+<li>
+<p><code>TransactionProof</code> </p>
+</li>
+</ul>
+<h3 id="3-block-structure-specification">3. Block Structure Specification<a class="headerlink" href="#3-block-structure-specification" title="Permanent link"></a></h3>
+<p>One of the most important improvements Plasma Cash introduced was “light proofs.” Previously, plasma constructions required that users download the entire plasma chain to ensure safety of their funds. With Plasma Cash, they only have to download the branches of a Merkle tree relevant to their own funds.
+This was accomplished by introducing a 
+<em>new transaction validity condition</em>
+ : transactions of a particular 
+<code>coinID</code>
+ are only valid at the 
+<code>coinID</code>
+ th leaf in the Merkle tree. Thus, it is sufficient to download just that branch to be confident no 
+<em>valid</em>
+ transaction exists for that coin. The problem with this scheme is that transactions are “stuck” at this denomination: if you want to transact multiple coins, you need multiple transactions, one at each leaf.
+Unfortunately, if we put the range-based transactions into branches of a regular Merkle tree, light proofs would become insecure. This is because having one branch does not guarantee that others don’t intersect:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUrLWkfu1au3ksPpN1U2nzbhH2eMEnf8Mj8LUgg3W921h" /></p>
+<p>With a regular Merkle tree, the 
+<em>only</em>
+ way to guarantee no other branches intersect is to download them 
+<em>all</em>
+ and check. But that’s no longer a light proof!
+At the heart of our plasma implementation is a 
+<em>new block structure</em>
+ , and an accompanying 
+<em>new transaction validity condition</em>
+ , which allows us to get light proofs for range-based transactions. The block structure is called a Merkle 
+<em>sum</em>
+ tree, where next to each hash is a 
+<code>sum</code>
+ value.
+The new validity condition uses the 
+<code>sum</code>
+ values for a particular branch to compute a a 
+<code>start</code>
+ and 
+<code>end</code>
+ range. This calculation is specially crafted so that it is 
+<strong>impossible</strong></p>
+<p><strong>for two branches’ computed ranges to overlap.</strong>
+ A 
+<code>transfer</code>
+ is only valid if its own range is within that range, so this gets us back our light clients!
+This section will specify the exact spec of the sum tree, what the range calculation actually is, and how we actually construct a tree which satisfies the range calculation. For a more detailed background and motivation on the research which led us to this spec, feel free check out 
+<a href="https://ethresear.ch/t/plasma-cash-was-a-transaction-format/4261">this</a>
+ post.
+We have written two implementations of the plasma Merkle sum tree: one done in a 
+<a href="https://github.com/plasma-group/plasma-operator/blob/master/src/block-manager/leveldb-sum-tree.js">database</a>
+ for the operator, and another in-memory for testing 
+<a href="https://github.com/plasma-group/plasma-utils/tree/master/src/sum-tree">in</a></p>
+<p><code>plasma-utils</code>
+ .</p>
+<h4 id="sum-tree-node-specification">Sum Tree Node Specification<a class="headerlink" href="#sum-tree-node-specification" title="Permanent link"></a></h4>
+<p>Each node in the Merkle sum tree is 48 bytes, as follows:  </p>
+<p><code>[32 byte hash][16 byte sum]</code></p>
+<p>It’s not a coincidence that the 
+<code>sum</code>
+ ’s 16 bytes length is the same as a 
+<code>coinID</code>
+ !
+We have two helper properties, 
+<code>.hash</code>
+ and 
+<code>.sum</code>
+ , which pull out these two parts. For example, for some 
+<code>node = 0x1b2e79791f28c27ed669f257397e1deb3e522cf1f27024c161b619d276a25315ffffffffffffffffffffffffffffffff</code>
+ , we have  </p>
+<p><code>node.hash == 0x1b2e79791f28c27ed669f257397e1deb3e522cf1f27024c161b619d276a25315</code>
+ and 
+<code>node.sum == 0xffffffffffffffffffffffffffffffff</code>
+ .</p>
+<h4 id="parent-calculation">Parent Calculation<a class="headerlink" href="#parent-calculation" title="Permanent link"></a></h4>
+<p>In a regular Merkle tree, we construct a binary tree of hash nodes, up to a single root node. Specifying the sum tree format is a simple matter of defining the 
+<code>parent(left, right)</code>
+ calculation function which accepts the two siblings as arguments. For example, a regular Merkle sum tree has:  </p>
+<p><code>parent = function (left, right) { return Sha3(left.concat(right)) }</code>
+ Where 
+<code>Sha3</code>
+ is the hash function and 
+<code>concat</code>
+ appends the two values together.
+To create a Merkle 
+<em>sum</em>
+ tree, the 
+<code>parent</code>
+ function must also concatenate the result of an addition operation on its children’s own 
+<code>.sum</code>
+ values:</p>
+<pre><code>parent = function (left, right) { 
+ return Sha3(left.concat(right)).concat(left.sum + right.sum) 
+}
+</code></pre>
+<p>For example, we might have</p>
+<pre><code>parent(0xabc…0001, 0xdef…0002) ===
+hash(0xabc…0001.concat(0xdef…0002)).concat(0001 + 0002) ===
+0x123…0003
+</code></pre>
+<p>Note that the 
+<code>parent.hash</code>
+ is a commitment to each 
+<code>sibling.sum</code>
+ as well as the hashes: we hash the full 96 bytes of both.</p>
+<h4 id="calculating-a-branchs-range">Calculating a Branch’s Range<a class="headerlink" href="#calculating-a-branchs-range" title="Permanent link"></a></h4>
+<p>The reason we use a Merkle sum tree is because it allows us to calculate a specific range which a branch describes, and be 100% confident that no other valid, overlapping branches exist.
+We calculate this range by adding up a 
+<code>leftSum</code>
+ and 
+<code>rightSum</code>
+ going up the branch. Initializing both to 0, at each parent calculation, if the inclusion proof specifies a sibling to the right, we take 
+<code>rightSum += right.sum</code>
+ , and if to the left, we add 
+<code>leftSum += left.sum</code>
+ .
+Then, the range the branch describes is 
+<code>[leftSum, root.sum — rightSum)</code>
+ . See the following example:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWJbC7gN1wjfxHVDFVhMx5GsCb1hNztJ9deNgTq9vZPsD" /></p>
+<p>In this example, branch 6’s valid range is 
+<code>[21+3, 36–5) == [24, 31)</code>
+ . Notice that 
+<code>31–24=7</code>
+ , which is the sum value for leaf 6! Similarly, branch 5’s valid range is 
+<code>[21, 36-(7+5)) == [21, 24)</code>
+ . Notice that its end is the same as branch 6’s start!
+If you play around with it, you’ll see that it’s impossible to construct a Merkle sum tree with two different branches covering the same range. At some level of the tree, the sum would have to be broken! Go ahead, try to “trick” leaf 5 or 6 by making another branch that intersects the range (4.5,6). Filling in only the 
+<code>?</code>
+ s in grey boxes:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ79WU9kjp4D6S3iDJ8qpfDo4SB5ab7gXvknTsqMsvwCx" /></p>
+<p>You’ll see it’s always impossible at some level of the tree:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qma8vbEY42btUsVPvaoHPBUsKYKJpzhZ2co7H7MXfLC5dX" /></p>
+<p>This is how we get light clients. We call the branch range bounds the 
+<code>implicitStart</code>
+ and 
+<code>implicitEnd</code>
+ , because they are calculated “implicitly” from the inclusion proof. We have a branch checker implemented in 
+<code>plasma-utils</code>
+ via 
+<code>calculateRootAndBounds()</code>
+ for testing and client-side proof checking:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/33e276589d41ed47919aed70b3c0ded5.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>(...)
+let leftSum = new BigNum(0)
+let rightSum = new BigNum(0)
+for (let i = 0; i &amp;lt; inclusionProof.length; i++) {
+  let encodedSibling = inclusionProof[i]
+  (...)
+  if (path[i] === '0') {
+    computedNode = PlasmaMerkleSumTree.parent(computedNode, sibling)
+    rightSum = rightSum.add(sibling.sum)
+  } else {
+    computedNode = PlasmaMerkleSumTree.parent(sibling, computedNode)
+    leftSum = leftSum.add(sibling.sum)
+  }
+}
+(...)
+
+</code></pre>
+<p>as well as in Vyper for the smart contract via</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/0806a9b45835a319a3e22070a75852bd.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>def checkTransferProofAndGetTypedBounds(
+    leafHash: bytes32,
+    blockNum: uint256,
+    transferProof: bytes[1749]
+) -&amp;gt; (uint256, uint256): # typedimplicitstart, typedimplicitEnd
+    parsedSum: bytes[16] = Serializer(self.serializer).decodeParsedSumBytes(transferProof)
+    numProofNodes: int128 = Serializer(self.serializer).decodeNumInclusionProofNodesFromTRProof(transferProof)
+    leafIndex: int128 = Serializer(self.serializer).decodeLeafIndex(transferProof)
+
+    computedNode: bytes[48] = concat(leafHash, parsedSum)
+    totalSum: uint256 = convert(parsedSum, uint256)
+    leftSum: uint256 = 0
+    rightSum: uint256 = 0
+    pathIndex: int128 = leafIndex
+
+    for nodeIndex in range(MAX_TREE_DEPTH):
+        if nodeIndex == numProofNodes:
+            break
+        proofNode: bytes[48] = Serializer(self.serializer).decodeIthInclusionProofNode(nodeIndex, transferProof)
+        siblingSum: uint256 = convert(slice(proofNode, start=32, len=16), uint256)
+        totalSum += siblingSum
+        hashed: bytes32
+        if pathIndex % 2 == 0:
+            hashed = sha3(concat(computedNode, proofNode))
+            rightSum += siblingSum
+        else:
+            hashed = sha3(concat(proofNode, computedNode))
+            leftSum += siblingSum
+        totalSumAsBytes: bytes[16] = slice( #This is all a silly trick since vyper won't directly convert numbers to bytes[]...classic :P
+            concat(EMPTY_BYTES32, convert(totalSum, bytes32)),
+            start=48,
+            len=16
+        )
+        computedNode = concat(hashed, totalSumAsBytes)
+        pathIndex /= 2
+    rootHash: bytes[32] = slice(computedNode, start=0, len=32)
+    rootSum: uint256 = convert(slice(computedNode, start=32, len=16), uint256)
+    assert convert(rootHash, bytes32) == self.blockHashes[blockNum]
+    return (leftSum, rootSum - rightSum)
+
+</code></pre>
+<p>Note that the ranges are 
+<em>typed</em>
+ starts and ends, the full 16 bytes.</p>
+<h4 id="parsing-transfers-as-leaves">Parsing Transfers as Leaves<a class="headerlink" href="#parsing-transfers-as-leaves" title="Permanent link"></a></h4>
+<p>In a regular Merkle tree, we construct the bottom layer of nodes by hashing the “leaves”:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSrhxrYuhvGHX3yqgVxTKWTA8pB152XtVLAVBDCWFxLeK" /></p>
+<p>In our case, we want the leaves to be the transactions. So, the hashing is straightforward, but we still need a 
+<code>.sum</code>
+ value for the tree’s bottom level.
+Given some 
+<code>txA</code>
+ with a single 
+<code>transferA</code>
+ , what should the sum value be? It turns out, 
+<em>not</em>
+ just 
+<code>transferA.end — transferA.start</code>
+ . The reason for this is that it screws up branches’ ranges if the transfers are not touching. We need to “pad” the sum values to account for this gap, or the 
+<code>root.sum</code>
+ will be too small.
+Interestingly, this is a non-deterministic choice because you can pad either the node to the right or left of the gap. We’ve chosen the following “left-aligned” scheme for parsing leaves into blocks:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVH6Wx3MSWRQKH57AYCLSXBUVmFY71hnsKhERUVcxvVF6" /></p>
+<p>We call the bottommost 
+<code>.sum</code>
+ value the 
+<code>parsedSum</code>
+ for that branch, and the 
+<code>TransferProof</code>
+ schema includes a 
+<code>.parsedSum</code>
+ value which is used to reconstruct the bottom node.</p>
+<h4 id="branch-validity-and-implicit-notx">Branch Validity and Implicit NoTx<a class="headerlink" href="#branch-validity-and-implicit-notx" title="Permanent link"></a></h4>
+<p>Thus, the validity condition for a branch as checked by the smart contract is as follows: 
+<code>implicitStart &lt;= transfer.typedStart &lt; transfer.typedEnd &lt;= implicitEnd</code>
+ . Note that, in the original design of the sum tree in “Plasma Cashflow,” some leaves were filled with a special “NoTx” transaction to represent that ranges were not transacted. With this format, the coins which are not transacted are simply those in the ranges 
+<code>[implicitStart, transfer.typedStart)</code>
+ and 
+<code>[transfer.typedEnd, implicitEnd)</code>
+ . The smart contract guarantees that no coins in these ranges can be used in any challenge or response to an exit.</p>
+<h4 id="atomic-multisends">Atomic Multisends<a class="headerlink" href="#atomic-multisends" title="Permanent link"></a></h4>
+<p>Often (to support transaction fees and exchange) transactions require multiple transfers to occur or not, atomically, to be valid. The effect is that a valid transaction needs to be included once for each of its 
+<code>.transfers</code>
+ — each with a valid sum in relation to that particular 
+<code>transfer.typedStart</code>
+ and 
+<code>.typedEnd</code>
+ . However, for each of these inclusions, it’s still the hash of the full 
+<code>UnsignedTransaction</code>
+ — NOT the individual 
+<code>Transfer</code>
+ — that is parsed to the bottom 
+<code>.hash</code>
+ .</p>
+<h3 id="5-proof-structure-and-checking">5. Proof Structure and Checking<a class="headerlink" href="#5-proof-structure-and-checking" title="Permanent link"></a></h3>
+<p>Unlike traditional blockchain systems, full plasma nodes don’t store every single transaction, they only ever need to store information relevant to assets they own. This means that the 
+<code>sender</code>
+ has to 
+<em>prove</em>
+ to the 
+<code>recipient</code>
+ that the sender actually owns the given range. A complete proof contains all the information sufficient to guaranteed that, if the Ethereum chain itself does not fork, tokens are redeemable on the main chain.
+Proofs primarily consist of the inclusion and non-inclusion of transactions, which update the chain of custody for those coins. The inclusion roots must be checked against the block hashes submitted by the operator to the smart contract on the main chain. By tracing the chain of custody as verified in the proof scheme, from a token’s initial deposit into the contract through to the present, ability to redeem is guaranteed.</p>
+<p><code>plasma-core</code>
+ follows a relatively simple methodology for verifying incoming transaction proofs. This section describes that methodology.</p>
+<h4 id="proof-format">Proof Format<a class="headerlink" href="#proof-format" title="Permanent link"></a></h4>
+<p>History proofs consist of a set of 
+<em>deposit records</em>
+ and long list of relevant 
+<code>Transaction</code>
+ s with corresponding 
+<code>TransctionProof</code>
+ s.</p>
+<p><code>plasma-utils</code></p>
+<p><a href="https://github.com/plasma-group/plasma-utils/blob/13ab042d8962852cf8c1905727d616448923764d/src/sum-tree/plasma-sum-tree.js#L281">exposes</a>
+ a 
+<code>static checkTransactionProof(transaction, transactionProof, root)</code>
+ method, which is used by 
+<code>plasma-core</code></p>
+<p><a href="https://github.com/plasma-group/plasma-core/blob/3caa359681db62106ba703eb0fd99171ebb86365/src/services/proof/snapshot-manager.js#L117">here</a>
+ via calls to the 
+<code>ProofService</code>
+ .</p>
+<h4 id="transaction-proofs">Transaction Proofs<a class="headerlink" href="#transaction-proofs" title="Permanent link"></a></h4>
+<p>A 
+<code>TransactionProof</code>
+ object contains all the necessary information to check the validity of a given 
+<code>Transaction</code>
+ . Namely, it is 
+<a href="https://github.com/plasma-group/plasma-utils/blob/master/src/serialization/schemas/transaction-proof.js">simply</a>
+ an array of 
+<code>TransferProof</code>
+ objects. As per the above section on atomic multisends, a given 
+<code>TransactionProof</code>
+ is valid if and only if all its 
+<code>TransferProofs</code>
+ are valid.</p>
+<h4 id="transfer-proofs">Transfer Proofs<a class="headerlink" href="#transfer-proofs" title="Permanent link"></a></h4>
+<p><code>TransferProofs</code>
+ contain all the necessary information required to recover the inclusion of a valid branch corresponding to the given 
+<code>Transfer</code>
+ in the 
+<code>Transaction</code>
+ at the correct block number. This constitutes:</p>
+<ul>
+<li>
+<p>The actual nodes of the Merkle sum tree which represent the branch’s full <code>inclusionProof</code></p>
+</li>
+<li>
+<p>The index of the leaf to calculate the binary path traced by the branch</p>
+</li>
+<li>
+<p>The parsed bottom <code>.sum</code> as described in the sum tree spec above</p>
+</li>
+<li>
+<p>The <code>signature</code> for that particular sender.
+Right from the 
+<code>plasma-utils</code></p>
+</li>
+</ul>
+<p><a href="https://github.com/plasma-group/plasma-utils/blob/master/src/serialization/schemas/transfer-proof.js">schema</a>
+ :</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/73e16cd5e1fa4c9afc426112b1965078.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>const TransferProofSchema = new Schema({
+ parsedSum: {
+   type: Number,
+   length: 16
+ },
+ leafIndex: {
+   type: Number,
+   length: 16
+ },
+ signature: {
+   type: SignatureSchema
+ },
+ inclusionProof: {
+   type: [Bytes],
+   length: 48
+ }
+})
+
+</code></pre>
+<p>Note that the 
+<code>inclusionProof</code>
+ is a variable-length array whose size depends on the depth of the tree.</p>
+<h4 id="proof-steps">Proof Steps<a class="headerlink" href="#proof-steps" title="Permanent link"></a></h4>
+<p>The core of the verification process involves applying each proof element to the current “verified” state, starting with the deposit. If any proof element doesn’t result in a valid state transition, we must reject the proof.
+The process for applying each proof element is intuitive; we simply apply the transactions at each block as the contract’s custody rules dictate.</p>
+<h4 id="snapshot-objects">Snapshot Objects<a class="headerlink" href="#snapshot-objects" title="Permanent link"></a></h4>
+<p>The way in which we keep track of historically owned ranges is called a 
+<code>snapshot</code>
+ .<br />
+ Quite simply, it represents the verified owner of a range at a block:</p>
+<pre><code>{
+  typedStart: Number,
+  typedEnd: Number,
+  block: Number,
+  owner: address
+}
+</code></pre>
+<h4 id="deposit-records">Deposit records<a class="headerlink" href="#deposit-records" title="Permanent link"></a></h4>
+<p>Every received range has to come from a corresponding deposit.<br />
+ A deposit record consists of its 
+<code>token</code>
+ , 
+<code>start</code>
+ , 
+<code>end</code>
+ , 
+<code>depositer</code>
+ , and 
+<code>blockNumber</code>
+ .
+For each deposit record, the verifier 
+<em>must</em>
+ double-check with Ethereum to verify that the claimed deposit did indeed occur, and that no exits have happened in the meantime.
+If so, a 
+<code>verifiedSnapshots</code>
+ array is initialized to these deposits with each 
+<code>snapshot.owner</code>
+ being the depositer.
+Next, we apply all given 
+<code>TransactionProof</code>
+ s, updating 
+<code>verifiedSnapshots</code>
+ accordingly. For each 
+<code>transaction</code>
+ and corresponding 
+<code>transactionProof</code>
+ , the verifier performs the following steps:</p>
+<ul>
+<li>
+<p>Verify that the given proof element is valid. If not, throw an error.</p>
+</li>
+<li>
+<p>For each <code>transfer</code> in the <code>transaction</code> , do the following:a. “Split” any snapshots which were updated above at <code>transfer.typedStart</code> , <code>transfer.typedEnd</code> , <code>implicitStart</code> , and <code>implicitEnd</code> b. Increment the <code>.block</code> number for all resulting <code>verifiedSnapshots</code> which have a <code>block</code> equalling <code>transaction.blockNumber — 1</code> c. For each split <code>snapshot</code> which fell between <code>transfer.start</code> and <code>transfer.end</code> :i. verify that <code>snapshot.owner === transfer.from</code> . If not, throw an error.ii. set <code>snapshot.owner = transfer.sender</code> .
+The 
+<code>TransactionProofs</code>
+ must be applied in ascending 
+<code>blockNumber</code>
+ .
+Once this operation has been recursively applied for all 
+<code>TransactionProof</code>
+ s, the client may check for herself which new coins she now owns, by searching for all elements in 
+<code>verifiedSnapshots</code>
+ with a 
+<code>blockNumber</code>
+ equalling the current plasma block, and the 
+<code>owner</code>
+ equalling her address.</p>
+</li>
+</ul>
+<h4 id="transactionproof-validity">TransactionProof Validity<a class="headerlink" href="#transactionproof-validity" title="Permanent link"></a></h4>
+<p>The transaction validity check in step 1. above is equivalent to checking the smart contract’s validity condition. The basic validity check, based on the sum tree specification above, is as follows:
+1. Check that the transaction encoding is well-formed.<br />
+ 2. For each 
+<code>transfer</code>
+ and corresponding 
+<code>transferProof</code>
+ :<br />
+ a. Check that the 
+<code>signature</code>
+ resolves to its 
+<code>transfer.sender</code>
+ address<br />
+ b. verify that the 
+<code>inclusionProof</code>
+ has a root equal to the root hash for that plasma block, with the binary path defined by the 
+<code>leafIndex</code></p>
+<p>c. calculate the 
+<code>implicitStart</code>
+ and 
+<code>implicitEnd</code>
+ of the branch, and verify that 
+<code>implicitStart &lt;= transfer.start &lt; transfer.end &lt;= implicitEnd</code></p>
+<h3 id="4-contract-and-exit-games">4. Contract and Exit Games<a class="headerlink" href="#4-contract-and-exit-games" title="Permanent link"></a></h3>
+<p>Of course, the proof for a chain of custody isn’t useful unless it can also be passed to the main chain to keep funds secure. The mechanism which accepts proofs on-chain is the core of plasma’s security model, and it is called the “exit game.”
+When a user wants to move their money off a plasma chain, they make an “exit”, which opens a dispute period. At the end of the dispute period, if there are no outstanding disputes, the money is sent from the plasma contract on the main chain to the exiter. During the dispute period, users may submit “challenges” which claim the money being exited isn’t rightfully owned by the person exiting. The proofs described above guarantee that a “response” to these challenges is always calculable.
+The goal of the exit game is to keep money secured, even in the case of a maximally adversarial operator. Particularly, there are three main attacks which we must mitigate:</p>
+<ul>
+<li>
+<p><strong>Data withholding:</strong> the operator may publish a root hash to the contract, but not tell anybody what the contents of the block are.</p>
+</li>
+<li>
+<p><strong>Including a forged/invalid transaction</strong> : the operator may include a transaction in a block whose <code>sender</code> was not the previous <code>recipient</code> in the chain of custody.</p>
+</li>
+<li>
+<p><strong>Censorship:</strong> after someone deposits their money, the operator may refuse to publish any transactions sending the money.
+In all of these cases, the challenge/response protocol of the exit game makes sure these behaviors do not allow theft, in at most 1 challenge followed by 1 response.</p>
+</li>
+</ul>
+<h4 id="keeping-track-of-deposits-and-exits">Keeping track of deposits and exits<a class="headerlink" href="#keeping-track-of-deposits-and-exits" title="Permanent link"></a></h4>
+<p><strong>Deposits mapping</strong></p>
+<p>Each time a new set of coins is deposited, the contract updates a mapping which each contain a 
+<code>deposit</code>
+ struct. From the contract:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/d2911e2bda35f94f841eea8b5f98259f.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>struct deposit:
+ untypedStart: uint256
+ depositer: address
+ precedingPlasmaBlockNumber: uint256
+
+</code></pre>
+<p>Note that this struct contains neither the 
+<code>untypedEnd</code>
+ or 
+<code>tokenType</code>
+ for the deposit. That’s because the contract uses those values as the keys in a mapping of mappings. Accessing, for example, accessing the depositer of a given deposit looks like this: 
+<code>someDepositer: address = self.deposits[tokenType][untypedEnd].depositer</code></p>
+<p>This choice saves a little gas, and also makes some of the code cleaner since we don’t need to store any sort of deposit ID to reference a deposit.</p>
+<p><strong>Exitable ranges mapping</strong></p>
+<p>In addition to adding 
+<code>self.deposits</code>
+ entries each time there’s a deposit, the contract needs to somehow keep track of historical exits to prevent multiple exits on the same range. This is a little trickier because exits do not occur in order like deposits, and it would be expensive to search through a list of exits.
+Our contract implements a constant-sized solution, which instead stores a list of exitable ranges, updating the list as new exits occur. From the smart contract:</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/8586a536c65117b2c9e5ddd554cfba04.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>struct exitableRange:
+ untypedStart: uint256
+ isSet: bool
+
+</code></pre>
+<p>Again, we use a double-nested mapping with keys 
+<code>tokenType</code>
+ and 
+<code>untypedEnd</code>
+ so that we may call 
+<code>self.exitable[tokenType][untpyedEnd].untypedStart</code>
+ to access the start of the range. Note that Vyper returns 0 for all unset mapping keys, so we need an 
+<code>isSet</code>
+ bool so that users may not “trick” the contract by passing an unset 
+<code>exitableRange</code>
+ .
+The contract’s 
+<code>self.exitable</code>
+ ranges are split and deleted based on successful calls to 
+<code>finalizeExit</code>
+ via a helper function called 
+<code>removeFromExitable</code>
+ . Note that exits on a previously exited range do not even need to be challenged; they will never pass the 
+<code>checkRangeExitable</code>
+ test called in 
+<code>finalizeExit</code>
+ . You can find that code 
+<a href="https://github.com/plasma-group/plasma-contracts/blob/068954a8584e4168daf38ebeaa3257ec08caa5aa/contracts/PlasmaChain.vy#L380">here</a>
+ .</p>
+<h4 id="exit-games-relationship-to-vanilla-plasma-cash">Exit games’ relationship to vanilla Plasma Cash<a class="headerlink" href="#exit-games-relationship-to-vanilla-plasma-cash" title="Permanent link"></a></h4>
+<p>At heart, the exit games in our spec are very similar to the original Plasma Cash design. Exits are initiated with calls to the function</p>
+<pre><code>beginExit(tokenType: uint256, blockNumber: uint256, untypedStart: uint256, untypedEnd: uint256) -&gt; uint256:
+</code></pre>
+<p>To dispute an exit, all challenges specify a particular 
+<code>coinID</code>
+ called into question, and a Plasma Cash-style challenge game is carried out on that particular coin. Just a single coin needs to be proven invalid to cancel the entire exit.
+Both exits and the two types of respondable challenges are given an 
+<code>exitID</code>
+ and 
+<code>challengeID</code>
+ which are assigned in order via an incrementing 
+<code>challengeNonce</code>
+ and 
+<code>exitNonce</code>
+ .</p>
+<h4 id="blocknumber-specified-transactions">Blocknumber-specified transactions<a class="headerlink" href="#blocknumber-specified-transactions" title="Permanent link"></a></h4>
+<p>In the original Plasma Cash spec, the exiter is required to specify both the exited transaction and its previous “parent” transaction to prevent the “in-flight” attack where the operator delays including a valid transaction and inserts an invalid one in the block between.
+This poses a problem for our range-based schemes, because a transaction may have multiple parents. For example, if Alice sends 
+<code>(0, 50]</code>
+ to Carol, and Bob sends 
+<code>(50, 100]</code>
+ to Carol, Carol can now send 
+<code>(0, 100]</code>
+ to Dave. But, if Dave wants to exit that, both the 
+<code>(0, 50]</code>
+ and 
+<code>(50, 100]</code>
+ are parents.
+Though specifying multiple parents is definitely doable, this specification would be gas-expensive and seemed more complex to implement. So, we opted for the simpler alternative, in which each transaction specifies the <code>block</code> its senders intend for it to go in and is invalidated if included in a different block. This solves the in-flight attack and means the contract does not need a transaction’s parents. For those interested in a formal writeup and safety proof for this scheme, it’s worth giving 
+<a href="https://ethresear.ch/t/plasma-cash-with-smaller-exit-procedure-and-a-general-approach-to-safety-proofs/1942">this great post</a>
+ a look.</p>
+<h4 id="per-coin-transaction-validity">Per-coin transaction validity<a class="headerlink" href="#per-coin-transaction-validity" title="Permanent link"></a></h4>
+<p>An unintuitive property of our exit games worth noting up front is that a certain transaction might be “valid” for some of the coins in its range, but not on others.
+For example, imagine that Alice sends 
+<code>(0, 100]</code>
+ to Bob, who in turn sends 
+<code>(50, 100]</code>
+ to Carol. Carol 
+<em>does not</em>
+ need to verify that Alice was the rightful owner of the full 
+<code>(0, 100]</code>
+ . Carol only needs an assurance that Alice owned 
+<code>(50, 100]</code>
+ — the part of the custody chain which applies to her receipt. Though the transaction might in a sense be “invalid” if Alice didn’t own 
+<code>(0, 50]</code>
+ , the smart contract 
+<em>does not care about that</em>
+ for the purposes of disputes around exits for the coins 
+<code>(50, 100]</code>
+ . So long as the received coins’ ownership is verified, the rest of the transactions don’t matter.
+This is a very important requirement to preserve the size of light client proofs. If Carol had to check the full 
+<code>(0, 100]</code>
+ , she might also have to check an overlapping parent of 
+<code>(0, 10000]</code>
+ , and then all of its parents, and so on. This “cascading” effect could massively increase the size of proofs if transactions were very interdependent.
+Note that this property also applies to atomic multisends which describe multiple ranges being swapped. If Alice trades 1 ETH for Bob’s 1 DAI, it is Alice’s responsibility to check that Bob owns the 1 Dai before signing. However, after, if Bob then sends the 1 ETH to Carol, Carol 
+<strong>need not verify</strong>
+ that Bob owned the 1 DAI, only that Alice owned the 1 ETH she sent to Bob. Alice incurred the risk, so Carol doesn’t have to.
+From the standpoint of the smart contract, this property is a direct consequence of challenges always being submitted for a particular 
+<code>coinID</code>
+ within the exit.</p>
+<h4 id="how-the-contract-handles-transaction-checking">How the contract handles transaction checking<a class="headerlink" href="#how-the-contract-handles-transaction-checking" title="Permanent link"></a></h4>
+<p>Note that, to be used in exit games at all, 
+<code>Transaction</code>
+ s must pass the 
+<code>TransactionProof</code>
+ check described in the proofs section above(valid signatures, branch bounds, etc). This check is performed at the contract level in the function</p>
+<pre><code>def checkTransactionProofAndGetTypedTransfer(
+   transactionEncoding: bytes[277],
+   transactionProofEncoding: bytes[1749],
+   transferIndex: int128
+ ) -&gt; (
+   address, # transfer.to
+   address, # transfer.from
+   uint256, # transfer.start (typed)
+   uint256, # transfer.end (typed)
+   uint256 # transaction plasmaBlockNumber
+ ):
+</code></pre>
+<p>An important note here is the 
+<code>transferIndex</code>
+ argument. Remember, a transaction may contain multiple transfers, and must be included once in the tree for each transfer. However, since challenges refer to a specific 
+<code>coinID</code>
+ , only a single transfer will be relevant. So, challengers and responders gives a 
+<code>transferIndex</code>
+ — whichever of the transfers relates to the coin being disputed. The check decodes and checks all the 
+<code>TransferProof</code>
+ s in the 
+<code>TransactionProof</code>
+ , and then checks inclusion for each with the function</p>
+<pre><code>def checkTransferProofAndGetTypedBounds(
+ leafHash: bytes32,
+ blockNum: uint256,
+ transferProof: bytes[1749]
+) -&gt; (uint256, uint256): # typedimplicitstart, typedimplicitEnd
+</code></pre>
+<p>Once all 
+<code>TransferProof</code>
+ s are verified, the dispute-relevant values for the 
+<code>transferIndex</code>
+ th 
+<code>Transfer</code>
+ are returned to the exit game functions: namely the 
+<code>sender</code>
+ , 
+<code>recipient</code>
+ , 
+<code>typedStart</code>
+ , 
+<code>typedEnd</code>
+ , and 
+<code>plasmaBlockNumber</code>
+ .
+With that out of the way, we can specify the full set of challenge/response games for exits.</p>
+<h4 id="challenges-which-immediately-cancel-exits">Challenges which immediately cancel exits<a class="headerlink" href="#challenges-which-immediately-cancel-exits" title="Permanent link"></a></h4>
+<p>Two kinds of challenges immediately cancel exits: those on spent coins and those on exits before the deposit occurred.</p>
+<p><strong>Spent coin challenge</strong></p>
+<p>This challenge is used to demonstrate that the exiter of a transaction already sent the coins to someone else.</p>
+<pre><code>@public
+def challengeSpentCoin(
+ exitID: uint256,
+ coinID: uint256,
+ transferIndex: int128,
+ transactionEncoding: bytes[277],
+ transactionProofEncoding: bytes[1749],
+):
+</code></pre>
+<p>It uses 
+<code>checkTransactionProofAndGetTypedTransfer</code>
+ and then checks the following:</p>
+<ul>
+<li>
+<p>The challenged coinID lies within the specified exit.</p>
+</li>
+<li>
+<p>The challenged coinID lies within the <code>typedStart</code> and <code>typedEnd</code> of the <code>transferIndex</code> th element of <code>transaction.transfers</code> .</p>
+</li>
+<li>
+<p>The <code>plasmaBlockNumber</code> of the challenge is greater than that of the exit.</p>
+</li>
+<li>
+<p>The <code>transfer.sender</code> is the exiter.
+The introduction of atomic swaps does mean one thing: the spent coin challenge period must be strictly less than others, because of an edge case in which the operator withholds an atomic swap between two or more parties. In this case, those parties must exit their pre-swapped coins, forcing the operator to make a a spent coin challenge and reveal whether the swap was included or not. BUT, if we allowed the operator to do that at the last minute, it would make for be a race condition where the parties have no time to use the reveal to cancel other exits. Thus, the timeout is made shorter (1/2) than the regular challenge window, eliminating “last-minute response” attacks.</p>
+</li>
+</ul>
+<p><strong>Before deposit challenge</strong></p>
+<p>This challenge is used to demonstrate that an exit comes from an earlier 
+<code>plasmaBlockNumber</code>
+ than that coin was actually deposited for.</p>
+<pre><code>@public
+def challengeBeforeDeposit(
+ exitID: uint256,
+ coinID: uint256,
+ depositUntypedEnd: uint256
+):
+</code></pre>
+<p>The contract looks up 
+<code>self.deposits[self.exits[exitID].tokenType][depositUntypedEnd].precedingPlasmaBlockNumber</code>
+ and checks that it is later than the exit’s block number. If so, it cancels.</p>
+<h4 id="optimistic-exits-and-inclusion-challenges">Optimistic exits and inclusion challenges<a class="headerlink" href="#optimistic-exits-and-inclusion-challenges" title="Permanent link"></a></h4>
+<p>Our contract allows an exit to occur without doing any inclusion checks at all in the optimistic case. To allow this, any exit may be challenged directly via</p>
+<pre><code>@public
+def challengeInclusion(exitID: uint256):
+</code></pre>
+<p>To which the exiter must directly respond with either the transaction or deposit they are exiting from.</p>
+<pre><code>@public
+def respondTransactionInclusion(
+ challengeID: uint256,
+ transferIndex: int128,
+ transactionEncoding: bytes[277],
+ transactionProofEncoding: bytes[1749],
+):
+</code></pre>
+<pre><code>...
+</code></pre>
+<pre><code>@public
+def respondDepositInclusion(
+ challengeID: uint256,
+ depositEnd: uint256
+):
+</code></pre>
+<p>The second case allows users to get their money out if the operator censored all transactions after depositing.
+Both responses cancel the challenge if:</p>
+<ul>
+<li>
+<p>The deposit or transaction was indeed at the exit’s plasma block number.</p>
+</li>
+<li>
+<p>The depositer or recipient is indeed the exiter.</p>
+</li>
+<li>
+<p>The start and end of the exit were within the deposit or transfer’s start and end</p>
+</li>
+</ul>
+<h4 id="invalid-history-challenges">Invalid History Challenges<a class="headerlink" href="#invalid-history-challenges" title="Permanent link"></a></h4>
+<p>The most complex challenge-response game, for both vanilla Plasma Cash and this spec, is the case of history invalidity. This part of the protocol mitigates the attack in which the operator includes an forged “invalid” transaction whose sender is not the previous recipient. The solution is called an invalid history challenge: because the rightful owner has not yet spent their coins, they attest to this and challenge: “oh yeah, that coin is yours? Well it was mine earlier, and you can’t prove I ever spent it.”
+Both invalid history challenges and responses can be either deposits or transactions.</p>
+<p><strong>Challenging</strong></p>
+<p>There are two ways to challenge depending on the current rightful owner:</p>
+<pre><code>@public
+def challengeInvalidHistoryWithTransaction(
+ exitID: uint256,
+ coinID: uint256,
+ transferIndex: int128,
+ transactionEncoding: bytes[277],
+ transactionProofEncoding: bytes[1749]
+):
+</code></pre>
+<p>and</p>
+<pre><code>@public
+def challengeInvalidHistoryWithDeposit(
+ exitID: uint256,
+ coinID: uint256,
+ depositUntypedEnd: uint256
+):
+</code></pre>
+<p>These both call a</p>
+<pre><code>@private
+def challengeInvalidHistory(
+ exitID: uint256,
+ coinID: uint256,
+ claimant: address,
+ typedStart: uint256,
+ typedEnd: uint256,
+ blockNumber: uint256
+):
+</code></pre>
+<p>function which does the legwork of checking that the 
+<code>coinID</code>
+ is within the challenged exit, and that the 
+<code>blockNumber</code>
+ is earlier than the exit.</p>
+<p><strong>Responding to invalid history challenges</strong></p>
+<p>Of course, the invalid history challenge may be a grief, where really the challenger did spend their coin, and the chain of custody is indeed valid. We must allow this response. There are two kinds.
+The first is to respond with a transaction showing the challenger’s spend:</p>
+<pre><code>@public
+def respondInvalidHistoryTransaction(
+ challengeID: uint256,
+ transferIndex: int128,
+ transactionEncoding: bytes[277],
+ transactionProofEncoding: bytes[1749],
+):
+</code></pre>
+<p>The smart contract then performs the following checks:</p>
+<ul>
+<li>
+<p>The <code>transferIndex</code> th <code>Transfer</code> in the <code>transactionEncoding</code> covers the challenged <code>coinID</code> .</p>
+</li>
+<li>
+<p>The <code>transferIndex</code> th <code>transfer.sender</code> was indeed the claimant for that invalid history challenge.</p>
+</li>
+<li>
+<p>The transaction’s plasma block number lies between the invalid history challenge and the exit.
+The other response is to show the challenge came before the coins were actually deposited — making the challenge invalid. This is similar to the 
+<code>challengeBeforeDeposit</code>
+ for exits themselves.</p>
+</li>
+</ul>
+<pre><code>@public
+def respondInvalidHistoryDeposit(
+ challengeID: uint256,
+ depositUntypedEnd: uint256
+):
+</code></pre>
+<p>In this case, there is no check on the sender being the challenge recipient, since the challenge was invalid. So the contract must simply check:</p>
+<ul>
+<li>
+<p>The deposit covers the challenged <code>coinID</code> .</p>
+</li>
+<li>
+<p>The deposit’s plasma block number lies between the challenge and the exit.
+If so, the exit is cancelled.
+This concludes the complete exit game specification. With these building blocks, funds can be kept safe even in the case of a maximally malicious plasma chain.</p>
+</li>
+</ul>
+<h3 id="6-the-future">6. The Future<a class="headerlink" href="#6-the-future" title="Permanent link"></a></h3>
+<p>Plasma Group is dedicated to the creation of an open plasma implementation for the greater Ethereum community. It’s our mission to push layer 2 scaling forward by exploring the full potential of the plasma framework. There’s certinaly much more to push forward! Here are some of the things we hope to work on next.</p>
+<h4 id="missing-pieces-in-implementation">Missing pieces in implementation<a class="headerlink" href="#missing-pieces-in-implementation" title="Permanent link"></a></h4>
+<p><strong>Automated Guarding</strong></p>
+<p>While a good start, many improvements are needed to fulfill the true potential of Plasma, for this spec and beyond. Currently, the most glaring missing piece in our implementation is guarding, the automated process which submits challenges and responses on behalf of users. Thankfully, the exit games themselves are implemented and have been manually 
+<a href="https://github.com/plasma-group/plasma-contracts/blob/master/test/test-plasma.js">tested</a>
+ , so that client software can be updated after a chain is deployed. We felt this was sufficient for a testnet release, but is the most pressing addition the code needs.</p>
+<p><strong>P2P History Proofs</strong></p>
+<p>Currently, when a user recieves a transaction, they ask the operator and re-download the full proof. This introduces a massive increase in operator overhead. What should really happen is that the sender directly transmits their locally stored proof to the recipient, bypassing the operator and making it much cheaper to run a plasma chain.</p>
+<p><strong>Defragmentation Strategies</strong></p>
+<p>Since we support atomic swaps, our current spec is compatible with any defragmentation strategy without any upgrades to the contract. However, it remains to be seen what the right approach will be, especially since we require transactions to specify a Plasma block number. We hope the plasma community can build an extensible defragmentation abstraction library which allows operators and users to try out different approaches.</p>
+<p><strong>Front-end wallet integration</strong></p>
+<p>We have some designs for a front-end wallet, but currently the client only supports command-line transacting, with no support for trading different ERC20s. Having a nice UI to give to testnet users will be a major step up in terms of UX and accessibility.</p>
+<p><strong>Operator fees</strong></p>
+<p>Because we support atomic multisends, we can support transaction fees without any protocol modifications. However, we’ve not currently implemented anything for this testnet launch.</p>
+<p><strong>Networked operator</strong></p>
+<p>Something we’re not taking advantage of yet is that merkle tree construction is highly parallelizable. If the operator was deployed as a networked cluster, we could increase block size by constructing subtrees in parallel.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYW557y9866JmahujnLhhPCvhH4FNPxE2aDQzRLnmcsj4" /></p>
+<p><strong>Code review</strong></p>
+<p>It’s 
+<strong>very likely</strong>
+ that all of the client, contract, and operator implementations have critical bugs at this time. We’re hoping that part of this public launch will be an opportunity for external contributors to help point out many mistakes!</p>
+<h4 id="missing-pieces-in-the-spec">Missing pieces in the spec<a class="headerlink" href="#missing-pieces-in-the-spec" title="Permanent link"></a></h4>
+<p><strong>Succinct Proof Schemes</strong></p>
+<p>As mentioned in the introduction, the most active area of Plasma research is a scheme to reduce the history proof size. P2P or not, an old (say, 1 year+) coin might have a significant amount of associated proof data, making transactions cumbersome. This is because the history proof contains, at minimum, one branch per block.
+RSA accumulator constructions and STARKS/SNARKS which batch branch proofs over many blocks are currently the most likely candidates. Both would require protocol changes: for RSA (which also introduces a trusted setup), an entirely new validity condition must be added to the exit game. For the latter, the tree needs to be constructed using a SNARK/STARK friendly hashing algorithm, which has not been implemented in EVM.</p>
+<p><strong>Mass Exit/Deposit Schemes</strong>
+ If the operator does turn malicious, users must (eventually, no rush!) exit their funds. The concept of “mass exits”, in which many users consent to exiting together via a single on-chain transaction, would be a significant scalability increase. Ideally, the exit would be able to auto-deposit funds directly into a different plasma chain via a merkle root of balances. This would enable many users to switch chains, without individual balances ever being resolved on the main chain — a significant improvement in the “networkability” of multiple plasma chains.</p>
+<p><strong>Multi-operator networks</strong></p>
+<p>Though the operator cannot steal funds, they can censor transactions at will. One mitigation to this would be to replace the single-operator model with a set of operators, so that the existence of just a single honest operator is sufficient for clients to transact.</p>
+<p><strong>Improved exit records</strong></p>
+<p>Our exitable range construction allows for constant-sized checks on exited ranges. However, since each finalization updates this mapping, we will have a race condition if exits on the same range aren’t processed in ascending order. This is because the first exit’s finalization splits the range, changing the key to the 
+<code>self.exitable</code>
+ mapping and causing 
+<code>checkRangeExitable</code>
+ to fail for exits referencing the unsplit range. Those exits will revert and have to be re-submitted in the next Ethereum block. A gas-efficient alternative may exist, possibly using some sort of tree, queue, or some 
+<code>batchFinalizeExits</code>
+ method.</p>
+<p><strong>State channels and scripting</strong></p>
+<p>Recently, there’s been some great progress in the research community which suggests state channels and scripting with covenants are feasible on Plasma. Our current spec does not support either of these features, and will require a significant upgrade to the smart contract to support.
+Together, we’ll build towards realizing the vision of a more decentralized future.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Plasma Group’s Plasma Spec</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/plasma-groups-plasma-spec/0b2dadc66e584af397bc9b29bc157076/a</li>
+<li><strong>Kauri original author:</strong> Plasma Group (@plasma)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-22</li>
+<li><strong>Kauri original tags:</strong> ethereum, scaling, documentation, layer-2, plasma</li>
+<li><strong>Kauri original hash:</strong> QmV8Fvugz2B2x4TAzjyGu4ntcNCNZeC9MapVrtESVV6oaH</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../banking-on-your-emotions/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../banking-on-your-emotions/" class="btn btn-xs btn-link">
+        Banking on your emotions
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethdenver2k19-hackathon--dutchx-subgraph/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethdenver2k19-hackathon--dutchx-subgraph/" class="btn btn-xs btn-link">
+        ETHDenver2k19 Hackathon  DutchX Subgraph
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/plasma-group-s-plasma-spec.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

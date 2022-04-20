@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-create-a-bitcoin-wallet-address-from-a-pri/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to create a Bitcoin wallet address from a private key - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to create a Bitcoin wallet address from a private key", url: "#_top", children: [
+              {title: "Elliptic Curve Cryptography", url: "#elliptic-curve-cryptography" },
+              {title: "Public key", url: "#public-key" },
+              {title: "Compressed public key", url: "#compressed-public-key" },
+              {title: "Encrypting the public key", url: "#encrypting-the-public-key" },
+              {title: "Adding the network byte", url: "#adding-the-network-byte" },
+              {title: "Checksum", url: "#checksum" },
+              {title: "Getting the address", url: "#getting-the-address" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-create-a-bitcoin-wallet-address-from-a-private-key">How to create a Bitcoin wallet address from a private key<a class="headerlink" href="#how-to-create-a-bitcoin-wallet-address-from-a-private-key" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmbzq8wFSvgiJZTY8XKYBt9bzWCSnJmGsGR232Wtk44aMS" /></p>
+<p>In 
+<a href="https://medium.freecodecamp.org/how-to-generate-your-very-own-bitcoin-private-key-7ad0f4936e6c">the previous article</a>
+ , we looked at different methods to generate a private key. Whatever method you choose, you’ll end up with 32 bytes of data. Here’s the one that we got at the end of that article:</p>
+<p><code>60cf347dbc59d31c1358c8e5cf5e45b822ab85b79cb32a9f3d98184779a9efc2</code></p>
+<p>We’ll use this private key throughout the article to derive both a public key and the address for the Bitcoin wallet.
+What we want to do is to apply a series of conversions to the private key to get a public key and then a wallet address. Most of these conversions are called hash functions. These hash functions are one-way conversions that can’t be reversed. We won’t go to the mechanics of the functions themselves — there are plenty of great articles that cover that. Instead, we will look at how using these functions in the correct order can lead you to the Bitcoin wallet address that you can use.</p>
+<h3 id="elliptic-curve-cryptography">Elliptic Curve Cryptography<a class="headerlink" href="#elliptic-curve-cryptography" title="Permanent link"></a></h3>
+<p>The first thing we need to do is to apply the ECDSA or Elliptic Curve Digital Signature Algorithm to our private key. An elliptic curve is a curve defined by the equation 
+<code>y² = x³ + ax + b</code>
+ with a chosen 
+<code>a</code>
+ and 
+<code>b</code>
+ . There is a whole family of such curves that are widely known and used. Bitcoin uses the 
+<strong>secp256k1</strong>
+ curve. If you want to learn more about Elliptic Curve Cryptography, I’ll refer you to 
+<a href="https://hackernoon.com/what-is-the-math-behind-elliptic-curve-cryptography-f61b25253da3">this article</a>
+ .</p>
+<p>By applying the ECDSA to the private key, we get a 64-byte integer. This consists of two 32-byte integers that represent the X and Y of the point on the elliptic curve, concatenated together.
+For our example, we got: 
+<code>1e7bcc70c72770dbb72fea022e8a6d07f814d2ebe4de9ae3f7af75bf706902a7b73ff919898c836396a6b0c96812c3213b99372050853bd1678da0ead14487d7</code>
+ .
+In Python, it would look like this:</p>
+<pre><code>private_key_bytes = codecs.decode(private_key, ‘hex’)
+## Get ECDSA public key
+key = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1).verifying_key
+key_bytes = key.to_string()
+key_hex = codecs.encode(key_bytes, ‘hex’)
+</code></pre>
+<p>Note: as you can see from the code, before I used a method from the 
+<code>ecdsa</code>
+ module, I decoded the private key using 
+<code>codecs</code>
+ . This is relevant more to the Python and less to the algorithm itself, but I will explain what are we doing here to remove possible confusion.
+In Python, there are at least two classes that can keep the private and public keys: “str” and “bytes”. The first is a string and the second is a byte array. Cryptographic methods in Python work with a “bytes” class, taking it as input and returning it as the result.
+Now, there’s a little catch: a string, say, 
+<code>4f3c</code>
+ does not equal the byte array 
+<code>4f3c</code>
+ , it equals the byte array with two elements, 
+<code>O&lt;</code>
+ . And that’s what 
+<code>codecs.decode</code>
+ method does: it converts a string into a byte array. That will be the same for all cryptographic manipulations that we’ll do in this article.</p>
+<h3 id="public-key">Public key<a class="headerlink" href="#public-key" title="Permanent link"></a></h3>
+<p>Once we’re done with the ECDSA, all we need to do is to add the bytes 
+<code>0x04</code>
+ at the start of our public key. The result is a Bitcoin full public key, which is equal to: 
+<code>041e7bcc70c72770dbb72fea022e8a6d07f814d2ebe4de9ae3f7af75bf706902a7b73ff919898c836396a6b0c96812c3213b99372050853bd1678da0ead14487d7</code>
+ for us.</p>
+<h3 id="compressed-public-key">Compressed public key<a class="headerlink" href="#compressed-public-key" title="Permanent link"></a></h3>
+<p>But we can do better. As you might remember, the public key is some point (X, Y) on the curve. We know the curve, and for each X there are only two Ys that define the point which lies on that curve. So why keep Y? Instead, let’s keep X and the sign of Y. Later, we can derive Y from that if needed.
+The specifics are as follows: we take X from the ECDSA public key. Now, we add the 
+<code>0x02</code>
+ if the last byte of Y is even, and the byte 
+<code>0x03</code>
+ if the last byte is odd.
+In our case, the last byte is odd, so we add 
+<code>0x03</code>
+ to get the compressed public key: 
+<code>031e7bcc70c72770dbb72fea022e8a6d07f814d2ebe4de9ae3f7af75bf706902a7</code>
+ . This key contains the same information, but it’s almost twice as short as the uncompressed key. Cool!
+Previously, wallet software used long, full versions of public keys, but now most of it has switched to compressed keys.</p>
+<h3 id="encrypting-the-public-key">Encrypting the public key<a class="headerlink" href="#encrypting-the-public-key" title="Permanent link"></a></h3>
+<p>From now on, we need to make a wallet address. Whatever method of getting the public key you choose, it goes through the same procedure. Obviously, the addresses will differ. In this article, we will go with the compressed version.
+What we need to do here is to apply SHA-256 to the public key, and then apply RIPEMD-160 to the result. The order is important.
+SHA-256 and RIPEMD-160 are two hash functions, and again, we won’t go into the details of how they work. What matters is that now we have 160-bit integer, which will be used for further modifications. Let’s call that an encrypted public key. For our example, the encrypted public key is 
+<code>453233600a96384bb8d73d400984117ac84d7e8b</code>
+ .</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSSGzBbPBp1QsTypEYbE9o5Sv6s9WmkPMtjHMaarfkKm5" /></p>
+<p>Here’s how we encrypt the public key in Python:</p>
+<pre><code>public_key_bytes = codecs.decode(public_key, ‘hex’)
+## Run SHA-256 for the public key
+sha256_bpk = hashlib.sha256(public_key_bytes)
+sha256_bpk_digest = sha256_bpk.digest()
+## Run RIPEMD-160 for the SHA-256
+ripemd160_bpk = hashlib.new(‘ripemd160’)
+ripemd160_bpk.update(sha256_bpk_digest)
+ripemd160_bpk_digest = ripemd160_bpk.digest()
+ripemd160_bpk_hex = codecs.encode(ripemd160_bpk_digest, ‘hex’)
+</code></pre>
+<h3 id="adding-the-network-byte">Adding the network byte<a class="headerlink" href="#adding-the-network-byte" title="Permanent link"></a></h3>
+<p>The Bitcoin has two networks, main and test. The main network is the network that all people use to transfer the coins. The test network was created — you guessed it — to test new features and software.
+We want to generate an address to use it on the mainnet, so we need to add 
+<code>0x00</code>
+ bytes to the encrypted public key. The result is 
+<code>00453233600a96384bb8d73d400984117ac84d7e8b</code>
+ . For the testnet, that would be 
+<code>0x6f</code>
+ bytes.</p>
+<h3 id="checksum">Checksum<a class="headerlink" href="#checksum" title="Permanent link"></a></h3>
+<p>Now we need to calculate the checksum of our mainnet key. The idea of checksum is to make sure that the data (in our case, the key) wasn’t corrupted during transmission. The wallet software should look at the checksum and mark the address as invalid if the checksum mismatches.
+To calculate the checksum of the key, we need to apply SHA-256 twice and then take first 4 bytes of the result. For our example, the double SHA-256 is 
+<code>512f43c48517a75e58a7ec4c554ecd1a8f9603c891b46325006abf39c5c6b995</code>
+ and therefore the checksum is 
+<code>512f43c4</code>
+ (note that 4 bytes is 8 hex digits).</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXFeBtrFx3tjimVkCySq8T8whREL9NvbUXqx64b3kMcAF" /></p>
+<p>The code to calculate an address checksum is the following:</p>
+<pre><code>## Double SHA256 to get checksum
+sha256_nbpk = hashlib.sha256(network_bitcoin_public_key_bytes)
+sha256_nbpk_digest = sha256_nbpk.digest()
+sha256_2_nbpk = hashlib.sha256(sha256_nbpk_digest)
+sha256_2_nbpk_digest = sha256_2_nbpk.digest()
+sha256_2_hex = codecs.encode(sha256_2_nbpk_digest, ‘hex’)
+checksum = sha256_2_hex[:8]
+</code></pre>
+<h3 id="getting-the-address">Getting the address<a class="headerlink" href="#getting-the-address" title="Permanent link"></a></h3>
+<p>Finally, to make an address, we just concatenate the mainnet key and the checksum. That makes it 
+<code>00453233600a96384bb8d73d400984117ac84d7e8b512f43c4</code>
+ for our example.
+That’s it! That’s the wallet address for the private key at the start of the article.
+But you may notice that something is off. You’ve probably seen a handful of Bitcoin addresses and they didn’t look like that. Well, the reason is that they are encoded with 
+<a href="https://en.wikipedia.org/wiki/Base58">Base58</a>
+ . It’s a little bit odd.</p>
+<p>Here’s the algorithm to convert a hex address to the Base58 address:</p>
+<pre><code>def base58(address_hex):
+    alphabet = ‘123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz’
+    b58_string = ‘’
+    # Get the number of leading zeros
+    leading_zeros = len(address_hex) — len(address_hex.lstrip(‘0’))
+    # Convert hex to decimal
+    address_int = int(address_hex, 16)
+    # Append digits to the start of string
+    while address_int &gt; 0:
+        digit = address_int % 58
+        digit_char = alphabet[digit]
+        b58_string = digit_char + b58_string
+        address_int //= 58
+    # Add ‘1’ for each 2 leading zeros
+    ones = leading_zeros // 2
+    for one in range(ones):
+        b58_string = ‘1’ + b58_string
+    return b58_string
+</code></pre>
+<p>What we get is 
+<code>17JsmEygbbEUEpvt4PFtYaTeSqfb9ki1F1</code>
+ , a compressed Bitcoin wallet address.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfSVZwHq9DKyaA2aCre37seyd4qiV4D9SUzo8rVimmzsq" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>The wallet key generation process can be split into four steps:</p>
+<ul>
+<li>
+<p>creating a public key with ECDSA</p>
+</li>
+<li>
+<p>encrypting the key with SHA-256 and RIPEMD-160</p>
+</li>
+<li>
+<p>calculating the checksum with double SHA-256</p>
+</li>
+<li>
+<p>encoding the key with Base58.
+Depending on the form of public key (full or compressed), we get different addresses, but both are perfectly valid.
+Here’s the full algorithm for the uncompressed public key:</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUbtbDaxnBNy4o8a8p4ZwBpU9Sq7gMhsmqodgUw8S8EyL" /></p>
+<p>If you want to play with the code, I published it to the 
+<a href="https://github.com/Destiner/blocksmith">Github repository</a>
+ .</p>
+<hr />
+<p>I also post random thoughts about crypto on  <a href="https://twitter.com/DestinerX">Twitter</a>, so you might want to check it out.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to create a Bitcoin wallet address from a private key</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-create-a-bitcoin-wallet-address-from-a-priv/ffe6e5525f2c43ed81e89af3c22228d8/a</li>
+<li><strong>Kauri original author:</strong> Timur Badretdinov (@destiner)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-29</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmapZoJSXZJCo8YbLAW5qeeNQRtaw1HgbYBGjGfPPiDXGL</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../interacting-with-the-ipfs-protocol--a-tutorial-fo/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../interacting-with-the-ipfs-protocol--a-tutorial-fo/" class="btn btn-xs btn-link">
+        Interacting with the IPFS protocol  a tutorial for beginner
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../bytecode-only-analysis-of-evm-smart-contracts/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../bytecode-only-analysis-of-evm-smart-contracts/" class="btn btn-xs btn-link">
+        bytecode only analysis of evm smart contracts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-create-a-bitcoin-wallet-address-from-a-pri.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

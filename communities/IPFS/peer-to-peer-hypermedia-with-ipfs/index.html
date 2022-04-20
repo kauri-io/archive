@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/IPFS/peer-to-peer-hypermedia-with-ipfs/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Peer-to-peer hypermedia with IPFS - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Peer-to-peer hypermedia with IPFS", url: "#_top", children: [
+              {title: "What We're Using Right Now", url: "#what-were-using-right-now" },
+              {title: "How it works", url: "#how-it-works" },
+              {title: "Why it Matters", url: "#why-it-matters" },
+              {title: "Downfalls", url: "#downfalls" },
+              {title: "Implementations", url: "#implementations" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="peer-to-peer-hypermedia-with-ipfs">Peer-to-peer hypermedia with IPFS<a class="headerlink" href="#peer-to-peer-hypermedia-with-ipfs" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVmFg2MiFVxb4Ro967CaubE8ytjWD5gDFgsNzRCnrVUj9" /></p>
+<p>InterPlanetary File System, also known as IPFS, is a peer to peer media protocol that means to make the web faster, safer, and open sourced. Right now we're in need of a system that has fast performance, continuous access to content, efficient data transfer, easy naming conventions, and low cost. Although IPFS is in its early stages, it can do all of these things.</p>
+<h3 id="what-were-using-right-now">What We're Using Right Now<a class="headerlink" href="#what-were-using-right-now" title="Permanent link"></a></h3>
+<p>In the current implementation of the web, we are using a service called hypertext transfer protocol, also known as http. When we search for content on the web, our computer sends an http request to the server hosting the content. In return the server sends a response with the information we requested.</p>
+<p>There are problems with this method:</p>
+<ul>
+<li>Most applications on the web are hosted by one server. If anything happens to the server, we are not able to access the content anymore.</li>
+<li>Downloading from a single server is inefficient. If lots of people try to access the same site, browsing and downloading will be incredibly slow.</li>
+<li>The servers we access information from are usually far away. The further the distance the more expensive it is to access the content.</li>
+<li>Duplicated content creates wasted space.</li>
+<li>We depend on others to keep content accessible and secure. Site administrators are depended on to keep websites active and updated and hosting companies on keeping our data safe.</li>
+</ul>
+<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h3>
+<p>IPFS is a decentralized way of storing and sharing files. Objects are kept track of through an address that's associated with the contents of the object. It works using a structure called a merkledag which is a combination of a merkle tree and directed acyclic graphs. Merkledag is a cryptographically authenticated structure of data that uses different cryptographic hashes to address content. It allows for data to link together.</p>
+<h4 id="peer2peer">Peer2Peer<a class="headerlink" href="#peer2peer" title="Permanent link"></a></h4>
+<p>IPFS runs using a peer to peer system. Peer to peer is a network in which other computer systems or 'peers', share files directly between each other. Peers connected together are called a swarm. Every computer using IPFS is called a node. When you access content on the network, your system first looks at nodes near you to see if they have what you're looking for. If it doesn't find it, it will search farther away. When your node finds the content, it will store it for a short period of time. Essentially you become a host for nodes close to you. Multiple nodes can host the same content and thus you no longer have to depend on a single server. It's a swarm of nodes that exchange data.</p>
+<p>To reiterate:  </p>
+<ul>
+<li>You connect to the swarm.</li>
+<li>Request a file.</li>
+<li>Your computer looks for the closest peer for a copy.</li>
+<li>If they don't have it, it will look farther away (the original server).</li>
+<li>You download the file and host it.</li>
+<li>With this method you only host files you're interested in.</li>
+<li>Everyone is a host and a client at the same time</li>
+</ul>
+<h4 id="content-addressable">Content Addressable<a class="headerlink" href="#content-addressable" title="Permanent link"></a></h4>
+<p>Every file is given a unique identifier called a cryptographic hash. The hash is used to search for content on the network. Instead of describing what the file is, it describes what the file contains. If the content of the file changes then the hash will change. This is a tamper proof system because you will know if it's been altered based on the hash. The InterPlanetary naming system, also known as IPFN is responsible for this feature. IPFN is a secure method because there is no way possible to determine what the content is through the hash.</p>
+<h3 id="why-it-matters">Why it Matters<a class="headerlink" href="#why-it-matters" title="Permanent link"></a></h3>
+<h4 id="replication-and-distribution">Replication and Distribution<a class="headerlink" href="#replication-and-distribution" title="Permanent link"></a></h4>
+<p>Duplicates don't exist on the network because the hash for a file is based on the contents. If the contents of the files are the same, the hashes will also be the same. Getting rid of duplicates frees up unnecessary space.</p>
+<h4 id="access-and-censorship">Access and Censorship<a class="headerlink" href="#access-and-censorship" title="Permanent link"></a></h4>
+<p>Content will always be accessible because it's available from multiple sources. For this reason, content is difficult to censor. Attacks would have to be directed at all nodes containing the content. Weak links or failing points in the system don't exist because there will always be another node. As well, since the hash points to the content and not its location, content will always be accessible because there is no such thing as a broken link.</p>
+<h4 id="speed">Speed<a class="headerlink" href="#speed" title="Permanent link"></a></h4>
+<p>Everyone serves each other content and thus you don't necessarily have to access far away servers. This allows it to be a quick system regardless of how close you are to the original host. If a file is too large (bigger than 256 kb) it's broken down into smaller pieces and joined together when it reaches the user. Smaller pieces of information travel faster.</p>
+<h3 id="downfalls">Downfalls<a class="headerlink" href="#downfalls" title="Permanent link"></a></h3>
+<p>IPFS is a system that only works if people are actively participating in it. Although, if people are participating, content will be available forever but only if people want it to be there. As well, personal information is not secure on this system. Personal information would be challenging to keep designated to one node because of the way information is shared in IPFS.</p>
+<h3 id="implementations">Implementations<a class="headerlink" href="#implementations" title="Permanent link"></a></h3>
+<p>Before we install IPFS, here is a brief introductory to familiarize yourself with the different interfaces.</p>
+<h4 id="command-line-tool">Command Line Tool:<a class="headerlink" href="#command-line-tool" title="Permanent link"></a></h4>
+<p>The IPFS protocol comes in two different languages: Go and JavaScript. In the future we can expect to see a Python implementation.</p>
+<p><strong>go-ipfs</strong> : The main IPFS platform. It's a command line tool with a daemon server, HTTP API for controlling the node, and an HTTP gateway to serve content to HTTP browsers. It features all the commands necessary to control your own IPFS node.</p>
+<p><strong>js-ipfs</strong> : The JavaScript browser implementation. Allows you to start an IPFS node directly in your program or control a node that is already running through HTTP API.</p>
+<p>In our tutorial, we are going to be using the Go implementation. For more information on <strong>js-ipfs</strong> visit the <a href="https://js.ipfs.io/">link.</a></p>
+<h4 id="browser-extension">Browser extension<a class="headerlink" href="#browser-extension" title="Permanent link"></a></h4>
+<p>The browser extension also known as the companion, allows the user to view short detailed information about their node. The companion is available on <a href="https://chrome.google.com/webstore/detail/ipfs-companion/nibjojkomfdiaoajekhjakgkdhaomnch?hl=en">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/ipfs-companion/">Firefox.</a> Information includes version, gateway, API, and the number of peers connected. It has the capability to share files and switch to a custom or public gateway.</p>
+<p>In the next tutorial we will not be covering the browser extension. To learn more click the <a href="https://github.com/ipfs-shipyard/ipfs-companion">link</a>.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmevyp8k7QKnE8WAmBb6LrmvvarVXFZ4mcyrpCFmXLF1Tx" /></p>
+<h4 id="local-webhost">Local Webhost<a class="headerlink" href="#local-webhost" title="Permanent link"></a></h4>
+<p>Once you have connected to the daemon server, you can access your own personal web host to see the status of your node. You'll be able to read information such as network traffic, bandwidth, and peers. The local webhost is a more advanced version of the browser extension.</p>
+<p><a href="http://localhost:5001/webui">http://localhost:5001/webui</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY38K1ps2iG2DsYcWbq9nc9Y4uz2PA3PmD9q12R8Z5Bno" /></p>
+<p>The status page allows the users to check information in regards to how their node is running on the network.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdCspQhUqUsXHSUpL85mdJkmwfJJE2vSf35bbko9X6N3s" /></p>
+<p>You can upload files to your node directly in the browser as well as explore files on other nodes if you know the hash of the content. </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNcLG5bmCGRK4AbfHgEQBqZoR3pABMwNwY2Q6Gd8KS3uf" /></p>
+<p>The web interface is the ultimate tool for checking the status of your node and managing your files.</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>IPFS is a system that allows the web to be more reliable and robust than what we have right now. It saves us money by not having to rely on servers that are far away. The content we want is always available to us because we have the option of pinning it forever. If a server goes down, it's not an issue because we can access the information from somewhere else. IPFS and Blockchain are both headed in the same direction; towards a decentralized system. It's fast, reliable, and space efficient so what are we waiting for?</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://docs.ipfs.io/introduction/usage/">https://docs.ipfs.io/introduction/usage/</a></li>
+<li><a href="https://www.sitepoint.com/http-vs-ipfs-is-peer-to-peer-sharing-the-future-of-the-web/">https://www.sitepoint.com/http-vs-ipfs-is-peer-to-peer-sharing-the-future-of-the-web/</a></li>
+<li><a href="https://medium.com/@ConsenSys/an-introduction-to-ipfs-9bba4860abd0">https://medium.com/@ConsenSys/an-introduction-to-ipfs-9bba4860abd0</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Peer-to-peer hypermedia with IPFS</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/peertopeer-hypermedia-with-ipfs/a6a0de7d0a914259a4613479f8f2d13f/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-19</li>
+<li><strong>Kauri original tags:</strong> server, ipfs, web, peer2peer</li>
+<li><strong>Kauri original hash:</strong> QmUkUFrYQjRrjXFWfAPTWHHB9eGUiMLSLpG42gU3m2vg4b</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../installing-ipfs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../installing-ipfs/" class="btn btn-xs btn-link">
+        Installing IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started-with-mahuta-a-search-engine-for-t/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started-with-mahuta-a-search-engine-for-t/" class="btn btn-xs btn-link">
+        Getting started with Mahuta - A Search engine for the IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/IPFS/peer-to-peer-hypermedia-with-ipfs.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

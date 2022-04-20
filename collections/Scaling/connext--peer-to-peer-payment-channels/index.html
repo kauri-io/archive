@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/connext--peer-to-peer-payment-channels/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Connext  Peer-to-Peer Payment Channels - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Connext  Peer-to-Peer Payment Channels", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Table of Contents", url: "#table-of-contents" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="connext-peer-to-peer-payment-channels">Connext  Peer-to-Peer Payment Channels<a class="headerlink" href="#connext-peer-to-peer-payment-channels" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmW9QFTyAUnd4NwfNiehLpNQsow2e8W1sn2Aq6EVrzKDX9" /></p>
+<blockquote>
+<p>Connext is building open source, p2p micropayment infrastructure. Their first product uses payment channels on the Ethereum blockchain. Payment channels allow many off-chain transactions to be aggregated into a much smaller number of on-chain transactions.</p>
+</blockquote>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>This guide aims to provide just enough information to get started building an application with Connext. If you're already familiar with Connext and how payment channels work, feel free to skip down to the <a href="#Connext-Components">Components</a> section. These examples are high-level and intended only to get users started; if you're looking for more detailed technical guides please refer to the READMEs of individual components (linked below). </p>
+<p>If you're unfamiliar with terms like smart contract and private key, please refer to a more general developer guide such as <a href="https://github.com/ethereum/wiki/wiki/Ethereum-Development-Tutorial">this one, compiled by the Ethereum community</a>, before continuing.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link"></a></h2>
+<ul>
+<li><a href="#Payment-Channels">Payment Channels</a><ul>
+<li><a href="#How-It-Works">How It Works</a></li>
+<li><a href="#Disputes">Disputes</a></li>
+<li><a href="#Hubs">Hubs</a></li>
+<li><a href="#Custodial-vs.-Noncustodial">Custodial vs. Noncustodial</a></li>
+</ul>
+</li>
+<li><a href="#Connext-Components">Connext Components</a><ul>
+<li><a href="#Architecture-Overview">Architecture Overview</a></li>
+<li><a href="#Indra">Indra</a></li>
+<li><a href="#Client">Client</a></li>
+<li><a href="#Contracts">Contracts</a></li>
+<li><a href="#Card">Card</a></li>
+</ul>
+</li>
+<li><a href="#Integration-Guide">Integration Guide</a></li>
+</ul>
+<h3 id="payment-channels">Payment Channels<a class="headerlink" href="#payment-channels" title="Permanent link"></a></h3>
+<p>Payment channels underpin our architecture. They allow many off-chain transactions to be aggregated into just a few onchain transactions. Here, we described the basic tenets of payment channels. If you're looking for more information, here are a few digestible resources:</p>
+<ul>
+<li><a href="https://learnchannels.org/">LearnChannels</a></li>
+<li><a href="https://medium.com/blockchannel/counterfactual-for-dummies-part-1-8ff164f78540">State Channels for Dummies Series</a></li>
+<li><a href="https://medium.com/connext/state-channels-for-babies-c39a8001d9af">State Channels for Babies Series</a></li>
+</ul>
+<h4 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>Two users lock the initial blockchain state (i.e., each party's balance) into a smart contract closely resembling a multisig wallet. This ensures that the funds in the wallet can't be used elsewhere or removed until unlocked with an update that both parties have signed.</p>
+</li>
+<li>
+<p>The two parties transact by passing state updates (i.e., balance updates) amongst themselves. If both parties agree on a state update by "signing" it, it could be submitted to the smart contract at any time to unlock funds.</p>
+</li>
+<li>
+<p>When parties have finished transacting, they each submit state updates to the smart contract. If the state updates match, the blockchain state (i.e., each party's balance) is unlocked, typically in a different configuration than the initial state.</p>
+</li>
+</ol>
+<h4 id="disputes">Disputes<a class="headerlink" href="#disputes" title="Permanent link"></a></h4>
+<p>Each state update that is signed by both parties is assigned a "nonce", or a number that uniquely identifies that update. More recent nonces trump older nonces.</p>
+<p>As soon as Party A (let's call her Alice) submits a state update, a challenge period starts. During this period, Party B (let's call him Bob) has the opportunity to submit an update with a more recent nonce. When the challenge timer expires, the update with the most recent nonce is used to unlock the blockchain state and distribute funds appropriately.</p>
+<p>If the challenge period expires and Bob hasn't submitted a more recent state update than Alice, funds are disbursed according to the most recent double-signed state update (in this case, the one submitted by Alice). In this case, Bob isn't actually cheated out of any money--he misses out on the more recent state update (which is likely beneficial to him). Everyone gets paid the amount that they most recently agreed upon.</p>
+<p>Obviously, that's a situation most people would like to avoid, especially since a party who intentionally submits an old state probably lost money in a later state update. There are a few potential solutions to this; one is the challenge timer itself, which at the very least allows Bob some time to submit his state update. Another is a third-party "watchtower" system, which would automatically monitor the channel and (for a small fee) submit the most recent update for Bob even if he's offline.</p>
+<h4 id="hubs">Hubs<a class="headerlink" href="#hubs" title="Permanent link"></a></h4>
+<p>Single channels (i.e., Party A connected to Party B) work well if you have a financial relationship with some entity or person where you make payments frequently or in metered amounts. Most payments between two specific users, however, are relatively infrequent; few payment paradigms entail repeated payments between the same counterparties. Consider an ecosystem of Parties A, B, C, and D: Party A might not pay any individual counterparty with sufficient frequency to justify a channel, but they might pay Parties B, C, and D often enough for onchain transactions to become prohibitively costly. </p>
+<p>There are several solutions to this: one, as implemented by Bitcoin's Lightning Network, is to find a route from Party A to Party B, C, or D through a network of peers. Our solution is to have those all users connect to a Hub, typically run by a business that needs to facilitate P2P payments. Once connected to the Hub, users are able to pay any other user that is also connected to that Hub.</p>
+<p>Here's how it works: the Hub translates a single state transition (Party A pays Party B 1ETH) into two: Party A pays the Hub 1ETH, then the Hub pays Party B 1ETH. Under the hood, this is a simple calculation on the hub's behalf: decrement the balance of Party A by 1ETH and increment the balance of PartyA by 1ETH.</p>
+<h4 id="custodial-vs-noncustodial">Custodial vs. Noncustodial<a class="headerlink" href="#custodial-vs-noncustodial" title="Permanent link"></a></h4>
+<p>Our current release is custodial, meaning that the Hub briefly takes ownership of the funds that Party A pays Party B. This means that users currently rely on the Hub to forward the payment; because of demand from the community, we made the decision to ship a usable product and iteratively improve on trustlessness and decentralization. </p>
+<p>In our noncustodial release (coming in late January 2019), peer-to-peer transactions will be conducted in threads rather than channels. When two parties (who each have a channel open with the Hub) want to open a thread, they each send a signed request to the hub recording the funds that they are committing to the thread. Those funds are locked for use in the thread and cannot be spent elsewhere until they are withdrawn from the thread.</p>
+<p>Once the hub has recorded the initial thread state, it no longer needs to observe interactions between the two parties. In a bidirectional paradigm (i.e. payments can flow in either direction), they can pass signed state updates back and forth until they wish to stop transacting and close the thread; at that point, they submit their most recent state update to the hub. The hub compares the balances in that update to the initial state and, after a challenge period and if they make sense, distributes funds between the two parties in accordance with the new state. Then, it decomposes the transaction into two payments as described above.</p>
+<p>In this paradigm, the hub doesn't need to take money from Party A, hold it, and pass it to Party B. The Hub is never actually moving around user money; rather, it's just rebalancing the funds with which it has collateralized the users' channels. Moreover, it will be possible to conduct all off-chain state transitions that the hub facilitates, on-chain via the contract. As a result, users will not need to trust the Hub.</p>
+<h3 id="connext-components">Connext Components<a class="headerlink" href="#connext-components" title="Permanent link"></a></h3>
+<h4 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link"></a></h4>
+<p>Connext is composed of three components that interoperate. At the core of the platform is our <a href="https://github.com/ConnextProject/contracts">ChannelManager</a>, which handle the onchain complexities of depositing to and withdrawing from payment channels, as well as disputing outcomes. </p>
+<p>The <a href="https://github.com/ConnextProject/connext-client">Client package</a> enables easy interaction with onchain functionality, in addition to allowing end users to make offchain payments amongst themselves. Specifically, it creates and validates offchain state updates, and helps users interact with our ChannelManager contract and the Hub.</p>
+<p>Our <a href="https://github.com/ConnextProject/indra">Hubs</a> can be thought of as an automated implementation of the Client package: once launched, their logic allows the Hub operator to manage many open channels and threads and facilitate payments between the users that are connected to that Hub.</p>
+<p><img alt="Architecture diagram" src="https://github.com/ConnextProject/docs/blob/master/ConnextArchitecture.png" /></p>
+<h4 id="indra">Indra<a class="headerlink" href="#indra" title="Permanent link"></a></h4>
+<p>Indra is the core implementation repository for Connext. Indra contains ready-for-deployment code for our core contracts and the scripts needed to set up your own Hub. Indra and accompanying documentation are fully available <a href="https://github.com/ConnextProject/indra">here</a>.</p>
+<p>Indra contains source code for the Hub, supporting services and associated infrastructure. In deployment, however, the code needed to set up a Hub is programmatically pulled from our docker repositories when calling the deploy script. This is done for ease of use and stability.</p>
+<h4 id="client">Client<a class="headerlink" href="#client" title="Permanent link"></a></h4>
+<p>The Connext Client package is a Typescript interface which is used to communicate with deployed Connext contracts and with other clients. The client package is available through <a href="https://www.npmjs.com/package/connext">NPM</a>.</p>
+<p>Clients are typically integrated into client-side code: either the frontend of your application or directly into the wallet layer (see <a href="#Wallet">Wallet</a> for more). While you can use a combination of the Client and the contracts as a hot wallet, we recommend that you use an inpage wallet to autosign transactions. This allows you to abstract away many of the complexities of payment channels for your users and reduce UX friction.</p>
+<p>Clients contain the following functionality:</p>
+<ul>
+<li>Depositing to a channel</li>
+<li>Opening a thread to any counterparty </li>
+<li>Closing a thread and automatically submitting the latest available mutually agreed update.</li>
+<li>Withdrawing from a channel and automatically submitting the latest available mutually agreed update.</li>
+<li>Handling a dispute.</li>
+<li>Generating/signing/sending and validating/receiving state updates over HTTPs. The Client takes in the address of the server that is being used to pass messages in the constructor.</li>
+</ul>
+<p>Payment channel implementations need a communication layer where users can pass signed state updates to each other. The initial implementation of Connext does this through traditional server-client HTTPS requests. While this is the simplest and most effective mechanism for now, we plan to move to a synchronous message passing layer that doesn't depend on a centralized server as soon as possible.</p>
+<p>An overview of how to integrate the client can be found in <a href="#Wallet">Wallet</a>.</p>
+<h4 id="contracts">Contracts<a class="headerlink" href="#contracts" title="Permanent link"></a></h4>
+<p>Our payment channel contracts. Our implementation relies on a combination of the research done by a variety of organizations, including Spankchain, Finality, Althea, Magmo and CounterFactual. Contracts and comprehensive documentation are fully open source and are available <a href="https://github.com/ConnextProject/contracts">here</a>.</p>
+<p>The contracts repository should only be used for development purposes. The latest stable version of the contracts which works with Hub and Client will always be kept in Indra. For contributor documentation, check the repository.</p>
+<h4 id="card">Card<a class="headerlink" href="#card" title="Permanent link"></a></h4>
+<p>The <a href="https://github.com/ConnextProject/card/">card</a> is designed to help you bootstrap an application that integrates Connext. It contains a simple inpage wallet and payment interface, as well as a custom Web3 injection that automatically signs transactions using the inpage wallet. For developers just beginning to build their application, the wallet is a great way to get started; for developers looking to integrate with existing an existing app, it's a good instructive resource for implementation and includes some components that you can easily copy over.</p>
+<p>Repo Link: https://github.com/ConnextProject/card
+Card Integration Guide: https://github.com/ConnextProject/card/blob/master/README.md</p>
+<h3 id="integration-guide">Integration Guide<a class="headerlink" href="#integration-guide" title="Permanent link"></a></h3>
+<p>Integrating Connext and the hosted Dai hub allows you to make instant, trust-minimized, off-chain payments to anyone else connected to the hub. In this guide, we assume that you're familiar with the basics of payment channels (as outlined in the first few sections of this documentation). </p>
+<h4 id="contents">Contents:<a class="headerlink" href="#contents" title="Permanent link"></a></h4>
+<ul>
+<li><a href="#setting-up">Setting Up</a></li>
+<li><a href="#local-development">Local Development</a></li>
+<li><a href="#connecting-to-other-networks">Connecting to Other Networks</a></li>
+<li><a href="#Hosting-a-Hub">Hosting a Hub</a></li>
+<li><a href="#integrating-the-client">Integrating the Client</a></li>
+<li><a href="#basic-example">Basic Example</a></li>
+<li><a href="#core-concepts">Core Concepts</a></li>
+<li><a href="#signing-state-updates">Signing State Updates</a></li>
+<li><a href="#collateral">Collateral</a></li>
+<li><a href="#availability">Availability</a></li>
+<li><a href="#trust-assumptions">Trust Assumptions</a></li>
+</ul>
+<h3 id="setting-up">Setting Up<a class="headerlink" href="#setting-up" title="Permanent link"></a></h3>
+<p>Before getting started integrating connext, make sure you have the following prerequisites installed:</p>
+<ul>
+<li>Node 9+</li>
+<li>Docker (if not using docker for local development)</li>
+<li>Make (if not using docker for local development)</li>
+</ul>
+<h4 id="local-development">Local Development<a class="headerlink" href="#local-development" title="Permanent link"></a></h4>
+<p>When developing locally, you will also need to make sure you have a local hub deployed. Make sure you get the hub up and running, according to the instructions found in the <a href="https://github.com/ConnextProject/indra">indra repository</a>.</p>
+<p>After your hub is running locally, install the client in your frontend:</p>
+<pre><code class="language-javascript">npm install connext
+</code></pre>
+<p>and configure your environment.</p>
+<h5 id="with-docker-recommended">With Docker (recommended)<a class="headerlink" href="#with-docker-recommended" title="Permanent link"></a></h5>
+<p>Add the following variables to your <code>.env</code>:</p>
+<pre><code class="language-bash">HUB_URL=http://localhost:3000/api/hub
+RPC_URL=http://localhost:3000/api/eth
+</code></pre>
+<p>To easily send tokens or wei from Metamask to your local network, mport the following private key (hub's key):
+<code>659CBB0E2411A44DB63778987B1E22153C086A95EB6B18BDF89DE078917ABC63</code></p>
+<p>Additionally, create a custom RPC with the url: <code>http://localhost:3000/api/eth</code>.</p>
+<h5 id="without-docker">Without Docker<a class="headerlink" href="#without-docker" title="Permanent link"></a></h5>
+<p>Add the following variables to your <code>.env</code>:</p>
+<pre><code class="language-bash">HUB_URL=http://localhost:8080
+RPC_URL=http://localhost:8545
+</code></pre>
+<p>To easily send tokens or wei from Metamask to your local network, mport the following private key (hub's key):
+<code>09CD8192C4AD4DD3B023A8EF381A24D29266EBD4AF88ECDAC92EC874E1C2FED8</code></p>
+<p>Your Metamask should use the traditional ganache RPC url: <code>http://localhost:8545</code></p>
+<h4 id="connecting-to-other-networks">Connecting to Other Networks<a class="headerlink" href="#connecting-to-other-networks" title="Permanent link"></a></h4>
+<p>If you are ready to test on rinkeby or on mainnet, update your <code>.env</code> variables:</p>
+<pre><code class="language-bash">## Rinkeby Hub
+HUB_URL=https://daicard.io/api/rinkeby/hub
+RPC_URL=https://eth-rinkeby.alchemyapi.io/jsonrpc/SU-VoQIQnzxwTrccH4tfjrQRTCrNiX6w
+## Mainnet Hub
+HUB_URL=https://daicard.io/api/mainnet/hub
+RPC_URL=https://eth-mainnet.alchemyapi.io/jsonrpc/rHT6GXtmGtMxV66Bvv8aXLOUc6lp0m_-
+</code></pre>
+<h4 id="hosting-a-hub">Hosting a Hub<a class="headerlink" href="#hosting-a-hub" title="Permanent link"></a></h4>
+<p>Interested in hosting a hub? Check out the <a href="https://github.com/ConnextProject/indra">indra repository</a> for more information on running, deploying, and hosting your own hub.</p>
+<h3 id="integrating-the-client">Integrating the Client<a class="headerlink" href="#integrating-the-client" title="Permanent link"></a></h3>
+<h4 id="basic-example">Basic Example<a class="headerlink" href="#basic-example" title="Permanent link"></a></h4>
+<p>To start using a channel, just deposit from the signing wallet into the ChannelManger contract and start making payments!</p>
+<pre><code class="language-javascript">// Import the client and environment
+require('dotenv').config()
+import { getConnextClient } from &quot;connext/dist/Connext.js&quot;;
+const Web3 = require(&quot;web3&quot;);
+
+// instantiate web3, get signer
+const web3 = new Web3(process.env.RPC_URL)
+const accounts = await web3.eth.getAccounts()
+
+// set the client options
+const connextOptions = {
+  web3,
+  hubUrl: process.env.HUB_URL,
+  user: accounts[0],
+  origin: 'localhost' // the host url of your app
+}
+
+// instantiate a new instance of the client
+const connext = await getConnext(connextOptions)
+
+// the connext client is an event emitter
+// start the app, and register a listener
+connext.on('onStateChange', connext =&gt; {
+  console.log('Connext:', connext)
+}
+// start connext
+await connext.start()
+
+// Now that the client is started, you can make a deposit into the channel.
+// Channels can accept deposits in both ETH and tokens. However, when depositing tokens,
+// ensure the user has sufficient ETH remaining in their wallet to afford the gas
+// of the deposit transaction.
+
+// make a deposit in ETH
+await connext.deposit({
+  amountWei: &quot;1500&quot;,
+  amountToken: &quot;0&quot;, // assumed to be in wei units
+})
+
+// Congratulations! You have now opened a payment channel with the hub,
+// and you are ready to start updating your state. Connext facilitates
+// in channel exchanges, token payments, and channel withdrawals in wei.
+
+// exchange wei for dai
+await connext.exchange(&quot;1000&quot;, &quot;wei&quot;);
+
+// make a dai payment
+// payments made can be retrieved using the returned purchase id,
+// which ties together all payment channel updates initiated in the array.
+const purchaseId = await connext.buy({
+  meta: {
+
+  },
+  payments: [
+    {
+      recipient: &quot;0x7fab....&quot;, // payee  address
+      amount: {
+        amountToken: &quot;10&quot;,
+        amountWei: &quot;0&quot; // only token payments are facilitated
+      },
+      type: &quot;PT_CHANNEL&quot;, // the payment type, see the client docs for more
+    },
+  ]
+})
+
+// Note: The hub is responsible for collateralizing all payments
+// If the hub does not have funds to forward the payment in the
+// payment recipient's channel, the payment will fail until the
+// hub is able to deposit more tokens into the channel.
+// See the Collateral section to learn more
+
+// withdraw funds from channel as wei
+// the token funds that are in your channel are exchanged for
+// wei on chain as part of the withdrawal
+await connext.withdraw({
+  // address to receive withdrawal funds
+  // does not need to have a channel with connext to receive funds
+  recipient: &quot;0x8cef....&quot;,
+  // USD price if using dai
+  exchangeRate: &quot;139.35&quot;,
+  // wei to transfer from the user's balance to 'recipient'
+  withdrawalWeiUser: &quot;500&quot;,
+  // tokens from channel balance to sell back to hub
+  tokensToSell: &quot;990&quot;,
+})
+</code></pre>
+<p>Further documentation on the client can be found <a href="https://docs.connext.network/en/latest/develop/client.html">here</a>. Check out the <a href="https://daicard.io">Dai Card</a> live, and its <a href="https://github.com/ConnextProject/card">source</a> for a more detailed example.</p>
+<h3 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link"></a></h3>
+<h4 id="signing-state-updates">Signing State Updates<a class="headerlink" href="#signing-state-updates" title="Permanent link"></a></h4>
+<p>The signing wallet is the ethereum address that is used to sign the state updates within the channel. The signing wallet can be any ethereum account you have access to (such as Metamask), however, it is important to understand how signing affects user experience.</p>
+<p>When using a Metamask account as the signer, for instance, your users will have to explicitly approve any signature requested of them. The resultant signature pop-ups must be resolved before the channel state can be advanced, and often significantly detract from UX.</p>
+<p>To avoid this, you can implement a custom provider that defaults to approving and signing messages without requiring explicit user input (i.e. a signing pop-up). An example autosigner implmentation can be found <a href="https://github.com/ConnextProject/card/blob/master/src/utils/ProviderOptions.ts">here</a>. Error checks against malformed state updates are performed before signing, and any application-specific errors should be checked before calling Connext functions to avoid an improper state update.</p>
+<h4 id="collateral">Collateral<a class="headerlink" href="#collateral" title="Permanent link"></a></h4>
+<p>If you are using trust-minimized payments, you will only be able to make payments if the hub at least that amount in the payee's channel. For example, if Alice pays Bob 10 DAI through the hub, the hub must have at least 10 DAI in its channel with Bob to facilitate the payment. If Alice and Chris want to pay Bob 10 DAI each, as tips during videogame streaming for example, the hub must have at least 20 DAI in it's channel with Bob.</p>
+<h5 id="custodial-payments-dont-need-collateral">Custodial payments don't need collateral<a class="headerlink" href="#custodial-payments-dont-need-collateral" title="Permanent link"></a></h5>
+<p>Collateral requirements only apply if you are using non-custodial payments. To bypass these requirements completely, use trusted hub payments by inserting the payment type <code>PT_CUSTODIAL</code>. This allows the hub to forward along payments it receives, without having the collateral in the recipients channel.</p>
+<h5 id="autocollateralization">Autocollateralization<a class="headerlink" href="#autocollateralization" title="Permanent link"></a></h5>
+<p>The hub handles these requirements by using an autocollateralization mechanism that is triggered by any payment made, whether or not the payment was successful. Hubs determine amount of collateral needed in a channel based on the number and value of recent payments made to the recipient. Additionally, there are floors and ceilings implemented by hub operators to minimize the amount of collateral that is locked in hub channels, as well as set a minimum amount of collateral to be maintained in each channel.</p>
+<p>Typically, hub balances below 10 DAI will trigger recollateralization. Hubs will put up to 170 DAI in any one channel. These values are configurable, so contact your hub operator for more details.</p>
+<h5 id="implementer-considerations">Implementer considerations<a class="headerlink" href="#implementer-considerations" title="Permanent link"></a></h5>
+<p>As an implementer, this can have several important consequences. First, you should expect payments to fail if there is not sufficient collateral, and retry them after monitoring the hubs collateral in the recipients channel via <code>connext.recipientNeedsCollateral</code>. Additionally, you should expect to see payments fail if they are uncharacteristically large, occur right after a withdrawal or dispute, or are the first payments in a long time.</p>
+<p>This means if you do not send a failing payment to trigger collateraliztion, it will not account for that payment amount when recollateralizing. Deposits where the hub is recollateralizing a channel who's balance is below the floor should not be blocking updates, so long as the hub still has sufficient <code>balanceTokenHub</code> in the recipient's channel.</p>
+<p>The hub can reclaim collateral by disputing the channel, or by the client submitting a withdrawal request with 0 value to allow the hub to withdraw excess collateral from the channel. By minimizing the hub collateral, you also reduce the amount of user channels the hub disputes (lowering user gas costs and wait times) and help payments pass more smoothly through the network.</p>
+<h4 id="availability">Availability<a class="headerlink" href="#availability" title="Permanent link"></a></h4>
+<p>The wallet must acknowledge every state update by cosigning that state. This means in order to update your channel, the user must be online.</p>
+<p>Again, availability requirements only apply if you are using non-custodial payments and using the payment type <code>PT_CUSTODIAL</code> will relax these, and rely on a trusted hub.</p>
+<h4 id="trust-assumptions">Trust Assumptions<a class="headerlink" href="#trust-assumptions" title="Permanent link"></a></h4>
+<p>While the underlying protocol is completely noncustodial, there are trust assumptions to the Dai Card implementation which we want to make explicit. We plan to address these assumptions over the next few months.</p>
+<h5 id="hub-can-intercept-payments">Hub can intercept payments<a class="headerlink" href="#hub-can-intercept-payments" title="Permanent link"></a></h5>
+<p>For now, the payments themselves are trusted. In other words, a hub can steal your payment value while the transaction is in-flight. You would usually notice if this happened and leave the system with the rest of your funds, so the risk is limited to your payment itself.</p>
+<p>The code for fully noncustodial payments is already in our codebase and is functional. We have left it deactivated for now to reduce complexity while we work on improving logic for channel collateralization. We plan on reactivating it within the next couple of weeks.</p>
+<h5 id="you-dont-always-have-access-to-your-state">You don’t always have access to your state<a class="headerlink" href="#you-dont-always-have-access-to-your-state" title="Permanent link"></a></h5>
+<p>Right now, if you go offline, the hub is the only entity that persists your channel’s state. From a usability perspective, this is great because it allows for easy cross-device support and keeps state in sync. Obviously, this is bad in the event that the hub goes down and you need to recover your funds from the contract directly using your latest state.</p>
+<p>“Data availability” is a known problem for channels. To solve it, we need access to a highly reliable/available decentralized data store. Within the next 2–4 weeks, we plan to backup user state on IPFS as a temporary fix. We’re still researching a solution that would be effective long term and at scale.</p>
+<h5 id="link-payments-and-other-async-payments-are-trusted">Link payments and other async payments are trusted<a class="headerlink" href="#link-payments-and-other-async-payments-are-trusted" title="Permanent link"></a></h5>
+<p>Link payments and other async/offline payments are currently done by having the hub hold the payment until some condition for the payment can be proven to be resolved by the recipient.</p>
+<p>This can be partly trust-minimized by allowing for conditional resolution of payments (i.e. “generalized state channels”) in our contract. The specification to do this has already been completed and will only require a change to &lt;10 lines of the ChannelManager code (est. 4–6 weeks to ship). However, some service provider may need to be available to “receive” the state here, which we’re still researching how to resolve — everything in time, we’re working quickly.</p>
+<h5 id="hub-is-centralized-and-can-censor-payments">Hub is centralized and can censor payments<a class="headerlink" href="#hub-is-centralized-and-can-censor-payments" title="Permanent link"></a></h5>
+<p>Our hub is currently operated by us (Connext) and is centralized off-chain similar to how 0x relayers like Radar Relay work. This means that our hub could be censored, DDoS’d or shut down, which would mean that our payment service could go offline.</p>
+<p>Hosting a hub is an interim solution to solve cheap, fast payments now while we work on building out the remaining pieces needed for a decentralized state channel network. We can fix our own centralization by allowing other Connext hubs (at that point, nodes) to be networked together, by making it easy for anyone to run a node, and by moving to sending state updates over some P2P messaging protocol rather than over https. These changes will require some quality of life improvements to our contract functions, however, so we expect to only start work on them after our next contract iteration is deployed.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Connext  Peer-to-Peer Payment Channels</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/connext-peertopeer-payment-channels/ea598e8c666c413e8df0a6dd106a1c28/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-13</li>
+<li><strong>Kauri original tags:</strong> scaling, state-channels</li>
+<li><strong>Kauri original hash:</strong> QmXNh3DMbGsymeorreYLeydbGoH9gbmxit2pmpcJVWC93r</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-link">
+        POA - Part 1 - Develop and deploy a smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../skale--ethereum-compatible-sidechains/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../skale--ethereum-compatible-sidechains/" class="btn btn-xs btn-link">
+        SKALE  Ethereum-compatible sidechains
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/connext--peer-to-peer-payment-channels.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

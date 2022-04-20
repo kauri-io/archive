@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/IPFS/improving-ipfs-decentralization-introducing-ahken/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Improving IPFS Decentralization - Introducing Ahken - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Improving IPFS Decentralization - Introducing Ahken", url: "#_top", children: [
+              {title: "The IPFS Elephant-In-The-Room", url: "#the-ipfs-elephant-in-the-room" },
+              {title: "Introducing Ahken", url: "#introducing-ahken" },
+              {title: "Where's the Code??", url: "#wheres-the-code" },
+              {title: "Let Me Know Your Thoughts!", url: "#let-me-know-your-thoughts" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="improving-ipfs-decentralization-introducing-ahken">Improving IPFS Decentralization - Introducing Ahken<a class="headerlink" href="#improving-ipfs-decentralization-introducing-ahken" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaQz2W93AqWXT4qYKAPn1aGJkC1KrtaUTscfZJcqMNbfV" /></p>
+<h2 id="the-ipfs-elephant-in-the-room">The IPFS Elephant-In-The-Room<a class="headerlink" href="#the-ipfs-elephant-in-the-room" title="Permanent link"></a></h2>
+<p>IPFS is a popular peer-to-peer protocol for storing and sharing data in a distributed fashion, and is heavily used behind the scenes in Ethereum applications.  It is often claimed that storing important dApp data in IPFS is a silver bullet that inherently makes the data decentralized and accessible, but is this really the case? </p>
+<h3 id="pinning-in-ipfs">Pinning in IPFS<a class="headerlink" href="#pinning-in-ipfs" title="Permanent link"></a></h3>
+<p>In order for content to be permanently accessible, an IPFS node in the network must permanently 'pin' the data (referenced by the hash of the content), and this node must be permanently online.  If all pinning nodes happen to go down, then the content in question cannot be accessed until the pinning node comes back up (assuming no node has the data in their cache).  Worse still, if the node fails to ever come back up, or its filesystem becomes corrupted in some way, then there is a chance that this data could be lost forever, unless someone re-pins it!</p>
+<h3 id="where-are-dapps-pinning-data">Where are dApps Pinning Data?<a class="headerlink" href="#where-are-dapps-pinning-data" title="Permanent link"></a></h3>
+<p>In reality, dApps usually either pin to the popular <a href="https://infura.io/">Infura</a> gateway, or run their own IPFS node (or cluster of nodes).  If no other nodes pin this data, then the application is dependent on the reliability of these nodes to retrieve the data, and having permanent access relies on the node pinning the data forever, and never getting corrupted.</p>
+<h2 id="introducing-ahken">Introducing Ahken<a class="headerlink" href="#introducing-ahken" title="Permanent link"></a></h2>
+<p>It can be argued that IPFS data CAN become decentralized as it is possible to pin your own data, along with pinning any other data that you are interested in storing permanently.  This is not a simple task right now, which is why I've decided to start building Ahken, an Ethereum dApp aware automatic IPFS pinner, designed to be run on personal machines with a local IPFS node.  Whilst very much a work in progress right now (I've only spent a few evenings in total building out a PoC), the initial planned features are:</p>
+<h3 id="scriptable-ipfs-pinning-triggered-by-ethereum-events">Scriptable IPFS Pinning Triggered by Ethereum Events<a class="headerlink" href="#scriptable-ipfs-pinning-triggered-by-ethereum-events" title="Permanent link"></a></h3>
+<p>Many Ethereum smart contracts either emit IPFS hashes of application data via events within events, or store the IPFS hash in EVM state, and subsequently emit an event after storing.  The context in which this data is stored is also more often than not associated with a public address.  The end-game is for application specific, customisable scripts to be loaded into Ahken which define a specific pinning criteria.  It is hoped that in the future, dApps will provide a link from their site that allows a user to download a script that instructs Ahken to automatically pin any IPFS dApp data that is relevant to them.</p>
+<p>Using <a href="https://bounties.network/">bounties.network</a> <code>StandardBounty</code> contract as an example, a script could be created that instructs Ahken to:</p>
+<p><em>1-</em> Listen for the emission of a `BountyIssued' event from the smart contract.</p>
+<pre><code>event BountyIssued(uint bountyId)
+</code></pre>
+<p><em>2-</em> Call the <code>getBounty(...)</code> function, passing in the <code>bountyId</code> from the event.</p>
+<pre><code>function getBounty(uint _bountyId)
+      public
+      constant
+      validateBountyArrayIndex(_bountyId)
+      returns (address, uint, uint, bool, uint, uint)
+  {
+      return (bounties[_bountyId].issuer,
+              bounties[_bountyId].deadline,
+              bounties[_bountyId].fulfillmentAmount,
+              bounties[_bountyId].paysTokens,
+              uint(bounties[_bountyId].bountyStage),
+              bounties[_bountyId].balance);
+  }
+</code></pre>
+<p><em>3-</em> Check if the bounty issuer equals the public key of the Ahken user.<br>
+<em>4-</em> If so, retrieve the IPFS hash of the bounty data via <code>getBountyData(...)</code>, and pin this data to the local IPFS node.</p>
+<h3 id="script-publishing-and-subscribing">Script Publishing and Subscribing<a class="headerlink" href="#script-publishing-and-subscribing" title="Permanent link"></a></h3>
+<p>Whilst pinning your data locally helps keep a permanent record of that data, to guarantee availability, your machine must always be running and connected to the internet.  It would be much more decentralized if we could easily enable other people to also pin your data.</p>
+<p>Another planned feature of Ahken is to provide an option for users to publish their current configured script setup to IPFS, and to allow other third party users to choose to also run these scripts in their own local instances of Ahken, thus increasing the number of pinning nodes for this data.  For example, I may like to pin all the data that are associated with my friends or colleagues, influential people, or I may even want to pin all the data from a dApp that I use regularly, to show my support.</p>
+<h2 id="wheres-the-code">Where's the Code??<a class="headerlink" href="#wheres-the-code" title="Permanent link"></a></h2>
+<p>Its very raw and bare bones right now (ie. its not fully working and ready to be run by end users yet!), but the code is open source (Apache 2.0 licensed) and available <a href="https://github.com/craigwilliams84/ahken">here.</a></p>
+<h2 id="let-me-know-your-thoughts">Let Me Know Your Thoughts!<a class="headerlink" href="#let-me-know-your-thoughts" title="Permanent link"></a></h2>
+<p>Like I said previously, this project is in its very early stages so it would be great to hear some feedback around if you think it's a good or terrible idea (or if something similar already exists)!  Get in touch on twitter <a href="https://twitter.com/craig_williams1">@craig_williams1</a>, or post a comment here.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Improving IPFS Decentralization - Introducing Ahken</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/improving-ipfs-decentralization-introducing-ahken/012d5a2f2f2f4ab8ba1872248f8ff631/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-20</li>
+<li><strong>Kauri original tags:</strong> IPFS, AHKEN</li>
+<li><strong>Kauri original hash:</strong> QmbYYPiuXkqqiVJ78VVYYNGuyJ8kD7T7U5gHPA9MbY5Vcz</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../managing-storage-in-a-java-application-with-ipfs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../managing-storage-in-a-java-application-with-ipfs/" class="btn btn-xs btn-link">
+        Managing storage in a Java application with IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../installing-ipfs/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../installing-ipfs/" class="btn btn-xs btn-link">
+        Installing IPFS
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/IPFS/improving-ipfs-decentralization-introducing-ahken.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

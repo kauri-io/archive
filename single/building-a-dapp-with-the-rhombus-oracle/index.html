@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-a-dapp-with-the-rhombus-oracle/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a dapp with the Rhombus Oracle - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a dapp with the Rhombus Oracle", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "The Gambling Game Scenario", url: "#the-gambling-game-scenario" },
+              {title: "Project Setup", url: "#project-setup" },
+              {title: "Using a lighthouse oracle in the project", url: "#using-a-lighthouse-oracle-in-the-project" },
+              {title: "Deploying your project", url: "#deploying-your-project" },
+              {title: "What's next?", url: "#whats-next" },
+              {title: "Performing local testing", url: "#performing-local-testing" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-dapp-with-the-rhombus-oracle">Building a dapp with the Rhombus Oracle<a class="headerlink" href="#building-a-dapp-with-the-rhombus-oracle" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmao35NGpXgss8EfuRRsUvwaLmiBccPbUbqLUMst99RsXL" /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>This in depth tutorial is designed to walk you through the process of building your first dapp using a Rhombus oracle. It will guide you step by step on how to incorporate real world data into your smart contracts with the Rhombus Lighthouse Delivery method. You will learn how to interact with existing Lighthouses on Rinkeby in your smart contracts, and how to perform local testing of Lighthouses using Truffle and a local Ganache chain.</p>
+<p>This tutorial is meant for those with a good understanding of Ethereum and smart contracts, dapp development using solidity, and the Truffle framework, but are new to using Rhombus oracles.</p>
+<p><strong>Note</strong> : For those new to Truffle or Ethereum, please read the <a href="https://truffleframework.com/docs/truffle/testing/testing-your-contracts">Truffle Tutorial</a> before proceeding.</p>
+<p>In this tutorial, we cover:</p>
+<ol>
+<li>Project setup</li>
+<li>Using a lighthouse oracle in the project</li>
+<li>Deploying your project</li>
+<li>Performing local testing</li>
+</ol>
+<h3 id="the-gambling-game-scenario">The Gambling Game Scenario<a class="headerlink" href="#the-gambling-game-scenario" title="Permanent link"></a></h3>
+<p>Alice wants to start a casino where players can bet Ether on the outcome of a dice roll. Unfortunately, it is hard to generate truly random numbers on the Ethereum blockchain. She has asked you to help integrate an oracle into her project which periodically obtains a random number generated off-chain. You know that Rhombus provides a random number oracle service, and must figure out how to incorporate it into the project.</p>
+<p>Alice already has the casino functionality completed, and is waiting on you to provide the random number</p>
+<h3 id="project-setup">Project Setup<a class="headerlink" href="#project-setup" title="Permanent link"></a></h3>
+<p>Create a directory where you would like to keep this project, and move inside it with your terminal. Run the truffle command <code>truffle unbox RhombusNetwork/tutorial</code>. Truffle should automatically unbox and the project and download it into your folder.</p>
+<p>Alternatively, visit the project's <a href="https://github.com/RhombusNetwork/tutorial">github link</a> and download or clone the project files.</p>
+<h3 id="using-a-lighthouse-oracle-in-the-project">Using a lighthouse oracle in the project<a class="headerlink" href="#using-a-lighthouse-oracle-in-the-project" title="Permanent link"></a></h3>
+<p>What you have just downloaded is a skeleton project with pieces missing. This tutorial will give you code and explanations on how you can fill out the missing sections to complete the project</p>
+<p>Looking inside the <code>contracts</code> folder, you see four files.</p>
+<ul>
+<li><code>Gamble.sol</code> is the main file for our Betting Game project. This is where we want to read lighthouse data into</li>
+<li><code>Ilighthouse</code> is a lighthouse interface file. This is must be included in <code>Gamble.sol</code> to interact with currently deployed lighthouses. You do not need to modify this file, simply include it in your project</li>
+<li><code>Lighthouse.sol</code> is the actual lighthouse code. Do not modify this file. It only needs to be included if you are doing local testing of projects using lighthouse oracles with Truffle/Ganache</li>
+<li><code>Migrations.sol</code> comes with every Truffle project and can be ignored. You do not need to modify this file</li>
+</ul>
+<p><code>Gamble.sol</code> already contains the gambling logic Alice has coded. We will fill in the missing sections to provide a random number.</p>
+<p>Rhombus provides oracle data through a mechanism called a lighthouse. A lighthouse is an address where a single integer value that contains off-chain data is stored. Rhombus ensures the value is updated periodically, and can provide guarantees that the value is correct.</p>
+<p>In this case, there is a random number generator lighthouse already deployed on Rinkeby, and you must access this lighthouse from your casino project smart contract (which will also be deployed on Rinkeby)</p>
+<p>To obtain a value from an existing Rhombus lighthouse oracle, see the <code>Gamble.sol</code> file in the <code>contracts</code> folder.</p>
+<ol>
+<li>First, you must include the Lighthouse Interface file <code>ILighthouse.sol</code> in the smart contract file where you want to read data into, <code>Gamble.sol</code>. Add the following code snippet into section 1.</li>
+</ol>
+<pre><code class="language-javascript">import &quot;../contracts/Ilighthouse.sol&quot;;
+</code></pre>
+<ol>
+<li>The <code>Ilighthouse</code> file contains the interface for a Lighthouse Object. Now you can declare a global <code>ILighthouse</code> object in your <code>Gamble.sol</code> file. Add this to section 2.</li>
+</ol>
+<pre><code class="language-javascript">ILighthouse  public myLighthouse;
+</code></pre>
+<ol>
+<li>Create a constructor for <code>Gamble.sol</code>. Pass in an <code>Ilighthouse</code> object as a constructor parameter. Add the following code to section 3.</li>
+</ol>
+<pre><code class="language-javascript">constructor(ILighthouse _myLighthouse) public {
+    myLighthouse = _myLighthouse;
+}
+</code></pre>
+<p>What you did here is define the lighthouse that the <code>Gamble.sol</code> smart contract will read data from. When you deploy your project to Rinkeby, you will give <code>Gamble.sol</code> the address of the random number lighthouse that Rhombus has deployed. This address will be interpreted by the constructor as an <code>Ilighthouse</code> object, and set as the global <code>Ilighthouse</code> variable <code>myLighthouse</code>. Now you can use <code>myLighthouse</code> to call lighthouse functions such as reading data. Lets do this now.</p>
+<ol>
+<li>Scroll down in <code>Gamble.sol</code> and insert the following code in section 4</li>
+</ol>
+<pre><code class="language-javascript">uint winningNumber;
+bool ok;
+(winningNumber,ok) = myLighthouse.peekData(); // obtain random number from Rhombus Lighthouse
+</code></pre>
+<p>Here, your smart contract will go to the address represented by <code>myLighthouse</code>, which is the address you passed into the constructor during deployment (and also the address of the random number lighthouse) and call the <code>peekData()</code> function at that address. The random number lighthouse will then return a pair of values to you, a bool and an int. The bool <code>ok</code> contains whether or not the data is the latest updated value, and the int <code>winningNumber</code> contains what you have been after this whole time -- the random number (from 1 to 6) you need in integer format.</p>
+<h3 id="deploying-your-project">Deploying your project<a class="headerlink" href="#deploying-your-project" title="Permanent link"></a></h3>
+<p>Now that you've helped Alice complete her gambling project, its time to deploy it and showcase it to the world. Go into the <code>migrations</code> folder. You should see two files</p>
+<ul>
+<li><code>1_initial_migrations.js</code> comes with every truffle project. You can ignore it</li>
+<li><code>2_deploy_project.js</code> is where you will write the code to deploy the smart contracts you have added to your project, <code>Gamble.sol</code>.</li>
+</ul>
+<p>Go into <code>2_deploy_project.js</code> and add the following code snippet into section 5.</p>
+<pre><code class="language-javascript">if(network == &quot;rinkeby&quot;) {
+
+  var address = '0x613D2159db9ca2fBB15670286900aD6c1C79cC9a';   //address of RNG lighthouse on rinkeby
+  deployer.deploy(Gamble, address);
+
+} else {    // For local testing
+
+  // First deploy the lighthouse, then use the lighthouse's address to deploy gamble. This allows
+  // gamble to know which lighthouse to obtain data from.
+  deployer.deploy(Lighthouse).then(function() {
+    return deployer.deploy(Gamble, Lighthouse.address);
+  });
+
+}
+</code></pre>
+<p>Lets focus on the first if statement, which contains code for Rinkeby deployment. Remember how in <code>Gamble.sol</code> you created a constructor which had to take an address as an argument (and interpret it as an <code>Ilighthouse</code> object)? This is where you pass that address in. We have provided you with the address of the random number lighthouse on Rinkeby, and here you are deploying the <code>Gamble.sol</code> file with the address as a parameter.</p>
+<p>Next, exit out of the <code>migrations</code> folder and go back to the main project directory. Find the <code>truffle-config.js</code> file and open it. This file contains information for the blockchain you will be connected to and deploying to. Paste the following code into section 6.</p>
+<pre><code class="language-javascript">var HDWalletProvider = require(&quot;truffle-hdwallet-provider&quot;);
+var mnemonic = &quot;&quot;; // Enter the mnemonic for your rinkeby account (testnet deployment only)
+module.exports = {
+
+  networks: {
+    development: {
+      host: &quot;127.0.0.1&quot;,
+      port: 8545,     // port 7545 for Ganache GUI version and port 8545 for Ganache-cli
+      network_id: &quot;*&quot; // Match any network id
+
+    },
+
+    rinkeby: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, &quot;https://rinkeby.infura.io/v3/[your infura link here]&quot;);
+      },
+      network_id: 4
+    }
+
+  }
+};
+</code></pre>
+<p>These are the deployment settings you need to get your project onto Rinkeby. The deployment settings for testing with a local Ganache chain is included as well. Note that you will need to have an Infura link and a wallet with Rinkeby ether to deploy the project.</p>
+<p>With this all set up, go to your terminal and run <code>truffle migrate --network rinkeby</code> to complete deployment. Congratulations, your project is now available for anyone to use!</p>
+<h3 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link"></a></h3>
+<p>Now that you have completed this tutorial, you are ready to start using Rhombus lighthouse oracles and creating your own projects! We provide lighthouses that contain all kinds of information that may be useful to you, such as crypto prices, temperature, and random number generators like the one you used today. Check out all our oracles here (insert link)</p>
+<p>If you create an amazing project using one of our oracles and would like to share it with us, please do so here (add information, formats, email). Your project may even end up featured on our website and win a bounty prize! (ask jeff)</p>
+<p>Additionally, there are a few more things that could help you in your oracle development, listed below</p>
+<h3 id="performing-local-testing">Performing local testing<a class="headerlink" href="#performing-local-testing" title="Permanent link"></a></h3>
+<p>Everything is great if your project works, but what if you are running into errors reading data from a lighthouse? It's a pain to deploy your entire project to Rinkeby each time you change your code, and performing tests on Rinkeby is difficult as well. That is why you may want to learn about the local testing feature to save time when you are developing your own projects that use lighthouse oracles. We have integrated lighthouse testing with regular Truffle test suites for a smooth experience. Here's how it works.</p>
+<p>In order to test your project in Truffle, you need a lighthouse to read from. But your local Ganache chain cannot communicate with the Rinkeby chain, and your project to be Truffle tested is on Ganache while the lighthouse you want to read from is on Rinkeby.</p>
+<p>To fix this, you will have to create a simulated lighthouse on your local Ganache chain and run tests by having your project interact with it.</p>
+<ol>
+<li>
+<p>Ensure you have the <code>Lighthouse.sol</code> file inside your contracts folder. You will need this for local testing.</p>
+</li>
+<li>
+<p>Go into the <code>migrations</code> folder and open the <code>2_deploy_project</code> file. The code snippet you filled out had one section for Rinkeby deployment, and one section for local deployment (and testing). Observe the <code>else()</code> statement, the format is  similar to Rinkeby deployment with a few differences.</p>
+</li>
+</ol>
+<p>Now, you cannot deploy <code>Gamble.sol</code> with the random number lighthouse address provided to you as that address does not contain a random number lighthouse on the local chain. You must first deploy a lighthouse locally, and pass that address to <code>Gamble.sol</code> as a parameter in order to deploy <code>Gamble.sol</code>. This sets the local lighthouse as the address <code>Gamble.sol</code> will read from. Later on, you will fill out the lighthouse with a simulated value and read from it.</p>
+<ol>
+<li>
+<p>Open the <code>test</code> folder, you should see two files, <code>TestGamble.sol</code> and <code>TestGamble.js</code>. Just like how Truffle supports test cases in both solidity and javascript, you can run lighthouse tests in both. For this tutorial, we will look at the solidity tests. Open up <code>TestGamble.sol</code>.</p>
+</li>
+<li>
+<p>At the beginning of the file, note that we import <code>Lighthouse.sol</code> in addition to the usual files you need for Truffle tests. Additionally, we declare new instances <code>Lighthouse</code> and <code>Gamble</code>. This is because we must write a value into our sample lighthouse before testing interactions with it, and only the address that deployed a lighthouse is permitted to write values into it for security reasons. Truffle however, uses proxy contracts when running tests, thus making your attempts at writing values into the lighthouse fail because the proxy contracts are not authorized. Basically, you need to redeclare new instances of <code>Lighthouse</code> and <code>Gamble</code> for your tests to work.</p>
+</li>
+</ol>
+<pre><code class="language-javascript">// Create new instances of smart contracts to perform tests on.
+  Lighthouse newlighthouse = new Lighthouse();
+  Gamble newgamble = new Gamble(ILighthouse(address(newlighthouse)));
+</code></pre>
+<ol>
+<li>Now lets take a look at how to write test cases with lighthouses. Scroll down and find the <code>TestWrite()</code> function. First we write a value into the lighthouse with <code>newlighthouse.write(dataValue, nonce);</code> Next, we read from the lighthouse, and check to see if the value we get is correct with an assert statement. If the read or write failed, the value we obtain from <code>peekData()</code> would be wrong and we can proceed to debug with error statements that Truffle provides. There are more complicated test cases provided below for you to reference.</li>
+</ol>
+<p>With this setup, you can perform Truffle testing as usual, and not have to worry about lighthouse's only being available on Rinkeby.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a dapp with the Rhombus Oracle</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-dapp-with-the-rhombus-oracle/093b82a34e924fedb2fed3c80034aec1/a</li>
+<li><strong>Kauri original author:</strong> Jeff Rosen (@jeffrosen)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-10</li>
+<li><strong>Kauri original tags:</strong> rhombus, gaming, dapp, oracles</li>
+<li><strong>Kauri original hash:</strong> QmUZ4UAFpiHk65wQjZxc5hrymJLzhv5C2TUyvuRsuqjS2a</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-eat-a-bank-one-business-at-a-time/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-eat-a-bank-one-business-at-a-time/" class="btn btn-xs btn-link">
+        How to Eat a Bank — One Business at a Time ?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../writing-in-web-3.0-for-trekkies%21/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../writing-in-web-3.0-for-trekkies%21/" class="btn btn-xs btn-link">
+        Writing in web 3.0 for trekkies!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-a-dapp-with-the-rhombus-oracle.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

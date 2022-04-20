@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/jjmr007deploying-and-verifying-a-contract-using-r/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan", url: "#_top", children: [
+              {title: "How to Compile, Deploy and Verify Contracts Using \"import\" with Remix, node.js and Etherscan", url: "#how-to-compile-deploy-and-verify-contracts-using-import-with-remix-nodejs-and-etherscan" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="jjmr007deploying-and-verifying-a-contract-using-remix-and-etherscan">jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan<a class="headerlink" href="#jjmr007deploying-and-verifying-a-contract-using-remix-and-etherscan" title="Permanent link"></a></h1>
+<h3 id="how-to-compile-deploy-and-verify-contracts-using-import-with-remix-nodejs-and-etherscan">How to Compile, Deploy and Verify Contracts Using "import" with Remix, node.js and Etherscan<a class="headerlink" href="#how-to-compile-deploy-and-verify-contracts-using-import-with-remix-nodejs-and-etherscan" title="Permanent link"></a></h3>
+<p>When working with contracts that use one or more libraries, it would be preferable to have tools to only deploy the libraries once and deploy the contracts that use them separately. This property is not activated by default in Remix and the verification of such contracts in Etherscan is not so intuitive. Here are the steps to correctly perform the deployment and verification of these types of contracts:</p>
+<p><strong>N° 1</strong> Edit the contract in <a href="https://remix.ethereum.org">Remix</a> normally and perform the first tests in the JavaScriptVM, until the contract compiles and can be executed as expected.</p>
+<p><strong>N° 2</strong> Go to "Settings" and in the "General Settings" field check the "Generate Contract Metadata" box. This action will generate a JSON file related to the contract on which we are currently compiling with Remix, and this will occur the next time the "Compile" plug-in is executed, or it will occur the next time a change is generated in the contract and the option to auto-compile is activated.</p>
+<p><strong>N° 3</strong> A .JSON extension file will have been created, for each contract contained in the file just evaluated by the compilation module. The name of each file will be the one we have given to each contract. To keep these files from being generated on and on, we can uncheck the "Generate Contract Metadata" box.</p>
+<p><strong>N° 4</strong> In the special case of this .sol file on which we work, and which has just generated the "contract(s)". Json - which invokes some import(s) of one(or more) library(ies) that is(are) already deployed in the blockchain in question - we are interested that Remix does not re-deploy those libraries. In other words: we are interested in not deploying the same libraries over and over again each time a contract which import them is deployed.</p>
+<p><strong>N° 5</strong> To request this from Remix, before deploying the contract of interest, we go to its generated "contract".json file and modify some parameters under the "deploy" key:</p>
+<p>As can be seen, an instance for each blockchain is declared:</p>
+<ul>
+<li><code>" VM: - "</code> : Indicating as network ID "-"</li>
+<li><code>" main: 1 "</code> : The main string with ID "1"</li>
+</ul>
+<p>...
+etc</p>
+<p>Among these instances will be the chain where we are interested in deploying the contract; the chain where in fact the libraries were already deployed. For example, if the string in question is "ropsten":</p>
+<pre><code class="language-js"> &quot;ropsten:3&quot; : { 
+     &quot;linkReferences&quot;: {},
+     &quot;autoDeployLib&quot;: true
+    },
+</code></pre>
+<p>We substitute "true" for "false" and add in the object corresponding to the "linkReferences" key the correspondence of the libraries with the addresses (or addresses) where they have been displayed in the blockchain:</p>
+<pre><code class="language-js">&quot;ropsten:3&quot;: {
+    &quot;linkReferences&quot;: {
+        &quot;./LSafeMath.sol&quot;: {
+            &quot;SafeMath&quot;: &quot;0x0E9A6d63b47b794e275cBC3Ba23Ff52215A8356C&quot;,
+        },
+        &quot;./Library2.sol&quot;: {
+            &quot;Lib2&quot;: &quot;0x1234...00ff&quot;
+        }
+    },
+    &quot;autoDeployLib&quot;: false
+},
+</code></pre>
+<p>With this specification we prevent Remix from automatically deploying the libraries linked to a contract, in a given blockchain.</p>
+<p><strong>N° 6</strong> To execute the deployment, we use the "Run" module, indicating "Injected web3" in "Enviroment". If the <a href="https://metamask.io/">Metamask</a> plug-in is installed, it is automatically loaded or the page can be refreshed so that when the Metamask wallet is open, it interacts with Remix. Remember to indicate in the Metamask chain the same blockchain that we have specified to link to the libraries in the "contract" .json file. In this case: ropsten.</p>
+<p><strong>N° 7</strong> Once the contract deployment transaction has been executed and confirmed in the blockchain, it is possible to verify the code in <a href="https://etherscan.io/verifyContract">Etherscan</a>. For this purpose and in this particular case, we place the address of the new contract deployed in the first field; in the "Please select Compiler Type" field we will choose "Solidity (Standard-Json-Input)".</p>
+<p><strong>N° 8</strong> Next, the "Please select Compiler Version" option appears and we will choose exactly the same compiler that the Remix compiler used to compile our contract. For example: "v0.5.13 + commit.5b0b510c".</p>
+<p><strong>N° 9</strong> Next we choose the type of license for our contract. For example: "No License (None)". And then press "Continue".</p>
+<p><strong>N° 10</strong> A new page appears where we are asked to load the standard JSON input file, which is a very precise and detailed data structure that must accurately reflect the content of the contract and must indicate the instructions to which libraries the contract must be linked. Therefore we have to create this file.</p>
+<p><strong><em>N° 10.1</em></strong> It will be necessary to create a local directory on our PC and store the ".sol" files where both our libraries and our contract will be specified, exactly as they were edited at the time of deployment, without modifying even a comma.</p>
+<p>For this example, the assumption is that there are two libraries and that both are in the same extension file .sol: "Libraries.sol" and there is a contract that invokes these libraries through the "import" command: "Contract.sol". Suppose the contract is called "Cont" and the libraries "SafeMath" and "Lib2". These files will be saved in the same local directory.</p>
+<p><strong><em>N° 10.2</em></strong> If we do not have it installed, it is necessary to install <a href="https://nodejs.org/es/">NODE.js</a>. Once installed, we open an instance of the command console (for example cmd.exe in windows); if you like, verify the versions of npm and node:</p>
+<pre><code class="language-cmd">&gt;npm -v
+</code></pre>
+<pre><code class="language-cmd">&gt;node -v
+</code></pre>
+<p>And we proceed to locate the console in the local folder where we store our .sol files:</p>
+<pre><code class="language-cmd">&gt;cd C:\Users\MyUser\LocalFolder
+</code></pre>
+<p><strong><em>N° 10.3</em></strong> From this folder we run an instance of node:</p>
+<pre><code class="language-cmd">C:\Users\MyUser\LocalFolder&gt;node
+</code></pre>
+<p>And a special console opens</p>
+<pre><code class="language-cmd">&gt;_
+</code></pre>
+<p><strong><em>N° 10.4</em></strong> Next we will create the standard JSON input file using the node tools:</p>
+<pre><code class="language-js">&gt; var fs = require ('fs');
+&gt; var file = fs.readFileSync ('./ Contract.sol', 'utf8');
+&gt; var lib = fs.readFileSync ('./ Libraries.sol', 'utf8');
+</code></pre>
+<p><strong><em>N° 10.5</em></strong> Then we will use our preferred file editor, such as <a href="https://notepad-plus-plus.org/downloads/">Notepad ++</a> and load the following template from the JSON standard file, which has been tortuously deduced from <a href="https://solidity.readthedocs.io/en/v0.5.13/using-the-compiler.html#input-description">the solidity documentation</a>; with the help of the indications of <a href="https://github.com/modular-network/ethereum-libraries-basic-math#solc-js-installation">this repository</a>:</p>
+<pre><code class="language-js">{
+  &quot;language&quot;: &quot;Solidity&quot;,
+  &quot;sources&quot;:
+  {
+    &quot;Contract.sol&quot;: {
+      &quot;content&quot;: file
+    },
+    &quot;Libraries.sol&quot;: {
+      &quot;content&quot;: lib
+    }
+  },
+  &quot;settings&quot;:
+  {  
+    &quot;remappings&quot;: [],
+    &quot;optimizer&quot;: {
+      &quot;enabled&quot;: false,
+      &quot;runs&quot;: 200
+    },
+    &quot;evmVersion&quot;: &quot;petersburg&quot;,  
+    &quot;libraries&quot;: {
+      &quot;Contract.sol&quot;: {
+        &quot;SafeMath&quot;: &quot;0x0E9A6d63b47b794e275cBC3Ba23Ff52215A8356C&quot;,
+        &quot;Lib2&quot;: &quot;0x1234...00ff&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p>Of course, substitutions should be made according to each case. Note that in particular, under the "settings" key, the "libraries" key is associated with a JSON object whose key is not the name of each library as one might suppose; The key of this object is the name of the file where the contract we wish to verify is stored and the associated object is the list of the names of the libraries along with the addresses where these libraries were deployed in the blockchain that concerns us.</p>
+<p><strong><em>N° 10.6</em></strong> Where were the other "settings" parameters obtained from? It is possible to download the same version of the <a href="https://github.com/ethereum/solidity/releases">solidity compiler</a> that was used to compile the contract with Remix. If you work with windows, all you need is to unzip the downloaded <a href="https://github.com/ethereum/solidity/releases/download/v0.5.13/solidity-windows.zip">.zip</a> file into a local folder and it is possible to make the .exe of this folder globally accessible by windows as follows:</p>
+<pre><code>* Click on "Start" Windows System Symbol (Bottom left)
+* On "System" click the right mouse button.
+* In the dialog box that opens, click on "Properties"
+* Click on "Advanced System Settings"
+* Click on the "Environment Variables" bar
+* In the "User Variables" space choose "PATH" and click on "Edit.."
+* Add there the directory where solc.exe was stored, followed by ";"
+* Restart the PC
+</code></pre>
+<p><strong><em>N° 10.7</em></strong> From the command console located in the local directory where "Contract.sol" is placed, the order of <a href="https://solidity.readthedocs.io/en/v0.5.13/metadata.html#contract-metadata">"--metadata"</a> is executed from solc:</p>
+<pre><code class="language-cmd">C:\Users\MyUser\LocalFolder&gt;solc --metadata Contract.sol
+</code></pre>
+<p>And then a report is generated with the metadata of each contract contained in "Contract.sol" and of each library invoked by "import" in that file. This metadata will contain the default values ​​of the "evmVersion" that were used by Remix (unless the user chooses this parameter using the new Remix interface), and the "optimizer" and "remappings" parameters.</p>
+<p><strong><em>N° 10.8</em></strong> With this information we return to the node console that we leave open and create the input variable that will be the precursor of the JSON standard file:</p>
+<pre><code class="language-cmd">&gt; var input = {
+  &quot;language&quot;: &quot;Solidity&quot;,
+  &quot;sources&quot;:
+  {
+    &quot;Contrato.sol&quot;: {
+      &quot;content&quot;: file
+    },
+    &quot;Libraries.sol&quot;: {
+      &quot;content&quot;: lib
+    }
+  },
+  &quot;settings&quot;:
+  {  
+    &quot;remappings&quot;: [],
+    &quot;optimizer&quot;: {
+      &quot;enabled&quot;: false,
+      &quot;runs&quot;: 200
+    },
+    &quot;evmVersion&quot;: &quot;petersburg&quot;,  
+    &quot;libraries&quot;: {
+      &quot;Contract.sol&quot;: {
+        &quot;SafeMath&quot;: &quot;0x0E9A6d63b47b794e275cBC3Ba23Ff52215A8356C&quot;,
+        &quot;Lib2&quot;: &quot;0x1234...00ff&quot;
+      }
+    }
+  }
+}
+</code></pre>
+<p><strong><em>N° 10.9</em></strong> Finally, we export the input variable to the json extension file of our preference, the file that <a href="https://etherscan.io/verifyContract-solc-json?a=0xc3369Fc35273271daFaE85fc3D96d1f4232B82cf&amp;c=v0.5.13%2bcommit.5blic0bcmit.5blicmit=3">Etherscan</a> is waiting for us to supply. The credits of this last instruction are for the user "user405398" of the forum <a href="https://stackoverflow.com/questions/37358202/node-js-how-to-represent-json-file-as-var">"Stack Overflow"</a>:</p>
+<pre><code class="language-cmd">&gt;var jsonpath = './StandardJsonInput.json';
+&gt;fs.writeFileSync (jsonpath, JSON.stringify (input));
+</code></pre>
+<p>The generated json file is of one single chain usually quite long. At this point we can exit the node console with the command ".exit ".</p>
+<p><strong>N° 11</strong> On the <a href="https://etherscan.io/verifyContract-solc-json?a=0xc3369Fc35273271daFaE85fc3D96d1f4232B82cf&amp;c=v0.5.13%2bcommit.5b0b510c&amp;lictype=3">Etherscan</a>, page which is waiting for us, we click the "Browse" button and select the "StandardJsonInput.json" file that we created. Then "Click Upload selected file".</p>
+<p><strong>N° 12</strong> Generally the construction arguments of our contract are automatically uploaded by Etherscan. If this is not the case, it is possible to use the web3 tool of the Remix console to calculate this parameter. For more information it is good to consult the <a href="https://web3js.readthedocs.io/en/v1.2.4/web3-eth-abi.html#encodeparameters">documentation</a> of how web3 can encode parameters under the abi protocol, and the <a href="https://solidity.readthedocs.io/en/v0.5.13/abi-spec.html#argument-encoding">solidity</a> documentation about argument coding, but as an example:</p>
+<p>Suppose we want to code the parameters of the constructor:</p>
+<pre><code>constructor (string memory _access, uint256 code) public {
+        
+    password = _access;
+    ID = code;
+        
+}
+</code></pre>
+<p>In the Remix console we place:</p>
+<pre><code class="language-cmd">&gt;web3.eth.abi.encodeParameters(['string','uint256'],['hello','12745689'])
+</code></pre>
+<p>As you can see, the "memory" element has been ignored, which corresponds to the specifications for handling <a href="https://solidity.readthedocs.io/en/v0.5.13/abi-spec.html#use-of-dynamic-types">dynamic type</a>  variables.</p>
+<p><strong>N° 13</strong> Once all the arguments are loaded, we mark the "reCaptcha" of the Etherscan page and then "Verify and Publish", in a few seconds, the result should be shown with our fully verified contract.</p>
+<h5 id="if-you-found-this-usefull">If you found this usefull<a class="headerlink" href="#if-you-found-this-usefull" title="Permanent link"></a></h5>
+<p>Please consider send some support</p>
+<p><code>0x8bb38C74B8aaf929201f013C9ECc42b750E562c6</code></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> jjmr007/Deploying-and-Verifying-a-Contract-using-Remix-and-Etherscan</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/jjmr007deployingandverifyingacontractusingremixand/d558124dde9c4b759d223cd9a7240e62/a</li>
+<li><strong>Kauri original author:</strong> Julio Moros (@jjmr007)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-03-21</li>
+<li><strong>Kauri original tags:</strong> smart-contract, etherscan, libraries, verify, remix, deploy</li>
+<li><strong>Kauri original hash:</strong> QmZZfSwczQvdjW7MzyZJQeCv9hjxeD4Gsm9Fcs24rXLG6C</li>
+<li><strong>Kauri original checkpoint:</strong> QmRG8ZzCupt9QRmCrcMhV5T9HWn64rzsCBaNQSt8Naq3dG</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../books-on-the-blockchain-a-quick-look-at-publica/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../books-on-the-blockchain-a-quick-look-at-publica/" class="btn btn-xs btn-link">
+        Books on the Blockchain - A Quick Look at Publica
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../stash-%28ipfs-browser-integration%29/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../stash-%28ipfs-browser-integration%29/" class="btn btn-xs btn-link">
+        Stash (IPFS Browser Integration)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/jjmr007deploying-and-verifying-a-contract-using-r.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

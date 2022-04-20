@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/poa-part-1-develop-and-deploy-a-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>POA - Part 1 - Develop and deploy a smart contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "POA - Part 1 - Develop and deploy a smart contract", url: "#_top", children: [
+              {title: "Step 1: Connect Metamask to POA Sokol and fund your account", url: "#step-1-connect-metamask-to-poa-sokol-and-fund-your-account" },
+              {title: "Step 2: Deploy a contract on the POA Sokol network", url: "#step-2-deploy-a-contract-on-the-poa-sokol-network" },
+              {title: "Step 3: Interact with the contract from the web app", url: "#step-3-interact-with-the-contract-from-the-web-app" },
+              {title: "Links and resources", url: "#links-and-resources" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="poa-part-1-develop-and-deploy-a-smart-contract">POA - Part 1 - Develop and deploy a smart contract<a class="headerlink" href="#poa-part-1-develop-and-deploy-a-smart-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbNpbky6U4N7B5BmyiNvLKNTFeBN4RcMhgp84UuHpSDbu" /></p>
+<p>This article is part of a <strong>POA tutorial series</strong>: </p>
+<ul>
+<li><a href="https://kauri.io/article/549b50d2318741dbba209110bb9e350e">POA - Part 1 - Develop and deploy a smart contract</a></li>
+<li><a href="https://kauri.io/article/19072f7340184628b47c0d86e7feac6d">POA - Part 2 - Bridge assets between a sidechain and a mainchain</a></li>
+<li>POA - Part 3 - Meta-transaction [Coming soon]</li>
+</ul>
+<hr />
+<p><a href="https://poa.network/">POA Network</a> is an Ethereum-based platform that offers an open-source framework for smart contracts. POA Network is a sidechain to Ethereum utilizing Proof of Authority as its consensus mechanism. POA provides developers with the flexibility to code in Ethereum standards with the added benefits of POA Network's solutions to scalability and interoperability in blockchain networks.</p>
+<p>POA has transaction fees just like the Ethereum mainnet, but in comparison to the Ethereum mainnet where fees are paid in Ether, the POA blockchain requires fees in its native currency called POA Token, this token can be obtained on a Crypto Trading platform like Binance.</p>
+<p>POA currently has two networks up and running:
+* POA Core: The main network requiring POA token
+* POA Sokol: A test network requiring POA Sokol token</p>
+<p>For the purpose of this tutorial, we will use the POA Sokol network.</p>
+<h3 id="step-1-connect-metamask-to-poa-sokol-and-fund-your-account">Step 1: Connect Metamask to POA Sokol and fund your account<a class="headerlink" href="#step-1-connect-metamask-to-poa-sokol-and-fund-your-account" title="Permanent link"></a></h3>
+<p>In this first step, we’re going to learn how to connect our Metamask wallet to a POA test network called Sokol and how to fund the account with Test POA tokens.</p>
+<ol>
+<li>
+<p>Unlock your <a href="https://metamask.io/">Metamask</a> extension</p>
+</li>
+<li>
+<p>Go to Settings, enter the following new RPC URL https://sokol.poa.network and click on Save</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSZNDxcCSmVwvxxWkzLz9Z2kEj6TTgYCBEYU4VJE2XusP" /></p>
+<p><em>Metamask should switch to this new private network</em></p>
+<p><strong>Note</strong>: A dedicated Browser extension (only Chrome) for POA and very similar to Metamask can also be used: <a href="https://chrome.google.com/webstore/detail/nifty-wallet/jbdaocneiiinmjbjlgalhcelgbejmnid?hl=en">Nifty</a></p>
+<ol>
+<li>
+<p>In Metamask, copy your account address</p>
+</li>
+<li>
+<p>Go to the <a href="https://faucet-sokol.herokuapp.com/">POA Sokol Faucet</a></p>
+</li>
+<li>
+<p>Click on Request 0.5 POA</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbNrvNNVdysPjLYDC1hVMfhT7u2azCvsPT5Sp2tBJT45G" /></p>
+<ol>
+<li>You can your account balance in Metamask or also see in the <a href="https://blockscout.com/poa/sokol/">POA Sokol Explorer</a> if the transaction went through.</li>
+</ol>
+<h3 id="step-2-deploy-a-contract-on-the-poa-sokol-network">Step 2: Deploy a contract on the POA Sokol network<a class="headerlink" href="#step-2-deploy-a-contract-on-the-poa-sokol-network" title="Permanent link"></a></h3>
+<p>The second step consists in writing a very simple Smart Contract in Solidity and deploy it on the POA Sokol Network using Truffle framework.</p>
+<ol>
+<li>Install <a href="https://truffleframework.com/">Truffle</a> on your machine</li>
+</ol>
+<pre><code>$ npm install -g truffle
+</code></pre>
+<ol>
+<li>Initialise your Truffle project</li>
+</ol>
+<pre><code>$ truffle init
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:        truffle compile
+  Migrate:        truffle migrate
+  Test contracts: truffle test
+</code></pre>
+<ol>
+<li>Let’s now write a simple Smart Contract that increments and store a counter</li>
+</ol>
+<p>Create a file in <code>contracts/Counter.sol</code> and paste the following Solidity code</p>
+<pre><code>pragma solidity ^0.4.20;
+
+contract Counter {
+  uint counter;
+
+  constructor() public {
+    counter = 0; // Initialise the counter to 0
+  }
+
+  function increment() public {
+    counter++;
+  }
+
+  function getCounter() public view returns (uint) {
+    return counter;
+  }
+}
+</code></pre>
+<p><em>You can verify that your code compiles correctly with the following command</em> <code>$ truffle compile</code></p>
+<ol>
+<li>Now, we need to create a deployment script</li>
+</ol>
+<p>Create a file in <code>migrations/2_deploy_contracts.js</code> and paste the following code</p>
+<pre><code>var Counter = artifacts.require(&quot;./Counter.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(Counter);
+};
+</code></pre>
+<ol>
+<li>Finally we need to configure the connection to the POA Sokol network as well as our wallet info</li>
+</ol>
+<p>Install the following JavaScript dependencies:</p>
+<ul>
+<li><a href="https://github.com/trufflesuite/truffle-hdwallet-provider">truffle-hdwallet-provider</a> enables to sign transactions for addresses derived from a 12-word mnemonic</li>
+<li><a href="https://www.npmjs.com/package/dotenv">dotenv</a> is a module to configure environment variables</li>
+</ul>
+<pre><code>$ npm install truffle-hdwallet-provider dotenv --save-dev
+</code></pre>
+<ol>
+<li>Copy your mnemonic from your Metamask wallet: Settings / Reveal Seed Words</li>
+</ol>
+<p><strong>DO NOT SHARE THOSE 12 WORDS WITH ANYBODY</strong></p>
+<ol>
+<li>Create a <code>.env</code> in the Truffle project and copy the mnemonic like this</li>
+</ol>
+<pre><code>MNEMONIC=&quot;COPY HERE YOUR 12 MNEMONIC WORDS YOU DO NOT WANT TO SHARE&quot;
+</code></pre>
+<ol>
+<li>Open the file <code>truffle.js</code> and add the following configuration</li>
+</ol>
+<pre><code>require('dotenv').config();
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+module.exports = {
+  // See &lt;http://truffleframework.com/docs/advanced/configuration&gt;
+  // for more about customizing your Truffle configuration!
+  networks: {
+    poa: {
+          provider: function() {
+                return new HDWalletProvider(
+               process.env.MNEMONIC,
+               &quot;https://sokol.poa.network&quot;)
+          },
+          network_id: 77,
+          gas: 500000,
+          gasPrice: 1000000000
+    },
+    development: {
+          host: &quot;127.0.0.1&quot;,
+          port: 8545,
+          network_id: &quot;*&quot; // Match any network id
+    }
+  }
+};
+</code></pre>
+<ol>
+<li>Run the deployment to the POA Sokol network</li>
+</ol>
+<pre><code>$ truffle migrate --network poa
+Using network 'poa'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x3a2e4be0c784bf5df3ca4251d27dc724ae5863d5de0e1eae4babb0c636b8c571
+  Migrations: 0xb497ad71c0168d040027cfdcf9a44c7f8f270d0d
+Saving successful migration to network...
+  ... 0x8ebbf70d5a162ba46e2fa4266aafe360d9f32e32c30ed17a083045d2afeeaf46
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying Counter...
+  ... 0xdf3009e60daec1217237661b4b10298b5f4504efef8a6f93cdc8198486260766
+  Counter: 0xfbc93e43a6a95c1cee79aa8ec2382a4edd5ad2bc
+Saving artifacts...
+</code></pre>
+<h3 id="step-3-interact-with-the-contract-from-the-web-app">Step 3: Interact with the contract from the web app<a class="headerlink" href="#step-3-interact-with-the-contract-from-the-web-app" title="Permanent link"></a></h3>
+<p>In the next step, we will develop a dApp using React, Web3 and Truffle to interact with the Smart Contract previously deployed on the POA Sokol network.</p>
+<ol>
+<li>Initialise a React project</li>
+</ol>
+<pre><code>$ npx create-react-app frontend
+$ cd frontend
+</code></pre>
+<ol>
+<li>
+<p>Install the necessary dependencies</p>
+</li>
+<li>
+<p><a href="https://github.com/trufflesuite/truffle/tree/next/packages/truffle-contract">truffle-contract</a>: is an Ethereum Smart Contract abstraction library</p>
+</li>
+<li><a href="https://github.com/ethereum/web3.js/">web3</a>: This is the Ethereum compatible JavaScript API which implements the Generic JSON RPC spec</li>
+</ol>
+<pre><code>$ npm install truffle-contract web3 --save
+</code></pre>
+<ol>
+<li>Edit package.json and add the following line under the scripts section to access the Truffle contract artifacts from the webapp </li>
+</ol>
+<pre><code>&quot;link-contracts&quot;: &quot;run-script-os&quot;,
+&quot;link-contracts:linux:darwin&quot;: &quot;cd src &amp;&amp; ln -s ../../build/contracts contracts&quot;,
+&quot;link-contracts:win32&quot;: &quot;cd src &amp;&amp; mklink \\D contracts ..\\..\\build\\contracts&quot;
+</code></pre>
+<p><em>The full code of this file is available here: <a href="https://github.com/gjeanmart/kauri-content/blob/master/poa_tutorial_sokol_part1/frontend/package.json">package.json</a></em></p>
+<ol>
+<li>
+<p>Open an edit src/App.js</p>
+</li>
+<li>
+<p>Connect to the node with web3</p>
+</li>
+</ol>
+<pre><code>import Web3 from 'web3'
+
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    if (typeof web3 != 'undefined') {
+      this.web3Provider = web3.currentProvider
+    } else {
+      this.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545')
+    }
+    this.web3 = new Web3(this.web3Provider)
+  }
+
+(...)
+
+}
+</code></pre>
+<ul>
+<li>Use truffle-contract to load the Truffle artefacts and interact with the smart contract</li>
+</ul>
+<pre><code>import TruffleContract from 'truffle-contract'
+import Counter from './contracts/Counter.json'
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      account: '0x0',
+      value: '',
+      loading: true
+    }
+
+    (... web3 ...)
+  }
+
+  componentDidMount() {
+    const counter = TruffleContract(Counter)
+    counter.setProvider(this.web3Provider)
+
+    this.web3.eth.getAccounts((error, accounts) =&gt; {
+    const account = accounts[0]
+    this.setState({ account})
+
+    counter.deployed().then((instance) =&gt; {
+      this.counter = instance
+        return this.counter.getCounter.call()
+      }).then((value) =&gt; {
+        return this.setState({ value: value.toNumber(), loading: false })
+      })
+    })
+  }
+
+  setValue(value) {
+    this.setState({ loading: true })
+    this.counter.increment({ from: this.state.account, gas: 50000 }).then((r) =&gt; {
+      this.setState({ value: value.toNumber(), loading: false })
+    })
+  }
+(...)
+
+}
+</code></pre>
+<p><em>The full code of this file is available here: <a href="https://github.com/gjeanmart/kauri-content/blob/master/poa_tutorial_sokol_part1/frontend/src/App.js">App.js</a></em></p>
+<ol>
+<li>Create a link to the Truffle JSON artefacts</li>
+</ol>
+<pre><code>$ npm run link-contracts:linux:darwin
+</code></pre>
+<ol>
+<li>Start the webserver</li>
+</ol>
+<pre><code>$ npm start
+</code></pre>
+<ol>
+<li>Result</li>
+</ol>
+<p>If Metamask is unlocked and connected to the Solok network, The web3 provider connects automatically to the node and retrieves the counter value. When the user clicks on “Increment”, Metamask pops up to sign a transaction and send it to the POA Solok network.</p>
+<p><img alt="" src="https://media.giphy.com/media/3D5uh6uTIT9K68zrVa/giphy.gif" /></p>
+<h3 id="links-and-resources">Links and resources<a class="headerlink" href="#links-and-resources" title="Permanent link"></a></h3>
+<p><strong>Sokol</strong></p>
+<ul>
+<li>
+<p>Network ID: 77</p>
+</li>
+<li>
+<p>JSON-RPC Endpoint: https://sokol.poa.network</p>
+</li>
+<li>
+<p>Block Explorers: </p>
+<ul>
+<li>https://blockscout.com/poa/sokol/ </li>
+<li>https://sokol-explorer.poa.network/</li>
+</ul>
+</li>
+<li>
+<p>Network Status: https://sokol-netstat.poa.network/</p>
+</li>
+<li>
+<p>Faucet: https://faucet-sokol.herokuapp.com/</p>
+</li>
+</ul>
+<p><strong>Core</strong></p>
+<ul>
+<li>
+<p>Network ID: 99</p>
+</li>
+<li>
+<p>JSON-RPC Endpoint: </p>
+<ul>
+<li>https://core.poa.network </li>
+<li>https://poa.infura.io/</li>
+</ul>
+</li>
+<li>
+<p>Block Explorers: </p>
+<ul>
+<li>https://blockscout.com/poa/core</li>
+<li>https://core-explorer.poa.network/</li>
+</ul>
+</li>
+<li>
+<p>Network Status: https://core-netstat.poa.network/</p>
+</li>
+</ul>
+<hr />
+<p><strong>Inspired by</strong> https://www.youtube.com/watch?time_continue=313&amp;v=fezh2buFAt4</p>
+<p><strong>Code</strong>: https://github.com/gjeanmart/kauri-content/tree/master/poa_tutorial_sokol_part1</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> POA - Part 1 - Develop and deploy a smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/poa-part-1-develop-and-deploy-a-smart-contract/549b50d2318741dbba209110bb9e350e/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-21</li>
+<li><strong>Kauri original tags:</strong> poa, sokol, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmSJGfnQfdCjeijf47eaDy4te9Gx4zCiaxcdzj1eDA3Hfa</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../loom-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../loom-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-link">
+        Loom - Part 1 - Develop and deploy a smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../connext--peer-to-peer-payment-channels/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../connext--peer-to-peer-payment-channels/" class="btn btn-xs btn-link">
+        Connext  Peer-to-Peer Payment Channels
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/poa-part-1-develop-and-deploy-a-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

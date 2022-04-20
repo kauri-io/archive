@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/updating-and-testing-a-raffle-contract/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Updating and Testing a Raffle Contract - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Updating and Testing a Raffle Contract", url: "#_top", children: [
+              {title: "Set-up the Testing Environment", url: "#set-up-the-testing-environment" },
+              {title: "Compile and Execute the Contract Code", url: "#compile-and-execute-the-contract-code" },
+              {title: "Check the Deployed Contract and Interface", url: "#check-the-deployed-contract-and-interface" },
+              {title: "Play the Raffle", url: "#play-the-raffle" },
+              {title: "Re-draw and Contract Payout", url: "#re-draw-and-contract-payout" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="updating-and-testing-a-raffle-contract">Updating and Testing a Raffle Contract<a class="headerlink" href="#updating-and-testing-a-raffle-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV28QePVWhtb7FLYjMEkTvjVJyL6xGT9Sch1QRVFU9mTb" /></p>
+<p>Over on the Bitfalls website there’s a couple of great tutorials<em>(1)</em> for learning Solidity and Ethereum. The tutorials guide readers through the making of a Raffle. Now, the code is not meant to be bullet proof, but as a software tester by day the ‘gaps’ piqued my interest.</p>
+<p>In this post I’m going to do two things; firstly provide a few updates to the code readers pointed out or that have become the more current way of doing things since Solidity version updates and secondly, to execute the code in the online tool, Remix, so we can see how it actually runs.</p>
+<p>Naturally, the below makes more sense if you’ve either worked through the tutorials, will do or have just grabbed the code. Let’s crack on.</p>
+<p>## Code Updates
+Firstly, let’s look at what needs a refresh since Bruno wrote the original articles. Open up the <code>Blocksplit.sol</code> file you’ve been working on. You can always get the completed script from their <a href="https://bitfalls.com/70c2">GitHub repository</a>.</p>
+<p>Review the code for the <code>randomGen()</code> function from the <a href="https://bitfalls.com/2018/04/05/solidity-development-crash-course-finishing-raffle-project/">last tuorial</a>:</p>
+<pre><code class="language-Solidity">    function randomGen() constant internal returns (uint256 randomNumber) {
+        uint256 seed = uint256(block.blockhash(block.number - 200));
+        return(uint256(keccak256(block.blockhash(block.number-1), seed )) % players.length);
+    }
+</code></pre>
+<p>In here we can see the <code>… block.blockhash(block.number …</code> construct, this needs to be changed to read <code>… blockhash(block.number …</code>.</p>
+<p>Additionally, the last line of the <code>randomGen()</code> function should be changed to use <code>`abi.encodePacked</code> and the trailing space after <em>seed</em> removed. It will look like this:</p>
+<pre><code class="language-Solidity">return(uint256(keccak256(abi.encodePacked(blockhash(block.number-1), seed))) % players.length);
+</code></pre>
+<p>This will give a final code block for the <code>randomGen()</code> function of:</p>
+<pre><code class="language-Solidity">    function randomGen() internal view returns (uint256 randomNumber) {
+        uint256 seed = uint256(blockhash(block.number - 200));
+        return(uint256(keccak256(abi.encodePacked(blockhash(block.number-1), seed))) % players.length);
+    }
+</code></pre>
+<p>One final change just so we don’t lose any test Ether is to change the <code>address public charity</code> to be one of your test accounts, make it the one you deploy the contract under. Account set-up is discussed next.</p>
+<p><code>address public charity = put-the-full-address-here-for-your-test-acccount;</code></p>
+<p>One last thing is to change the <a href="https://tldrify.com/ujh">‘Unix epoch’ time</a> in the <code>draw()</code> function to something in the near past if it’s very current. </p>
+<h3 id="set-up-the-testing-environment">Set-up the Testing Environment<a class="headerlink" href="#set-up-the-testing-environment" title="Permanent link"></a></h3>
+<p>There’s a few things we need to have in place to test this contract effectively:
+- MetaMask
+- Three Ethereum Accounts
+- Remix open in a browser window
+- The updated contract code ready to deploy</p>
+<p>Make sure the MetaMask browser extension is running in either of Brave<em>(2)</em> or Chrome.</p>
+<p>We’ll need to have three Ethereum accounts available to us via MetaMask – one to act as the contract owner and two additional ones to act as the players. If you’ve not done so, read the Bitfalls <a href="https://bitfalls.com/2018/02/16/metamask-send-receive-ether/">MetaMask article</a> that explains how to set up MetaMask and add accounts. You’ll need to <a href="https://tldrify.com/uj6">get some free Ether from one of the faucet sites</a> in order to play the raffle.</p>
+<p>Remix is a free browser-based IDE for writing smart contracts in Solidity, then compiling and deploying them. It’s available at <a href="https://remix.ethereum.org/">https://remix.ethereum.org/</a>.</p>
+<h3 id="compile-and-execute-the-contract-code">Compile and Execute the Contract Code<a class="headerlink" href="#compile-and-execute-the-contract-code" title="Permanent link"></a></h3>
+<p>The Remix UI was updated mid 2019 so may have a different look compared to other tutorials you’ve worked through - be sure to select ‘Solidity’ under the Environments section of the Home page before you start.</p>
+<p>To the top-left, change the Compiler version to read <code>0.4.26+commit.4563</code> as from version 0.5.0 there were breaking changes to the Solidity codebase. This is also above the 0.4.20 compiler version we stated in the contract code, so the code will compile just fine.</p>
+<p><img alt="Choose the Solidity environment and Compiler version" src="https://ipfs.infura.io/ipfs/QmYAyGgbR1BRn4m9Zoz5C1XnXNZFqFqKfAw6yqKn6oiPiH" /></p>
+<p>In Remix, click on the ‘File explorers’ icon, create a new file and call it <code>Blocksplit.sol</code>, then paste the updated contract code into the file and save it. </p>
+<p><img alt="Create a new file for the contract code" src="https://ipfs.infura.io/ipfs/QmT6WoJnxpp3LiHoTqDq5L4tKyp1tGgWihn2VXFhi5AhFP" /></p>
+<p>Now click on the ‘Solidity compiler’ icon and hit ‘Compile Blocksplit.sol’</p>
+<p><img alt="Compile the contract code" src="https://ipfs.infura.io/ipfs/QmNhYhhLneoMxypHH4vbuxiMMBwwakExUSopi72Y5UWibu" /></p>
+<p>Finally, click the ‘Deploy &amp; Run Transactions’ icon, we’ll use this tab to deploy and test our contract. We’ll deploy to the Ropsten test network and to do so we need to change a few things before we hit Deploy.</p>
+<ul>
+<li>In the ‘Environment’ field select <code>Injected Web3</code> from the dropdown</li>
+<li>In MetaMask, switch to the ‘Ropsten Test Network’</li>
+<li>Also in MetaMask, select the account you have chosen as the contract owner account</li>
+</ul>
+<p>Now hit the orange ‘deploy’ button to deploy the contract to Ropsten, accepting the MetaMask transaction window when it pops-up. This is charging the cost of writing to the blockchain.</p>
+<p><img alt="Deploy the contract to Ropsten" src="https://ipfs.infura.io/ipfs/QmUxxmKgkgzmsi12hVT9t1q4zoJ2Ry4CVVvUrZTAuVS5M9" /></p>
+<h3 id="check-the-deployed-contract-and-interface">Check the Deployed Contract and Interface<a class="headerlink" href="#check-the-deployed-contract-and-interface" title="Permanent link"></a></h3>
+<p>Now we’ve deployed the contract we’ll have a set of buttons that provide an interface to the contract elements, shown under ‘Deployed Contracts’. Click the arrow next to the contract name to show the set of buttons that give us an interface to the contract.</p>
+<p><img alt="View the contract elements" src="https://ipfs.infura.io/ipfs/QmQv3Bb3JvR7FQWpfwurNcoVENQYFXhJsZVVbd6dphK5ET" /></p>
+<p>Next to the contract name is also the contract address that can be copied and searched for on <a href="https://ropsten.etherscan.io">Etherscan against the Ropsten network</a>. Copy the address shown and look up the Etherscan record. Between Etherscan and MetaMask we can readily see how the transaction details match up.</p>
+<p><img alt="Matching transaction details" src="https://ipfs.infura.io/ipfs/QmP9dSP56KVwA8kQfMFbNYkfn9pw45KsVCtEyhy5zJEDFu" /></p>
+<p>We can see that the ‘From’ address, Contract Creator address and the address we used in MetaMask all match. This shows us how organisations can deploy a contract, then use the <code>msg.sender = owner</code> code pattern to assign the ability to perform certain actions only to a given address; in this case the one that deployed the contract.</p>
+<p>As a reminder, blue buttons read data and so are free of Gas, whereas orange buttons write data to the blockchain and so will cost us Gas.</p>
+<p>Click on the blue ‘charity’ button and you’ll see a) no MetaMask window as we don’t need to pay anything and b) the address we assigned to the <code>address public charity</code> variable. </p>
+<p>Note the contract value is showing as ‘0 Ether’ as no raffle monies have been transacted yet.</p>
+<h3 id="play-the-raffle">Play the Raffle<a class="headerlink" href="#play-the-raffle" title="Permanent link"></a></h3>
+<p>Ordinarily, the public raffle elements we can get to would be wrapped in a Web3.js enabled webpage, using the ABI file, to give us a smart interface. However, for testing, the Remix interface is good enough.</p>
+<h4 id="player-one-plays">Player One Plays<a class="headerlink" href="#player-one-plays" title="Permanent link"></a></h4>
+<p>To play we need to switch to an alternate account in MetaMask, so we’re acting like the raffle’s <em>Player One</em> and not the owner. Open MetaMask and switch accounts now, that same account will be shown in Remix in the ‘Account’ field.</p>
+<ul>
+<li>in the ‘Value’ field enter <em>0.1</em> and make sure ‘ether’ is selected</li>
+<li>in the field next to the ‘play’ button, paste the address you’re using as Player One</li>
+<li>hit the ‘play’ button and accept the MetaMask prompt to pay the fee plus gas </li>
+</ul>
+<p>After a few seconds MetaMask will bring up a prompt stating the transaction went through. If we check the contract again on Etherscan, we’ll see it now has a second transaction worth 0.1 ETH from the address we’re using for Player One.</p>
+<p><img alt="Player One Played" src="https://ipfs.infura.io/ipfs/QmP63d3Mqkazwcnma1ak2BrDsRjtm9Qp9gJsj2CUu3z3fL" /></p>
+<p>If you now enter <code>0</code> in the field next to ‘players’ it will return the address of Player One. This is because we declared <code>address[] public players;</code> at the start of our contract then <code>players.push(_participant);</code> in the <code>play()</code> function - which takes an address (as we tested above), then pushes it onto the <code>players</code> array.</p>
+<h4 id="a-quick-sanity-test">A Quick Sanity Test<a class="headerlink" href="#a-quick-sanity-test" title="Permanent link"></a></h4>
+<p>Something we can test now is clicking on the ‘draw’ button. The code here is that we can only run a draw if the number of winners is less than 2: <code>require (winners.length &lt; 2, "");</code>. This is interesting as when we click ‘draw’ now it should work and indeed it does. If we enter <code>0</code> in the field next to the ‘winners’ button it will return the address of Player One.</p>
+<p>It may be that we should change this code in two ways:
+- Change <code>draw()</code> to Require the <code>msg.sender</code> to be the owner of the contract so not just anyone can call the function
+- Set a Require of <code>players.length == 2</code> to ensure two players are needed for a draw to happen</p>
+<h4 id="player-two-plays">Player Two Plays<a class="headerlink" href="#player-two-plays" title="Permanent link"></a></h4>
+<p>To play a second player is just like playing the first. Switch accounts, set the value to 0.1 ETH, add your Player 2 address into the ‘play’ field and hit ‘play’ as before.</p>
+<p>Now in Etherscan we can see:
+- two transactions of 0.1 ETH which are the raffle ‘plays’
+- one transaction between these that are the possibly unwanted pressing of ‘draw’ by a player</p>
+<p><img alt="Two Plays and one Draw" src="https://ipfs.infura.io/ipfs/QmbQdQnAHCS1p5G4i8NRdGHKbUH5s4UpPbdeHZNmcCSMon" /></p>
+<p>Both of the above can be proven using Etherscan’s logs:
+- Click on the ‘Txn hash’ for the draw (0 ETH transaction)
+- At the bottom of the page that opens, click on ‘Click to see More’
+- Under ‘Input Data’ check to see it says ‘Function: draw() ***’</p>
+<p><img alt="Draw made by Player One" src="https://ipfs.infura.io/ipfs/QmSaSdL1gpVfGrwVuGWzwTqz5V3KUovxP7eP2RjGLwqsNN" /></p>
+<p>Repeat the steps above to check one of the Plays made by either player.</p>
+<p><img alt="Play made by a Player" src="https://ipfs.infura.io/ipfs/QmUtWb2tQoAmh8w1vEGYWMWV7sNoUVnPDezUSGiEKwC4D4" /></p>
+<p>However, we may have another potential issue. In the <code>draw()</code> function we have the line of <code>players.length--;</code> which with the line of code above it is a way to remove the winner from the list of players (so they don’t become winner number 2 as well as winner number 1, fair enough). We can test this too by entering a <code>0</code> or a <code>1</code> in the field next to ‘players’ and seeing what’s returned. We expect two player’s addresses but for index <code>1</code> we should get ‘0x0000000000000…’ which tells us Player One got removed from the <code>players[]</code> array (because when I tested, Player One won. It may be Player Two for you). OK, the code works, but the change suggested above might prevent this if we feel it’s an issue.</p>
+<p>As we have clause in <code>draw()</code> that won’t allow us to send any ETH balance off to the charity address until <code>winners.length == 2</code> we need another player to win. As it happens, we can just hit <code>draw()</code> again and watch our remaining player win. </p>
+<h3 id="re-draw-and-contract-payout">Re-draw and Contract Payout<a class="headerlink" href="#re-draw-and-contract-payout" title="Permanent link"></a></h3>
+<p>Go ahead and hit <code>draw()</code> for a second time, then refresh the Etherscan page for your contract. You’ll eventually see a new 0 ETH transaction for the second draw and the contract value is now 0 ETH.</p>
+<p>That proves the <code>charity.transfer(address(this).balance);</code> line in <code>draw()</code> must have worked – but where’s the transaction?</p>
+<p><img alt="End of the test run" src="https://ipfs.infura.io/ipfs/QmNqvj5U3E5HqZ9yAJYgEJPshKKb3EELXm3A37B9qqMqXF" /></p>
+<p>You’ll notice there’s a new tab in Etherscan called ‘Internal Txns’, our <code>transfer</code> of 0.2 ETH is recorded in there as it occurs as part of the code in the function, not a call from outside. The balance is sent to the address that was defined under the <code>charity</code> variable.</p>
+<p><img alt="Transfer of balance to contract owner" src="https://ipfs.infura.io/ipfs/QmTCt13MnMgZj6whCmR2THuW5tyHUMdw6BJkibjkWTfs45" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>We’ve seen that at every step of the way we can control how the contract is deployed, deploy it to a non-live blockchain such as the Ropsten Testnet, then carefully test out the contract functionality. Remix and Etherscan combined provide us with a host of features and information to allow us to test our code and check the results.</p>
+<p>There are more tests we could add, but the core features have been checked here. We’ve also discovered there are some (expected) weaknesses in the code that could be fixed up. Overall, a good couple of tutorials and a great way to learn more about Solidity and Smart Contract development.</p>
+<p><em>Until next time!</em></p>
+<p>Mark</p>
+<hr />
+<p><strong>References</strong></p>
+<p>1) Tutorials: https://bitfalls.com/2018/03/31/solidity-development-crash-course-building-blockchain-raffle/ and https://bitfalls.com/2018/04/05/solidity-development-crash-course-finishing-raffle-project/</p>
+<p>2) Brave Browser: https://brave.com/CYR315 (referral link)</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Updating and Testing a Raffle Contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/updating-and-testing-a-raffle-contract/c0525a7f8f554071bd5db03d8dd7dce8/a</li>
+<li><strong>Kauri original author:</strong> Mark Crowther (@mark-crowther)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-27</li>
+<li><strong>Kauri original tags:</strong> bitfalls, etherscan, testing, brave, solidity, remix</li>
+<li><strong>Kauri original hash:</strong> QmcFwmbAK4pHds3vCfAGnB3WKGKUK8JqkNctL86qvsXso2</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../proof-of-opossum/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../proof-of-opossum/" class="btn btn-xs btn-link">
+        Proof-of-Opossum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethdenver-submission-2019--3box-and-fortmatic-int/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethdenver-submission-2019--3box-and-fortmatic-int/" class="btn btn-xs btn-link">
+        EthDenver submission 2019  3box and Fortmatic integration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/updating-and-testing-a-raffle-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

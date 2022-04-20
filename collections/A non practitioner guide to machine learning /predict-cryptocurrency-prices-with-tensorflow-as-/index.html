@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20non%20practitioner%20guide%20to%20machine%20learning%20/predict-cryptocurrency-prices-with-tensorflow-as-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Predict cryptocurrency prices with Tensorflow as binary classification problem - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Predict cryptocurrency prices with Tensorflow as binary classification problem", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "What we'll be doing", url: "#what-well-be-doing" },
+              {title: "Downloading data using Binance API", url: "#downloading-data-using-binance-api" },
+              {title: "Preprocessing the data", url: "#preprocessing-the-data" },
+              {title: "Training the model(s)", url: "#training-the-models" },
+              {title: "Feature engineering", url: "#feature-engineering" },
+              {title: "Evaluating the best performing models.", url: "#evaluating-the-best-performing-models" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem">Predict cryptocurrency prices with Tensorflow as binary classification problem<a class="headerlink" href="#predict-cryptocurrency-prices-with-tensorflow-as-binary-classification-problem" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmevA8kcH7ZfEVeepf72EvvUvmZBfUMZXuWhcC74XLrscB" /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>In this tutorial we'll go through the prototype for a neural network which will allow us to estimate cryptocurrency prices in the future, as a binary classification problem, using Keras and Tensorflow as the  our main clarvoyance tools.</p>
+<p>While it is most likely not the best way to approach the problem (after all investment banks invest billions in developing such algorithms), if we can get it right more than 55% of the times, we are in the money!</p>
+<h3 id="what-well-be-doing">What we'll be doing<a class="headerlink" href="#what-well-be-doing" title="Permanent link"></a></h3>
+<ul>
+<li>Download data using Binance API</li>
+<li>Preprocess the data</li>
+<li>Train our model(s)</li>
+<li>Feature engineering</li>
+<li>Evaluate best performing models</li>
+</ul>
+<h3 id="downloading-data-using-binance-api">Downloading data using Binance API<a class="headerlink" href="#downloading-data-using-binance-api" title="Permanent link"></a></h3>
+<p>for this example we'll download the maximum amount of data that can be fetched in a single call. If you want to train a better more and use it in the real world (which is not recommended by the way, you will likely loose real money), I would suggest to gather more data using multiple calls.</p>
+<pre><code class="language-python">import requests
+import json
+import pandas as pd
+import datetime as dt
+
+START_DATE = '2019-01-01'
+END_DATE = '2019-10-01'
+INTERVAL = '15m'
+
+def parse_date(x):
+    return str(int(dt.datetime.fromisoformat(x).timestamp()))
+
+def get_bars(symbol, interval):
+    root_url = 'https://api.binance.com/api/v1/klines'
+    url = root_url + '?symbol=' + symbol + '&amp;interval=' + interval + '&amp;startTime=' + parse_date(START_DATE) + '&amp;limit=1000'
+    data = json.loads(requests.get(url).text)
+    df = pd.DataFrame(data)
+    df.columns = ['open_time',
+                  'o', 'h', 'l', 'c', 'v',
+                  'close_time', 'qav', 'num_trades',
+                  'taker_base_vol', 'taker_quote_vol', 'ignore']
+    df.drop(['ignore', 'close_time'], axis=1, inplace=True)
+    return df
+
+ethusdt = get_bars('ETHUSDT', INTERVAL)
+ethusdt.to_csv('./data.csv', index=False)
+</code></pre>
+<p>In this simple piece of code we are requiring the necessary packages, setup a couple of parameters (I picked a 15 minutes interval but you can pick more granular interval for higher frequency trading) and setup a couple of convenience functions, then save the data to csv for future reuse. This should be self explanatory but if something confuses you, please feel free to leave a comment asking for clarifications :)</p>
+<h3 id="preprocessing-the-data">Preprocessing the data<a class="headerlink" href="#preprocessing-the-data" title="Permanent link"></a></h3>
+<p>As prices overtime is a form of sequential data we are going to use a LSTM layer (Long-short-term-memory) as the first layer in our net. We want to provide data as a sequence of events, which will predict the price at time <code>t+n</code> where <code>t</code> is the current time and <code>n</code> defines how far in the future we want to predict, to do so we'll feed data as a time window  of <code>w</code> length. It will all be clearer once we look at the code, let's start importing the required packages.</p>
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+import seaborn as sns
+import random
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Dropout
+from tensorflow.keras.callbacks import TensorBoard
+import time
+import matplotlib.pyplot as plt
+</code></pre>
+<p>This will import Pandas, Numpy, all the Tensorflow functions we need to train our model and a couple of other useful packages.</p>
+<p>Next, we want to define some constants, and load our data from csv (in case you are writing the training code on a different file:</p>
+<pre><code class="language-python">WINDOW = 10 # how many time units we are going to use to evaluate the future value, in our case each time unit is 15 minutes so we are going to look at 15 * 10 = 150 minutes trading data
+LOOKAHEAD = 5 # how far ahead we want to estimate if the future prices is going to be higher or lower? In this case is 5 * 15 = 75 minutes in the future
+VALIDATION_SAMPLES = 100 # We want to validate our model on data that wasn't used for the training, we are establishing how many data point we are going to use here.
+
+data = pd.read_csv('./data.csv')
+data['future_value'] = data['c'].shift(-LOOKAHEAD) # This allows us to define a new column future_value with as the value of c 5 time units in the future
+data.drop([
+    'open_time'
+], axis=1, inplace=True) # we don't care about the timestamp for predicting future prices
+</code></pre>
+<p>Let's define a function that allows us to define if the future value is higher or lower than the current close price:</p>
+<pre><code class="language-python">def define_output(last, future):
+    if future &gt; last:
+        return 1
+    else:
+        return 0
+</code></pre>
+<p>Simply set the target as 0 if the price is lower or equal than the current close and 1 if it is higher.
+Now let's define a function that allows us to create the moving time windows we need  to feed to our neural network:</p>
+<pre><code class="language-python">def sequelize(x):
+    data = x.copy()
+    buys = []
+    sells = []
+    holds = []
+    data_length = len(data)
+    for index, row in data.iterrows():
+        if index &lt;= data_length - WINDOW:
+            last_index = index + WINDOW -1
+            rowset = data[index : index + WINDOW]
+            row_stats = rowset.describe().transpose()
+            last_close = rowset['c'][last_index]
+            future_close = rowset['future_value'][last_index]
+            rowset = 2 * (rowset - row_stats['min'])  / (row_stats['max'] - row_stats['min']) - 1
+            rowset.drop(['future_value'], axis=1, inplace=True)
+            rowset.fillna(0, inplace=True)
+            category = define_output(last_close, future_close)
+            if category == 1:
+                buys.append([rowset, category])
+            elif category == 0:
+                sells.append([rowset, category])
+    min_len = min(len(sells), len(buys))
+    results = sells[:min_len] + buys[:min_len]
+    return results
+
+sequences = sequelize(data)
+</code></pre>
+<p>Oh ok, that's a lot of stuff going on there. Let's look at it bit by bit:</p>
+<pre><code class="language-python">    data = x.copy() # let's copy the dataframe, just in case
+    buys = []
+    sells = []
+    holds = []
+    data_length = len(data)
+</code></pre>
+<p>Here we are doing some preliminary stuff, copy the dataframe to ensure we don't override it (it can be annoying if you are using Jupyter Notebook for example) and setting up arrays for buys and sells, which we'll use to balance our data.</p>
+<pre><code class="language-python">    for index, row in data.iterrows():
+        if index &lt;= data_length - WINDOW:
+            last_index = index + WINDOW -1
+            rowset = data[index : index + WINDOW]
+</code></pre>
+<p>As we iterate each row in the dataset if the index is greater than our defined window size, we can create a new slice of the dataset that is the size of our window size. Before we store this data in another array we need to normalize it with the following code:</p>
+<pre><code class="language-python">row_stats = rowset.describe().transpose()
+last_close = rowset['c'][last_index]
+future_close = rowset['future_value'][last_index] # we'll need to save this separately from the rest of the data
+rowset = 2 * (rowset - row_stats['min'])  / (row_stats['max'] - row_stats['min']) - 1
+</code></pre>
+<p>And we also want to remove the future_value from our dataset as well as replacing any possible NaN with 0s (not ideal good enough for our purpose):</p>
+<pre><code class="language-python">rowset.drop(['future_value'], axis=1, inplace=True)
+rowset.fillna(0, inplace=True)
+</code></pre>
+<p>Finally we want to ensure that our sells and buys are balanced, if one occurs more often than the other, our network will quickly get biased toward the skew and not provide us with reliable estimations:</p>
+<pre><code class="language-python">            if category == 1:
+                buys.append([rowset, category])
+            elif category == 0:
+                sells.append([rowset, category])
+    # the following 2 lines will ensure that we have an equal amount of buys and sells
+    min_len = min(len(sells), len(buys))
+    results = sells[:min_len] + buys[:min_len]
+    return results
+</code></pre>
+<p>Finally we run this function on our data <code>sequences = sequelize(data)</code></p>
+<p>It's also a good idea to randomize our data, so that our model is not influenced by the precise order our dataset is sorted by, the following code will randomize the dataset, split training vs testing dataset and displaying the distribution of buys vs sells in both datasets. Feel free to rerun this snippet to ensure a more balanced distribution of buys and sells:</p>
+<pre><code class="language-python">random.shuffle(sequences)
+def split_label_and_data(x):
+    length = len(x)
+    data_shape = x[0][0].shape
+    data = np.zeros(shape=(len(x),data_shape[0],data_shape[1]))
+    labels = np.zeros(shape=(length,))
+    for index in range(len(x)):
+        labels[index] = x[index][1]
+        data[index] = x[index][0]
+    return data, labels
+x_train, y_train = split_label_and_data(sequences[: -VALIDATION_SAMPLES])
+x_test, y_test = split_label_and_data(sequences[-VALIDATION_SAMPLES :])
+sns.distplot(y_test)
+sns.distplot(y_train)
+len(y_train)
+</code></pre>
+<p><img alt="Dataset result" src="https://ipfs.infura.io/ipfs/QmRwCWoLMrUkRxuQHAaJohdAXsFAz3ay23gd6mxRgdqSA2" /></p>
+<p>After running the snippet a couple of time, you should get something like this, with an even split of buys and sells (left vs right) across both datasets.</p>
+<h3 id="training-the-models">Training the model(s)<a class="headerlink" href="#training-the-models" title="Permanent link"></a></h3>
+<p>We are now ready to train the model, but as we have yet to explore what hyper-parameters work best with our model and data we'll try a slightly more complex approach. First let's define four hyper-parameters arrays:</p>
+<pre><code class="language-python">DROPOUTS = [
+    0.1,
+    0.2,
+]
+HIDDENS = [
+    32,
+    64,
+    128
+]
+OPTIMIZERS = [
+    'rmsprop',
+    'adam'
+]
+LOSSES = [
+    'mse',
+    'binary_crossentropy'
+]
+</code></pre>
+<p>Then we'll iterate through each array to train a model with that combinations of hyper parameters, so that we can later compare them using TensorBoard:</p>
+<pre><code class="language-python">for DROPOUT in DROPOUTS:
+    for HIDDEN in HIDDENS:
+        for OPTIMIZER in OPTIMIZERS:
+            for LOSS in LOSSES:
+                train_model(DROPOUT, HIDDEN, OPTIMIZER, LOSS)
+</code></pre>
+<p>Now we need to define the <code>train_model</code> function that will actually create and train the model:</p>
+<pre><code class="language-python">def train_model(DROPOUT, HIDDEN, OPTIMIZER, LOSS):
+    NAME = f&quot;{HIDDEN} - Dropout {DROPOUT} - Optimizer {OPTIMIZER} - Loss {LOSS} - {int(time.time())}&quot;
+    tensorboard = TensorBoard(log_dir=f&quot;logs/{NAME}&quot;, histogram_freq=1)
+
+    model = Sequential([
+        LSTM(HIDDEN, activation='relu', input_shape=x_train[0].shape),
+        Dropout(DROPOUT),
+        Dense(HIDDEN, activation='relu'),
+        Dropout(DROPOUT),
+        Dense(1, activation='sigmoid')
+    ])
+    model.compile(
+        optimizer=OPTIMIZER,
+        loss=LOSS,
+        metrics=['accuracy']
+    )
+    model.fit(
+        x_train,
+        y_train,
+        epochs=60,
+        batch_size=64,
+        verbose=1,
+        validation_data=(x_test, y_test),
+        callbacks=[
+            tensorboard
+        ]
+    )
+</code></pre>
+<p>For now this is a very simple model with an LSTM layer as the first layer, one Dense intermediate layer and one Dense output layer of size 1 and <code>sigmoid</code> activation. This layer will output the probability (ranging from 0 to 1) that a specific sequence of size <code>WINDOW</code> will be followed by a higher closing price after <code>LOOKAHEAD</code> intervals, where 0 is a high probability of a lower closing price and 1 is a high probability of a higher closing price.</p>
+<p>We are also adding a Tensorboard callback, which will allow us to see how each model performs over each training cycle (EPOCH)</p>
+<p>Feel free to run this code and then run Tensorboard, in your terminal <code>tensorboard --logdir=logs</code></p>
+<h3 id="feature-engineering">Feature engineering<a class="headerlink" href="#feature-engineering" title="Permanent link"></a></h3>
+<p>The best model should have an accuracy on the validation data that is higher than 60%, which is already quite good. However, we can improve our model very quickly by extracting more data from our existing data set. The process of extracting new features from existing features is called <code>Feature Engineering</code>. Examples of feature engineering would be extracting a weekend boolean column from a data, or a country from a coordinates pair. In our case we are going to add technical analysis data to our OHLC dataset.</p>
+<p>At the top of your notebook or file, add the <code>ta</code> package: <code>from ta import *</code>.</p>
+<p>Just after loading the data from csv, add the following line, which will append TA data to our existing dataset in the form of new columns</p>
+<pre><code class="language-python">data = pd.read_csv('./data.csv')
+##add the following line
+add_all_ta_features(data, &quot;o&quot;, &quot;h&quot;, &quot;l&quot;, &quot;c&quot;, &quot;v&quot;, fillna=True) 
+data['future_value'] = data['c'].shift(-LOOKAHEAD)
+</code></pre>
+<p>That's it, in a few line we have massively enriched our dataset. We can now run the model generator loop to figure out how our models perform with the new dataset, this will take quite a bit longer, but should be worth the wait.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdvN4dQGfGqdhDxuaQWg7kzEvtneccnDrjUcTFa8XwYJY" /></p>
+<p>A richer, more meaningful dataset should ensure a more accurate model, and in the image above, we can clearly see how the richer dataset perform better than the simple data-set, with a validation accuracy hovering around the 80% mark!</p>
+<h3 id="evaluating-the-best-performing-models">Evaluating the best performing models.<a class="headerlink" href="#evaluating-the-best-performing-models" title="Permanent link"></a></h3>
+<p>Now that we have some models that seem to perform nicely on paper, how do we evaluate which one should be used in an hypothetical trading system?</p>
+<p>This can be quite subjective, but in my opinion a good approach would be to separately looks at the buys and sells from the known validation labels and plot the distribution of the corresponding predictions. Hopefully, for all the buys, our model mostly predicts buys and not many sells and viceversa.</p>
+<p>Let's define a function that displays such chart for each model:</p>
+<pre><code class="language-python">def display_results(NAME, y_test, predictions):
+    plt.figure()
+    buys = []
+    sells = []
+    for index in range(len(y_test)):
+        if y_test[index] == 0:
+            sells.append(predictions[index])
+        elif y_test[index] == 1:
+            buys.append(predictions[index])
+    sns.distplot(buys, bins=10, color='green').set_title(NAME)
+    sns.distplot(sells, bins=10, color='red')
+    plt.show()
+</code></pre>
+<p>and let's now call this function every time we finish training on a model:</p>
+<pre><code class="language-python">    model.fit(
+        x_train,
+        y_train,
+        epochs=60,
+        batch_size=64,
+        verbose=0,
+        validation_data=(x_test, y_test),
+        callbacks=[
+            tensorboard
+        ]
+    )
+    # after the model.fit call, add the following 2 lines.
+    predictions = model.predict(x_test)
+    display_results(NAME, y_test, predictions)
+</code></pre>
+<p>As the different models train we should now see images similar to the below, where the buys are plotted in green (and we want them on the right end side, clustered around the 1 value) and the sells are plotted in red (clustered around the 0 values on the left). These should help us decide which model provides a more reliable estimation of future prices.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWJ4Zjwiwi5814oKRi7FF8tgEWQRXfC92FYGneX9qydmc" /></p>
+<p>And that's it, we now have a few prototypes to play with that provide a decent estimation of future prices.
+As an exercise for yourself try the following:
+- What happens if you increase the number of hidden layers of the network? 
+- What happens if your datasets is unbalanced?
+- What happens if you increase the DROPOUT value?
+- What happens if you test your best model on new data? (e.g. by fetching a different timestamp from Binance?</p>
+<p>If you have any question or suggestion, please feel free to comment below or suggest an update to this article :)</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Predict cryptocurrency prices with Tensorflow as binary classification problem</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/predict-cryptocurrency-prices-with-tensorflow-as-b/badf8853afb9404196bd8b5cbeec61a2/a</li>
+<li><strong>Kauri original author:</strong> Davide Scalzo (@davidescalzo)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-10-22</li>
+<li><strong>Kauri original tags:</strong> cryptocurrency, artificial-intelligence, machine-learning, tensorflow, python</li>
+<li><strong>Kauri original hash:</strong> QmYUnZ97LSC2zY2ZVRt9SthQEM2kjRusTzqaGaX3yikjra</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../multi-class-classification-example-with-convoluti/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../multi-class-classification-example-with-convoluti/" class="btn btn-xs btn-link">
+        Multi-class classification example with Convolutional Neural Network in Keras and Tensorflow
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../regression-with-python-keras-and-tensorflow/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../regression-with-python-keras-and-tensorflow/" class="btn btn-xs btn-link">
+        Regression with Python, Keras and Tensorflow
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A non practitioner guide to machine learning /predict-cryptocurrency-prices-with-tensorflow-as-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

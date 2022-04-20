@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ether-cards-spreads-its-wings/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ether Cards spreads its wings - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ether Cards spreads its wings", url: "#_top", children: [
+              {title: "Collectibles", url: "#collectibles" },
+              {title: "Ticketing", url: "#ticketing" },
+              {title: "Conclusion", url: "#conclusion_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ether-cards-spreads-its-wings">Ether Cards spreads its wings<a class="headerlink" href="#ether-cards-spreads-its-wings" title="Permanent link"></a></h1>
+<p>Two or three years ago Nick Johnson, an ethereum core developer, launched Ether Cards as a simple way of onboarding people to ethereum.</p>
+<p>Credit card sized with displayable addresses and a scratch off area to hold a key phrase, Ether Cards were quickly supported by sites like MyEtherWallet and MyCrypto.</p>
+<p>By mid 2018 Ether Cards was proving useful at hackathons and conferences allowing tokens to be given out to test dApps like at Dappcon 2018 where Gnosis distributed OWL tokens for a competition based on their prediction market.</p>
+<p>It was about this time that Nick's Ethereum Name Service work started getting more demanding and he was open to passing on the business to a Singapore based consultancy Akomba Labs who had a vision to grow Ether Cards from its initial mission to introduce a wider range of people to the ethereum ecosystem.</p>
+<p>Pretty soon we were talking to Austin Griffith to create cards to introduce Burner Wallets at events resulting in the Ethereal Summit using Ether Cards and Burner Wallets to prototype food payments.</p>
+<p>At the same time, Ether Cards got accepted into Tachyon II to help us refine our new direction. We had a couple of directions that we wanted to pursue, ticketing and monitising collectibles. We started refining our plans to enter the collectibles market.</p>
+<h3 id="collectibles">Collectibles<a class="headerlink" href="#collectibles" title="Permanent link"></a></h3>
+<p>Just before we entered Tachyon, we had been approached by the manufacturer of a range of collectable figurines to see how we could enhance the value of their products. With the help of Kavita, her colleagues and some Consensys members we were introduced to, we started to refine both what we wanted to do and the mechanisms behind it.</p>
+<p>We developed a mechanism whereby each collectible could not only prove its authenticity but also allow the creator of the item to benefit from the secondary market. You can check out our pitch from Consensys Demo Day <a href="https://www.youtube.com/watch?v=ALuEGQ6rpxU">here</a>.</p>
+<p>We are working with state of the art secure NFC tag technology to develop the new generation of ether tags that we will be launching shortly.</p>
+<h3 id="ticketing">Ticketing<a class="headerlink" href="#ticketing" title="Permanent link"></a></h3>
+<p>Meanwhile we still had our plans for ticketing which we started discussing with the ethereum foundation in the context of providing a better ticketing experience for Devcon. The last couple of years had convinced everybody that we needed to improve the way that tickets were allocated but nobody wanted to risk the entire ticket distribution to an untested  distribution method.</p>
+<p>The Devcon team were insanely busy planning all aspects of the conference. They decided that after the third wave, a few tickets would be allocated for distribution via two of the proposed allocation methods, a raffle and an auction.</p>
+<h4 id="the-raffle">The Raffle<a class="headerlink" href="#the-raffle" title="Permanent link"></a></h4>
+<p>One hundred tickets were allocated to the raffle, each address could submit multiple fixed price entries and unsuccessful entries were refundable. To disincentivise people bidding for more tickets than they needed, a small donation would be taken from unsuccessful entries on claiming the refund.</p>
+<p>A large random array was created to determine the order in which winners could be selected and a hash of that array was embedded into the contract to ensure that we could prove that the array had not been modified since the raffle started.</p>
+<p>Once the raffle was over, the winning results were fed into the contract to determine the winners. With most people already having obtained tickets via the three waves, there were only 52 entries so they were all successful.</p>
+<p>The contribution was to incentivise ETH rich people to use the auction rather than submitting a ton of bids in just to ensure that they had a single ticket.</p>
+<h4 id="the-auction">The Auction<a class="headerlink" href="#the-auction" title="Permanent link"></a></h4>
+<p>Fifty tickets were available for auction at the following rules :</p>
+<ol>
+<li>There was a minimum bid of 4.7 ETH</li>
+<li>There were 50 tickets available</li>
+<li>During the bidding period you sent the hash of your bid and a random phrase accompanied by a masking amount that had to be greater than or equal to your bid</li>
+<li>During the reveal period, you sent your bid amount and the phrase that you used during the bidding</li>
+<li>After the reveal period, the top 50 bids would win tickets</li>
+<li>In the event of a tie those bids that revealed first would win</li>
+<li>Winners could withdraw any difference between the bid amount and the masking amount. Everybody else could withdraw what they had deposited.</li>
+</ol>
+<p>The method chosen was borrowed from the ENS auction process and aimed to allow people's bids to be confidential until it was too late to overbid them. It was also intended to prevent a bidding war.</p>
+<h4 id="the-tickets">The Tickets<a class="headerlink" href="#the-tickets" title="Permanent link"></a></h4>
+<p>Winners of both the raffle and the auction received NFT tickets that could be transferred and redeemed. Redemption was by signing the NFT's URI tag. This message was passed to the backend which redeemed the NFT and revealed a voucher code that could be used inside the Devcon ticketing system.</p>
+<p>The entire process was run by web3 enabled pages which allowed you to obtain your tickets and redeem them using Metamask or your favourite web3 enabled mobile wallet.</p>
+<h4 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h4>
+<p>Despite a few minor hiccups (issues resolved and lessons learnt) the process went off pretty well. We learned a lot from the experience this year and hope that we will given the opportunity to offer an improved service next year hopefully as the main way of applying for tickets.</p>
+<h3 id="conclusion_1">Conclusion<a class="headerlink" href="#conclusion_1" title="Permanent link"></a></h3>
+<p>As we come to the first anniversary of taking over the reins, we have started work on the new road map and have a capable team in place to bring it to fruition.</p>
+<p>We are open to exploring partnerships with any synergistic parties who, like us, believe that co-operation leads to greater benefits to all.</p>
+<hr />
+<p>https://ether.cards</p>
+<p>https://twitter.com/ether_cards</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong>  Ether Cards spreads its wings</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ether-cards-spreads-its-wings/1caa445cdad94bd5b56450cc686685fc/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-30</li>
+<li><strong>Kauri original tags:</strong> ethereum, devcon5</li>
+<li><strong>Kauri original hash:</strong> QmcgphVcoPabM4jJ5kdLPUcireHSN3ZZJZTMp67MeZMZS4</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../writing-in-web-3.0-for-trekkies%21/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../writing-in-web-3.0-for-trekkies%21/" class="btn btn-xs btn-link">
+        Writing in web 3.0 for trekkies!
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../hunt-bounties-on-the-devcash-bounty-platform/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../hunt-bounties-on-the-devcash-bounty-platform/" class="btn btn-xs btn-link">
+        Hunt bounties on the Devcash Bounty Platform
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ether-cards-spreads-its-wings.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

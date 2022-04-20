@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos--introdu/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smart Contract Utilities with ZeppelinOS  Introduction - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Smart Contract Utilities with ZeppelinOS  Introduction", url: "#_top", children: [
+              {title: "What is It?", url: "#what-is-it" },
+              {title: "Features", url: "#features" },
+              {title: "Future Features", url: "#future-features" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="smart-contract-utilities-with-zeppelinos-introduction">Smart Contract Utilities with ZeppelinOS  Introduction<a class="headerlink" href="#smart-contract-utilities-with-zeppelinos-introduction" title="Permanent link"></a></h1>
+<h3 id="what-is-it">What is It?<a class="headerlink" href="#what-is-it" title="Permanent link"></a></h3>
+<p>ZeppelinOS is a development platform of utilities to help manage and operate smart contract projects in Ethereum. Its counterpart <em>OpenZeppelin</em> , comprises of a library of reusable and secure smart contracts. In this tutorial series, we are primarily focusing on ZeppelinOS.</p>
+<p>ZeppelinOS is a command line tool with a multitude of built-in features to assist you with developing contracts. They are responsible for creating a feature called the EVM Package.</p>
+<p>EVM packages are collections of upgradeable on-chain smart contract code that is reusable. For understanding purposes, think of it as a dependency that you can update without having to deploy. As a result, whenever there's a bug that needs fixing, or a new feature to add, you have the ability to upgrade your contract without deploying a new one. Before ZeppelinOS this was impossible, your contracts would forever be frozen on the blockchain.</p>
+<p>Upgradeability is a feature that every developer needs to use, and without ZeppelinOS it's impossible. EVM packages are accessible through inheriting and take up little to no code. Writing contracts takes less time which allows for increased quality and complexity of contracts. In the next tutorial, <a href="#">Deploying &amp; Upgrading</a> we cover how to use ZeppelinOS but for now we cover what it has to offer.</p>
+<p>Here are a couple definitions to make this introduction easier to understand:</p>
+<ul>
+<li><strong>EVM</strong>: Ethereum Virtual Machine. The algorithm that powers the entire Ethereum platform. It's the program that connects all the nodes/blocks together in the network.</li>
+<li><strong>EVM Packages</strong>: Piece of on-chain code that's reusable.</li>
+<li><strong>On-chain</strong>: Transactions that happen <strong>on</strong> the Ethereum/cryptocurrency blockchain.</li>
+<li><strong>Off-chain</strong>: Transactions that happen <strong>off</strong> the Ethereum/cryptocurrency blockchain.</li>
+<li><strong>Dependency</strong>: Piece of code that makes other code ex) software, work properly.</li>
+<li><strong>ZEP</strong>: A token created for ZeppelinOS.</li>
+<li><strong>dApp</strong>: Decentralized application.</li>
+</ul>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h3>
+<p>ZeppelinOS has great features to get you started:</p>
+<ul>
+<li><strong>Deploying &amp; Upgrading</strong>: Once your contract deploys onto the network, you have the option of upgrading it through EVM packages. Before these packages, your deployed contracts would not be upgrade-able.</li>
+<li><strong>Publishing</strong>: Developers have the option of publishing their EVM packages to the blockchain for others to integrate into their projects.</li>
+<li><strong>Linking</strong>: Any project can link to an EVM package that is already deployed on the blockchain. This establishes a database of packages that everyone can use.</li>
+<li><strong>Vouching</strong>: To support the creators of EVM packages and promote authenticity, vouching is possible with ZEP tokens. This confirms the reliability of a package. Thus you can earn ZEP by auditing and developing packages.</li>
+</ul>
+<h3 id="future-features">Future Features<a class="headerlink" href="#future-features" title="Permanent link"></a></h3>
+<p>ZeppelinOS has more features rolling out in the new year to make development and maintenance even easier. According to their <a href="https://blog.zeppelinos.org/zeppelinos-development-roadmap-pt-one/">road map</a> we can expect to see the following.</p>
+<h4 id="kernel-standard-libraries">Kernel Standard Libraries<a class="headerlink" href="#kernel-standard-libraries" title="Permanent link"></a></h4>
+<p>This is an on-chain set of upgradeable libraries that you can inherit into your smart contracts. This stage of the project is active and available to users in the form of <a href="https://openzeppelin.org/">OpenZeppelin</a>.</p>
+<p>Although as per the <a href="https://zeppelinos.org/zeppelin_os_whitepaper.pdf">whitepaper</a>, it sounds as though ZeppelinOS will be receiving its own separate version of a kernel sometime soon.</p>
+<h4 id="development-tools">Development Tools<a class="headerlink" href="#development-tools" title="Permanent link"></a></h4>
+<p>A set of tools that makes development and maintenance hassle-free. Examples include:</p>
+<ul>
+<li><strong>Attack Management system</strong>: To deal with emergency attacks. This allows the user to perform actions such as pause, revert to the previous states, or fork the contract.</li>
+<li><strong>Upgrade Management</strong>: Manage progressive deployment of features, security patch maintenance, and updating.</li>
+</ul>
+<h4 id="interaction">Interaction<a class="headerlink" href="#interaction" title="Permanent link"></a></h4>
+<p>Various utilities to enhance inter-contract communications and networking.</p>
+<ul>
+<li><strong>Scheduling</strong>: Allows you to interfere with the execution time of your contract. An example would be enabling your contract to perform asynchronous execution on a function so that anyone can pay the gas cost instead of one specific person.</li>
+<li><strong>Marketplace</strong>: A hub where users can browse and sell services. Hence it's a market place for contracts. Zeppelin reviews submissions to the marketplace to ensure high quality and best security practices.</li>
+<li><strong>Blockchain Information Provider</strong>: This feature allows you to have access to information such as current ETH price, gas price, transaction pool size, average mining block times, and more.</li>
+</ul>
+<h4 id="off-chain-tools">Off-chain Tools<a class="headerlink" href="#off-chain-tools" title="Permanent link"></a></h4>
+<p>Off-chain tools aim to simplify the development process. Assisting with debugging, testing, deploying and monitoring of smart contract dApps.</p>
+<ul>
+<li><strong>Analytic Dashboard</strong>: Help you to track the health of your dApp smart contracts.</li>
+<li><strong>Interface</strong>: An interface designed to perform security analysis, manage upgrades, and interpret data about contracts once they deploy.</li>
+</ul>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>ZeppelinOS expect to roll out new features in the future, in the meantime, we have plenty to get us started. The ZeppelinOS framework is designed to make creating contracts as easy as possible. They've resolved a fundamental issue in providing the ability to upgrade an already deployed contract. Once the rest of the features are launched, creating smart contracts will have never been easier.</p>
+<ul>
+<li><a href="https://zeppelinos.org/">ZeppelinOS</a></li>
+<li><a href="https://blog.zeppelin.solutions/technical-details-of-zeppelinos-d3cf4da591f7">Technical details</a></li>
+<li><a href="https://zeppelinos.org/zeppelin_os_whitepaper.pdf">White paper</a></li>
+<li><a href="https://blog.zeppelin.solutions/introducing-zeppelinos-the-operating-system-for-smart-contract-applications-82b042514aa8">Introducing ZeppelinOS</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Smart Contract Utilities with ZeppelinOS  Introduction</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/smart-contract-utilities-with-zeppelinos-introduct/a054c697f68c434bb657f070cad83e98/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-06</li>
+<li><strong>Kauri original tags:</strong> smart-contract, evm-packages, zeppelinos, zeppelin, deploy</li>
+<li><strong>Kauri original hash:</strong> QmV7N5Maa3U6YjSyKbkXZq755d2FnjetvSiuhJD43n2r9H</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../smart-contract-utilities-with-zeppelinos--install/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../smart-contract-utilities-with-zeppelinos--install/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Installation and Use
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem--structural-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Ethereum%20Community%20and%20Ecosystem%20analysis/ethereum-community-and-its-ecosystem--structural-/" class="btn btn-xs btn-link">
+        Ethereum community and its ecosystem  structural analysis
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--introdu.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

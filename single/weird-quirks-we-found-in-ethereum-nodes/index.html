@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/weird-quirks-we-found-in-ethereum-nodes/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Weird quirks we found in Ethereum nodes - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Weird quirks we found in Ethereum nodes", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="weird-quirks-we-found-in-ethereum-nodes">Weird quirks we found in Ethereum nodes<a class="headerlink" href="#weird-quirks-we-found-in-ethereum-nodes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdDSza1PPqfpKDRkKsMekYCzE8TeFLowEj71LPBCE3nBw" />
+At TokenAnalyst we are experts at hosting, running, and extracting valuable information from blockchain nodes. Through our time working with Ethereum, we encountered some interesting quirks that we’d love to share with the broader community. We work with the two top most-used Ethereum clients, namely Geth ( 
+<a href="https://github.com/ethereum/go-ethereum">go-ethereum</a>
+ ), built mainly by the 
+<a href="https://www.ethereum.org/foundation">Ethereum Foundation</a>
+ , and Parity, built by 
+<a href="https://www.parity.io/">Parity Technologies</a>
+ .
+The following quirks have been found by my coworkers 
+<a href="https://twitter.com/ankitchiplunkar">Ankit</a></p>
+<p><a href="https://twitter.com/sidshekhar24">, Sid</a>
+ and 
+<a href="https://twitter.com/madewithtea">myself</a>
+ . If you have any questions regarding the following findings, we would be happy to help. There are not too many people trying to get data from nodes, but if they do, they’ll inevitably encounter these quirks at some point. The following list is anecdotal, for further references links are supplied. The first two points are particularly important to know when you set up your own node.
+ * Magnetic hard-drives are not optimal for running nodes; they are just too slow. SSD is a much better option. We started our full nodes on AWS t3.xlarge instances, having EBS storage attached. However, it turned out, that NVMe ( <a href="https://en.wikipedia.org/wiki/NVM_Express">https://en.wikipedia.org/wiki/NVM_Express</a> ) instance storage in RAID-0 is much more cost-effective, with a 30x improvement on I/O throughput when writing files.
+ * When Geth is not in sync with the latest block, the RPC interface is unresponsive, meaning you cannot query for e.g. blocks, transactions, receipts etc. This works in Parity.
+ * Even though there is a standard what kind of RPC methods and parameters exist. There are no standard error responses across nodes. Hence, if you want to write software that integrates with different clients you have to parse responses dependent on the client. Ongoing discussions about this point can be found, <a href="https://ethereum-magicians.org/t/eip-remote-procedure-call-specification/1537/21">here</a> and <a href="https://github.com/ethereum/EIPs/pull/1474">here</a> .
+ * The fields, r, s, v of a transaction are not consistent on different clients. They’re different on Geth, Parity and Infura. ( <a href="https://twitter.com/sidshekhar24/status/1052896205724893184">https://twitter.com/sidshekhar24/status/1052896205724893184</a> ).
+ * Running the latest versions of Geth and Parity on the same AWS t3.xlarge instance types with EBS storage, in the same regions, Geth is more out-of-sync than Parity. This is particularly unfortunate since Geth is unresponsive while syncing. The comparison was pre-1.8.19. After we updated to <a href="https://github.com/ethereum/go-ethereum/releases/tag/v1.8.19">1.8.19</a> we experienced better performance.
+ * The JSON-RPC interface is not type-safe. That means, for data pipelines building on top of this data source, post-processing e.g. validation and typecasting is required. The “standard” on <a href="https://github.com/ethereum/wiki/wiki/JSON-RPC">https://github.com/ethereum/wiki/wiki/JSON-RPC</a> is not very enforcing.
+ * For data like internal transactions, state diffs, there is not an RPC standard yet. Geth is not supporting them yet, Parity has implemented them: <a href="https://wiki.parity.io/JSONRPC-trace-module.html">https://wiki.parity.io/JSONRPC-trace-module.html</a> . The state diff result format is a bit weird, and it’s not fully consistent: <a href="https://github.com/paritytech/parity-ethereum/issues/8937">https://github.com/paritytech/parity-ethereum/issues/8937</a> .
+ * There are two ways of retrieving the latest blocks. Through HTTP polling or a kept alive web socket connection. For both ways block re-organization (a wrong block is forwarded and later discarded) is not correctly implemented on Geth and Parity, see <a href="https://github.com/paritytech/parity-ethereum/issues/9865">https://github.com/paritytech/parity-ethereum/issues/9865</a> .
+ * Multiple smaller differences between the interfaces of Geth and Parity include: Uncle size is null in Parity, but does exist in Geth. Filter IDs on Geth and Parity are different. Geth assigns random IDs, and Parity uses an incremental counter.
+ * The consensus rules among clients have to match in order to make Ethereum work, but everything else, e.g. the exposed API, or RPC interface can be totally different. Take each client with a grain of salt.</p>
+<p><strong>To sum it up.</strong></p>
+<p>Through the process of setting up our infrastructure. We learned that when building fault-tolerant, highly reliable, and mission-critical application on top of Ethereum, it is not enough to rely on the functionality of specific Ethereum clients. An extremely deep understanding of how nodes work, what they need, and how to orchestrate them is required to ensure effectively zero downtime along the whole data pipeline.</p>
+<p><a href="https://www.tokenanalyst.io/">TokenAnalyst</a></p>
+<p><em>parses and classifies every on-chain transaction (currently from the Ethereum blockchain) with the goal of deriving fundamental insights to understand crypto-assets.</em></p>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://upscri.be/618d25" width="512"></iframe>
+
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Weird quirks we found in Ethereum nodes</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/weird-quirks-we-found-in-ethereum-nodes/9d659d2cecd14c2bb65992f316fefcf9/a</li>
+<li><strong>Kauri original author:</strong> null (@eca41677558025c76bfd20e9289283cb4ca85f46)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-20</li>
+<li><strong>Kauri original tags:</strong> Geth, Parity, Nodes</li>
+<li><strong>Kauri original hash:</strong> QmcrL3PUZaFStp51tyPXJ4JjWmLPP4eGfnFn5ih3jr69Rh</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../not-fade-away--a-short-life-well-lived-book-revie/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../not-fade-away--a-short-life-well-lived-book-revie/" class="btn btn-xs btn-link">
+        Not Fade Away  A Short Life Well Lived  Book Review
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../why-do-we-need-a-decentralized-oracle-network/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../why-do-we-need-a-decentralized-oracle-network/" class="btn btn-xs btn-link">
+        Why do we need a Decentralized Oracle Network?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/weird-quirks-we-found-in-ethereum-nodes.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

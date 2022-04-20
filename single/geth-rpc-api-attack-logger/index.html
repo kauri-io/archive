@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/geth-rpc-api-attack-logger/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Geth RPC-API Attack Logger - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Geth RPC-API Attack Logger", url: "#_top", children: [
+              {title: "Project Name", url: "#project-name" },
+              {title: "Project Tagline/Description (140 Characters Max. Will be used on table card for judging)", url: "#project-taglinedescription-140-characters-max-will-be-used-on-table-card-for-judging" },
+              {title: "Team Members.", url: "#team-members" },
+              {title: "Status.im ID", url: "#statusim-id" },
+              {title: "Detailed Project Description (no more than 3-4 sentences)", url: "#detailed-project-description-no-more-than-3-4-sentences" },
+              {title: "Describe your tech stack (e.g., protocols, languages, API\u2019s, etc.)", url: "#describe-your-tech-stack-eg-protocols-languages-apis-etc" },
+              {title: "Track: Open", url: "#track-open" },
+              {title: "No bounties", url: "#no-bounties" },
+              {title: "A link to all your source code on a public repo (i.e. Github)", url: "#a-link-to-all-your-source-code-on-a-public-repo-ie-github" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="geth-rpc-api-attack-logger">Geth RPC-API Attack Logger<a class="headerlink" href="#geth-rpc-api-attack-logger" title="Permanent link"></a></h1>
+<h2 id="project-name">Project Name<a class="headerlink" href="#project-name" title="Permanent link"></a></h2>
+<p>Geth RPC-API Attack Logger (graal?)</p>
+<h2 id="project-taglinedescription-140-characters-max-will-be-used-on-table-card-for-judging">Project Tagline/Description (140 Characters Max. Will be used on table card for judging)<a class="headerlink" href="#project-taglinedescription-140-characters-max-will-be-used-on-table-card-for-judging" title="Permanent link"></a></h2>
+<p>An Ethereum RPC-API medium-interaction honeypot for gathering attack information.</p>
+<h2 id="team-members">Team Members.<a class="headerlink" href="#team-members" title="Permanent link"></a></h2>
+<ul>
+<li>Todd Garrison</li>
+<li>Marcus Tetreault</li>
+<li>Cameron Merrick</li>
+</ul>
+<h2 id="statusim-id">Status.im ID<a class="headerlink" href="#statusim-id" title="Permanent link"></a></h2>
+<ul>
+<li><code>Right Uniform Grayling</code> https://get.status.im/user/0x04fb2e877483e93d1b3cbb55db5e1dc67baf0f47f4b7226fa51d48c408dc101204714345d9a2fc381f7ae48e8c775a94a0ac5985b374e6f02a24152645f819f140 (Todd)</li>
+</ul>
+<h2 id="detailed-project-description-no-more-than-3-4-sentences">Detailed Project Description (no more than 3-4 sentences)<a class="headerlink" href="#detailed-project-description-no-more-than-3-4-sentences" title="Permanent link"></a></h2>
+<p>At some point many of us have left an RPC-API port open, perhaps by accident, or just out of curiosity. This is a project to assist in gathering data around what attacks take place when that happens, including the IP addresses involved, and the destination addresses the attackers use. </p>
+<h2 id="describe-your-tech-stack-eg-protocols-languages-apis-etc">Describe your tech stack (e.g., protocols, languages, API’s, etc.)<a class="headerlink" href="#describe-your-tech-stack-eg-protocols-languages-apis-etc" title="Permanent link"></a></h2>
+<ul>
+<li>Docker is used to start a geth light client, and a custom proxy.</li>
+<li>The proxy is a simple golang service that provides logging, uses a kvs (bboltdb) to keep a running count of request types, and rewrites a few API calls that attackers find enticing, such as having an unlocked wallet. </li>
+<li>The logs are intended to be ingested into elasticsearch for more analysis.</li>
+<li>A simple stats.json file is created by the proxy, with the intent that this could be pushed into s3. This json file drives a (very simple) vue2 dashboard to show information about what IP addresses, what RPC methods, or the destination addresses for attempted outgoing transfers.</li>
+</ul>
+<h2 id="track-open">Track: Open<a class="headerlink" href="#track-open" title="Permanent link"></a></h2>
+<h2 id="no-bounties">No bounties<a class="headerlink" href="#no-bounties" title="Permanent link"></a></h2>
+<h2 id="a-link-to-all-your-source-code-on-a-public-repo-ie-github">A link to all your source code on a public repo (i.e. Github)<a class="headerlink" href="#a-link-to-all-your-source-code-on-a-public-repo-ie-github" title="Permanent link"></a></h2>
+<p>https://github.com/frameloss/ethdenver2019</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Geth RPC-API Attack Logger</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/geth-rpcapi-attack-logger/737d186d4a074d6d8a696ab75805cc14/a</li>
+<li><strong>Kauri original author:</strong> Todd Garrison (@frameloss)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-17</li>
+<li><strong>Kauri original tags:</strong> ethdenver-2019-submission</li>
+<li><strong>Kauri original hash:</strong> Qme9VMd1HzN228HiTFb8MiCnxJGrq3rgJWAPqQK8yzGbHV</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-create-dapp-like-this-kauri-website/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-create-dapp-like-this-kauri-website/" class="btn btn-xs btn-link">
+        How to create Dapp like this Kauri Website ?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-2.0-is-near/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-2.0-is-near/" class="btn btn-xs btn-link">
+        Ethereum 2.0 is near
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/geth-rpc-api-attack-logger.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

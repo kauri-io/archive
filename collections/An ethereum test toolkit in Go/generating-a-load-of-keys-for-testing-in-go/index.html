@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/An%20ethereum%20test%20toolkit%20in%20Go/generating-a-load-of-keys-for-testing-in-go/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Generating a load of keys for testing in Go - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Generating a load of keys for testing in Go", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="generating-a-load-of-keys-for-testing-in-go">Generating a load of keys for testing in Go<a class="headerlink" href="#generating-a-load-of-keys-for-testing-in-go" title="Permanent link"></a></h1>
+<p>I am in the process of releasing my very "hacky" golang test environment that deep links into the go-ethereum code base.</p>
+<p>An important part of testing smart contracts is to be able to generate and use an arbitrary number of keys/addresses to sign / send / receive transactions. Ideally we should not be using live key pairs so I created <strong>memorykeys</strong> which you can find at https://github.com/DaveAppleton/memorykeys</p>
+<p>Much of the work of the GETH crypto module is to wrap the go crypto/ecdsa library. ECDSA stands for Elliptic Curve Digital Signing Algorithm. GETH's crypto library's job is to select the correct parameters to feed into go's ecdsa library. For example, creating a key simply calls GETH/crypto's GenerateKey function which in turn just selects the parameters for go's crypto/ecdsa module. GETH implements it like this :</p>
+<pre><code>func GenerateKey() (*ecdsa.PrivateKey, error) {
+    return ecdsa.GenerateKey(S256(), rand.Reader)
+}
+</code></pre>
+<p>S256() is a function that returns the elliptic curve used for encryption, the other parameter is to provide a good random number generator to ensure that your private key is not guessable. As a matter of interest, GETH links to two different versions of the curve, one which uses machine dependent calls for higher performance and the other written entirely in go for portability.</p>
+<p>The ecdsa module returns us the public key but most of the time we want the ethereum address not the public key. Again GETH's crypto library implements this for us</p>
+<pre><code>func PubkeyToAddress(p ecdsa.PublicKey) common.Address {
+    pubBytes := FromECDSAPub(&amp;p)
+    return common.BytesToAddress(Keccak256(pubBytes[1:])[12:])
+}
+</code></pre>
+<p>Where <code>FromECDSAPub()</code> extracts the public key.</p>
+<p>You will find that slowly exploring GETH's crypto library gives non cryptographers (like me) a bit of insight of what is happening without overloading your brain.</p>
+<p>Thanks to Jeff Wilke for pointing me to the go-ethereum crypto module back in 2015 when I first asked about keys and signing.</p>
+<p><strong>Objectives of this library</strong></p>
+<p>This library is designed to help us to generate and use keys on an ad-hoc basis without storing them for re-use on a subsequent run. </p>
+<p>We reference these keys by name and obtain</p>
+<ul>
+<li>the private key (for signing)</li>
+<li>a transaction object encapsulating that key for future use with ABIGEN</li>
+<li>the address</li>
+</ul>
+<p><strong>Restrictions</strong></p>
+<p>It is not expected to be necessary for concurrent creation of keys so keys are stored in a map which is not safe for concurrent writes.</p>
+<p><strong>Functions</strong></p>
+<p><code>GetPrivateKey(keyname)</code> create a keypair associated with the name on first call, subsequent calls return the previous value.</p>
+<pre><code>
+   launcher,err := memorykeys.GetPrivateKey(&quot;launcher&quot;)
+
+</code></pre>
+<p><code>GetAddress(keyName string)</code> gets the address associated with a key. Creates the key if it does not exist</p>
+<pre><code>
+   recipient,err := GetAddress(&quot;recipient&quot;)
+
+</code></pre>
+<p><code>GetTransactor(keyName string)</code> gets a transaction object for use with ABIGEN objects. Creates the key if necessary.</p>
+<pre><code>
+   deployer, err := GetTransactor(&quot;deployer&quot;)
+
+</code></pre>
+<p><code>ImportPrivateKey(keyName, hexKey)</code> imports a hex encoded private key for use. <strong>BE CAREFUL NOT TO USE PRODUCTION KEYS</strong></p>
+<pre><code>    privateKey := &quot;d31a46c5322e8e8a7e11f51cf9c4073fea42d33b431b5e7e76a82518fc178ea8&quot;
+    key, err := ImportPrivateKey(&quot;imported&quot;, privateKey)
+
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Generating a load of keys for testing in Go</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/generating-a-load-of-keys-for-testing-in-go/7a0c7497951548b8837634305e62977b/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-08</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, go-programming-language, golang, testing</li>
+<li><strong>Kauri original hash:</strong> QmYeFYYmS8usAkaJxF31ojgHLvwE7ZnNviSQbB1YK7juE4</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../the-geth-simulated-backend/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../the-geth-simulated-backend/" class="btn btn-xs btn-link">
+        The GETH Simulated Backend
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../interacting-with-smart-contracts-from-geth-s-simu/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../interacting-with-smart-contracts-from-geth-s-simu/" class="btn btn-xs btn-link">
+        Interacting with smart contracts from GETH's Simulated Backend
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/An ethereum test toolkit in Go/generating-a-load-of-keys-for-testing-in-go.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

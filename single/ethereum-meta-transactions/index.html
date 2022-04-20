@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/ethereum-meta-transactions/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum Meta Transactions - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum Meta Transactions", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Basics", url: "#basics" },
+              {title: "Meta Transactions", url: "#meta-transactions" },
+              {title: "Demo Screencast of Ethereum Meta Transactions", url: "#demo-screencast-of-ethereum-meta-transactions" },
+              {title: "Conclusion", url: "#conclusion" },
+              {title: "Credits and Inspiration:", url: "#credits-and-inspiration" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-meta-transactions">Ethereum Meta Transactions<a class="headerlink" href="#ethereum-meta-transactions" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRdqBJda6fGg3C4dCrpjWZ6ki52T33xviV3qRGWjtN61V" /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p><strong>Dapps require way too much onboarding.</strong>
+ The Ethereum ecosystem needs to push toward mass adoption by allowing new users immediate access to functionality and interactivity without all the hoops to jump through.</p>
+<p><strong>This means paying the gas for first time users.</strong>
+ There is no native method to do this in the Ethereum protocol, yet. However, thanks to public/private key pairs, users can sign 
+<em>meta transactions</em>
+ and incentivize 
+<em>desktop miners</em>
+ to pay the gas for them.</p>
+<p><strong>Key pairs will exist in your browser first and will be generated automatically.</strong>
+ The cypherpunks are really going to hate this one, but users shouldn’t be bothered with downloading a wallet up front. First, they need to use the product and provide value within the Dapp. Once they receive some tokens or Ether, they should be prompted to move to a wallet like MetaMask or Trust.</p>
+<hr />
+<h3 id="basics">Basics<a class="headerlink" href="#basics" title="Permanent link"></a></h3>
+<p>I want to cover a few underlying concepts to lay the groundwork for explaining meta transactions on Ethereum. Scroll away cryptography gurus…</p>
+<h4 id="hashes">Hashes<a class="headerlink" href="#hashes" title="Permanent link"></a></h4>
+<p>Hash functions take in information of varying size and map it to a predictable (deterministic) result of an arbitrary size. It’s a great way to take a bunch of information and get a small, digestible “fingerprint” of the data. The resulting “fingerprint” for a given input is always the same. 
+<strong>If any little thing in your original data changes, the resulting hash will change drastically.</strong></p>
+<h4 id="key-pairs">Key Pairs<a class="headerlink" href="#key-pairs" title="Permanent link"></a></h4>
+<p>Public/Private key pairs employ some heady math but the concept is simple; A message can be signed with a private key and anyone can use the public key to prove it was signed correctly. To reiterate, 
+<strong>I can give you a message along with a signature and using only my public information you can mathematically prove that I signed the specific message</strong>
+ . A private key is very sensitive and should never be moved around. A public key can be shared far and wide. Your Ethereum address is your public key and it 
+<a href="https://twitter.com/AlwaysBCoding/status/995753516001001472">acts as your identity</a>
+ .</p>
+<blockquote>
+<p>A public key can also encrypt a small message too. Then, only the owner of the private key can decrypt the message. This isn’t really important here, but it’s cool so I thought I should share. :)</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>From @cooganbrennan: “By signing a hash of data you achieve three things:</p>
+<p>non-corruptibility: you know the data has not been tampered with</p>
+<p>identity: you know the transaction is definitely from the person who sent it</p>
+<p>non-repudiation: the person who sent it can not rescind the transaction later”</p>
+</blockquote>
+<hr />
+<h4 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link"></a></h4>
+<p>In order to interact with the blockchain, you need to send a transaction. A transaction consists of a few parts and I like to use the snail mail analogy:</p>
+<ul>
+<li>
+<p>To address: An Ethereum address the transaction is going to. This could be another a person or a smart contract. Analogous to the address on the front of the envelope of a letter you are sending.</p>
+</li>
+<li>
+<p>Value: This is like putting a little cash in the envelope for the recipient.</p>
+</li>
+<li>
+<p>Data: This is like the contents of the letter you are sending. This is usually empty when you are just sending value.</p>
+</li>
+<li>
+<p>Nonce: Since this is digital, it can be replicated. To protect against the same letter getting sent twice, we keep track of a count. This acts like an identity of the envelope itself. (Another good analogy for a nonce is a check’s number. The bank technically shouldn’t cash a check from a nonce previous to the last-cashed check’s nonce)</p>
+</li>
+<li>
+<p>Gas Price: This is like some loose change you put in your mailbox to incentivize the mailman to deliver the message. The more change you leave the higher the likelihood the busy mailman will grab your letter.</p>
+</li>
+<li>
+<p>Gas Limit: This is like a limit of how far your mailman should travel. Let’s say he ends up going to the other side of the earth to deliver your message that is meant to go around the block… you want to avoid that because you’re paying for his trip.</p>
+</li>
+<li>
+<p>Signature: Finally, all the data above is hashed and you seal the envelope with a signature that proves its exact contents are verified by you.</p>
+<blockquote>
+<p>This is a very loose analogy and I have many more. Let’s have a beer and discuss it at length. Find me at Devcon.</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="smart-contracts">Smart Contracts<a class="headerlink" href="#smart-contracts" title="Permanent link"></a></h4>
+<p>My grandfather told me a story about his brother who used to grow tomatoes in his backyard in Kansas. He would put the last night’s harvest in a box on the front step with a scale with an asking price. Every night he would go out and collect the money from a cigar box. This system relied heavily on trust. A smart contract is like this, but it’s backed by math, not trust.
+I like to think of a smart contract like a set of rules with storage. There are 25 tomatoes in the box and the rule is 15 cents for a pound of tomatoes. If you send an envelope with 30 cents in it to the cigar box, two pounds of tomatoes will be transferred to your address. This will continue until there are no more tomatoes left. At the end of the day, the contract owner can empty the cigar box because he proves who he is with is private key.
+Contracts can also talk to other contracts. They can even do the trick we talked about earlier where they prove a specific message was signed by a particular account. This concept is the heart of the trick…</p>
+<hr />
+<h3 id="meta-transactions">Meta Transactions<a class="headerlink" href="#meta-transactions" title="Permanent link"></a></h3>
+<p>First, I craft a transaction similar to the structure of a traditional Ethereum transaction, but I also add in some extra information:</p>
+<ul>
+<li>
+<p>Data: The contents of the letter is more complex. It is encoded information detailing a list of actions to take including a hash of the name of the function to call along with arguments to pass to that function.</p>
+</li>
+<li>
+<p>Reward: Economics are important to incentivize a decentralized system. If you want ‘desktop miners’ to pay the gas to submit your transaction, you’ll need to pay up. These funds will not come from your account. They will come out of the identity proxy smart contract. <strong>Ether or tokens can be used to pay miners.</strong> </p>
+</li>
+<li>
+<p>Requirements: There can be extended requirements that are checked within the smart contract too. One example is a chronological check. Let’s say the transaction can only go through at the end of the month. The contract can verify this.
+Next, instead of sending my transaction directly to a smart contract, I’ll send it to a secondary network. The network can parse my request and make sure my signature is valid. They then choose what transactions are worth submitting and interface directly with the blockchain.
+Finally, when my proxy contract receives my transaction sent from a third party, it will parse the instructions, pay the third party, and execute my commands. These instructions could be sending tokens, calling functions, or anything a normal blockchain transaction can do.</p>
+</li>
+</ul>
+<h3 id="demo-screencast-of-ethereum-meta-transactions">Demo Screencast of Ethereum Meta Transactions<a class="headerlink" href="#demo-screencast-of-ethereum-meta-transactions" title="Permanent link"></a></h3>
+<iframe allowfullscreen="" frameborder="0" height="300" scrolling="no" src="https://www.youtube.com/embed/6r3SqCcEVU4" width="512"></iframe>
+
+<hr />
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Using this method we are able to interact with the blockchain from accounts that don’t hold any Ether. This is may be necessary to drive mass adoption of Ethereum. 
+<strong>Users don’t care about decentralization or private keys; they care about using your Dapp to do something important to them.</strong></p>
+<h4 id="universal-logins">Universal Logins<a class="headerlink" href="#universal-logins" title="Permanent link"></a></h4>
+<p>Another great use case for this technology is ‘ 
+<a href="https://youtu.be/qF2lhJzngto">Universal Logins</a>
+ ’. You should store your Ether in a “cold” wallet and use that to charge up a proxy contract. This contract will hold funds and tokens on your behalf and act as your on-chain identity. Then, as new devices come in and out of your life, you can tell your identity proxy to trust them. These devices never hold funds and their private key is never moved. At the same time, they are able to interact with the blockchain using meta transactions.</p>
+<hr />
+<p>Thanks for checking out meta transactions on Ethereum. Hit me up on Twitter: 
+<a href="https://twitter.com/austingriffith">https://twitter.com/austingriffith</a>
+ or learn more about me here:</p>
+<h3 id="credits-and-inspiration">Credits and Inspiration:<a class="headerlink" href="#credits-and-inspiration" title="Permanent link"></a></h3>
+<p>@avsa — 
+<a href="https://www.youtube.com/watch?v=qF2lhJzngto">https://www.youtube.com/watch?v=qF2lhJzngto</a></p>
+<p>@mattgcondon — 
+<a href="https://twitter.com/mattgcondon/status/1022287545139449856">https://twitter.com/mattgcondon/status/1022287545139449856</a>
+ &amp;&amp; 
+<a href="https://twitter.com/mattgcondon/status/1021984009428107264">https://twitter.com/mattgcondon/status/1021984009428107264</a></p>
+<p>@owocki — 
+<a href="https://twitter.com/owocki/status/1021859962882908160">https://twitter.com/owocki/status/1021859962882908160</a></p>
+<p>@danfinlay — 
+<a href="https://twitter.com/danfinlay/status/1022271384938983424">https://twitter.com/danfinlay/status/1022271384938983424</a></p>
+<p>@PhABCD — 
+<a href="https://twitter.com/PhABCD/status/1021974772786319361">https://twitter.com/PhABCD/status/1021974772786319361</a></p>
+<p><a href="https://github.com/gnosis/safe-contracts">gnosis-safe</a></p>
+<p><a href="https://github.com/uport-project/uport-identity">uport-identity</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTD27DHrZAzDQxDqA9ac8tN3zvUVnTP3pu1WVJaXYCjKP" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum Meta Transactions</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-meta-transactions/8b1e4a4cdbb240c892925cd4779e34ca/a</li>
+<li><strong>Kauri original author:</strong> Austin Griffith (@austingriffith)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-28</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQKp9xH7C69FYZsEF8QXKF4VnoN3cE7UA7PxTo1dY128b</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../what-are-dapps-%28an-ultimate-guide%29/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../what-are-dapps-%28an-ultimate-guide%29/" class="btn btn-xs btn-link">
+        What are Dapps? (An ultimate guide)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-create-dapp-like-this-kauri-website/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-create-dapp-like-this-kauri-website/" class="btn btn-xs btn-link">
+        How to create Dapp like this Kauri Website ?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/ethereum-meta-transactions.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

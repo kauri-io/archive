@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/plapps-and-predicates--understanding-the-generali/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Plapps and Predicates  Understanding the Generalized Plasma Architecture - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Plapps and Predicates  Understanding the Generalized Plasma Architecture", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Layer 2: Claims about State", url: "#layer-2-claims-about-state" },
+              {title: "Abstract Offchaindataism", url: "#abstract-offchaindataism" },
+              {title: "Predicates: Making Plasma Useful", url: "#predicates-making-plasma-useful" },
+              {title: "Predicates in Practice", url: "#predicates-in-practice" },
+              {title: "Back to the Future", url: "#back-to-the-future" },
+              {title: "Resources", url: "#resources" },
+              {title: "Our Thanks to:", url: "#our-thanks-to" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="plapps-and-predicates-understanding-the-generalized-plasma-architecture">Plapps and Predicates  Understanding the Generalized Plasma Architecture<a class="headerlink" href="#plapps-and-predicates-understanding-the-generalized-plasma-architecture" title="Permanent link"></a></h1>
+<p>We recently published 
+<a href="https://medium.com/plasma-group/towards-a-general-purpose-plasma-f1cc4d49c1f4">an article</a>
+ that describes our new work on a more generalized plasma 
+<a href="https://pigi.readthedocs.io/en/latest/src/specs/generalized-plasma-state.html">architecture</a>
+ . 
+<strong>This post goes into more detail about the architecture for those who are interested in how things work under the hood.</strong>
+ We’ll go over how everything fits together at a high level, then we’ll jump into the 
+<a href="https://github.com/plasma-group/research/tree/master/gen-plasma">sample implementation</a>
+ in Python. You can scroll forward to the diagrams if you’re already very familiar with plasma.</p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>The main takeaways from our previous article are:</p>
+<ul>
+<li>
+<p>It’s hard to keep up with plasma research: those who are familiar with plasma have likely heard of all the different plasma flavors. Each flavor has a different sent of tradeoffs, and keeping up with rapidly evolving research is a full time job.</p>
+</li>
+<li>
+<p>Most developers just want simple and easy ways to scale their dapps. People want good tools and well documented libraries. They certainly don’t want to build entire blockchains from scratch to run a single app.
+So we set out to create a platform that makes it easy to build scalable blockchain applications without having to be a plasma expert. We ended up with a general purpose plasma chain you can build apps (or “plapps”) on. Sound weird yet? Plapp. Plaaapp. Plappp. Yup.</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNm8cUS2YrEXmdUTbEFpP8YVLaMfFaAmxXHVHV5n8Uy7j" /></p>
+<h3 id="layer-2-claims-about-state">Layer 2: Claims about State<a class="headerlink" href="#layer-2-claims-about-state" title="Permanent link"></a></h3>
+<p>The core idea behind “Layer 2” is that we can use data outside of a main blockchain (“off-chain data”) to provide guarantees about assets sitting on the main blockchain (“on-chain data”). For example, that off-chain data might give you the right to withdraw an asset held in an on-chain escrow contract on Ethereum. But the 
+<em>ownership</em>
+ of that asset changed hands without touching Ethereum.
+Of course, the off-chain data isn’t useful unless it’s possible for something to eventually happen on the main blockchain. This is usually achieved by allowing users to submit “claims” about the off-chain data to an on-chain smart contract where the assets being claimed are held. This claim might be something like “I have this signed message that says I’m allowed to withdraw asset X.”
+But what happens if after submitting the claim, the person making the aforementioned claim 
+<em>also</em>
+ sings a message sending asset X to 
+<em>someone else</em>
+ ? This would invalidate the above withdrawal. To ensure that any such invalid withdrawals are unsuccessful, we add a dispute period to every claim. Anyone may challenge the claim before the end of the dispute period. Otherwise, the claim is considered valid. Simple enough!
+Let’s quickly relate this back to plasma. Plasma chains consist of a series of blocks, and each block consists of a series of transactions. Whenever a new plasma chain block is created, a 
+<a href="https://en.wikipedia.org/wiki/Commitment_scheme">cryptographic commitment</a>
+ to that block is published to the main chain. These commitments can be used to prove that something was inside that block. In our case, this commitment is a merkle root created from all state updates in the block.
+The plasma smart contract on Ethereum records the order in which plasma blocks are committed by the operator, and prevents commitments from ever being overwritten. Thus, these block commitments give us a sense of time. When users want to make claims about something that happened on plasma chain, they have to also reference 
+<em>when</em>
+ that thing happened through the block number. For example, a user might say, “Here’s transaction X 
+<em>in block Y</em>
+ that gave me asset Z.” This extra time dimension is also important for disputes because you sometimes want to know whether something happened before or after something else!</p>
+<h3 id="abstract-offchaindataism">Abstract Offchaindataism<a class="headerlink" href="#abstract-offchaindataism" title="Permanent link"></a></h3>
+<p>So as we’ve just seen, Layer 2 is primarily about using some off-chain data to affect things sitting on-chain. So far, off-chain data has mostly been used to represent 
+<em>ownership</em>
+ — who owns what, and whether it changed hands.
+Alice will deposit an asset into a smart contract on Ethereum and she will become the owner of that asset. She can then sign an off-chain message that transfers ownership of the asset to Bob. Bob can then withdraw the asset back on Ethereum by making a claim using that signed message.
+We can also represent more complex things than ownership. Let’s say Alice deposits a CryptoKitty and signs a bunch of messages that change the kitty’s fur color. Just like in the example above, she can eventually make a claim on Ethereum about the kitty’s fur color using the last message she signed!</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV8LgRYMX2yVSiHoascgF8gri3rm8udWefwFnoKV1DTWs" /></p>
+<p>Whether it’s changing the kitty’s fur color or eye color, the smart contract back on Ethereum needs to have a way of understanding these changes. Each new piece of functionality — or new type of “state transition” — requires a change to the logic followed by the plasma contract. In previous plasma specs, adding a feature like this meant that one would have to re-deploy the <em>entire</em> plasma contract and migrate everyone’s assets from the old plasma chain to the new one. This is not secure, scalable, or upgradeable.</p>
+<h3 id="predicates-making-plasma-useful">Predicates: Making Plasma Useful<a class="headerlink" href="#predicates-making-plasma-useful" title="Permanent link"></a></h3>
+<p>We ran into this upgradeability problem once we got far enough into our plasma chain design that we wanted to add new functionality. After some brainstorming, we realized there was an easy way to add new functionality without changing the main plasma chain contract.
+All of the various scenarios we’ve talked about so far have something in common — the off chain data is always for the purpose of “disputing” incorrect on-chain claims. The dispute for a particular claim is basically just some proof that the state referenced in the claim is outdated. A dispute about ownership proves that the user making the claim later transferred ownership to someone else. A dispute about kitty fur color requires proving that the kitty’s fur color has been changed.
+Our primary breakthrough was realizing that dispute conditions don’t need to be checked in the main smart contract. Instead, we could have other smart contracts implement a function that would tell us if the dispute was valid or not. We could add new functionality by creating a new contract that implemented the necessary logic for that functionality and then have our main contract reference the new one. We call these external contracts 
+<strong>‘predicates’</strong>
+ .
+Now it was really easy to add new functionality, but we still needed a way to know 
+<em>which</em>
+ predicate to use for a particular state update. A claim about a kitty’s fur color can’t be disputed by a change in the kitty’s eye color. So how do we know which predicate to use?
+Simple! We just add the requirement that the state update also says which predicate it’s subject to. Now the update message that changes a kitty’s fur color could be, “I’m making this kitty’s fur color blue and disputes can be handled by the predicate sitting at ( 
+<code>0x123…</code>
+ )”
+Since users can specify any predicate address they want, anyone can add new functionality to the plasma chain at any time by deploying a new predicate on Ethereum. There’s a little more to predicates than just handling disputes, but we’ll get into that later. What’s important is that predicates just have to implement a standard interface, defined in this next section.</p>
+<h3 id="predicates-in-practice">Predicates in Practice<a class="headerlink" href="#predicates-in-practice" title="Permanent link"></a></h3>
+<h4 id="state-objects">State Objects<a class="headerlink" href="#state-objects" title="Permanent link"></a></h4>
+<p>Now let’s dive into the details of how this all works in practice. The building block of our plasma chain design is the ‘state object’. A state object is just a piece of data with two attributes:</p>
+<ul>
+<li>
+<p><code>predicateAddress</code> : The on-chain address that controls the object.</p>
+</li>
+<li>
+<p><code>parameters</code> : Some arbitrary blob of data that describes the object.</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYgPVUVMmHtQgnfiiXKyuuLrs2pwuprtogdZNcSenBnBY" /></p>
+<p>State objects are effectively assets — a generalization of the concept of the non-fungible “coins” in Plasma Cash. Just like each unique coin had a 
+<code>coinID</code>
+ in Cash, each state object has a 
+<code>stateID</code>
+ .
+That’s it! The 
+<code>stateID</code>
+ s are assigned sequentially based on deposits into the plasma chain, but there aren’t any rules about what 
+<code>parameters</code>
+ or 
+<code>predicate</code>
+ can be. Each plasma block is a collection of “state updates,” which define new 
+<code>stateObjects</code>
+ s at particular 
+<code>stateID</code>
+ s.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXgqfBBmfJcE99MwCaKPjtYsntQxRZPcTgbTSi91htGZ" /></p>
+<p>Because we use a 
+<a href="https://medium.com/plasma-group/plasma-spec-9d98d0f2fccf">range-based Cash variant</a>
+ , 
+<code>stateUpdate</code>
+ s are actually specified over ranges of 
+<code>stateObject</code>
+ IDs:</p>
+<pre><code>stateUpdate = {
+   start: uint,
+   end: uint,
+   plasmaBlockNumber: uint,
+   stateObject: stateObject
+}
+</code></pre>
+<p>The plasma chain contract on Ethereum, where the operator submits plasma blockhashes, implements a 
+<code>verifyUpdate(update: stateUpdate, updateWitness:bytes[]) -&gt; bool</code>
+ which checks a Merkle inclusion proof ( 
+<code>updateWitness</code>
+ ) that the state update was indeed committed.</p>
+<h4 id="the-predicate-interface">The Predicate Interface<a class="headerlink" href="#the-predicate-interface" title="Permanent link"></a></h4>
+<p>Predicates need to implement a standard contract interface. Let’s go over those functions.
+The most important thing thing the plasma contract does is determine the validity of state updates. Particularly, we need to prevent the operator (who has full control over blocks) from being able to “sneak in” a valid state update which has its 
+<code>stateObject.parameters.owner == operator</code>
+ — this would be theft!
+To accomplish this, we introduce the concept of “state deprecation.” We say that the valid state for a given 
+<code>stateID</code>
+ is that of the earliest update which has not yet been “deprecated.” State deprecation is analogous to an 
+<strong>Unspent</strong>
+ Transaction Output becoming a 
+<strong>Spent</strong>
+ Transaction Output for UTXO blockchains.
+This way, even if the operator sneaks in a later update where 
+<code>stateObject.parameters.owner == operator</code>
+ , an earlier update with 
+<code>stateObject.parameters.owner == alice</code>
+ will prevail, as only she can deprecate the state.
+Thus, the most important function in the predicate defines the grounds by which its state may be deprecated:</p>
+<pre><code>verifyDeprecation(stateID: uint, update: stateUpdate, deprecationWitness: bytes)
+</code></pre>
+<p><code>verifyDeprecation</code>
+ returns 
+<code>true</code>
+ or 
+<code>false</code>
+ depending on whether the committed 
+<code>stateUpdate</code>
+ has been deprecated for a particular 
+<code>stateID</code>
+ . 
+<code>deprecationWitness</code>
+ is any arbitrary data that the predicate uses to check whether or not the 
+<code>stateObject</code>
+ has been deprecated. For example, by requiring that the 
+<code>deprecationWitness</code>
+ includes a valid signature from the 
+<code>update.stateObject.parameters.owner</code>
+ , we guarantee only the owner can approve a deprecation.
+Remember, this function 
+<strong>doesn’t actually do any deprecation</strong>
+ as it regards to plasma’s exits games, disputes, and so on. Rather, the plasma contract 
+<em>calls the function</em>
+ when it needs to know whether a 
+<code>stateObject</code>
+ is deprecated to evaluate a dispute.
+There are three other functions in the predicate interface — in order of importance, they are:</p>
+<pre><code>finalizeExit(exit: bytes)
+</code></pre>
+<p>When an exit is redeemed, the plasma contract sends any assets associated with the claim to the predicate address and then calls this function.</p>
+<pre><code>canInitiateExit(stateUpdate: bytes, initiationWitness: bytes) -&gt; bool
+</code></pre>
+<p>This function allows the predicate to restrict who may initiate a claim on the committed state. For example, an ownership predicate probably wants to restrict 
+<code>canInitiateExit</code>
+ to the owner of the asset.</p>
+<pre><code>getAdditionalDisputePeriod(stateUpdate: bytes) -&gt; uint
+</code></pre>
+<p>This function allows the predicate to increase the dispute period of a claim. We only really use this for complex predicates (e.g. atomic swaps) that might require a longer dispute resolution process. This function usually just returns 
+<code>0</code>
+ .</p>
+<h4 id="predicates-by-example-ownership-predicate">Predicates by Example: Ownership Predicate<a class="headerlink" href="#predicates-by-example-ownership-predicate" title="Permanent link"></a></h4>
+<p>Everything is easier with examples, so let’s take a look at one. The simplest predicate is the ownership predicate. This state allows its current 
+<code>parameters.owner</code>
+ to exit at any time, or approve any state update.
+The first step to creating our predicate is to design our state object. Luckily that’s pretty simple, the only data inside the object’s 
+<code>parameters</code>
+ is the address of the current owner. A state object using the ownership predicate might look like this:</p>
+<pre><code>OwnedByAlice = {
+  parameters: {
+    owner: '0xAliceAddress...',
+  },
+  predicate: '0xOwnershipPredicateAddress...'
+}
+</code></pre>
+<p>The most important function to implement is 
+<code>verifyDeprecated</code>
+ , which receives some arbitrary 
+<code>deprecationWitness</code>
+ . In the case of the ownership predicate, a valid 
+<code>deprecationWitness</code>
+ consists of:</p>
+<ul>
+<li>
+<p>A signature from <code>state.parameters.owner</code> agreeing to a new <code>stateUpdate</code> .</p>
+</li>
+<li>
+<p>A proof that the new <code>stateUpdate</code> was committed in a later plasma block.</p>
+</li>
+</ul>
+<p><code>verifyDeprecated</code>
+ needs to check that these things are valid, which means checking a signature and a Merkle proof.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfVkWVXXNZt5b65g1SLDbatDpFEVib2jobVR65eCdeFeU" /></p>
+<p>Putting it all together, we see how the owner can deprecate its ownership state by approving a new update:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZnz2MSMPga5S1A1ZLbA5taHrs9AZYkejYmtqic5ZacaT" /></p>
+<p>The remaining functions are pretty simple. 
+<code>canInitiateExit</code>
+ needs to check that the claimant is the owner, 
+<code>finalizeExit</code>
+ forwards the assets over to the owner, and 
+<code>getAdditionalDisputePeriod</code>
+ can return 
+<code>0</code>
+ .
+Here’s what that actually looks like in code! Below we’ve included a Python implementation of the simple ownership predicate. We wrote it in Python for simplicity, but it’s pretty easy to do in Solidity or Vyper as well.</p>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/ben-chain/44dbb78841db2a96cf7145114e81ee7b.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>class OwnershipDeprecationWitness:
+    def __init__(self, next_state_update, signature, inclusion_witness):
+        self.next_state_update = next_state_update
+        self.signature = signature
+        self.inclusion_witness = inclusion_witness
+
+class OwnershipPredicate:
+
+    def __init__(self, parent_plasma_contract):
+        self.parent = parent_plasma_contract
+
+    def can_initiate_exit(self, state_update, initiation_witness):
+        # Only the owner can submit a claim
+        assert state_update.state.owner == initiation_witness
+        return True
+
+    def verify_deprecation(self, state_id, state_update, deprecation_witness):
+        # Check the state_id is in the deprecation_witness state update
+        assert deprecation_witness.next_state_update.start &amp;lt;= state_id \ 
+            and deprecation_witness.next_state_update.end &amp;gt; state_id
+        # Check inclusion proof for more recent state update
+        assert self.parent.commitment_chain.verify_inclusion \
+            (deprecation_witness.next_state_update,
+                self.parent.address,
+                deprecation_witness.inclusion_witness)
+        # Check that the previous owner signed off on the change
+        assert state_update.state.owner == deprecation_witness.signature
+        return True
+
+    def finalize_exit(self, exit):
+        # Transfer funds to the owner
+        self.parent.erc20_contract.transferFrom \
+            (self, exit.state_update.state.owner, \
+                exit.state_update.end - exit.state_update.start)
+
+    def get_additional_lockup(self, state):
+        return 0
+
+</code></pre>
+<p>As you can see, we’ve implemented the entire interface described above. Not too difficult :-).
+And there we have it! A predicate that represents transferable ownership of an asset. Most of the logic here is identical to what was already being done in plasma contracts. We even managed to 
+<a href="https://twitter.com/plasma_group/status/1097983085855965185">prototype the change</a>
+ over the course of 
+<a href="https://www.ethdenver.com/">ETHDenver</a>
+ . It was mostly a matter of moving around code that we’d already written.</p>
+<h3 id="back-to-the-future">Back to the Future<a class="headerlink" href="#back-to-the-future" title="Permanent link"></a></h3>
+<p>This architecture is a significant step forward in our understanding of plasma. It is analogous to the jump from payment channels to generalized state channels–we are able to fit new features and functionalities in the plasma architecture without upgrading the plasma protocol itself.
+Further, we believe the predicate design space presents a rich new area of research for plasma. It’s still early days, but some of the predicates we think are possible include:</p>
+<ul>
+<li>
+<p>State channels</p>
+</li>
+<li>
+<p>DEX predicates of various types</p>
+</li>
+<li>
+<p><a href="https://ethresear.ch/t/plasma-cash-defragmentation-take-3">Defragmentation</a> predicates</p>
+</li>
+<li>
+<p>Nested plasma (predicate is itself a plasma contract)</p>
+</li>
+<li>
+<p><a href="https://rainbownet.work/RainbowNetwork.pdf">P2P options and CDP contracts</a> 
+However, it’s important to remember that predicates are not a panacea–they are still constrained within the plasma design space. More generalization is likely yet to be found. Nevertheless, predicates are very powerful, and seem useful for pretty much all plasma implementations–including those which are not based on Plasma Cash.
+We think this represents an opportunity for standardization within the entire plasma ecosystem. Any plasma implementation which shares this state-deprecation architecture can share predicates and interoperate in new ways.
+Layer 2 scaling solutions are all about using off-chain data to guarantee future on-chain state. Whether old state is deprecated through signatures (state channels), commitments (plasma), or something else, these tools are ultimately accomplishing the same thing. We hope that this advancement is a step towards a unified, shared language which encompasses all layer 2 solutions. We envision a future where wallets can connect to any layer 2 solution through utilizing a standard interface, rather than writing custom integration each time. All for interoperability, and interoperability for all!</p>
+</li>
+</ul>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link"></a></h3>
+<p>Python simulation:  </p>
+<p><a href="https://github.com/plasma-group/research/tree/master/gen-plasma">https://github.com/plasma-group/research/tree/master/gen-plasma</a></p>
+<p>Technical specification: 
+<a href="https://pigi.readthedocs.io/en/latest/src/specs/generalized-plasma-state.html">https://pigi.readthedocs.io/en/latest/src/specs/generalized-plasma-state.html</a></p>
+<p><strong>Join our Plasma Contributors telegram chat:</strong></p>
+<p><a href="https://t.me/plasmacontributors">https://t.me/plasmacontributors</a></p>
+<h3 id="our-thanks-to">Our Thanks to:<a class="headerlink" href="#our-thanks-to" title="Permanent link"></a></h3>
+<p>Alex Attar<br />
+ Dan Robinson<br />
+ Dan Tsui<br />
+ Georgios Konstantopoulos<br />
+ Jeff Coleman<br />
+ Mark Tyneway<br />
+ Matt Slipper<br />
+ Vitalik Buterin<br />
+ Xuanji Li</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Plapps and Predicates  Understanding the Generalized Plasma Architecture</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/plapps-and-predicates-understanding-the-generalize/d817df6443194a2684bee248a1a20cbd/a</li>
+<li><strong>Kauri original author:</strong> Plasma Group (@plasma)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-22</li>
+<li><strong>Kauri original tags:</strong> plapps, ethereum, scaling, predicates, layer-2, plasma, generalized-plasma</li>
+<li><strong>Kauri original hash:</strong> QmNYgchK2Unz7bMvyKj7mQ16kcy2G43WZge8xa1dejMyML</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../dao-for-secure-smart-contract-deploys/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../dao-for-secure-smart-contract-deploys/" class="btn btn-xs btn-link">
+        DAO for Secure Smart Contract Deploys
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../bears-bulls-and-bufficorns/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../bears-bulls-and-bufficorns/" class="btn btn-xs btn-link">
+        Bears, Bulls, & Bufficorns
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/plapps-and-predicates--understanding-the-generali.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

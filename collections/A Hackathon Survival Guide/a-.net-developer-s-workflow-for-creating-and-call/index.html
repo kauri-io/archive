@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/a-.net-developer-s-workflow-for-creating-and-call/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "A\u00a0.NET Developer\u2019s Workflow for Creating and Calling Ethereum Smart Contracts", url: "#_top", children: [
+              {title: "Workflow Overview", url: "#workflow-overview" },
+              {title: "Initial Setup", url: "#initial-setup" },
+              {title: "Main Developer Workflow", url: "#main-developer-workflow" },
+              {title: "Program Execution", url: "#program-execution" },
+              {title: "Where to go from here", url: "#where-to-go-from-here" },
+              {title: "Alternative Workflow with VSCode", url: "#alternative-workflow-with-vscode" },
+              {title: "Credits", url: "#credits" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="a-net-developers-workflow-for-creating-and-calling-ethereum-smart-contracts">A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts<a class="headerlink" href="#a-net-developers-workflow-for-creating-and-calling-ethereum-smart-contracts" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbEDjh1DX8WDFby5axd3LwJ5SQ74xxcVq8RfzMeKAZfCw" /></p>
+<p>There are 
+<a href="https://github.com/ConsenSys/ethereum-developer-tools-list#developer-tools">many great tools</a>
+ available to create Ethereum Smart Contracts. It can be hard to choose between them. In this article, you will learn a simple workflow for developing Solidity smart contracts and calling their functions from C#. This workflow is well suited to .NET developers because it minimises the amount of new tools you need to know about. By using the excellent 
+<a href="https://nethereum.com">Nethereum .NET</a>
+ library you can continue to use the Visual Studio set of tools you are already familiar with.</p>
+<p>Imagine your goal is to take the contract called 
+<a href="https://solidity.readthedocs.io/en/v0.5.7/introduction-to-smart-contracts.html#storage-example">SimpleStorage.sol</a>
+ from the Solidity documentation and call its functions from a C# project. Your preference is to use Visual Studio where possible. This article is based on my own experiences working on the Nethereum project to integrate Ethereum with SAP Sales and Distribution business processes.</p>
+<p><strong>Update Nov 2019:</strong> This workflow is well suited to situations where smart contracts are changing often (perhaps because you are developing them). When smart contracts are changing less often (perhaps because smart contracts are developed by another team) I have found I prefer the workflow detailed in section <strong>Alternative Workflow with VSCode</strong> at the end of this article. This is because like being able to explicitly control when regeneration happens. Both workflows use the same Nethereum code generation..</p>
+<h3 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link"></a></h3>
+<p>There are many possible workflows to achieve your goal, and as new versions of tools and plugins are released other options will appear. At the time of writing this workflow was found to be simple and quick:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTa6xnWda1zJj23HwPhyytQ1vEHhDLvzuJZJZZEDGiiyM" /></p>
+<p>The diagram above shows these steps:</p>
+<ul>
+<li>
+<p>Write Solidity smart contracts and compile them in Visual Studio Code. The output of the compilation process are some files representing the ABI and bytecode for the contracts.</p>
+</li>
+<li>
+<p>Use the Nethereum Autogen code generator to automatically build C# API classes that provide access to the smart contracts.</p>
+</li>
+<li>
+<p>Use Visual Studio to write C# to call methods in the generated C# API classes.
+In this article the term 
+<code>function</code>
+ refers to a Solidity function and 
+<code>method</code>
+ refers to a C# method.</p>
+</li>
+</ul>
+<h3 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link"></a></h3>
+<h4 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link"></a></h4>
+<p>In a command prompt, you will create a new .NET core console project that you’ll use to hold all your files:</p>
+<pre><code>dotnet new sln --name DevWorkflowExample
+dotnet new console --name SimpleStorage
+dotnet sln add .\SimpleStorage\SimpleStorage.csproj
+cd SimpleStorage
+dotnet add package Nethereum.Web3
+dotnet add package Nethereum.Autogen.ContractApi
+</code></pre>
+<h4 id="prepare-visual-studio-code">Prepare Visual Studio Code<a class="headerlink" href="#prepare-visual-studio-code" title="Permanent link"></a></h4>
+<ol>
+<li>
+<p>Open Visual Studio Code.</p>
+</li>
+<li>
+<p>Open extensions and install the <a href="https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity">Solidity extension here</a> .</p>
+</li>
+<li>
+<p>Open the SimpleStorage folder we just created. You should see something like this:</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWQ5YJbfvpAaYr9djbfZQLW3SWCyBUYaxJi9FPur8hGzf" /></p>
+<ol>
+<li>If at any time, VS Code asks “Required assets to build and debug are missing from ‘SimpleStorage’. Add them?” say yes.</li>
+<li>Create a new file (ctrl+N).</li>
+<li>Paste the following solidity code into the file:</li>
+</ol>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) public {
+        storedData = x;
+    }
+
+    function get() public view returns (uint) {
+        return storedData;
+    }
+}
+</code></pre>
+<ol>
+<li>Save the file as 
+<code>SimpleStorage.sol</code>
+ in the root of the SimpleStorage folder.
+The contract is from the 
+<a href="https://solidity.readthedocs.io/en/v0.5.7/introduction-to-smart-contracts.html#storage-example">Solidity documentation</a>
+ and you can see it is a very simple contract, just 
+<code>set()</code>
+ and 
+<code>get()</code>
+ functions. Now you are ready to begin the main developer workflow. The steps below correspond to the numbers on the diagram above.</li>
+</ol>
+<h3 id="main-developer-workflow">Main Developer Workflow<a class="headerlink" href="#main-developer-workflow" title="Permanent link"></a></h3>
+<h4 id="step-1-compile-smart-contract-in-visual-studio-code">Step 1 — Compile Smart Contract in Visual Studio Code<a class="headerlink" href="#step-1-compile-smart-contract-in-visual-studio-code" title="Permanent link"></a></h4>
+<p>In Visual Studio Code, press Shift-Ctrl-P and choose “Solidity: Compile Current Solidity Contract” or press F5. You should see some new files appearing in the 
+<code>SimpleStorage\bin</code>
+ folder, most importantly 
+<code>SimpleStorage.abi</code>
+ and 
+<code>SimpleStorage.bin</code>
+ .</p>
+<h4 id="step-2-rebuild-the-c-project-in-visual-studio">Step 2 — Rebuild the C# Project in Visual Studio<a class="headerlink" href="#step-2-rebuild-the-c-project-in-visual-studio" title="Permanent link"></a></h4>
+<p>Open the solution 
+<code>DevWorkflowExample.sln</code>
+ in Visual Studio (not Visual Studio Code).
+Right-click on the SimpleStorage project and choose “Rebuild”. The act of rebuilding the project triggers the 
+<code>Nethereum.Autogen.ContractApi</code>
+ package to build the C# API classes to let you interact with the 
+<code>SimpleStorage.sol</code>
+ contract. You should see a collection of new files added to the project in a folder called 
+<code>SimpleStorage</code>
+ like this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb8NLvoqDE6cBgfcY3X98WzfmrdNWwafvtH864sDsYV5B" /></p>
+<p>The generated 
+<code>SimpleStorageService</code>
+ class contains some useful methods:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV23xsrvhJHRE88E1NvW31tJbWfxQD6GGRQQvEdpdMxtJ" /></p>
+<p>Notice the C# method naming is different for the 
+<code>set()</code>
+ and 
+<code>get()</code>
+ function calls. This is because 
+<code>set()</code>
+ changes a value on the blockchain, so it costs Ether, so it has be called using an Ethereum transaction, and will return a receipt. The 
+<code>get()</code>
+ function doesn't change any values on the blockchain, so it is a simple call and is free (no transaction and no receipt).</p>
+<h4 id="step-3-call-smart-contract-functions-from-c-in-visual-studio">Step 3 — Call Smart Contract functions from C# in Visual Studio<a class="headerlink" href="#step-3-call-smart-contract-functions-from-c-in-visual-studio" title="Permanent link"></a></h4>
+<p>Now you can call functions from your smart contract in the .NET core console program, by making calls to the generated C# classes mentioned in the previous section. For example, paste the code below into <code>Program.cs</code>, replacing everything that is currently there.</p>
+<pre><code class="language-csharp">using Nethereum.Web3;
+using Nethereum.Web3.Accounts;
+using SimpleStorage.SimpleStorage.CQS;
+using SimpleStorage.SimpleStorage.Service;
+using System;
+using System.Threading.Tasks;
+
+namespace SimpleStorage
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo().Wait();
+        }
+
+        static async Task Demo()
+        {
+            try
+            {
+                // Setup
+                // Here we're using local chain eg Geth https://github.com/Nethereum/TestChains#geth
+                var url = &quot;http://localhost:8545&quot;;
+                var privateKey = &quot;0xb5b1870957d373ef0eeffecc6e4812c0fd08f554b37b233526acc331bf1544f7&quot;;
+                var account = new Account(privateKey);
+                var web3 = new Web3(account, url);
+
+                Console.WriteLine(&quot;Deploying...&quot;);
+                var deployment = new SimpleStorageDeployment();
+                var receipt = await SimpleStorageService.DeployContractAndWaitForReceiptAsync(web3, deployment);
+                var service = new SimpleStorageService(web3, receipt.ContractAddress);
+                Console.WriteLine($&quot;Contract Deployment Tx Status: {receipt.Status.Value}&quot;);
+                Console.WriteLine($&quot;Contract Address: {service.ContractHandler.ContractAddress}&quot;);
+                Console.WriteLine(&quot;&quot;);
+
+                Console.WriteLine(&quot;Sending a transaction to the function set()...&quot;);
+                var receiptForSetFunctionCall = await service.SetRequestAndWaitForReceiptAsync(
+                    new SetFunction() { X = 42, Gas = 400000 });
+                Console.WriteLine($&quot;Finished storing an int: Tx Hash: {receiptForSetFunctionCall.TransactionHash}&quot;);
+                Console.WriteLine($&quot;Finished storing an int: Tx Status: {receiptForSetFunctionCall.Status.Value}&quot;);
+                Console.WriteLine(&quot;&quot;);
+
+                Console.WriteLine(&quot;Calling the function get()...&quot;);
+                var intValueFromGetFunctionCall = await service.GetQueryAsync();
+                Console.WriteLine($&quot;Int value: {intValueFromGetFunctionCall} (expecting value 42)&quot;);
+                Console.WriteLine(&quot;&quot;);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            Console.WriteLine(&quot;Finished&quot;);
+            Console.ReadLine();
+        }
+    }
+}
+
+</code></pre>
+<p>Build the project.
+The workflow is done! You can now make further edits to the smart contract in Visual Studio Code, compile it there, and simply rebuild the project in Visual Studio to be able to make C# calls to the amended Solidity functions.</p>
+<h3 id="program-execution">Program Execution<a class="headerlink" href="#program-execution" title="Permanent link"></a></h3>
+<p>Of course, you’d like to check that the program runs successfully. For the project to run, it needs to speak to a blockchain and here you do need a new tool. A good option during development is to run a local blockchain as described here: 
+<a href="https://github.com/Nethereum/TestChains#geth">https://github.com/Nethereum/TestChains#geth</a>
+ .
+With a local blockchain running, run the 
+<code>SimpleStorage</code>
+ console project from Visual Studio. You should get output like below:</p>
+<pre><code>Contract Deployment Tx Status: 1
+Contract Address: 0x243e72b69141f6af525a9a5fd939668ee9f2b354
+
+Sending a transaction to the function set()...
+Finished storing an int: Tx Hash: 0xe4c8e72bf18c391c3dd0d18aa4c2ec4672591b974383f7d02120657d766d1bf3
+Finished storing an int: Tx Status: 1
+
+Calling the function get()...
+Int value: 42 (expecting value 42)
+
+Finished
+</code></pre>
+<h3 id="where-to-go-from-here">Where to go from here<a class="headerlink" href="#where-to-go-from-here" title="Permanent link"></a></h3>
+<p>The next step in your development process would probably be to add some tests for your Solidity contract. Does this mean you absolutely have to go off and learn Truffle or some other tooling? The answer is no, you don’t. There is an 
+<a href="https://github.com/Nethereum/Nethereum/tree/master/src/Nethereum.Contracts.IntegrationTests">example here</a>
+ of using XUnit test fixtures to launch a local chain before running tests to deploy contracts and call functions.
+Note, you don’t have to use the generated 
+<code>SimpleStorageService</code>
+ class to call your smart contract's functions. At the very least, though, it is instructive to see how the calls work in the generated code.</p>
+<h3 id="alternative-workflow-with-vscode">Alternative Workflow with VSCode<a class="headerlink" href="#alternative-workflow-with-vscode" title="Permanent link"></a></h3>
+<p><strong>Update Nov 2019:</strong> As mentioned, the workflow detailed above I have found useful when the smart contracts are changing often and you want the C# classes to reflect these changes often. This suited the case where I was developing smart contracts and the C# at the same time.
+In cases where the smart contracts are stable (e.g. you have been sent ABI and bytecode by another development team) I have found I prefer to explicitly control when regeneration happens. This can be done by using VSCode not just to write the smart contracts but also to generate the necessary C# code. The workflow is well explained <a href="https://docs.nethereum.com/en/latest/nethereum-codegen-vscodesolidity/">over on the Nethereum documentation site</a>.</p>
+<h3 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link"></a></h3>
+<p>Thanks to 
+<a href="https://github.com/vijay055">Vijay055</a>
+ from the 
+<a href="https://gitter.im/Nethereum/Nethereum">Nethereum Gitter</a>
+ who posted some similar project code as a demo. Thanks to 
+<a href="https://github.com/juanfranblanco">Juan Blanco</a>
+ who founded the Nethereum project, 
+<a href="https://github.com/Dave-Whiffin">Dave Whiffin</a>
+ for the Autogen code generator package and 
+<a href="https://github.com/anegg0">Gael Blanchemain</a>
+ for reviewing and improving the article content.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-net-developers-workflow-for-creating-and-calling/7df58e34248a4153b9a5f1b0c0eb54f3/a</li>
+<li><strong>Kauri original author:</strong> Kevin Small (@kevnsmall)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-13</li>
+<li><strong>Kauri original tags:</strong> csharp, dotnet, visual-studio-code, nethereum, visual-studio</li>
+<li><strong>Kauri original hash:</strong> QmRNToJQ7MzGX8QDKHmsUNdE5yVp7o12eoXruUdVqtMwZX</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../sending-ethereum-transactions-with-rust/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../sending-ethereum-transactions-with-rust/" class="btn btn-xs btn-link">
+        Sending Ethereum Transactions with Rust
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../interacting-with-an-ethereum-smart-contract-in-ja/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../interacting-with-an-ethereum-smart-contract-in-ja/" class="btn btn-xs btn-link">
+        Interacting with an Ethereum Smart Contract in Java
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/a-.net-developer-s-workflow-for-creating-and-call.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

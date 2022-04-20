@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/gamifying-crypto-assets-with-the-erc998-composabl/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Gamifying Crypto Assets with the ERC998 Composables Token Standard - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Gamifying Crypto Assets with the ERC998 Composables Token Standard", url: "#_top", children: [
+              {title: "Basic architecture", url: "#basic-architecture" },
+              {title: "Top-Down vs Bottom-Up", url: "#top-down-vs-bottom-up" },
+              {title: "The Implementation", url: "#the-implementation" },
+              {title: "ERC998ERC721 Top-Down Implementation", url: "#erc998erc721-top-down-implementation" },
+              {title: "ERC998ERC20 Top-Down Implementation", url: "#erc998erc20-top-down-implementation" },
+              {title: "ERC998ERC721 Bottom-Up Implementation", url: "#erc998erc721-bottom-up-implementation" },
+              {title: "ERC998ERC20 Bottom-Up Implementation", url: "#erc998erc20-bottom-up-implementation" },
+              {title: "Now\u2026 So What?", url: "#now-so-what" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="gamifying-crypto-assets-with-the-erc998-composables-token-standard">Gamifying Crypto Assets with the ERC998 Composables Token Standard<a class="headerlink" href="#gamifying-crypto-assets-with-the-erc998-composables-token-standard" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcsGBpxZztnZbiAR3dUfzxHpZ9pVrYUU1Qt6SQTatVi2p" /></p>
+<p>Assets can be complex. Take a house, for example; you're not just selling the ownership of the land it sits on, but also the physical attributes of the building - the foundation, the wood, the interior walls, the roof, the stairs. Sometimes, if you're selling a fully furnished house, that asset will also include expensive furniture pieces such as couches, dining tables, bed frames and more. When it comes to crypto,  attributing an ERC721 token to any non-fungible asset doesn't give you the space to interact with the asset in all the ways you possibly can. You'd be compressing all the pieces of the item into a single representation, and that representation often isn't accurate, nor helpful to you if you want to later pull them apart to sell them individually.</p>
+<p>Crypto Composables, or the ERC998 standard, is a solution to this problem. It can be applied to many non-trivial real-life industry problems: property ownership, supply chain (for example, attributing a given field of harvested coffee beans to an overarching ERC998 token, under which you'd have bags of differently roasted beans as ERC721 tokens and the beans themselves as "bean tokens" in ERC20 standard, etc.), gaming, and more.</p>
+<h3 id="basic-architecture">Basic architecture<a class="headerlink" href="#basic-architecture" title="Permanent link"></a></h3>
+<p>Think of all the token standards as one big family: ERC998 is the "parent" token contract, and ERC721 and ERC20 the "child" token contracts, depending on which standard you choose (or both, if you wish). ERC998 is mapped to these child contracts in such a way that they are now "adopted" by the parent ERC998 contract and "belong" to the overarching composable.</p>
+<p><img alt="alt text" src="https://github.com/kauri-io/Content/blob/composables-draft/Crypto%20Composables/ERC998%20Graph.png" title="ERC998 Parent-Child Relationship" /></p>
+<p>ERC998's <code>tokenId</code> is mapped to each child's contract address. For ERC721 child tokens, its contract address is mapped to the token's own <code>tokenId</code>, whereas, for ERC20 child tokens, the contract address is mapped to the balance of ERC20 tokens. In this way, you re only allowed to transfer child tokens if you also own the parent ERC998 token.</p>
+<h3 id="top-down-vs-bottom-up">Top-Down vs Bottom-Up<a class="headerlink" href="#top-down-vs-bottom-up" title="Permanent link"></a></h3>
+<p>No, you're not suddenly reading an article on subatomic physics, we're still in cryptoland. There's two different ways you can structure a composable: the top-down approach, or the bottom-up approach.</p>
+<p>You can visualize <strong>the top-down approach</strong> as the ERC998 token being a <img align="right" src="https://github.com/kauri-io/Content/blob/composables-draft/Crypto%20Composables/top-down%20ERC998.png" width="260" height="220"> basket open upwards; you can take objects in and out of it, exchange it with others, and do whatever you want with its contents - as long as you're the owner of the basket. When I mention the parent-child relationship, that usually refers to the top-down composable approach. You can transfer any ERC721 or ERC20 token contract into the composable. It's also easier to retrieve all the information on child tokens with top-down composable tokens.</p>
+<p>However, ordinary and existing ERC721 tokens (non-composable ones) cannot receive ownership of a top-down composable token, as the parent-child mapping can't be established. This is like trying to force a woven basket into a sealed cube. Of course, you can always place a basket into a bigger basket - meaning, you can place top-down ERC998 into other top-down ERC998 tokens. <em>You can't place them inside non-composable ERC721 tokens.</em></p>
+<p>Furthermore, you must make all interactions with non-composable child tokens in top-down ERC998 tokens that require owner authentication through the proxy of the parent contract and not directly to the child contract. This is because you're technically not the owner of the child tokens; the parent token is. Because of this, issues can happen if you haven't made the setup of creating a parent method for all interactions with non-composable child tokens in your top-down ERC998 basket.</p>
+<p><img align="left" src="https://github.com/kauri-io/Content/blob/composables-draft/Crypto%20Composables/bottom-up%20ERC998.png" height="220"> <strong>The bottom-up approach</strong> is where things go topsy-turvy; instead of the parent being the ERC998 contract, it's the children who are. Think of bottom-up composables as a dog left home alone for a long time; it latches onto the first visitor that comes home, asking for pets. Similarly, ERC998 bottom-up composables can attach themselves to other ordinary non-composable ERC721 tokens.</p>
+<p>For example, if you have a new CryptoKitty ERC721, you can attach bottom-up ERC998 composables like clothes or toys to the Kitty, as well as ERC20 composable food tokens. Going back to the analogy of non-composable ERC721 tokens as sealed cubes, bottom-up ERC998 composables would be like objects strung up on sticky pads that can <em>attach</em> themselves to the sides of the cube.</p>
+<p>In the case of bottom-up composables, it's a lot harder to retrieve information on all the child tokens, but conversely, you can call methods that require owner authentication directly from the "child" ERC998 contracts. The biggest disadvantage of bottom-up composables is that you can't have just any ERC721 be a part of the composable; it can strictly only be a composable ERC721 because the "parent" contract is just a regular non-composable.</p>
+<h3 id="the-implementation">The Implementation<a class="headerlink" href="#the-implementation" title="Permanent link"></a></h3>
+<p>In terms of implementation, there are four kinds of composable tokens:</p>
+<ol>
+<li>Top-Down ERC998:<ul>
+<li>ERC998ERC721 → top-down composables that can transact and hold ERC721 tokens</li>
+<li>ERC998ERC20 → top-down composable tokens that can transact and hold ERC20 tokens</li>
+</ul>
+</li>
+<li>Bottom-Up ERC998:<ul>
+<li>ERC998ERC721 → bottom-up composable ERC721 tokens that can be owned by non-composable ERC721 tokens'</li>
+<li>ERC998ERC20 → bottom-up composable ERC20 tokens that can be owned by non-composable ERC721 tokens'</li>
+</ul>
+</li>
+</ol>
+<p>First, there's a couple of key elements of composable contracts that you should know before going in:</p>
+<p><strong>Authentication</strong> is important when you need to limit who or which contracts can execute specific actions. In top-down and bottom-up composables that use ERC721 tokens, the <code>rootOwner</code> is the address that "owns" the entire system of composables. For example, for a top-down token, the <code>rootOwner</code> is the one who holds the largest ERC998 basket that contains all the other children inside it. For a bottom-up token, the <code>rootOwner</code> is the one who holds the cube to which the bottom-up ERC998 composables are attached.
+Authentication is pretty simple in an application; you compare the <code>rootOwner</code> to the <code>msg.sender</code>, whom is the user making the current call to the contract (and thus the owner of the contract at the time of deployment), as well as what's returned by <code>getApproved(tokenId)</code> and <code>isApprovedForAll(rootOwner, msg.sender)</code>.</p>
+<p>From the EIP:</p>
+<pre><code>address rootOwner = address(rootOwnerOf(_tokenId));
+require(rootOwner == msg.sender ||
+  isApprovedForAll(rootOwner,msg.sender) ||
+  getApproved(tokenId) == msg.sender;
+</code></pre>
+<p>You can also transfer an entire composable system from one <code>rootOwner</code> to another by using the different <code>approve</code> ERC721 functions like below:</p>
+<pre><code>function approve(address _approved, uint256 _tokenId) external {
+  address rootOwner = address(rootOwnerOf(_tokenId));
+  require(rootOwner == msg.sender || isApprovedForAll(rootOwner,msg.sender));
+
+  rootOwnerAndTokenIdToApprovedAddress[rootOwner][_tokenId] = _approved;
+  emit Approval(rootOwner, _approved, _tokenId);
+}
+
+function getApproved(uint256 _tokenId) public view returns (address)  {
+  address rootOwner = address(rootOwnerOf(_tokenId));
+  return rootOwnerAndTokenIdToApprovedAddress[rootOwner][_tokenId];
+}
+</code></pre>
+<p><em>Traversal</em> is another important concept that plays an important role when the composable system gets more complex. If you have lots of nested ERC998 composables of different types, one parenting the other, it can be hard to keep track of who the original <code>rootOwner</code> was. The functions <code>rootOwnerOf(uint256 _tokenId)</code> and <code>rootOwnerOfChild(address _childContract, uint256 _childTokenId)</code> can retrieve the <code>rootOwner</code> in both top-down and bottom-up composables.</p>
+<p>For bottom-up composables, if the <code>rootOwnerOf</code> call for the parent token (the ERC721 cube) passes, then what's returned is the true <code>rootOwner</code> of the composable tree. If it fails, then you have to call <code>rootOwnerOfChild</code> instead to find its parent, which gives you the true <code>rootOwner</code> if it passes. If that still fails, then the address of whoever owns that token is the <code>rootOwner</code>.</p>
+<p>This is what the <code>rootOwnerOfChild</code> logic looks like:</p>
+<pre><code>// Logic for calling rootOwnerOfChild for a tokenId
+address tokenOwner = ownerOf(tokenId);
+address childContract = address(this);
+bytes32 rootOwner = ERC998ERC721(tokenOwner).rootOwnerOfChild(childContract, tokenId);
+</code></pre>
+<p><em>Transfers</em> follow the same simple format from composable to composable: <em>from whom</em>, <em>to whom</em>, and <em>what's</em> transferred.</p>
+<p>For example <code>getChild(address _from, uint256 _tokenId, address _childContract, uint256 _childTokenId)</code> transfers an ERC721 token with <code>address _childContract</code> and ID <code>uint256 _childTokenId</code> from the <code>address _from</code> parameters, to the token with ID <code>uint256 _tokenId</code>. Therefore, you can think of it as <code>getChild(from, to, what)</code>.</p>
+<p>The same format applies for the function <code>safeTransferChild(uint256 _fromTokenId, address _to, address _childContract, uint256 _childTokenId)</code>, except this can’t transfer tokens that are “owned” by other tokens. It can only transfer tokens that are directly owned by an actual address. (In other words, it can't transfer child composable tokens). The same exception applies to <code>transferFrom</code> functions.</p>
+<p>OK, so now we've got all the pieces in place. Let's dig into the actual implementation!</p>
+<h3 id="erc998erc721-top-down-implementation">ERC998ERC721 Top-Down Implementation<a class="headerlink" href="#erc998erc721-top-down-implementation" title="Permanent link"></a></h3>
+<h4 id="for-transferring-tokens">For transferring tokens<a class="headerlink" href="#for-transferring-tokens" title="Permanent link"></a></h4>
+<p>For ERC721 contracts that have a <code>safeTransferFrom</code> function, you can use that function to transfer the token to a top-down composable. The <code>bytes data</code> argument is where you put the token ID of the top-down composable token that you're transferring the ERC721 to.</p>
+<p>For ERC721 contracts that don't have this function, instead call the <code>approve</code> function to approve the top-down composable as an owner, and then in the composable contract, call <code>getChild</code> (which I explained previously).</p>
+<p><code>onERC721Received</code> is a function that's defined in the ERC721 standard, and it's always called after a <code>safeTransferFrom</code> function is called. This is how top-down composable contracts are notified that you've transferred an ERC721 token to it.</p>
+<p>Another interesting method to note is <code>transferChildToParent</code>. It authenticates the caller and then transfers a bottom-up composable ERC998 token from a top-down composable token to another parent ERC721, basically shifting it from a basket and then hooking it onto a cube.</p>
+<h4 id="for-rootownerof-and-magic-values">For <code>rootOwnerOf</code> and magic values<a class="headerlink" href="#for-rootownerof-and-magic-values" title="Permanent link"></a></h4>
+<p>The first 4 bytes returned by <code>rootOwnerOf</code> is a "magic value", which is essentially something that gives contracts a way to show each other what interfaces they support. In this case, it's the magic value <code>0xcd740db5</code>, which denotes an ERC998 interface. The last 20 bytes of the returned value is the actual <code>rootOwner</code> address. The magic value ensures that even if you call <code>rootOwnerOf</code> on a contract that doesn't have that function, you'll still receive a valid returned value. The same goes for <code>rootOwnerOfChild</code> and <code>ownerOfChild</code> functions.</p>
+<p>If you don't know whether a contract has any of these functions, you have to compare the first 4 bytes returned to the ERC998 magic value <code>0xcd740db5</code>.</p>
+<p>Here is the complete ERC998ERC721 top-down interface:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+/// @title ERC998ERC721 Top-Down Composable Non-Fungible Token
+/// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
+///  Note: the ERC-165 identifier for this interface is 0x1efdf36a
+interface ERC998ERC721TopDown {
+
+  /// @dev This emits when a token receives a child token.
+  /// @param _from The prior owner of the token.
+  /// @param _toTokenId The token that receives the child token.
+  event ReceivedChild(
+    address indexed _from,
+    uint256 indexed _toTokenId,
+    address indexed _childContract,
+    uint256 _childTokenId
+  );
+
+  /// @dev This emits when a child token is transferred from a token to an address.
+  /// @param _fromTokenId The parent token that the child token is being transferred from.
+  /// @param _to The new owner address of the child token.
+  event TransferChild(
+    uint256 indexed _fromTokenId,
+    address indexed _to,
+    address indexed _childContract,
+    uint256 _childTokenId
+  );
+
+  /// @notice Get the root owner of tokenId.
+  /// @param _tokenId The token to query for a root owner address
+  /// @return rootOwner The root owner at the top of tree of tokens and ERC998 magic value.
+  function rootOwnerOf(uint256 _tokenId) external view returns (bytes32 rootOwner);
+
+  /// @notice Get the root owner of a child token.
+  /// @param _childContract The contract address of the child token.
+  /// @param _childTokenId The tokenId of the child.
+  /// @return rootOwner The root owner at the top of tree of tokens and ERC998 magic value.
+  function rootOwnerOfChild(
+    address _childContract,
+    uint256 _childTokenId
+  )
+    external
+    view
+    returns (bytes32 rootOwner);
+
+  /// @notice Get the parent tokenId of a child token.
+  /// @param _childContract The contract address of the child token.
+  /// @param _childTokenId The tokenId of the child.
+  /// @return parentTokenOwner The parent address of the parent token and ERC998 magic value
+  /// @return parentTokenId The parent tokenId of _tokenId
+  function ownerOfChild(
+    address _childContract,
+    uint256 _childTokenId
+  )
+    external
+    view
+    returns (
+      bytes32 parentTokenOwner,
+      uint256 parentTokenId
+    );
+
+  /// @notice A token receives a child token
+  /// @param _operator The address that caused the transfer.
+  /// @param _from The owner of the child token.
+  /// @param _childTokenId The token that is being transferred to the parent.
+  /// @param _data Up to the first 32 bytes contains an integer which is the receiving parent tokenId.
+  function onERC721Received(
+    address _operator,
+    address _from,
+    uint256 _childTokenId,
+    bytes calldata _data
+  )
+    external
+    returns(bytes4);
+
+  /// @notice Transfer child token from top-down composable to address.
+  /// @param _fromTokenId The owning token to transfer from.
+  /// @param _to The address that receives the child token
+  /// @param _childContract The ERC721 contract of the child token.
+  /// @param _childTokenId The tokenId of the token that is being transferred.
+  function transferChild(
+    uint256 _fromTokenId,
+    address _to,
+    address _childContract,
+    uint256 _childTokenId
+  )
+    external;
+
+  /// @notice Transfer child token from top-down composable to address.
+  /// @param _fromTokenId The owning token to transfer from.
+  /// @param _to The address that receives the child token
+  /// @param _childContract The ERC721 contract of the child token.
+  /// @param _childTokenId The tokenId of the token that is being transferred.
+  function safeTransferChild(
+    uint256 _fromTokenId,
+    address _to,
+    address _childContract,
+    uint256 _childTokenId
+  )
+    external;
+
+  /// @notice Transfer child token from top-down composable to address.
+  /// @param _fromTokenId The owning token to transfer from.
+  /// @param _to The address that receives the child token
+  /// @param _childContract The ERC721 contract of the child token.
+  /// @param _childTokenId The tokenId of the token that is being transferred.
+  /// @param _data Additional data with no specified format
+  function safeTransferChild(
+    uint256 _fromTokenId,
+    address _to,
+    address _childContract,
+    uint256 _childTokenId,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Transfer bottom-up composable child token from top-down composable to other ERC721 token.
+  /// @param _fromTokenId The owning token to transfer from.
+  /// @param _toContract The ERC721 contract of the receiving token
+  /// @param _toTokenId The receiving token
+  /// @param _childContract The bottom-up composable contract of the child token.
+  /// @param _childTokenId The token that is being transferred.
+  /// @param _data Additional data with no specified format
+  function transferChildToParent(
+    uint256 _fromTokenId,
+    address _toContract,
+    uint256 _toTokenId,
+    address _childContract,
+    uint256 _childTokenId,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Get a child token from an ERC721 contract.
+  /// @param _from The address that owns the child token.
+  /// @param _tokenId The token that becomes the parent owner
+  /// @param _childContract The ERC721 contract of the child token
+  /// @param _childTokenId The tokenId of the child token
+  function getChild(
+    address _from,
+    uint256 _tokenId,
+    address _childContract,
+    uint256 _childTokenId
+  )
+    external;
+}
+</code></pre>
+<h3 id="erc998erc20-top-down-implementation">ERC998ERC20 Top-Down Implementation<a class="headerlink" href="#erc998erc20-top-down-implementation" title="Permanent link"></a></h3>
+<h4 id="for-transferring-tokens_1">For transferring tokens<a class="headerlink" href="#for-transferring-tokens_1" title="Permanent link"></a></h4>
+<p>Use the <code>transfer(address _to, uint256 _value, bytes _data)</code> function on the ERC223 contract, where the <code>bytes _data</code> argument contains the integer value of the top-down composable receiver's token ID.
+If the ERC20 contract doesn't support the ERC223 standard, then similar to ERC998ERC20, call the <code>approve</code> function in the ERC20 contract to approve the top-down composable as an owner, then call <code>getERC20(address _from, uint256 _tokenId, address _erc20Contract, uint256 _value)</code> on the top-down composable contract so the tokens may be transferred.</p>
+<p>Here is the complete ERC998ERC20 top-down interface:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+/// @title ERC998ERC20 Top-Down Composable Non-Fungible Token
+/// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
+///  Note: the ERC-165 identifier for this interface is 0x7294ffed
+interface ERC998ERC20TopDown {
+
+  /// @dev This emits when a token receives ERC20 tokens.
+  /// @param _from The prior owner of the token.
+  /// @param _toTokenId The token that receives the ERC20 tokens.
+  /// @param _erc20Contract The ERC20 contract.
+  /// @param _value The number of ERC20 tokens received.
+  event ReceivedERC20(
+    address indexed _from,
+    uint256 indexed _toTokenId,
+    address indexed _erc20Contract,
+    uint256 _value
+  );
+
+  /// @dev This emits when a token transfers ERC20 tokens.
+  /// @param _fromTokenId The token that owned the ERC20 tokens.
+  /// @param _to The address that receives the ERC20 tokens.
+  /// @param _erc20Contract The ERC20 contract.
+  /// @param _value The number of ERC20 tokens transferred.
+  event TransferERC20(
+    uint256 indexed _fromTokenId,
+    address indexed _to,
+    address indexed _erc20Contract,
+    uint256 _value
+  );
+
+  /// @notice A token receives ERC20 tokens
+  /// @param _from The prior owner of the ERC20 tokens
+  /// @param _value The number of ERC20 tokens received
+  /// @param _data Up to the first 32 bytes contains an integer which is the receiving tokenId.
+  function tokenFallback(address _from, uint256 _value, bytes calldata _data) external;
+
+  /// @notice Look up the balance of ERC20 tokens for a specific token and ERC20 contract
+  /// @param _tokenId The token that owns the ERC20 tokens
+  /// @param _erc20Contract The ERC20 contract
+  /// @return The number of ERC20 tokens owned by a token from an ERC20 contract
+  function balanceOfERC20(
+    uint256 _tokenId,
+    address _erc20Contract
+  )
+    external
+    view
+    returns(uint256);
+
+  /// @notice Transfer ERC20 tokens to address
+  /// @param _tokenId The token to transfer from
+  /// @param _value The address to send the ERC20 tokens to
+  /// @param _erc20Contract The ERC20 contract
+  /// @param _value The number of ERC20 tokens to transfer
+  function transferERC20(
+    uint256 _tokenId,
+    address _to,
+    address _erc20Contract,
+    uint256 _value
+  )
+    external;
+
+  /// @notice Transfer ERC20 tokens to address or ERC20 top-down composable
+  /// @param _tokenId The token to transfer from
+  /// @param _value The address to send the ERC20 tokens to
+  /// @param _erc223Contract The ERC223 token contract
+  /// @param _value The number of ERC20 tokens to transfer
+  /// @param _data Additional data with no specified format, can be used to specify tokenId to transfer to
+  function transferERC223(
+    uint256 _tokenId,
+    address _to,
+    address _erc223Contract,
+    uint256 _value,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Get ERC20 tokens from ERC20 contract.
+  /// @param _from The current owner address of the ERC20 tokens that are being transferred.
+  /// @param _tokenId The token to transfer the ERC20 tokens to.
+  /// @param _erc20Contract The ERC20 token contract
+  /// @param _value The number of ERC20 tokens to transfer
+  function getERC20(
+    address _from,
+    uint256 _tokenId,
+    address _erc20Contract,
+    uint256 _value
+  )
+    external;
+}
+</code></pre>
+<h3 id="erc998erc721-bottom-up-implementation">ERC998ERC721 Bottom-Up Implementation<a class="headerlink" href="#erc998erc721-bottom-up-implementation" title="Permanent link"></a></h3>
+<p>These contracts store the address of their parent contract and their parent <code>tokenId</code>.</p>
+<h4 id="on-tokenownerof">On <code>tokenOwnerOf</code><a class="headerlink" href="#on-tokenownerof" title="Permanent link"></a></h4>
+<p>You use this function to get the address and <code>tokenId</code> of the token's parent if it exists. If the boolean <code>isParent</code> (which is one of the outputs of the <code>tokenOwnerOf</code> function) returns true, then the <code>tokenOwner</code> is the parent ERC721's address. If it returns false, then the address returned is a user address.</p>
+<p>Similar to the previously detailed implementations, the <code>tokenOwner</code> returns an ERC998 magic value in the first four bytes, whereas the last 20 bytes contain the token owner address.</p>
+<p>Here is the complete ERC998ERC721 bottom-up interface:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+/// @title ERC998ERC721 Bottom-Up Composable Non-Fungible Token
+/// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
+///  Note: the ERC-165 identifier for this interface is 0xa1b23002
+interface ERC998ERC721BottomUp {
+
+  /// @dev This emits when a token is transferred to an ERC721 token
+  /// @param _toContract The contract the token is transferred to
+  /// @param _toTokenId The token the token is transferred to
+  /// @param _tokenId The token that is transferred
+  event TransferToParent(
+    address indexed _toContract,
+    uint256 indexed _toTokenId,
+    uint256 _tokenId
+  );
+
+  /// @dev This emits when a token is transferred from an ERC721 token
+  /// @param _fromContract The contract the token is transferred from
+  /// @param _fromTokenId The token the token is transferred from
+  /// @param _tokenId The token that is transferred
+  event TransferFromParent(
+    address indexed _fromContract,
+    uint256 indexed _fromTokenId,
+    uint256 _tokenId
+  );
+
+  /// @notice Get the root owner of tokenId.
+  /// @param _tokenId The token to query for a root owner address
+  /// @return rootOwner The root owner at the top of tree of tokens and ERC998 magic value.
+  function rootOwnerOf(uint256 _tokenId) external view returns (bytes32 rootOwner);
+
+  /// @notice Get the owner address and parent token (if there is one) of a token
+  /// @param _tokenId The tokenId to query.
+  /// @return tokenOwner The owner address of the token
+  /// @return parentTokenId The parent owner of the token and ERC998 magic value
+  /// @return isParent True if parentTokenId is a valid parent tokenId and false if there is no parent tokenId
+  function tokenOwnerOf(
+    uint256 _tokenId
+  )
+    external
+    view
+    returns (
+      bytes32 tokenOwner,
+      uint256 parentTokenId,
+      bool isParent
+    );
+
+  /// @notice Transfer token from owner address to a token
+  /// @param _from The owner address
+  /// @param _toContract The ERC721 contract of the receiving token
+  /// @param _toTokenId The receiving token
+  /// @param _data Additional data with no specified format
+  function transferToParent(
+    address _from,
+    address _toContract,
+    uint256 _toTokenId,
+    uint256 _tokenId,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Transfer token from a token to an address
+  /// @param _fromContract The address of the owning contract
+  /// @param _fromTokenId The owning token
+  /// @param _to The address the token is transferred to.
+  /// @param _tokenId The token that is transferred
+  /// @param _data Additional data with no specified format
+  function transferFromParent(
+    address _fromContract,
+    uint256 _fromTokenId,
+    address _to,
+    uint256 _tokenId,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Transfer a token from a token to another token
+  /// @param _fromContract The address of the owning contract
+  /// @param _fromTokenId The owning token
+  /// @param _toContract The ERC721 contract of the receiving token
+  /// @param _toTokenId The receiving token
+  /// @param _tokenId The token that is transferred
+  /// @param _data Additional data with no specified format
+  function transferAsChild(
+    address _fromContract,
+    uint256 _fromTokenId,
+    address _toContract,
+    uint256 _toTokenId,
+    uint256 _tokenId,
+    bytes calldata _data
+  )
+    external;
+}
+</code></pre>
+<h3 id="erc998erc20-bottom-up-implementation">ERC998ERC20 Bottom-Up Implementation<a class="headerlink" href="#erc998erc20-bottom-up-implementation" title="Permanent link"></a></h3>
+<p>Like ERC998ERC721 bottom-up contracts, ERC998ERC20 bottom-ups store their parent contract's address and <code>tokenId</code>. The main differences with the ERC223 standard are that ERC998ERC20 bottom-ups allow you to call for the parent token's balance, as well as transfer the bottom-ups between parent tokens. You track ownership by mapping the parent address, to the parent <code>tokenId</code>, and to the balance - all this in a nested mapping. This is in addition to the standard ERC223 address-to-balance mapping.</p>
+<p>The simple function <code>balanceOfToken</code> allows you to check the parent ERC721 token's balance of ERC998ERC20 bottom-up composable tokens, in contrast to the usual ERC223 functionality that would return a user address' balance instead.</p>
+<h4 id="on-transferring-tokens">On transferring tokens<a class="headerlink" href="#on-transferring-tokens" title="Permanent link"></a></h4>
+<p>The <code>transferToParent</code> function allows you to move ownership of bottom-up tokens from an actual user to a parent ERC721 token.</p>
+<p>There's a couple of important things to take note of here:</p>
+<ol>
+<li>The new ERC721 parent contract has to be compliant with ERC165 and therefore use the <code>supportsInterface</code> interface</li>
+<li><code>transferToParent</code> has to make sure the new parent contract exists, and does this by calling <code>ownerOf</code> on the parent token's contract to see whether it throws an error or not</li>
+<li>After transferring, the function has to emit the <code>TransferToParent</code> event</li>
+<li>Of course, if the account transferring the tokens doesn't have sufficient balance, an error is thrown</li>
+</ol>
+<p>The same specifications apply to all other transfer functions.</p>
+<p>Here is the complete ERC998ERC721 bottom-up interface:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+/// @title ERC998ERC20 Bottom-Up Composable Fungible Token
+/// @dev See https://github.com/ethereum/EIPs/blob/master/EIPS/eip-998.md
+/// Note: The ERC-165 identifier for this interface is 0xffafa991
+interface ERC998ERC20BottomUp {
+
+  /// @dev This emits when a token is transferred to an ERC721 token
+  /// @param _toContract The contract the token is transferred to
+  /// @param _toTokenId The token the token is transferred to
+  /// @param _amount The amount of tokens transferred
+  event TransferToParent(
+    address indexed _toContract,
+    uint256 indexed _toTokenId,
+    uint256 _amount
+  );
+
+  /// @dev This emits when a token is transferred from an ERC721 token
+  /// @param _fromContract The contract the token is transferred from
+  /// @param _fromTokenId The token the token is transferred from
+  /// @param _amount The amount of tokens transferred
+  event TransferFromParent(
+    address indexed _fromContract,
+    uint256 indexed _fromTokenId,
+    uint256 _amount
+  );
+
+  /// @notice Get the balance of a non-fungible parent token
+  /// @param _tokenContract The contract tracking the parent token
+  /// @param _tokenId The ID of the parent token
+  /// @return amount The balance of the token
+  function balanceOfToken(
+    address _tokenContract,
+    uint256 _tokenId
+  )
+    external
+    view
+    returns (uint256 amount);
+
+  /// @notice Transfer tokens from owner address to a token
+  /// @param _from The owner address
+  /// @param _toContract The ERC721 contract of the receiving token
+  /// @param _toTokenId The receiving token
+  /// @param _amount The amount of tokens to transfer
+  function transferToParent(
+    address _from,
+    address _toContract,
+    uint256 _toTokenId,
+    uint256 _amount
+  )
+    external;
+
+  /// @notice Transfer token from a token to an address
+  /// @param _fromContract The address of the owning contract
+  /// @param _fromTokenId The owning token
+  /// @param _to The address the token is transferred to
+  /// @param _amount The amount of tokens to transfer
+  function transferFromParent(
+    address _fromContract,
+    uint256 _fromTokenId,
+    address _to,
+    uint256 _amount
+  )
+    external;
+
+  /// @notice Transfer token from a token to an address, using ERC223 semantics
+  /// @param _fromContract The address of the owning contract
+  /// @param _fromTokenId The owning token
+  /// @param _to The address the token is transferred to
+  /// @param _amount The amount of tokens to transfer
+  /// @param _data Additional data with no specified format, can be used to specify the sender tokenId
+  function transferFromParentERC223(
+    address _fromContract,
+    uint256 _fromTokenId,
+    address _to,
+    uint256 _amount,
+    bytes calldata _data
+  )
+    external;
+
+  /// @notice Transfer a token from a token to another token
+  /// @param _fromContract The address of the owning contract
+  /// @param _fromTokenId The owning token
+  /// @param _toContract The ERC721 contract of the receiving token
+  /// @param _toTokenId The receiving token
+  /// @param _amount The amount tokens to transfer
+  function transferAsChild(
+    address _fromContract,
+    uint256 _fromTokenId,
+    address _toContract,
+    uint256 _toTokenId,
+    uint256 _amount
+    )
+    external;
+}
+</code></pre>
+<h3 id="now-so-what">Now… So What?<a class="headerlink" href="#now-so-what" title="Permanent link"></a></h3>
+<p>Why should we actually care about crypto composables? We know what they do, but what is their potential for the future, and how are people and projects using them today?</p>
+<p>Crypto composables brings us one step closer to a future where we can <em>actually</em> use cryptocurrency  reliably and flexibly for a greater variety of financial applications across the world, thus addressing the complete set of needs of the population that it seeks adoption from. From the one-dimensional digital asset backed by an innovative foundational protocol built in 2008, we’re moving to a full-fledged digital economy that still has that same foundational protocol our community fell in love with in the first place.</p>
+<p>There’s some super cool projects that are already leveraging crypto composables to do incredible things, and here’s a couple of them as mentioned in <a href="https://medium.com/coinmonks/crypto-composables-erc-998-update-5-eb0a748a9889">this article</a>:</p>
+<ol>
+<li><strong><a href="https://mokens.io/about">Mokens.io</a></strong> → Is the build-your-own crypto collectible! You can make  “limited edition” collections of your own collectible mokens, each with their own unique name, and sell them, trade them, or give them as you like. Mokens.io has become ERC998 compliant, which means your cryptokitty can actually own a moken! How cool is that?</li>
+<li><strong><a href="https://www.caesarstriumph.com/">Caesar’s Triumph</a></strong> → Is an epic empire-building game where each piece of land is a unique ERC721 non-fungible token. You can thus build a huge empire made up of ERC998 bottom-up child token “cities”, and even further down, “villages”. This allows you to trade an entire city with all its components, rather than having to manually transfer each one, which can take ages if you’ve advanced far enough into the game.</li>
+<li><strong><a href="https://mintable.app/">Mintable.app</a></strong> → Similar to mokens.io, this project allows you to create your own ERC721 NFTs, browse others’, and organize them in a streamlined manner. It’s essentially an ERC721 manager for when in-game assets or other crypto collectibles start to become a little confusing to make sense of yourself. This includes, of course, management of ERC998 NFTs, and further down the line, a visualization of the ownership tree.</li>
+</ol>
+<p>To wrap up, ERC998 crypto composables are a new token standard that now allows you to do even more with your non-fungible tokens, and if moved into real-world verticals, can make our interactions with assets so much easier. They might seem complicated on the surface, but they’re not too hard to implement either, so do try it out and tinker with some of the smart contracts in this article!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Gamifying Crypto Assets with the ERC998 Composables Token Standard</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/gamifying-crypto-assets-with-the-erc998-composable/436178ce670d4a9e9ffbd9cb7a8476fd/a</li>
+<li><strong>Kauri original author:</strong> Ramy Zhang (@ramyjzhang)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-08</li>
+<li><strong>Kauri original tags:</strong> cryptocurrency, erc20, ethereum, token-standard, erc721, erc998</li>
+<li><strong>Kauri original hash:</strong> QmSSnQKTqcirc1kJpibuxAuehQdfUcpYFyodZzjwagT1RV</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../erc-20-and-its-discontents--the-rise-of-comrades-/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../erc-20-and-its-discontents--the-rise-of-comrades-/" class="btn btn-xs btn-link">
+        ERC-20 and Its Discontents  The Rise of Comrades ERC-777 & ERC-1820
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../develop-your-erc-20-token-explained%21/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../develop-your-erc-20-token-explained%21/" class="btn btn-xs btn-link">
+        Develop your ERC-20 Token — explained!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/gamifying-crypto-assets-with-the-erc998-composabl.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

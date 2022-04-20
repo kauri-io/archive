@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/myens-wallet/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>MyENS Wallet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "MyENS Wallet", url: "#_top", children: [
+              {title: "Inspiration", url: "#inspiration" },
+              {title: "What it does", url: "#what-it-does" },
+              {title: "How I built it", url: "#how-i-built-it" },
+              {title: "Built with", url: "#built-with" },
+              {title: "Challenges", url: "#challenges" },
+              {title: "Future work and features", url: "#future-work-and-features" },
+              {title: "Try It Out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="myens-wallet">MyENS Wallet<a class="headerlink" href="#myens-wallet" title="Permanent link"></a></h1>
+<p>ENS enables human-readable domain names mapped to Ethereum addresses. And the MyENS Wallet app for iPhone lets you bid on and purchase ENS names and manage your ENS domains. Someday, everything will have an ENS address and this helps envision that future. Built with Web3Swift and Infura. - Hugh Lang (ECF)</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQyz81cUaTs4t2rsJwV9pUM1qENrofUfKBcbQ7UKi3qii" /></p>
+<h4 id="inspiration">Inspiration<a class="headerlink" href="#inspiration" title="Permanent link"></a></h4>
+<p>I got the idea to build this after I attempted to get my girlfriend to register an ENS domain name. Talk about a nightmare.</p>
+<p>I realized that the current process is not very user friendly. Not only does one have to be familiar with general web 3 concepts, but the exisiting applications do not make it easy to register and manage names all in one cohesive location.</p>
+<p>The main purpose of this application is to abstract all the technical jargon and make it easier for end users to interact with the ENS, similarly to a typical DNS provider like GoDaddy or NameCheap.</p>
+<h4 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link"></a></h4>
+<p>The app uses a web3 library written in Swift to perform calls to the Ethereum blockchain. It allows the user to send and recieve ether and ERC20 tokens, as well as registering and managing ENS domains all from within the app.</p>
+<h4 id="how-i-built-it">How I built it<a class="headerlink" href="#how-i-built-it" title="Permanent link"></a></h4>
+<p>First, I started drawing out sketches with some good old pen and paper. Then after some feedback and iterations, I made wireframes using Adobe XD.</p>
+<p>Once I settled on the views and essential features, I began to code it up using Xcode.</p>
+<h4 id="built-with">Built with<a class="headerlink" href="#built-with" title="Permanent link"></a></h4>
+<ul>
+<li>Web3Swift</li>
+<li>Infura</li>
+</ul>
+<h4 id="challenges">Challenges<a class="headerlink" href="#challenges" title="Permanent link"></a></h4>
+<p>Originally, I began to research exisiting web3 libraries written in Swift. After settling on Web3Swift, I started working on the Etherem wallet functionality.</p>
+<p>After a full day of getting that to work, I noticed on the most recent WeekInEthereum post that there is a new web3 library with ENS support.</p>
+<p>Dang-- too late!</p>
+<p>Rather than reverting all of my work for the previous day, I stuck with the currently web3 library, although it is much more difficult to call contract functions.</p>
+<p>After the hackathon, I will switch over to the newest web3 library to finish the ENS functions.</p>
+<h4 id="future-work-and-features">Future work and features<a class="headerlink" href="#future-work-and-features" title="Permanent link"></a></h4>
+<p>Some features that I'd like to include in the future:</p>
+<ul>
+<li>Contact list: send ether directly to friends using their ENS names</li>
+<li>Reminders for auctions: push notifications for bids and reveals</li>
+<li>Mask the root wallet address with an ENS domain that you own</li>
+<li>Multi-factor authentication</li>
+<li>Trade and sell ENS names directly in the app</li>
+<li>Back up and recover your private key using Keysplit ;)</li>
+<li>Ability to export bids</li>
+</ul>
+<h4 id="try-it-out">Try It Out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="https://github.com/barrasso/enswallet">GitHub Repo</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> MyENS Wallet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/myens-wallet/a9cb6da01bce48c08cb8a536481e15fc/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmP8hSgL1rMnKySqkG9PHyYbrVG651WMNU52vWkc9JRuq9</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../the-game-of-snarks/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../the-game-of-snarks/" class="btn btn-xs btn-link">
+        The Game of Snarks
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cdp-liquidator/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cdp-liquidator/" class="btn btn-xs btn-link">
+        CDP Liquidator
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/myens-wallet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

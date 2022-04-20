@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/sending-an-ether-transfer-transaction-from-one-ac/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sending an Ether Transfer Transaction from One Account to Another in Web3j - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sending an Ether Transfer Transaction from One Account to Another in Web3j", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j">Sending an Ether Transfer Transaction from One Account to Another in Web3j<a class="headerlink" href="#sending-an-ether-transfer-transaction-from-one-account-to-another-in-web3j" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZnHp73HpRsYbnNKPMNF3VZPLbLpHCZnMfNzX2s1X9cfi" /></p>
+<p>To transfer ether from one account to another, a transaction must be sent to the ethereum network.  The easiest way to achieve this within your java application is to use the useful <code>Transfer</code> class of web3j.</p>
+<p>The below example transfers 1 ether from the seed phrase account to the <code>recipientAddress</code> account:</p>
+<pre><code class="language-java">//Connect to node
+//Defaults to http://localhost:8545
+Web3j web3 = Web3j.build(new HttpService());  // defaults to http://localhost:8545/
+
+//Generate wallet credentials from a mnemonic seed phrase
+Credentials credentials = WalletUtils.loadBip39Credentials(&quot;password&quot;, &quot;mnemonic&quot;);
+
+//The address that the ether should be transferred to
+String recipientAddress = &quot;0xF0f15Cedc719B5A55470877B0710d5c7816916b1&quot;;
+
+//The ether amount to transfer.
+BigDecimal amountInEther = BigDecimal.valueOf(1.0);
+
+//Send the transfer transaction.
+//Unit conversion is handled automatically and this method blocks until the transaction has been mined.
+TransactionReceipt transactionReceipt = Transfer.sendFunds(
+        web3, credentials, recipientAddress,
+        amountInEther, Convert.Unit.ETHER).send();
+</code></pre>
+<p>Note that there are multiple ways to generate wallet credentials.  For more imformation, check out <a href="https://kauri.io/manage-an-ethereum-account-with-java-and-web3j/925d923e12c543da9a0a3e617be963b4/a">Managing an Ethereum Account with Java and Web3j.</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Sending an Ether Transfer Transaction from One Account to Another in Web3j</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/sending-an-ether-transfer-transaction-from-one-acc/4b90439223894d7da2ee3fcfef5fa49e/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-18</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, ether, web3j, transaction</li>
+<li><strong>Kauri original hash:</strong> QmdG2L4m11Mk93L9gcePuYSBnaBqiR27bjZpSSrZKzaLqy</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../signing-an-ethereum-transaction-in-web3j/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../signing-an-ethereum-transaction-in-web3j/" class="btn btn-xs btn-link">
+        Signing an Ethereum Transaction in Web3j
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../creating-a-web3j-wallet-from-a-mnemonic-code-%28see/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../creating-a-web3j-wallet-from-a-mnemonic-code-%28see/" class="btn btn-xs btn-link">
+        Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Web3j Cheat Sheet (Java Ethereum)/sending-an-ether-transfer-transaction-from-one-ac.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

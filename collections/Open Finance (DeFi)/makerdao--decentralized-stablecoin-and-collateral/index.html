@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/makerdao--decentralized-stablecoin-and-collateral/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>MakerDAO  Decentralized stablecoin and collateral loans - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "MakerDAO  Decentralized stablecoin and collateral loans", url: "#_top", children: [
+              {title: "Integrating with Maker", url: "#integrating-with-maker" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="makerdao-decentralized-stablecoin-and-collateral-loans">MakerDAO  Decentralized stablecoin and collateral loans<a class="headerlink" href="#makerdao-decentralized-stablecoin-and-collateral-loans" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRpdvAqRWLsvpcoEX1KPtEasdkwC1NUEaJ55k58f8nk3a" /></p>
+<blockquote>
+<p>Dai is an asset-backed stable currency created by the Maker Decentralized Autonomous Organization (MakerDAO). The Dai Stablecoin system maintains the stable value of Dai by ensuring that each Dai is always backed by a collateralized asset of more value. Single collateral Dai requires that each Dai is backed by at least 150% Ether. If at anytime, the amount of collateral backing Dai falls below 150%, "watchers" (community run bots) will call functions within the MakerDAO smart contracts that trigger liquidation of enough collateral to payback the debt.</p>
+</blockquote>
+<p><em>This article originally appeared on the <a href="https://blog.makerdao.com/dai-developer-documentation/">MakerDAO blog</a></em></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVn4Ef6r7dgViSiFnvg9FVJCysb8e3jq7EjFBBdwFnHqk" /></p>
+<p>The MakerDAO ecosystem is designed as an elegant solution for an endless number of applications enabling decentralized finance. A critical part of that is fostering our developer community and supporting a wide network of open finance applications building on the Dai Credit System. This past year, we’ve seen incredible use cases and examples of powerful tools that integrate Dai.</p>
+<p>These include projects like:</p>
+<ul>
+<li><a href="https://request.network">Request.Network</a> is building a decentralized network for payment requests.</li>
+<li><a href="https://compound.finance">Compound.finance</a> is tackling efficient interest rates and creating a market for unutilized virtual currency.</li>
+<li><a href="https://maecanas.co">Maecenas</a> is building a blockchain network for fine art.
+In this post, we will share more on where you can find documentation that will guide developers through the process. These guides and tutorials enable you to understand the various approaches to integrating with MakerDAO through smart contracts, SDKs, APIs and other products. These cover pertinent topics like CDP creation, Dai, Governance, Keepers, Oracles, and more.</li>
+</ul>
+<h3 id="integrating-with-maker">Integrating with Maker<a class="headerlink" href="#integrating-with-maker" title="Permanent link"></a></h3>
+<p>We’re proud to see a wide range of products and services integrate with Maker. The more projects integrate Dai, the faster we can get to scale and sooner we will be able to deliver on our promise of enabling economic empowerment for all.</p>
+<p>There are many important constituents that touch our ecosystem, and we’ve outlined specific methodology depending on if you’re a centralized exchange, ddex, keeper, Dai holder, custodial wallet, relayer, or CDP owner.</p>
+<p>At a high-level, you can find <a href="https://github.com/makerdao/awesome-makerdao#developer-resources">documentation here</a> on our website and our developer integration guides in our <a href="https://github.com/makerdao/developerguides">dedicated Github repo here</a>.</p>
+<p>To dive in further, we’ve put together a series of guides for specific partner types to access relevant documentation:</p>
+<h4 id="upgrading-to-multi-collateral-dai">Upgrading to Multi-Collateral Dai<a class="headerlink" href="#upgrading-to-multi-collateral-dai" title="Permanent link"></a></h4>
+<p>This guide shares an overview on the steps necessary to migrate from Single-Collateral Dai (SCD) to Multi-Collateral Dai. Depending on your platform and use case for Dai, we’ve outlined various approaches to upgrading to MCD.</p>
+<ul>
+<li>Read more: <a href="https://github.com/makerdao/developerguides/tree/master/mcd">Upgrading to Multi-Collateral Dai</a></li>
+</ul>
+<h4 id="exchanges">Exchanges<a class="headerlink" href="#exchanges" title="Permanent link"></a></h4>
+<p>This is a one-stop shop for information necessary for exchanges, such as our token contracts for both Mainnet and Kovan Testnet, listing symbols, token libraries and documentation for DSToken, the standard for Maker tokens.</p>
+<ul>
+<li>Check out more here: <a href="https://github.com/makerdao/developerguides/tree/master/exchanges">Exchanges</a></li>
+</ul>
+<h4 id="wallets">Wallets<a class="headerlink" href="#wallets" title="Permanent link"></a></h4>
+<p>Use this guide to integrate the DAI and MKR ERC-20 tokens into a wallet. Find easy access to our token contracts, source code and libraries.</p>
+<ul>
+<li>Read more here: <a href="https://github.com/makerdao/developerguides/tree/master/wallets">Wallets</a></li>
+</ul>
+<h4 id="remittance-services">Remittance Services<a class="headerlink" href="#remittance-services" title="Permanent link"></a></h4>
+<p>This guide is for remittance services seeking to integrate with Maker products. We share helpful resources from our partners which provide on-off ramps for Dai liquidity and easy Dai to fiat currency conversion. Our partners include Wyre, Ripio, Buenbit and Orionx. Fiat on-off ramps are valuable for remittance, commerce and for users just seeking to cash out Dai holdings in local currencies. Check out this guide if you’re looking to drive user adoption and bridge the gap between fiat and crypto.</p>
+<ul>
+<li>Check out more here: <a href="https://github.com/makerdao/developerguides/tree/master/remittance">Remittance services</a></li>
+</ul>
+<h4 id="keepers">Keepers<a class="headerlink" href="#keepers" title="Permanent link"></a></h4>
+<p>This guide is for partners interested in implementing Keepers: programs that automatically monitor and interact with CDPs and the Dai Credit System. Learn more about automatic interaction with CDP auctions and managing your CDPs.</p>
+<ul>
+<li>Learn more here: <a href="https://github.com/makerdao/developerguides/tree/master/keepers">Keepers</a></li>
+</ul>
+<h4 id="market-makers">Market Makers<a class="headerlink" href="#market-makers" title="Permanent link"></a></h4>
+<p>If you’re looking for market making resources, this guide gives insight into the various repositories to create custom Keepers or run a Keeper node. Here you’ll be able to find access to our repo on Market Maker statistics which provides tools for visualizing market making data, as well as our repo on a set of keepers that have been implemented to facilitate market making for ddexs.</p>
+<ul>
+<li>Read more here: <a href="https://github.com/makerdao/developerguides/tree/master/market-makers">Market Makers</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> MakerDAO  Decentralized stablecoin and collateral loans</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/makerdao-decentralized-stablecoin-and-collateral-l/88db636595ca457eb7fec0a4a56d1a80/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-08</li>
+<li><strong>Kauri original tags:</strong> stablecoin, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmUrh4UPcJcsPuednoAfKr7Kwfi7wdKQ6SKqwtEvi9EA4X</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../uniswap--protocol-for-automated-token-exchange/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../uniswap--protocol-for-automated-token-exchange/" class="btn btn-xs btn-link">
+        Uniswap  Protocol for automated token exchange
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../0x--peer-to-peer-exchange-protocol/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../0x--peer-to-peer-exchange-protocol/" class="btn btn-xs btn-link">
+        0x  Peer-to-peer exchange protocol
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/makerdao--decentralized-stablecoin-and-collateral.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Bitcoin/lnd-overview-and-developer-guide/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>LND Overview and Developer Guide - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "LND Overview and Developer Guide", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Table of Contents", url: "#table-of-contents" },
+              {title: "Lightning Network", url: "#lightning-network" },
+              {title: "Payment Channels", url: "#payment-channels" },
+              {title: "Multihop payments", url: "#multihop-payments" },
+              {title: "Network Topology", url: "#network-topology" },
+              {title: "Integration guidelines", url: "#integration-guidelines" },
+              {title: "Components", url: "#components" },
+              {title: "Channel Lifecycle", url: "#channel-lifecycle" },
+              {title: "Payment Lifecycle", url: "#payment-lifecycle" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="lnd-overview-and-developer-guide">LND Overview and Developer Guide<a class="headerlink" href="#lnd-overview-and-developer-guide" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYtwZDtoDyFUhqrXFWY7xSpwdhHRgteztvDKtKsMexKgd" /></p>
+<p><em>This article originally appeared on the Lighting Labs <a href="https://dev.lightning.community/overview/">developer blog</a></em></p>
+<h4 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h4>
+<p>The LND Overview and Developer Guide aims to provide <em>just</em> enough information about LND to enable readers to build applications. It start with a conceptual review of the Lightning Network, before jumping into the important aspects of working with specifically LND. If you are already comfortable with how the Lightning Network works, feel free to skip down to the <a href="#components">Components</a> section. The command line examples are for illustrative purposes only and will be covered in more depth in the <a href="https://dev.lightning.community/guides/installation/">installation guide</a> and <a href="https://dev.lightning.community/guides/installation/tutorial/">tutorial</a>.</p>
+<h5 id="preliminaries">Preliminaries<a class="headerlink" href="#preliminaries" title="Permanent link"></a></h5>
+<p>This overview assumes basic knowledge of Bitcoin mechanics. If terms like “UTXO” and “locktime” are unfamiliar to you, you should refer to the <a href="https://bitcoin.org/en/developer-guide">Bitcoin developer guide</a>, which serves a similar purpose.</p>
+<h4 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link"></a></h4>
+<ul>
+<li><a href="#lightning-network">Lightning Network</a></li>
+<li><a href="#payment-channels">Payment Channels</a><ul>
+<li><a href="#channel-updates">Channel Updates</a></li>
+</ul>
+</li>
+<li><a href="#multihop-payments">Multihop payments</a></li>
+<li><a href="#network-topology">Network Topology</a></li>
+<li><a href="#integration-guidelines">Integration Guidelines</a></li>
+<li><a href="#components">Components</a><ul>
+<li><a href="#network-layers">Network Layers</a></li>
+<li><a href="#software-components">Software Components</a></li>
+<li><a href="#lnd-interfaces">LND Interfaces</a></li>
+</ul>
+</li>
+<li><a href="#channel-lifecycle">Channel Lifecycle</a></li>
+<li><a href="#payment-lifecycle">Payment Lifecycle</a><ul>
+<li><a href="#payment-requests">Payment Requests</a></li>
+<li><a href="#payment-flow">Payment flow</a></li>
+</ul>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+<p><img alt="Lightning Network Graph" src="http://imgur.com/xqfllBI.png" /></p>
+<h4 id="lightning-network">Lightning Network<a class="headerlink" href="#lightning-network" title="Permanent link"></a></h4>
+<p>The Lightning Network scales blockchains and enables trustless instant payments by keeping most transactions off-chain and leveraging the security of the underlying blockchain as an arbitration layer.</p>
+<p>This is accomplished primarily through “payment-channels”, wherein two parties commit funds and pay each other by updating the balance redeemable by either party in the channel. This process is instant and saves users from having to wait for block confirmations before they can render goods or services.</p>
+<p>Payment channels are trustless, since any attempt to defraud the current agreed-upon balance in the channel results in the complete forfeiture of funds by the liable party.</p>
+<p>By moving payments off-chain, the cost of opening and closing channels (in the form of on-chain transaction fees) is ammortized over the volume of payments in that channel, enabling micropayments and small-value transactions for which the on-chain transaction fees would otherwise be too expensive to justify. Furthermore, the Lightning Network scales not with the transaction throughput of the underlying blockchain, but with modern data processing and latency limits - payments can be made nearly as quickly as packets can be sent.</p>
+<p>Hash Time-Locked Contracts (HTLCs) allow transactions to be sent between parties who do not have a direct channels by routing it through multiple hops, so anyone connected to the Lightning Network is part of a single, interconnected global financial system.</p>
+<p>In short, the Lightning Network enables scalable blockchains through a high-volume of instant transactions not requiring custodial delegation.</p>
+<h4 id="payment-channels">Payment Channels<a class="headerlink" href="#payment-channels" title="Permanent link"></a></h4>
+<p>Payment channels are the main workhorse of the Lightning Network. They allow multiple transactions to be aggregated into just a few on-chain transactions.</p>
+<p>In the vast majority of cases, someone only needs to broadcast the first and last transaction in the channel.</p>
+<ul>
+<li>The Funding Transaction creates the channel. During this stage, funds are sent into a multisig address controlled by both Alice and Bob, the counterparties to the channel. This address can be funded as a single-payer channel or by both Alice and Bob.</li>
+<li>The Closing Transaction closes the channel. When broadcast, the multisig address spends the funds back to Alice and Bob according to their agreed-upon channel amount.</li>
+</ul>
+<p><img alt="Commitment transaction Alice 5BTC Bob 5BTC" src="http://imgur.com/rqHWEoC.png" /></p>
+<p>In the case where either party attempts to defraud the other, a third transaction, which punishes the attacker, will end up being broadcasted on-chain. Let’s investigate how this is possible by the way Lightning does channel updates.</p>
+<h5 id="channel-updates">Channel Updates<a class="headerlink" href="#channel-updates" title="Permanent link"></a></h5>
+<p>In between the opening and closing transactions broadcast to the blockchain, Alice and Bob can create a near infinite number of intermediate closing transactions that gives different amounts to the two parties.</p>
+<p>For example, if the initial state of the channel credits both Alice and Bob with 5BTC out of the 10BTC total contained in the multisig address, Alice can make a 1BTC payment to Bob by updating the closing transaction to pay 4BTC/6BTC, where Alice is credited with 4BTC and Bob with 6BTC. Alice will give the signed transaction to Bob, which is equivalent to payment, because Bob can broadcast it at any time to claim his portion of the funds. Similarly, Alice is also able to broadcast the closing transaction at any time to claim her funds.</p>
+<p><img alt="Channel Update Alice 4BTC Bob 6BTC" src="http://imgur.com/auACasH.png" /></p>
+<p>To prevent an attack where Alice voids her payment by broadcasting the initial state of 5BTC/5BTC, there needs to be a way to revoke prior closing transactions. Payment revocation roughly works like the following.</p>
+<p>When Alice broadcasts a closing transaction to the blockchain, she is attesting to the current state of the chain. But since there may be millions of closing transactions in a channel, all of which are valid, the blockchain itself can’t tell if what Alice attested to was indeed the correct state. Therefore, Alice must wait 3 days after broadcasting the closing transaction before she can redeem her funds. During this time, Bob is given a chance to reveal a secret that will allow him to sweep Alice’s funds immediately. Alice can thus revoke her claim to the money in some state by giving Bob the secret to the closing transaction. This allows Bob to take all of Alice’s money, but only if Alice attest to this old state by broadcasting the corresponding closing transaction to the blockchain.</p>
+<p>Channel updates are thus fully trustless. When making an update, both parties exchange the secrets for the prior state, so that all prior states will have been revoked except for the current state. Both parties will never broadcast an old state, because they know the other party can take all their money if they do so.</p>
+<h4 id="multihop-payments">Multihop payments<a class="headerlink" href="#multihop-payments" title="Permanent link"></a></h4>
+<p>Single channels work well if you have a financial relationship with some entity where you make payments frequently or in metered amounts. But most payments, like purchasing an umbrella from a corner store because you lost it again, are one-off. For Lightning to help Bitcoin scale for general use cases, there needs to be a way for the whole network to forward payments through channels that already exist. Furthermore, this process should retain the trustless nature of individual channels, otherwise it becomes too hard to identify dishonest actors amongst a large number of hops.</p>
+<p>Once you don’t have to trust the intermediaries, you no longer even care who they are. This allows Lightning nodes to be fully anonymous, which is a huge win for privacy.</p>
+<p>Concretely, Suppose Alice has a channel with Bob, who has a channel with Carol, who has a channel with Dave: <code>A&lt;-&gt;B&lt;-&gt;C&lt;-&gt;D</code>. How can Alice pay Dave?</p>
+<p>Alice first notifies Dave that she wants to send him some money.</p>
+<p>In order for Dave to accept this payment, he must generate a random number <code>R</code>. He keeps <code>R</code> secret, but hashes it and gives the hash <code>H</code> to Alice.</p>
+<p><img alt="Dave gives hash H to Alice" src="http://imgur.com/sXuL8Tn.png" /></p>
+<p>Alice tells Bob: “I will pay you if you can produce the preimage of <code>H</code> within 3 days.” In particular, she signs a transaction where for the first three days after it is broadcast, only Bob can redeem it with knowledge of R, and afterwards it is redeemable only by Alice. This transaction is called a Hash Time-Locked Contract (HTLC) and allows Alice to make a conditional promise to Bob while ensuring that her funds will not be accidentally burned if Bob never learns what R is. She gives this signed transaction to Bob, but neither of them broadcast it, because they are expecting to clear it out later.</p>
+<p><img alt="Alice creates HTLC with Bob" src="http://imgur.com/aNQoA9Z.png" /></p>
+<p>Bob, knowing that he can pull funds from Alice if he knows R, now has no issue telling Carol: “I will pay you if you can produce the preimage of H within <em>2</em> days.”</p>
+<p>Carol does the same, making an HTLC that will pay Dave if Dave can produce R within 1 day. However, Dave does in fact know R. Because Dave is able to pull the desired amount from Carol, Dave can consider the payment from Alice completed. Now, he has no problem telling R to Carol and Bob so that they are able to collect their funds as well.</p>
+<p><img alt="Dave distributes R" src="http://imgur.com/nTLWBbm.png" /></p>
+<p>Now, everyone can clear out, because they have a guaranteed way to pull their deserved funds by broadcasting these HTLCs onto Bitcoin’s network (i.e. on-chain). They would prefer not to do that though, since broadcasting on-chain is more expensive, and instead settle each of these hops off chain. Alice knows that Bob can pull funds from her since he has <code>R</code>, so she tells Bob: “I’ll pay you, regardless of <code>R</code>, and in doing so we’ll terminate the HTLC so we can forget about R.” Bob does the same with Carol, and Carol with Dave.</p>
+<p><img alt="Everyone terminates their HTLCs" src="http://imgur.com/iRx4bf5.png" /></p>
+<p>Now, what if Dave is uncooperative and refuses to give <code>R</code> to Bob and Carol? Note that Dave must broadcast the transaction from Carol within 1 day, and in doing so must reveal R in order to redeem the funds. Bob and Carol can simply look at the blockchain to determine what R is and settle off-chain as well.</p>
+<p>We have shown how to make a payment across the Lightning Network using only off-chain transactions, without requiring direct channel links or trusting any intermediaries. As long as there is a path from the payer to the payee, payments can be routed, just like the Internet.</p>
+<h4 id="network-topology">Network Topology<a class="headerlink" href="#network-topology" title="Permanent link"></a></h4>
+<p>The expected shape / network topology of the Lightning Network will depend on behavior implemented in the varying Lightning implementations as well as actual usage. Users do not have to manually manage their channels, since <code>lnd</code> has an ‘autopilot’ feature including settings optimizing for both everyday use and fee revenue. And of course, channels can be opened on demand via the standard command line, gRPC, and REST interfaces.</p>
+<h4 id="integration-guidelines">Integration guidelines<a class="headerlink" href="#integration-guidelines" title="Permanent link"></a></h4>
+<p>When integrating <code>lnd</code>, hot and cold storage must be considered. To maximize security, we generally want to keep as little as possible in hot wallets, and as much as possible in cold wallets.</p>
+<p>It is possible to construct Lightning channels where the keys are cold, but they would need to be brought back online you conduct a channel update. Only with hot wallets can the Lightning Network attain a high volume of transactions.</p>
+<p>This is only a surface level introduction to Lightning integration. For a more illustrative example of how Lightning Network may work in production, check out the “Integration Components” and “Security Considerations” sections of the <a href="https://docs.google.com/document/d/1r38-_IgtfOkhJh4QbN7l6bl7Rol05qS-i7BjM3AjKOQ/edit">Exchange Integration Document</a> maintained by Bryan Vu.</p>
+<h4 id="components">Components<a class="headerlink" href="#components" title="Permanent link"></a></h4>
+<h5 id="network-layers">Network Layers<a class="headerlink" href="#network-layers" title="Permanent link"></a></h5>
+<p>The Lightning Network is an <em>overlay</em> network on top of another blockchain. To avoid confusion it is crucial to differentiate between the following network layers we encounter when reasoning about <code>lnd</code>:</p>
+<ul>
+<li>Bitcoin/Litecoin Network: This is the underlying blockchain that <code>lnd</code> rests on top of. <code>lnd</code> needs a way to communicate with the underlying blockchain in order to send on-chain payments, create channel open/close transactions, and watch for events on the blockchain.</li>
+<li>P2P Network: This is the peer layer where <code>lnd</code> nodes add each other as peers so they can send messages between one another via an <a href="https://github.com/lightningnetwork/lightning-rfc/blob/master/08-transport.md">encrypted connection</a>. For example, the <code>lncli connect</code> adds a peer, which are identified by identity pubkey and IP address.</li>
+<li>Payment channel network: This is the layer where nodes are connected by payment channels. For example, the <code>lncli openchannel</code> command opens a channel with a node that was already connected at the peer layer, and the <code>lncli describegraph</code> command returns the list of edges and vertices of the payment channel graph.</li>
+</ul>
+<h5 id="software-components">Software Components<a class="headerlink" href="#software-components" title="Permanent link"></a></h5>
+<p>There are distinct software components we should be aware of when developing on</p>
+<ul>
+<li><code>btcd</code> / <code>btcutil</code>: <code>lnd</code> currently uses <a href="https://github.com/roasbeef/btcd"><code>btcd</code> roasbeef fork</a> to interface with the underlying blockchain. <code>btcd</code> comes with <code>btcutil</code>, also <a href="https://github.com/Roasbeef/btcutil">roasbeef fork</a>, that allows us to drive <code>btcd</code> from the command line.</li>
+<li><code>lnd</code> / <code>lncli</code>: LND stands for Lightning Network Daemon and serves as the main software component driving the Lightning Network. It manages a database, connects to peers, opens / closes channels, generates payment invoices, sends, forwards, and revokes payments, responds to potential breaches, and more. <code>lncli</code> opens up a command line interface for driving <code>lnd</code>.</li>
+<li><a href="https://github.com/lightninglabs/neutrino">Neutrino</a> is an experimental Bitcoin light client designed to support Lightning mobile clients. This is a wallet UI usable with <code>lnd</code>. Neutrino is not required from an application development standpoint, but can be regarded as the primary way the LND end user interacts with the Lightning Network and thus and applications built on top of it.</li>
+</ul>
+<h5 id="lnd-interfaces">LND Interfaces<a class="headerlink" href="#lnd-interfaces" title="Permanent link"></a></h5>
+<p>There are several ways to drive <code>lnd</code>.</p>
+<ul>
+<li><code>lncli</code> is the <code>lnd</code> command line tool. All commands are executed instantaneously. A full list of commands can be viewed with <code>lncli --help</code>. To see a breakdown of the parameters for a particular command, run <code>lncli &lt;command&gt; --help</code></li>
+<li>gRPC is the preferred programmatic way interact with <code>lnd</code>. It includes simple methods that return a response immediately, as well as response-streaming and bidrectional streaming methods. Check out the guides for working with gRPC for <a href="https://dev.lightning.community/guides/installation/guides/python-grpc/">Python</a> and <a href="https://dev.lightning.community/guides/installation/guides/javascript-grpc/">Javascript</a></li>
+<li>LND also features a REST proxy someone can use if they are accustomed to standard RESTful APIs. However, gRPC is higher performance and can provide real-time notifications.</li>
+</ul>
+<p>All of these LND interfaces are documented in the <a href="https://api.lightning.community">API Reference</a>, featuring a description of the parameters, responses, and code examples for Python, Javascript, and command line arguments if it exists.</p>
+<h4 id="channel-lifecycle">Channel Lifecycle<a class="headerlink" href="#channel-lifecycle" title="Permanent link"></a></h4>
+<p>To better understand the development workflow around Lightning channels, it is worthwhile to examine step by step the lifecycle of a payment channel. It contains roughly 4 steps:</p>
+<ol>
+<li><strong>Adding a peer.</strong> Before a channel can be opened between two Lightning nodes, they must first be able to securely communicate with each other. This is accomplished with the <code>ConnectPeer</code> RPC method or <code>connect</code> on <code>lncli</code>.</li>
+</ol>
+<pre><code>lncli connect &lt;PUBKEY&gt;@&lt;HOST&gt;:&lt;PORT&gt;
+</code></pre>
+<ol>
+<li><strong>Initiating Channel Opening.</strong> The <code>OpenChannel</code> method begins the channel opening process with a connected peer. Lightning assumes that this is led by a single party. The opening party can specify a local amount, representing the funds they would like to commit to the channel, and a “push” amount, the amount of money that they would like to give to the other side as part of an initial commitment state. One could imagine that instead of sending a standard Bitcoin transaction to pay a merchant, they could instead open a channel with the push amount representing the amount they want to pay, and optionally add some funds of their own, so that both parties can benefit from having a channel available for payments in the future.</li>
+</ol>
+<pre><code>lncli openchannel --node_key=&lt;ID_PUBKEY&gt; --local_amt=&lt;AMOUNT&gt;
+</code></pre>
+<p><img alt="Lightning Wallet App Open Channel" src="http://i.imgur.com/d5a7DBn.png" /></p>
+<ol>
+<li><strong>Wait for confirmations.</strong> To prevent double spending attacks on the channel opening transaction, users should specify the <code>--block</code> <code>lncli</code> command line argument. So after initializing the channel opening process, it is often required to mine a few blocks:</li>
+</ol>
+<pre><code>btcctl generate 6
+</code></pre>
+<ol>
+<li><strong>Close Channel.</strong> If either party in a channel no longer wants to keep it open, they can close it at any time with the <code>CloseChannel</code> method.</li>
+</ol>
+<pre><code>lncli closechannel --funding_txid=&lt;funding_txid&gt; --output_index=&lt;output_index&gt;
+</code></pre>
+<h4 id="payment-lifecycle">Payment Lifecycle<a class="headerlink" href="#payment-lifecycle" title="Permanent link"></a></h4>
+<p>Because Lightning payments are instant, its API tends to be much simpler, since there is no need to wait for block confirmations before a payment is considered accepted. It resembles a fairly standard payment flow, but there are a few additional things to keep in mind.</p>
+<h5 id="payment-requests">Payment Requests<a class="headerlink" href="#payment-requests" title="Permanent link"></a></h5>
+<p>Payment requests, often also referred to as Invoices, are a simple, extensible protocol compatible with QR-codes. It includes a 6-character checksum in case there is a mistake with copy/paste or manual entry.</p>
+<p>Payment requests are composed of two sections:</p>
+<ol>
+<li><strong>Human readable part:</strong> Contains a prefix <code>ln</code> followed by an optional amount.</li>
+<li><strong>Data part</strong>: Contains a UTC Unix timestamp and optionally some tagged parts, as well as a signature over the human readable and data parts.<ul>
+<li>Tagged parts include a payment hash, the pubkey of the payee node, a description of the purpose of payment, an expiration time (default to 1 hour if not specified), and extra routing information. Some tagged parts are required and others are not.</li>
+</ul>
+</li>
+</ol>
+<p>Because the payment request contains the payment hash, <strong>payment requests must be strictly single use</strong>. After an invoice is fulfilled, the hash preimage becomes publically known. An attacker could save the preimages they’ve seen and reuse it for another payment that is reusing the invoice. Therefore, <strong>failure to generate new payment requests means that an on-path attacker can steal the payment en route.</strong></p>
+<p>Another detail worth noting is that payees should not accept payments after the payment request has expired (<code>timestamp</code> + <code>expiry</code>), and payers likewise should not attempt them. This will affect any web application with <code>lnd</code> integration, since if an invoice for a good or service is not fulfilled within the given timeframe, a new one should be generated.</p>
+<p>Other possibly unexpected rules include that the payee should accept up the twice the amount encoded in the transaction, so that the payer can make payments harder to track by adding in small variations.</p>
+<p>A full specification of the payment request data format, required and optional parts, and required behavior can be found in <a href="https://github.com/lightningnetwork/lightning-rfc/blob/master/11-payment-encoding.md">BOLT 11</a>.</p>
+<h5 id="payment-flow">Payment flow<a class="headerlink" href="#payment-flow" title="Permanent link"></a></h5>
+<p>Let’s now see what an ideal payment flow looks like.</p>
+<ol>
+<li><strong>Create Invoice:</strong> The recipient creates an invoice with a specified value, expiration time, and an optional memo. If there was already an invoice created for this good and it expired, or a sufficient amount of time has elapsed, a fresh invoice should be generated.</li>
+</ol>
+<pre><code>lncli addinvoice --amt=6969 --memo=&quot;A coffee for Roger&quot;
+</code></pre>
+<pre><code>![Lightning Wallet Generate Payment Request](http://i.imgur.com/1xYB9Yq.png)
+</code></pre>
+<ol>
+<li><strong>Check invoice:</strong> The payer decodes the invoice to see the destination, amount and payment hash. This way, they can validate that the invoice was legitimate, and that they aren’t being defrauded or overcharged. At this stage, the user should also check that the expiration time of the invoice has not passed</li>
+</ol>
+<pre><code>lncli decodepayreq --pay_req=&lt;PAY_REQ&gt;
+</code></pre>
+<ol>
+<li><strong>Send payment:</strong> The payer sends their payment, possibly routed through the Lightning Network. Developers can do this through an LND interface and end users can use the desktop or mobile app.</li>
+</ol>
+<pre><code>lncli sendpayment --pay_req=&lt;PAY_REQ&gt;
+</code></pre>
+<pre><code>![Lightning Wallet send payment screen](http://i.imgur.com/AQMRsZ3.png)
+</code></pre>
+<ol>
+<li><strong>Check payment:</strong> The recipient checks that their invoice has been fulfilled. They make a call to the <code>LookupInvoice</code> command, which returns this information in the <code>settled</code> field.</li>
+</ol>
+<pre><code>lncli lookupinvoice --rhash=&lt;R_HASH&gt;
+</code></pre>
+<pre><code>![Lightning Wallet 5BTC Received](http://i.imgur.com/Yu8EaBf.png)
+</code></pre>
+<p>We have now covered the basic workflow for generating invoices and sending/receiving payments.</p>
+<h4 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h4>
+<p>You have completed the conceptual overview of LND and a high level primer on the components and workflows. To get started on developing, check out the <a href="https://dev.lightning.community/guides/installation/guides/installation/">installation guide</a> and <a href="https://dev.lightning.community/guides/installation/tutorial/">tutorial</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> LND Overview and Developer Guide</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/lnd-overview-and-developer-guide/7d91c7cd0bc84c97b322d4491950d35f/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-29</li>
+<li><strong>Kauri original tags:</strong> lightning, bitcoin</li>
+<li><strong>Kauri original hash:</strong> QmRmhAotLDt2BVc7Aq5Ms85tgG8d76oWgF78epC7YEHksu</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Getting%20Started/blockchain-explained/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Getting%20Started/blockchain-explained/" class="btn btn-xs btn-link">
+        Blockchain Explained
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lightning-at-home/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lightning-at-home/" class="btn btn-xs btn-link">
+        Lightning at Home
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Bitcoin/lnd-overview-and-developer-guide.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

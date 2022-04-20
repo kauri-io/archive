@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/An%20ethereum%20test%20toolkit%20in%20Go/interacting-with-smart-contracts-from-geth-s-simu/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Interacting with smart contracts from GETH's Simulated Backend - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Interacting with smart contracts from GETH's Simulated Backend", url: "#_top", children: [
+              {title: "Introducing ABIGEN", url: "#introducing-abigen" },
+              {title: "Bonus - Time in a bottle", url: "#bonus-time-in-a-bottle" },
+              {title: "The complete code", url: "#the-complete-code" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="interacting-with-smart-contracts-from-geths-simulated-backend">Interacting with smart contracts from GETH's Simulated Backend<a class="headerlink" href="#interacting-with-smart-contracts-from-geths-simulated-backend" title="Permanent link"></a></h1>
+<p>I am in the process of releasing my very "hacky" golang test environment that deep links into the go-ethereum code base.</p>
+<p>This is the next in the series.....</p>
+<p>Now you have a simulated ethereum network running it is time to see the EVM in action.</p>
+<p>GETH comes with a really useful tool to help you integrate your GO code with solidity smart contracts.</p>
+<h3 id="introducing-abigen">Introducing ABIGEN<a class="headerlink" href="#introducing-abigen" title="Permanent link"></a></h3>
+<p>ABIGEN creates a wrapper around your smart contract to help with most interactions that you could want to perform.</p>
+<p>I usually store my contracts in a sub folder with an appropriate name. </p>
+<p>In this case I am building a test for the Devcon 5 auction contract. I will place it in the <code>contracts</code> folder.</p>
+<p>You can find the actual auction contract deployed here</p>
+<p>https://etherscan.io/address/0x096bE08D7d1CaeEA6583eab6b75a0f5EaaB012a5#code</p>
+<p>If we put that source code into <code>auction.sol</code> in the contracts folder you would create the wrapper with :</p>
+<pre><code>abigen --sol contracts/auction.sol --pkg contracts --out contracts/auction.go
+</code></pre>
+<p>The contract's name is <code>auction</code> so ABIGEN will have created a function called <code>DeployAuction</code></p>
+<p>You will notice the constructor needs some date parameters, an amount and a wallet address, lets create a helper function first.</p>
+<pre><code class="language-go">func chkerr(err error) {
+    if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    }
+}
+
+// I like British dates !
+func getTime(dateStr string) *big.Int {
+    t, err := time.Parse(&quot;02/01/06&quot;, dateStr)
+    chkerr(err)
+    return big.NewInt(t.Unix())
+}
+</code></pre>
+<p>now create the constructor variables</p>
+<pre><code class="language-go">    startBids := getTime(&quot;13/09/19&quot;)
+    endBids := getTime(&quot;15/09/19&quot;)
+    startReveal := endBids
+    endReveal := getTime(&quot;17/09/19&quot;)
+    minimumBid, _ := etherUtils.StrToEther(&quot;4.7&quot;)
+    wallet, _ := memorykeys.GetAddress(&quot;wallet&quot;)
+</code></pre>
+<p>and now deploy the contract...</p>
+<pre><code class="language-go">    bankTx, _ := memorykeys.GetTransactor(&quot;banker&quot;)
+    auctionAddress, tx, auctionContract, err := contracts.DeployAuction(bankTx, client, startBids, endBids, startReveal, endReveal minimumBid, *wallet)
+    chkerr(err)
+    fmt.Println(auctionAddress.Hex(), tx.Hash().Hex())
+</code></pre>
+<p>We need a bound transactor (see memorykeys post)
+Then we send the transaction to deploy the contract returning</p>
+<ol>
+<li>the address of the contract</li>
+<li>a bound object to allow us to transact with it (once deployed)</li>
+<li>the transaction object</li>
+<li>an error object (as usual)</li>
+</ol>
+<p>we can now cause that transaction to be mined</p>
+<pre><code class="language-go">    client.Commit()
+</code></pre>
+<p>then we can call a method in the contract, let's check the minimum bid</p>
+<pre><code class="language-go">    min, err := auctionContract.MinimumBid(nil)
+    chkerr(err)
+    fmt.Println(&quot;minumum bid is &quot;, etherUtils.EtherToStr(min))
+</code></pre>
+<p>running testAuction.go we will get randomly assigned addresses but the minimum bid will be clearly seen to be 4.7</p>
+<pre><code class="language-sh">$ go run testAuction.go
+0x8095E4E397c8BEDffE7d2c8E3EaA30F646aab6dC 0x24fa2c113beab3eecf2129ef868e9121c3a7d8f7e084c6c66fbd10cb67b680a5
+4.700000000000000000
+</code></pre>
+<h3 id="bonus-time-in-a-bottle">Bonus - Time in a bottle<a class="headerlink" href="#bonus-time-in-a-bottle" title="Permanent link"></a></h3>
+<p>The Devcon5 Auction contract is a time dependent contract. There are three phases:</p>
+<ol>
+<li>Bidding Period</li>
+<li>Reveal Period</li>
+<li>Withdrawal Period</li>
+</ol>
+<p>If we want to test such a contract we need to be able to speed the blockchain clock to arrive at some specific times.</p>
+<h4 id="getting-the-simulated-blockchains-time">Getting the simulated blockchain's time<a class="headerlink" href="#getting-the-simulated-blockchains-time" title="Permanent link"></a></h4>
+<pre><code class="language-go">func currentTime() uint64 {
+    client, err := getClient()
+    chkerr(err)
+    block := client.Blockchain().CurrentBlock()
+    return block.Time()
+}
+</code></pre>
+<h4 id="jumping-forward-in-time">Jumping forward in time<a class="headerlink" href="#jumping-forward-in-time" title="Permanent link"></a></h4>
+<p>My small contribution to the go-ethereum codebase is the <code>AdjustTime</code> function in the simulated back end.</p>
+<pre><code class="language-go">func jumpTo(newTime *big.Int) {
+    client, err := getClient()
+    chkerr(err)
+    now := client.Blockchain().CurrentBlock().Time()
+    target := newTime.Uint64()
+    if now &gt;= target {
+        return
+    }
+    err = client.AdjustTime(time.Duration(target-now) * time.Second)
+    chkerr(err)
+    client.Commit()
+}
+</code></pre>
+<p>we can also create a function to report if bidding is open</p>
+<pre><code class="language-go">func isBiddingOpen(auction *contracts.Auction) {
+    biddingOpen, err := auction.InBidding(nil)
+    chkerr(err)
+    state := &quot;IS NOT&quot;
+    if biddingOpen {
+        state = &quot;IS&quot;
+    }
+    fmt.Println(&quot;Bidding&quot;, state, &quot;open&quot;)
+}
+</code></pre>
+<p>So this allows us to jump to the start of bidding for testing.</p>
+<pre><code class="language-go">    fmt.Println(&quot;time:&quot;,currentTime())
+    isBiddingOpen(auctionContract)
+    jumpTo(startBids)
+    fmt.Println(&quot;time:&quot;,currentTime())
+    isBiddingOpen(auctionContract)
+</code></pre>
+<pre><code class="language-sh">$ go run testAuction.go
+0x06cfB9BD9a3093603EFf47BC0679A729AF6a884c 0x0bf7dd3223934f955981816fda317e7fa6b669252c5a5695c71d3d82451b604f
+minumum bid is  4.700000000000000000
+time : 10
+Bidding IS NOT open
+time : 1568332810
+Bidding IS open
+</code></pre>
+<h3 id="the-complete-code">The complete code<a class="headerlink" href="#the-complete-code" title="Permanent link"></a></h3>
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;log&quot;
+    &quot;math/big&quot;
+    &quot;os&quot;
+    &quot;time&quot;
+
+    &quot;./contracts&quot;
+
+    &quot;github.com/DaveAppleton/etherUtils&quot;
+    &quot;github.com/DaveAppleton/memorykeys&quot;
+    &quot;github.com/ethereum/go-ethereum/accounts/abi/bind/backends&quot;
+    &quot;github.com/ethereum/go-ethereum/core&quot;
+)
+
+var baseClient *backends.SimulatedBackend
+
+func getClient() (client *backends.SimulatedBackend, err error) {
+    if baseClient != nil {
+        return baseClient, nil
+    }
+    funds, _ := etherUtils.StrToEther(&quot;10000.0&quot;)
+    bankerAddress, err := memorykeys.GetAddress(&quot;banker&quot;)
+    if err != nil {
+        return nil, err
+    }
+    baseClient = backends.NewSimulatedBackend(core.GenesisAlloc{
+        *bankerAddress: {Balance: funds},
+    }, 8000000)
+    return baseClient, nil
+}
+
+func chkerr(err error) {
+    if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    }
+}
+
+func getTime(dateStr string) *big.Int {
+    t, err := time.Parse(&quot;02/01/06&quot;, dateStr)
+    chkerr(err)
+    return big.NewInt(t.Unix())
+}
+
+func currentTime() uint64 {
+    client, err := getClient()
+    chkerr(err)
+    block := client.Blockchain().CurrentBlock()
+    return block.Time()
+}
+
+func jumpTo(newTime *big.Int) {
+    client, err := getClient()
+    chkerr(err)
+    now := client.Blockchain().CurrentBlock().Time()
+    target := newTime.Uint64()
+    if now &gt;= target {
+        return
+    }
+    err = client.AdjustTime(time.Duration(target-now) * time.Second)
+    chkerr(err)
+    client.Commit()
+}
+
+func isBiddingOpen(auction *contracts.Auction) {
+    biddingOpen, err := auction.InBidding(nil)
+    chkerr(err)
+    state := &quot;IS NOT&quot;
+    if biddingOpen {
+        state = &quot;IS&quot;
+    }
+    fmt.Println(&quot;Bidding&quot;, state, &quot;open&quot;)
+}
+
+func main() {
+    client, err := getClient()
+    if err != nil {
+        log.Fatal(err)
+    }
+    startBids := getTime(&quot;13/09/19&quot;)
+    endBids := getTime(&quot;15/09/19&quot;)
+    startReveal := endBids
+    endReveal := getTime(&quot;17/09/19&quot;)
+    minimumBid, _ := etherUtils.StrToEther(&quot;4.7&quot;)
+    wallet, _ := memorykeys.GetAddress(&quot;wallet&quot;)
+    bankTx, _ := memorykeys.GetTransactor(&quot;banker&quot;)
+    auctionAddress, tx, auctionContract, err := contracts.DeployAuction(bankTx, client, startBids, endBids, startReveal, endReveal, minimumBid, *wallet)
+    chkerr(err)
+    fmt.Println(auctionAddress.Hex(), tx.Hash().Hex())
+    client.Commit()
+    min, err := auctionContract.MinimumBid(nil)
+    chkerr(err)
+    fmt.Println(&quot;minumum bid is &quot;, etherUtils.EtherToStr(min))
+    fmt.Println(&quot;time :&quot;, currentTime())
+    isBiddingOpen(auctionContract)
+    jumpTo(startBids)
+    fmt.Println(&quot;time :&quot;, currentTime())
+    isBiddingOpen(auctionContract)
+}
+
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Interacting with smart contracts from GETH's Simulated Backend</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/interacting-with-smart-contracts-from-geths-simula/350b689ea9cc43bdbeab18645d6d6a2a/a</li>
+<li><strong>Kauri original author:</strong> Dave Appleton (@daveappleton)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-14</li>
+<li><strong>Kauri original tags:</strong> ethereum, go-programming-language, geth, abigen, golang, testing, solidity</li>
+<li><strong>Kauri original hash:</strong> QmXR3Q88cuGFx2jKBuKEZR6Q1sebAjBfxPdHCkJRX2Yg8f</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../generating-a-load-of-keys-for-testing-in-go/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../generating-a-load-of-keys-for-testing-in-go/" class="btn btn-xs btn-link">
+        Generating a load of keys for testing in Go
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../sending-transactions-on-geth-s-simulated-backend/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../sending-transactions-on-geth-s-simulated-backend/" class="btn btn-xs btn-link">
+        Sending Transactions on GETH's Simulated Backend
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/An ethereum test toolkit in Go/interacting-with-smart-contracts-from-geth-s-simu.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

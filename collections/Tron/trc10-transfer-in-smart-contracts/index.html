@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Tron/trc10-transfer-in-smart-contracts/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>TRC10 Transfer in Smart Contracts - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "TRC10 Transfer in Smart Contracts", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Transfer TRC10 to Smart Contract Accounts", url: "#transfer-trc10-to-smart-contract-accounts" },
+              {title: "TRC10 Interaction in Smart Contracts", url: "#trc10-interaction-in-smart-contracts" },
+              {title: "Solidity Compiler", url: "#solidity-compiler" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="trc10-transfer-in-smart-contracts">TRC10 Transfer in Smart Contracts<a class="headerlink" href="#trc10-transfer-in-smart-contracts" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQHFnK59eCvxUiG86Mokp2adBhytbF5CsJDKFKDN8iMfE" /></p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h2>
+<p>TRC10 token is a system-level token type in TRON. Compared to TRC20 tokens, TRC10 tokens face a user experience flexibility issue. In Odyssey 3.2, developers and their smart contract callers can interact with TRC10 token via smart contracts according to the contract logic, giving them more control to implement their token in business scenarios. Unlike a TRC20 token, sending TRC10 tokens is consistent with transferring TRX in a contract, meaning TRC10 usage is similar to TRX usage. </p>
+<h2 id="transfer-trc10-to-smart-contract-accounts">Transfer TRC10 to Smart Contract Accounts<a class="headerlink" href="#transfer-trc10-to-smart-contract-accounts" title="Permanent link"></a></h2>
+<p>TRC10 tokens can be transferred to a smart contract via a contract call. The contract call uses the two gRPC APIs of DeployContract and TriggerContract.</p>
+<h3 id="wallet-cli-and-examples">Wallet-CLI and Examples<a class="headerlink" href="#wallet-cli-and-examples" title="Permanent link"></a></h3>
+<p>DeployContract</p>
+<pre><code>deployContract &lt;contractName&gt; &lt;abi&gt; &lt;bytecode&gt; &lt;constructor signature&gt;   &lt;constructor params&gt; &lt;isHex&gt; &lt;feeLimit&gt; &lt;consumer_percentage&gt; &lt;energyLimit&gt; &lt;callValue&gt; &lt;tokenValue&gt; &lt;tokenId&gt;
+</code></pre>
+<pre><code>deployContract testContract [{&quot;constant&quot;:false,&quot;inputs&quot;:[{&quot;name&quot;:&quot;value&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;name&quot;:&quot;f1&quot;,&quot;outputs&quot;:[],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;nonpayable&quot;,&quot;type&quot;:&quot;function&quot;},{&quot;constant&quot;:true,&quot;inputs&quot;:[],&quot;name&quot;:&quot;i&quot;,&quot;outputs&quot;:[{&quot;name&quot;:&quot;&quot;,&quot;type&quot;:&quot;uint256&quot;}],&quot;payable&quot;:false,&quot;stateMutability&quot;:&quot;view&quot;,&quot;type&quot;:&quot;function&quot;}] 6080604052600160005534801561001557600080fd5b50d3801561002257600080fd5b50d2801561002f57600080fd5b5060ef8061003e6000396000f30060806040526004361060485763ffffffff7c010000000000000000000000000000000000000000000000000000000060003504166382e7eb3d8114604d578063e5aa3d5814607c575b600080fd5b348015605857600080fd5b50d38015606457600080fd5b50d28015607057600080fd5b50607a60043560b8565b005b348015608757600080fd5b50d38015609357600080fd5b50d28015609f57600080fd5b5060a660bd565b60408051918252519081900360200190f35b600055565b600054815600a165627a7a72305820cd4cf61efb71c4c984be5b1e4d84459871b6b10a93a80874a8a96fa3685cccb10029 # # false 1000000000 0 100000000 0 0 1000001
+</code></pre>
+<p>TriggerContract</p>
+<pre><code>triggercontract &lt;contractAddress&gt; &lt;function signature&gt; &lt;function_parameters&gt; &lt;isHex&gt;  &lt;feeLimit&gt; &lt;callValue&gt; &lt;tokenValue&gt; &lt;tokenId&gt; 
+</code></pre>
+<pre><code>triggercontract TTWq4vMEYB2yibAbPV7gQ4mrqTyX92fha6 set(uint256, uint256) 1,1 false  1000000       0            10             1000001  
+</code></pre>
+<h3 id="new-parameters-explanation">New Parameters Explanation<a class="headerlink" href="#new-parameters-explanation" title="Permanent link"></a></h3>
+<p><em><strong>tokenValue</strong></em> 
+The token amount caller wants to send into the contract account from the caller’s account.</p>
+<p><em><strong>tokenId</strong></em> 
+The target token identifier, which is an int64 type in ProtoBuf. In the Wallet client, use # to represent a void field for tokenId.</p>
+<blockquote>
+<p><strong>OriginEnergyLimit</strong> is a new feature in Odyssey_v3.2, which limits the energy cost when a caller spends the developer’s energy. It means the contract owner can set a maximum energy cost value to prevent the other user from over-using the owner’s resource. 
+<strong>TokenId</strong> is a new feature in Odyssey_v3.2. It can be found in a new map field called assetV2 in an account. Use GetAccount(Account) to obtain the TokenId and its value. TokenId is set by the system to begin from number 1_000_001. When a new TRC10 token is created, the number adds 1 and sets the ID for this token.</p>
+</blockquote>
+<h2 id="trc10-interaction-in-smart-contracts">TRC10 Interaction in Smart Contracts<a class="headerlink" href="#trc10-interaction-in-smart-contracts" title="Permanent link"></a></h2>
+<p><strong>TRC10 Contract Example</strong></p>
+<pre><code> pragma solidity ^0.4.24;
+contract transferTokenContract {
+    constructor() payable public{}
+    function() payable public{}
+    function transferTokenTest(address toAddress, uint256 tokenValue, trcToken id) payable public    {
+        toAddress.transferToken(tokenValue, id);
+    }
+    function msgTokenValueAndTokenIdTest() public payable returns(trcToken, uint256){
+        trcToken id = msg.tokenid;
+        uint256 value = msg.tokenvalue;
+        return (id, value);
+    }
+    function getTokenBalanceTest(address accountAddress) payable public returns (uint256){
+        trcToken id = 1000001;
+        return accountAddress.tokenBalance(id);
+    }
+}
+</code></pre>
+<p><strong>TRC Token Type</strong></p>
+<p>Odyssey_v3.2 defined a new type (trcToken) for TRC10 token, which represents the tokenId in a token transfer operation. TRC10 token can be converted to uint256 type and vice versa.</p>
+<p><strong>Transfer Tokens</strong></p>
+<pre><code>address.transferToken(uint256 tokenValue, trcToken tokenId) 
+</code></pre>
+<p>Odyssey_v3.2 defined a new transferToken function for TRC10 token transferring in TRON solidity compiler and also supported in JAVA-TRON. An address type variable invokes this native function, which means the current contract would like to transfer a specific amount of target token from the contract’s account to this address’s account. TransferToken function shares similar mechanisms as the transfer(uint256) function. Only 2300 energy is sent to this function and its related fallback function.</p>
+<p><strong>Token Balance Querying</strong></p>
+<pre><code>address.tokenBalance(trcToken) returns(uint256 tokenAmount)
+</code></pre>
+<p>Odyssey_v3.2 defined a new tokenBalance function for TRC10 token balance querying. An address type variable invokes this native function, which returns the amount of target token owned by the address account.</p>
+<p><strong>TokenValue &amp; TokenID</strong></p>
+<p>Msg.tokenvalue, represents the token value in the current msg call, with a default value of 0. Msg.tokenid, represents the token id in current msg call, with a default value of 0.</p>
+<h2 id="solidity-compiler">Solidity Compiler<a class="headerlink" href="#solidity-compiler" title="Permanent link"></a></h2>
+<p><strong>GitHub</strong></p>
+<p><a href="https://github.com/tronprotocol/solidity/tree/Odyssey_v3.2" target="_blank">Odyssey v3.2</a></p>
+<blockquote>
+<p>The bytecode generated by the new TRON/solidity Odyssey_v3.2 compiler will NOT work before ALLOW_TVM_TRANSFER_TRC10 proposal in JAVA-TRON Odyssey_v3.2 is approved. As a result, TRON-Studio and any other tools depending on the TRON compiler should not import version 3.2 compilers and expose to the public until ALLOW_TVM_TRANSFER_TRC10 proposal is approved on the chain.</p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> TRC10 Transfer in Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/trc10-transfer-in-smart-contracts/c761dbe2e46f4374959c867119888761/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-01</li>
+<li><strong>Kauri original tags:</strong> beginner, tron</li>
+<li><strong>Kauri original hash:</strong> QmeBtGfs1VJ5RyXUBT9QFc24HZkQM7WwBMyLS4uotSEEgq</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../trc10-and-trc20-tokens/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../trc10-and-trc20-tokens/" class="btn btn-xs btn-link">
+        TRC10 & TRC20 Tokens
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../tron-quickstart/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../tron-quickstart/" class="btn btn-xs btn-link">
+        Tron Quickstart
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Tron/trc10-transfer-in-smart-contracts.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

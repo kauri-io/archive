@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2855%29-collect-traces-with-elastic-apm-for-monitori/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(5/5) Collect traces with Elastic APM for monitoring Kubernetes - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(5/5) Collect traces with Elastic APM for monitoring Kubernetes", url: "#_top", children: [
+              {title: "Install APM-Server", url: "#install-apm-server" },
+              {title: "Configure a Java agent on the application", url: "#configure-a-java-agent-on-the-application" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="55-collect-traces-with-elastic-apm-for-monitoring-kubernetes">(5/5) Collect traces with Elastic APM for monitoring Kubernetes<a class="headerlink" href="#55-collect-traces-with-elastic-apm-for-monitoring-kubernetes" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPohRWQiprtKujAU8F5sb1fFcSncXy7Js96mrtvnVAKAd" /></p>
+<p><strong>Elastic APM</strong> is an application performance monitoring system built on the Elastic Stack. It allows you to monitor software services and applications in real time — collect detailed performance information on response time for incoming requests, database queries, calls to caches, external HTTP requests, and more. This makes it easy to pinpoint and fix performance problems quickly.</p>
+<p>Elastic APM is <a href="https://opentracing.io/">OpenTracing</a> compliant which means you can take advantages of the large range of libraries already available to trace components within your application (e.g MongoDB instrumentation).</p>
+<p>For example, you will be able to follow a request in a highly distributed environment (micro-service architecture) and find potential bottleneck easily and quickly.</p>
+<p><img alt="" src="https://images.contentstack.io/v3/assets/bltefdd0b53724fa2ce/blta65f095d22517ce4/5c98d59849a201165fca1042/blog-opentracing-elastic-apm-3.png" />
+<a href="https://www.elastic.co/blog/distributed-tracing-opentracing-and-elastic-apm"><em>source</em></a></p>
+<p>Elastic APM is composed of a component called APM-Server used to collect and ship traces to ElasticSearch and individual agents running with the application or service.</p>
+<p><img alt="" src="https://www.elastic.co/guide/en/apm/get-started/current/images/apm-architecture-cloud.png" />
+<a href="https://www.elastic.co/guide/en/apm/get-started/current/components.html"><em>source</em>l</a></p>
+<p><br /></p>
+<h3 id="install-apm-server">Install APM-Server<a class="headerlink" href="#install-apm-server" title="Permanent link"></a></h3>
+<p>We first need to install APM-Server on k8s to collect the traces for the agents and forward them to ElasticSeach.
+It's composed of a <code>ConfigMap</code> to configure the settings:</p>
+<pre><code class="language-yaml">## apm.configmap.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: apm-server-config
+  labels:
+    app: apm-server
+data:
+  apm-server.yml: |-
+    apm-server:
+      host: &quot;0.0.0.0:8200&quot;
+
+    output.elasticsearch:
+      hosts: ['${ELASTICSEARCH_HOST:elasticsearch}:${ELASTICSEARCH_PORT:9200}']
+      username: ${ELASTICSEARCH_USERNAME}
+      password: ${ELASTICSEARCH_PASSWORD}
+
+    setup.kibana:
+      host: '${KIBANA_HOST:kibana}:${KIBANA_PORT:5601}'
+---
+</code></pre>
+<p>APM-Server needs to expose the port <code>8200</code> to allow the agent to forward their traces. The following <code>Service</code> exposes this port to the environment:</p>
+<pre><code class="language-yaml">## apm.service.yml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: apm-server
+  labels:
+    app: apm-server
+spec:
+  ports:
+  - port: 8200
+    name: apm-server
+  selector:
+    app: apm-server
+---
+</code></pre>
+<p>The last bit is the <code>Deployment</code> describing the container to be deployed:</p>
+<pre><code class="language-yaml">## apm.deployment.yml
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: apm-server
+  labels:
+    app: apm-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: apm-server
+    spec:
+      containers:
+      - name: apm-server
+        image: docker.elastic.co/apm/apm-server:7.3.0
+        env:
+        - name: ELASTICSEARCH_HOST
+          value: elasticsearch-client.monitoring.svc.cluster.local
+        - name: ELASTICSEARCH_PORT
+          value: &quot;9200&quot;
+        - name: ELASTICSEARCH_USERNAME
+          value: elastic
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-pw-elastic
+              key: password
+        - name: KIBANA_HOST
+          value: kibana.monitoring.svc.cluster.local
+        - name: KIBANA_PORT
+          value: &quot;5601&quot;
+        ports:
+        - containerPort: 8200
+          name: apm-server
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/apm-server/apm-server.yml
+          readOnly: true
+          subPath: apm-server.yml
+      volumes:
+      - name: config
+        configMap:
+          name: apm-server-config
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/apm-server.yml">full file</a></em></p>
+<p>We can now deploy this new component of our stack:</p>
+<pre><code class="language-shell">$ kubectl apply  -f apm.deployment.yml \
+                 -f apm.service.yml \
+                 -f apm.deployment.yml
+
+configmap/apm-server-config created
+service/apm-server created
+deployment.extensions/apm-server created
+</code></pre>
+<p>Check that everything is up and running:</p>
+<pre><code class="language-shell">$ kubectl get all -n monitoring -l app=apm-server
+
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/apm-server-759bb8f584-rkzvn   1/1     Running   0          55s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/apm-server   ClusterIP   10.101.235.230   &lt;none&gt;        8200/TCP   55s
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/apm-server   1/1     1            1           55s
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/apm-server-759bb8f584   1         1         1       55s
+</code></pre>
+<p>We now can install an agent on our Spring-Boot app.</p>
+<p><br />
+<br /></p>
+<h3 id="configure-a-java-agent-on-the-application">Configure a Java agent on the application<a class="headerlink" href="#configure-a-java-agent-on-the-application" title="Permanent link"></a></h3>
+<p>In the last part of this article, we will configure a <a href="https://www.elastic.co/guide/en/apm/agent/java/current/intro.html">Elastic APM Java agent</a> on the sample application <code>spring-boot-simple</code>.</p>
+<p>First we need to put the jar <a href="https://search.maven.org/remotecontent?filepath=co/elastic/apm/elastic-apm-agent/1.8.0/elastic-apm-agent-1.8.0.jar">elastic-apm-agent-1.8jar</a> in the container. Add the following line to download the agent JAR when docker builds the image.</p>
+<pre><code>RUN wget -O /apm-agent.jar https://search.maven.org/remotecontent?filepath=co/elastic/apm/elastic-apm-agent/1.8.0/elastic-apm-agent-1.8.0.jar
+</code></pre>
+<p><a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/Dockerfile"><em>Dockerfile</em></a></p>
+<pre><code class="language-dockerfile">FROM openjdk:8-jdk-alpine
+
+COPY target/spring-boot-simple.jar /app.jar
+
+RUN wget -O /apm-agent.jar https://search.maven.org/remotecontent?filepath=co/elastic/apm/elastic-apm-agent/1.8.0/elastic-apm-agent-1.8.0.jar
+
+CMD java -jar /app.jar
+</code></pre>
+<p><br /></p>
+<p>Secondly add the following dependencies to your application, so your will be able to integrate open-tracing libraries (<a href="https://www.elastic.co/guide/en/apm/agent/java/master/opentracing-bridge.html">read more</a>) and/or manually instrument some components with the Elastic APM API (<a href="https://www.elastic.co/guide/en/apm/agent/java/master/public-api.html">read more</a>).</p>
+<pre><code class="language-xml">        &lt;dependency&gt;
+            &lt;groupId&gt;co.elastic.apm&lt;/groupId&gt;
+            &lt;artifactId&gt;apm-agent-api&lt;/artifactId&gt;
+            &lt;version&gt;${elastic-apm.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;co.elastic.apm&lt;/groupId&gt;
+            &lt;artifactId&gt;apm-opentracing&lt;/artifactId&gt;
+            &lt;version&gt;${elastic-apm.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;io.opentracing.contrib&lt;/groupId&gt;
+            &lt;artifactId&gt;opentracing-spring-cloud-mongo-starter&lt;/artifactId&gt;
+            &lt;version&gt;${opentracing-spring-cloud.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p><br /></p>
+<p>Then we will change the <code>Deployment</code> to start the Spring-Boot application with the Java agent enabled and connected to the APM-server.</p>
+<pre><code class="language-yaml">## spring-boot-simple.deployment.yml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: spring-boot-simple
+  labels:
+    app: spring-boot-simple
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-simple
+  template:
+    metadata:
+      labels:
+        app: spring-boot-simple
+    spec:
+      containers:
+      - image: gjeanmart/spring-boot-simple:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        name: spring-boot-simple
+        command:
+          - &quot;java&quot;
+          - &quot;-javaagent:/apm-agent.jar&quot;
+          - &quot;-Delastic.apm.active=$(ELASTIC_APM_ACTIVE)&quot;
+          - &quot;-Delastic.apm.server_urls=$(ELASTIC_APM_SERVER)&quot;
+          - &quot;-Delastic.apm.service_name=spring-boot-simple&quot;
+          - &quot;-jar&quot;
+          - &quot;app.jar&quot;
+        env:
+          - name: SPRING_DATA_MONGODB_HOST
+            value: mongo
+          - name: ELASTIC_APM_ACTIVE
+            value: &quot;true&quot;
+          - name: ELASTIC_APM_SERVER
+            value: http://apm-server.monitoring.svc.cluster.local:8200
+        ports:
+        - containerPort: 8080
+---
+</code></pre>
+<p>Now reapply the <code>Deployment</code> and spring-boot-simple should restart:</p>
+<pre><code class="language-shell">$ kubectl apply -f spring-boot-simple.yml
+</code></pre>
+<p>Execute a few calls such as:</p>
+<p><strong>get messages</strong></p>
+<p>Command to retrieve all the messages posted.</p>
+<pre><code class="language-shell">$ curl -X GET http://10.154.0.2:30049/message
+</code></pre>
+<p><strong>get messages (slow request)</strong></p>
+<p>Use the attribute <code>sleep=&lt;ms&gt;</code> to slow down the request.</p>
+<pre><code class="language-shell">$ curl -X GET http://10.154.0.2:30049/message?sleep=3000
+</code></pre>
+<p><strong>get messages (error)</strong></p>
+<p>Use the attribute <code>error=true</code> to raised an exception during the execution.</p>
+<pre><code class="language-shell">$ curl -X GET http://10.154.0.2:30049/message?error=true
+</code></pre>
+<p><br />
+<br /></p>
+<p>Now go to Kibana in the section "APM" and you should see the application <code>spring-boot-simple</code>, click on it.</p>
+<p><img alt="" src="https://imgur.com/jwXGG9j.gif" /></p>
+<p>Detect recurrent errors:</p>
+<p><img alt="" src="https://i.imgur.com/VnolYBD.png" /></p>
+<p>Visualize applications metrics (e.g. HeapSize, GC)</p>
+<p><img alt="" src="https://imgur.com/QbaU8pr.gif" /></p>
+<p><br />
+<br /></p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Hopefully, this series of articles helped you understand how to deploy a monitoring on your Kubernetes environment with a minimal impact and a lots of perspectives to observe, track, prevent, alert and speed up the resolution of production issues.</p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (5/5) Collect traces with Elastic APM for monitoring Kubernetes </li>
+<li><strong>Kauri original link:</strong> https://kauri.io/55-collect-traces-with-elastic-apm-for-monitoring/bbbc0af03721495b886567ce6af6c59e/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-04-15</li>
+<li><strong>Kauri original tags:</strong> kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat</li>
+<li><strong>Kauri original hash:</strong> QmRxombZcGthVgQ9BEjUP36cbcdSAdsZKeQWs7jt99nCZR</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../Founder%20interviews/fluree--blockchain-graphql-and-more-all-in-one-da/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../Founder%20interviews/fluree--blockchain-graphql-and-more-all-in-one-da/" class="btn btn-xs btn-link">
+        Fluree  Blockchain, GraphQL, and more all in one database
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2845%29-collect-logs-with-elastic-filebeat-for-monit/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2845%29-collect-logs-with-elastic-filebeat-for-monit/" class="btn btn-xs btn-link">
+        (4/5) Collect logs with Elastic Filebeat for monitoring Kubernetes
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Monitoring Kubernetes with Elastic Stack/(55)-collect-traces-with-elastic-apm-for-monitori.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

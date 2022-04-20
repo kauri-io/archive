@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/what-s-the-difference-between-monero-zcash-and-be/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>What’s the difference between Monero, Zcash, and BEAM? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "What\u2019s the difference between Monero, Zcash, and BEAM?", url: "#_top", children: [
+              {title: "Monero: Confidentiality", url: "#monero-confidentiality" },
+              {title: "Monero: Scalability", url: "#monero-scalability" },
+              {title: "Monero: Auditability", url: "#monero-auditability" },
+              {title: "Monero: Summary", url: "#monero-summary" },
+              {title: "Zcash: Confidentiality", url: "#zcash-confidentiality" },
+              {title: "Zcash: Scalability", url: "#zcash-scalability" },
+              {title: "Zcash: Auditability", url: "#zcash-auditability" },
+              {title: "Zcash: Summary", url: "#zcash-summary" },
+              {title: "BEAM: Confidentiality", url: "#beam-confidentiality" },
+              {title: "BEAM: Scalability", url: "#beam-scalability" },
+              {title: "BEAM: Auditability", url: "#beam-auditability" },
+              {title: "BEAM: Summary", url: "#beam-summary" },
+              {title: "Appendix \u2014 Scalability comparison methodology", url: "#appendix-scalability-comparison-methodology" },
+              {title: "BEAM blockchain size estimation", url: "#beam-blockchain-size-estimation" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="whats-the-difference-between-monero-zcash-and-beam">What’s the difference between Monero, Zcash, and BEAM?<a class="headerlink" href="#whats-the-difference-between-monero-zcash-and-beam" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVLn7MBpxbL1MoDWmmj8ZA1fvDaEGy1opxwZKQ7nbS1SE" /></p>
+<p>First, we would like to emphasize that we have a lot of respect for our friends at Zcash and Monero and the activities that these projects have completed so far in order to promote the needed financial confidentiality in crypto.
+We will organize our comparison by looking at three parameters: confidentiality, scalability, and auditability. The comparison is quite advanced and does not claim to be complete — there are other played factors besides the three we have chosen to address.</p>
+<h3 id="monero-confidentiality">Monero: Confidentiality<a class="headerlink" href="#monero-confidentiality" title="Permanent link"></a></h3>
+<p>Monero enables confidentiality by using 
+<strong>Ring Confidential Transactions</strong>
+ (a combination of Confidential Transactions and Ring Signatures) and 
+<strong>Stealth Addresses</strong>
+ . In addition, Kovri (currently in pre-alpha) is used to obfuscate peer-to-peer communication. Confidential Transactions hide the transferred amounts. With Ring Signatures, at least six “decoy” coins are added to each transaction, each looking equally likely to be the actual one spent in the transaction, thus making the actual source and destination next to impossible to trace. That said, there are certain claims (see this 
+<a href="https://arxiv.org/pdf/1704.04299/">study</a>
+ , for example) stating that there are ways to trace transactions on Monero network. We do not aim to confirm or contradict those claims.</p>
+<h3 id="monero-scalability">Monero: Scalability<a class="headerlink" href="#monero-scalability" title="Permanent link"></a></h3>
+<p>Due to the use of Ring Signatures, additional data is attached to each transaction, significantly increasing the size of the blockchain. At the time of this writing, Monero blockchain size is around 48GB and will continue to grow with wider adoption, hurting usability. We estimate that in Monero, the size of an average transaction is about 14Kb which is almost 25 times greater than in Bitcoin. Simply put, when Monero reaches Bitcoin’s current scale concerning the total number of transactions, its blockchain will be about 5 terabytes — hardly sustainable for a regular PC, let alone on smaller devices. It should be noted that Monero team is 
+<a href="https://hacked.com/kovri-bulletproofs-how-monero-is-improving-privacy/">currently implementing</a>
+ bulletproofs that should improve scalability by up to 80% (which is still about 5 times more than Bitcoin).</p>
+<h3 id="monero-auditability">Monero: Auditability<a class="headerlink" href="#monero-auditability" title="Permanent link"></a></h3>
+<p>Monero offers a 
+<a href="https://getmonero.org/resources/moneropedia/viewkey.html">ViewKey</a>
+ feature to let a third party review the user’s transactions. However, it only allows seeing incoming transactions, not the outgoing ones, making it not very usable to auditors. Also, there doesn’t seem to be a way to prove that the list of incoming transactions is complete.</p>
+<h3 id="monero-summary">Monero: Summary<a class="headerlink" href="#monero-summary" title="Permanent link"></a></h3>
+<p>Monero scores very well on confidentiality, poorly on scalability, and poorly on auditability as well.</p>
+<h3 id="zcash-confidentiality">Zcash: Confidentiality<a class="headerlink" href="#zcash-confidentiality" title="Permanent link"></a></h3>
+<p>Zcash uses zk-SNARKs — a novel and very advanced form of 
+<strong>zero-knowledge cryptography</strong>
+ . Some people call zk-SNARKs “Moon Math” — that’s how arcane and presumably beautiful they are. With zk-SNARKs, all transaction amounts, inputs, and outputs on the blockchain are entirely hidden. However, transactions on Zcash are not private by default. Since zk-SNARKs are computationally heavy to create (it takes 1–3 minutes on a regular PC to create a private transaction on Zcash), most users do not enable them, hurting overall privacy of the network. At the time of writing, the percentage of fully shielded (i.e., entirely private) transactions on Zcash is below 1% (see 
+<a href="https://explorer.zcha.in/statistics/usage">here</a>
+ ).
+The upcoming 
+<a href="https://z.cash/upgrade/sapling/">Sapling</a>
+ network upgrade should make the performance of shielded transactions much more efficient, and hopefully increase the amount of private transaction on the Zcash network.
+In addition, zk-SNARKs require a special secret key to set up the entire system. If this key leaks, the perpetrator can print money and thus destroy the coin. Zcash carries out intricate multi-person ceremonies to create this key, and we have no reason to doubt the integrity of the people involved. However, this is still a valid concern.</p>
+<h3 id="zcash-scalability">Zcash: Scalability<a class="headerlink" href="#zcash-scalability" title="Permanent link"></a></h3>
+<p>At the time of writing, ZCash blockchain size is around 19GB, while the total number of transactions is approximately 3.5 million, giving an average of 5.3KB per transaction — almost 9 times higher than Bitcoin. While it is better than Monero, it is still much heavier than Bitcoin, which is also not scalable enough in that respect.</p>
+<h3 id="zcash-auditability">Zcash: Auditability<a class="headerlink" href="#zcash-auditability" title="Permanent link"></a></h3>
+<p>Similar to Monero, Zcash also has 
+<a href="https://blog.z.cash/viewing-keys-selective-disclosure/">Viewing Keys</a>
+ , that allow an external viewer to track incoming transactions. In addition, there is a “payment disclosure” feature, beneficial when proving that a payment to an address was sent. There is no proof of completeness of the transactions.</p>
+<h3 id="zcash-summary">Zcash: Summary<a class="headerlink" href="#zcash-summary" title="Permanent link"></a></h3>
+<p>Zcash has excellent privacy features, but they are computationally heavy and see little use so far. Zcash scalability is better than Monero’s, but still poor, and the auditability is poor as well, although Zcash has plans to improve it.</p>
+<h3 id="beam-confidentiality">BEAM: Confidentiality<a class="headerlink" href="#beam-confidentiality" title="Permanent link"></a></h3>
+<p><a href="https://www.beam.mw">BEAM</a>
+ is built on Mimblewimble, a very elegant protocol that allows for both confidentiality and scalability. Transaction amount, sender and receiver are hidden using Confidential Transactions, and there are no “addresses” in the system — each user just holds private keys to the UTXOs she owns.
+Privacy in 
+<a href="https://www.beam.mw">BEAM</a>
+ is enabled by default. Actually, there are no “open” transactions at all. Reading the blockchain would not yield any information to the observer.
+In addition to Mimblewimble’s default privacy, 
+<a href="https://www.beam.mw">BEAM</a>
+ also implements 
+<a href="https://arxiv.org/pdf/1701.04439.pdf">Dandelion</a>
+ , a networking policy which significantly improves anonymity. Dandelion prevents someone observing the network traffic to infer any valuable information.</p>
+<h3 id="beam-scalability">BEAM: Scalability<a class="headerlink" href="#beam-scalability" title="Permanent link"></a></h3>
+<p>In 
+<a href="https://www.beam.mw">BEAM</a>
+ , the Mimblewimble cut-through mechanism is used to keep the blockchain small. The cut-through removes all the intermediate states of UTXOs, essentially leaving only unspent outputs on the blockchain. Thus, the blockchain size does not grow with the number of transactions, but with the number of UTXOs, which is overall much slower.
+We estimate that BEAM Blockchain size will be around 30% of Bitcoin’s, so the blockchain size should be below 70GB when BEAM reaches Bitcoin’s scale, making it possible to run a full node on smaller devices. We are actively researching additional improvements to Mimblewimble to make the blockchain even smaller (see 
+<a href="https://github.com/beam-mw/beam/wiki/Thoughts:-eliminating-transaction-kernels">Eliminating Transaction Kernels</a>
+ )</p>
+<h3 id="beam-auditability">BEAM: Auditability<a class="headerlink" href="#beam-auditability" title="Permanent link"></a></h3>
+<p>BEAM introduces the optional Auditability feature. BEAM users can create one or more Auditor keys that can be distributed to the parties of their choice, such as accountants, auditors, and even tax authorities. Using those keys, the auditing party can review the transactions recorded on the blockchain, and also verify that the list of transactions is complete. 
+<strong>Auditability is strictly optional and cannot be enabled retrospectively</strong>
+ . See more in “What is Auditability” below.</p>
+<h3 id="beam-summary">BEAM: Summary<a class="headerlink" href="#beam-summary" title="Permanent link"></a></h3>
+<p>By implementing Mimblewimble, BEAM achieves excellent confidentiality and scalability, and our extensions to the protocol allow for excellent Auditability as well. We believe that BEAM has the features that any currency should strive to have if it has aspirations for wide adoption, and we are working hard to get there soon.
+You can also read 
+<a href="https://medium.com/beam-mw/comparing-privacy-coins-is-hard-2d617f931682">another piece of ours</a>
+ comparing Bitcoin, Monero, Zcash, and BEAM.</p>
+<h3 id="appendix-scalability-comparison-methodology">Appendix — Scalability comparison methodology<a class="headerlink" href="#appendix-scalability-comparison-methodology" title="Permanent link"></a></h3>
+<p>To assess scalability, we used public data on the total number of transactions in Bitcoin, Zcash, and Monero, and divided the total blockchain size by the number of transactions. The data for the time of writing is summarized in the table below:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdRETk5W7fuaBoHZpF4fdGPdspCwMzt17xJysXTKrtKG8" /></p>
+<h3 id="beam-blockchain-size-estimation">BEAM blockchain size estimation<a class="headerlink" href="#beam-blockchain-size-estimation" title="Permanent link"></a></h3>
+<p>In Mimblewimble and thus in BEAM, the blockchain needs to store the header of each block, the kernel of each transaction, and all the UTXOs. The sizes for each element are in the table below:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcPXRV85cWsr1eNoE12MVEPHYoxwW9t8YwpMWGnwVrj18" /></p>
+<p>Now let’s assess what BEAM’s blockchain size will be when BEAM reaches the scale Bitcoin has at the time of writing this (October 2018). Bitcoin’s numbers are below:</p>
+<ul>
+<li>
+<p>Chain height: 543,431 blocks.</p>
+</li>
+<li>
+<p>Number of UTXOs: 56,503,620</p>
+</li>
+<li>
+<p>Number of transactions: 346,109,884
+For the time being, we can assume that BEAM will have the same UTXO/transaction ratio as Bitcoin. However, BEAM block is generated every minute and not every 10 minutes, so BEAM’s number of blocks will be 10 times higher.
+Now, let’s calculate BEAM’s blockchain size:
+Block Headers : 543,431*10 * 136B = 704MB
+Kernels : 346,109,884 * 110B = 36,3GB
+UTXOs : 56,503,620 * 704B = 37,7GB
+Total : 74.9GB
+Per transaction: 0.22 KB</p>
+</li>
+</ul>
+<h4 id="data-sources">Data sources:<a class="headerlink" href="#data-sources" title="Permanent link"></a></h4>
+<p><em>[1]</em></p>
+<p><a href="https://www.blockchain.com/">https://www.blockchain.com/</a></p>
+<p><em>[2]</em></p>
+<p><a href="https://coinmetrics.io">https://coinmetrics.io</a></p>
+<p><em>[3]</em></p>
+<p><a href="https://bitinfocharts.com/">https://bitinfocharts.com/</a></p>
+<p>Note: for Zcash, Bitinfochart shows about 10% more transactions than coinmetrics.io. We used the larger number.
+Team BEAM wishes to thank Oded Leiba for his thorough review and good suggestions. If you liked this article, please follow his Twitter: 
+<a href="http://twitter.com/odedleiba">@odedleiba</a>
+ .</p>
+<p><strong>Learn more about BEAM</strong>
+ on our 
+<a href="http://beam-mw.com">website</a></p>
+<p><strong>Join our developer community:</strong></p>
+<p><a href="https://gitter.im/beamprivacy/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link">Gitter</a>
+ — 
+<a href="https://gitter.im/beamprivacy/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link">https://gitter.im/beamprivacy/Lobby?</a></p>
+<p><strong>Telegram:</strong></p>
+<p>__</p>
+<p><a href="https://t.me/BeamPrivacy">t.me/BeamPrivacy</a></p>
+<p><strong>Reddit:</strong></p>
+<p>__</p>
+<p><a href="https://www.reddit.com/r/beamprivacy/">reddit.com/r/beamprivacy/</a></p>
+<p><strong>Twitter:</strong></p>
+<p><a href="http://twitter.com/beamprivacy">twitter.com/beamprivacy</a></p>
+<p><strong>Discord</strong>
+ : 
+<a href="https://discord.gg/BHZvAhg">discord.gg/BHZvAhg</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> What’s the difference between Monero, Zcash, and BEAM?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/whats-the-difference-between-monero-zcash-and-beam/86aba6d03b05423088d273057c576a82/a</li>
+<li><strong>Kauri original author:</strong> Beni Issembert (@bissembert)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-23</li>
+<li><strong>Kauri original tags:</strong> mimblewimble, zcash, monero, privacy, privacy-blockchain, privacy-coin</li>
+<li><strong>Kauri original hash:</strong> QmR43q5epSu3K7Wf4rB31oScNM4rg5ksSNg6DTadBzGAuD</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../dharma--a-generic-protocol-for-tokenized-debt-iss/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../dharma--a-generic-protocol-for-tokenized-debt-iss/" class="btn btn-xs btn-link">
+        Dharma  A Generic Protocol for  Tokenized Debt Issuance
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../claiming-your-dns-on-ens-via-web-%2833--the-code%29/" class="btn btn-xs btn-link">
+        Claiming your DNS on ENS via Web (3/3  The code)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/what-s-the-difference-between-monero-zcash-and-be.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

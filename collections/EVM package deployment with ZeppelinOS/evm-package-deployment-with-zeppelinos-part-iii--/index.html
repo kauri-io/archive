@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/EVM%20package%20deployment%20with%20ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>EVM package deployment with ZeppelinOS - Part III  Linking to mainnet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "EVM package deployment with ZeppelinOS - Part III  Linking to mainnet", url: "#_top", children: [
+              {title: "Pulling it all together", url: "#pulling-it-all-together" },
+              {title: "Testing", url: "#testing" },
+              {title: "Recap", url: "#recap" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="evm-package-deployment-with-zeppelinos-part-iii-linking-to-mainnet">EVM package deployment with ZeppelinOS - Part III  Linking to mainnet<a class="headerlink" href="#evm-package-deployment-with-zeppelinos-part-iii-linking-to-mainnet" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQUpQndFnhaYe7NChTVA8mxuvS8nWRU521YtrRawfqHvx" /></p>
+<h3 id="pulling-it-all-together">Pulling it all together<a class="headerlink" href="#pulling-it-all-together" title="Permanent link"></a></h3>
+<p>Now that you've created your first EVM package, let's go through the
+steps you would take to link it to your project as if you were linking
+directly from NPM. These commands you already know, so I'll just run
+through them quickly:</p>
+<pre><code class="language-shell">mkdir myproject2
+cd myproject2
+
+npm init -y
+zos init myproject2
+npm install truffle@5.0.1
+</code></pre>
+<p>Now we need to link the NPM package:</p>
+<pre><code class="language-shell">zos link &lt;&lt;name of your npm package&gt;&gt;
+</code></pre>
+<p>This will install your NPM package and add it to your <strong>zos.json</strong> file
+as a dependency. You will also now find your linked contract in the
+<em>node modules</em> folder. Open it up and you will see the ZeppelinOS
+project configuration files along with your <em>contract</em> and <em>build</em>
+folders.</p>
+<p>For convenience, I've already deployed our linked list to NPM, so if you
+don't want to deploy your own, you can use:</p>
+<pre><code class="language-shell">zos link zos-linkedlist
+</code></pre>
+<h3 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link"></a></h3>
+<p>Return to your <em>myproject2</em> top level, and create a new contract to test
+the linked <code>LinkedList</code> contract. In your <em>contracts</em> folder, make a new
+contract called <em>QuickContract.sol</em>. Note that for the import of the
+LinkedList NPM module, I refer to the folder by the name "LinkedList."
+As you will not be able to publish your NPM package under that name, be
+sure to reference the module name according to the name you gave your
+NPM package.</p>
+<pre><code>pragma solidity &gt;=0.4.24 &lt;&gt;0.6.0;
+import &quot;zos-linkedlist/contracts/LinkedList.sol&quot;;
+//The NPM package name will have it's own folder under modules
+
+contract QuickContract {
+    LinkedList private _linkedlist;
+
+    function setLinkedList(LinkedList linkedlist) external {
+        _linkedlist = linkedlist;
+    }
+
+    function getHead() public view returns (bytes32) {
+        bytes32 _node = _linkedlist.head();
+        return _node;
+    }
+
+    function addNode(string memory _data) public {
+        _linkedlist.addNode(_data);
+    }
+}
+
+</code></pre>
+<p>This is a fairly simple contract designed to test the basic functions of
+the <em>LinkedList.sol</em> contract. Note that the first function
+<code>setLinkedList()</code> takes an instance of <code>LinkedList</code> as an address. This is
+how the <code>QuickContract</code> knows where the <code>LinkedList</code> contract is deployed,
+but remember, this address will actually be the <strong>proxy</strong> contract, which
+will serve as the permanent address for the contract but actually points
+to the <code>LinkedList</code> implementation we deployed earlier. When we call into
+the proxy, the proxy will forward the contract call to the logic code as
+managed by ZeppelinOS. To upgrade your contract, you can tell the proxy
+to point to a new logic contract, keeping the same address but with new
+logic. As upgradable smart contracts are outside of the scope of this
+tutorial, I encourage <a href="https://docs.zeppelinos.org/docs/upgrading.html?utm_campaign=zos-tutorial-evmpackages&amp;utm_medium=blog&amp;utm_source=wordpress">you to see this article for more information</a>.</p>
+<p>Make sure you have your development blockchain running, as follows:</p>
+<pre><code class="language-shell">ganache-cli --port 9545 --deterministic
+</code></pre>
+<p>And then start a new session:</p>
+<pre><code class="language-shell">zos session --network local --from &lt;&lt;your_10th_Ganache_address_here&gt;&gt; --expires 3600
+</code></pre>
+<p>Now, from the top level of our project, we're going to add QuickContract
+to the project:</p>
+<pre><code class="language-shell">zos add QuickContract
+</code></pre>
+<p>The next command will push our changes to the blockchain:</p>
+<pre><code class="language-shell">zos push --deploy-dependencies --network local
+</code></pre>
+<p>Let's take a quick look at the flag <code>--deploy-dependencies</code> while we have
+deployed our NPM contract to the Ethereum mainnet. For testing purposes,
+we're testing again on our local blockchain. ZeppelinOS will need to
+also deploy its own copy of the <em>LinkedList.sol</em> to this development
+blockchain in order to link to it. We only need to do this in cases
+where the dependencies are not already deployed on our blockchain (since
+we just created it when we started Ganache!), and we only need to do it
+once. If you have successfully deployed to the mainnet, you will not
+need to do this again.</p>
+<p>As before, you need to create an instance of our contract:</p>
+<pre><code class="language-shell">zos create QuickContract
+</code></pre>
+<p>Be sure to call the <em>LinkedList.sol</em> contract initializer (ZeppelinOS
+will remind you if you forget):</p>
+<pre><code class="language-shell">zos create zos-linkedlist/LinkedList --init initialize --args &quot;MyList&quot;
+</code></pre>
+<p>Note that after <code>zos create</code>, I have included the <em>node_modules</em> folder
+where <em>LinkedList.sol</em> has been installed via NPM.</p>
+<p>Now we can test the contract:</p>
+<pre><code class="language-shell">npx truffle console --network local
+</code></pre>
+<p>First, create an instance of our QuickContract:</p>
+<pre><code class="language-shell">truffle(local)&gt;
+quickContract = await QuickContract.at('&lt;QuickContract-contract-address&gt;')
+</code></pre>
+<p>Then link the contract by setting the address of our LinkedList
+contract:</p>
+<pre><code class="language-shell">truffle(local)&gt;
+quickContract.setLinkedList('&lt;LinkedList-address&gt;')
+</code></pre>
+<p>Remember that you can find your "<QuickContract-contract-address>" and
+"<LinkedList-address>" inside your <em>zos.<networkname>.json</em> file.</p>
+<p>Time to test! First, check if a head exists:</p>
+<pre><code class="language-shell">truffle(local)&gt; quickContract.getHead()
+
+0x0000000000000000000000000000000000000000000000000000000000000000
+</code></pre>
+<p>Now try adding a node:</p>
+<pre><code class="language-shell">truffle(local)&gt; quickContract.addNode(&quot;Hello World!&quot;)
+</code></pre>
+<p>And now get the head again:</p>
+<pre><code class="language-shell">truffle(local)&gt; quickContract.getHead()
+
+0xcfbf767713316a02071074289829821d60f486eee26333765c344cea90478d1e
+
+// The actual bytes32 response will be unique to your project
+</code></pre>
+<p>It works!</p>
+<h3 id="recap">Recap<a class="headerlink" href="#recap" title="Permanent link"></a></h3>
+<p>That brings us to the end of the tutorial. Just to recap, in this
+tutorial you:</p>
+<ul>
+<li>learned what EVM packages are for, how they can be used, and how to
+  deploy them.</li>
+<li>wrote a basic (but very useful!) linked list data structure with
+  Solidity.</li>
+<li>added the <em>LinkedList.sol</em> contract to your ZeppelinOS project.</li>
+<li>tested your linked list by deploying the <em>LinkedList.sol</em> contract
+  and creating an instance to test against using ZeppelinOS and
+  Truffle.</li>
+<li>published your <em>LinkedList.sol</em> contract to the Ethereum mainnet
+  and published it on NPM for others to use.</li>
+<li>created a new project from scratch, linking your deployed LinkedList
+  to our test project.</li>
+<li>tested your new project using Truffle, and sure enough, it works!</li>
+</ul>
+<p>Good luck with your projects! Have any questions or comments? Shoot me
+an
+<a href="https://blog.zeppelinos.org/evm-package-deployment-with-zeppelinos-part-iii-linking-to-mainnet/dennison@zeppelin.solution">email</a>
+or follow me on <a href="https://twitter.com/dennisonbertram">Twitter</a>.</p>
+<p><em>Thanks to <a href="https://twitter.com/smpalladino">Santiago Palladino</a> for
+reading early drafts and providing feedback.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> EVM package deployment with ZeppelinOS - Part III  Linking to mainnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/evm-package-deployment-with-zeppelinos-part-iii-li/28d6318d3afb483286aec2243cffd8a3/a</li>
+<li><strong>Kauri original author:</strong> Dennison Bertram (@dennisonbertram1)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-07</li>
+<li><strong>Kauri original tags:</strong> zeppelinos</li>
+<li><strong>Kauri original hash:</strong> Qmcs4J3y2HuWT7b3LgRrdRKooYQ4ccNKvEEFKyyKuFf8vS</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../ETHDenver/using-kauri-at-the-ethdenver-hackathon/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../ETHDenver/using-kauri-at-the-ethdenver-hackathon/" class="btn btn-xs btn-link">
+        Using Kauri at the ETHDenver Hackathon
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../evm-package-deployment-with-zeppelinos-part-ii--d/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../evm-package-deployment-with-zeppelinos-part-ii--d/" class="btn btn-xs btn-link">
+        EVM package deployment with ZeppelinOS - Part II  Deploying and Testing a LinkedList Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/EVM package deployment with ZeppelinOS/evm-package-deployment-with-zeppelinos-part-iii--.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

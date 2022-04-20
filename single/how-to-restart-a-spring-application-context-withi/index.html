@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/how-to-restart-a-spring-application-context-withi/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to Restart a Spring Application Context within a JUnit test - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to Restart a Spring Application Context within a JUnit test", url: "#_top", children: [
+              {title: "The Problem", url: "#the-problem" },
+              {title: "The Solution", url: "#the-solution" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-restart-a-spring-application-context-within-a-junit-test">How to Restart a Spring Application Context within a JUnit test<a class="headerlink" href="#how-to-restart-a-spring-application-context-within-a-junit-test" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSfF92rBHgqKaCdiwSjY9H5HcDUYj67WiqWCeyNsMh5Qr" /></p>
+<h3 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link"></a></h3>
+<p>When attempting to write some failover tests to verify the resilience features in <a href="https://github.com/ConsenSys/eventeum">Eventeum</a>, there didn't seem to be an easy way to restart a Spring application in the middle of an integration test.  Spring provides the <code>@DirtiesContext</code> annotation in order to rebuild the context before or after a test run, but this is not of much use for service failure testing unless you write a suite of tests that depend on each other, which is generally regarded as a bad practice.</p>
+<h3 id="the-solution">The Solution<a class="headerlink" href="#the-solution" title="Permanent link"></a></h3>
+<p>After doing a deep-dive into how the <code>SpringRunner</code> works behind the scenes, I managed to come up with a solution that enabled me to programmatically restart a service within a JUnit 4 test.</p>
+<h4 id="springrestarter-singleton">SpringRestarter singleton<a class="headerlink" href="#springrestarter-singleton" title="Permanent link"></a></h4>
+<p>A 'SpringRestarter' singleton class is defined which is the entry point used to restart the Spring application context within a test method.</p>
+<pre><code class="language-java">public class SpringRestarter {
+
+    private static SpringRestarter INSTANCE = null;
+
+    private TestContextManager testContextManager;
+
+    public static SpringRestarter getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new SpringRestarter();
+        }
+
+        return INSTANCE;
+    }
+
+    public void init(TestContextManager testContextManager) {
+        this.testContextManager = testContextManager;
+    }
+
+    public void restart(Runnable stoppedLogic) {
+        testContextManager.getTestContext().markApplicationContextDirty(DirtiesContext.HierarchyMode.EXHAUSTIVE);
+
+        if (stoppedLogic != null) {
+            stoppedLogic.run();
+        }
+
+        testContextManager.getTestContext().getApplicationContext();
+        reinjectDependencies();
+    }
+
+    private void reinjectDependencies()  {
+        testContextManager
+                .getTestExecutionListeners()
+                .stream()
+                .filter(listener -&gt; listener instanceof DependencyInjectionTestExecutionListener)
+                .findFirst()
+                .ifPresent(listener -&gt; {
+                    try {
+                        listener.prepareTestInstance(testContextManager.getTestContext());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+    }
+}
+</code></pre>
+<h5 id="init">init(..)<a class="headerlink" href="#init" title="Permanent link"></a></h5>
+<p>The SpringRestarter needs to be initialised with a <code>TestContextManager</code> object.  The <code>TestContext</code> contains the application context restart code which is used by the <code>@DirtiesContext</code> annotation, which we will also be using in our implementation.</p>
+<h5 id="restart">restart(..)<a class="headerlink" href="#restart" title="Permanent link"></a></h5>
+<p>This is the method called by tests that wish to restart the application context.  It delegates stopping the context to the <code>testContext.markApplicationContextDirty(..)</code> method, and subsequently restarts the context by calling <code>getTestContext().getApplicationContext()</code>.  There is also an optional <code>stoppedLogic</code> method argument which can contain any logic that should be run after the context has been stopped, before it is restarted again.</p>
+<p>The <code>reinjectDependencies()</code> method is then called...</p>
+<h5 id="reinjectdependencies">reinjectDependencies()<a class="headerlink" href="#reinjectdependencies" title="Permanent link"></a></h5>
+<p>As spring dependencies can be autowired into a test class, we need to reinject these dependencies after restarting.  This method is slightly hacky, but rather then duplicating the code within the <code>DependencyInjectionTestExecutionListener</code> <code>prepareTestInstance</code> method, we iterate through all the configured test listeners until we find the correct listener and call <code>prepareTestInstance(..)</code> on that listener.  This will then reinject any autowired Spring beans into your test.</p>
+<h4 id="extending-springjunit4classrunner">Extending SpringJUnit4ClassRunner<a class="headerlink" href="#extending-springjunit4classrunner" title="Permanent link"></a></h4>
+<p>We need to initialise the <code>SpringRestarter</code> singleton with a <code>TestContextManager</code> and this class is where this object is created, so it also makes sense to <code>init</code> the singleton here.</p>
+<pre><code class="language-java">public class RestartingSpringJUnit4ClassRunner extends SpringJUnit4ClassRunner {
+
+    public RestartingSpringJUnit4ClassRunner(Class&lt;?&gt; clazz) throws InitializationError {
+        super(clazz);
+    }
+
+    @Override
+    protected Object createTest() throws Exception {
+        final Object testInstance = super.createTest();
+
+        SpringRestarter.getInstance().init(getTestContextManager());
+
+        return testInstance;
+    }
+}
+</code></pre>
+<p>We override the <code>createTest(..)</code> method (called to initialise the test class); after invoking the super class method to create the test instance, the <code>SpringRestarter</code> is initialised with the <code>TestContextManager</code>.</p>
+<h4 id="extending-springrunner">Extending SpringRunner<a class="headerlink" href="#extending-springrunner" title="Permanent link"></a></h4>
+<p><code>SpringRunner</code> extends <code>SpringJUnit4ClassRunner</code>, and as we have now created a new extended version of this class, we also need to extend the <code>SpringRunner</code> class.</p>
+<pre><code class="language-java">public class RestartingSpringRunner extends RestartingSpringJUnit4ClassRunner {
+
+    public RestartingSpringRunner(Class&lt;?&gt; clazz) throws InitializationError {
+        super(clazz);
+    }
+}
+</code></pre>
+<h4 id="using-within-a-junit-4-test">Using Within a JUnit 4 Test<a class="headerlink" href="#using-within-a-junit-4-test" title="Permanent link"></a></h4>
+<p>Once these building blocks are in place, its really quite simple to restart the Spring application context within your integration tests.</p>
+<pre><code class="language-java">@RunWith(RestartingSpringRunner.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+public class MyIntegrationTests {
+
+    public void myRestartingTest() {
+        //Some test logic before the context restart
+
+        SpringRestarter.getInstance().restart(() -&gt; {/* Some logic after context stopped */});
+
+        //Some test logic after the context restart
+    }
+}
+</code></pre>
+<p>Simply run with the new <code>RestartingSpringBootRunner</code>, and force a context restart by calling <code>restart</code> on the <code>SpringRestarter</code> singleton...thats it!!</p>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Having the ability to restart a Spring application context during an integration test is a very desirable feature, especially when testing the recovery behaviour of your application after it has rebooted.</p>
+<p>This feature can be implemented by making a few trivial extensions to a couple of Spring test classes along with implementing a relatively simple restarter singleton.  It is then very easy to integrate within your JUnit tests. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to Restart a Spring Application Context within a JUnit test</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-restart-a-spring-application-context-within/3251991670674bcf846cc5792c95fc77/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-20</li>
+<li><strong>Kauri original tags:</strong> spring, junit4, junit, java, testing, spring-boot, springboot</li>
+<li><strong>Kauri original hash:</strong> QmcFyNF3HUmFN9Rc47BEYrYoKMWgjKTtZFZTXuMQLRbQDf</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../solving-the-%22the-following-signatures-were-invali/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../solving-the-%22the-following-signatures-were-invali/" class="btn btn-xs btn-link">
+        Solving the "The following signatures were invalid  KEYEXPIRED" apt-get update linux error
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../getting-started-with-caddy-2/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../getting-started-with-caddy-2/" class="btn btn-xs btn-link">
+        Getting started with Caddy 2
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/how-to-restart-a-spring-application-context-withi.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

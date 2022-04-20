@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling/loom-part-1-develop-and-deploy-a-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Loom - Part 1 - Develop and deploy a smart contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Loom - Part 1 - Develop and deploy a smart contract", url: "#_top", children: [
+              {title: "Step 1 - Install Loom on your machine and fund an account", url: "#step-1-install-loom-on-your-machine-and-fund-an-account" },
+              {title: "Step 2: Deploy a contract on the Loom extdev network", url: "#step-2-deploy-a-contract-on-the-loom-extdev-network" },
+              {title: "Step 3: Interact with the contract from the web app", url: "#step-3-interact-with-the-contract-from-the-web-app" },
+              {title: "Notes", url: "#notes" },
+              {title: "Links and resources", url: "#links-and-resources" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="loom-part-1-develop-and-deploy-a-smart-contract">Loom - Part 1 - Develop and deploy a smart contract<a class="headerlink" href="#loom-part-1-develop-and-deploy-a-smart-contract" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdhzPG6wt6YXQQWfBLcGiZriBrZmwniwdrKJ7D7QKKgvR" /></p>
+<p><a href="https://loomx.io/">Loom Network</a> is a Layer 2 scaling solution for Ethereum focusing on social and gaming dApps that require a very high throughput. Loom SDK enables to generate a sidechain called dAppChain using a dPoS consensus optimised for high-scalability. Loom is contributing on Plasma which is a mechanism to securely transfer a digital asset (ERC20 or ERC721) to a mainchain.</p>
+<p>You can run your own DAppChain using the Loom software or connect to a public one (plasma-chain, social-chain or gaming-chain) running under a dPoS Ethereum blockchain to enable scalable dApps.</p>
+<p>For this tutorial, we will create and fund a Loom account, deploy a contract on the External Dev Plasma network called <strong>extdev</strong> and interact with it from a frontend application.</p>
+<h3 id="step-1-install-loom-on-your-machine-and-fund-an-account">Step 1 - Install Loom on your machine and fund an account<a class="headerlink" href="#step-1-install-loom-on-your-machine-and-fund-an-account" title="Permanent link"></a></h3>
+<p>In the first, we will install Loom software on your machine to generate a keypair and fund the account with the Loom faucet.</p>
+<ol>
+<li>Download the executable</li>
+</ol>
+<pre><code>$ wget https://private.delegatecall.com/loom/osx/stable/loom
+$ chmod +x loom
+</code></pre>
+<ol>
+<li>Generate a key pair</li>
+</ol>
+<pre><code>$ ./loom genkey -k priv_key -a pub_key
+local address: 0xc69c707D6bFDfeC42FE221a334b8DAb2A2DD4Cef
+local address base64: xpxwfWv9/sQv4iGjNLjasqLdTO8=
+
+$ ls -l | grep key
+-rw-rw-r-- 1 gjeanmart gjeanmart        88 Oct 24 16:35 priv_key
+-rw-rw-r-- 1 gjeanmart gjeanmart        44 Oct 24 16:35 pub_key
+</code></pre>
+<p><em>The keypair is created under the same folder.</em></p>
+<ol>
+<li>
+<p>Go to the <a href="https://faucet.dappchains.com/">Loom Faucet</a></p>
+</li>
+<li>
+<p>Enter your address generated above</p>
+</li>
+<li>
+<p>Click on <em>Request</em> and wait until you see <strong>100 faucet-karma</strong></p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVvPTJktFDRBxyzSmFJzPXaVgWtG83JvUTLdsWKU5uadK" /></p>
+<h3 id="step-2-deploy-a-contract-on-the-loom-extdev-network">Step 2: Deploy a contract on the Loom extdev network<a class="headerlink" href="#step-2-deploy-a-contract-on-the-loom-extdev-network" title="Permanent link"></a></h3>
+<p>The second step consists in writing a very simple Smart Contract in Solidity and deploy it on the Loom extdev network using Truffle framework.</p>
+<ol>
+<li>Install <a href="https://truffleframework.com/">Truffle</a> on your machine</li>
+</ol>
+<pre><code>$ npm install -g truffle
+</code></pre>
+<ol>
+<li>Initialise your Truffle project</li>
+</ol>
+<pre><code>$ truffle init
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:        truffle compile
+  Migrate:        truffle migrate
+  Test contracts: truffle test
+</code></pre>
+<ol>
+<li>Let’s now write a simple Smart Contract that increments and store a counter</li>
+</ol>
+<p>Create a file in <code>contracts/Counter.sol</code> and paste the following Solidity code</p>
+<pre><code>pragma solidity ^0.4.20;
+
+contract Counter {
+  uint counter;
+
+  constructor() public {
+    counter = 0; // Initialise the counter to 0
+  }
+
+  function increment() public {
+    counter++;
+  }
+
+  function getCounter() public view returns (uint) {
+    return counter;
+  }
+}
+</code></pre>
+<p><em>You can verify that your code compiles correctly with the following command</em> <code>$ truffle compile</code> </p>
+<ol>
+<li>Now, we need to create a deployment script</li>
+</ol>
+<p>Create a file in <code>migrations/2_deploy_contracts.js</code> and paste the following code</p>
+<pre><code>var Counter = artifacts.require(&quot;./Counter.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(Counter);
+};
+</code></pre>
+<ol>
+<li>Finally we need to configure the connection to the Loom extdev network as well as our wallet info</li>
+</ol>
+<p>Install the following JavaScript dependencies:</p>
+<ul>
+<li><a href="https://github.com/trufflesuite/truffle-hdwallet-provider">truffle-hdwallet-provider</a> enables to sign transactions for addresses derived from a 12-word mnemonic</li>
+<li><a href="https://github.com/loomnetwork/loom-truffle-provider">loom-truffle-provider</a> is an adapter that allows Truffle Suite to communicate with Loom DappChain </li>
+<li><a href="https://www.npmjs.com/package/dotenv">dotenv</a> is a module to configure environment variables</li>
+</ul>
+<pre><code>$ npm install truffle-hdwallet-provider loom-truffle-provider dotenv --save-dev
+</code></pre>
+<ol>
+<li>
+<p>Copy your private key from the file previously generated (priv_key)</p>
+</li>
+<li>
+<p>Create a <code>.env</code> in the Truffle project and copy the private key like this</p>
+</li>
+</ol>
+<pre><code>PRIVATE_KEY=&quot;0kwCi...iWNNw==&quot;
+</code></pre>
+<ol>
+<li>Open the file <code>truffle.js</code> and add the following configuration</li>
+</ol>
+<pre><code>require('dotenv').config();
+const LoomTruffleProvider = require('loom-truffle-provider');
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+module.exports = {
+  networks: {
+    extdev: {
+      provider: function() {
+          const privateKey = process.env.PRIVATE_KEY;
+          const chainId = 'extdev-plasma-us1';
+          const writeUrl = 'http://extdev-plasma-us1.dappchains.com:80/rpc';
+          const readUrl = 'http://extdev-plasma-us1.dappchains.com:80/query';;
+          return new LoomTruffleProvider(chainId, writeUrl, readUrl, privateKey)
+      },
+      network_id: 'extdev-plasma-us1'
+    }
+  }
+}
+</code></pre>
+<ol>
+<li>Run the deployment to the Loom extdev network</li>
+</ol>
+<pre><code>$ truffle migrate --network extdev
+
+Using network 'extdev'.
+
+Running migration: 1_initial_migration.js
+  Deploying Migrations...
+  ... 0x67143bb5194d210fcdd5a45fd2d0230662b662689417bc6aee069fc6ddab1341
+  Migrations: 0x93bf3a8a616d4e097d6dfcb12ec868284b1c7624
+Saving successful migration to network...
+  ... 0x4d9c5b64a3bbfe2f57bcd8a069243e212fe050d3ba2f1e72898525d6651b8a04
+Saving artifacts...
+Running migration: 2_deploy_contracts.js
+  Deploying Counter...
+  ... 0x7e790260e05487577d5922326d2646d2268456eb750a368b9bf651bfc56d6478
+  Counter: 0xc6f28cf3303e7246b91d98222e3912b2b87472a0
+Saving successful migration to network...
+  ... 0x8491e69910d78ea4b24e37aaf444920754828eccbc0aeb67a460cccaef3c1d88
+Saving artifacts...
+</code></pre>
+<h3 id="step-3-interact-with-the-contract-from-the-web-app">Step 3: Interact with the contract from the web app<a class="headerlink" href="#step-3-interact-with-the-contract-from-the-web-app" title="Permanent link"></a></h3>
+<p>In the next step, we will develop a simplistic dApp using React, Web3 and Loom-js to interact with the Smart Contract previously deployed on the Loom extdev network</p>
+<ol>
+<li>Initialise a React project</li>
+</ol>
+<pre><code>$ npx create-react-app frontend
+$ cd frontend
+</code></pre>
+<ol>
+<li>
+<p>Install the necessary dependencies</p>
+</li>
+<li>
+<p><a href="https://github.com/ethereum/web3.js/">web3 (1.0.0-beta.34)</a> This is the Ethereum compatible JavaScript API which implements the Generic JSON RPC spec</p>
+</li>
+<li><a href="https://github.com/loomnetwork/loom-js">loom-js</a> is a JavaScript library for building browser apps &amp; NodeJS services that interact with Loom </li>
+</ol>
+<pre><code>$ npm install web3@1.0.0-beta.34 loom-js --save
+</code></pre>
+<ol>
+<li>Edit <code>frontend/package.json</code> and add the following line under the scripts section to access the Truffle contract artifacts from the webapp </li>
+</ol>
+<pre><code>&quot;link-contracts&quot;: &quot;run-script-os&quot;,
+&quot;link-contracts:linux:darwin&quot;: &quot;cd src &amp;&amp; ln -s ../../build/contracts contracts&quot;,
+&quot;link-contracts:win32&quot;: &quot;cd src &amp;&amp; mklink \\D contracts ..\\..\\build\\contracts&quot;
+</code></pre>
+<p><em>The full code of this file is available here: <a href="https://github.com/gjeanmart/kauri-content/blob/master/loom_tutorial_extdev_part1/frontend/package.json">package.json</a></em></p>
+<ol>
+<li>
+<p>Open an edit <code>frontend/src/App.js</code></p>
+</li>
+<li>
+<p>Imports</p>
+</li>
+</ol>
+<pre><code>import Web3 from 'web3'
+import { Client, LocalAddress, CryptoUtils, LoomProvider } from 'loom-js'
+import Counter from './contracts/Counter.json'
+</code></pre>
+<ul>
+<li>Connect to the Loom network with web3 and loom-js</li>
+</ul>
+<pre><code>// Read the user private key (from browser storage or input)
+let privateKey = '0kwCiGaBdTxy...OTCwKcu+5oj1O23uP1uTqqR47liWNNw=='
+
+// Convert the private key into a public key/account address 
+this.publicKey = CryptoUtils.publicKeyFromPrivateKey(CryptoUtils.B64ToUint8Array(privateKey));
+this.currentUserAddress = LocalAddress.fromPublicKey(this.publicKey).toString();
+
+// Connect to a Loom extdev network node
+this.client = new Client(
+  'extdev-plasma-us1',
+  'wss://extdev-plasma-us1.dappchains.com/websocket',
+  'wss://extdev-plasma-us1.dappchains.com/queryws'
+);
+this.client.on('error', msg =&gt; {
+  console.error('Error on connect to client', msg)
+});
+
+// Instantiate a Loom Web3Provider to sign and send transaction
+this.web3Provider = new LoomProvider(this.client, CryptoUtils.B64ToUint8Array(privateKey));
+this.web3 = new Web3(this.web3Provider)
+</code></pre>
+<ul>
+<li>Use web3 to load the smart contract Truffle artifacts</li>
+</ul>
+<pre><code>
+// Load the contract instance
+this.counter = new this.web3.eth.Contract(Counter.abi, Counter.networks['extdev-plasma-us1'].address, {
+  from: this.currentUserAddress
+})
+</code></pre>
+<ul>
+<li>Interaction with the smart contract </li>
+</ul>
+<pre><code>// Get the counter value
+this.counter.methods.getCounter().call().then((value) =&gt; {
+  return this.setState({ value, loading: false })
+})
+
+// Increment the counter 
+increment() {
+  this.setState({ loading: true })
+    this.counter.methods.increment().send({ from: this.currentUserAddress }).then((r) =&gt; {
+      this.counter.methods.getCounter().call().then((value) =&gt; {
+        return this.setState({ value, loading: false })
+    })
+  })
+}
+</code></pre>
+<p><em>The full code of this file is available here: <a href="https://github.com/gjeanmart/kauri-content/blob/master/loom_tutorial_extdev_part1/frontend/src/App.js">App.js</a></em></p>
+<ol>
+<li>Create a link to the Truffle JSON artefacts</li>
+</ol>
+<pre><code>$ npm run link-contracts:linux:darwin
+</code></pre>
+<ol>
+<li>Start the webserver</li>
+</ol>
+<pre><code>$ npm start
+</code></pre>
+<ol>
+<li>Result</li>
+</ol>
+<p>After copy-pasting our private key in the input field, the application is able to connect to the Loom extdev node to interact with the contract (read and increment the counter).</p>
+<p><img alt="" src="https://i.imgur.com/gMKzcX0.gif" /></p>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link"></a></h3>
+<p><strong>Key Management</strong>: There is currently no wallet (such as Metamask) with Loom network, the enduser has to handle the private key manually (browser storage) and the dAppChain provider must most likely provide a way to recover a private key.</p>
+<p>You can generate and manipulate a private key using loom-js like this:</p>
+<pre><code>// Generate a private key
+const privateKey = CryptoUtils.generatePrivateKey(); 
+
+// Retrieve the public key
+const publicKey = CryptoUtils.publicKeyFromPrivateKey(privateKey); 
+
+// Convert public key to address
+const address = LocalAddress.fromPublicKey(publicKey).toString(); 
+</code></pre>
+<p><strong>karma</strong> : is a ERC20 token, sybil resistant, that can be used to prevent spam attack via a reputation-based transaction limiting system.</p>
+<h3 id="links-and-resources">Links and resources<a class="headerlink" href="#links-and-resources" title="Permanent link"></a></h3>
+<p><strong>extdev</strong>
+* Network ID: extdev-plasma-us1
+* Faucet: https://faucet.dappchains.com/
+* Documentation: https://loomx.io/developers/docs/en/phaser-sdk-demo-websocket.html</p>
+<p><strong>Code</strong>: https://github.com/gjeanmart/kauri-content/tree/master/loom_tutorial_extdev_part1</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Loom - Part 1 - Develop and deploy a smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/loom-part-1-develop-and-deploy-a-smart-contract/6f807cc4fe01479b8b14bd5625b68191/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-07-05</li>
+<li><strong>Kauri original tags:</strong> loom, sidechain</li>
+<li><strong>Kauri original hash:</strong> QmW3jg3nKMzThkuZnNq7TLhrH6S3Q3ekjKU3W5C9hzNFXg</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../raiden--generalized-state-channels/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../raiden--generalized-state-channels/" class="btn btn-xs btn-link">
+        Raiden  Generalized State Channels
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../poa-part-1-develop-and-deploy-a-smart-contract/" class="btn btn-xs btn-link">
+        POA - Part 1 - Develop and deploy a smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling/loom-part-1-develop-and-deploy-a-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

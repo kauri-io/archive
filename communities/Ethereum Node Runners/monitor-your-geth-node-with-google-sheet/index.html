@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Ethereum%20Node%20Runners/monitor-your-geth-node-with-google-sheet/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Monitor your Geth node with Google Sheet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Monitor your Geth node with Google Sheet", url: "#_top", children: [
+              {title: "Capture and store geth and system metrics every 15 min", url: "#capture-and-store-geth-and-system-metrics-every-15-min" },
+              {title: "Render the data into a spreadsheet", url: "#render-the-data-into-a-spreadsheet" },
+              {title: "Congrats", url: "#congrats" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="monitor-your-geth-node-with-google-sheet">Monitor your Geth node with Google Sheet<a class="headerlink" href="#monitor-your-geth-node-with-google-sheet" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdTDdL7AmkJNw2aM7hP5dUNbLMt3Y34iZFovbgkRdJ2Hk" /></p>
+<p>In this article, I will explain how to monitor a Geth node and keep track of the syncing process very easily with a <strong>CronJob</strong> and <strong>Google Sheet</strong></p>
+<p><br /></p>
+<h3 id="capture-and-store-geth-and-system-metrics-every-15-min">Capture and store geth and system metrics every 15 min<a class="headerlink" href="#capture-and-store-geth-and-system-metrics-every-15-min" title="Permanent link"></a></h3>
+<p>In the first step, we are configuring a cronjob (15 min scheduled task) on our Linux system where Geth is installed to capture some interesting metrics about the syncing state of Geth (blocks, states, peers) and the operating system (e.g CPU, memory, disk, load average).</p>
+<p>Use the command <code>$ crontab -e</code> to edit the crontab file and add the following line at the end to capture all the metrics and print them into a semi-column seperated CSV file.</p>
+<pre><code class="language-shell">$ crontab -e
+
+*/15 * * * * echo $(date --iso-8601=seconds)\;$(/usr/local/bin/geth --verbosity 0 --datadir /mnt/ssd/ethereum/ --exec 'var a = admin.peers; var s = eth.syncing; s.currentBlock + &quot;;&quot; + s.highestBlock + &quot;;&quot; + (s.highestBlock-s.currentBlock) + &quot;;&quot; + s.pulledStates + &quot;;&quot; + s.knownStates + &quot;;&quot; + a.length' attach | tr -d &quot;\&quot;&quot;)\;$(df /dev/sda --output=used | sed -n 2p)\;$(iostat /dev/sda -d -x | awk {'print $4&quot;;&quot;$5&quot;;&quot;$16'} | sed -n 4p)\;$(free | awk {'print $3&quot;;&quot;$2'} | sed -n 2p)\;$(free | awk {'print $3&quot;;&quot;$2'} | sed -n 3p)\;$(cat /proc/loadavg | awk {'print $1&quot;;&quot;$2&quot;;&quot;$3'})\;$(iostat -c | sed -n 4p | awk {'print $1'})\;$(cat /sys/devices/virtual/thermal/thermal_zone?/temp | sed -n 1p | awk '{ print $1/1000 }') &gt;&gt; /home/pi/geth_metrics.csv
+</code></pre>
+<p>Please find below a detailed explanation of each metrics:</p>
+<ul>
+<li><code>date --iso-8601=seconds</code> prints the current date and time</li>
+<li><code>/usr/local/bin/geth --verbosity 0 --datadir /mnt/ssd/ethereum/ --exec 'var a = admin.peers; var s = eth.syncing; s.currentBlock + ";" + s.highestBlock + ";" + (s.highestBlock-s.currentBlock) + ";" + s.pulledStates + ";" + s.knownStates + ";" + a.length' attach | tr -d "\""</code> connects to geth (<strong><code>--datadir</code> might differ</strong>) and retrieve the following information: number of peers connected, current block, highest block, pulled states count, known states counts</li>
+<li><code>df /dev/sda --output=used | sed -n 2p</code> prints the used disk space</li>
+<li><code>iostat /dev/sda -d -x | awk {'print $4";"$5";"$16'} | sed -n 4p</code> returns the current disk speed (read/write) as well as the percentage utilization of the disk</li>
+<li><code>free | awk {'print $3";"$2'} | sed -n 2p</code> prints the used and total memory of the system</li>
+<li><code>free | awk {'print $3";"$2'} | sed -n 3p</code> prints the used and total swap of the system</li>
+<li><code>cat /proc/loadavg | awk {'print $1";"$2";"$3'}</code> returns the current load average (1min, 5min, 15min)</li>
+<li><code>iostat -c | sed -n 4p | awk {'print $1'}</code> prints the current CPU percentage utilization</li>
+<li><code>cat /sys/devices/virtual/thermal/thermal_zone?/temp | sed -n 1p | awk '{ print $1/1000 }'</code> gives the CPU temperature`</li>
+</ul>
+<p><em>You can replace <code>/home/pi/geth_metrics.csv</code> by any files on the system.</em></p>
+<p><br /></p>
+<p>As a result, every 15 min, the CSV file will be appended with new metrics.</p>
+<pre><code>$ cat /home/pi/geth_metrics.csv
+
+2019-07-18T21:26:35+00:00;101961;8177084;8075123;161917;180980;2;253504;0.62;117.12;0.04;778208;3902632;0;1048572;0.38;1.00;1.19;12.67;73.333
+2019-07-18T21:30:01+00:00;159477;8177085;8017608;275001;278183;1;268872;0.56;202.80;0.07;1044764;3902632;0;1048572;0.60;0.84;1.08;12.24;73.888
+2019-07-18T21:33:33+00:00;250481;8177085;7926604;428601;433461;2;349988;0.52;371.21;0.15;1116412;3902632;0;1048572;1.71;1.09;1.12;12.35;81.111
+2019-07-18T21:45:01+00:00;627247;8177085;7549838;968580;984164;2;770176;0.44;1158.09;1.05;1392844;3902632;0;1048572;1.57;1.56;1.38;13.72;81.111
+2019-07-18T22:00:01+00:00;1082609;8130757;7048148;1426403;1435807;4;1591660;0.58;2266.40;9.37;1924360;3902632;94180;1048572;4.52;3.60;2.46;16.52;85
+2019-07-18T22:15:01+00:00;1567205;8130757;6563552;2057942;2073322;4;2634280;53.69;3269.29;17.25;1933836;3902632;88048;1048572;5.23;4.92;3.96;21.52;85
+2019-07-18T22:30:01+00:00;1989925;8130757;6140832;2483400;2495245;5;3853104;136.76;3859.22;24.92;2338120;3902632;93864;1048572;5.22;5.23;4.79;24.50;85
+2019-07-18T22:45:01+00:00;2299173;8130757;5831584;2920692;2929477;4;5301752;361.05;4269.15;30.82;2176872;3902632;119088;1048572;2.85;4.18;4.56;25.60;86.25
+2019-07-18T23:15:01+00:00;2906725;8177462;5270737;4027097;4044446;5;6535608;657.72;4665.52;40.31;2398636;3902632;150656;1048572;5.69;5.09;4.78;26.53;84.444
+2019-07-18T23:30:01+00:00;3159185;8177462;5018277;4536810;4546514;5;7505728;828.10;4816.98;44.13;2413820;3902632;163456;1048572;6.61;5.24;4.80;26.54;85.625
+2019-07-18T23:45:01+00:00;3361105;8177462;4816357;5048547;5067699;5;8213208;1028.79;4985.85;46.91;2571084;3902632;311896;1048572;6.79;5.02;4.68;26.51;83.333
+2019-07-19T00:00:01+00:00;3477846;8177462;4699616;5342584;5357046;7;8652872;1163.52;5077.63;49.44;2612572;3902632;245560;1048572;2.26;2.69;3.72;26.00;83.888
+2019-07-19T00:15:01+00:00;3653603;8177462;4523859;5552829;5563140;6;9690200;1247.86;5207.35;51.82;2619068;3902632;152392;1048572;1.32;2.95;3.94;25.91;80.555
+2019-07-19T00:30:02+00:00;3739227;8177462;4438235;5654646;5667718;8;10495560;1344.81;5289.54;53.96;2725264;3902632;150148;1048572;6.14;4.95;4.02;25.23;77.5
+2019-07-19T00:45:01+00:00;3765126;8177462;4412336;5702220;5717080;11;11417168;1435.85;5333.76;55.48;1745124;3902632;153204;1048572;1.78;1.79;2.75;24.23;73.888
+2019-07-19T01:00:02+00:00;3843678;8177462;4333784;5820804;5890068;9;11633704;1523.96;5406.01;57.08;2412956;3902632;164576;1048572;1.41;2.65;3.18;23.96;80.555
+2019-07-19T01:15:01+00:00;3888203;8177462;4289259;6108650;6136919;11;12499780;1624.54;5543.22;57.88;2689468;3902632;163144;1048572;5.75;4.31;3.36;23.63;83.888
+2019-07-19T01:30:01+00:00;3916105;8177462;4261357;6241422;6258778;12;12976984;1742.07;5643.39;58.81;2853616;3902632;165184;1048572;5.34;3.03;2.83;23.01;85
+</code></pre>
+<p><br /></p>
+<h3 id="render-the-data-into-a-spreadsheet">Render the data into a spreadsheet<a class="headerlink" href="#render-the-data-into-a-spreadsheet" title="Permanent link"></a></h3>
+<p>Now we have a consistent way to capture periodically our Geth and system metrics into a CSV, we can download this file and upload it to a Google Spreadsheet template.</p>
+<ol>
+<li>Download the CSV file</li>
+</ol>
+<p>Connect via SSH using SCP to download the CSV file.</p>
+<pre><code class="language-shell">$ scp user@xx.xx.xx.xx:/home/pi/geth_metrics.csv ~/Downloads/geth_metrics.csv
+</code></pre>
+<ol>
+<li>Create a copy of the spreadsheet template</li>
+</ol>
+<p>Open the <a href="https://docs.google.com/spreadsheets/d/1lxJ5_v3ozJ7YbN1JlglYvF7x8ssRsPLOrxSIX-obvow/edit?usp=sharing">template</a> and create a copy</p>
+<p><img alt="" src="https://i.imgur.com/TVu2khM.png" /></p>
+<ol>
+<li>
+<p>Import the CSV data into the <code>raw</code> sheet</p>
+</li>
+<li>
+<p>Select the tab sheet called <code>raw</code></p>
+</li>
+<li>Click on <em>File &gt; Import</em></li>
+<li>Go to the <em>Upload</em> tab</li>
+<li>Select the file <code>geth_metrics.csv</code> downloaded</li>
+<li>In the popup<ul>
+<li>Import location: Replace current sheet</li>
+<li>Separator type: custom <code>;</code></li>
+</ul>
+</li>
+</ol>
+<p><img alt="" src="https://i.imgur.com/JfNlSeo.png" /></p>
+<ul>
+<li>
+<p>Click on "Import Data"</p>
+</li>
+<li>
+<p>Once imported, you should be able to navigate to the "Table" sheet and visualise every single metrics over time</p>
+</li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/Iqsa7dS.png" /></p>
+<p>In the "Charts" sheet, you can visualise diagrams for each metrics</p>
+<p><img alt="" src="https://i.imgur.com/bEyHJAV.png" /></p>
+<p><strong>Replay those steps every time you want to update the Geth metrics dashboard</strong>  </p>
+<p><br /></p>
+<h3 id="congrats">Congrats<a class="headerlink" href="#congrats" title="Permanent link"></a></h3>
+<p>You can now:</p>
+<ul>
+<li>Track precisely the performance of your Geth node</li>
+<li>Observe the system health, investigate unusual behaviour and find the root cause of a problem</li>
+<li>Shill on Twitter your nice diagrams rather than dirty system logs </li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Monitor your Geth node with Google Sheet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/monitor-your-geth-node-with-google-sheet/5ab5c4d558e04a73accebc652ef2246b/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-05-03</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, sheet, monitoring, cronjob</li>
+<li><strong>Kauri original hash:</strong> QmYU9ZXxziht9pnLhFyRhzfkzf4tD1GmMEGCBaHtXX55id</li>
+<li><strong>Kauri original checkpoint:</strong> QmZUeDv5bCt7vrRCQbwPMQf812VWip98dcsMJHdYdaiQ3d</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../running-an-ethereum-full-node-on-a-raspberrypi-4-/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../running-an-ethereum-full-node-on-a-raspberrypi-4-/" class="btn btn-xs btn-link">
+        Running an Ethereum Full Node on a RaspberryPi 4 (model B)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../supported-hardware-to-run-an-ethereum-node/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../supported-hardware-to-run-an-ethereum-node/" class="btn btn-xs btn-link">
+        Supported hardware to run an Ethereum node
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Ethereum Node Runners/monitor-your-geth-node-with-google-sheet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

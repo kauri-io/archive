@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/DevOps/lint-your-solidity-contracts-with-ethlint/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Lint your Solidity contracts with Ethlint - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Lint your Solidity contracts with Ethlint", url: "#_top", children: [
+              {title: "Install", url: "#install" },
+              {title: "Usage", url: "#usage" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="lint-your-solidity-contracts-with-ethlint">Lint your Solidity contracts with Ethlint<a class="headerlink" href="#lint-your-solidity-contracts-with-ethlint" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdB7bqHShAvbtpEeg8L57FW4t1BA7kHKu2cHhUhbH6Lcr" /></p>
+<p>Ethlint (Formerly Solium) analyzes your Solidity code for style &amp; security issues and fixes them.</p>
+<h3 id="install">Install<a class="headerlink" href="#install" title="Permanent link"></a></h3>
+<pre><code class="language-bash">npm install -g ethlint
+solium -V
+</code></pre>
+<p>For backward-compatibility, you can still use <code>npm install -g solium</code>.</p>
+<p>If you're currently using the <code>solium</code> package for <code>npm install</code>, it is highly recommended that you move to <code>ethlint</code>. The <code>solium</code> package will not receive updates after December, 2019. There are no differences between the updates pushed to <code>ethlint</code> and <code>solium</code> packages.</p>
+<h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link"></a></h3>
+<p>In the root directory of your DApp:</p>
+<pre><code class="language-bash">solium --init
+</code></pre>
+<p>This creates 2 files for you:
+- <code>.soliumignore</code> - contains names of files and directories to ignore while linting
+- <code>.soliumrc.json</code> - contains configuration that tells Solium how to lint your project. You should modify this file to configure rules, plugins and sharable configs.</p>
+<p><code>.soliumrc.json</code> looks like:</p>
+<pre><code class="language-json">{
+  &quot;extends&quot;: &quot;solium:recommended&quot;,
+  &quot;plugins&quot;: [&quot;security&quot;],
+  &quot;rules&quot;: {
+    &quot;quotes&quot;: [&quot;error&quot;, &quot;double&quot;],
+    &quot;indentation&quot;: [&quot;error&quot;, 4],
+    &quot;linebreak-style&quot;: [&quot;error&quot;, &quot;unix&quot;]
+  }
+}
+</code></pre>
+<p>To know which lint rules Solium applies for you, see <a href="http://ethlint.readthedocs.io/en/latest/user-guide.html#list-of-style-rules">Style rules</a> and <a href="https://www.npmjs.com/package/solium-plugin-security#list-of-rules">Security rules</a>.</p>
+<hr />
+<p><strong>NOTE</strong></p>
+<p>Solium does <strong>not</strong> strictly adhere to the Solidity <a href="http://solidity.readthedocs.io/en/latest/style-guide.html">Style Guide</a>. It aims to promote coding practices agreed upon by the community at large.</p>
+<hr />
+<h4 id="lint">Lint<a class="headerlink" href="#lint" title="Permanent link"></a></h4>
+<pre><code class="language-bash">solium -f foobar.sol
+solium -d contracts/
+</code></pre>
+<h4 id="configure-with-comments">Configure with comments<a class="headerlink" href="#configure-with-comments" title="Permanent link"></a></h4>
+<p><strong>Comment Directives</strong> can be used to configure Solium to ignore specific pieces of code.
+They follow the pattern <code>solium-disable&lt;optional suffix&gt;</code>.</p>
+<p>If you only use the directive, Solium disables all rules for the marked code. If that's not desirable, specify the rules to disable after the directive, separated by comma.</p>
+<ul>
+<li>Disable linting on a specific line</li>
+</ul>
+<pre><code>contract Foo {
+    /* solium-disable-next-line */
+    function() {
+        bytes32 bar = 'Hello world';    // solium-disable-line quotes
+
+        // solium-disable-next-line security/no-throw, indentation
+                        throw;
+    }
+}
+</code></pre>
+<ul>
+<li>Disable linting on entire file</li>
+</ul>
+<pre><code>/* solium-disable */
+
+contract Foo {
+    ...
+}
+</code></pre>
+<h4 id="fix">Fix<a class="headerlink" href="#fix" title="Permanent link"></a></h4>
+<p>Solium automatically fixes your code to resolve whatever issues it can.</p>
+<pre><code class="language-bash">solium -d contracts/ --fix
+</code></pre>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li>Read the <a href="https://ethlint.readthedocs.io/">Documentation</a>.</li>
+<li><a href="http://solium.readthedocs.io/en/latest/user-guide.html#index-9">IDE and Editor Integrations</a></li>
+<li><a href="https://www.youtube.com/watch?v=MlQ6fzwixpI">Demo Video</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Lint your Solidity contracts with Ethlint</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/lint-your-solidity-contracts-with-ethlint/1cf59f73db9948cf89019e59abb93146/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-28</li>
+<li><strong>Kauri original tags:</strong> linting, ethlint, best-practise-</li>
+<li><strong>Kauri original hash:</strong> QmNXkG1fEnMboYXPqJ7fabSo3rkHakvLt1hkc427pbmbZE</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Truffle  Testing your smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lint-your-solidity-contracts-with-solhint/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lint-your-solidity-contracts-with-solhint/" class="btn btn-xs btn-link">
+        Lint your Solidity contracts with Solhint
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/DevOps/lint-your-solidity-contracts-with-ethlint.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

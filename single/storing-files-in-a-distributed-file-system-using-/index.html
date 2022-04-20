@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/storing-files-in-a-distributed-file-system-using-/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Storing files in a distributed file system using blockchain technology - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Storing files in a distributed file system using blockchain technology", url: "#_top", children: [
+              {title: "Principles of limited trust, which change general approach to everyday life, force parts of a business to introduce new additional actions and procedures, which should ensure that considered subject is exactly what they expect, and has not been modified without the knowledge of the other parties. Especially It affects cases in which there is a reasonable suspicion or doubt to the correctness of the delivered data that is the matter of exchange. Examples can be seen as downloaded files, sent documents agreements or regulations.", url: "#principles-of-limited-trust-which-change-general-approach-to-everyday-life-force-parts-of-a-business-to-introduce-new-additional-actions-and-procedures-which-should-ensure-that-considered-subject-is-exactly-what-they-expect-and-has-not-been-modified-without-the-knowledge-of-the-other-parties-especially-it-affects-cases-in-which-there-is-a-reasonable-suspicion-or-doubt-to-the-correctness-of-the-delivered-data-that-is-the-matter-of-exchange-examples-can-be-seen-as-downloaded-files-sent-documents-agreements-or-regulations" },
+              {title: "Proposed Solution:", url: "#proposed-solution" },
+              {title: "Technical Aspects:", url: "#technical-aspects" },
+              {title: "1. Install IPFS:", url: "#1-install-ipfs" },
+              {title: "2. Install Ganache", url: "#2-install-ganache" },
+              {title: "3.Build webservice code from repository and run.", url: "#3build-webservice-code-from-repository-and-run" },
+              {title: "4.Build and run a web page.", url: "#4build-and-run-a-web-page" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="storing-files-in-a-distributed-file-system-using-blockchain-technology">Storing files in a distributed file system using blockchain technology<a class="headerlink" href="#storing-files-in-a-distributed-file-system-using-blockchain-technology" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme5TADhsBCeAZ1S6vHYFs8W3EvKZncS9KkQFMTFf5eath" /></p>
+<h2 id="principles-of-limited-trust-which-change-general-approach-to-everyday-life-force-parts-of-a-business-to-introduce-new-additional-actions-and-procedures-which-should-ensure-that-considered-subject-is-exactly-what-they-expect-and-has-not-been-modified-without-the-knowledge-of-the-other-parties-especially-it-affects-cases-in-which-there-is-a-reasonable-suspicion-or-doubt-to-the-correctness-of-the-delivered-data-that-is-the-matter-of-exchange-examples-can-be-seen-as-downloaded-files-sent-documents-agreements-or-regulations">Principles of limited trust, which change general approach to everyday life, force parts of a business to introduce new additional actions and procedures, which should ensure that considered subject is exactly what they expect, and has not been modified without the knowledge of the other parties. Especially It affects cases in which there is a reasonable suspicion or doubt to the correctness of the delivered data that is the matter of exchange. Examples can be seen as downloaded files, sent documents agreements or regulations.<a class="headerlink" href="#principles-of-limited-trust-which-change-general-approach-to-everyday-life-force-parts-of-a-business-to-introduce-new-additional-actions-and-procedures-which-should-ensure-that-considered-subject-is-exactly-what-they-expect-and-has-not-been-modified-without-the-knowledge-of-the-other-parties-especially-it-affects-cases-in-which-there-is-a-reasonable-suspicion-or-doubt-to-the-correctness-of-the-delivered-data-that-is-the-matter-of-exchange-examples-can-be-seen-as-downloaded-files-sent-documents-agreements-or-regulations" title="Permanent link"></a></h2>
+<p>Who's affected: </p>
+<p>In Poland The Consumer Rights Act which came into force on 25th December 2014, imposes on entrepreneurs information obligation in contracts concluded away from business premises or remotely. The Act distinguishes various ways of passing important information to the consumer (communication). A message can be written on paper or on other durable medium, or a method corresponding to the type of communication means used. This law also introduces a new definition, which is a durable medium. Simply saying, it is a substance or tool allowing consumer or entrepreneur to store information dedicated and addressed strictly to him, in which way the information can be accessed in the future as long as it is needed (desired time described by law) and in an unmodified form. In practice it means that as a durable medium we can consider following things:
+* Paper
+* CD/DVD
+* Pendrive
+* Memory card
+* Any other Hard drive</p>
+<p>But also, services like:</p>
+<ul>
+<li>Email</li>
+<li>SMS</li>
+</ul>
+<p>Recently a similar solution was introduced, deployed and implemented as service to clients, by PKO BP. It turned out that their approach uniqueness is based on blockchain technology, where nodes are represented by bank itself and KIR (Krajowa Izba Rozliczeniowa) Taking into account such a software solution, there are many merits connected with applied technology, but also we can conclude that it could help with cost reduction, with respect to printing on the paper or burning CD/DVDs, including all cost of production process, implementation and maintenance. Similar approach is planned by Alior Bank. These mentioned examples are not the only ones where the problem exists, but it shows, what kind of challenges may arise for entrepreneurs, institutions, parties, state offices or even governments. Different domains which may require some support in case of authorized files:
+* Online bookstores selling digitally signed, electronic versions of books
+* Authorship
+* Notarial acts or ownerships
+* Marketing consent
+* Privacy policy</p>
+<h2 id="proposed-solution"><strong>Proposed Solution:</strong><a class="headerlink" href="#proposed-solution" title="Permanent link"></a></h2>
+<p>Applying blockchain technology, which guarantees immutability of saved data, has its pros and cons, and should be carefully considered against business needs. Sometimes it is good to stop and think twice before jumping in at the deep end. Taking blockchain into consideration as a durable medium, it will be beneficial to store only some basic info, not files themselves. As a basic info we can understand name, date added, extension, author or any other properties which are stored by a file system or will help us identify the file among others. And here we find our point, the best way to distinguish the file not only among files but also among other versions of the same file, is knowing its hash. It is another level of security which hides content of the file behind fixed size sequence of letters and digits. Any modification to this file, regardless of intentions or meaning or size, causes a complete change of hash. Giving a proof that there is or there is no consistency between requested file and the file which is stored as an argument supporting the case.</p>
+<p>Having answered what, we should store in the blockchain, there is another question. Where should we physically keep these files? So, as part of increasing the degree of decentralisation, it is tempting to use one of the distributed file systems. They are designed to consolidate information and facilitate file sharing while providing remote access at a local-like level. The main characteristics of such systems is high availability, reliability, data integrity, scalability or heterogeneity (looks the same for every device which can be a part of such system). An example of a distributed file system that has been functioning for some time, is InterPlanetary File System known as IPFS. It is a system which synthesizes successful ideas from previous peer-to-peer systems including BitTorrent or Git. It also provides a high throughput content-addressed block storage model, with content addressed hyperlinks. Its structure, built upon DAG (Directed Acyclic Graph), lets us create a versioned file system or even permanent web. IPFS consists of hashing tables, incentivized blocks exchange and self-certified filesystem. As every system component it also has some demerits or just things that require some additional consideration i.e. do we need additional data backup, how we are going to ensure file replication in the network? Especially second question might be worth asking, because IPFS itself doesn’t have any automatic replication. Nodes only store and/or distribute content they explicitly want to store and/or distribute. Simply saying, devices that run IPFS nodes do not have to host files that they were not asked for. But with first query they can refer to the requested file and from now on have its local copy. For more details and explanations please visit IPFS home page and read their <a href="https://raw.githubusercontent.com/ipfs/papers/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf">whitepaper</a>. With requirements defined in this way, we can now go straight to the solution technical details which will accomplish the set goals.</p>
+<h2 id="technical-aspects"><strong>Technical Aspects:</strong><a class="headerlink" href="#technical-aspects" title="Permanent link"></a></h2>
+<p>In this section we present our simple implementation of storing file hash (SHA-256) in the private blockchain built upon ETH protocol with preserving file in distributed file system – IPFS.</p>
+<h3 id="technology-stack"><strong>Technology stack:</strong><a class="headerlink" href="#technology-stack" title="Permanent link"></a></h3>
+<ul>
+<li>Truffle (Development framework for dapps based on Ethereum blockchain) https://truffleframework.com/ </li>
+<li>Ganache (One click, in-memory blockchain) https://truffleframework.com/ganache</li>
+<li>Solidity (Contract-oriented programming language for writing smart contracts) https://solidity.readthedocs.io/en/v0.4.24/ * Web3.js (Ethereum Javascript API) https://github.com/ethereum/web3.js/ </li>
+<li>NodeJS (JavaScript run-time environment) https://nodejs.org/en/ </li>
+<li>React (JavaScript library for building user interfaces) https://reactjs.org/</li>
+</ul>
+<h3 id="environment-preparation-and-tools-installation"><strong>Environment preparation and tools installation:</strong><a class="headerlink" href="#environment-preparation-and-tools-installation" title="Permanent link"></a></h3>
+<p><em>Disclaimer: Instruction is based on Windows OS, some of the instructions may require OS specific approach, like using sudo in linux based OSes.</em></p>
+<blockquote>
+<hr />
+<h2 id="1-install-ipfs">1. Install IPFS:<a class="headerlink" href="#1-install-ipfs" title="Permanent link"></a></h2>
+</blockquote>
+<ol>
+<li>Go to https://dist.ipfs.io/#go-ipfs and download IPFS for your platform</li>
+<li>Extract zip to new folder</li>
+<li>Open Command line Interface (CLI) and move pointer to the folder from point 2.</li>
+<li>Run in CLI:<code>install.sh</code></li>
+<li>Run in CLI: <code>ipfs init</code></li>
+<li>Run in CLI: <code>ipfs bootstrap rm –all</code> (this step ensures that you will be creating local and private storage)</li>
+<li>Run in CLI: <code>ipfs daemon</code> (allow access if windows firewall will require your confirmation, and leave process running)</li>
+</ol>
+<p>After these steps you should have IPFS node set up and running. For more info please visit IPFS documentation, it is well written and describes many available options. For our purpose we are going to leave one node just as it is, but in real case scenario where complete configuration is required, we would add additional nodes to IPFS network (different machines) using command <code>ipfs bootstrap add /ip4/&lt;node_ip&gt;/tcp/4001/ipfs/&lt;hash_which_appear_after_ipfs_init_from_step5&gt;</code> after clearing bootstrap nodes in step 6. Our setup will use default values for example, 127.0.0.1 as a server address, and 5001 as its port. There are other options to run IPFS node such as docker containers or using Infura which is a hosted Ethereum node cluster that lets you run application without requiring to set up your own Ethereum node or wallet but only for public network instances like Mainnet or Rinkeby.</p>
+<blockquote>
+<hr />
+<h2 id="2-install-ganache">2. Install Ganache<a class="headerlink" href="#2-install-ganache" title="Permanent link"></a></h2>
+</blockquote>
+<ol>
+<li>Go to https://truffleframework.com/ganache download version for your operating system,</li>
+<li>Install by double click, and then run.</li>
+<li>
+<p>Ganache will run with default values which should be the same or similar to these On Screen. The crucial part is a section defining RPC Server.
+<img alt="" src="https://ipfs.infura.io/ipfs/QmSfTurLCgPd1xK6WE8Udnp4fqyqnEYPC7ao7fLi7bNCuj" /></p>
+</li>
+<li>
+<p>Leave it running</p>
+</li>
+</ol>
+<p>After these four steps you have a local blockchain instance working with fast transaction confirmation and a pretty nice explorer which can help you check transactions in mined blocks. If you want to check whether proposed blockchain is functional, you can connect to it with Metamask as to a custom RPC server and make some transactions between your accounts.</p>
+<blockquote>
+<hr />
+<h2 id="3build-webservice-code-from-repository-and-run">3.Build webservice code from repository and run.<a class="headerlink" href="#3build-webservice-code-from-repository-and-run" title="Permanent link"></a></h2>
+</blockquote>
+<ol>
+<li>Install node.js and make sure that it is added to the environment variables (https://nodejs.org/en/download/).</li>
+<li>Install Truffle Framework by opening CLI and run the command: <code>npm install –g truffle</code></li>
+<li>Download code from repository: <code>git clone  https://github.com/FutureProcessing/DocuHash</code> </li>
+<li>Enter the folder (repository root) <code>cd DocuHash</code> and <code>run npm install</code></li>
+<li>Open in editor (i.e. Notepad++) the config located in <repository folder>/services/config. If you have different values than custom ones (i.e. Ganache configuration), please adjust them to your needs. Make sure that:<ul>
+<li>config.eth_url corresponds to Ganache RPC Server, </li>
+<li>config.wallet_passphrase corresponds to Ganache mnemonic, </li>
+<li>config.network_id corresponds to Ganache network id, </li>
+<li>config.hs_contract_address is left for now just as it is, we will change it soon,</li>
+<li>config.ipfs_api_address corresponds to your IPFS API address, </li>
+<li>config.ipfs_api_port corresponds to your IPFS API port.</li>
+</ul>
+</li>
+<li>The next step is to compile and deploy smart contracts. 
+In CLI run, truffle console uses the command <code>truffle console --network dev</code>. First of all, if your system does not recognise a truffle command, you have to add it to environment variables. Find a path to truffle.cmd file (it can probably be found here: “C:\Users\<your user name>\AppData\Roaming\npm\node_modules.bin” where the C drive is your system drive) and add new variable. For instance, using variable name: “TRUFFLE” and variable value as path to folder containing (as above presented) truffle.cmd. If you see "truffle(dev)&gt;" then your console is ready to work with.</li>
+<li>Run the command: <code>compile –all</code> in the running truffle console.
+It is responsible for compiling “all” contracts, no matter if previous compiled versions are there or not. Successful output should be ended with the following line: "Writing artifacts to .\build\contracts"</li>
+<li>Run the command: <code>migrate –reset</code> in the truffle console.
+It is responsible for deploying contracts to the blockchain. “Reset” parameter will make sure that the whole migration process is executed even if some of the contracts are already deployed.</li>
+</ol>
+<p>You should see the effect similar to the one shown below:
+<img alt="" src="https://ipfs.infura.io/ipfs/QmZudpvrRFtuBaZMBTHZXYm3ZWURdVuYnd2ac4iEW3pvbB" /></p>
+<ol>
+<li>Find the contract HashStorage address (marked to yellow on the screen above), copy and paste it to the config file mentioned in step 5. Remember to save a file after introducing changes. In our case config file looks like this: </li>
+</ol>
+<pre><code>const result = require('dotenv').config();
+
+CONFIG = {} 
+CONFIG.app = process.env.APP   || 'development';
+CONFIG.port = process.env.PORT  || '3002';
+
+CONFIG.eth_url = process.env.ETH_URL || 'http://127.0.0.1:9545';
+CONFIG.wallet_passphrase = process.env.HD_WALLET_PASSPHRASE || 'exact cabbage shove public maximum erase remain around crawl major april cross';
+CONFIG.eth_network_id = process.env.ETH_NETWORK_ID || '5777';
+
+CONFIG.hs_contract_address = &quot;0x2c65Fc2142f73E206e206a4a9D5E4b2743877f71&quot;;
+
+CONFIG.ipfs_api_address = '127.0.0.1';
+CONFIG.ipfs_api_port = '5001';
+CONFIG.ipfs_url = CONFIG.ipfs_api_address + ':8080/ipfs/';
+
+CONFIG.clientUrl = 'http://127.0.0.1:3003';
+</code></pre>
+<ol>
+<li>Run <code>npm start</code> in repository root directory in CLI.
+After a while you should see: "DocuHash is running on port 3002"</li>
+</ol>
+<blockquote>
+<hr />
+<h2 id="4build-and-run-a-web-page">4.Build and run a web page.<a class="headerlink" href="#4build-and-run-a-web-page" title="Permanent link"></a></h2>
+</blockquote>
+<ol>
+<li>Open another CLI, go to the cloned repository and In Cli Go to app folder </li>
+<li>Run <code>npm install</code> in CLI.</li>
+<li>Considering default values, you don’t have to change the config file, in other case it is placed in app/src/config.js, please adjust apiServerAddress to address which corresponds to your webservice. In our case it is the same as in the repository.</li>
+</ol>
+<pre><code>const config = {
+    apiServerAddress: 'http://127.0.0.1:3002'
+};
+
+export default config;
+</code></pre>
+<ol>
+<li>Run <code>npm start</code> in CLI.
+After a while you should see a message in CLI “Compiled successfully!” and then how to access this page through browser.</li>
+<li>Finally, check how it works! Play with it for a while and come back for further reading.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVHgPJ8P4KiyWJDKYKTC84HBwzwngsfsELu7XGAkXTreq" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXiMKADkEFcXFYMp4U7jx2TMD6zDhfXGduB9opMC7ad4z" /></p>
+<h3 id="detailed-description-of-some-major-elements"><strong>Detailed description of some major elements:</strong><a class="headerlink" href="#detailed-description-of-some-major-elements" title="Permanent link"></a></h3>
+<blockquote>
+<hr />
+<p>Smart contract HashStorage.sol in Solidity</p>
+</blockquote>
+<ol>
+<li>
+<p>Smart contract contains a structure which composes of file information:</p>
+<ul>
+<li>
+<p>string ipfsHash – variable type string responsible for storing addresses/links (in fact, hash) in the decentralised file system;</p>
+</li>
+<li>
+<p>uint dateAdded – variable type unsigned integer containing information of when a file was added in the unix timestamp (a number of seconds which have elapsed since the 1st of January  1970;midnight UTC/GMT);</p>
+</li>
+<li>bool exist – variable boolean type helpful in defining whether a file hash has been added to the blockchain or not. Why do we need that? It stems from the fact that variables in Solidity are initialized with default values, in case of boolean it is false.</li>
+<li>Smart contract also contains mapping, which can be seen as hash table. In general, mappings are virtually initialized as for every possible key (in our example hash) which exists and is mapped to a value whose byte-representation is a type’s default value. The similarity ends here, though: the key data is not actually stored in a mapping, only its keccak256 hash used to look up the value.</li>
+<li>In this Smart contract we can find two functions:</li>
+<li>get – which receives one parameter – file hash. This function allows to check whether specific file is available if stored in IPFS and, finally, addition date. All this data is returned as a result of execution.</li>
+<li>add – which expects three parameters during its invocation: IPFS hash, file hash, date added. The execution of this function is limited to an owner, which means that any other party cannot successfully invoke this method. It is ensured by Ownable.sol contract from OpenZeppelin (a library for secure smart contract development). Our owner is set up in constructor, which is executed during a contract deployment to the network. Owner can be changed in time, but it’s beyond our consideration. Getting back to the function: after some initial validation it adds newly created object to the mentioned mapping. Then at the end, it emits event as a clear signal that everything has gone right.</li>
+</ul>
+</li>
+</ol>
+<pre><code>pragma solidity ^0.4.23;
+
+import &quot;./Ownable.sol&quot;;
+
+contract HashStorage is Ownable{
+    mapping (string =&gt; DocInfo) collection;
+    struct DocInfo {
+        string ipfshash;
+        uint dateAdded; //in epoch
+        bool exist; 
+    }
+
+    event HashAdded(string ipfshash, string filehash, uint dateAdded);
+
+    constructor () public {
+        owner = msg.sender;
+    }
+
+    function add(string _ipfshash, string _filehash, uint _dateAdded) public onlyOwner {
+        require(collection[_filehash].exist == false, &quot;this hash already exists in contract&quot;);
+        DocInfo memory docInfo = DocInfo(_ipfshash, _dateAdded, true);
+        collection[_filehash] = docInfo;
+
+        emit HashAdded(_ipfshash, _filehash, _dateAdded);
+    }
+
+    function get(string _hash) public view returns (string, string, uint, bool) {
+        return (
+            _hash, 
+            collection[_hash].ipfshash,
+            collection[_hash].dateAdded,
+            collection[_hash].exist
+        );
+    }
+}
+</code></pre>
+<blockquote>
+<hr />
+<p>Web service in node.js.</p>
+</blockquote>
+<ol>
+<li>Service.js defines two methods of handling user requests:<ul>
+<li>addfile – the POST method which expects file as input. Under the hood it basically prepares file for uploading to IPFS, and compute hash to store it in the blockchain. Finally adds file to the IPFS and then save hash in blockchain smart contract.</li>
+<li>getfile – the GET method which expects file hash as parameter, used as a lookup value. This time order is different, first we check value in the blockchain and if it exists, we make sure that it is available in IPFS.</li>
+</ul>
+</li>
+<li>Hs-service.js also defines two methods responsible for fetching data from and pushing into the blockchain via initialized instance of contract (hs-contract-provider.js). The mechanism of it is pretty simple: we prepare data (converting it to a byte representation) and send it straight to the blockchain.</li>
+<li>web3-provider.js – inside this file, the web3 instance is created with setting user accounts based on provided mnemonic:<ul>
+<li>Config.js – located in the services folder, contains all the necessary variables to run and configure application service.</li>
+<li>Config.eth_url – it’s the rpc address to the blockchain node you try to connect to;</li>
+<li>Config.wallet_passphrase – it’s the mnemonic allowing access to the accounts generated by Ganache;</li>
+<li>Config.eth_network_id – an identifier of the Ganache network ;</li>
+<li>Config.hsContractAddress – the address of HashStorage contract; </li>
+<li>Config.ipfsAPIAddress – the address of ipfs node;</li>
+<li>Config.ipfsPort – the port which helps to address to the ipfs node; </li>
+<li>Config.ipfsUrl – the address to IPFS File Viewer.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<hr />
+<p>Web App – React</p>
+</blockquote>
+<ol>
+<li>App.js – located in app/src/. This file is a main element of the web page, combines user interface with web service invocations. We won’t go deeper with it. If you are not familiar with React, please take a look at some tutorials or just visit <a href="https://reactjs.org/.">https://reactjs.org/</a>.</li>
+<li>Config.js – located in app/src/. This file contains only variables which refer to our web service API.</li>
+<li>WebService.js – located in app/src/. It’s responsible for calling webservice and handling error responses which may come as a result of the invalid request or configuration error.</li>
+</ol>
+<blockquote>
+<hr />
+<p>Truffle-config.js</p>
+</blockquote>
+<p>this file defines network with which we are going to work. It can have many networks defined, but every needs to have its unique name. Simple definition requires a host, where we put our local node 127.0.0.1, a port, where we put rpc port, and a network_id. When a network_id is defined as asterisk, it means that it will connect to any network available under specified address and port.</p>
+<h3 id="sample-web-service-responses">Sample Web Service Responses<a class="headerlink" href="#sample-web-service-responses" title="Permanent link"></a></h3>
+<ol>
+<li>AddFile 
+<img alt="" src="https://ipfs.infura.io/ipfs/QmSx73LkUUcvDGYtmEhvgQwk2XTjxDvpHCoqg2Trhpdp1a" /></li>
+<li>GetFile 
+<img alt="" src="https://ipfs.infura.io/ipfs/QmWQhzYh8a9cWbEe55FkGPwwTaTRPw8rTA5VY3ZuszmUkQ" /></li>
+</ol>
+<h3 id="design-structure"><strong>Design Structure</strong><a class="headerlink" href="#design-structure" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZ7YMeK3fqGp8BZTvuY5qbgZeQu8mHUibCifbnSTP4EzA" /></p>
+<p>Quick explanation on how it has been structured. At the top there is a browser with two components. The first one – Web App – allows us to send a request to the hosted Web Service in a simple and clear way. This request received by the web service is processed and as a result data is pushed further to the blockchain and IPFS network. It handles two types of requests – the first which writes and the second which only reads and doesn’t make any changes. Second component in a browser area is the IPFS File Viewer which is helpful with exploring files stored in a distributed file system. It comes with our IPFS node configuration and can display a file or even play a movie if its extension is recognized by the system. IPFS File Viewer checks for file without any intermediaries but there is one requirement that has to be fulfilled by user. He or she has to know the path or hash generated by the system (these two terms can be used interchangeably) of the file supposed to be viewed. The hash from IPFS is completely different from this generated by? the file content, therefore we store both in the smart contract.</p>
+<h3 id="user-interface"><strong>User Interface</strong><a class="headerlink" href="#user-interface" title="Permanent link"></a></h3>
+<p>The Upload view is visible by default.
+1. By using drag &amp; drop mechanism applied to the first tab of our sample application, a user is able to upload file.
+2. Immediately after dropping a file in a dashed area, the request of this file is sent. 
+3. User has to wait a short period of time which is measured by a swirl in the middle of a dropping area. 
+4. After a successful operation, the new list with file hashes appears below the dropping area. The title is: “Uploaded files hash list:”.
+5.In case of error, a proper box with a message is shown.</p>
+<p>The user can switch to the Search view by clicking on Search with a magnifier icon:
+1. Having a file hash, the user can search this file in the given application; after providing a hash to the input and clicking a magnifier nearby, the new lookup request is sent. 
+2. After a successful operation, the new block with detailed file information appears. It is titled: “File info has been found in blockchain:”. Last item on the list is a clickable link.
+3. In case of error, a relevant/adequate box with message is shown.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcVQuWYkdQbLSfnPD4akmzjKsPhHs43yALK7hXXTcxtHj" /></p>
+<h3 id="summary"><strong>Summary:</strong><a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Proposed solution is not a comprehensive example. In order to deepen the issue, we should consider adding more nodes to a distributed file system, migrating application to public network, file encryption before sending and, finally, we should try to answer the question about trust towards the server or who should pay the network fees. There is probably much more than that and it gives great food for thought, but this article shows in a way possibilities and strengths of applying a blockchain technology to the described problem. If you have any questions or you just want to broaden this solution, feel free to participate or ask questions. The code is available on github:  <a href="https://github.com/FutureProcessing/DocuHash">https://github.com/FutureProcessing/DocuHash</a></p>
+<p><em>This post was originally posted on <a href="https://www.future-processing.pl/blog/storing-files-in-a-distributed-file-system-using-blockchain-technology/">future-processing technical blog</a></em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Storing files in a distributed file system using blockchain technology</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/storing-files-in-a-distributed-file-system-using-b/7d8b71b6976b4a26aa6865873f75dc4c/a</li>
+<li><strong>Kauri original author:</strong> krb (@krb)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-17</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmRFZRGJSR8CiNegN8dzobjb54jqDqMpQyG5amtPQ3j171</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-write-upgradeable-smart-contracts-with-tru/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-write-upgradeable-smart-contracts-with-tru/" class="btn btn-xs btn-link">
+        How to Write Upgradeable Smart Contracts with Truffle ^5.0 and ZeppelinOS ^2.0
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../join-the-community-ambassador-program%21-%28up-to-dol/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../join-the-community-ambassador-program%21-%28up-to-dol/" class="btn btn-xs btn-link">
+        Join the Community Ambassador Program! (up to $3k in bounty funding)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/storing-files-in-a-distributed-file-system-using-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/develop-your-erc-20-token-explained%21/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Develop your ERC-20 Token — explained! - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Develop your ERC-20 Token\u200a\u2014\u200aexplained!", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="develop-your-erc-20-token-explained">Develop your ERC-20 Token — explained!<a class="headerlink" href="#develop-your-erc-20-token-explained" title="Permanent link"></a></h1>
+<p>ERC 20 Tokens are creating a rage in the cryptocurrency sector and you wouldn’t want to be left behind, would you? Anyone who is keen to know the functionality involved in an ERC-20 token creation and deployment is welcomed. Let’s get started.</p>
+<p><strong>What is an ERC-20 Token?</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWa5PaKwACzkbbCdDDJbLgjuDGZEoJyjuB2QS9MV3oBqk" /></p>
+<p>Ethereum Request For Comments 20(ERC 20) is a protocol standard that defines certain rules and standards for issuing tokens on Ethereum’s network.
+A Token developed on Ethereum Blockchain is said to be an ERC-20 compliant only if it includes the basic functions defined by the protocol in its smart contract. The functions defined in the protocol are :</p>
+<pre><code>// ERC Token Standard #20 Interface
+// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
+</code></pre>
+<pre><code>contract ERC20Interface {
+    function totalSupply() public constant returns (uint);
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function transfer(address to, uint tokens) public returns (bool success);
+    function approve(address spender, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+</code></pre>
+<pre><code>    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+}
+</code></pre>
+<p>The Ethereum community created this protocol so that a token can be shared, exchanged for other tokens, or transferred to a crypto-wallet as effortlessly as possible.</p>
+<p><strong>Things required to develop a Token.</strong></p>
+<p>Proficiency in Solidity, the official language to write smart-contracts on Ethereum Blockchain. The only hackable module in your Blockchain Project is your smart contract, So one should give utmost importance to its development as we do at 
+<a href="https://www.unboxinnovations.com/">Unbox Innovation.</a>
+ .
+Also this</p>
+<ul>
+<li>
+<p>Ethereum Address (Ropsten Network)</p>
+</li>
+<li>
+<p>Some Ethereum (Ropsten Network)</p>
+</li>
+<li>
+<p>A text editor (I.e. Sublime / Atom)</p>
+</li>
+<li>
+<p>Solidity contract</p>
+</li>
+</ul>
+<p><strong>Let’s jump into the code.</strong></p>
+<p>The Ethereum community created these standards with three optional rules, and six mandatory.</p>
+<p><strong>Optional</strong></p>
+<ul>
+<li>
+<p>Token Name</p>
+</li>
+<li>
+<p>Symbol</p>
+</li>
+<li>
+<p>Decimal (up to 18)</p>
+</li>
+</ul>
+<p><strong>Mandatory</strong></p>
+<ul>
+<li>
+<p>totalSupply: <em>identifies the total number of ERC-20 tokens created.</em> </p>
+</li>
+<li>
+<p>balanceOf: <em>it returns the number of tokens a given address has in its account.</em> </p>
+</li>
+<li>
+<p>transfer: <em>allows a certain number of tokens to be transferred from the total supply to a user account.</em> </p>
+</li>
+<li>
+<p>transferFrom: <em>is the function that allows a user to transfer tokens to another user.</em> </p>
+</li>
+<li>
+<p>approve : <em>checks a transaction against the total supply of tokens.</em> </p>
+</li>
+<li>
+<p>allowance: <em>function checks the balance of the user’s account and will cancel the transaction if there are insufficient tokens.</em> 
+A sample smart contract implementing all the protocol is defined here. The comments will guide you when you are inside.</p>
+</li>
+</ul>
+<body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script charset="utf-8" src="https://gist.github.com/Yara1990/657a73c2c8c0be2039ac72934f914913.js"></script><script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body>
+
+<pre><code>pragma solidity ^0.4.18;
+
+// ----------------------------------------------------------------------------
+// 'Banana' token contract
+//
+// Deployed to : 0x5A86f0cafD4ef3ba4f0344C138afcC84bd1ED222
+// Symbol      : BAN
+// Name        : Banana Token
+// Total supply: 100000000000000000000000000
+// Decimals    : 18
+//
+// ----------------------------------------------------------------------------
+
+
+// ----------------------------------------------------------------------------
+// Safe maths
+// ----------------------------------------------------------------------------
+contract SafeMath {
+    function safeAdd(uint a, uint b) public pure returns (uint c) {
+        c = a + b;
+        require(c &amp;gt;= a);
+    }
+    function safeSub(uint a, uint b) public pure returns (uint c) {
+        require(b &amp;lt;= a);
+        c = a - b;
+    }
+    function safeMul(uint a, uint b) public pure returns (uint c) {
+        c = a * b;
+        require(a == 0 || c / a == b);
+    }
+    function safeDiv(uint a, uint b) public pure returns (uint c) {
+        require(b &amp;gt; 0);
+        c = a / b;
+    }
+}
+
+
+// ----------------------------------------------------------------------------
+// ERC Token Standard #20 Interface
+// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
+// ----------------------------------------------------------------------------
+contract ERC20Interface {
+    function totalSupply() public constant returns (uint);
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function transfer(address to, uint tokens) public returns (bool success);
+    function approve(address spender, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+}
+
+
+// ----------------------------------------------------------------------------
+// Contract function to receive approval and execute function in one call
+// ----------------------------------------------------------------------------
+contract ApproveAndCallFallBack {
+    function receiveApproval(address from, uint256 tokens, address token, bytes data) public;
+}
+
+
+// ----------------------------------------------------------------------------
+// Owned contract
+// ----------------------------------------------------------------------------
+contract Owned {
+    address public owner;
+    address public newOwner;
+
+    event OwnershipTransferred(address indexed _from, address indexed _to);
+
+    function Owned() public {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function transferOwnership(address _newOwner) public onlyOwner {
+        newOwner = _newOwner;
+    }
+    function acceptOwnership() public {
+        require(msg.sender == newOwner);
+        OwnershipTransferred(owner, newOwner);
+        owner = newOwner;
+        newOwner = address(0);
+    }
+}
+
+
+// ----------------------------------------------------------------------------
+// ERC20 Token, with the addition of symbol, name and decimals and assisted
+// token transfers
+// ----------------------------------------------------------------------------
+contract BananaToken is ERC20Interface, Owned, SafeMath {
+    string public symbol;
+    string public  name;
+    uint8 public decimals;
+    uint public _totalSupply;
+
+    mapping(address =&amp;gt; uint) balances;
+    mapping(address =&amp;gt; mapping(address =&amp;gt; uint)) allowed;
+
+
+    // ------------------------------------------------------------------------
+    // Constructor
+    // ------------------------------------------------------------------------
+    function BananaToken() public {
+        symbol = &quot;BAN&quot;;
+        name = &quot;Banana Token&quot;;
+        decimals = 18;
+        _totalSupply = 100000000000000000000000000;
+        balances[0xa8112ac2f02fa71f737929d18671b72e8609b78d] = _totalSupply;
+        Transfer(address(0), 0xa8112ac2f02fa71f737929d18671b72e8609b78d, _totalSupply);
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Total supply
+    // ------------------------------------------------------------------------
+    function totalSupply() public constant returns (uint) {
+        return _totalSupply  - balances[address(0)];
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Get the token balance for account tokenOwner
+    // ------------------------------------------------------------------------
+    function balanceOf(address tokenOwner) public constant returns (uint balance) {
+        return balances[tokenOwner];
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Transfer the balance from token owner's account to to account
+    // - Owner's account must have sufficient balance to transfer
+    // - 0 value transfers are allowed
+    // ------------------------------------------------------------------------
+    function transfer(address to, uint tokens) public returns (bool success) {
+        balances[msg.sender] = safeSub(balances[msg.sender], tokens);
+        balances[to] = safeAdd(balances[to], tokens);
+        Transfer(msg.sender, to, tokens);
+        return true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Token owner can approve for spender to transferFrom(...) tokens
+    // from the token owner's account
+    //
+    // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
+    // recommends that there are no checks for the approval double-spend attack
+    // as this should be implemented in user interfaces
+    // ------------------------------------------------------------------------
+    function approve(address spender, uint tokens) public returns (bool success) {
+        allowed[msg.sender][spender] = tokens;
+        Approval(msg.sender, spender, tokens);
+        return true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Transfer tokens from the from account to the to account
+    //
+    // The calling account must already have sufficient tokens approve(...)-d
+    // for spending from the from account and
+    // - From account must have sufficient balance to transfer
+    // - Spender must have sufficient allowance to transfer
+    // - 0 value transfers are allowed
+    // ------------------------------------------------------------------------
+    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
+        balances[from] = safeSub(balances[from], tokens);
+        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
+        balances[to] = safeAdd(balances[to], tokens);
+        Transfer(from, to, tokens);
+        return true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Returns the amount of tokens approved by the owner that can be
+    // transferred to the spender's account
+    // ------------------------------------------------------------------------
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining) {
+        return allowed[tokenOwner][spender];
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Token owner can approve for spender to transferFrom(...) tokens
+    // from the token owner's account. The spender contract function
+    // receiveApproval(...) is then executed
+    // ------------------------------------------------------------------------
+    function approveAndCall(address spender, uint tokens, bytes data) public returns (bool success) {
+        allowed[msg.sender][spender] = tokens;
+        Approval(msg.sender, spender, tokens);
+        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, this, data);
+        return true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Don't accept ETH
+    // ------------------------------------------------------------------------
+    function () public payable {
+        revert();
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Owner can transfer out any accidentally sent ERC20 tokens
+    // ------------------------------------------------------------------------
+    function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
+        return ERC20Interface(tokenAddress).transfer(owner, tokens);
+    }
+}
+
+</code></pre>
+<p>If you find this useful, please share it with your crypto freaks in your network.
+If you don’t want to take the burden of doing all this, reach out to us at 
+<strong>contact@unboxinnovations.com</strong></p>
+<p>Originally published by me at :
+ <a href="https://medium.com/@hargobindgupta/develop-your-erc-20-token-explained-f2437ef8329b">My Medium Blog</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Develop your ERC-20 Token — explained!</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/develop-your-erc20-token-explained/e05b1433dfa6434dba2788df96f423e9/a</li>
+<li><strong>Kauri original author:</strong> Hargobind Gupta (@hargobindgupta)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-06-03</li>
+<li><strong>Kauri original tags:</strong> erc20, ethereum, blockchain, decentralized, hargobind, dlt, token</li>
+<li><strong>Kauri original hash:</strong> QmY58jzJzoEYFrzVc3nTFCSoPRCWDynpQSQtuni2iTuabb</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../gamifying-crypto-assets-with-the-erc998-composabl/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../gamifying-crypto-assets-with-the-erc998-composabl/" class="btn btn-xs btn-link">
+        Gamifying Crypto Assets with the ERC998 Composables Token Standard
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../erc-20-token-standard/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../erc-20-token-standard/" class="btn btn-xs btn-link">
+        ERC-20 Token Standard
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/develop-your-erc-20-token-explained!.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/ethstonian-identity/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethstonian Identity - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethstonian Identity", url: "#_top", children: [
+              {title: "Inspiration", url: "#inspiration" },
+              {title: "What it does", url: "#what-it-does" },
+              {title: "How we built it", url: "#how-we-built-it" },
+              {title: "Challenges we ran into", url: "#challenges-we-ran-into" },
+              {title: "Accomplishments that we're proud of", url: "#accomplishments-that-were-proud-of" },
+              {title: "What we learned", url: "#what-we-learned" },
+              {title: "TODO", url: "#todo" },
+              {title: "TEAM", url: "#team" },
+              {title: "Built With", url: "#built-with" },
+              {title: "Try it out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethstonian-identity">Ethstonian Identity<a class="headerlink" href="#ethstonian-identity" title="Permanent link"></a></h1>
+<p>A very useful solidity library for verifying signatures made by the Estonian Digital-ID card. By allowing us to identify with our government-issued ID, it has the potential to change how we identify ourselves on the Ethereum network. It’s also an incredibly robust and trustworthy KYC mechanism. - Ivo Georgiev (Adex)</p>
+<p>https://devpost.com/software/ethstonia-identity</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNkNMFCdW4h1D1G9dtCRbbUXC4Qwx167Xbv1wbL2HbNsh" /></p>
+<h4 id="inspiration">Inspiration<a class="headerlink" href="#inspiration" title="Permanent link"></a></h4>
+<p>Identity and KYC/AML are the biggest problems in Blockchain right now. The Estonian government issues an eResidency card to all humans. This card has a private key build in for signing stuff in a legally binding manner.</p>
+<p>Can we sign Ethereum transactions with it? After today, YES!</p>
+<p>The best part: It is completely trustless! There is no server. Just a static page. All verification happens on-chain. It can become a simple library that can be integrated in DApps and Wallets. The root of trust is the Estonian government.</p>
+<p>When you loose your card, you can get a new one at the Esonian embassy. The wallet contract automatically accepts your new card, since the wallet is tied to your citizen id, and the certificate is signed by the Estonian government. The root of trust is the CA root key of the Estonian government.</p>
+<h4 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link"></a></h4>
+<p>It is a wallet contract that is controlled by your Estonia issued Identity card and tied to your citizen number.</p>
+<h4 id="how-we-built-it">How we built it<a class="headerlink" href="#how-we-built-it" title="Permanent link"></a></h4>
+<p>Reverse engineer the Estonian e-Identity signature mechanism.</p>
+<p>Implement all the crypto in Python using libraries.</p>
+<p>Implement all the crypto in Python from scratch.</p>
+<p>Implement some 384-bit bignumber utilities in Solidity and EVM Assembly.</p>
+<p>Implement the Secp384r1 384-bit finite field in Solidity and EVM Assembly.</p>
+<p>Implement the Secp384r1 generator order finite field in Solidity and EVM Assembly.</p>
+<p>Implement the Secp384r1 elliptic curve in Solidity.</p>
+<p>Implement the ECDSA signature verification scheme in Solidity.</p>
+<p>Add a ton of tests</p>
+<p>Fix a ton of bugs</p>
+<p>Optimize, optimize, optimize</p>
+<p>Implement a wallet contract using e-Identity signatures.</p>
+<p>Implement a rudimentary front end for the wallet.</p>
+<h4 id="challenges-we-ran-into">Challenges we ran into<a class="headerlink" href="#challenges-we-ran-into" title="Permanent link"></a></h4>
+<p>We expected the cards to used RSA2048 signatures as documented. Instead we found that they use 384 bit elliptic curves. RSA is easy to implement thanks to EIP198. Elliptic curves are a lot more complex. It is especially hard since 384-bit math does not fit in the EVMs 256-bit words.</p>
+<p>Gas cost is an issue. When we first got it working, a signature verification took half a billion gas. After some precomputations and optimizations we got it down to 20 million. We have two more tricks (Jacobi coordinates and base 4 precomputes) that we did not get to implement. With these included gas cost will be below the block gas limit, making the wallet viable on main net. There is likely room for further tuning.</p>
+<h4 id="accomplishments-that-were-proud-of">Accomplishments that we're proud of<a class="headerlink" href="#accomplishments-that-were-proud-of" title="Permanent link"></a></h4>
+<p>As far as we know, we are the first in the world to transact on the blockchain using a government issued ID. We are the first to sign transactions with a recognized, legally binding signature.</p>
+<p>We build it all in a little over one day.</p>
+<h4 id="what-we-learned">What we learned<a class="headerlink" href="#what-we-learned" title="Permanent link"></a></h4>
+<p>Estonia loves blockchain. They will likely support our project.
+They switched from RSA2048 to Secp384r1 and did not update their documentation!
+Vitalik's trick to use EIP198 for multiplication is much slower than our chinese remainder based one.
+The eResidency signature scheme could learn a thing or two from EIP712. There is currently no domain separation.
+What's next for Ethstonia Identity
+Build a better UX
+Allow anyone to create a wallet with their cards.
+Key updates using certificates and the Estonian government pubkey.</p>
+<h4 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link"></a></h4>
+<p>Implement Jacobi elliptic curve coordinates.
+Use base 4 or more instead of base 2 for the lookup table.
+Spread lookup table generation in multiple TXs.
+Implement certificate parsing to extract citizen number, public key and signature.
+Implement RSA (easier).
+Pin Estonian government root key.
+Verify public keys back
+Implement key revocation lists.</p>
+<h4 id="team">TEAM<a class="headerlink" href="#team" title="Permanent link"></a></h4>
+<p>remco@wicked.ventures
+logvinov.leon@gmail.com</p>
+<h4 id="built-with">Built With<a class="headerlink" href="#built-with" title="Permanent link"></a></h4>
+<p>solidity
+evm
+typescript
+math
+more-math</p>
+<h4 id="try-it-out">Try it out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="https://github.com/LogvinovLeon/estid-sig">GitHub Repo</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethstonian Identity</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethstonian-identity/5b76e878edb04eee914b17e5e45b0f62/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmWpoqmKyRJDZnV6N7dmotRKh4TjnJXcGiJYgCPmPT7Ezn</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pinata-overlay/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pinata-overlay/" class="btn btn-xs btn-link">
+        Piñata Overlay
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../artonomous/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../artonomous/" class="btn btn-xs btn-link">
+        Artonomous
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/ethstonian-identity.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

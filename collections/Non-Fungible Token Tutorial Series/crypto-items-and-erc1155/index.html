@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Non-Fungible%20Token%20Tutorial%20Series/crypto-items-and-erc1155/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Crypto Items and ERC1155 - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Crypto Items and ERC1155", url: "#_top", children: [
+              {title: "Improvements on 721", url: "#improvements-on-721" },
+              {title: "The Interface(s)", url: "#the-interfaces" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="crypto-items-and-erc1155">Crypto Items and ERC1155<a class="headerlink" href="#crypto-items-and-erc1155" title="Permanent link"></a></h1>
+<h4 id="improvements-on-721">Improvements on 721<a class="headerlink" href="#improvements-on-721" title="Permanent link"></a></h4>
+<p>With the recent finalizing of ERC721, games involving non-fungible tokens and cryptocollectibles are poised to explode. Many are nearing beta release as we speak, namely: God's Unchained, CryptoWars, Zombie Battleground along with officially-affiliated collectibles with the NFL, MLB, and more.</p>
+<p>The creators of Enjin Coin, an Ethereum-based games platform, identified a few areas for improvement in the token standards as related to the needs of typical games. From the “Motivation” section on the EIP1155:</p>
+<blockquote>
+<p>Tokens standards like ERC-20 and ERC-721 require a separate contract to be deployed for each fungible or NFT token/collection. This places a lot of redundant bytecode on the Ethereum blockchain and limits certain functionality by the nature of separating each token contract into its own permissioned address. With the rise of crypto games and platforms like Enjin Coin (https://enjincoin.io/), game developers may be creating tens of thousands of items, and a new type of token standard is needed to support this.</p>
+<p>New functionality is possible with this design, such as transferring or approving multiple token types at once, saving on transaction costs. Trading (escrow / atomic swaps) of multiple tokens can be built on top of this standard and it removes the need to "approve" individual tokens separately. It is also easy to describe and mix multiple fungible or non-fungible tokens in a single contract.</p>
+</blockquote>
+<p>The EIP can be found here: https://github.com/ethereum/EIPs/issues/1155</p>
+<h4 id="the-interfaces">The Interface(s)<a class="headerlink" href="#the-interfaces" title="Permanent link"></a></h4>
+<p><strong>Basic</strong></p>
+<pre><code>interface IERC1155 {
+    event Approval(address indexed _owner, address indexed _spender, uint256 indexed _id, uint256 _oldValue, uint256 _value);
+    event Transfer(address _spender, address indexed _from, address indexed _to, uint256 indexed _id, uint256 _value);
+
+    function transferFrom(address _from, address _to, uint256 _id, uint256 _value) external;
+    function safeTransferFrom(address _from, address _to, uint256 _id, uint256 _value, bytes _data) external;
+    function approve(address _spender, uint256 _id, uint256 _currentValue, uint256 _value) external;
+    function balanceOf(uint256 _id, address _owner) external view returns (uint256);
+    function allowance(uint256 _id, address _owner, address _spender) external view returns (uint256);
+}
+
+interface IERC1155Extended {
+    function transfer(address _to, uint256 _id, uint256 _value) external;
+    function safeTransfer(address _to, uint256 _id, uint256 _value, bytes _data) external;
+}
+</code></pre>
+<p>The basic interface should look very familiar from ERC20 and 721. The usual suspects of transferFrom, approve, balanceOf, allowance, the 721 safeTransferFrom (checking if ERC721 Receiver is implemented to prevent token loss). The two functions in the “Extended” version are transfer() and safeTransfer(), which are the same as transfer() and safeTransferFrom respectively, minus the _from argument, as they will just use msg.sender instead.</p>
+<p><strong>Batch Transfers</strong></p>
+<p>Batch transfers are were things start to get interesting.</p>
+<pre><code>interface IERC1155BatchTransfer {
+    function batchTransferFrom(address _from, address _to, uint256[] _ids, uint256[] _values) external;
+    function safeBatchTransferFrom(address _from, address _to, uint256[] _ids, uint256[] _values, bytes _data) external;
+    function batchApprove(address _spender, uint256[] _ids,  uint256[] _currentValues, uint256[] _values) external;
+}
+
+interface IERC1155BatchTransferExtended {
+    function batchTransfer(address _to, uint256[] _ids, uint256[] _values) external;
+    function safeBatchTransfer(address _to, uint256[] _ids, uint256[] _values, bytes _data) external;
+}
+</code></pre>
+<p>Here, you can pass batchTransferFrom or safeBatchTransferFrom an array of token IDs to transfer many tokens in one transaction. Using batchApprove will set the _spender address as the operator, allowing them to initiate a transfer in the future (same as approve).</p>
+<p><code>batchTransferFrom(address _from, address _to, uint256[] _ids, uint256[] _values)</code></p>
+<p>This takes the _from and _to address, along with an array of the token IDs (_ids), and a matching array of the AMOUNTs of the exactly corresponding tokens to be transferred (_values). </p>
+<p>For example: to transfer 10 of item 1 and 20 of item 2 from address 0x0 to address 0x1, the transaction would be the following:</p>
+<p><code>batchTransferFrom( 0x0, 0x1, [1, 2], [10, 20] )</code></p>
+<p><code>batchApprove(address _spender, uint256[] _ids,  uint256[] _currentValues, uint256[] _values)</code></p>
+<p>The batchApprove function is similar, though the currently allocations of the various desired token IDs must be included as well. For example, if you want to increase the approved allocations of token ID 1 from 5 to 10 for the address 0x0, the transaction would look like: </p>
+<p><code>batchApprove( 0x0, [1], [5], [10] )</code></p>
+<p><strong>Operators</strong></p>
+<pre><code>interface IERC1155Operators {
+    event OperatorApproval(address indexed _owner, address indexed _operator, uint256 indexed _id, bool _approved);
+    event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved);
+
+    function setApproval(address _operator, uint256[] _ids, bool _approved) external;
+    function isApproved(address _owner, address _operator, uint256 _id)  external view returns (bool);
+    function setApprovalForAll(address _operator, bool _approved) external;
+    function isApprovedForAll(address _owner, address _operator) external view returns (bool isOperator);
+}
+</code></pre>
+<p>The operator functions are also quite similar to ERC721, basically divided into setApproval and the getter isApproved (returns  a boolean), and setApprovalForAll (all tokens) and isApprovedForAll.</p>
+<p><strong>Views</strong></p>
+<pre><code>interface IERC1155Views {
+    function totalSupply(uint256 _id) external view returns (uint256);
+    function name(uint256 _id) external view returns (string);
+    function symbol(uint256 _id) external view returns (string);
+    function decimals(uint256 _id) external view returns (uint8);
+    function uri(uint256 _id) external view returns (string);
+}
+</code></pre>
+<p>The above views are available for each token, taking just the _id as an argument.</p>
+<p><strong>Non-fungible Views (optional)</strong></p>
+<pre><code>interface IERC1155NonFungible {
+    // Optional Functions for Non-Fungible Items
+    function ownerOf(uint256 _id) external view returns (address);
+    function nonFungibleByIndex(uint256 _id, uint128 _index) external view returns (uint256);
+    function nonFungibleOfOwnerByIndex(uint256 _id, address _owner, uint128 _index) external view returns (uint256);
+    function isNonFungible(uint256 _id) external view returns (bool);
+}
+</code></pre>
+<p>The non-fungible views are set as optional in the ERC1155 standard. </p>
+<p><strong>*The Enjin Implementation (WIP)</strong></p>
+<p>The Enjin implementation can be found here: https://github.com/enjin/erc-1155</p>
+<p>Note: this is a WIP, and will likely change (this article will be updated to reflect those changes)</p>
+<p>The implementation contains the following files:
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/ERC1155.sol">ERC1155.sol</a>
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/ERC1155Mintable.sol">ERC1155Mintable.sol</a>
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/ERC1155NonFungible.sol">ERC1155NonFungible.sol</a>
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/ERC1155NonFungibleMintable.sol">ERC1155NonFungibleMintable.sol</a>
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/IERC1155.sol">IERC1155.sol</a>
+<a href="https://github.com/enjin/erc-1155/blob/master/contracts/IERC1155NonFungible.sol">IERC1155NonFungible.sol</a></p>
+<p>The last two (starting with I), are the interfaces discussed above. ERC1155.sol and ERC1155NonFungible.sol are the implementations of the respective interfaces, so we'll focus on ERC1155NonFungibleMintable.sol, which is the usable token contract that includes NFTs.</p>
+<pre><code>pragma solidity ^0.4.24;
+
+import &quot;./ERC1155NonFungible.sol&quot;;
+
+/**
+    @dev Mintable form of ERC1155
+    Shows how easy it is to mint new items
+*/
+contract ERC1155NonFungibleMintable is ERC1155NonFungible {
+
+    mapping (uint256 =&gt; address) public minters;
+    uint256 nonce;
+
+    modifier minterOnly(uint256 _id) {
+        require(minters[_id] == msg.sender);
+        _;
+    }
+
+    // This function only creates the type.
+    function create(
+        string _name,
+        string _uri,
+        uint8 _decimals,
+        string _symbol,
+        bool _isNFI)
+    external returns(uint256 _type) {
+
+        // Store the type in the upper 128 bits
+        _type = (++nonce &lt;&lt; 128);
+
+        // Set a flag if this is an NFI.
+        if (_isNFI)
+          _type = _type | TYPE_NF_BIT;
+
+        // This will allow special access to minters.
+        minters[_type] = msg.sender;
+
+        // Setup the basic info.
+        items[_type].name = _name;
+        decimals[_type] = _decimals;
+        symbols[_type] = _symbol;
+        metadataURIs[_type] = _uri;
+    }
+
+    function mintNonFungible(uint256 _type, address[] _to) external minterOnly(_type) {
+
+        require(isNonFungible(_type));
+
+        // Index are 1-based.
+        uint256 _startIndex = items[_type].totalSupply + 1;
+
+        for (uint256 i = 0; i &lt; _to.length; ++i) {
+
+            address _dst = _to[i];
+            uint256 _nfi = _type | (_startIndex + i);
+
+            nfiOwners[_nfi] = _dst;
+            items[_type].balances[_dst] = items[_type].balances[_dst].add(1);
+        }
+
+        items[_type].totalSupply = items[_type].totalSupply.add(_to.length);
+    }
+
+    function mintFungible(uint256 _type, address[] _to, uint256[] _values)
+    external  {
+
+        require(isFungible(_type));
+
+        uint256 totalValue;
+        for (uint256 i = 0; i &lt; _to.length; ++i) {
+
+            uint256 _value = _values[i];
+            address _dst = _to[i];
+
+            totalValue = totalValue.add(_value);
+
+            items[_type].balances[_dst] = items[_type].balances[_dst].add(_value);
+        }
+
+        items[_type].totalSupply = items[_type].totalSupply.add(totalValue);
+    }
+}
+</code></pre>
+<p>Here we have three functions:</p>
+<p><code>create(string _name, string _uri, uint8 _decimals, string _symbol, bool _isNFI)</code></p>
+<p>This is an entirely new function from 20 and 721. Instead of “minting” individual tokens, this creates a new instance of a token (called a “type”), which can be either ERC20 or 721. This effectively operates as a Factory (link) contract function.</p>
+<p><code>mintNonFungible(uint256 _type, address[] _to) external minterOnly(_type)</code></p>
+<p>This is the function to mint new NFTs, and requires a _type created in the create() function, and an array of addresses to send the newly minted token(s) to. This is different from the 721 mint() function in that you can mint multiple tokens at once (one for each address in the array).</p>
+<p><code>mintFungible(uint256 _type, address[] _to, uint256[] _values)</code></p>
+<p>Similar to mintNonFungible but for ERC20ish tokens. This function takes an additional argument, _values, which sets the amount of tokens to be minted and sent to each address in the corresponding _to array.</p>
+<p><strong>Bonus: Token Marking (Fungible vs. Nonfungible) With Bit Identification</strong></p>
+<p>One very interesting component of the ERC1155 standard is the use of a split bit to designate a token as either a fungible or non-fungible token.</p>
+<pre><code>contract ERC1155NonFungible is ERC1155 {
+
+    // Use a split bit implementation.
+    // Store the type in the upper 128 bits..
+    uint256 constant TYPE_MASK = uint256(uint128(~0)) &lt;&lt; 128;
+
+    // ..and the non-fungible index in the lower 128
+    uint256 constant NF_INDEX_MASK = uint128(~0);
+
+    // The top bit is a flag to tell if this is a NFI.
+    uint256 constant TYPE_NF_BIT = 1 &lt;&lt; 255;
+
+    mapping (uint256 =&gt; address) nfiOwners;
+
+    // Only to make code clearer. Should not be functions
+    function isNonFungible(uint256 _id) public pure returns(bool) {
+        return _id &amp; TYPE_NF_BIT == TYPE_NF_BIT;
+    }
+    function isFungible(uint256 _id) public pure returns(bool) {
+        return _id &amp; TYPE_NF_BIT == 0;
+    }
+    function getNonFungibleIndex(uint256 _id) public pure returns(uint256) {
+        return _id &amp; NF_INDEX_MASK;
+    }
+    function getNonFungibleBaseType(uint256 _id) public pure returns(uint256) {
+        return _id &amp; TYPE_MASK;
+    }
+    function isNonFungibleBaseType(uint256 _id) public pure returns(bool) {
+        // A base type has the NF bit but does not have an index.
+        return (_id &amp; TYPE_NF_BIT == TYPE_NF_BIT) &amp;&amp; (_id &amp; NF_INDEX_MASK == 0);
+    }
+    function isNonFungibleItem(uint256 _id) public pure returns(bool) {
+        // A base type has the NF bit but does not have an index.
+        return (_id &amp; TYPE_NF_BIT == TYPE_NF_BIT) &amp;&amp; (_id &amp; NF_INDEX_MASK != 0);
+    }
+}
+</code></pre>
+<p>The first bit is used as the flag (TYPE_NF_BIT), the rest of the upper 128 bits are used to store the type (TYPE_MASK), and the lower 128 bits are used to store the index of the NFT (NF_INDEX_MASK).</p>
+<pre><code>    uint256 constant TYPE_MASK = uint256(uint128(~0)) &lt;&lt; 128;
+
+    // ..and the non-fungible index in the lower 128
+    uint256 constant NF_INDEX_MASK = uint128(~0);
+
+    // The top bit is a flag to tell if this is a NFI.
+    uint256 constant TYPE_NF_BIT = 1 &lt;&lt; 255;
+</code></pre>
+<p>The functions that use these variables use the bitwise operator &amp; to return the requested value, either 0 for fungible or 1 for nonfungible.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Crypto Items and ERC1155</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/crypto-items-and-erc1155/d94806ce6d194b698bb616569f53ceff/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmU2hUXW9CNwovcv2qVVu82Q1sUyYM5ZyTAD7RwjybVH1N</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../ETHBerlin/a-thank-you-message-to-the-ethereum-community/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../ETHBerlin/a-thank-you-message-to-the-ethereum-community/" class="btn btn-xs btn-link">
+        A Thank-You Message to the Ethereum Community
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../tokens-owning-tokens--erc998-and-composables/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../tokens-owning-tokens--erc998-and-composables/" class="btn btn-xs btn-link">
+        Tokens Owning Tokens  ERC998 and Composables
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Non-Fungible Token Tutorial Series/crypto-items-and-erc1155.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

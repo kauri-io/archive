@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/populus--smart-contract-compilation-and-deploymen/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Populus  Smart contract compilation and deployment - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Populus  Smart contract compilation and deployment", url: "#_top", children: [
+              {title: "Populus: Smart contract compilation and deployment", url: "#populus-smart-contract-compilation-and-deployment_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="populus-smart-contract-compilation-and-deployment">Populus  Smart contract compilation and deployment<a class="headerlink" href="#populus-smart-contract-compilation-and-deployment" title="Permanent link"></a></h1>
+<h2 id="populus-smart-contract-compilation-and-deployment_1">Populus: Smart contract compilation and deployment<a class="headerlink" href="#populus-smart-contract-compilation-and-deployment_1" title="Permanent link"></a></h2>
+<p>Note: this guide outlines Populus as it stands right now and is a work in progress. As this guide was being written, support for Web3.py 4 has been introduced, and eth-tester support was added while ethtestrpc was removed (as of PR#474). </p>
+<p>Shortly after this, Piper Merriam (via 'ethereum/populus' gitter) indicated that a new tool, called pytest-ethereum, is being prototyped and it is intended to be “a standalone replacement for alot of what populus does.” For this reason, this article will be left in it's current unfinished state, but as more information becomes available this article will be updated. </p>
+<p>There are many tools available to developers looking to simplify the process of compiling and deploying contracts to the testnets and mainnet. Populus is a development framework for Ethereum smart contracts written in Python. </p>
+<h3 id="what-is-populus">What is Populus?<a class="headerlink" href="#what-is-populus" title="Permanent link"></a></h3>
+<p>Populus is a Python based development framework for Ethereum smart contracts. Populus is in a more rudimentary development state than the other prominent development frameworks discussed in this DappSeries (e.g. Truffle, Embark). </p>
+<p>Those using this tool should be aware that as of writing this article Populus does not receive a constant stream of updates. </p>
+<h3 id="general-information">General Information<a class="headerlink" href="#general-information" title="Permanent link"></a></h3>
+<ul>
+<li>Populus 2.2.0 documentation: 
+    https://populus.readthedocs.io/en/latest/</li>
+<li>The steps below were written in the context of an Ubuntu 18.04 environment + python3.6 virtual environment, though the article has been crafted to be applicable to any of the major operating systems. </li>
+</ul>
+<h3 id="installing-populus">Installing Populus<a class="headerlink" href="#installing-populus" title="Permanent link"></a></h3>
+<p>Much of the content in this section is copied verbatim from Populus' ReadtheDocs page linked above in the General Information section.</p>
+<h4 id="populus-has-the-following-system-dependencies">Populus has the following system dependencies:<a class="headerlink" href="#populus-has-the-following-system-dependencies" title="Permanent link"></a></h4>
+<p>Debian, Ubuntu, Mint </p>
+<pre><code>$ sudo apt-get install libssl-dev
+</code></pre>
+<p>Fedora, CentOS, RedHat</p>
+<pre><code>$ sudo yum install openssl-devel
+</code></pre>
+<p>OSX </p>
+<pre><code>$ brew install pkg-config libffi autoconf automake libtool openssl
+</code></pre>
+<p>Virtual environments: 
+While not a neccessity, this article assumes use of a python3.6 virtual environment. This article won't go into detail on how to install &amp; construct a virtual environment. See this documentation: https://docs.python.org/3/tutorial/venv.html </p>
+<p>Use pip to install Populus:</p>
+<p>Python 2:</p>
+<pre><code>$ pip install populus 
+</code></pre>
+<p>Python 3: </p>
+<pre><code>$ pip3 install populus
+</code></pre>
+<p>A note on some issues I experienced while installing Populus:</p>
+<ul>
+<li>Populus compile error related to 'Force_Text':<ul>
+<li>Try 'pip install eth-utils==0.8.1'</li>
+</ul>
+</li>
+<li>Pip installation errors related to secp256k1:<ul>
+<li>Try 'pip install —upgrade web3'</li>
+</ul>
+</li>
+</ul>
+<p>To install latest dev branch, clone the repo and install via requirements-dev.txt. </p>
+<pre><code>$ pip install -e . -r requirements-dev.txt
+</code></pre>
+<h3 id="initializing-a-new-project">Initializing a new project<a class="headerlink" href="#initializing-a-new-project" title="Permanent link"></a></h3>
+<p>Initialize a new project using the command line:</p>
+<pre><code>$ populus init
+</code></pre>
+<p>or use the command below to initialize a project in a specific directory: </p>
+<pre><code>$ populus -p /path/to/my/project
+</code></pre>
+<h3 id="compiling-your-contracts">Compiling your contracts<a class="headerlink" href="#compiling-your-contracts" title="Permanent link"></a></h3>
+<p>The init command we used in the previous section generates a sample contract for us called 'Greeter.sol'. This contract is located in the contracts/ folder. This is just a basic contract used in the Populus ReadtheDocs to demonstrate generic functionality. </p>
+<p>Some things to consider: </p>
+<p>Instead we will use a more intermediate level contract in this article. See below:</p>
+<pre><code>pragma solidity ^0.4.21;
+/**
+ * @title Bounties
+ * @author Joshua Cassidy- &lt;joshua.cassidy@consensys.net&gt;
+ * @dev Simple smart contract which allows any user to issue a bounty in ETH linked to requirements
+ * which anyone can fulfil by submitting the evidence of their fulfilment
+ */
+contract Bounties {
+/*
+  * Enums
+  */
+enum BountyStatus { CREATED, ACCEPTED, CANCELLED }
+/*
+  * Storage
+  */
+Bounty[] public bounties;
+/*
+  * Structs
+  */
+struct Bounty {
+      address issuer;
+      uint deadline;
+      string data;
+      BountyStatus status;
+      uint amount; //in wei
+  }
+/**
+   * @dev Contructor
+   */
+  constructor() public {}
+/**
+  * @dev issueBounty(): instantiates a new bounty
+  * @param _deadline the unix timestamp after which fulfillments will no longer be accepted
+  * @param _data the requirements of the bounty
+  */
+  function issueBounty(
+      string _data,
+      uint64 _deadline
+  )
+      public
+      payable
+      hasValue()
+      validateDeadline(_deadline)
+      returns (uint)
+  {
+      bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+      emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);
+      return (bounties.length - 1);
+  }
+/**
+  * Modifiers
+  */
+modifier hasValue() {
+      require(msg.value &gt; 0);
+      _;
+  }
+modifier validateDeadline(uint _newDeadline) {
+      require(_newDeadline &gt; now);
+      _;
+  }
+/**
+  * Events
+  */
+  event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
+}
+</code></pre>
+<p>Using your text editor of choice, add this solidity contract to the contracts/ folder and use the below command to compile it: </p>
+<pre><code>$ populus compile 
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaZ4Cqew26sJ2gYzMiSpNhEd6Qjw7KDZKCKv9muomWvTn" /></p>
+<p>Here you can see that our Bounties.sol contract was found and compiled. When you first initialize a new Populus project, you will find a Greeter.sol and its test python files. I removed those files for this demo and will only focus on the Bounties.sol contract shown above. </p>
+<p>Within your build directory (in our example: './testproject/build/') there should exist a 'contracts.json' file. This file is required to deploy the contract. It contains the application binary interface (ABI), the bytecode required to deploy the contract, and the bytecode to be written to the Ethereum blockchain. </p>
+<p>The watching command (—watch/-w) is helpful when you're working with your source code, as it will automatically recompile your contracts when it detects that the source code has changed. </p>
+<pre><code>$ populus compile --watch
+</code></pre>
+<p>Lastly, any build output is serialized as JSON and is written to the build/contract.json folder of your initialized project. </p>
+<h3 id="creating-a-local-test-blockchain-using-populus-to-be-deprecated">Creating a local test blockchain using Populus (to be deprecated)<a class="headerlink" href="#creating-a-local-test-blockchain-using-populus-to-be-deprecated" title="Permanent link"></a></h3>
+<p>A feature of Populus that will soon be deprecated is the ability to quickly create local chains using your machine's local geth instance. You can both deploy and test your smart contracts using these local chains. </p>
+<p>You must have geth installed on your machine for the below command to work, otherwise you will receive a folder cannot be found error. </p>
+<p>Create a local geth chain, named 'newchain': </p>
+<pre><code>$ populus chain new newchain
+</code></pre>
+<p>This command creates a genesis.json (the local chains genesis block), an ethereum account with balance, and two bash scripts: 'init_chain.sh' and 'run_chain.sh'. </p>
+<p>Directory view of the generated directory and associated files: 
+<img alt="" src="https://ipfs.infura.io/ipfs/QmbUkwdXJYuAVPEb9J5mWBA4NTz1dKRhs5FUYuuLxg9q73" /></p>
+<p>Using this feature, new developers do not yet need to delve into the intricacies of the the 'genesis.json' file. Likewise, more experienced developers can use the chain command to generate a 'genesis.json' file and then modify it as they see fit. </p>
+<p>After you create a new local chain, it must be initialized using the 'init_chain.sh' script generated by our command above: </p>
+<pre><code>$ ./init_chain.sh
+</code></pre>
+<p>Note: Initialize your local chain before you use the 'run_chain.sh' script or you will receive a 'failed to write genesis block' error. </p>
+<p>Let's run our local geth chain now: </p>
+<pre><code>$ ./run_chain.sh
+</code></pre>
+<p>You should see the standard geth output. This is our local chain 'syncing.' </p>
+<p>Lastly, we need to add our newly created local chain information to our 'project.json' file, as below: </p>
+<pre><code>},
+  &quot;chains&quot;: {
+    &quot;newchain&quot;: {
+      &quot;chain&quot;: {
+        &quot;class&quot;: &quot;populus.chain.ExternalChain&quot;
+      },
+      &quot;web3&quot;: {
+        &quot;provider&quot;: {
+          &quot;class&quot;: &quot;web3.providers.ipc.IPCProvider&quot;,
+        &quot;settings&quot;: {
+          &quot;ipc_path&quot;:&quot;/home/wil/Documents/scripts/python/populus/testproject/chains/newchain/chain_data/geth.ipc&quot;
+        }
+       }
+      },
+      &quot;contracts&quot;: {
+        &quot;backends&quot;: {
+          &quot;JSONFile&quot;: {&quot;$ref&quot;: &quot;contracts.backends.JSONFile&quot;},
+          &quot;ProjectContracts&quot;: {
+            &quot;$ref&quot;: &quot;contracts.backends.ProjectContracts&quot;
+          }
+        }
+      }
+    }
+  }
+</code></pre>
+<h3 id="deploying-smart-contracts-to-our-newly-created-local-chain-to-be-deprecated">Deploying smart contracts to our newly created local chain (to be deprecated)<a class="headerlink" href="#deploying-smart-contracts-to-our-newly-created-local-chain-to-be-deprecated" title="Permanent link"></a></h3>
+<p>We've both compiled our smart contracts and brought our local chain online. It's now time to deploy our smart contracts to our local chain. </p>
+<p>Populus makes this process simple with the following command:</p>
+<pre><code>$ populus deploy --chain newchain Bounties --no-wait-for-sync
+</code></pre>
+<p>We use the deploy argument along with a few additional optional arguments that selects our local chain, 'newchain', and the smart contract we want to deploy, 'Bounties.' We use the '—no-wait-for-sync' option because on our local chain we've already initalized a genesis block that endows our generated coinbase account with the test ether we need to successfully deploy. </p>
+<p>Your expected output should be similar to the below: 
+<img alt="" src="https://ipfs.infura.io/ipfs/QmSDtESrzDSKDajQ5mSfqcL1GNE5DRELtDSndMZdm398ZJ" /></p>
+<h3 id="testing-your-smart-contracts">Testing your smart contracts<a class="headerlink" href="#testing-your-smart-contracts" title="Permanent link"></a></h3>
+<p>The command to test the smart contracts is different from the general populus command syntax: </p>
+<pre><code>$ py.test tests/
+</code></pre>
+<p>If you experience errors, there are a few things to be aware of here. Initially, I experienced errors here related to the 'project.json' file that is required to be in the default project directory (in our example: './testproject/'). The file we need appears in './../venv/lib/python3.6/site-packages/populus/assets/defaults.v8.config.json'. Copy this file into your default populus directory (in our example: 'testproject/') and rename it to 'project.json'. For more information on this issue and solution, see: https://github.com/ethereum/populus/issues/431 </p>
+<p>The following guide will discuss the Populus testing process in greater detail. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Populus  Smart contract compilation and deployment</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/populus-smart-contract-compilation-and-deployment/21b6d5256bcd4a0bb23c84c75c1b1f76/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-13</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmVjoEZBCgXZWVkG6ajnCfYDvT3BhSkJYhdtjoGJ3YcNG6</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../populus--testing-your-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../populus--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Populus  Testing your smart contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../embark--testing-your-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../embark--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Embark  Testing Your Smart Contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/populus--smart-contract-compilation-and-deploymen.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

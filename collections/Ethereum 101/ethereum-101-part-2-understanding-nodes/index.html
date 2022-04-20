@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-2-understanding-nodes/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 2 - Understanding Nodes - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 2 - Understanding Nodes", url: "#_top", children: [
+              {title: "ETH101 - Understanding Nodes", url: "#eth101-understanding-nodes" },
+              {title: "Technical Dive", url: "#technical-dive" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-2-understanding-nodes">Ethereum 101 - Part 2 - Understanding Nodes<a class="headerlink" href="#ethereum-101-part-2-understanding-nodes" title="Permanent link"></a></h1>
+<h2 id="eth101-understanding-nodes">ETH101 - Understanding Nodes<a class="headerlink" href="#eth101-understanding-nodes" title="Permanent link"></a></h2>
+<h3 id="quick-overview">Quick Overview<a class="headerlink" href="#quick-overview" title="Permanent link"></a></h3>
+<p>When we use the word node within this technical documentation, we're referring to an Ethereum client. </p>
+<blockquote>
+<p>An Ethereum client is a software application that implements the Ethereum specification and communicates over the peer-to-peer network with other Ethereum clients. Different Ethereum clients interoperate if they comply with the reference specification and the standardized communications protocols. While these different clients are implemented by different teams and in different programming languages, they all "speak" the same protocol and follow the same rules. As such, they can all be used to operate and interact with the same Ethereum network.</p>
+</blockquote>
+<p><em>Author: Andreas M. Antonopoulos, <a href="https://github.com/ethereumbook/ethereumbook">"Mastering Ethereum"</a> Section 03 - Clients.</em></p>
+<p>Geth and Parity are arguably the two most common Ethereum clients. For this reason, we'll walk through how to run these clients in more detail through this documentation. </p>
+<table>
+<thead>
+<tr>
+<th>Client</th>
+<th>Language</th>
+<th>Developers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geth</td>
+<td>Go</td>
+<td>Ethereum Foundation</td>
+</tr>
+<tr>
+<td>Parity</td>
+<td>Rust</td>
+<td>Ethcore</td>
+</tr>
+<tr>
+<td>cpp-ethereum</td>
+<td>C++</td>
+<td>Ethereum Foundation</td>
+</tr>
+<tr>
+<td>Trinity</td>
+<td>Python</td>
+<td>Ethereum Foundation / Piper Merriam</td>
+</tr>
+<tr>
+<td>Ethereumjs modules</td>
+<td>JavaScript</td>
+<td>Ethereum Foundation</td>
+</tr>
+<tr>
+<td>Ethereum(J)</td>
+<td>Java</td>
+<td>Ethereum Foundation</td>
+</tr>
+<tr>
+<td>Harmony</td>
+<td>Java</td>
+<td>Ether.Camp</td>
+</tr>
+<tr>
+<td>Pantheon</td>
+<td>Java</td>
+<td>PegaSys</td>
+</tr>
+<tr>
+<td>ruby-ethereum</td>
+<td>Ruby</td>
+<td>Jan Xie</td>
+</tr>
+<tr>
+<td>ethereumH</td>
+<td>Haskell</td>
+<td>BlockApps</td>
+</tr>
+<tr>
+<td>Quorum</td>
+<td>Go (a fork for go-ethereum)</td>
+<td>JPMorgan Chase</td>
+</tr>
+<tr>
+<td>Exthereum</td>
+<td>Elixir</td>
+<td>Geoffrey Hayes</td>
+</tr>
+</tbody>
+</table>
+<p>Source (has been modified from original source)
+* http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html#why-are-there-multiple-ethereum-clients 
+* https://github.com/ConsenSys/ethereum-developer-tools-list#ethereum-clients</p>
+<p>The client diversity we enjoy as Ethereum network participants is indicative of a healthy ecosystem. There exists a myriad of different clients, many independently developed each with their own feature set, yet they remain interoperable with other Ethereum client implementations. Interoperability within the network is important, and it further boosts the adoption of software such as "remote clients" and "wallets" that improve the general user's experience. </p>
+<h3 id="running-a-full-node-light-node-test-node">Running a full node / light node / test node<a class="headerlink" href="#running-a-full-node-light-node-test-node" title="Permanent link"></a></h3>
+<p>A few new terms here for you to digest. Let's walk through them at a high level: </p>
+<h4 id="full-node">Full node<a class="headerlink" href="#full-node" title="Permanent link"></a></h4>
+<p>You're running a full implementation of the Ethereum network on your machine. This is as robust as it gets. It requires a not insignificant commitment of time and effort, as well as related hardware and bandwidth incurred costs, to support the synchronization and maintenance of a full node. </p>
+<p>A full node is not required to develop on Ethereum.</p>
+<p>A full node will require 80+ GB of disk storage space to store Ethereum's chaindata. Chaindata is the ever expanding chain from the genesis block to the latest best block. </p>
+<p>Generally accepted criteria of a full Ethereum node: 
+* full synchronization of the blockchain, <em>from the genesis block to the latest best block with the highest amount of accumulated work</em> 
+* full replay and validation of all transactions, contract deployments, and contract executions, per block, <em>starting at the genesis to the latest best block</em>
+* has recomputed the state of each consecutive block, <em>from the genesis to latest best block</em>
+* has all historical blocks on disk, <em>from the genesis to latest best block</em>
+* maintains the most recent states, while pruning ancient states</p>
+<p>The full node theme here is self-evident: all block data from the genesis block to the latest best block with the highest amount of accumulated work is stored on the full node's disk. State data is allowed to be pruned because when a node holds the record of all historical blocks, it can subsequently recompute any historical state. </p>
+<p>SOURCES: https://dev.to/5chdn/the-ethereum-blockchain-size-will-not-exceed-1tb-anytime-soon-58a</p>
+<h2 id="technical-dive">Technical Dive<a class="headerlink" href="#technical-dive" title="Permanent link"></a></h2>
+<p>The Geth and Parity clients both support quicker synchronization modes, "fast sync" and "warp sync" respectively. The way each client actually syncs is a bit more nuanced. </p>
+<h3 id="geth">Geth<a class="headerlink" href="#geth" title="Permanent link"></a></h3>
+<h4 id="full-sync">Full sync<a class="headerlink" href="#full-sync" title="Permanent link"></a></h4>
+<p>When a Geth node full syncs, it starts at the genesis block and works through each consecutive transaction, on a per block basis, until it reaches the latest best block. This is a time consuming process. </p>
+<p>When a Geth node fast syncs, instead of working through each consecutive transaction, the client downloads the transaction receipts in parallel to all the blocks, then pulls the entire most recent state database, and then switches to full sync mode as described above. </p>
+<h3 id="parity">Parity<a class="headerlink" href="#parity" title="Permanent link"></a></h3>
+<p>When a Parity node no-warp, archive syncs, it starts at the genesis block and works through each consecutive transaction, on a per block basis, until it reaches the latest best block. Along the way, it computes and saves all state data for each block. This is a time consuming and storage intensive process. </p>
+<p>When a Parity node no-warp, fast syncs, it starts at the genesis block and works through each consecutive transaction, on a per block basis, until it reaches the latest block. Along the way, it prunes ancient states, maintaining the most recent states on disk. This is a time consuming process. </p>
+<p>When a Parity node warp, fast syncs, it skips almost all of the block processing, instead injecting appropriate data directly into the database. Warp synchronization fetches a recent snapshot from the network, restores it, and then continues syncing to the incoming newly validated blocks. </p>
+<h3 id="light-node">Light node<a class="headerlink" href="#light-node" title="Permanent link"></a></h3>
+<p>You're running a truncated implementation of the Ethereum network. A light node validates block headers and only other things that need to be verified. </p>
+<p>Additional reading: 
+* Ethereum light client protocol specification: https://github.com/ethereum/wiki/wiki/Light-client-protocol</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 2 - Understanding Nodes</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-2-understanding-nodes/48d5098292fd4f11b251d1b1814f0bba/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> ethereum, geth, nodes, primer, parity, client, light-client</li>
+<li><strong>Kauri original hash:</strong> QmNuAE2iSCVNvNB2Utj9MEGStVVoqf9Schj7fqQ6HLHp8W</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-101-part-3-consensus-protocols/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-101-part-3-consensus-protocols/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 3 - Consensus Protocols
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-1-what-is-ethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-1-what-is-ethereum/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 1 - What is Ethereum?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-2-understanding-nodes.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

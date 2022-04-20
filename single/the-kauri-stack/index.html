@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/the-kauri-stack/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The Kauri Stack - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The Kauri Stack", url: "#_top", children: [
+              {title: "Kauri Architecture Overview", url: "#kauri-architecture-overview" },
+              {title: "Kauri Smart Contracts Overview", url: "#kauri-smart-contracts-overview" },
+              {title: "Kauri\u2019s Data Storage Mechanism", url: "#kauris-data-storage-mechanism" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-kauri-stack">The Kauri Stack<a class="headerlink" href="#the-kauri-stack" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUgWuHdZo6M7Bcpqfq7fK7uDZEs9q1zx7whxWPH71UURW" /></p>
+<p>The Kauri team has been heads down in research and development, exploring how we can launch and scale a knowledge network that is curated not by a central moderator, but by the community itself. This article, while technical in nature, is intended to provide the community with an overview of how Kauri was designed, how it was built, how the application and protocol layers interact, and how the smart contracts function. We believe that making this information open to the larger Ethereum ecosystem is vital to Kauri’s success, as we pursue the long-term goal of a community-curated body of knowledge.</p>
+<h3 id="kauri-architecture-overview">Kauri Architecture Overview<a class="headerlink" href="#kauri-architecture-overview" title="Permanent link"></a></h3>
+<p>We don’t want Kauri to own or store your content. Instead, we aim to provide a decentralized, trustless, and community-based network to share and curate knowledge. To do this, we separated the network into two layers: the protocol layer and the application layer. The protocol layer is a collection of decentralized technologies that guarantee openness and transparency, while the application layer is a traditional application that serves primarily to improve user experience.</p>
+<h4 id="kauri-protocol-layer">Kauri Protocol Layer<a class="headerlink" href="#kauri-protocol-layer" title="Permanent link"></a></h4>
+<p><em>Core Decentralized Technologies</em> 
+The protocol layer contains the core decentralized functions, and was built using the Ethereum blockchain, Solidity smart contracts for all trustless interaction and payments, and IPFS as distributed storage for content, images, and other materials used on the network.</p>
+<p>Due to the nascent stage of blockchain development, we realized that decentralizing the core business logic, trustless interactions and payments, and file storage mechanisms while maintaining a traditional application layer was the best approach at this time. This in turn creates an open by default API from which anyone can build on top of. The benefits of this are threefold: trustless interactions and payments on the Ethereum blockchain, security of existence via IPFS storage, and true community ownership of content.</p>
+<p><em>Smart Contracts: Trustless Interactions and Payments</em> 
+The Kauri smart contracts contain all the business logic for submitting and requesting articles, and adding and increasing bounties on articles. The current contract set resides on the Rinkeby testnet, with many publicly facing key domain functions. Kauri’s smart contracts have been written to include an upgradeable storage mechanism, so in the event a flaw is found within the current contract set, new versions of the core contracts can be deployed and still be pointed at the persisting storage contract. More detailed information on the key domain entities are highlighted at the end of this article.</p>
+<p><em>IPFS: Security of Existence and Distributed Content</em> 
+With Kauri’s open by default API, anyone can access the IPFS data, as well as any related information via the Kauri smart contracts, as everything on the Ethereum mainnet is publicly available. However, IPFS content on Kauri and moderation of that content is controlled using elliptic curve cryptography.</p>
+<p>Kauri tracks content ownership and moderation via signature. Essentially, users will sign a string with their private key, this string consisting of the IPFS_hash + article_id, and in return this signature is stored in the IPFS reference document. This IPFS reference document contains the proof of ownership of the content. To validate the content owner, the address received from recovering the signature is compared with the address of the author for a match.</p>
+<h4 id="kauri-application-layer">Kauri Application Layer<a class="headerlink" href="#kauri-application-layer" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/0*4DyqUyEAYrh3bltx." /></p>
+<p>Kauri’s Application Layer stack is straightforward, and is all deployed using Kubernetes:</p>
+<ul>
+<li>
+<p><strong>Frontend</strong> is built using ReactJS, which utilizes MetaMask and the Web3.js library to interact with the Ethereum blockchain.</p>
+</li>
+<li>
+<p><strong>API Gateway</strong> is built using Spring Boot and is split into three main components: a synchronously executed query mechanism, an asynchronously executed command mechanism, and a push notification event mechanism.</p>
+</li>
+<li>
+<p><strong>Passwordless Authentication Module,</strong> which generates a JSON Web Token that isn’t based on any central authority or storage.</p>
+</li>
+<li>
+<p><strong>Kafka Message Bus</strong> that manages the asynchronous nature of blockchain contract events, queuing all events coming from the Ethereum blockchain and API gateway.</p>
+</li>
+<li>
+<p><strong>Core Service</strong> are the Java and Spring Boot components responsible for off-chain logic (e.g. who has the right to submit a comment) and reconciliation, as well as event / command processors, and a query handler.</p>
+</li>
+<li>
+<p><strong>Broadcaster,</strong> which is a smart contract event listener that listens for events and triggers corresponding messages on the Kafka Message Bus.</p>
+</li>
+<li>
+<p><strong>Email Service</strong> that sends email notifications to the end user.</p>
+</li>
+<li>
+<p><strong>Database Layer</strong> that stores JSON documents on IPFS and uses ElasticSearch to index content and provide full text search capabilities.</p>
+</li>
+</ul>
+<p><em>Advantages Provided by Application Layer</em> 
+Due to the nascent nature of blockchain development, we feel that although Kauri’s application layer introduces minor points of centralization at this point in time, it does provide a practical and cost-effective user experience while also introducing key application features, namely notifications, votes, comments, search capabilities, and monitoring.</p>
+<h3 id="kauri-smart-contracts-overview">Kauri Smart Contracts Overview<a class="headerlink" href="#kauri-smart-contracts-overview" title="Permanent link"></a></h3>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/0*jrQoFj25elMLoUCl." /></p>
+<p>There are four key domain entities within the Kauri smart contract system:</p>
+<ul>
+<li>
+<p><strong>Request:</strong> a request for a new knowledge article to be created within the system.</p>
+</li>
+<li>
+<p><strong>Topic:</strong> a topic within the Kauri system is a specific category by which requests and articles are siloed.</p>
+</li>
+<li>
+<p><strong>Bounty:</strong> an amount of ether associated with a request that is awarded to an accepted article submitter. Anyone can decide to contribute to a request, but it is not a requirement that a request must have a bounty amount.</p>
+</li>
+<li>
+<p><strong>Article:</strong> useful content within the Kauri network, such as a tutorial or best practices guide. An article can be created in response to a request for knowledge or submitted standalone and not associated with a request.</p>
+</li>
+</ul>
+<p>The smart contracts were designed with four distinct actors in mind: regular users, article submitters, topic moderators, and the Kauri Team. Topic Moderators and the Kauri Team are points of centralization in the MVP that we hope to disintermediate as we continue to develop the network. At the outset of the Kauri MVP launch, <strong>Topic Moderators</strong> will currently retain control over deciding which articles should be accepted or rejected, while the <strong>Kauri Team</strong> will retain control over upgrading of contracts, changing of contract configuration parameters, and adding new topic moderators.</p>
+<h4 id="kauris-smart-contract-architecture">Kauri’s Smart Contract Architecture<a class="headerlink" href="#kauris-smart-contract-architecture" title="Permanent link"></a></h4>
+<p>There are four separate but cohesive deployable contracts within the Kauri smart contract system, with distinct bounded contexts. Interaction between these contracts is achieved via function calls at the interface level, with no dependency on the actual implementation details.</p>
+<ul>
+<li>
+<p><strong>KauriCore:</strong> where almost all of the business logic of the smart contract system is located. It includes all the functions for request, bounty, and article manipulations. It does not store data locally however (with the exception of contract configuration data), and instead delegates to the storage contract when retrieving and writing data.</p>
+</li>
+<li>
+<p><strong>Wallet:</strong> manages the holding, allocation, and withdrawal of funds from the Kauri system. It is the only contract that is designed to hold ether. The KauriCore contract forwards all received ether to this contract when a bounty or tip function is called.</p>
+</li>
+<li>
+<p><strong>TopicModerator:</strong> handles creation of topics and the assignment of moderators (by their public ethereum address) to these topics. The KauriCore contract delegates to this contract for access control when deciding if an account should be able to call moderator-only functions.</p>
+</li>
+<li>
+<p><strong>Storage:</strong> focused purely on storing key value pair data, used by the TopicModerator and KauriCore contracts in order to provide a highly flexible data model whilst also enabling the system logic to be upgraded without losing valuable data.</p>
+</li>
+</ul>
+<h3 id="kauris-data-storage-mechanism">Kauri’s Data Storage Mechanism<a class="headerlink" href="#kauris-data-storage-mechanism" title="Permanent link"></a></h3>
+<p>Logic and storage within Kauri smart contracts are separated to ensure that there is a clear path to upgrading, in the event that a flaw is found in the logic of the code. In traditional smart contract design, the data is tightly coupled to the logic, and an upgrade could mean a potentially expensive — and because of gas constraints — sometimes impossible data migration.</p>
+<p>Both the KauriCore and TopicModerator contracts hold a reference to the address of the storage contract, meaning that a new version of KauriCore or TopicModerator can be deployed that still points to the existing storage contract and thus preserving the data.</p>
+<p>It should be noted that the Wallet contract does not use external Storage. This is because the Wallet data is tightly coupled to the amount of funds that the Wallet currently holds, and so deploying a new Wallet contract using previous data would not make sense.</p>
+<p>More information on our smart contracts will be made available on Kauri following our May 3rd Rinkeby launch!</p>
+<h4 id="ipfs-store">IPFS Store<a class="headerlink" href="#ipfs-store" title="Permanent link"></a></h4>
+<p>The IPFS Store mechanism provides an API to link an IPFS node with ElasticSearch and allows advanced search capabilities, including full text search and pagination. Being part of the application layer, it allows network users faster access to search results instead of sending requests to the blockchain. These off-chain caching solutions are the current industry standard, and are also used for similar purposes by the Bounties Network.</p>
+<h4 id="password-less-authentication-module">Password-less Authentication Module<a class="headerlink" href="#password-less-authentication-module" title="Permanent link"></a></h4>
+<p>The Kauri authentication and authorization module generates a JSON Web Token for a user, which serves to authenticate and authorize the caller to an API resource server. The authentication is proven without a password using cryptographic signature, and depends on a decentralized policy smart contract deployed on the Ethereum blockchain. The API access control mechanism isn’t based on any central authority or storage, though it is possible to attach some information (e.g. username, email) to the User ID (ethereum account address).</p>
+<p>The passwordless authentication module process is as follows: first a user will obtain a piece of data to share, the user will then sign that data (currently using MetaMask, though future methods may use uPort or other mechanisms), the user will then call the API (using “POST /auth”) with their account address, signature, and personal information. The server will check the signature against the address via ecrecover, generate a JSON Web Token, and then store the personal information. At this point, the user can access the resource by passing an X-Auth-Token HTTP header.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The Kauri Stack</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-kauri-stack/774f8a80d2584bebb46ac7dbde8b51cd/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-17</li>
+<li><strong>Kauri original tags:</strong> kauri</li>
+<li><strong>Kauri original hash:</strong> QmWRFrwHhvz8pgSemWVHPCxLTCm6KxwbAX9b1HL5jRYNjB</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../daino/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../daino/" class="btn btn-xs btn-link">
+        DAIno
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-eat-a-bank-one-business-at-a-time/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-eat-a-bank-one-business-at-a-time/" class="btn btn-xs btn-link">
+        How to Eat a Bank — One Business at a Time ?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/the-kauri-stack.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

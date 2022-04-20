@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Ethereum%20101/ethereum-101-part-7-decentralized-apps/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Ethereum 101 - Part 7 - Decentralized Apps - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Ethereum 101 - Part 7 - Decentralized Apps", url: "#_top", children: [
+              {title: "Developing on the Ethereum Platform", url: "#developing-on-the-ethereum-platform" },
+              {title: "Basic Decentralized Infrastructure Stack", url: "#basic-decentralized-infrastructure-stack" },
+              {title: "How an End-User Interacts with Your Decentralized App", url: "#how-an-end-user-interacts-with-your-decentralized-app" },
+              {title: "Web3 Libraries", url: "#web3-libraries" },
+              {title: "Developer Environment", url: "#developer-environment" },
+              {title: "Zeppelin Open Source Smart Contract Security Framework", url: "#zeppelin-open-source-smart-contract-security-framework" },
+              {title: "Building the Right Development Environment for Your Decentralized Application Needs", url: "#building-the-right-development-environment-for-your-decentralized-application-needs" },
+              {title: "Additional Information", url: "#additional-information" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="ethereum-101-part-7-decentralized-apps">Ethereum 101 - Part 7 - Decentralized Apps<a class="headerlink" href="#ethereum-101-part-7-decentralized-apps" title="Permanent link"></a></h1>
+<h2 id="developing-on-the-ethereum-platform">Developing on the Ethereum Platform<a class="headerlink" href="#developing-on-the-ethereum-platform" title="Permanent link"></a></h2>
+<p>It is relatively easy to establish an Ethereum node, send and receive transactions, trade cryptocurrencies, and bring test environments online, though understanding the moving parts and complexities of such a fledgling technology is a formidable task. It takes time. This section will introduce consumers and developers to the decentralized app ecosystem. </p>
+<h2 id="basic-decentralized-infrastructure-stack">Basic Decentralized Infrastructure Stack<a class="headerlink" href="#basic-decentralized-infrastructure-stack" title="Permanent link"></a></h2>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRvq7e67HBEa3zDKLHwn1GcSk96yuachXxoQMtevui4ZN" />
+<em>(non-exhaustive)</em></p>
+<h2 id="how-an-end-user-interacts-with-your-decentralized-app">How an End-User Interacts with Your Decentralized App<a class="headerlink" href="#how-an-end-user-interacts-with-your-decentralized-app" title="Permanent link"></a></h2>
+<p>Using ethereumjs to execute a raw transaction is code-heavy process for such a simple task, not many users will want to do that for every transaction. </p>
+<p>MetaMask is a wallet that serves to improve the user experience of transacting on the Ethereum network while protecting the end-user's private keys. </p>
+<p>Let’s send a simple transaction using MetaMask. First, if you haven’t added the app to your Chrome or Firefox browser, go ahead and do that now at the following link: <a href="https://metamask.io/">https://metamask.io/</a> then move through the steps and setup a password. </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmen7cYubP4VBcVDYivwaqfVieK1Eno18RhEZhKcHWCM6v" /></p>
+<p>The above is what a MetaMask end-user sees when sending a transaction. It’s immensely more intuitive.</p>
+<p>In the top left corner you can see that this transaction was broadcast onto the Rinkeby testnet. The 18.750 ETH is not real ether, as it was obtained using Rinkeby’s faucet @ <a href="https://faucet.rinkeby.io/">https://faucet.rinkeby.io/</a>.</p>
+<h2 id="web3-libraries">Web3 Libraries<a class="headerlink" href="#web3-libraries" title="Permanent link"></a></h2>
+<p>Web3.js is the Ethereum compatible JavaScript API which implements the Generic JSON RPC spec. The Web3.js library is available on npm as a node module, for browsers and components it is available as an embeddable js, and is further available as a meteor.js package. Web3js communicates via RPC with the local node or test node. </p>
+<p>Although Web3.js is the de facto JavaScript Ethereum API, developers have access to a plethora of other libraries and tools. Among these are web3j (a more lightweight, reactive type safe Java and Android API), ethereum-js (the simple library we used above to execute a raw transaction), Web3.py (Python library), eth.js (maintained by Nick Dodson), and many others. </p>
+<p>Ethereum can be accessed by a browser, a server, and in general anything that can correctly interpret the protocol. An example of a client-side browser interface is ConsenSys’ MetaMask browser extension, which uses the Web3.js API. An example of a server-side service is etherscan.io, a service that many in the ethereum community see as a generally reliable source for information on ethereum addresses, address balances, and smart contracts. </p>
+<h2 id="developer-environment">Developer Environment<a class="headerlink" href="#developer-environment" title="Permanent link"></a></h2>
+<p>This section includes a brief showcase of the various integrated development environments in the Ethereum ecosystem. Despite being frontier technology, there is a strong developer contingent and a diverse set of open source tools available that aid in the development and deployment of secure smart contracts.</p>
+<p>There are several development environments and frameworks available to Ethereum developers. This documentation will highlight the more popular and widely known frameworks. Starting out, Remix and MetaMask would serve as a good springboard into decentralized app development. </p>
+<h2 id="zeppelin-open-source-smart-contract-security-framework">Zeppelin Open Source Smart Contract Security Framework<a class="headerlink" href="#zeppelin-open-source-smart-contract-security-framework" title="Permanent link"></a></h2>
+<p>An open source framework for developing secure smart contracts, Zeppelin provides users a collection of reusable, community-vetted smart contracts to assist users in developing secure dapps. </p>
+<p>It is often advised, if such options are available, that existing proven and tested open source code should be reused when developing applications of any type. In the Ethereum space this advice should be duly noted, as smart contracts are inherently immutable once written to the blockchain. A unknowingly flawed smart contract written to the mainnet and operating in a live production environment can be and often are exploited by malicious actors, potentially resulting in lost or locked funds or inoperative smart contracts. OpenZeppelin saw this need and has provided a library of secure smart contracts that can be inherited by solidity. </p>
+<p>Let’s install the OpenZeppelin open source framework and explore its functionality: </p>
+<pre><code>$ npm install zeppelin-solidity
+</code></pre>
+<p>Using Solidity’s inheritance we can edit our smart contracts to inherit Zeppelin’s open source contracts, and then re-compiling and migrating back to the blockchain:</p>
+<pre><code>pragma solidity ^0.4.17;
+
+Import ‘zeppelin-solidity/contracts/token/StandardToken.sol';’
+
+contract NameOfMyProject is StandardToken {
+
+}
+</code></pre>
+<p>The example ‘NameOfMyProject’ contract will now inherit all of the ‘StandardToken.sol’ variables and functions. For official Zeppelin documentation, please reference: <a href="https://zeppelin-solidity.readthedocs.io/en/latest/">https://zeppelin-solidity.readthedocs.io/en/latest/</a></p>
+<p><em>Additional reading:</em>
+- Solidity Documentation: <a href="https://solidity.readthedocs.io/en/develop/index.html">https://solidity.readthedocs.io/en/develop/index.html</a>
+- Zeppelin Documentation: <a href="https://github.com/OpenZeppelin/zeppelin-solidity">https://github.com/OpenZeppelin/zeppelin-solidity</a>
+- Truffle’s Solidity Testing Documentation:
+<a href="https://github.com/OpenZeppelin/zeppelin-solidity">http://truffleframework.com/docs/getting_started/solidity-tests</a></p>
+<h2 id="building-the-right-development-environment-for-your-decentralized-application-needs">Building the Right Development Environment for Your Decentralized Application Needs<a class="headerlink" href="#building-the-right-development-environment-for-your-decentralized-application-needs" title="Permanent link"></a></h2>
+<p>Lastly, as you move onto move beyond Remix and onto Truffle and other development environments, you may find that you need the ability to rapidly deploy customizable ethereum networks. If you need this functionality, then Puppeth may be the appropriate tool. Using Puppeth you can spin up a full Ethereum network, including a bootnode, sealers (or also called validators), network statistics, wallet, dashboard, and even a faucet to dispense ether. </p>
+<p>Integrated development environments all generally serve the same purpose: to streamline your development experience by allowing you to compile, migrate, deploy, and test your smart contracts. However, the various development environments all have their own flavors and opinions when it comes to how a decentralized app should be build. Knowing your personal development processes and your work style, it’s worth taking some time to review the varying nuances of some of the prominent environments we’ve listed below as you seek to find an optimal collection of tools to serve your development needs. </p>
+<h2 id="additional-information">Additional Information<a class="headerlink" href="#additional-information" title="Permanent link"></a></h2>
+<h3 id="development-environments-plugins">Development Environments / Plugins:<a class="headerlink" href="#development-environments-plugins" title="Permanent link"></a></h3>
+<ul>
+<li>ConsenSys Ethereum Developer Tools List - "A guide to available tools, components, patterns, and platforms for developing applications on Ethereum." <a href="https://github.com/ConsenSys/ethereum-developer-tools-list">https://github.com/ConsenSys/ethereum-developer-tools-list</a></li>
+<li>Embark - development environment primarily for trustless applications; easier to develop front-end applications, but significantly less support backend support. May not be the best choice for developers intending on building hybrid front end / back end dapps. <a href="https://embark.readthedocs.io/en/2.5.2/">https://embark.readthedocs.io/en/2.5.2/</a></li>
+<li>IntelliJ-Solidity: <a href="https://plugins.jetbrains.com/plugin/9475-intellij-solidity">https://plugins.jetbrains.com/plugin/9475-intellij-solidity</a></li>
+<li>VisualStudio: <a href="https://marketplace.visualstudio.com/items?itemName=ConsenSys.Solidity">https://marketplace.visualstudio.com/items?itemName=ConsenSys.Solidity</a></li>
+<li>EtherAtom package for Atom Editor: <a href="https://github.com/0mkara/etheratom">https://github.com/0mkara/etheratom</a></li>
+</ul>
+<h3 id="linters">Linters:<a class="headerlink" href="#linters" title="Permanent link"></a></h3>
+<ul>
+<li>Solhint: <a href="https://github.com/protofire/solhint">https://github.com/protofire/solhint</a></li>
+<li>Ethereum Solidity Language for Visual Studio Code: <a href="http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/">http://juan.blanco.ws/solidity-contracts-in-visual-studio-code/</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Ethereum 101 - Part 7 - Decentralized Apps</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/ethereum-101-part-7-decentralized-apps/b282e90cb260459fb8a8cc6e24ae34fa/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-13</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, 101, dapp, web3, developer, solidity</li>
+<li><strong>Kauri original hash:</strong> QmPABHD1nNfUan3jzi7DzpKATwNtUn9VcP6R573W7dmoMx</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-explained--merkle-trees-world-state-tran/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-explained--merkle-trees-world-state-tran/" class="btn btn-xs btn-link">
+        Ethereum Explained  Merkle Trees, World State, Transactions, and More
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-101-part-6-mainnet-and-testnets/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-101-part-6-mainnet-and-testnets/" class="btn btn-xs btn-link">
+        Ethereum 101 - Part 6 - Mainnet & Testnets
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Ethereum 101/ethereum-101-part-7-decentralized-apps.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Java%20Ethereum/manage-erc20-tokens-in-java-with-web3j/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Manage ERC20 tokens in Java with Web3j - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Manage ERC20 tokens in Java with Web3j", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Contract deployment", url: "#contract-deployment" },
+              {title: "Load the contract with Web3j", url: "#load-the-contract-with-web3j" },
+              {title: "Transfer tokens", url: "#transfer-tokens" },
+              {title: "Get notified of transfer events", url: "#get-notified-of-transfer-events" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="manage-erc20-tokens-in-java-with-web3j">Manage ERC20 tokens in Java with Web3j<a class="headerlink" href="#manage-erc20-tokens-in-java-with-web3j" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbLGwKQ8CoXz6kk9TFaXWaHgeTK8dRvSLfTXzWUgZsYr" /></p>
+<p>In this article, we learn how to manage <a href="https://en.wikipedia.org/wiki/ERC-20">ERC20 (Fungible)</a> tokens in Java with the <a href="https://web3j.io/">Web3j</a> library.</p>
+<p><a href="https://kauri.io/article/d3e24cbf13fd4af9892773552555c480/v1/erc-20-token-standard">ERC20</a> is an Ethereum Smart Contract standard for implementing tokens in a compliant way, so it is easy to interact and integrate tokens with any application (dapps, wallets, exchanges, etc.).</p>
+<p>For more details about ERC20, see the article <a href="https://kauri.io/article/d3e24cbf13fd4af9892773552555c480">ERC-20 Token Standard</a>.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>To follow this tutorial, you need the following software installed on your computer:</p>
+<ul>
+<li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java programming language</a> (&gt; 8)</li>
+<li>A package and dependency manager, for example <a href="https://maven.apache.org/">Maven</a> or <a href="https://gradle.org/install/">Gradle</a></li>
+<li>An IDE (Integrated development environment), for this tutorial, we use <a href="https://www.eclipse.org/downloads/">Eclipse</a></li>
+<li><a href="https://www.trufflesuite.com/ganache">Truffle</a>: a development framework to develop, test and deploy Ethereum smart contract</li>
+<li><a href="https://github.com/trufflesuite/ganache-cli">Ganache-cli</a>: your local personal blockchain for Ethereum development.</li>
+</ul>
+<p>Start ganache by running the command:</p>
+<pre><code class="language-shell">ganache-cli
+</code></pre>
+<h3 id="contract-deployment">Contract deployment<a class="headerlink" href="#contract-deployment" title="Permanent link"></a></h3>
+<p>Before starting, we need an ERC20 token contract deployed on the Ethereum blockchain (Ganache in our case). There are many ways to do this (Read <a href="https://kauri.io/article/d3e24cbf13fd4af9892773552555c480">Develop your ERC-20 Tokens explained</a> and <a href="https://kauri.io/article/cbd1b524cd284bf6ae6ab76e71f5ea56">OpenZeppelin Part 3: Token Standards</a>). For the sake of this tutorial, we use the simplest solution using <a href="https://openzeppelin.com/contracts/">OpenZeppelin</a> reusable contracts, Truffle and Ganache.</p>
+<p><strong>1. First create a project folder for our ERC20 called JVM and initialize a Truffle project</strong></p>
+<pre><code class="language-shell">$ mkdir JVM
+$ cd JVM
+$ truffle init
+</code></pre>
+<p><strong>2. Then we install the Open-Zeppelin Solidity library which contains a lot of high-quality, fully tested and audited reusable smart contracts</strong></p>
+<p>Import the OpenZeppelin smart contracts using npm packages.</p>
+<pre><code class="language-shell">$ npm init -y
+$ npm install openzeppelin-solidity --save-exact
+</code></pre>
+<p><strong>3. Create a contract file <code>./contracts/JavaToken.sol</code></strong></p>
+<p>The smart contract inherits all the functionality and rules from the reusable OpenZeppelin contract <code>ERC20Mintable</code>. We only need to configure the following constant variables as below:</p>
+<pre><code>// JavaToken.sol
+pragma solidity ^0.5.8;
+
+import &quot;openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol&quot;;
+
+contract JavaToken is ERC20Mintable {
+ string public constant name = &quot;Java Token&quot;;
+ string public constant symbol = &quot;JVM&quot;;
+ uint8 public constant decimals = 18;
+}
+</code></pre>
+<p><strong>4. Deploy the smart contract on our local Ganache network</strong></p>
+<p>We need to first complete the migration script. Create a file called <code>./migrations/2_deploy_contract.js</code>, and add the code below to the file:</p>
+<pre><code class="language-javascript">// 2_deploy_contract.js
+const JavaToken = artifacts.require(&quot;./JavaToken.sol&quot;);
+
+module.exports = function(deployer, network, accounts) {
+ // Deploy the smart contract
+ deployer.deploy(JavaToken, {from: accounts[0]}).then(function(instance) {
+ // Mint 100 tokens
+ return instance.mint(accounts[0], web3.utils.toBN(&quot;100&quot;), {from: accounts[0]});
+ });
+};
+</code></pre>
+<p>The migration script deploys the contract, mints and distributes 100 JVM tokens to the deployer account (the Ganache first account).</p>
+<p>The next step is to configure a connection to the Ganache network in order to deploy a smart contract. Change the file <code>./truffle-config.js</code>to the code below:</p>
+<pre><code class="language-javascript">// truffle-config.js
+module.exports = {
+  networks: {
+    development: {
+      host: &quot;localhost&quot;,
+      port: 8545,
+      network_id: &quot;*&quot;
+    }
+  }
+};
+</code></pre>
+<p>To deploy the smart contracts on the Ganache network, run the command below (do not forget to start ganache-cli beforehand):</p>
+<pre><code class="language-shell">$ truffle migrate --network development
+
+Compiling your contracts...
+===========================
+&gt; Compiling ./contracts/JavaToken.sol
+&gt; Compiling ./contracts/Migrations.sol
+&gt; Compiling openzeppelin-solidity/contracts/access/Roles.sol
+&gt; Compiling openzeppelin-solidity/contracts/access/roles/MinterRole.sol
+&gt; Compiling openzeppelin-solidity/contracts/math/SafeMath.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/ERC20Mintable.sol
+&gt; Compiling openzeppelin-solidity/contracts/token/ERC20/IERC20.sol
+&gt; Artifacts written to /home/gjeanmart/workspace/tutorials/kauri-content/java-erc20/JVM/build/contracts
+&gt; Compiled successfully using:
+ - solc: 0.5.8+commit.23d335f2.Emscripten.clang
+
+
+Starting migrations...
+======================
+&gt; Network name: 'development'
+&gt; Network id: 1565778588423
+&gt; Block gas limit: 0x6691b7
+
+
+1_initial_migration.js
+======================
+
+ Deploying 'Migrations'
+ ----------------------
+ &gt; transaction hash: 0x6161e15461a5c748a532b2191600986b8798be4842e78791238e9e77af5e1310
+ &gt; Blocks: 0 Seconds: 0
+ &gt; contract address: 0xC59fC6035859Dd35871c5d9211a0713ed608d59D
+ &gt; block number: 6
+ &gt; block timestamp: 1565778631
+ &gt; account: 0xB0C24796Fc9212AB371c8Caf1ea3F33cC1d4c8a0
+ &gt; balance: 99.95438236
+ &gt; gas used: 261393
+ &gt; gas price: 20 gwei
+ &gt; value sent: 0 ETH
+ &gt; total cost: 0.00522786 ETH
+
+
+ &gt; Saving migration to chain.
+ &gt; Saving artifacts
+ -------------------------------------
+ &gt; Total cost: 0.00522786 ETH
+
+
+2_deploy_contract.js
+====================
+
+ Deploying 'JavaToken'
+ ---------------------
+ &gt; transaction hash: 0xfc5b214cbd56ecd4d24795aacefe1fdaf27b1b223ebff78299fd47f302cb374c
+ &gt; Blocks: 0 Seconds: 0
+ &gt; contract address: 0x9339a071cB9C1E3BbBA50E5E298f234c5095f012
+ &gt; block number: 8
+ &gt; block timestamp: 1565778631
+ &gt; account: 0xB0C24796Fc9212AB371c8Caf1ea3F33cC1d4c8a0
+ &gt; balance: 99.92109908
+ &gt; gas used: 1622141
+ &gt; gas price: 20 gwei
+ &gt; value sent: 0 ETH
+ &gt; total cost: 0.03244282 ETH
+
+
+ &gt; Saving migration to chain.
+ &gt; Saving artifacts
+ -------------------------------------
+ &gt; Total cost: 0.03244282 ETH
+
+
+Summary
+=======
+&gt; Total deployments: 2
+&gt; Final cost: 0.03767068 ETH
+</code></pre>
+<p><strong>Note the contract address after the command completes.</strong></p>
+<p><em>If you wish to learn more about this step, I recommend reading the following articles about Truffle and Ganache for deploying smart contracts: <a href="https://kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f">Truffle: Smart Contract Compilation &amp; Deployment</a></em> and <a href="https://kauri.io/article/2b10c835fe4d463f909915bd75597d6b">Truffle 101 - Development Tools for Smart Contracts</a></p>
+<h3 id="load-the-contract-with-web3j">Load the contract with Web3j<a class="headerlink" href="#load-the-contract-with-web3j" title="Permanent link"></a></h3>
+<p>Now we have deployed an ERC20 smart contract on our Ganache local blockchain, and we can start interacting with it in Java using the Web3j ERC20 utility class.</p>
+<h4 id="1-create-a-new-project-and-import-the-web3j-dependency">1. Create a new project and import the Web3j dependency<a class="headerlink" href="#1-create-a-new-project-and-import-the-web3j-dependency" title="Permanent link"></a></h4>
+<p>Create a new Maven project in your favorite IDE and import Web3j dependencies (<code>core</code> and <code>contracts</code> for EIP support):</p>
+<pre><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;io.kauri.tutorials.java-ethereum&lt;/groupId&gt;
+  &lt;artifactId&gt;java-erc20&lt;/artifactId&gt;
+  &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+
+  &lt;properties&gt;
+    &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;
+    &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;
+    &lt;web3j.version&gt;4.2.0&lt;/web3j.version&gt;
+  &lt;/properties&gt;
+
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.web3j&lt;/groupId&gt;
+      &lt;artifactId&gt;core&lt;/artifactId&gt;
+      &lt;version&gt;${web3j.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.web3j&lt;/groupId&gt;
+      &lt;artifactId&gt;contracts&lt;/artifactId&gt;
+      &lt;version&gt;${web3j.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+<h4 id="2-create-a-new-class-to-load-an-erc20-smart-contract-wrapper">2. Create a new class to load an ERC20 Smart Contract wrapper<a class="headerlink" href="#2-create-a-new-class-to-load-an-erc20-smart-contract-wrapper" title="Permanent link"></a></h4>
+<p>ERC20 is a standard, so there is no need to manually generate a <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b">Smart Contract wrapper</a>, Web3j includes it by default.</p>
+<p>However, you do need to connect Web3j to an Ethereum blockchain and configure a wallet to sign transactions.</p>
+<p>In this article, we connect to a local Ganache blockchain (exposed by default on <code>http://localhost:8545</code>) and use the first Ganache test account (read the Ganache startup logs to find this information) which received 100 JVM tokens during deployment.</p>
+<pre><code class="language-java">// Connect Web3j to the Blockchain
+String rpcEndpoint = &quot;http://localhost:8545&quot;;
+Web3j web3j = Web3j.build(new HttpService(rpcEndpoint));
+
+// Prepare a wallet
+String pk = &quot;0x5bbbef76458bf30511c9ee6ed56783644eb339258d02656755c68098c4809130&quot;;
+// Account address: 0x1583c05d6304b6651a7d9d723a5c32830f53a12f
+Credentials credentials = Credentials.create(pk);
+
+// Load the contract
+String contractAddress = &quot;0xe4F275cE131eF87Cb8bF425E02D9215055e9F875&quot;;
+ERC20 javaToken = ERC20.load(contractAddress, web3j, credentials, new DefaultGasProvider());
+</code></pre>
+<p>For more complex scenarios, you can load the contract with a specific <code>TransactionManager</code> and Gas parameters using <code>ERC20.load(contractAddress, web3j, transactionManager, gasPrice, gasLimit)</code></p>
+<h4 id="3-get-token-information">3. Get token information<a class="headerlink" href="#3-get-token-information" title="Permanent link"></a></h4>
+<p>Once we have loaded our ERC20 token contract, we can start requesting information stored on this contract such as the number of decimal or the balance of an account in JVM tokens.</p>
+<p>The following code retrieves the information we configured in our contract earlier.</p>
+<pre><code class="language-java">String symbol = javaToken.symbol().send();
+String name = javaToken.name().send();
+BigInteger decimal = javaToken.decimals().send();
+
+System.out.println(&quot;symbol: &quot; + symbol);
+System.out.println(&quot;name: &quot; + name);
+System.out.println(&quot;decimal: &quot; + decimal.intValueExact());
+</code></pre>
+<p><img alt="" src="https://i.imgur.com/LP872u8.png" /></p>
+<p>More importantly, we can retrieve the token balance of an account.</p>
+<pre><code class="language-java">BigInteger balance1 = javaToken.balanceOf(&quot;0x1583c05d6304b6651a7d9d723a5c32830f53a12f&quot;).send();
+System.out.println(&quot;balance (0x1583c05d6304b6651a7d9d723a5c32830f53a12f)=&quot;+balance1.toString());
+
+BigInteger balance2 = javaToken.balanceOf(&quot;0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8&quot;).send();
+System.out.println(&quot;balance (0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8)=&quot;+balance2.toString());
+</code></pre>
+<p><img alt="" src="https://i.imgur.com/02ImlCO.png" /></p>
+<p>The account <code>0x1583c05d6304b6651a7d9d723a5c32830f53a12f</code> is Ganache's first account, the one that deployed the contract and received 100 tokens during deployment. While <code>0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8</code> represents Ganache's second account that didn't receive any token.</p>
+<h3 id="transfer-tokens">Transfer tokens<a class="headerlink" href="#transfer-tokens" title="Permanent link"></a></h3>
+<p>To interact with the token, the <code>ERC20</code> class offers all the functionalities needed like <code>transfer</code>, <code>transferFrom</code> and <code>approve</code>.</p>
+<p>For example, we can transfer 25 JVM tokens to <code>0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8</code> by signing and sending a transaction from our account configured as Credentials (<code>0x1583c05d6304b6651a7d9d723a5c32830f53a12f</code>).</p>
+<pre><code class="language-java">TransactionReceipt receipt = javaToken.transfer(&quot;0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8&quot;, new BigInteger(&quot;25&quot;)).send();
+System.out.println(&quot;Transaction hash: &quot;+receipt.getTransactionHash());
+
+BigInteger balance1 = javaToken.balanceOf(&quot;0x1583c05d6304b6651a7d9d723a5c32830f53a12f&quot;).send();
+System.out.println(&quot;balance (0x1583c05d6304b6651a7d9d723a5c32830f53a12f)=&quot;+balance1.toString());
+
+BigInteger balance2 = javaToken.balanceOf(&quot;0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8&quot;).send();
+System.out.println(&quot;balance (0x0db6b797e64666d4b36b13e5dc6fcd4661893ac8)=&quot;+balance2.toString());
+</code></pre>
+<p><img alt="" src="https://i.imgur.com/hlknQTK.png" /></p>
+<h3 id="get-notified-of-transfer-events">Get notified of transfer events<a class="headerlink" href="#get-notified-of-transfer-events" title="Permanent link"></a></h3>
+<p>Finally, we cover how to subscribe to specific events generated by the ERC20 contract so we can react to any activity from it.</p>
+<p>You can retrieve specific events for a given transaction via the method <code>getTransferEvents</code>:</p>
+<pre><code class="language-java">List&lt;ERC20.TransferEventResponse&gt; events = javaToken.getTransferEvents(receipt);
+events.forEach(event
+ -&gt; System.out.println(&quot;from: &quot; + event._from + &quot;, to: &quot; + event._to + &quot;, value: &quot; + event._value));
+</code></pre>
+<p><img alt="" src="https://i.imgur.com/sHkle8C.png" /></p>
+<p>We can also add <a href="https://github.com/ReactiveX/RxJava">RxJava</a> as a dependency to subscribe continuously to any new events via <code>transferEventFlowable</code>.</p>
+<pre><code class="language-java">javaToken.transferEventFlowable(DefaultBlockParameterName.EARLIEST, DefaultBlockParameterName.LATEST)
+ .subscribe(event
+ -&gt; System.out.println(&quot;from: &quot; + event._from + &quot;, to: &quot; + event._to + &quot;, value: &quot; + event._value));
+</code></pre>
+<p><img alt="" src="https://i.imgur.com/9zomWIV.png" /></p>
+<p>For more information about subscribing to events with Web3j, I highly recommend reading this article: <a href="https://kauri.io/article/14dc434d11ef4ee18bf7d57f079e246e">Interacting with an Ethereum Smart Contract in Java</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Manage ERC20 tokens in Java with Web3j</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/manage-erc20-tokens-in-java-with-web3j/d13e911bbf624108b1d5718175a5e0a0/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-20</li>
+<li><strong>Kauri original tags:</strong> erc20, ethereum, java, web3j, token</li>
+<li><strong>Kauri original hash:</strong> QmY6Ly3GGuMh5gLfNJcBZSPe37PzRdTmTP1tzFrGWXc2zQ</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../running-a-pantheon-node-in-java-integration-tests/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../running-a-pantheon-node-in-java-integration-tests/" class="btn btn-xs btn-link">
+        Running a Pantheon Node in Java Integration Tests
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../web3j-transaction-managers/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../web3j-transaction-managers/" class="btn btn-xs btn-link">
+        Web3j Transaction Managers
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Java Ethereum/manage-erc20-tokens-in-java-with-web3j.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

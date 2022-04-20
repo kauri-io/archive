@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2818%29-build-your-very-own-self-hosting-platform-wi/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction", url: "#_top", children: [
+              {title: "Preface", url: "#preface" },
+              {title: "Introduction", url: "#introduction" },
+              {title: "Hardware requirement", url: "#hardware-requirement" },
+              {title: "Table of content", url: "#table-of-content" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="18-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction">(1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction<a class="headerlink" href="#18-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPFWQJ1gevuXVxMfELZ9XoXx9QEANSonMiEvNw7YP254t" /></p>
+<h3 id="preface">Preface<a class="headerlink" href="#preface" title="Permanent link"></a></h3>
+<p><strong>Self-hosting</strong> is a new trend which attracts more people every day, whether you are looking for more privacy, or disapprove big <a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a> companies methods to monetize your data or simply because you enjoy hacking things at home and challenge yourself. This series is for you!</p>
+<p>The concept of self-hosting is usually defined by hosting an <a href="https://en.wikipedia.org/wiki/Open-source_software">open-source software</a> at home on your own machine and under your own network instead of relying on a third-party SaaS provider which usually comes with terms and conditions you might read and agree with or not. On one hand, SaaS/Cloud solutions are simple and easy, everything is taken care for you (hosting, maintenance, support) but at the cost of being sustainable which generally means for the end users: selling personal data (targeted advertising) or paying monthly subscription fees. On the other hand, depending on what software you will self-host, it could require strong technical IT knowledge, especially in networking and security to ensure your data are safe. But, as we all know, <em>With great power comes great responsibility</em> !</p>
+<p>Another important concept is <strong>open-source software</strong> (OSS), giving access to anyone to the code of your software is ultimately the most transparent and effective way to insure security. It often relies on a community of passionate engineers to quickly respond to security holes without bureaucracy but bear in mind you need to pick a reputable open-source software which has both good code quality and an active community.</p>
+<p>Here is a metaphor I really like about self-hosting:</p>
+<blockquote>
+<p><em>Having a hosted website is like being a renter, rather than a homeowner.</em></p>
+<p><em>On the one hand, you have a place to live and your landlord takes care of certain fees and maintenance.</em></p>
+<p><em>On the other hand, you depend on the mercy of the landlord to keep things liveable for you, and you can’t redesign the house as you please.</em></p>
+</blockquote>
+<p><a href="https://medium.com/swlh/the-step-by-step-guide-to-starting-your-own-self-hosted-website-from-scratch-d10a8e6ccf0c">source</a></p>
+<p><br />
+<br /></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>As I mentioned, self-hosting can be quite complicated and require knowledge. So in this series of articles, we will learn how to setup a Kubernetes cluster of Raspberry Pi computers to ensure the following properties for our containerized applications:</p>
+<ul>
+<li>Data security</li>
+<li>Service availability</li>
+<li>Maintenance easiness</li>
+<li>Simple resource management</li>
+</ul>
+<p>Before starting, let me explain a few important concepts here.</p>
+<p><br /></p>
+<h4 id="container">Container<a class="headerlink" href="#container" title="Permanent link"></a></h4>
+<p>As most modern software engineers can attest, containers have offered a dramatically more flexible way to run applications on virtual and physical environments. A container is a unit of software that packages up code and all its dependencies, it is portable from one environment to another, lightweight and secure (isolation by default).</p>
+<p><a href="https://www.docker.com">Docker</a> is currently the most known container software in the industry.</p>
+<p><br /></p>
+<h4 id="why-kubernetes">Why Kubernetes?<a class="headerlink" href="#why-kubernetes" title="Permanent link"></a></h4>
+<p>Now we know, it is easy to run containerized applications, we need an orchestrator to manage our applications across multiple hosts (machines), this will help automating most of the maintenance tasks (reboot after application or host crash, scaling, load balancing, configuration management, etc.).   </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXCrk532MtmJPY5eWnyrXvmgi8PCaxdbGh6DFtknHHbdN" /></p>
+<p><a href="https://kubernetes.io">Kubernetes (k8s) from Google</a> is the market leader in container orchestration, it offers:</p>
+<ul>
+<li><strong>Portability</strong>: Kubernetes works on most of the cloud provider and CPU architectures, an infrastructure can easily be moved from one another without complete re-architecture.  </li>
+<li><strong>Scalability</strong>: Multiple-instance of an application and load-balancing is made very easy</li>
+<li><strong>Availability</strong> Kubernetes addresses high availability at both the application and the infrastructure level.</li>
+<li><strong>Open-source</strong> A vast ecosystem and community</li>
+<li><strong>Battle-tested</strong> Used by thousands of developers and companies across the world</li>
+</ul>
+<p>For those reasons, Kubernetes is a good choice to orchestrate our future self-hosting / homelab infrastructure!</p>
+<p>Kubernetes comes with a lot of tools that aren't necessarily needed or optimized for ARM devices like the RaspberryPi so the company Rancher launched <a href="https://k3s.io">k3s</a>, a lightweight Kubernetes ideal for IOT and Single-Board computers.</p>
+<p><br /></p>
+<h4 id="why-raspberry-pi">Why Raspberry Pi<a class="headerlink" href="#why-raspberry-pi" title="Permanent link"></a></h4>
+<p>A <a href="https://www.raspberrypi.org">Raspberry Pi (RPI)</a> is Single-Board Computer (SBC) initially launched in 2012 as an educational tool to learn programming but it actually quickly became very popular in the hardware and hacking communities and people now use RPI for hardware projects, home automation, robotics and much more...</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmexqWd1z8T1XsAWbxwgkgSwimtU4buUD9CoksLwKAoRaZ" /></p>
+<p><br /></p>
+<p>Since 2012, the Raspberry Pi foundation launched several generations:</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>SoC</th>
+<th>Speed</th>
+<th>RAM</th>
+<th>USB Ports</th>
+<th>Ethernet</th>
+<th>Wireless</th>
+<th>Bluetooth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Raspberry Pi Model A+</td>
+<td>BCM2835</td>
+<td>700MHz</td>
+<td>512MB</td>
+<td>1</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Raspberry Pi Model B+</td>
+<td>BCM2835</td>
+<td>700MHz</td>
+<td>512MB</td>
+<td>4</td>
+<td>100Base-T</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Raspberry Pi 2 Model B</td>
+<td>BCM2836/7</td>
+<td>900MHz</td>
+<td>1GB</td>
+<td>4</td>
+<td>100Base-T</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Raspberry Pi 3 Model B</td>
+<td>BCM2837A0/B0</td>
+<td>1200MHz</td>
+<td>1GB</td>
+<td>4</td>
+<td>100Base-T</td>
+<td>802.11n</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>Raspberry Pi 3 Model A+</td>
+<td>BCM2837B0</td>
+<td>1400MHz</td>
+<td>512MB</td>
+<td>1</td>
+<td>No</td>
+<td>802.11ac/n</td>
+<td>4.2</td>
+</tr>
+<tr>
+<td>Raspberry Pi 3 Model B+</td>
+<td>BCM2837B0</td>
+<td>1400MHz</td>
+<td>1GB</td>
+<td>4</td>
+<td>1000Base-T</td>
+<td>802.11ac/n</td>
+<td>4.2</td>
+</tr>
+<tr>
+<td>Raspberry Pi 4 Model B</td>
+<td>BCM2711</td>
+<td>1500MHz</td>
+<td>1GB</td>
+<td>2xUSB2, 2xUSB3</td>
+<td>1000Base-T</td>
+<td>802.11ac/n</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Raspberry Pi 4 Model B</td>
+<td>BCM2711</td>
+<td>1500MHz</td>
+<td>2GB</td>
+<td>2xUSB2, 2xUSB3</td>
+<td>1000Base-T</td>
+<td>802.11ac/n</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Raspberry Pi 4 Model B</td>
+<td>BCM2711</td>
+<td>1500MHz</td>
+<td>4GB</td>
+<td>2xUSB2, 2xUSB3</td>
+<td>1000Base-T</td>
+<td>802.11ac/n</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Raspberry Pi Zero</td>
+<td>BCM2835</td>
+<td>1000MHz</td>
+<td>512MB</td>
+<td>1</td>
+<td>No</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Raspberry Pi Zero W</td>
+<td>BCM2835</td>
+<td>1000MHz</td>
+<td>512MB</td>
+<td>1</td>
+<td>No</td>
+<td>802.11n</td>
+<td>4.1</td>
+</tr>
+<tr>
+<td>Raspberry Pi Zero WH</td>
+<td>BCM2835</td>
+<td>1000MHz</td>
+<td>512MB</td>
+<td>1</td>
+<td>No</td>
+<td>802.11n</td>
+<td>4.1</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://elinux.org/RPi_HardwareHistory">Raspberry Pi - Hardware history</a></p>
+<p><br /></p>
+<p>The main benefits of using Raspberry Pi are:</p>
+<ul>
+<li><strong>Cheap</strong>: A Raspberry Pi usually cost around 50$</li>
+<li><strong>Reliability and performance</strong>: Again RPIs are battle tested products, very reliable and getting more and more powerful</li>
+<li><strong>Great community</strong>: It has a huge community of passionate hobbyists and professionals which provides knowledge and addons across the web.</li>
+<li><strong>Size</strong>: The raspberry pi is small (credit card size) and fits almost anywhere.</li>
+</ul>
+<p><br /></p>
+<h4 id="keep-control-and-enjoy">Keep Control and Enjoy!<a class="headerlink" href="#keep-control-and-enjoy" title="Permanent link"></a></h4>
+<p>I have been hosting stuff by myself for a while now and I've always struggled with maintenance in the long run (service not working correctly on ARM, machine freeze, configuration management mess). So when I recently decided to migrate everything on Kubernetes, it has been quite challenging but finally got it working and I haven't touched it since, every single services are running like a charm, they may have crashed a couple of times but Kubernetes recovered everything without me noticing the downtime.</p>
+<p><br />
+<br /></p>
+<h3 id="hardware-requirement">Hardware requirement<a class="headerlink" href="#hardware-requirement" title="Permanent link"></a></h3>
+<p>In order to build our self-hosting platform, we need the following hardware materials:</p>
+<ul>
+<li>
+<p><strong>Single-Board Computers:</strong>
+First of all, we need computers. I would recommend to start at least with two so your applications can fallback on the second node if one crashes. I also highly suggest to use Raspberry Pi 4 (4GB) but you can stack up any kind of ARM based computers.
+For example in my case, I use one <a href="https://www.amazon.co.uk/Raspberry-Pi-ARM-Cortex-A72-Bluetooth-Micro-HDMI/dp/B07TC2BK1X">RaspberryPi 4B</a>, one <a href="https://www.amazon.co.uk/FriendlyARM-Rockchip-dual-band-Support-learning/dp/B07GXP3ZR4">NanoPi-m4</a> and two <a href="https://www.amazon.co.uk/Raspberry-Pi-3-Model-B/dp/B07BDR5PDW">RaspberryPi 3B+</a>.
+The cost of one board is around $50.</p>
+</li>
+<li>
+<p><strong>Power supply:</strong>
+Depending on the board, you need a power supply, a Raspberry Pi 4 requires a <a href="https://www.amazon.co.uk/Jun_Electronic-Type-C-Supply-Adapter-Raspberry/dp/B07TWMFB92">5V 3A USB C/Type-C Power Supply Adapter</a> which shouldn't cost more than $10.</p>
+</li>
+<li>
+<p><strong>Micro-SD card:</strong>
+In order to run the operating-system on each board, we need a Micro-SD card of 16GB minimum (for e.g <a href="https://www.amazon.co.uk/SanDisk-microSDHC-Memory-Adapter-Performance/dp/B073K14CVB">SanDisk 16GB</a> which costs around $5 piece)</p>
+</li>
+<li>
+<p><strong>A portable SSD disk (optional):</strong>
+Because the hosting-platform will run programs (containers) on any hosts we have, we need to build a share drive between each host. I chose to run a NFS share from a portable <a href="https://www.amazon.co.uk/Samsung-MU-PA500B-Portable-SSD-500GB/dp/B074MCM721">USB3 512GB SSD disk</a> (cost: $90) but we could imagine more reliable solution such as a NAS (e.g Synology).</p>
+</li>
+<li>
+<p><strong>Ethernet Cables:</strong> (optional but recommended)
+Our hosts machines need access to a network and Internet, I recommend using Ethernet instead of WIFI.</p>
+</li>
+<li>
+<p><strong>Ethernet Switch (optional):</strong>
+Routers usually have only 4 or 5 Ethernet ports so if you don't want to use them all, you can dedicate an Ethernet switch to the homelab like <a href="https://www.amazon.co.uk/gp/product/B07HP5TN4S">this one</a> which costs around $15.  </p>
+</li>
+<li>
+<p><strong>Case with cooling fan (optional but recommended):</strong>
+Finally, cooling fans and heatsink are also highly recommended to keep the CPU cool and reduce the risk of hardware failure due to overheating.
+I am personally using <a href="https://www.amazon.co.uk/gp/product/B07J9VMNBL/">this rack case</a> including fans and heatsinks (cost $20)</p>
+</li>
+</ul>
+<p><br /></p>
+<p>The result looks like this on my side for a total cost around $250 approximately:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6ME6QJaDXKqX14CA7oSQpySMpdpgLV55DzHdMX5Yc6Q" /></p>
+<p><br />
+<br /></p>
+<h3 id="table-of-content">Table of content<a class="headerlink" href="#table-of-content" title="Permanent link"></a></h3>
+<p>Alright, now we defined what we gonna do and why, let's get started!</p>
+<ol>
+<li><a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a">Introduction</a></li>
+<li><a href="https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a">Install Raspbian Operating-System and prepare the system for Kubernetes</a></li>
+<li><a href="https://kauri.io/install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a">Install and configure a Kubernetes cluster with k3s to self-host applications</a></li>
+<li><a href="https://kauri.io/deploy-nextcloud-on-kuberbetes:-the-self-hosted-dropbox/f958350b22794419b09fc34c7284b02e/a">Deploy NextCloud on Kuberbetes: The self-hosted Dropbox</a></li>
+<li><a href="https://kauri.io/self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/8ec7c8c6bf4e4cc2a2ed563243998537/a">Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett</a></li>
+<li><a href="https://kauri.io/-selfhost-pihole-on-kubernetes-and-block-ads-and/5268e3daace249aba7db0597b47591ef/a">Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level</a></li>
+<li><a href="https://kauri.io/selfhost-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a">Self-host your password manager with Bitwarden</a></li>
+<li><a href="https://kauri.io/deploy-prometheus-and-grafana-to-monitor-a-kube/186a71b189864b9ebc4ef7c8a9f0a6b5/a">Deploy Prometheus and Grafana to monitor a Kubernetes cluster</a></li>
+</ol>
+<p><em>If you'd like to see an article in this series: please contact me on Twitter <a href="https://twitter.com/GregJeanmart">@gregjeanmart</a></em></p>
+<p><br />
+<br />
+<br /></p>
+<h3 id="references">References<a class="headerlink" href="#references" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://medium.com/swlh/the-step-by-step-guide-to-starting-your-own-self-hosted-website-from-scratch-d10a8e6ccf0c">The Step-by-Step Guide to Starting Your Own Self-Hosted Website From Scratch</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Software_as_a_service">Wikipedia - SaaS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Open-source_software">Wikipedia - open-source software</a></li>
+<li><a href="https://www.websiteplanet.com/blog/what-is-open-source-software/">Understanding Open Source Software, and How It Makes You Money Online</a></li>
+<li><a href="https://elinux.org/RPi_HardwareHistory">Raspberry Pi - Hardware history</a></li>
+</ul>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (1/8) Build your very own self-hosting platform with Raspberry Pi and Kubernetes - Introduction</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/18-build-your-very-own-selfhosting-platform-with-r/1229f21044ef4bff8df35875d6803776/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-04-13</li>
+<li><strong>Kauri original tags:</strong> self-hosting, kubernetes, raspberrypi, k8s, privacy, k3s, home-lab</li>
+<li><strong>Kauri original hash:</strong> QmafSCAJNiFRu7XihbUqXB2J7SsRiH7TGkJcrxcGevnkP1</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2828%29-install-raspbian-operating-system-and-prepar/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2828%29-install-raspbian-operating-system-and-prepar/" class="btn btn-xs btn-link">
+        (2/8) Install Raspbian Operating-System and prepare the system for Kubernetes
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-par/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-par/" class="btn btn-xs btn-link">
+        A Deep Dive into the Ethereum Virtual Machine - Part 4  The EVM and High-Level Programming Languages
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(18)-build-your-very-own-self-hosting-platform-wi.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

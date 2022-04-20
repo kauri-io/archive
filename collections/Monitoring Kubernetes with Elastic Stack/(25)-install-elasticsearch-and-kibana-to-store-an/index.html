@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Monitoring%20Kubernetes%20with%20Elastic%20Stack/%2825%29-install-elasticsearch-and-kibana-to-store-an/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(2/5) Install ElasticSearch and Kibana to store and visualize monitoring data - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(2/5) Install ElasticSearch and Kibana to store and visualize monitoring data", url: "#_top", children: [
+              {title: "ElasticSearch cluster", url: "#elasticsearch-cluster" },
+              {title: "Kibana", url: "#kibana" },
+              {title: "Next steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="25-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data">(2/5) Install ElasticSearch and Kibana to store and visualize monitoring data<a class="headerlink" href="#25-install-elasticsearch-and-kibana-to-store-and-visualize-monitoring-data" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaRtE99DKhycBBsY3Y7EzCEhmmAxmAS7rhDJy8jxmrt4Y" /></p>
+<h3 id="elasticsearch-cluster">ElasticSearch cluster<a class="headerlink" href="#elasticsearch-cluster" title="Permanent link"></a></h3>
+<p>As explained in the introduction of this article, to setup a monitoring stack with the Elastic technologies, we first need to deploy <strong>ElasticSearch</strong> that will act as a Database to store all the data (metrics, logs and traces). The database will be composed of three scalable nodes connected together into a Cluster as recommended for production.</p>
+<p>Moreover, we will enable the authentication to make the stack more secure to potential attackers.</p>
+<p><br /></p>
+<h4 id="1-setup-the-elasticsearch-master-node">1. Setup the ElasticSearch <code>master</code> node<a class="headerlink" href="#1-setup-the-elasticsearch-master-node" title="Permanent link"></a></h4>
+<p>The first node of the cluster we're going to setup is the master which is responsible of controlling the cluster.</p>
+<p>The first k8s object we need is a <code>ConfigMap</code> which describes a YAML file containing all the necessary settings to configure the ElasticSearch master node into the cluster and enable security.</p>
+<pre><code class="language-yaml">## elasticsearch-master.configmap.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: elasticsearch-master-config
+  labels:
+    app: elasticsearch
+    role: master
+data:
+  elasticsearch.yml: |-
+    cluster.name: ${CLUSTER_NAME}
+    node.name: ${NODE_NAME}
+    discovery.seed_hosts: ${NODE_LIST}
+    cluster.initial_master_nodes: ${MASTER_NODES}
+
+    network.host: 0.0.0.0
+
+    node:
+      master: true
+      data: false
+      ingest: false
+
+    xpack.security.enabled: true
+    xpack.monitoring.collection.enabled: true
+---
+</code></pre>
+<p>Secondly, we will deploy a <code>Service</code> which defines a network access to a set of pods. In the case of the master node, we only need to communicate through the port <code>9300</code> used for cluster communication.</p>
+<pre><code class="language-yaml">## elasticsearch-master.service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: elasticsearch-master
+  labels:
+    app: elasticsearch
+    role: master
+spec:
+  ports:
+  - port: 9300
+    name: transport
+  selector:
+    app: elasticsearch
+    role: master
+---
+</code></pre>
+<p>Finally, the last part is a <code>Deployment</code> which describes the running service (docker image, number of replicas, environment variables and volumes).</p>
+<pre><code class="language-yaml">## elasticsearch-master.deployment.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: elasticsearch-master
+  labels:
+    app: elasticsearch
+    role: master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+      role: master
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+        role: master
+    spec:
+      containers:
+      - name: elasticsearch-master
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+        env:
+        - name: CLUSTER_NAME
+          value: elasticsearch
+        - name: NODE_NAME
+          value: elasticsearch-master
+        - name: NODE_LIST
+          value: elasticsearch-master,elasticsearch-data,elasticsearch-client
+        - name: MASTER_NODES
+          value: elasticsearch-master
+        - name: &quot;ES_JAVA_OPTS&quot;
+          value: &quot;-Xms256m -Xmx256m&quot;
+        ports:
+        - containerPort: 9300
+          name: transport
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          readOnly: true
+          subPath: elasticsearch.yml
+        - name: storage
+          mountPath: /data
+      volumes:
+      - name: config
+        configMap:
+          name: elasticsearch-master-config
+      - name: &quot;storage&quot;
+        emptyDir:
+          medium: &quot;&quot;
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/elasticsearch-master.yml">full file</a></em></p>
+<p>Now let's apply the configuration to our k8s environment using the following command:</p>
+<pre><code class="language-shell">$ kubectl apply  -f elasticsearch-master.configmap.yaml \
+                 -f elasticsearch-master.service.yaml \
+                 -f elasticsearch-master.deployment.yaml
+
+configmap/elasticsearch-master-config created
+service/elasticsearch-master created
+deployment.apps/elasticsearch-master created
+</code></pre>
+<p>Check that everything is running with the command:</p>
+<pre><code class="language-shell">$ kubectl get pods -n monitoring
+
+NAME                                   READY   STATUS    RESTARTS   AGE
+elasticsearch-master-6f8c975f9-8gdpb   1/1     Running   0          4m18s
+</code></pre>
+<p><br /></p>
+<h4 id="2-setup-the-elasticsearch-data-node">2. Setup the ElasticSearch <code>data</code> node<a class="headerlink" href="#2-setup-the-elasticsearch-data-node" title="Permanent link"></a></h4>
+<p>The second node of the cluster we're going to setup is the data which is responsible of hosting the data and executing the queries (CRUD, search, aggregation).</p>
+<p>Like the master node, we need a <code>ConfigMap</code> to configure our node which looks similar to the master node but differs a little bit (see <code>node.data: true</code>)</p>
+<pre><code class="language-yaml">## elasticsearch-data.configmap.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: elasticsearch-data-config
+  labels:
+    app: elasticsearch
+    role: data
+data:
+  elasticsearch.yml: |-
+    cluster.name: ${CLUSTER_NAME}
+    node.name: ${NODE_NAME}
+    discovery.seed_hosts: ${NODE_LIST}
+    cluster.initial_master_nodes: ${MASTER_NODES}
+
+    network.host: 0.0.0.0
+
+    node:
+      master: false
+      data: true
+      ingest: false
+
+    xpack.security.enabled: true
+    xpack.monitoring.collection.enabled: true
+---
+</code></pre>
+<p>The <code>Service</code> only exposes the port <code>9300</code> for communicating with the other members of the cluster.</p>
+<pre><code class="language-yaml">## elasticsearch-data.service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: elasticsearch-data
+  labels:
+    app: elasticsearch
+    role: data
+spec:
+  ports:
+  - port: 9300
+    name: transport
+  selector:
+    app: elasticsearch
+    role: data
+---
+</code></pre>
+<p>And finally the <code>ReplicaSet</code> is similar to the deployment but involves storage, you can identify a <code>volumeClaimTemplates</code> at the bottom of the file to create a persistent volume of 50GB.</p>
+<pre><code class="language-yaml">## elasticsearch-data.replicaset.yaml
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  namespace: monitoring
+  name: elasticsearch-data
+  labels:
+    app: elasticsearch
+    role: data
+spec:
+  serviceName: &quot;elasticsearch-data&quot;
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: elasticsearch-data
+        role: data
+    spec:
+      containers:
+      - name: elasticsearch-data
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+        env:
+        - name: CLUSTER_NAME
+          value: elasticsearch
+        - name: NODE_NAME
+          value: elasticsearch-data
+        - name: NODE_LIST
+          value: elasticsearch-master,elasticsearch-data,elasticsearch-client
+        - name: MASTER_NODES
+          value: elasticsearch-master
+        - name: &quot;ES_JAVA_OPTS&quot;
+          value: &quot;-Xms1024m -Xmx1024m&quot;
+        ports:
+        - containerPort: 9300
+          name: transport
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          readOnly: true
+          subPath: elasticsearch.yml
+        - name: elasticsearch-data-persistent-storage
+          mountPath: /data/db
+      volumes:
+      - name: config
+        configMap:
+          name: elasticsearch-data-config
+  volumeClaimTemplates:
+  - metadata:
+      name: elasticsearch-data-persistent-storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: &quot;standard&quot;
+    spec:
+      accessModes: [ &quot;ReadWriteOnce&quot; ]
+      storageClassName: standard
+      resources:
+        requests:
+          storage: 50Gi
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/elasticsearch-data.yml">full file</a></em></p>
+<p>Now, let's apply the configuration using the command:</p>
+<pre><code class="language-shell">$ kubectl apply -f elasticsearch-data.configmap.yaml \
+                -f elasticsearch-data.service.yaml \
+                -f elasticsearch-data.replicaset.yaml
+
+configmap/elasticsearch-data-config created
+service/elasticsearch-data created
+statefulset.apps/elasticsearch-data created
+</code></pre>
+<p>And check that everything is running:</p>
+<pre><code class="language-shell">$ kubectl get pods -n monitoring
+
+NAME                                   READY   STATUS    RESTARTS   AGE
+elasticsearch-data-0                   1/1     Running   0          2m46s
+elasticsearch-master-9455d4865-42h45   1/1     Running   0          3m
+</code></pre>
+<p><br /></p>
+<h4 id="3-setup-the-elasticsearch-client-node">3. Setup the ElasticSearch <code>client</code> node<a class="headerlink" href="#3-setup-the-elasticsearch-client-node" title="Permanent link"></a></h4>
+<p>The last but not least node of the cluster is the client which is responsible of exposing an HTTP interface and pass queries to the data node.</p>
+<p>The <code>ConfigMap</code> is again very similar to the master node:</p>
+<pre><code class="language-yaml">## elasticsearch-client.configmap.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: elasticsearch-client-config
+  labels:
+    app: elasticsearch
+    role: client
+data:
+  elasticsearch.yml: |-
+    cluster.name: ${CLUSTER_NAME}
+    node.name: ${NODE_NAME}
+    discovery.seed_hosts: ${NODE_LIST}
+    cluster.initial_master_nodes: ${MASTER_NODES}
+
+    network.host: 0.0.0.0
+
+    node:
+      master: false
+      data: false
+      ingest: true
+
+    xpack.security.enabled: true
+    xpack.monitoring.collection.enabled: true
+---
+</code></pre>
+<p>The client node exposes two ports, <code>9300</code> to communicate with the other nodes of the cluster and <code>9200</code> for the HTTP API.</p>
+<pre><code class="language-yaml">## elasticsearch-client.service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: elasticsearch-client
+  labels:
+    app: elasticsearch
+    role: client
+spec:
+  ports:
+  - port: 9200
+    name: client
+  - port: 9300
+    name: transport
+  selector:
+    app: elasticsearch
+    role: client
+---
+</code></pre>
+<p>The <code>Deployment</code> which describes the container for the client node:</p>
+<pre><code class="language-yaml">## elasticsearch-client.deployment.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: elasticsearch-client
+  labels:
+    app: elasticsearch
+    role: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+      role: client
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+        role: client
+    spec:
+      containers:
+      - name: elasticsearch-client
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+        env:
+        - name: CLUSTER_NAME
+          value: elasticsearch
+        - name: NODE_NAME
+          value: elasticsearch-client
+        - name: NODE_LIST
+          value: elasticsearch-master,elasticsearch-data,elasticsearch-client
+        - name: MASTER_NODES
+          value: elasticsearch-master
+        - name: &quot;ES_JAVA_OPTS&quot;
+          value: &quot;-Xms256m -Xmx256m&quot;
+        ports:
+        - containerPort: 9200
+          name: client
+        - containerPort: 9300
+          name: transport
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+          readOnly: true
+          subPath: elasticsearch.yml
+        - name: storage
+          mountPath: /data
+      volumes:
+      - name: config
+        configMap:
+          name: elasticsearch-client-config
+      - name: &quot;storage&quot;
+        emptyDir:
+          medium: &quot;&quot;
+---
+</code></pre>
+<p><a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/elasticsearch-client.yml">full file</a></p>
+<p>Apply each file to deploy the <code>client</code> node:</p>
+<pre><code class="language-shell">$ kubectl apply  -f elasticsearch-client.configmap.yaml \
+                 -f elasticsearch-client.service.yaml \
+                 -f elasticsearch-client.deployment.yaml
+
+configmap/elasticsearch-client-config created
+service/elasticsearch-client created
+deployment.apps/elasticsearch-client created
+</code></pre>
+<p>And verify that everything is up and running:</p>
+<pre><code class="language-shell">$ kubectl get pods -n monitoring
+NAME                                    READY   STATUS    RESTARTS   AGE
+elasticsearch-client-7c55b46d7f-gg9kx   1/1     Running   0          4s
+elasticsearch-data-0                    1/1     Running   0          3m26s
+elasticsearch-master-9455d4865-42h45    1/1     Running   0          3m40s
+````
+
+After a couple of minutes, each node of the cluster should reconcile and the master node should log the following sentence `Cluster health status changed from [YELLOW] to [GREEN] `.
+
+```shell
+$ kubectl logs -f -n monitoring \
+  $(kubectl get pods -n monitoring | grep elasticsearch-master | sed -n 1p | awk '{print $1}') \
+  | grep &quot;Cluster health status changed from \[YELLOW\] to \[GREEN\]&quot;
+
+{ &quot;type&quot;: &quot;server&quot;,
+  &quot;timestamp&quot;: &quot;2019-08-15T15:09:43,825+0000&quot;,
+  &quot;level&quot;: &quot;INFO&quot;,
+  &quot;component&quot;: &quot;o.e.c.r.a.AllocationService&quot;,
+  &quot;cluster.name&quot;: &quot;elasticsearch&quot;,
+  &quot;node.name&quot;: &quot;elasticsearch-master&quot;,
+  &quot;cluster.uuid&quot;: &quot;iWgG2n5WSAC05Hvpeq5m4A&quot;,
+  &quot;node.id&quot;: &quot;LScYW6eZTQiUgwRDzCvxRQ&quot;,
+  &quot;message&quot;: &quot;Cluster health status changed from [YELLOW] to [GREEN] (reason: [shards started [[.monitoring-es-7-2019.08.15][0]] ...]).&quot;
+}
+</code></pre>
+<p><br /></p>
+<h4 id="4-generate-a-password-and-store-in-a-k8s-secret">4. Generate a password and store in a k8s secret<a class="headerlink" href="#4-generate-a-password-and-store-in-a-k8s-secret" title="Permanent link"></a></h4>
+<p>We enabled the xpack security module to secure our cluster, so we need to initialise the passwords. Execute the following command which runs the program <code>bin/elasticsearch-setup-passwords</code> within the <code>client</code> node container (any node would work) to generate default users and passwords.</p>
+<pre><code class="language-shell">$ kubectl exec $(kubectl get pods -n monitoring | grep elasticsearch-client | sed -n 1p | awk '{print $1}') \
+    -n monitoring \
+    -- bin/elasticsearch-setup-passwords auto -b
+
+Changed password for user apm_system
+PASSWORD apm_system = uF8k2KVwNokmHUomemBG
+
+Changed password for user kibana
+PASSWORD kibana = DBptcLh8hu26230mIYc3
+
+Changed password for user logstash_system
+PASSWORD logstash_system = SJFKuXncpNrkuSmVCaVS
+
+Changed password for user beats_system
+PASSWORD beats_system = FGgIkQ1ki7mPPB3d7ns7
+
+Changed password for user remote_monitoring_user
+PASSWORD remote_monitoring_user = EgFB3FOsORqOx2EuZNLZ
+
+Changed password for user elastic
+PASSWORD elastic = 3JW4tPdspoUHzQsfQyAI
+</code></pre>
+<p>Note the <code>elastic</code> user password and add it into a k8s secret like this:</p>
+<pre><code class="language-shell">$ kubectl create secret generic elasticsearch-pw-elastic \
+    -n monitoring \
+    --from-literal password=3JW4tPdspoUHzQsfQyAI
+</code></pre>
+<p><br />
+<br /></p>
+<h3 id="kibana">Kibana<a class="headerlink" href="#kibana" title="Permanent link"></a></h3>
+<p>The second part of the article consists in deploying <strong>Kibana</strong>, the data visialization plugin for ElasticSearch which offers functionalities to manage an ElasticSeach cluster and visualise all the data.</p>
+<p>In terms of setup in k8s, this is very similar to ElasticSearch, we first use <code>ConfigMap</code> to provide a config file to our deployment with all the required properties. This particularly includes the access to ElasticSearch (host, username and password) which are configured as environment variables.</p>
+<pre><code class="language-yaml">## kibana.configmap.yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: monitoring
+  name: kibana-config
+  labels:
+    app: kibana
+data:
+  kibana.yml: |-
+    server.host: 0.0.0.0
+
+    elasticsearch:
+      hosts: ${ELASTICSEARCH_HOSTS}
+      username: ${ELASTICSEARCH_USER}
+      password: ${ELASTICSEARCH_PASSWORD}
+---
+</code></pre>
+<p>The <code>Service</code> exposes Kibana default port <code>5601</code> to the environment and use <code>NodePort</code> to also expose a port directly on the static node IP so we can access it externally.</p>
+<pre><code class="language-yaml">## kibana.service.yaml
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: monitoring
+  name: kibana
+  labels:
+    app: kibana
+spec:
+  type: NodePort
+  ports:
+  - port: 5601
+    name: webinterface
+  selector:
+    app: kibana
+---
+</code></pre>
+<p>Finally, the <code>Deployment</code> part describes the container, the environment variables and volumes. For the env var <code>ELASTICSEARCH_PASSWORD</code>, we use <code>secretKeyRef</code> to read the password from the secret.</p>
+<pre><code class="language-yaml">## kibana.deployment.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  name: kibana
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.3.0
+        ports:
+        - containerPort: 5601
+          name: webinterface
+        env:
+        - name: ELASTICSEARCH_HOSTS
+          value: &quot;http://elasticsearch-client.monitoring.svc.cluster.local:9200&quot;
+        - name: ELASTICSEARCH_USER
+          value: &quot;elastic&quot;
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: elasticsearch-pw-elastic
+              key: password
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/kibana/config/kibana.yml
+          readOnly: true
+          subPath: kibana.yml
+      volumes:
+      - name: config
+        configMap:
+          name: kibana-config
+---
+</code></pre>
+<p><em>See the <a href="https://raw.githubusercontent.com/gjeanmart/kauri-content/master/spring-boot-simple/k8s/kibana.yml">full file</a></em></p>
+<p>Now, let's apply these files to deploy Kibana:</p>
+<pre><code class="language-shell">$ kubectl apply  -f kibana.configmap.yaml \
+                 -f kibana.service.yaml \
+                 -f kibana.deployment.yaml
+
+configmap/kibana-config created
+service/kibana created
+deployment.apps/kibana created
+</code></pre>
+<p>And after a couple of minutes, check the logs for <code>Status changed from yellow to green</code>.</p>
+<pre><code class="language-shell">$ kubectl logs -f -n monitoring $(kubectl get pods -n monitoring | grep kibana | sed -n 1p | awk '{print $1}') \
+     | grep &quot;Status changed from yellow to green&quot;
+
+{&quot;type&quot;:&quot;log&quot;,&quot;@timestamp&quot;:&quot;2019-08-16T08:56:04Z&quot;,&quot;tags&quot;:[&quot;status&quot;,&quot;plugin:maps@7.3.0&quot;,&quot;info&quot;],&quot;pid&quot;:1,&quot;state&quot;:&quot;green&quot;,&quot;message&quot;:&quot;Status changed from yellow to green - Ready&quot;,&quot;prevState&quot;:&quot;yellow&quot;,&quot;prevMsg&quot;:&quot;Waiting for Elasticsearch&quot;}
+{&quot;type&quot;:&quot;log&quot;,&quot;@timestamp&quot;:&quot;2019-08-16T08:56:13Z&quot;,&quot;tags&quot;:[&quot;status&quot;,&quot;plugin:spaces@7.3.0&quot;,&quot;info&quot;],&quot;pid&quot;:1,&quot;state&quot;:&quot;green&quot;,&quot;message&quot;:&quot;Status changed from yellow to green - Ready&quot;,&quot;prevState&quot;:&quot;yellow&quot;,&quot;prevMsg&quot;:&quot;Waiting for Elasticsearch&quot;}
+</code></pre>
+<p>Once, the logs say "green", you can access Kibana from your browser.</p>
+<p>Run the command <code>$ minikube ip</code> to determine the IP of your node .</p>
+<pre><code class="language-shell">$ minikube ip
+10.154.0.2
+</code></pre>
+<p>Also run the following command to find on which external port is mapped Kibana's port <code>5601</code>.</p>
+<pre><code class="language-shell">$ kubectl get service kibana -n monitoring
+NAME     TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+kibana   NodePort   10.111.154.92   &lt;none&gt;        5601:31158/TCP   41m
+</code></pre>
+<p>Then open <a href="http://10.154.0.2:31158">http://10.154.0.2:31158</a> in your browser.</p>
+<p><img alt="" src="https://i.imgur.com/TITU4CL.png" /></p>
+<p>Login with username <code>elastic</code> and the password (generated before and stored in a secret) and you will be redirected to the index page:</p>
+<p><img alt="" src="https://i.imgur.com/rMVKBmy.png" /></p>
+<p>Before moving forward, I recommend to forget the <code>elastic</code> user (only used for cross-service access) and create a dedicated user to access Kibana. Go to <em>Management &gt; Security &gt; Users</em> and click on <em>Create User</em> :</p>
+<p><img alt="" src="https://i.imgur.com/BGYhaJQ.png" /></p>
+<p>Finally, go to <em>Stack Monitoring</em> to visualise the health of the cluster.</p>
+<p><img alt="" src="https://i.imgur.com/0GlrHeC.png" /></p>
+<p>In conclusion, we now have a ready-to-use <strong>ElasticSearch + Kibana</strong> stack which will serve us to store and visualize our infrastructure and application data (metrics, logs and traces).</p>
+<p><br />
+<br /></p>
+<h3 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>In the following article, we will learn how to install and configure Metricbeat:
+<a href="https://kauri.io/article/935f4e17a10243139b41546780f43c42">Collect metrics with Elastic Metricbeat for monitoring Kubernetes</a></p>
+<p><br />
+<br /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (2/5) Install ElasticSearch and Kibana to store and visualize monitoring data</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/25-install-elasticsearch-and-kibana-to-store-and-v/e5b86351f38940b8a071267062f052cb/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-03</li>
+<li><strong>Kauri original tags:</strong> kubernetes, elasticsearch, k8s, metricbeat, monitoring, kibana, filebeat</li>
+<li><strong>Kauri original hash:</strong> QmfKVBGkSynBiN9MpK6AfxPhTF6P9k24yy78KSW8iJBmsQ</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2835%29-collect-metrics-with-elastic-metricbeat-for-/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2835%29-collect-metrics-with-elastic-metricbeat-for-/" class="btn btn-xs btn-link">
+        (3/5) Collect metrics with Elastic Metricbeat for monitoring Kubernetes
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2815%29-getting-started-with-elastic-stack-for-monit/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2815%29-getting-started-with-elastic-stack-for-monit/" class="btn btn-xs btn-link">
+        (1/5) Getting started with Elastic Stack for monitoring on Kubernetes
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Monitoring Kubernetes with Elastic Stack/(25)-install-elasticsearch-and-kibana-to-store-an.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

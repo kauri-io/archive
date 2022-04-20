@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Documentation%20and%20technical%20communication/why-write-documentation/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Why write documentation - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Why write documentation", url: "#_top", children: [
+              {title: "Documentation has many readers", url: "#documentation-has-many-readers" },
+              {title: "Assume nothing", url: "#assume-nothing" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="why-write-documentation">Why write documentation<a class="headerlink" href="#why-write-documentation" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd3jT6LxnaLhtxDSJeZQ7ZoKbt4mSg7nYXFP2of5FmbJM" /></p>
+<p><strong>What's one of the first things you look at when you look at using a new project?</strong></p>
+<p>It's likely some form of documentation. Whether it is official
+documentation, or external blog posts, videos, books, or even code
+comments.</p>
+<p>Ideal documentation should contain everything someone needs to get started with a project
+without having to read the code.</p>
+<p>In the words of the creator the Perl language, Ken
+Williams.</p>
+<blockquote>
+<p>Documentation is complete when someone can use your project without having to look at its code.</p>
+</blockquote>
+<p>But when was the last time you read documentation that was
+complete, where everything worked, it was clear, and it addressed your exact
+questions and needs?</p>
+<p>I don't mean to criticise those who write documentation. It's a hard
+task. It's hard to keep up to date, it's hard to address every use case
+and combination of tools that a reader may have, and typically, small
+projects do not have a dedicated team member handling documentation.</p>
+<h3 id="documentation-has-many-readers">Documentation has many readers<a class="headerlink" href="#documentation-has-many-readers" title="Permanent link"></a></h3>
+<p>It's not just developers who read documentation. Yes, it's mostly developers, but
+also developer's colleagues and bosses read it when making decisions
+about paying for or using software. More crucially, machines read it.
+Well written documentation means that systems that parse content can
+also make sense of what you've written, which is especially useful for
+searching your documentation, and people finding your documentation via
+search engines.</p>
+<h3 id="assume-nothing">Assume nothing<a class="headerlink" href="#assume-nothing" title="Permanent link"></a></h3>
+<p>Assumptions are unhelpful, often inaccurate, and annoy readers. Documentation should remove technical assumptions, and assumptions made about the reader.</p>
+<h4 id="technical-assumptions">Technical assumptions<a class="headerlink" href="#technical-assumptions" title="Permanent link"></a></h4>
+<p>Developers often tend to assume that every other developer has the same setup as them, with the same dependencies, and dependency versions. We all know this is not true, and we have all encountered dependency hell,
+with tangles of (often surprising) dependencies blocking us from
+installing something until we figure out the problem and what
+specific packages fix the nightmare.</p>
+<p>When writing documentation, test all your assumptions. This takes
+longer, but like many things, in the long run, it saves you and your
+users time. Use tools such as virtual environments (if the language supports them), Docker or virtual machines to test fresh setups, and follow the same process for any operating systems
+you intend to release for. You can automate much of this work, which you
+can also use for testing your code, but there's no reason not to tie this code testing and documentation together.</p>
+<h4 id="about-your-reader">About your reader<a class="headerlink" href="#about-your-reader" title="Permanent link"></a></h4>
+<p>The next assumption is around who your reader is, and what they may know. We'll cover writing inclusive language later, but in summary, not every reader is like you. 'Developers don't all learn their craft in the same ways. Not all spent 3-4 years studying
+computer science. Many (possibly like you reading this) learnt through
+short, intense coding courses or boot camps. These shorter courses often
+teach students how to code practically, but not so much theory
+on topics such as design patterns, assembly language, or underlying principles.</p>
+<p>Documentation is not the place to show off how smart you are and how
+much you know. It is the place to explain to users how to use your
+project. If you need to explain complex theory because it is essential
+to understanding your project, then include it, and supply explanations
+and background to these concepts. You don't have to write these (unless
+they don't exist anywhere else), links to quality external resources are
+fine.</p>
+<p>This is especially an issue in the Web3 space. It's an ecosystem full of
+new terminology, and (some) new technology, or new interpretations of old technology. There are concepts
+fundamental to Web3 such as consensus algorithms that are hard to
+explain, but are not as new or unique as we think, and we can learn from
+previous efforts to explain them in other ecosystems.</p>
+<p>There are ways to explain complex topics without blinding people. You
+abstract some detail, but that's fine. We'll look at the best places to explain what level of technical detail in the next post.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Why write documentation</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/why-write-documentation/203c87d1ee4b4444b0139fe054f28607/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-20</li>
+<li><strong>Kauri original tags:</strong> documentation, writing</li>
+<li><strong>Kauri original hash:</strong> QmQoenKzVBhi6WAhBXmeWZwcLmhFM1mxMbTdZXWDj2C6eU</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../../collections/A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-%28ev/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../../collections/A%20Deep%20Dive%20Into%20The%20Ethereum%20Virtual%20Machine%20%28EVM%29%20Series/a-deep-dive-into-the-ethereum-virtual-machine-%28ev/" class="btn btn-xs btn-link">
+        A Deep Dive into the Ethereum Virtual Machine (EVM) - part 1  Introduction
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../documentation-structure/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../documentation-structure/" class="btn btn-xs btn-link">
+        Documentation structure
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Documentation and technical communication/why-write-documentation.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

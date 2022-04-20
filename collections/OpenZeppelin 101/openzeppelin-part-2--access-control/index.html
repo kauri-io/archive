@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/OpenZeppelin%20101/openzeppelin-part-2--access-control/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenZeppelin Part 2  Access Control - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenZeppelin Part 2  Access Control", url: "#_top", children: [
+              {title: "Access Control", url: "#access-control" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openzeppelin-part-2-access-control">OpenZeppelin Part 2  Access Control<a class="headerlink" href="#openzeppelin-part-2-access-control" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG" /></p>
+<h2 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link"></a></h2>
+<h3 id="what-is-it">What is It?<a class="headerlink" href="#what-is-it" title="Permanent link"></a></h3>
+<p>The first category of contracts is access control. Access control allows a developer to regulate who can use certain features of the contract. Examples are: minting tokens, voting on proposals, ownership, etc. This feature is useful for creating a restrictive contract.</p>
+<h3 id="how-to-use">How to Use<a class="headerlink" href="#how-to-use" title="Permanent link"></a></h3>
+<p>OpenZeppelin provides two contracts: <em>Ownable.sol</em> and <em>Roles.sol</em> for access control. Both methods are useful in different scenarios depending on how restrictive you want the contract to be.</p>
+<h4 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link"></a></h4>
+<p>Ownership is the most basic form of access control. It's the best method to use when you have one administrative user. To incorporate ownership, add an import statement at the beginning of your contract.</p>
+<pre><code>import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+</code></pre>
+<p>Importing the <em>Ownable.sol</em> contract allows you to use functions such as <code>transferOwnership(address newOwner)</code> to transfer ownership to different users and <code>renounceOwnership()</code> to renounce ownership of the contract all together. Keep in mind that once a contract is renounced it cannot be claimed again.</p>
+<p>The default owner of the contract is the <code>msg.sender</code> of the contract. You can change the owner in the <em>Ownable.sol</em> file.</p>
+<p>Ownable contracts have an <code>is Ownable</code> statement. To specify which functions you only want the administrator to have access to, add <code>onlyOwner</code>.</p>
+<pre><code>pragma solidity ^ 0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/ownership/Ownable.sol&quot;;
+
+contract MyContract is Ownable {
+
+  function everyone() public {
+    // anyone can use this function
+  }
+
+  function notEveryone() public onlyOwner {
+    //only the owner can call this function
+  }
+}
+</code></pre>
+<p><em>Ownable.sol</em> is a basic implementation of access control that is optimal for a smaller group of users as well as one administrator.</p>
+<h4 id="roles">Roles<a class="headerlink" href="#roles" title="Permanent link"></a></h4>
+<p>Access control is also utilized through the <em>contracts/access/Roles.sol</em> contract. This contract allows you to assign roles to different users as well as control who can use certain functions. This is the best method when you have a multiple of users with varying levels of authority.</p>
+<p>Add <code>import "openzeppelin-solidity/contracts/access/Roles.sol";</code> to the top of your contract. Create your different roles <code>Role private "your_Role"</code>. A require statement in your function states which users have access to it.</p>
+<pre><code>pragma solidity ^ 0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/access/Roles.sol&quot;;
+
+contract someRoles {
+  using Roles for Roles.Role;
+
+  Roles.Role private roleOne;
+
+  function onlyRoleOne() public {
+    //only roleOne can use this function
+    require(roleOne.has(msg.sender), &quot;You must be roleOne&quot;);
+  }
+
+  function anyone() public {
+    //anyone can use this function
+  }
+
+}
+</code></pre>
+<h4 id="openzeppelin-roles">OpenZeppelin Roles<a class="headerlink" href="#openzeppelin-roles" title="Permanent link"></a></h4>
+<p>Within the access folder, there are premade roles for you to use: <code>Capper</code>, <code>Minter</code>,<code>Pauser</code>,<code>Signer</code>,<code>Whitelist Admin</code>,and <code>Whitelisted</code>. To use any of these premade roles, import them the same way as with the other contracts. They contain functions to assign the role to your users, renounce the role, and restrict access for functions. All six contracts are identical to each other, except for their names. Thus if you want, you can create your own role contract using one of them as a template. To use, you import it into your function. The benefit of doing this would be that it provides a more detailed role. It also makes your code shorter.</p>
+<h3 id="more-details">More Details<a class="headerlink" href="#more-details" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://openzeppelin.org/api/docs/learn-about-access-control.html">https://openzeppelin.org/api/docs/learn-about-access-control.html</a></li>
+<li><a href="https://openzeppelin.org/api/docs/ownership_Ownable.html">https://openzeppelin.org/api/docs/ownership_Ownable.html</a></li>
+<li><a href="https://openzeppelin.org/api/docs/access_Roles.html">https://openzeppelin.org/api/docs/access_Roles.html</a></li>
+</ul>
+<p>For more examples of using <em>Ownable.sol</em> and <em>Roles.sol</em> check out the following links to open source code:</p>
+<ul>
+<li><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=import+%22openzeppelin-solidity%2Fcontracts%2Fownership%2FOwnable.sol%22%3B&amp;type=Code">Ownable</a></li>
+<li><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=import+%22openzeppelin-solidity%2Fcontracts%2Faccess%2FRoles.sol%22%3B&amp;type=Code">Roles</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenZeppelin Part 2  Access Control</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-part-2-access-control/6816abb97f104026a946ba65968eefe6/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-19</li>
+<li><strong>Kauri original tags:</strong> smart-contract, openzeppelin, ownership, zeppelin, access-control</li>
+<li><strong>Kauri original hash:</strong> QmQ6LWCdPPBFz7A44eoq5bhTH78AEXnXvr5Z2sHevRFtp2</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../openzeppelin-part-3--token-standards/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../openzeppelin-part-3--token-standards/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 3  Token Standards
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../openzeppelin-part-1--introductory/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../openzeppelin-part-1--introductory/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 1  Introductory
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/OpenZeppelin 101/openzeppelin-part-2--access-control.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

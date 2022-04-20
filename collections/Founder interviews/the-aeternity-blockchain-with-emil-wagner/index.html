@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Founder%20interviews/the-aeternity-blockchain-with-emil-wagner/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>The Æternity blockchain with Emil Wagner - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "The \u00c6ternity blockchain with Emil Wagner", url: "#_top", children: [
+              {title: "The Blockchain", url: "#the-blockchain" },
+              {title: "The AE Token", url: "#the-ae-token" },
+              {title: "Oracles", url: "#oracles" },
+              {title: "Names", url: "#names" },
+              {title: "State Channels", url: "#state-channels" },
+              {title: "Scripting Languages", url: "#scripting-languages" },
+              {title: "Accounts and Identity", url: "#accounts-and-identity" },
+              {title: "\u00c6pps", url: "#pps" },
+              {title: "The Roadmap", url: "#the-roadmap" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="the-ternity-blockchain-with-emil-wagner">The Æternity blockchain with Emil Wagner<a class="headerlink" href="#the-ternity-blockchain-with-emil-wagner" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmapwraHpvSpxJdEV1QXYoffHYowaqpvLs2qem9UXrb9yx" /></p>
+<p>To match every article dismissing blockchain as a pointless technology that brings nothing new or useful is a project aiming to prove that statement wrong. I recently spoke with Emil Wagner, apps lead at æternity, one such project attempting just this by creating their own "blockchain operating system."</p>
+<iframe src="https://anchor.fm/theweeklysqueak/embed/episodes/The-Aeternity-Blockchain-with-Emil-Wagner-e2bp51/a-a5n37t" height="102px" width="400px" frameborder="0" scrolling="no"></iframe>
+
+<p>Like any good project, æternity consists of several components.</p>
+<h4 id="the-blockchain">The Blockchain<a class="headerlink" href="#the-blockchain" title="Permanent link"></a></h4>
+<p>The æternity team is full of functional programmers, which reflects the blockchain at the core of their technology. Written in Erlang, I'm surprised more blockchains aren't written in functional languages, as their declarative nature, and reluctance to change state suits Blockchain near perfectly. Other blockchain projects will also be able to use the network for their uses</p>
+<h4 id="the-ae-token">The AE Token<a class="headerlink" href="#the-ae-token" title="Permanent link"></a></h4>
+<p>No Blockchain project is complete without a token to allow access to its network. With æternity, the tokens are the access token for the network, as well as the tokens each app running on the network can issue and use.</p>
+<h4 id="oracles">Oracles<a class="headerlink" href="#oracles" title="Permanent link"></a></h4>
+<p>Another increasingly popular feature of Blockchain projects, oracles provide smart contracts with network or real-world data to help solve computational and consensus problems. Quite what information oracles will provide the æternity network I wasn't able to find an answer too.</p>
+<h4 id="names">Names<a class="headerlink" href="#names" title="Permanent link"></a></h4>
+<p>One of the standout features of æternity is the names feature that works something like DNS for Blockchain addresses, reducing the need for complex, and unmemorable strings.</p>
+<h4 id="state-channels">State Channels<a class="headerlink" href="#state-channels" title="Permanent link"></a></h4>
+<p>Another increasingly common feature of modern blockchain projects are state channels (or sidechains) to allow for processing off of the main public chain for scalability purposes.</p>
+<h4 id="scripting-languages">Scripting Languages<a class="headerlink" href="#scripting-languages" title="Permanent link"></a></h4>
+<p>While lacking in detail at the moment, æternity will support two smart contracts scripting languages. Sophia, based on <a href="https://ocaml.org">OCaml</a> is the more complex and object-oriented (contracts and oracles in this case) language, but with a steeper learning curve. Varna is a more straightforward language, but with more accurate token costs available at compile time. I wonder if the team will maintain both languages in the future, or if the two options will cause too much confusion.</p>
+<h4 id="accounts-and-identity">Accounts and Identity<a class="headerlink" href="#accounts-and-identity" title="Permanent link"></a></h4>
+<p>Æternity promises flexibility with account permission (but no detail), and claim that you can use your network account elsewhere on the internet, but entirely for what and how I am unsure.</p>
+<h4 id="pps">Æpps<a class="headerlink" href="#pps" title="Permanent link"></a></h4>
+<p>One of the criticisms of many blockchain projects and platforms is the lack of useful distributed apps beyond financial speculation. While Æternity plans to create "out-the-box" apps for some of these use cases, they also plan several others to make their platform more usable, some of these include apps useful for development, such as a blockchain explorer and code editor.</p>
+<h4 id="the-roadmap">The Roadmap<a class="headerlink" href="#the-roadmap" title="Permanent link"></a></h4>
+<p>As always with blockchain projects I encounter, details actual users are thin or scattered around multiple blogs and GitHub repositories. <a href="https://aeternity.com/#roadmap">the æternity roadmap</a> is on track, their <a href="https://aeternity.com/#roadmap">GitHub</a> full of repositories, and their <a href="https://blog.aeternity.com">blog</a> flush with posts. If what you've read interests you, take a look around, make your own mind up and let me know your thoughts in the comments below.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> The Æternity blockchain with Emil Wagner</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/the-aeternity-blockchain-with-emil-wagner/b88cdf4cffed4e47aa920b6ea876479a/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-09-19</li>
+<li><strong>Kauri original tags:</strong> functional, blockchain, state, interview, -ternity</li>
+<li><strong>Kauri original hash:</strong> QmXnZnUu3kBezRm4FNdE8h4wXgD4Uf4x6ZfQvxtBLtvqP2</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../embleema--the-blockchain-that-lets-you-own-your-h/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../embleema--the-blockchain-that-lets-you-own-your-h/" class="btn btn-xs btn-link">
+        Embleema  The Blockchain That Lets You Own Your Health Data
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../true-anonymity-privacy-and-snapps-with-simon-harm/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../true-anonymity-privacy-and-snapps-with-simon-harm/" class="btn btn-xs btn-link">
+        True anonymity, privacy, and SNApps with Simon Harman of Loki
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Founder interviews/the-aeternity-blockchain-with-emil-wagner.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

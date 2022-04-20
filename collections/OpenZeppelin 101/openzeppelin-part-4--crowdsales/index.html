@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/OpenZeppelin%20101/openzeppelin-part-4--crowdsales/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>OpenZeppelin Part 4  Crowdsales - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "OpenZeppelin Part 4  Crowdsales", url: "#_top", children: [
+              {title: "Crowdsales", url: "#crowdsales" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="openzeppelin-part-4-crowdsales">OpenZeppelin Part 4  Crowdsales<a class="headerlink" href="#openzeppelin-part-4-crowdsales" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXpNnBRArmx3E36X5niZXricpaMk4QHX9GnJaeP8VCbZG" /></p>
+<h2 id="crowdsales">Crowdsales<a class="headerlink" href="#crowdsales" title="Permanent link"></a></h2>
+<h3 id="what-is-a-crowdsale">What is a Crowdsale?<a class="headerlink" href="#what-is-a-crowdsale" title="Permanent link"></a></h3>
+<p>In Blockchain, crowdsales are fundraisers to assist in the development of a project. Backers use the tokens sold during the crowdsale to participate in the project once it's launched. The tokens are usable only within this project.</p>
+<h3 id="openzeppelin-crowdsales">OpenZeppelin &amp; Crowdsales<a class="headerlink" href="#openzeppelin-crowdsales" title="Permanent link"></a></h3>
+<p>OpenZeppelin created four categories of contracts to assist in the creation of a crowdsale contract based on the most important properties of a crowdsale.</p>
+<h4 id="price-rate-configuration">Price &amp; Rate Configuration<a class="headerlink" href="#price-rate-configuration" title="Permanent link"></a></h4>
+<p>Before creating a crowdsale it's important to understand the rate. Currency math is always done in the smallest denomination. To read the amount, the currency is converted to the correct decimal place. The smallest currency is Wei.</p>
+<pre><code>1 Eth = 10^18 Wei
+</code></pre>
+<p><strong>In terms of tokens</strong>, the smallest denomination is TKNbits, a.k.a. bits.</p>
+<pre><code>1 TKN = 10^(decimals) TKNbits
+</code></pre>
+<p>Keep these conversions in mind when working with math in contracts, because it's possible to distribute more or less tokens/ether than you thought. <strong>Remember that calculations are always in Wei and TKNbits.</strong></p>
+<p>In the price category we have one contract, <em>IncreasingPriceCrowdsale.sol</em> This allows you over a set period of time to have the price of your tokens increase.</p>
+<pre><code>pragma solidity ^0.5.2;
+
+import &quot;../crowdsale/price/IncreasingPriceCrowdsale.sol&quot;;
+import &quot;../math/SafeMath.sol&quot;;
+
+contract IncreasingPriceCrowdsaleImpl is IncreasingPriceCrowdsale {
+    constructor (
+        uint256 openingTime,
+        uint256 closingTime,
+        address payable wallet,
+        IERC20 token,
+        uint256 initialRate,
+        uint256 finalRate
+    )
+        public
+        Crowdsale(initialRate, wallet, token)
+        TimedCrowdsale(openingTime, closingTime)
+        IncreasingPriceCrowdsale(initialRate, finalRate)
+    {
+        // solhint-disable-previous-line no-empty-blocks
+    }
+}
+</code></pre>
+<p>Read more in the <a href="https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/mocks/IncreasingPriceCrowdsaleImpl.sol">documentation</a>.</p>
+<h4 id="emission">Emission<a class="headerlink" href="#emission" title="Permanent link"></a></h4>
+<p>Emission refers to the process of how the token reaches the buyer. The default method is to immediately transfer the token to the buyer. Other methods are available which can help to control other aspects of the crowdsale such as price point and the number of tokens sold.</p>
+<ul>
+<li><strong>Default</strong>: The crowdsale contract owns the tokens and transfers them to the buyers when they purchase them.</li>
+<li><em>MintedCrowdsale.sol</em>: The crowdsale contract mints tokens when purchased. This is a way to ensure that excess tokens are not created as well as control how many tokens are in circulation.</li>
+<li><em>AllowanceCrowdsale.sol</em>: Another wallet grants the crowdsale contract tokens to sell. With this method, you need to ensure that you approve the allowance using the ERC20 <code>approve()</code> function otherwise your contract will never receive the tokens.</li>
+</ul>
+<pre><code>pragma solidity ^ 0.5.2;
+
+import &quot;openzeppelin-solidity/contracts/crowdsale/emission/emission-you-choose.sol&quot;;
+
+contract myCrowdsale is emission-you-choose {
+    //the rest of your code
+}
+</code></pre>
+<h4 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link"></a></h4>
+<p>Validation contains contracts that add more customization to your crowdsale. They limit access to token purchases.</p>
+<ul>
+<li><em>CappedCrowdsale.sol</em>: Adds a cap or maximum amount of tokens to sell for the duration of the crowdsale. If the cap is exceeded, token purchases will not be valid. This helps to keep the value of the token in control.</li>
+<li><em>IndividuallyCappedCrowdsale.sol</em>: Caps an individuals purchases to ensure that not one person owns all the tokens. This maintains the value of the token.</li>
+<li><em>WhitelistedCrowdsale.sol</em>: Only people on the whitelist can buy tokens and thus you can sell to a more selective group of buyers.</li>
+<li><em>TimedCrowdsale.sol</em>: Your crowdsale has an opening and closing time.</li>
+</ul>
+<pre><code>pragma solidity ^ 0.5 .2;
+
+import &quot;openzeppelin-solidity/contracts/crowdsale/validation/validation-you-choose.sol&quot;;
+
+contract myCrowdsale is validation-you-choose {
+    //the rest of your code
+}
+</code></pre>
+<h4 id="distribution">Distribution<a class="headerlink" href="#distribution" title="Permanent link"></a></h4>
+<p>The most important part of the crowdsale is when the tokens are released to the buyer.</p>
+<ul>
+<li><strong>Default</strong>: Release the tokens immediately when the buyers purchase them.</li>
+<li><em>PostDeliveryCrowdsale.sol</em>: Tokens are distributed after the crowdsale is over. Buyers use the <code>withdrawToken()</code> function to obtain the tokens.</li>
+<li><em>RefundableCrowdsale.sol</em>: If the minimum goal of the crowdsale is not reached, users use the <code>claimRefund()</code> function to get their Ether back.</li>
+</ul>
+<pre><code>pragma solidity ^ 0.5 .2;
+
+import &quot;openzeppelin-solidity/contracts/crowdsale/distribution/distribution-you-choose.sol&quot;;
+
+contract myCrowdsale is distribution-you-choose {
+    //the rest of your code
+}
+</code></pre>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>Crowdsales don't have to be complex to write and using OpenZeppelin can help incorporate features that give you, the developer, more control.</p>
+<p><strong>Note</strong>: You can use more than one crowdsale feature. They each have to have an import statement as well as separated by a comma.</p>
+<pre><code>pragma solidity ^ 0.5 .2;
+
+import &quot;openzeppelin-solidity/contracts/crowdsale/distribution/PostDeliveryCrowdsale.sol&quot;;
+import &quot;openzeppelin-solidity/contracts/crowdsale/validation/TimedCrowdsale.sol&quot;;
+
+contract myCrowdsale is PostDeliveryCrowdsale, TimedCrowdsale {
+    //the rest of your code
+}
+</code></pre>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://openzeppelin.org/api/docs/learn-about-crowdsales.html">https://openzeppelin.org/api/docs/learn-about-crowdsales.html</a></li>
+<li><a href="https://openzeppelin.org/api/docs/crowdsale_Crowdsale.html">https://openzeppelin.org/api/docs/crowdsale_Crowdsale.html</a></li>
+</ul>
+<p>For examples of how to use OpenZeppelin Crowdsale contracts use the following link to access open source code:</p>
+<ul>
+<li><a href="https://github.com/search?q=import+%22openzeppelin-solidity%2Fcontracts%2Fcrowdsale&amp;type=Code">Crowdsales</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> OpenZeppelin Part 4  Crowdsales</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/openzeppelin-part-4-crowdsales/f7287d9006e346f2a628fad7132ff19c/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-28</li>
+<li><strong>Kauri original tags:</strong> smart-contract, openzeppelin, zeppelin, crowdsale, token</li>
+<li><strong>Kauri original hash:</strong> QmcEH6v6VB3qu48sjCzAV3bRhBWwsb2jJpquj9vK8sk4iH</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../openzeppelin-part-5--there-s-more%21/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../openzeppelin-part-5--there-s-more%21/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 5  There's More!
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../openzeppelin-part-3--token-standards/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../openzeppelin-part-3--token-standards/" class="btn btn-xs btn-link">
+        OpenZeppelin Part 3  Token Standards
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/OpenZeppelin 101/openzeppelin-part-4--crowdsales.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

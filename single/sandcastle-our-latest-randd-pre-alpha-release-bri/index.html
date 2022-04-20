@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/sandcastle-our-latest-randd-pre-alpha-release-bri/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sandcastle, our Latest R&D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sandcastle, our Latest R&amp;D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts", url: "#_top", children: [
+              {title: "", url: "#_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="sandcastle-our-latest-rd-pre-alpha-release-brings-sql-to-ethereum-smart-contracts">Sandcastle, our Latest R&amp;D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts<a class="headerlink" href="#sandcastle-our-latest-rd-pre-alpha-release-brings-sql-to-ethereum-smart-contracts" title="Permanent link"></a></h1>
+<p><img alt="Sandcastle R&amp;D" src="https://pegasys.tech/wp-content/uploads/2019/05/Sandcastle.jpg" /></p>
+<p>This article was written by <a href="http://pegasys.tech/">PegaSys</a> Co-Founder, developer, and researcher, <a href="https://www.linkedin.com/in/shahan-khatchadourian-ph-d-66115210b/">Shahan Khatchadourian, Ph.D.</a></p>
+<p>Millions of SQL developers are now Ethereum smart contract developers.  </p>
+<p>As someone with a passion for bridging database and blockchain technologies, I’ve spent a lot of time thinking about blockchains as different forms of databases. It’s still the case that <a href="https://media.consensys.net/blockchains-and-databases-arent-the-same-thing-yet-5d5eb7df099e">a blockchain is not a database, yet</a>. However, Sandcastle, an Ethereum SQL smart contract language, helps bridge that divide.  </p>
+<p>A Sandcastle <a href="https://github.com/PegaSysEng/sandcastle-tutorial">pre-alpha web service</a> that translates SQL into Solidity, and which works on all existing clients (i.e., no changes are needed), is now available as a Remix plugin.   </p>
+<p><strong>Try the</strong> <a href="https://github.com/PegaSysEng/sandcastle-tutorial"><strong>Sandcastle pre-alpha now</strong></a><strong>! Feedback is welcome.</strong>  </p>
+<p>Sandcastle improves Ethereum’s data management capabilities by provisioning an on-chain relational database that supports tables, (sub-)queries, aggregation, updates, triggers, and indexes. Smart contracts based on relational semantics can be automatically optimized for transaction cost, performance, scalability and security across blockchains and databases.  </p>
+<p>Sandcastle operates by translating each table into a smart contract that contains rows of data structured according to the table’s schema. Queries, updates, triggers, and transactions are smart contract methods that execute against these tables. Our tool hides the complexity of joining multiple tables, computing aggregations, using indexes whenever possible, and using Solidity data structures effectively. The architecture diagram below shows that Sandcastle fits into existing development processes because the generated code can be integrated with pre-existing code and compiled using the standard solc-based toolchain.  </p>
+<p><img alt="" src="https://lh3.googleusercontent.com/25IiNYEffjJf7MFvRZOTPw6QXnoEBcn6CH6cYOcJihgNqeHGB1e3ddE0ihOtl_tahu23_w32K3ny6WGQgNvkYfU_rKjVYl4CfFhNxaVNxvzk9M5R6yEQ92hY7VmP8qa2DQc3OE1N" /></p>
+<h5 id="_1"><a class="headerlink" href="#_1" title="Permanent link"></a></h5>
+<p><strong>Why did we build Sandcastle?</strong>  </p>
+<p>Enterprises need to manage and understand complex data in order to make informed business decisions. But committing to that effort will first require strategies to <a href="https://hbr.org/2019/02/companies-are-failing-in-their-efforts-to-become-data-driven">mitigate the associated costs and risks</a>. One way to reduce risk is to improve blockchain’s data management capabilities. One way to reduce costs is to rely on the expertise of the <em>millions</em> of existing SQL developers by turning them into Ethereum smart contract developers.   </p>
+<p>Enterprises will benefit from the (re-)use of SQL as a way to preserve application logic across private and public Ethereum blockchains and databases, while optimizing for each. For example, Sandcastle’s optimizer will be able to take SQL code and generate smart contracts that minimize transaction costs in public chains, and can also generate smart contracts that perform identical application logic while maximizing performance in private chains. Developers won’t have to spend any time hand-coding brittle optimizations that limit agility and innovation. One of the most promising features is the ability to integrate existing enterprise data to model and simulate transactions and processes. We will share more about these exciting features soon.  </p>
+<p>Sandcastle is one of several steps we’re taking to help advance blockchain data management. If you’re an enterprise that is familiar with databases, focused on building Ethereum applications (i.e., not necessarily low-level), and willing to experiment with Sandcastle, <a href="mailto: pegasysinfo@consensys.net">do get in touch</a>. This is an opportunity to give your input to our work blending database and blockchain paradigms.   </p>
+<p><em>We thank</em><a href="https://www.linkedin.com/in/eric-kellstrand/"> <em>Eric Kellstrand</em></a> <em>for their contributions, and</em> <a href="https://www.linkedin.com/in/kate-hardy/"> <em>Kate Hardy</em></a><em>,</em><a href="https://www.linkedin.com/in/mijail/"> <em>Horacio Mijail Anton Quiles</em></a> <em>and</em> <a href="https://www.linkedin.com/in/ginarubino/"> <em>Gina Rubino</em></a> <em>for their reviews.</em></p>
+<p><em>Want to join the team? PegaSys is hiring!</em><a href="https://consensys.net/open-roles/?discipline=41276"> <em>Check out our list of open roles</em></a><em>.</em></p>
+<p><em>To keep up to date on PegaSys’ progress, check out our</em><a href="https://github.com/PegaSysEng"> <em>GitHub</em></a><em>, follow us on</em><a href="http://www.twitter.com/PegaSysEng"> <em>Twitter</em></a> <em>and sign up for our mailing list below.</em>  </p>
+<p><a href="https://tech.us18.list-manage.com/subscribe?u=529db31d261d52da36bc21ea3&amp;id=f0846ffd7b">Sign Up For PegaSys Updates</a><br />
+The post <a href="https://pegasys.tech/sandcastle-brings-sql-to-ethereum-smart-contracts/">Sandcastle, our Latest R&amp;D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts</a> appeared first on <a href="https://pegasys.tech">PegaSys</a>.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Sandcastle, our Latest R&amp;D Pre-Alpha Release, Brings SQL to Ethereum Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/sandcastle-our-latest-randd-prealpha-release-bring/9c9decae6eb34414a6c91cca3b60b6c8/a</li>
+<li><strong>Kauri original author:</strong> PegaSys (@pegasys)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-21</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, sql</li>
+<li><strong>Kauri original hash:</strong> QmUYBi3H5X5fyDBVrS2fh5zwocLVf9JZqWqDjksL7xn33d</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../generalizing-plasma-contracts/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../generalizing-plasma-contracts/" class="btn btn-xs btn-link">
+        Generalizing Plasma Contracts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-proof-of-stake-%28pos%29-validators-should-think-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-proof-of-stake-%28pos%29-validators-should-think-/" class="btn btn-xs btn-link">
+        HOW PROOF OF STAKE (POS) VALIDATORS SHOULD THINK OF COMMUNITY AND SUPPORT
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/sandcastle-our-latest-randd-pre-alpha-release-bri.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

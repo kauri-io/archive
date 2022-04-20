@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/interacting-with-an-ethereum-smart-contract-in-ja/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Interacting with an Ethereum Smart Contract in Java - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Interacting with an Ethereum Smart Contract in Java", url: "#_top", children: [
+              {title: "A Brief Primer on Mining and Gas", url: "#a-brief-primer-on-mining-and-gas" },
+              {title: "Deploying", url: "#deploying" },
+              {title: "Creating a Wrapper Instance for an Already Deployed Contract", url: "#creating-a-wrapper-instance-for-an-already-deployed-contract" },
+              {title: "Invoking a Smart Contract Function", url: "#invoking-a-smart-contract-function" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="interacting-with-an-ethereum-smart-contract-in-java">Interacting with an Ethereum Smart Contract in Java<a class="headerlink" href="#interacting-with-an-ethereum-smart-contract-in-java" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQBqEvUaNN7ByVMSPrpa2Tw1mMGCCNPYyfai7Z6WE6Fwr" /></p>
+<p><strong>Other articles in this series:</strong>
+- <a href="https://kauri.io/article/b9eb647c47a546bc95693acc0be72546">Connecting to an Ethereum client with Java, Eclipse and Web3j</a>
+- <a href="https://kauri.io/article/925d923e12c543da9a0a3e617be963b4">Manage an Ethereum account with Java and Web3j</a>
+- <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b">Generate a Java Wrapper from your Smart Contract</a>
+- <a href="https://kauri.io/article/760f495423db42f988d17b8c145b0874">Listening for Ethereum Smart Contract Events in Java</a>
+- <a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></p>
+<hr />
+<p>In this tutorial, you will learn how to deploy a smart contract using the Web3j java library, along with how to interact with the functions of the smart contract.</p>
+<p>As a prerequisite, you should be familiar with <a href="https://kauri.io/article/925d923e12c543da9a0a3e617be963b4/manage-an-ethereum-account-with-java-and-web3j">account management</a> and contract java wrapper generation as described in the <a href="https://kauri.io/article/84475132317d4d6a84a2c42eb9348e4b/generate-a-java-wrapper-from-your-smart-contract">previous article</a> in this series.  For continuity, we will deploy the same <code>DocumentRegistry</code> smart contract.</p>
+<p><em>DocumentRegistry.sol</em></p>
+<pre><code class="language-solidity">pragma solidity ^0.5.6;
+
+
+/**
+*  @dev Smart Contract resposible to notarize documents on the Ethereum Blockchain
+*/
+contract DocumentRegistry {
+
+    struct Document {
+        address signer; // Notary
+        uint date; // Date of notarization
+        string hash; // Document Hash
+    }
+
+    /**
+     *  @dev Storage space used to record all documents notarized with metadata
+     */
+    mapping(bytes32 =&gt; Document) registry;
+
+    /**
+     *  @dev Notarize a document identified by the hash of the document hash, the sender and date in the registry
+     *  @dev Emit an event Notarized in case of success
+     *  @param _documentHash Document hash
+     */
+    function notarizeDocument(string calldata _documentHash) external returns (bool) {
+        bytes32 id = keccak256(abi.encodePacked(_documentHash));
+
+        registry[id].signer = msg.sender;
+        registry[id].date = now;
+        registry[id].hash = _documentHash;
+
+        emit Notarized(msg.sender, _documentHash);
+
+        return true;
+    }
+
+    /**
+     *  @dev Verify a document identified by its has was noterized in the registry previsouly.
+     *  @param _documentHash Document hash
+     *  @return bool if document was noterized previsouly in the registry
+     */
+    function isNotarized(string calldata _documentHash) external view returns (bool) {
+        return registry[keccak256(abi.encodePacked(_documentHash))].signer != address(0);
+    }
+
+    /**
+     *  @dev Definition of the event triggered when a document is successfully notarized in the registry
+     */
+    event Notarized(address indexed _signer, string _documentHash);
+}
+</code></pre>
+<h3 id="a-brief-primer-on-mining-and-gas">A Brief Primer on Mining and Gas<a class="headerlink" href="#a-brief-primer-on-mining-and-gas" title="Permanent link"></a></h3>
+<h4 id="mining">Mining<a class="headerlink" href="#mining" title="Permanent link"></a></h4>
+<p>Any interactions with the Ethereum network that update EVM state must be triggered by a transaction that is broadcast to the blockchain.  Some example interactions include sending Ether to another account, deploying a smart contract and some smart contract function invocations.</p>
+<p>Miners are entities that secure the Ethereum network by constantly attempting to calculate the answer to a complex mathematical puzzle, a mechanism called Proof-of-Work consensus.</p>
+<p>It is the job of miners to gather a bundle of pending transactions (from the mempool) and create a block that includes these transactions.  Once a transaction is included within a mined block, it is considered executed, and any related state changes will be applied.</p>
+<h4 id="gas">Gas<a class="headerlink" href="#gas" title="Permanent link"></a></h4>
+<p>Ether, the native cryptocurrency of Ethereum, is paid by the transaction sender to the miner that included the transaction within a block.  This is one of the ways that miners are incentivized.</p>
+<p>Gas is a unit of computational work within the Ethereum network, and the amount of Ether paid whilst executing a transaction depends on how much gas is consumed, along with the <code>gasPrice</code> transaction attribute, which defines how much Ether the sender will pay per gas unit consumed.  Its important to understand that different transactions will require differing amounts of gas, depending on the operation, with each transaction costing a minimum of 21,000 gas.</p>
+<p>It is also possible to define the absolute maximum amount of gas that a transaction sender is willing to consume in order to execute the transaction, by specifying the <code>gasLimit</code> attribute.</p>
+<h3 id="deploying">Deploying<a class="headerlink" href="#deploying" title="Permanent link"></a></h3>
+<p>The ability to deploy immutable smart contracts that live indefinitely is the secret sauce of Ethereum!  Smart contracts are pieces of code with functions that can be executed by any interested parties.  They live as bytecode within the network but are usually written in a language such as <a href="https://solidity.readthedocs.io/en">Solidity</a> or <a href="https://vyper.readthedocs.io">Vyper</a>, then encoded and deployed.</p>
+<p>By far the easiest way to deploy the <code>DocumentRegistry</code> smart contract is to use a wrapper that has been generated by Web3j.   This wrapper provides a native java class representation of the smart contract.  Two (non deprecated) <code>deploy</code> methods that can be used to deploy the code to the Ethereum network are provided:</p>
+<pre><code class="language-java">public static RemoteCall&lt;DocumentRegistry&gt; deploy(Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider)
+</code></pre>
+<pre><code class="language-java">public static RemoteCall&lt;DocumentRegistry&gt; deploy(Web3j web3j, TransactionManager transactionManager, ContractGasProvider contractGasProvider)
+</code></pre>
+<p>The latter allows the <code>TransactionManager</code> to be specified; an object which controls how Web3j connects to an Ethereum client.  We're happy to use the default <code>RawTransactionManager</code> in this example, so we'll use the former method, which takes wallet <code>Credentials</code> as an argument.  We must also create a <code>ContractGasProvider</code>, which provides the gas price and gas limit for the transaction; indirectly specifying how much the contract will cost to deploy, in Ether.</p>
+<p><em>DocumentRegistry Deployment Code</em></p>
+<pre><code class="language-java">//Create credentials from private key
+Credentials creds = Credentials.create(&quot;0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63&quot;);
+
+DocumentRegistry registryContract = DocumentRegistry.deploy(web3j, creds, new DefaultGasProvider()).send();
+
+String contractAddress = registryContract.getContractAddress();
+</code></pre>
+<p>The <code>deploy</code> method returns a <code>RemoteCall</code> object.  Calling <code>send()</code> on the <code>RemoteCall</code> synchronously deploys the smart contract to the Ethereum network, and returns an instance of <code>DocumentRegistry</code> which is linked to this deployed code.  Every deployed smart contract has a unique Ethereum address associated with it, and this address can be accessed by calling the <code>getContractAddress()</code> method on the contract wrapper, after deployment.</p>
+<p>In this snippet, the credentials are constructed from a hard coded private key (for address 0xfe3b557e8fb62b89f4916b721be55ceb828dbd73).  This is fine for testing and demonstration purposes, but a production implementation should never hard code a private key, because an attacker will be able to take control of your account.  One approach to overcome this is to set the key as an environment variable on your server, and load this in your code.</p>
+<p>The provided <code>DefaultGasProvider</code> is used in this example, which sets the gas price and limit to hard coded values, but a custom version can be built by implementing the below interface:</p>
+<pre><code class="language-java">public interface ContractGasProvider {
+    BigInteger getGasPrice(String contractFunc);
+
+    @Deprecated
+    BigInteger getGasPrice();
+
+    BigInteger getGasLimit(String contractFunc);
+
+    @Deprecated
+    BigInteger getGasLimit();
+}
+</code></pre>
+<h3 id="creating-a-wrapper-instance-for-an-already-deployed-contract">Creating a Wrapper Instance for an Already Deployed Contract<a class="headerlink" href="#creating-a-wrapper-instance-for-an-already-deployed-contract" title="Permanent link"></a></h3>
+<p>More often than not, the smart contract that you want to interact with will already be deployed to the Ethereum network.  In this scenario, the static <code>load(..)</code> method can be used:</p>
+<pre><code class="language-java">public static DocumentRegistry load(String contractAddress, Web3j web3j, Credentials credentials, ContractGasProvider contractGasProvider)
+</code></pre>
+<pre><code class="language-java">public static DocumentRegistry load(String contractAddress, Web3j web3j, TransactionManager transactionManager, ContractGasProvider contractGasProvider)
+</code></pre>
+<p>For example, if our <code>DocumentRegistry</code> is deployed with the address <code>0x10c7dc2b84b6c8e6df5a749655830e70adca3a2b</code>, we can obtain a java wrapper for the deployed contract as follows:</p>
+<pre><code class="language-java">//Create credentials from private key
+Credentials creds = Credentials.create(&quot;0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63&quot;);
+
+DocumentRegistry registryContract = DocumentRegistry.load(credentials.getAddress(),web3j, creds, new DefaultGasProvider());
+</code></pre>
+<h3 id="invoking-a-smart-contract-function">Invoking a Smart Contract Function<a class="headerlink" href="#invoking-a-smart-contract-function" title="Permanent link"></a></h3>
+<h4 id="transactions-vs-calls">Transactions vs Calls<a class="headerlink" href="#transactions-vs-calls" title="Permanent link"></a></h4>
+<p>A smart contract function can be invoked in 2 different ways, depending on the behaviour of the function.  </p>
+<h5 id="transactions">Transactions<a class="headerlink" href="#transactions" title="Permanent link"></a></h5>
+<p>To invoke a smart contract function that can potentially change contract state (adding / updating / deleting a value), a transaction must be broadcast to the Ethereum network.  The function invocation details such as function name and argument values are encoded in the data field of a transaction in a well known format, and much like a regular Ether value transaction, the invocation will consume gas.  </p>
+<p>A miner must choose to include the transaction within a block in order for the function invocation to take place, so therefore transaction executions are asynchronous in nature.  After broadcasting the transaction, a unique hash is returned, which can then be used to request a transaction receipt from the Ethereum client (once it has been included within a block).</p>
+<p>For a detailed explanation of Ethereum transactions, see <a href="https://medium.com/blockchannel/life-cycle-of-an-ethereum-transaction-e5c66bae0f6e">this guide</a>.</p>
+<h5 id="calls">Calls<a class="headerlink" href="#calls" title="Permanent link"></a></h5>
+<p>A call is local to the Ethereum client that your service is connected to, and does not broadcast anything to the wider Ethereum network.  Because of this, a contract call is free to execute; they do not consume any gas. However, call operations are read only, meaning that any state changes that occur within the smart contract function are not persisted and are rolled back after execution.  There is no mining involved, so executions are synchronous.</p>
+<h4 id="using-the-contract-wrapper">Using the Contract Wrapper<a class="headerlink" href="#using-the-contract-wrapper" title="Permanent link"></a></h4>
+<p>As was true for deploying, invoking a function using a Web3j generated contract wrapper is by far the easiest approach.  The tricky data encoding is encapsulated and handled for you under the covers.  </p>
+<p>A java method is generated that corresponds to each function within your smart contract.  Web3j establishes if the function should be invoked via a transaction or call automatically, at wrapper generation, based on the keywords of the function.  For example, a function definition that includes the <code>view</code> or <code>pure</code> keywords will be executed via a call, otherwise its assumed that there will be some potential state changes, and a transaction approach is used.</p>
+<h5 id="invoking-notarizedocument">Invoking <code>notarizeDocument(..)</code><a class="headerlink" href="#invoking-notarizedocument" title="Permanent link"></a></h5>
+<p>In our <code>DocumentRegistry</code> example smart contract, the <code>notarizeDocument(..)</code> function stores the document details in the smart contract state and should therefore be triggered via a transaction in an asynchronous manner.  The generated function signature is:</p>
+<pre><code class="language-java">public RemoteCall&lt;TransactionReceipt&gt; notarizeDocument(String _documentHash)
+</code></pre>
+<p>Interestingly, even though behind the scenes, a transaction is asynchronously broadcast to the network and included within a block, Web3j handles the transaction receipt polling on your behalf, and so the remote call returned by this method is actually synchronous and blocks until the transaction has been mined, subsequently returning the transaction receipt .  If this behaviour is not desired within your application, you will have to either send a transaction manually without the help of the wrapper, or make the remote call on a different thread.</p>
+<p>So calling the <code>notarizeDocument</code> function is made very simple with the wrapper, and looks like this:</p>
+<pre><code class="language-java">DocumentRegistry documentRegistry = deployDocumentRegistryContract();
+TransactionReceipt receipt = documentRegistry.notarizeDocument(
+        &quot;QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco&quot;).send();
+
+String txHash = receipt.getTransactionHash();
+</code></pre>
+<p>A <code>TransactionException</code> is thrown if the transaction fails.</p>
+<h5 id="invoking-isnotarized">Invoking <code>isNotarized(..)</code><a class="headerlink" href="#invoking-isnotarized" title="Permanent link"></a></h5>
+<p>As this function is marked as a <code>view</code> function, this indicates that it is read-only and can therefore be called locally.  The generated method signature is:</p>
+<pre><code class="language-java">public RemoteCall&lt;Boolean&gt; isNotarized(String _documentHash)
+</code></pre>
+<p>This method is quite similar to the <code>notarizeDocument(..)</code> method, with one major difference;  the returned <code>RemoteCall</code> is of <code>Boolean</code> type and not <code>TransactionReceipt</code>.  This is because a transaction was not sent, and instead the return value of the smart contract function (<code>bool</code> in this case, converted to <code>Boolean</code>) is returned synchronously.</p>
+<h4 id="manual-transaction-sending">Manual Transaction Sending<a class="headerlink" href="#manual-transaction-sending" title="Permanent link"></a></h4>
+<p>If for some reason, using the smart contract wrapper is not desirable, Web3j provides a number of helper classes to simplify the process of broadcasting a function invocation transaction, such as encoding the data field of the transaction, and the signing process.</p>
+<p><em>Manual Transaction Sending Code</em></p>
+<pre><code class="language-java">Function function = new Function(&quot;notarizeDocument&quot;,
+                Arrays.asList(new Utf8String(&quot;QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco&quot;)), Collections.emptyList());
+
+//Encode function values in transaction data format
+String txData = FunctionEncoder.encode(function);
+
+TransactionManager txManager = new FastRawTransactionManager(web3j, creds);
+
+String txHash = txManager.sendTransaction(DefaultGasProvider.GAS_PRICE, DefaultGasProvider.GAS_LIMIT,
+                documentRegistry.getContractAddress(), txData, BigInteger.ZERO).getTransactionHash();
+</code></pre>
+<ul>
+<li>
+<p>First a <code>Function</code> object is created.  This defines the <code>notarizeDocument</code> function call, and contains the function name, a list of input arguments (Web3j provides java equivalents of all solidity smart contract types), and a list of return types (empty in our case).</p>
+</li>
+<li>
+<p>Next, the <code>FunctionEncoder</code> is used to encode the function call definition into the transaction data field format. The actual encoding is out of scope for this article, but details can be found <a href="https://solidity.readthedocs.io/en/develop/abi-spec.html">here</a> if interested.</p>
+</li>
+<li>
+<p>A <code>TransactionManager</code> is constructed, which which will be used to build and sign the transaction, and broadcast to the Ethereum network. We use a <code>FastRawTransactionManager</code> in this case, which supports multiple transactions per block, and takes <code>Web3j</code> and <code>Credentials</code> objects as arguments. </p>
+</li>
+<li>
+<p>Once we have a transaction manager and encoded data, invoking the <code>notarizeDocument</code> function is simply a matter of calling the <code>sendTransaction</code> method of the transaction manager.  Behind the scenes this will construct a transaction object, and signing it with the private key defined in the <code>Credentials</code> and then broadcast the transaction to the Ethereum network via the connected client.  Whereas it was the job of the <code>GasProvider</code> to set the gas values in the wrapper case, we much specify them manually with this method.  We have used default values in this example but you can change these values as you wish.  As its possible for a smart contract function to receive Ether during the invocation (a <code>payable</code> function), the last argument can be used to specify the amount of Ether (in the smallest denomination, <code>wei</code>) that should be sent from the sender account to the smart contract.  No Ether should be transferred in our case, so the value is set to zero.</p>
+</li>
+</ul>
+<h5 id="obtaining-the-transactionreceipt">Obtaining the TransactionReceipt<a class="headerlink" href="#obtaining-the-transactionreceipt" title="Permanent link"></a></h5>
+<p>You've probably noticed that the <code>sendTransaction</code> method in the code above, returns a transaction hash, and not a transaction receipt.  This is because of the asynchronous nature of transaction processing that has been mentioned earlier in this guide.  Luckily, web3j also provides a simple way to poll the network and wait until the transaction has been included within a block by a miner, the <code>TransactionReceiptProcessor</code>:</p>
+<pre><code class="language-java">TransactionReceiptProcessor receiptProcessor =
+                new PollingTransactionReceiptProcessor(web3j, TransactionManager.DEFAULT_POLLING_FREQUENCY,
+                        TransactionManager.DEFAULT_POLLING_ATTEMPTS_PER_TX_HASH);
+
+TransactionReceipt txReceipt = receiptProcessor.waitForTransactionReceipt(txHash);
+</code></pre>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>In this guide you have learnt how to perform some of the most common interactions with the Ethereum blockchain in java, namely deploying a smart contract and then invoking functions on this contract via both transactions and calls.  Using the generated smart contract java wrappers are by far the easiest way to perform these tasks, but there are other options if you require more granularity.  Congratulations, you're well on your way to becoming a proficient Ethereum java developer!</p>
+<p>In the next article in this series, we will walk you through how to <a href="https://kauri.io/article/760f495423db42f988d17b8c145b0874/listening-for-ethereum-smart-contract-events-in-java">listen for emitted smart contract events</a>.</p>
+<hr />
+<p><strong>Next Steps:</strong>
+- <a href="https://kauri.io/article/760f495423db42f988d17b8c145b0874">Listening for Ethereum Smart Contract Events in Java</a>
+- <a href="https://kauri.io/article/276dd27f1458443295eea58403fd6965">Using Pantheon, the Java Ethereum Client with Linux</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Interacting with an Ethereum Smart Contract in Java</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/interacting-with-an-ethereum-smart-contract-in-jav/14dc434d11ef4ee18bf7d57f079e246e/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-26</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, web3j, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmdsYPGQbjoqWpCSrDFNKEo2E5enYeQGpXtemgnfFqGqph</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../a-.net-developer-s-workflow-for-creating-and-call/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../a-.net-developer-s-workflow-for-creating-and-call/" class="btn btn-xs btn-link">
+        A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-link">
+        Remix IDE - Your first smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/interacting-with-an-ethereum-smart-contract-in-ja.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

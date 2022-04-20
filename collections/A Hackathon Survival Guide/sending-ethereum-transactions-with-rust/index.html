@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/sending-ethereum-transactions-with-rust/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Sending Ethereum Transactions with Rust - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Sending Ethereum Transactions with Rust", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Libraries Used", url: "#libraries-used" },
+              {title: "Starting an Ethereum Node", url: "#starting-an-ethereum-node" },
+              {title: "Sending a Transaction from a Node-Managed Account", url: "#sending-a-transaction-from-a-node-managed-account" },
+              {title: "Sending a Raw Transaction", url: "#sending-a-raw-transaction" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="sending-ethereum-transactions-with-rust">Sending Ethereum Transactions with Rust<a class="headerlink" href="#sending-ethereum-transactions-with-rust" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYXZyX8WMuzYNwJaSYARjt6HnGgpCji47xZjZqPULNbk4" /></p>
+<p>This tutorial walks you through the code required to send an Ethereum transaction within a Rust application.</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p>We assume that you already have a Rust IDE available, and have a reasonable knowledge of Rust programming. We also assumes some basic knowledge of Ethereum and do not cover concepts such as the contents of an Ethereum transaction.</p>
+<p>For more on any of these subjects, read the following:</p>
+<ul>
+<li><a href="https://www.rust-lang.org/learn/get-started">Getting started with Rust</a></li>
+<li><a href="https://kauri.io/collection/5bb65f0f4f34080001731dc2/ethereum-101">Ethereum 101</a></li>
+</ul>
+<h3 id="libraries-used">Libraries Used<a class="headerlink" href="#libraries-used" title="Permanent link"></a></h3>
+<p>This tutorial uses the MIT licensed rust-web3 library. To use this library in your application, add it to the <code>Cargo.toml</code> file:</p>
+<pre><code class="language-toml">[dependencies]
+web3 = { git = &quot;https://github.com/tomusdrw/rust-web3&quot; }
+</code></pre>
+<p>You can then add the library to your crate:</p>
+<pre><code class="language-rust">extern crate web3;
+</code></pre>
+<h3 id="starting-an-ethereum-node">Starting an Ethereum Node<a class="headerlink" href="#starting-an-ethereum-node" title="Permanent link"></a></h3>
+<p>We need access to a node that we can send transactions to.  In this tutorial we use <code>ganache-cli</code>, which allows you to  start a personal Ethereum network, with a number of unlocked and funded accounts.</p>
+<p>Taken from the <code>ganache-cli</code> <a href="https://github.com/trufflesuite/ganache-cli#installation">installation documentation</a>, to install with npm, use the command:</p>
+<pre><code class="language-shell">npm install -g ganache-cli
+</code></pre>
+<p>or if you prefer to use Yarn:</p>
+<pre><code class="language-shell">yarn global add ganache-cli
+</code></pre>
+<p>Once installed, run the command below to start a private Ethereum test network:</p>
+<pre><code class="language-shell">ganache-cli -d
+</code></pre>
+<p><strong>Note</strong>: The <code>-d</code> argument instructs <code>ganache-cli</code> to always start with the same accounts pre-populated with ETH.  This is useful in the <em>Raw Transaction</em> section of this tutorial as we will know the private keys of these accounts.</p>
+<h3 id="sending-a-transaction-from-a-node-managed-account">Sending a Transaction from a Node-Managed Account<a class="headerlink" href="#sending-a-transaction-from-a-node-managed-account" title="Permanent link"></a></h3>
+<p>The easiest way to send a transaction is to rely on the connected Ethereum node to perform the transaction signing.  This is generally a less secure approach, as it relies on the account being "unlocked" on the node.</p>
+<h4 id="required-use-declarations">Required <code>Use</code> Declarations<a class="headerlink" href="#required-use-declarations" title="Permanent link"></a></h4>
+<pre><code class="language-rust">use web3::futures::Future;
+use web3::types::{TransactionRequest, U256};
+</code></pre>
+<h4 id="connecting-to-the-node">Connecting to the Node<a class="headerlink" href="#connecting-to-the-node" title="Permanent link"></a></h4>
+<pre><code class="language-rust">let (_eloop, transport) = web3::transports::Http::new(&quot;http://localhost:8545&quot;).unwrap();
+
+let web3 = web3::Web3::new(transport);
+</code></pre>
+<p>First we create a transport object used to connect to the node. In this example we connect via <code>http</code>, to <code>localhost</code> on port <code>8545</code>, which is the default port for Ganache, and most, if not all Ethereum clients.</p>
+<p><strong>Note:</strong> An <a href="https://tomusdrw.github.io/rust-web3/web3/transports/struct.EventLoopHandle.html">EventLoop</a> is also returned, but that is out of the scope of this guide.</p>
+<p>Next we construct a web3 object, passing in the previously created transport variable, and that's it!  We have now have a connection to the Ethereum node!</p>
+<h4 id="obtaining-account-details">Obtaining Account Details<a class="headerlink" href="#obtaining-account-details" title="Permanent link"></a></h4>
+<p>Ganache-cli automatically unlocks a number of accounts and funds them with 100ETH, which is useful for testing.  The accounts differ on every restart, so we need a way to programmatically get the account information:</p>
+<pre><code class="language-rust">let accounts = web3.eth().accounts().wait().unwrap();
+</code></pre>
+<p>The <a href="https://tomusdrw.github.io/rust-web3/web3/api/struct.Eth.html">Eth namespace</a>, obtained via <code>web3.eth()</code> contains many useful functions for interacting with the Ethereum node.  Obtaining a list of managed accounts via <code>accounts()</code> is one of them.  It returns an asynchronous future, so we wait for the task to complete (<code>wait()</code>), and get the result (<code>unwrap()</code>).</p>
+<h4 id="sending-the-transaction">Sending the Transaction<a class="headerlink" href="#sending-the-transaction" title="Permanent link"></a></h4>
+<p>We define the parameters of the transaction to send via a <code>TransactionRequest</code> structure:</p>
+<pre><code class="language-rust">let tx = TransactionRequest {
+        from: accounts[0],
+        to: Some(accounts[1]),
+        gas: None,
+        gas_price: None,
+        value: Some(U256::from(10000)),
+        data: None,
+        nonce: None,
+        condition: None
+    };
+</code></pre>
+<p>Most of the fields within this struct are optional, with sensible default values used if not manually specified.  As we are sending a simple ETH transfer transaction, the data field is empty, and in this example we use the default <code>gas</code> and <code>gas_price</code> values.  We also do not specify a <code>nonce</code>, as the <code>rust-web3</code> library queries the Ethereum client for the latest nonce value by default.  The <code>condition</code> is a <code>rust-web3</code> specific field and allows you to delay sending the transaction until meeting a certain condition, such as reaching a specific block number for example.</p>
+<p>Once the <code>TransactionRequest</code> is initiated, it's a one-liner to send the transaction:</p>
+<pre><code class="language-rust">let tx_hash = web3.eth().send_transaction(tx).wait().unwrap();
+</code></pre>
+<p>The <code>TransactionRequest</code> is passed to the <code>send_transaction(..)</code> function within the <code>Eth</code> namespace, which returns a <code>Future</code> that completes once the transaction has been broadcast to the network.  On completion, the <code>Promise</code> returns the transaction hash <code>Result</code>, which we can then unwrap.</p>
+<h4 id="putting-it-all-together">Putting it all Together...<a class="headerlink" href="#putting-it-all-together" title="Permanent link"></a></h4>
+<pre><code class="language-rust">extern crate web3;
+
+use web3::futures::Future;
+use web3::types::{TransactionRequest, U256};
+
+fn main() {
+    let (_eloop, transport) = web3::transports::Http::new(&quot;http://localhost:8545&quot;).unwrap();
+
+    let web3 = web3::Web3::new(transport);
+    let accounts = web3.eth().accounts().wait().unwrap();
+
+    let balance_before = web3.eth().balance(accounts[1], None).wait().unwrap();
+
+    let tx = TransactionRequest {
+        from: accounts[0],
+        to: Some(accounts[1]),
+        gas: None,
+        gas_price: None,
+        value: Some(U256::from(10000)),
+        data: None,
+        nonce: None,
+        condition: None
+    };
+
+    let tx_hash = web3.eth().send_transaction(tx).wait().unwrap();
+
+    let balance_after = web3.eth().balance(accounts[1], None).wait().unwrap();
+
+    println!(&quot;TX Hash: {:?}&quot;, tx_hash);
+    println!(&quot;Balance before: {}&quot;, balance_before);
+    println!(&quot;Balance after: {}&quot;, balance_after);
+}
+</code></pre>
+<p>We use the <code>web3.eth().balance(..)</code> function to obtain the balance of the recipient account before and after the transfer to prove that the transfer occured.  Run this code, and you should see that the <code>accounts[1]</code> balance is 10000 wei greater after the transaction was sent… a successful ether transfer!</p>
+<h3 id="sending-a-raw-transaction">Sending a Raw Transaction<a class="headerlink" href="#sending-a-raw-transaction" title="Permanent link"></a></h3>
+<p>Sending a raw transaction means signing a transaction with a private key on the Rust side, rather than on the node.  The node then forwards this transactions to the Ethereum network.</p>
+<p>The <a href="https://github.com/synlestidae/ethereum-tx-sign">ethereum-tx-sign</a> library can help us with this off-chain signing, but it not easy to use alongside <code>rust-web3</code> because of a lack of shared structs.  In this section of the guide I'll explain getting these libraries to play nicely together.</p>
+<h4 id="additional-libraries-used">Additional Libraries Used<a class="headerlink" href="#additional-libraries-used" title="Permanent link"></a></h4>
+<p>The <code>ethereum-tx-sign</code> library depends on the <code>ethereum-types</code> library when constructing a <code>RawTransaction</code>.  We also use the <code>hex</code> library to convert a hexadecimal private key into bytes.</p>
+<p>Add these entries to your <code>cargo.toml</code> file:</p>
+<pre><code class="language-toml">ethereum-tx-sign = &quot;0.0.2&quot;
+ethereum-types = &quot;0.4&quot;
+hex = &quot;0.3.1&quot;
+</code></pre>
+<p>You can then add them to your crate:</p>
+<pre><code class="language-rust">extern crate ethereum_tx_sign;
+extern crate ethereum_types;
+extern crate hex;
+</code></pre>
+<h4 id="signing-the-transaction">Signing the Transaction<a class="headerlink" href="#signing-the-transaction" title="Permanent link"></a></h4>
+<p>The <code>ethereum_tx_sign</code> libraries contain a <code>RawTransaction</code> struct that we can use to sign an Ethereum transaction once initialized.  It's the initialization that's the tricky part, as we need to convert between the <code>rust-web3</code> and <code>ethereum_types</code> structs.</p>
+<p>Some conversion functions can convert H160 (for Ethereum account addresses) and U256 (for the nonce value) structs from the <code>web3::types</code> returned by <code>rust-web3</code> functions to the<code>ethereum_types</code> expected by <code>ethereum-tx-sign</code>:</p>
+<pre><code class="language-rust">fn convert_u256(value: web3::types::U256) -&gt; U256 {
+    let web3::types::U256(ref arr) = value;
+    let mut ret = [0; 4];
+    ret[0] = arr[0];
+    ret[1] = arr[1];
+    U256(ret)
+}
+
+fn convert_account(value: web3::types::H160) -&gt; H160 {
+    let ret = H160::from(value.0);
+    ret
+}
+</code></pre>
+<p>We can now construct a <code>RawTransaction</code> object (replace the code beneath <code>let balance_before</code>):</p>
+<pre><code class="language-rust">let nonce = web3.eth().transaction_count(accounts[0], None).wait().unwrap();
+
+let tx = RawTransaction {
+    nonce: convert_u256(nonce),
+    to: Some(convert_account(accounts[1])),
+    value: U256::from(10000),
+    gas_price: U256::from(1000000000),
+    gas: U256::from(21000),
+    data: Vec::new()
+};
+</code></pre>
+<p>Note that the <code>nonce</code> is not automatically calculated when constructing a <code>RawTransaction</code>.  We need to get the nonce for the sending account by calling the <code>transaction_count</code> function in the <code>Eth</code> namespace.  This value subsequently needs to be converted, to be in the format that <code>RawTransaction</code> expects.</p>
+<p>Unlike in the <code>TransactionRequest</code> struct, we must also provide some sensible <code>gas</code> and <code>gas_price</code> values manually.</p>
+<h5 id="obtaining-a-private-key">Obtaining a Private Key<a class="headerlink" href="#obtaining-a-private-key" title="Permanent link"></a></h5>
+<p>Before signing, we need to have access to a private key that is used to sign.  In this example we hard code the private key of the first ETH populated account in <code>ganache</code> (remember to start with the <code>-d</code> argument).  This is ok for testing, but <strong>you should never expose a private key in a production environment!</strong></p>
+<pre><code class="language-rust">fn get_private_key() -&gt; H256 {
+    // Remember to change the below
+    let private_key = hex::decode(
+        &quot;4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d&quot;).unwrap();
+
+    return H256(to_array(private_key.as_slice()));
+}
+
+fn to_array(bytes: &amp;[u8]) -&gt; [u8; 32] {
+    let mut array = [0; 32];
+    let bytes = &amp;bytes[..array.len()];
+    array.copy_from_slice(bytes);
+    array
+}
+</code></pre>
+<p>The <code>hex:decode</code> function converts a hexadecimal string (make sure to remove the <code>0x</code> prefix) into a <code>Vec&lt;u8&gt;</code> but the <code>sign</code> function of <code>RawTransction</code> takes a private key in <code>ethereum_types::H256</code> format.  Unfortunately, the <code>H256</code> takes a <code>[u8; 32]</code> rather than a <code>Vec&lt;T&gt;</code> during construction so we need to do another conversion!</p>
+<p>The private key is passed to <code>to_array</code> as a slice, and this slice is then converted to a <code>[u8: 32]</code>.</p>
+<h5 id="signing">Signing<a class="headerlink" href="#signing" title="Permanent link"></a></h5>
+<p>Now that we have a function that returns a private key in the correct format, we can sign the transaction by calling:</p>
+<pre><code class="language-rust">let signed_tx = tx.sign(&amp;get_private_key());
+</code></pre>
+<h4 id="sending-the-transaction_1">Sending the Transaction<a class="headerlink" href="#sending-the-transaction_1" title="Permanent link"></a></h4>
+<p>After signing, broadcasting the transaction to the Ethereum network is also a one-liner:</p>
+<pre><code class="language-rust">let tx_hash = web3.eth().send_raw_transaction(Bytes::from(signed_tx)).wait().unwrap()
+</code></pre>
+<p>Note, we have to perform another conversion here!  The <code>send_raw_transaction</code> takes a <code>Bytes</code> value as the argument, whereas the <code>sign</code> function of <code>RawTransaction</code> returns a <code>Vec&lt;u8&gt;</code>.  Luckily, this conversion is easy as the <code>Bytes</code> struct has a <code>From</code> trait out of the box to convert from a <code>Vec&lt;u8&gt;</code>.</p>
+<p>Like the <code>send_transaction</code> equivalent, this function returns a <code>Future</code>, which in turn returns a <code>Result</code> object containing the transaction hash of the broadcast transaction on completion.</p>
+<h4 id="putting-it-all-together_1">Putting it all Together<a class="headerlink" href="#putting-it-all-together_1" title="Permanent link"></a></h4>
+<pre><code class="language-rust">extern crate web3;
+extern crate ethereum_tx_sign;
+extern crate ethereum_types;
+extern crate hex;
+
+use web3::futures::Future;
+use web3::types::Bytes;
+use ethereum_tx_sign::RawTransaction;
+use ethereum_types::{H160,H256,U256};
+
+fn main() {
+    let (_eloop, transport) = web3::transports::Http::new(&quot;http://localhost:8545&quot;).unwrap();
+
+    let web3 = web3::Web3::new(transport);
+    let accounts = web3.eth().accounts().wait().unwrap();
+
+    let balance_before = web3.eth().balance(accounts[1], None).wait().unwrap();
+
+    let nonce = web3.eth().transaction_count(accounts[0], None).wait().unwrap();
+
+    let tx = RawTransaction {
+        nonce: convert_u256(nonce),
+        to: Some(convert_account(accounts[1])),
+        value: U256::from(10000),
+        gas_price: U256::from(1000000000),
+        gas: U256::from(21000),
+        data: Vec::new()
+    };
+
+    let signed_tx = tx.sign(&amp;get_private_key());
+
+    let tx_hash = web3.eth().send_raw_transaction(Bytes::from(signed_tx)).wait().unwrap();
+
+    let balance_after = web3.eth().balance(accounts[1], None).wait().unwrap();
+
+    println!(&quot;TX Hash: {:?}&quot;, tx_hash);
+    println!(&quot;Balance before: {}&quot;, balance_before);
+    println!(&quot;Balance after: {}&quot;, balance_after);
+}
+
+fn get_private_key() -&gt; H256 {
+    let private_key = hex::decode(
+        &quot;4f3edf983ac636a65a842ce7c78d9aa706d3b113bce9c46f30d7d21715b23b1d&quot;).unwrap();
+
+    return H256(to_array(private_key.as_slice()));
+}
+
+fn convert_u256(value: web3::types::U256) -&gt; U256 {
+    let web3::types::U256(ref arr) = value;
+    let mut ret = [0; 4];
+    ret[0] = arr[0];
+    ret[1] = arr[1];
+    U256(ret)
+}
+
+fn convert_account(value: web3::types::H160) -&gt; H160 {
+    let ret = H160::from(value.0);
+    ret
+}
+
+fn to_array(bytes: &amp;[u8]) -&gt; [u8; 32] {
+    let mut array = [0; 32];
+    let bytes = &amp;bytes[..array.len()];
+    array.copy_from_slice(bytes);
+    array
+}
+</code></pre>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>In this tutorial we learned how to send a basic Ether value transfer transaction from one account to another using Rust.  We explained two signing approaches: signing on a node by an unlocked account, and signing a transaction on the Rust side.</p>
+<p>The full source code covered in this guide is available on GitHub <a href="https://github.com/craigwilliams84/rust-ethereum/">here</a>.</p>
+<p>This is just scratching the surface of Ethereum transaction sending, and in a future tutorial I will walk you through sending transactions that manipulate data within an Ethereum smart contract.  Watch this space!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Sending Ethereum Transactions with Rust</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/sending-ethereum-transactions-with-rust/97c85229c66445759bb0ce642224d364/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-30</li>
+<li><strong>Kauri original tags:</strong> rust, ethereum, web3, transaction</li>
+<li><strong>Kauri original hash:</strong> QmQ8bHG3Z4AGH9fwDWCoKBUmA9htaCbzmBHxPhoD6EECBc</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../generate-a-java-wrapper-from-your-smart-contract/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../generate-a-java-wrapper-from-your-smart-contract/" class="btn btn-xs btn-link">
+        Generate a Java Wrapper from your Smart Contract
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../a-.net-developer-s-workflow-for-creating-and-call/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../a-.net-developer-s-workflow-for-creating-and-call/" class="btn btn-xs btn-link">
+        A .NET Developer’s Workflow for Creating and Calling Ethereum Smart Contracts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/sending-ethereum-transactions-with-rust.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Getting%20Started/an-introduction-to-smart-contracts-with-solidity/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>An Introduction to Smart Contracts with Solidity - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "An Introduction to Smart Contracts with Solidity", url: "#_top", children: [
+              {title: "An Introductory Smart Contract", url: "#an-introductory-smart-contract" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="an-introduction-to-smart-contracts-with-solidity">An Introduction to Smart Contracts with Solidity<a class="headerlink" href="#an-introduction-to-smart-contracts-with-solidity" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeN9SKhoubbXwfpSdprqKF8bmNVmW6JaBB99MdwuGtuLj" /></p>
+<p>Smart contracts are programs which govern the behaviour of accounts within the Ethereum state, and Solidity is an object-oriented, high-level language for implementing smart contracts.</p>
+<p>With Solidity you can create contracts for uses such as voting, crowdfunding, blind auctions, and multi-signature wallets.</p>
+<p>Solidity was influenced by C++, Python and JavaScript and is designed to target the Ethereum Virtual Machine (EVM).</p>
+<p>Solidity is statically typed, supports inheritance, libraries and complex user-defined types among other features.</p>
+<h3 id="an-introductory-smart-contract">An Introductory Smart Contract<a class="headerlink" href="#an-introductory-smart-contract" title="Permanent link"></a></h3>
+<p>The Solidity code below sets the value of a variable and exposes it for other contracts to access.</p>
+<h4 id="storage-example">Storage Example<a class="headerlink" href="#storage-example" title="Permanent link"></a></h4>
+<pre><code>pragma solidity &gt;=0.4.0 &lt;0.7.0;
+
+contract SimpleStorage {
+    uint storedData;
+
+    function set(uint x) public {
+        storedData = x;
+    }
+
+    function get() public view returns (uint) {
+        return storedData;
+    }
+}
+</code></pre>
+<p>The first line defines that the source code is written for Solidity version 0.4.0 or anything newer that does not break functionality (up to, but not including, version 0.7.0). This is to ensure that the contract is not compilable with a new (breaking) compiler version, where it could behave differently. Pragmas are common instructions for compilers about how to treat the source code (e.g., <a href="https://en.wikipedia.org/wiki/Pragma_once">pragma once</a>).</p>
+<p>A contract in the sense of Solidity is a collection of code (its <strong>functions</strong>) and data (its <strong>state</strong>) that resides at a specific address on the Ethereum blockchain. The line <code>uint storedData;</code> declares a state variable called <code>storedData</code> of type <code>uint</code> (unsigned integer of 256 bits). Think of it as a single slot in a database that can be queried and altered by calling functions of the code that manages the database. In the case of Ethereum, this is always the owning contract. And in this case, the functions set and get can be used to modify or retrieve the value of the variable.</p>
+<p>To access a state variable, you do not need the prefix <code>this</code> as is common in other languages.</p>
+<p>This contract does not do much apart from (due to the infrastructure built by Ethereum) allow anyone to store a single number that is accessible by anyone in the world without a (feasible) way to prevent you from publishing this number. Anyone could call <code>set</code> again with a different value and overwrite your number, but the number is still stored in the history of the blockchain. There are ways to impose access restrictions so that only you can alter the number.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<p>This introduction and example was taken from <a href="https://solidity.readthedocs.io/">the official Solidity documentation</a>, which is your best resource. Recommended next steps are:</p>
+<ul>
+<li><a href="https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#subcurrency-example">The more advanced subcurrency example</a></li>
+<li><a href="https://solidity.readthedocs.io/en/latest/solidity-by-example.html">A selection of smart contract examples</a></li>
+<li><a href="https://solidity.readthedocs.io/en/latest/solidity-in-depth.html">An in-depth guide to the language core concepts</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> An Introduction to Smart Contracts with Solidity</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/an-introduction-to-smart-contracts-with-solidity/6479f4a2cb3446d790dd27e8aeb36f63/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-30</li>
+<li><strong>Kauri original tags:</strong> ethereum, smart-contracts, solidity</li>
+<li><strong>Kauri original hash:</strong> QmSXAzZk2YzuDvTGy8mQHy3pFjEP3QKKQYB7GXTakFshNd</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../an-introduction-to-smart-contracts-with-vyper/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../an-introduction-to-smart-contracts-with-vyper/" class="btn btn-xs btn-link">
+        An Introduction to Smart Contracts with Vyper
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../blockchain-explained/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../blockchain-explained/" class="btn btn-xs btn-link">
+        Blockchain Explained
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Getting Started/an-introduction-to-smart-contracts-with-solidity.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Bitcoin/lightning-at-home/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Lightning at Home - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Lightning at Home", url: "#_top", children: [
+              {title: "Set up Bitcoin Core", url: "#set-up-bitcoin-core" },
+              {title: "Configure Bitcoin to work with LND", url: "#configure-bitcoin-to-work-with-lnd" },
+              {title: "Download LND", url: "#download-lnd" },
+              {title: "Start LND", url: "#start-lnd" },
+              {title: "Create a Lightning Network wallet", url: "#create-a-lightning-network-wallet" },
+              {title: "Verify LND's connection", url: "#verify-lnds-connection" },
+              {title: "Connect to Zap Desktop (optional)", url: "#connect-to-zap-desktop-optional" },
+              {title: "Post Setup", url: "#post-setup" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="lightning-at-home">Lightning at Home<a class="headerlink" href="#lightning-at-home" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPcnhR3FBRoLGSJZRvhns7iMPAKmWarSC1KjjvtHmeneN" /></p>
+<p><em>This article originally appeared on <a href="https://wiki.ion.radar.tech/tutorials/nodes/lighting-at-home">radar.tech</a></em></p>
+<p>This guide will explain how to set up a working Lightning Network node at home, consisting of Bitcoin Core (mainnet) and <a href="https://wiki.ion.radar.tech/tutorials/nodes/lnd">Lightning Network Daemon</a> (LND). Running a Lightning Network node (such as LND) requires a <a href="https://wiki.ion.radar.tech/tutorials/nodes/lnd#chainwatcher-backends">backend blockchain watcher</a> (such as Bitcoin Core) in order to see what on-chain transactions are occurring. The second half of this guide shows how to connect the two, as well as add the <a href="https://wiki.ion.radar.tech/tutorials/wallets/zap-desktop">Zap Desktop</a> graphical user interface to your node.</p>
+<p>We've included specific details for each step, with the assumption that users are not completely comfortable with using the CLI (Command Line Interface). Given the stage of the network, creating a local, secure Lightning Network node will require a small amount of CLI interaction.</p>
+<p>The Bitcoin blockchain is large and continues to grow, so we recommend at least 250 GB of free disk space. If you want to sync either Bitcoin Testnet or Litecoin you'll need <a href="https://wiki.ion.radar.tech/tutorials/nodes/lnd#chainwatcher-backends">significantly less space</a>. Downloading the blockchain is the longest part of the entire process (anywhere from a few hours to a number of days), while installing and connecting LND and Zap Desktop should take 10-20 minutes.</p>
+<h3 id="set-up-bitcoin-core">Set up Bitcoin Core<a class="headerlink" href="#set-up-bitcoin-core" title="Permanent link"></a></h3>
+<p>When you <a href="https://bitcoin.org/en/download">download Bitcoin Core</a>, you'll be prompted to review space requirements and specify a data directory (where the blockchain is saved). In this example we'll use the default directory.</p>
+<ul>
+<li>Linux: <code>~/.bitcoin</code></li>
+<li>OSX <code>~/Library/Application\ Support/Bitcoin</code></li>
+<li>Windows <code>C:\Users\&lt;username&gt;\AppData\Roaming\Bitcoin</code></li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPDatbhjAjA29QSCSpLkGpmf3tPTGJXuCJ5oSorrGWZQw" /></p>
+<p>Start! You'll see this screen on startup below, and it can take some time to migrate to the status screen. Don't be discouraged if it hangs while working slowly in the background. You can always check debug.log to see the details.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZtpyaGZV9veotVP7nAotLddkXhqakdTXshR5aumZVNux" /></p>
+<p>Wait... Depending on your computer, internet connection, or external hard drive, this can take anywhere from a few hours to a week.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNUqgePHZCvx1jMwAdnWupKZwDycyX2GRP9FJf7aqxXdN" /></p>
+<h3 id="configure-bitcoin-to-work-with-lnd">Configure Bitcoin to work with LND<a class="headerlink" href="#configure-bitcoin-to-work-with-lnd" title="Permanent link"></a></h3>
+<p>Running Bitcoin Core does not open certain connections for LND by default. Bitcoin Core uses a file called <code>bitcoin.conf</code> that contains settings that allow the software to talk with LND. For those familiar with editing <code>bitcoin.conf</code>here is what's needed:</p>
+<pre><code class="language-text">## server=1 tells bitcoind to accept JSON-RPC commands
+server=1
+
+## Enable publish raw block in &lt;address&gt;
+zmqpubrawblock=tcp://127.0.0.1:28332
+
+## Enable publish raw transaction in &lt;address&gt;
+zmqpubrawtx=tcp://127.0.0.1:28333
+
+## On client-side, you add the normal user/password pair to send commands:
+rpcuser=rpcuser_here_844585
+
+## change this password
+rpcpassword=rpcpassword_here_12574
+</code></pre>
+<p>Another way is to download the bitcoin.conf provided below. You can open it in any text editor.</p>
+<p><a href="https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/assets%2F-LVdpOS32MFGHNmrPPs6%2F-LYmYmjuRZuu5pfNCQqp%2F-LYmlWdJJkW9Y3ESUoHs%2Fbitcoin.conf?alt=media&amp;token=b53729df-4d24-47e6-904b-e3fbfcf278d7">bitcoin.conf</a></p>
+<p>We have to ensure this configuration file is in the correct directory for Bitcoin Core to find it. Start by going to your bitcoin directory.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYQ6BaQp8S5dM5irfMejbwTU5GE8EeJJi2WGHTxdM3XFq" /></p>
+<p>Add <code>bitcoin.conf</code> to that directory.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY2JeKPe4MYrXfY7ySa4YeFbXbW7WUfa7edr88vwiUy8o" />
+Restart Bitcoin Core. It should now be able to connect to LND once we have both running.</p>
+<h3 id="download-lnd">Download LND<a class="headerlink" href="#download-lnd" title="Permanent link"></a></h3>
+<p><a href="https://wiki.ion.radar.tech/tutorials/nodes/lnd">LND</a>, or the Lightning Network Daemon, is the software that interacts with other users on the Lightning Network. There are a few ways to install LND:</p>
+<ul>
+<li>From Releases: <a href="https://github.com/lightningnetwork/lnd/releases">https://github.com/lightningnetwork/lnd/releases</a></li>
+<li>From Source: <a href="https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md">https://github.com/lightningnetwork/lnd/blob/master/docs/INSTALL.md</a></li>
+</ul>
+<p>In this example, we'll download the the latest release. Select the correct version for your operating system.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTSiWiKxpA4rvbyfZ4exzV4Hm82zmH71jX3WJH6r4n2gJ" />
+The download directory should include both <code>lnd</code> and <code>lncli</code></p>
+<ul>
+<li><code>lnd</code>: Runs the daemon</li>
+<li><code>lncli</code>: Interacts with the daemon</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcDYhS2nAXdBnwVPcEsFzbpWH5BGrXKpuNihCCzP3mGEt" /></p>
+<h3 id="start-lnd">Start LND<a class="headerlink" href="#start-lnd" title="Permanent link"></a></h3>
+<p>For those familiar with editing <code>lnd.conf</code>here is what's needed:</p>
+<pre><code class="language-text">bitcoin.active=1
+bitcoin.mainnet=1
+bitcoin.node=bitcoind
+bitcoind.rpcuser=rpcuser_here_844585
+bitcoind.rpcpass=rpcpassword_here_12574
+bitcoind.zmqpubrawblock=tcp://127.0.0.1:28332
+bitcoind.zmqpubrawtx=tcp://127.0.0.1:28333
+</code></pre>
+<p>Another way is to add it into the command used to run LND. This is where you'll have to step into the terminal for a brief moment.</p>
+<ul>
+<li>Make sure bitcoin core is running</li>
+<li>Open terminal</li>
+<li>Drag <code>lnd</code> into the terminal from your finder/explorer window</li>
+<li>Paste:<code>--bitcoin.active --bitcoin.mainnet --bitcoin.node=bitcoind --bitcoind.rpcuser=rpcuser_here_844585 --bitcoind.rpcpass=rpcpassword_here_12574 --bitcoind.zmqpubrawblock=tcp://127.0.0.1:28332 --bitcoind.zmqpubrawtx=tcp://127.0.0.1:28333</code></li>
+<li>Press Enter</li>
+<li>Keep this terminal window open</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZj5kiXeyZEoYf1ZrApYpxNAXzdWGnRp9rNLiZpFJcwmy" />
+Here is a summary of what each of those flags mean:</p>
+<ul>
+<li><code>--bitcoin.active</code> connects to the bitcoin chain (instead of litecoin)</li>
+<li><code>--bitcoin.mainnet</code> connects to mainnet (instead of testnet)</li>
+<li><code>--bitcoin.node=bitcoind</code> connects to the bitcoind backend</li>
+<li><code>--bitcoind.rpcuser</code> is the rpc username in bitcoin.conf</li>
+<li><code>--bitcoind.rpcpass</code> is the rpc password in bitcoin.conf</li>
+<li><code>bitcoind.zmqpubrawblock=tcp://127.0.0.1:28332</code> is the socket which sends rawtx notifications from bitcoind</li>
+<li><code>bitcoind.zmqpubrawblock=tcp://127.0.0.1:28333</code> is the socket which sends rawblock notifications from bitcoind</li>
+</ul>
+<p>There should be a prompt that says:<code>Waiting for wallet encryption password. Use lncli create to create a wallet, lncli unlock to unlock an existing wallet, or lncli changepassword to change the password of an existing wallet and unlock it.</code></p>
+<h3 id="create-a-lightning-network-wallet">Create a Lightning Network wallet<a class="headerlink" href="#create-a-lightning-network-wallet" title="Permanent link"></a></h3>
+<p>Now you have LND up and running, it's time to set up a wallet.</p>
+<ul>
+<li>Open a new terminal window (or new tab).</li>
+<li>Drag <code>lncli</code> into the terminal. This lets the terminal know you're entering an LND command.</li>
+<li>Type <code>create</code> and press enter.</li>
+<li>Create a password. Your password must be at least 8 characters. Note that you won't see any of your password characters as you type them, but LND will ask you to confirm your password a second time.</li>
+<li>LND will ask if you have a passphrase. You can enter 'n' here, or enter a passphrase for extra security (your password unlocks your wallet, whereas your passphrase is used for encryption and decryption).</li>
+<li>Save your seed phrase! This is necessary for recovering your on-chain wallet if LND is lost or uninstalled.</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTauds5mudLToAJs2Fh121PbUiKPWBhwDZBbCt5hzJNhR" /></p>
+<h3 id="verify-lnds-connection">Verify LND's connection<a class="headerlink" href="#verify-lnds-connection" title="Permanent link"></a></h3>
+<p>Once you've created your wallet we need to check that everything is working. We'll use a command called <code>getinfo</code> to see our node's information.</p>
+<p>Run your first command!</p>
+<ul>
+<li>drag <code>lncli</code> into the terminal</li>
+<li>type <code>getinfo</code></li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcniSCQTz1TZLMhZerrr2TotE4kN4UXT1bbDPyLrKBdf1" /></p>
+<p>And you're off!</p>
+<h3 id="connect-to-zap-desktop-optional">Connect to Zap Desktop (optional)<a class="headerlink" href="#connect-to-zap-desktop-optional" title="Permanent link"></a></h3>
+<p>If interacting through the command line interface is not your thing, then let's connect to <a href="https://wiki.ion.radar.tech/tutorials/wallets/zap-desktop">Zap Desktop </a>. This will give you a functional GUI to check your on and off-chain balance, as well as your channels.</p>
+<p>Make sure <code>lnd</code> is running before connecting.</p>
+<p>Download Zap wallet: <a href="https://zap.jackmallers.com/">https://zap.jackmallers.com/</a></p>
+<p>Create a new wallet.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmer72Z8VKdbxuQYYjXjJTWSF45iRPkTYGqceiJe1Z6V7o" /></p>
+<p>Connect your own node.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNcjnY5SMM5i1zMp5ws1JvoSYqQcahpZU1HmTywZG1TNa" /></p>
+<h4 id="connection-details-default">Connection details (default):<a class="headerlink" href="#connection-details-default" title="Permanent link"></a></h4>
+<ul>
+<li>Linux</li>
+<li>Host: <code>localhost:10009</code></li>
+<li>TLS Certificate: <code>~/.lnd/tls.cert</code></li>
+<li>Macaroon: <code>~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon</code></li>
+<li>OSX</li>
+<li>Host: <code>localhost:10009</code></li>
+<li>TLS Certificate: <code>~/Library/Application Support/Lnd/tls.cert</code></li>
+<li>Macaroon: <code>~/Library/Application Support/Lnd/data/chain/bitcoin/mainnet/admin.macaroon</code></li>
+<li>Windows</li>
+<li>Host: <code>localhost:10009</code></li>
+<li>TLS Certificate: <code>C:\Users\&lt;username&gt;\AppData\Roaming\Lnd\tls.cert</code></li>
+<li>Macaroon: <code>C:\Users\&lt;username&gt;\AppData\Roaming\Lnd\data\chain\bitcoin\mainnet\admin.macaroon</code></li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVYJbNDxhBckaUi5KGJmGxHz45rnLEQ7HtgBffiBXqT6E" /></p>
+<p>You're connected!</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWXpcGW6N115ivR3xM9uuj767TFHY6RKCUE9D6R8xKFbx" /></p>
+<h3 id="post-setup">Post Setup<a class="headerlink" href="#post-setup" title="Permanent link"></a></h3>
+<p>Now you're wondering, "I ran through the installation process and got everything connected. What happens if I restart my computer?"</p>
+<p>You'll have to make sure that you start both pieces of software again, and unlock your wallet.</p>
+<ul>
+<li>Start Bitcoin Core</li>
+<li>Start lnd</li>
+<li><code>lnd --bitcoin.active --bitcoin.mainnet --bitcoin.node=bitcoind --bitcoind.rpcuser=rpcuser_here_844585 --bitcoind.rpcpass=rpcpassword_here_12574 --bitcoind.zmqpubrawblock=tcp://127.0.0.1:28332 --bitcoind.zmqpubrawtx=tcp://127.0.0.1:28333</code></li>
+<li>Unlock lnd</li>
+<li><code>lnd unlock</code></li>
+<li>or unlock with zap wallet</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfSTG3Z17fyz8TBtf6ouUTdzujA7CMCuKAhUyoRtbM7f3" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Lightning at Home</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/lightning-at-home/f4b1817865f3475099d5fb60a013878b/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-30</li>
+<li><strong>Kauri original tags:</strong> lightning, bitcoin</li>
+<li><strong>Kauri original hash:</strong> Qmdoe1oVryX5MkPPQVNNfFtaDFPFv2WiVWZRbr28fWHnX1</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../lnd-overview-and-developer-guide/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../lnd-overview-and-developer-guide/" class="btn btn-xs btn-link">
+        LND Overview and Developer Guide
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../bitcoin-contract-scripts/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../bitcoin-contract-scripts/" class="btn btn-xs btn-link">
+        Bitcoin Contract Scripts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Bitcoin/lightning-at-home.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

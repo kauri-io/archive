@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Build%20your%20very%20own%20self-hosting%20platform%20with%20Raspberry%20Pi%20and%20Kubernetes/%2878%29-self-host-your-password-manager-with-bitward/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>(7/8) Self-host your password manager with Bitwarden - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "(7/8) Self-host your password manager with Bitwarden", url: "#_top", children: [
+              {title: "This article is part of the series Build your very own self-hosting platform with Raspberry Pi and Kubernetes", url: "#this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes" },
+              {title: "Introduction", url: "#introduction" },
+              {title: "Prerequisite", url: "#prerequisite" },
+              {title: "Namespace", url: "#namespace" },
+              {title: "Persistence", url: "#persistence" },
+              {title: "Outside access", url: "#outside-access" },
+              {title: "Deployment", url: "#deployment" },
+              {title: "Configuration", url: "#configuration" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="78-self-host-your-password-manager-with-bitwarden">(7/8) Self-host your password manager with Bitwarden<a class="headerlink" href="#78-self-host-your-password-manager-with-bitwarden" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmfTTYuhANiy3D9u9TbWPu1GgK3hSokKQH27XmnF5egmgH" /></p>
+<h4 id="this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes">This article is part of the series <a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes/5e1c3fdc1add0d0001dff534/c">Build your very own self-hosting platform with Raspberry Pi and Kubernetes</a><a class="headerlink" href="#this-article-is-part-of-the-series-build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes" title="Permanent link"></a></h4>
+<ol>
+<li><a href="https://kauri.io/build-your-very-own-self-hosting-platform-with-raspberry-pi-and-kubernetes-introduction/1229f21044ef4bff8df35875d6803776/a">Introduction</a></li>
+<li><a href="https://kauri.io/install-raspbian-operating-system-and-prepare-the-system-for-kubernetes/7df2a9f9cf5f4f6eb217aa7223c01594/a">Install Raspbian Operating-System and prepare the system for Kubernetes</a></li>
+<li><a href="https://kauri.io/install-and-configure-a-kubernetes-cluster-with-k3s-to-self-host-applications/418b3bc1e0544fbc955a4bbba6fff8a9/a">Install and configure a Kubernetes cluster with k3s to self-host applications</a></li>
+<li><a href="https://kauri.io/deploy-nextcloud-on-kuberbetes:-the-self-hosted-dropbox/f958350b22794419b09fc34c7284b02e/a">Deploy NextCloud on Kuberbetes: The self-hosted Dropbox</a></li>
+<li><a href="https://kauri.io/self-host-your-media-center-on-kubernetes-with-plex-sonarr-radarr-transmission-and-jackett/8ec7c8c6bf4e4cc2a2ed563243998537/a">Self-host your Media Center On Kubernetes with Plex, Sonarr, Radarr, Transmission and Jackett</a></li>
+<li><a href="https://kauri.io/-selfhost-pihole-on-kubernetes-and-block-ads-and/5268e3daace249aba7db0597b47591ef/a">Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level</a></li>
+<li><strong>Self-host your password manager with Bitwarden</strong></li>
+<li><a href="https://kauri.io/deploy-prometheus-and-grafana-to-monitor-a-kube/186a71b189864b9ebc4ef7c8a9f0a6b5/a">Deploy Prometheus and Grafana to monitor a Kubernetes cluster</a></li>
+</ol>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p><a href="https://bitwarden.com/">Bitwarden</a> is a free, open-source and audited Password Manager, it provides a large range of clients (desktop, web, browser extension and mobiles) to access your password easily and safely from anywhere. While Bitwarden offers a SaaS solutions (they host your passwords in an encrypted way), because Bitwarden is open-source, you can decide to host yourself your password and this is what we are going to learn in this tutorial.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcPDteMCafr51JeoHPG3RVk8f1nD5tEvYhDr6VHM9DmFx" /></p>
+<p>For information, we will deploy <a href="https://github.com/dani-garcia/bitwarden_rs">Bitwarden-rs</a>, Unofficial Bitwarden compatible server written in Rust, ideal for self-hosting.</p>
+<blockquote>
+<p>This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal. This project is not associated with the Bitwarden project nor 8bit Solutions LLC.</p>
+</blockquote>
+<h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link"></a></h3>
+<p>In order to run entirely the tutorial, we will need:</p>
+<ul>
+<li>A running Kubernetes cluster (see previous articles if you haven't set this up yet)</li>
+<li>A domain name in order to access our Bitwarden instance from outside our network. (replace <code>&lt;domain.com&gt;</code> by your domain)</li>
+<li>Have a external static IP (usually the case by default)</li>
+<li>Access to your router admin console to port-forward an incoming request to our Kubernetes Ingress service.</li>
+</ul>
+<h3 id="namespace">Namespace<a class="headerlink" href="#namespace" title="Permanent link"></a></h3>
+<p>We are going to isolate all the Kubernetes objects related to Bitwarden in the namespace <code>bitwarden</code>.</p>
+<p>To create a namespace, run the following command:</p>
+<pre><code>$ kubectl create namespace bitwarden
+</code></pre>
+<h3 id="persistence">Persistence<a class="headerlink" href="#persistence" title="Permanent link"></a></h3>
+<p>The first step consists in setting up a volume to store Bitwarden config files and data. If you followed the previous articles to install and configure a self-hosting platform using RaspberryPi and Kubernetes, you remember we have on each worker a NFS client pointing to a SSD on <code>/mnt/ssd</code>.</p>
+<p><strong>1. Deploy the Persistent Volume (PV)</strong></p>
+<p>The Persistent Volume specify the name, the size, the location and the access modes of the volume:</p>
+<ul>
+<li>The name of the PV is  <code>bitwarden-ssd</code></li>
+<li>The size allocated is 500MB</li>
+<li>The location is <code>/mnt/ssd/bitwarden</code></li>
+<li>The access is ReadWriteOnce</li>
+</ul>
+<p>Create the following file and apply it to the k8 cluster.</p>
+<pre><code class="language-yaml">## bitwarden.persistentvolume.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: bitwarden-ssd
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: &quot;/mnt/ssd/bitwarden&quot;
+---
+</code></pre>
+<pre><code>$ kubectl apply -f bitwarden.persistentvolume.yml
+persistentvolume/bitwarden created
+</code></pre>
+<p>You can verify the PV exists with the following command:</p>
+<pre><code>$ kubectl get pv
+
+NAME            CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM                     STORAGECLASS   REASON   AGE
+bitwarden-ssd   500Mi      RWO            Retain           Available                             manual                  7s
+</code></pre>
+<p><strong>2. Create the Persistent Volume Claim (PVC)</strong></p>
+<p>The Persistent Volume Claim is used to map a Persistent Volume to a deployment or stateful set. Unlike the PV, the PVC belongs to a namespace.</p>
+<p>Create the following file and apply it to the k8 cluster.</p>
+<pre><code class="language-yaml">## bitwarden.persistentvolumeclaim.yml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: bitwarden
+  name: bitwarden-ssd
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
+---
+</code></pre>
+<pre><code>$ kubectl apply -f bitwarden.persistentvolumeclaim.yml
+persistentvolumeclaim/bitwarden created
+</code></pre>
+<p>You can verify the PVC exists with the following command:</p>
+<pre><code>$ kubectl get pvc -n bitwarden
+
+NAME            STATUS   VOLUME          CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+bitwarden-ssd   Bound    bitwarden-ssd   500Mi      RWO            manual         8s
+</code></pre>
+<h3 id="outside-access">Outside access<a class="headerlink" href="#outside-access" title="Permanent link"></a></h3>
+<p>The next part consist to enable the connections to Bitwarden from outside so you can access your passwords from anywhere.</p>
+<p><strong>1. Port Forwarding</strong></p>
+<p>First you need to go to your router setup and add a port-forwarding rule to map any incoming requests on port 80 or port 443 to be forwarded to <code>192.168.0.240</code> (the LoadBalancer IP of the Nginx).</p>
+<p><img alt="" src="https://i.imgur.com/iqpI0H3.png" /></p>
+<p><em>VirginHub - Port-Forwarding</em></p>
+<p><strong>2. Map the subdomain <code>bitwarden.&lt;domain.com&gt;</code> to your home router</strong></p>
+<p>First you need to find out what's your router external IP, run this command or go to <a href="https://www.whatismyip.com">whatismyip.com</a>.</p>
+<pre><code>$ curl ipecho.net/plain
+x.x.x.x
+</code></pre>
+<p>Then, we need to configure our subdomain to make sure <code>bitwarden.&lt;domain.com&gt;</code> resolves to our external static IP. Go to your domain provider console / DNS management add a record:</p>
+<ul>
+<li><strong>Type:</strong> A</li>
+<li><strong>Name:</strong> bitwarden (subdomain)</li>
+<li><strong>Value:</strong> x.x.x.x (external static IP)</li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/Gt4ZG3i.png" /></p>
+<p><em>GoDaddy</em></p>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<p><strong>1. Clone the repo <code>bitwarden-k8s</code></strong></p>
+<p>Clone the repository <a href="https://github.com/cdwv/bitwarden-k8s"><code>bitwarden-k8s</code></a> with the following command (change <code>~/workspace/bitwarden-k8s</code> by the target folder of your choice):</p>
+<pre><code>$ git clone https://github.com/gjeanmart/bitwarden-k8s.git ~/workspace/bitwarden-k8s
+</code></pre>
+<p><strong>2. Download the Chart values of the chart locally</strong></p>
+<p>Run the following command to download the Chart values into the local file <code>pihole.values.yml</code>.</p>
+<pre><code>$ helm show values ~/workspace/bitwarden-k8s &gt;&gt; bitwarden.values.yml
+</code></pre>
+<p>If you open the file, you will see the default configuration values to setup Bitwarden. Instead of using the flag <code>--set property=value</code> like before, we will use the file <code>bitwarden.values.yml</code> to make all the changes.</p>
+<p><strong>3. Update the values</strong></p>
+<p>We now need to update a few properties before installing the Helm chart. Open the file <code>bitwarden.values.yml</code> and change the following properties.</p>
+<p>First we need to change to an ARM compatible image</p>
+<pre><code class="language-yaml">## bitwarden.values.yml
+
+image:
+  repository: bitwardenrs/server # Change here
+  tag: raspberry  # Change here
+  pullPolicy: IfNotPresent
+
+</code></pre>
+<p>Then we configure the environment variables.</p>
+<p>Replace <code>[ADMIN_TOKEN]</code> by the result of the command <code>$ openssl rand -base64 48</code>. This token will be used to connect to the Bitwarden administration interface.</p>
+<pre><code class="language-yaml">## bitwarden.values.yml
+
+env:
+  SIGNUPS_ALLOWED: false  # Disable Sign Up form (invitation only)
+  INVITATIONS_ALLOWED: true # Enable invitation
+  ADMIN_TOKEN: &quot;[ADMIN_TOKEN]&quot; # Copy/Paste the result of the command `$ openssl rand -base64 48` (admin interface password)
+  DOMAIN: &quot;https://bitwarden.&lt;domain.com&gt;&quot; # Domain used to access Bitwarden
+  SMTP_HOST: &quot;smtp.gmail.com&quot; # SMTP host (invitation)
+  SMTP_FROM: &quot;no-reply@&lt;domain.com&gt;&quot; # From email (invitation)
+  SMTP_PORT: 587 # SMTP Port (invitation)
+  SMTP_SSL: true # SMTP SSL (invitation)
+  SMTP_USERNAME: &quot;[SMTP_USERNAME]&quot;  # SMTP username (invitation)
+  SMTP_PASSWORD: &quot;[SMTP_PASSWORD]&quot;  # SMTP password (invitation)
+</code></pre>
+<p>In the next step, we configure an ingress to access Bitwarden and issue a certificate (especially if we want to access from outside).</p>
+<p>Replace <code>&lt;domain.com&gt;</code> by your domain (same as the section "Internet access")</p>
+<pre><code class="language-yaml">## bitwarden.values.yml
+
+ingress:
+  enabled: true # Generate an Ingress while deploying
+  annotations:
+    kubernetes.io/ingress.class: &quot;nginx&quot;
+    cert-manager.io/cluster-issuer: &quot;letsencrypt-prod&quot; # Cluster Issuer configured with certmanager
+  path: /
+  hosts:
+    - bitwarden.&lt;domain.com&gt; # Domain for Bitwarden
+  tls:
+    - secretName: bitwarden-domain-com-tls 
+      hosts:
+        - bitwarden.&lt;domain.com&gt; # Domain for Bitwarden
+</code></pre>
+<p>Finally, we want to plug Bitwarden to the persistent volume created at the beginning of the article pointing to <code>/mnt/ssd/bitwarden</code>.</p>
+<pre><code class="language-yaml">## bitwarden.values.yml
+
+### Persist data to a persistent volume
+persistence:
+  enabled: true # Change here
+  existingClaim: &quot;bitwarden-ssd&quot; # Change here
+</code></pre>
+<p><strong>4. Install the Chart</strong></p>
+<p>In the part, we will install the Helm chart under the namespace <code>bitwarden</code> with <code>bitwarden.values.yml</code> as configuration file.</p>
+<pre><code>$ helm install bitwarden ~/workspace/bitwarden-k8s \
+  --namespace bitwarden \
+  --values bitwarden.values.yml
+</code></pre>
+<p>After a couple of minutes, check if the pod and service is up and running:</p>
+<pre><code>$ kubectl get pods -n bitwarden -o wide
+
+NAME                                      READY   STATUS    RESTARTS   AGE     IP            NODE          NOMINATED NODE   READINESS GATES
+bitwarden-bitwarden-k8s-58db5c445-7w7wq   1/1     Running   0          4m53s   10.42.0.105   kube-master   &lt;none&gt;           &lt;none&gt;
+</code></pre>
+<h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link"></a></h3>
+<p>Once Bitwarden is up and running, we can start configuring our first user.</p>
+<p><strong>1. Access the admin interface</strong></p>
+<p>First, access the admin interface which should be available on <a href="https://bitwarden.&lt;domain.com&gt;/admin">https://bitwarden.<code>&lt;domain.com&gt;</code>/admin</a> and enter the <code>&lt;ADMIN_PASSWORD&gt;</code> generated previously.</p>
+<p><img alt="" src="https://i.imgur.com/z3H44cl.png" /></p>
+<p><strong>2. Invite your first user</strong></p>
+<p>Once connected, you can check and modify the different parameters of Bitwarden and invite a new user. Enter an email address to invite a new user. </p>
+<p><img alt="" src="https://i.imgur.com/5qNyqQJ.png" /></p>
+<p>After a few seconds, You should received the invitation via email. Click on "Join the Organisation".</p>
+<p><img alt="" src="https://i.imgur.com/PhbwuHd.png" /></p>
+<p><strong>3. Create an account and login for the first time</strong></p>
+<p>Click on "Create Account".</p>
+<p><img alt="" src="https://i.imgur.com/JWZzvat.png" /></p>
+<p>Configure the details of the user: name, master password (encryption key) and click on "Submit".</p>
+<p><img alt="" src="https://i.imgur.com/vdbPl3m.png" /></p>
+<p>Finally, log into with the newly created user using the couple email, master password.</p>
+<p><img alt="" src="https://i.imgur.com/1RgykqR.png" /></p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>You now have a fully self-hosted password manager accessible via your own domain from anywhere.</p>
+<p><img alt="" src="https://i.imgur.com/eS8iMKu.png" /></p>
+<p>You can also install and configure your custom server to easily and safely access your password:</p>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=com.x8bit.bitwarden&amp;hl=en_US">Bitwarden Mobile App</a> (available on iOS and GooglePlay)</li>
+<li><a href="https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb?hl=en">Bitwarden Web Browser extension</a> (available on Chrome and Firefox)</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> (7/8) Self-host your password manager with Bitwarden</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/78-selfhost-your-password-manager-with-bitwarden/b2187730d4294626b28d1d938057e2e0/a</li>
+<li><strong>Kauri original author:</strong> Grégoire Jeanmart (@gregjeanmart)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-04-01</li>
+<li><strong>Kauri original tags:</strong> self-hosting, kubernetes, password-manager, bitwarden</li>
+<li><strong>Kauri original hash:</strong> QmdEAA7UJgWkx9FgUiRXnEJuE46chrd7S9R4j9w78gL6ka</li>
+<li><strong>Kauri original checkpoint:</strong> unknown</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../%2888%29-deploy-prometheus-and-grafana-to-monitor-a-k/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../%2888%29-deploy-prometheus-and-grafana-to-monitor-a-k/" class="btn btn-xs btn-link">
+        (8/8) Deploy Prometheus and Grafana to monitor a Kubernetes cluster
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../%2868%29-self-host-pi-hole-on-kubernetes-and-block-ad/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../%2868%29-self-host-pi-hole-on-kubernetes-and-block-ad/" class="btn btn-xs btn-link">
+        (6/8) Self-host Pi-Hole on Kubernetes and block ads and trackers at the network level
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Build your very own self-hosting platform with Raspberry Pi and Kubernetes/(78)-self-host-your-password-manager-with-bitward.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

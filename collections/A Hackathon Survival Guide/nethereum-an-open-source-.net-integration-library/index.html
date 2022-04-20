@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/A%20Hackathon%20Survival%20Guide/nethereum-an-open-source-.net-integration-library/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Nethereum - An open source .NET integration library for blockchain - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Nethereum - An open source .NET integration library for blockchain", url: "#_top", children: [
+              {title: "Features", url: "#features" },
+              {title: "Getting started", url: "#getting-started" },
+              {title: "Code First Steps", url: "#code-first-steps" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="nethereum-an-open-source-net-integration-library-for-blockchain">Nethereum - An open source .NET integration library for blockchain<a class="headerlink" href="#nethereum-an-open-source-net-integration-library-for-blockchain" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYcHxEctVpBA1jv46b2GjDw3YSKXK3c1Sqi37xrDBThCp" /></p>
+<p>Nethereum is the .Net integration library for Ethereum, simplifying the
+access and smart contract interaction with Ethereum nodes both public or
+permissioned like Geth, <a href="https://www.parity.io/">Parity</a>
+or <a href="https://www.jpmorgan.com/global/Quorum">Quorum</a>.</p>
+<h3 id="features">Features<a class="headerlink" href="#features" title="Permanent link"></a></h3>
+<p>Nethereum provides:</p>
+<ul>
+<li>JSON RPC / IPC Ethereum core methods.</li>
+<li>Geth management API (admin, personal, debugging, miner).</li>
+<li><a href="https://www.parity.io/">Parity</a> management API.</li>
+<li><a href="https://www.jpmorgan.com/global/Quorum">Quorum</a> integration.</li>
+<li>Simplified smart contract interaction for deployment, function calling, transaction, event filtering and decoding of topics.</li>
+<li><a href="https://unity3d.com/">Unity 3d</a> integration.</li>
+<li>ABI to .Net type encoding and decoding, including attribute based for complex object deserialization.</li>
+<li>HD wallet</li>
+<li>Transaction, RLP and message signing, verification and recovery of accounts.</li>
+<li>Libraries for standard contracts Token, <a href="https://ens.domains/">ENS</a> and <a href="#">Uport</a></li>
+<li>Integrated TestRPC testing to simplify TDD and BDD (Specflow) development.</li>
+<li>Key storage using Web3 storage standard, compatible with Geth and Parity.</li>
+<li>Simplified account life cycle for both managed by third party client (personal) or stand alone (signed transactions).</li>
+<li>Low level Interception of RPC calls.</li>
+<li>Code generation of smart contracts services.</li>
+</ul>
+<h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h3>
+<h4 id="install-net">Install .Net<a class="headerlink" href="#install-net" title="Permanent link"></a></h4>
+<p>Nethereum works with .Net Core or .Net Framework (from 4.5.1 upwards).You need to have the .Net SDK installed. For new starters or Mac and Linux users we
+recommend .Net core.</p>
+<h4 id="create-your-app">Create your app<a class="headerlink" href="#create-your-app" title="Permanent link"></a></h4>
+<p>Create a project using the .Net CLI or create a project in Visual Studio.</p>
+<pre><code class="language-shell">dotnet new console -o NethereumSample
+cd NethereumSample
+</code></pre>
+<h4 id="add-package-reference-to-nethereumweb3">Add package reference to Nethereum.Web3<a class="headerlink" href="#add-package-reference-to-nethereumweb3" title="Permanent link"></a></h4>
+<pre><code class="language-shell">dotnet add package Nethereum.Web3
+</code></pre>
+<h4 id="open-your-ide">Open your IDE<a class="headerlink" href="#open-your-ide" title="Permanent link"></a></h4>
+<p>Visual Studio Code or Visual Studio are both good choices for .Net
+development. Other good IDEs are also available (Jet Brains Rider
+etc).</p>
+<p>Open the <em>Program.cs</em> file in the IDE or editor.</p>
+<h3 id="code-first-steps">Code First Steps<a class="headerlink" href="#code-first-steps" title="Permanent link"></a></h3>
+<p>First, the code adds required namespaces for Nethereum:</p>
+<pre><code class="language-csharp">using Nethereum.Web3;
+</code></pre>
+<p>Next it creates an instance of Web3, with the infura url for
+mainnet.</p>
+<pre><code class="language-csharp">var web3 = new Web3(&quot;https://mainnet.infura.io&quot;);
+</code></pre>
+<p>And then you can use the Ethereum API via Nethereum to interact with accounts and transactions.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://nethereum.readthedocs.io/en/latest/getting-started/">Read the Nethereum Getting Started guide</a></li>
+<li><a href="https://nethereum.readthedocs.io/en/latest/">The full Nethereum documentation</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Nethereum - An open source .NET integration library for blockchain</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/nethereum-an-open-source-net-integration-library-f/d15dfd4903f149cdb84b3ce666103b52/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-01</li>
+<li><strong>Kauri original tags:</strong> ethereum, developer-tool, library, enterprise, -net, sdk</li>
+<li><strong>Kauri original hash:</strong> QmesGverX11X7QwdUAGeJVWBkb8x3LLaD58UoDtSAPp9ec</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../creating-a-dapp-in-go-with-geth/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../creating-a-dapp-in-go-with-geth/" class="btn btn-xs btn-link">
+        Creating a DApp in Go with Geth
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../accelerating-dapp-development-with-ethers.js/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../accelerating-dapp-development-with-ethers.js/" class="btn btn-xs btn-link">
+        Accelerating DApp Development with Ethers.js
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/A Hackathon Survival Guide/nethereum-an-open-source-.net-integration-library.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

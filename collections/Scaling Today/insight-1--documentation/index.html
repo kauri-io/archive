@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Scaling%20Today/insight-1--documentation/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Insight   1  Documentation - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Insight   1  Documentation", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="insight-1-documentation">Insight   1  Documentation<a class="headerlink" href="#insight-1-documentation" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*LmBD9OaRAJPnBYBoZwyZMw.jpeg" /></p>
+<p>For those working to scale the Ethereum blockchain it is easy to focus only on designing the layer one or layer two mechanisms needed to make it happen. Developers have a lot of their own work to focus on. Compounding the problem in Ethereum’s ecosystem is that there is a widespread sense of urgency that scaling must happen now.
+
+
+<p>But Raul Jordan, co-founder of Prysmatic Labs and developer on their Prysm sharding implementation team, says that taking the time needed to focus on good documentation is necessary to make it easy for other developers to join in.
+The sense of pressure to focus on mechanism design can lead developers to compromise on their documentation he says. 
+
+
+<p>“Whenever someone else looks at their code or tries to understand what they’re working on it becomes almost impossible. It’s really hard to understand the context.”
+
+
+<p>This is even more important in open source communities where, beyond just core developers, a lot of people may want to help.
+
+
+<p>“It’s just a matter of having good entry points. I can’t really stress that enough,” Raul says.
+Prysmatic Labs has provided one such [entry point](https://github.com/prysmaticlabs/prysm/blob/master/client/CONTRIBUTING.md) for full-and part-time contributors where anyone can help them develop their sharding implementation.
+
+
+<p>Most of Ethereum’s protocol development occurs in a distributed fashion with remote contributors so it is important to provide clear and organized information.
+
+
+<p>“People will be looking at your project from all around the world. There is no point in having it open source if you can’t attract any of the talent.”
+
+
+<p>“That’s one of the reasons behind why we do bi-weekly updates. It’s not just to tell everyone what we’re up to. It’s more to show that we have really good tracking of our goals.”
+
+
+<p>“That it’s not only visible to us but anyone else can see and criticize and jump in.”
+
+
+<p>But there is no one size fits all style of documentation to make it easy for people to help out. There are various types and you often can’t get by with only one of them, Piper Merriam, lead architect for Py-EVM’s Trinity sharding implementation, tells me.
+
+
+<p>“You need the lowest level of documentation of: ‘What are all the different APIs? What do they expect?’ and the description of what they do and how they behave.”
+
+
+<p>“Then there’s normally sort of a narrative style documentation that tells more of a ingestible story about what the framework library, what it does and getting you up to speed with a mental model of how it all fits together. It’s a harder type of documentation to write, because you’re building the concepts that your users need to understand and you have to figure out where to start.”
+
+
+<p>Py-EVM is a Python implementation of the Ethereum Virtual Machine designed to enable a wide array of use cases for public and private blockchains. Trinity is a base implementation of a full node based on Py-EVM.
+
+
+<p>The project, its [documentation states](https://github.com/ethereum/py-evm) , aspires to provide “friendly and easy to digest documentation.” This will evolve to include narrative style documentation and practical examples.
+
+
+<p>“I think we’re going to start referring to this as our cookbook, but it’s sections with code examples that layout relatively fully formed solutions to commonly shared problems that people run into. So that you can, in the practical sense, come along and find almost functional code to do the thing that you’re likely to do with the application.”
+
+
+<p>Piper highlights the example of how Python provides this documentation around small kits, standard libraries and APIs.
+“There’s API documentation that documents all of the different objects and things that are available but there’s also big chunks that say, ‘This is how you would build a web server use case’ and lay out how you fit all of those different pieces together.”
+
+
+<p>In addition to these three styles — API docs, narrative docs and cookbook style documentation — Raul at Prysmatic Labs’ says “I wish that there was better information … on certain projects; better tests, better onboarding guidelines.”
+
+
+<p>When asked about better documentation in the Ethereum space David Knott, research scientist at OmiseGo working on Plasma and OmiseGo’s decentralized exchange, told me that he would like to see “More proof of concepts!”
+
+
+<p>David explained that proof of concepts can help people get excited and help highlight what’s good and what’s bad in the design.
+
+
+<p>“There could be lots more tutorials demonstrating, and helping people understand, how to get things up and running,” he said.
+
+
+<p>On proof of concepts, Piper explains that a lot of Ethereum’s development is fueled by either known use cases or theoretical solutions to problems that exist. “The only things I wish that we spent more time on if we had more capacity to do was to write up those blog posts on ‘This is how you would build this thing using our tools’ because I have a lot of ideas about things that you could build that would be useful or ‘You want to build something that scrapes information from this, then this is how you would do it’. Or you want to build the testing harness for your thing, this is how you would do it using these tools that we make’.”
+
+
+<p>Echoing the problem that core protocol developers have a lot to focus on in their own work, Piper says that “I think there’s a lot of room in [proof of concepts], and my hope is that we see some of that happening more in a third party sense just because in terms of our time and where it stands, right now there’s just enough core development that spending time doing those other things, I don’t think is the right investment.”
+
+
+<p>Nonetheless, they are still very valuable and necessary. “I think that illustrative proof of concept examples for these things are a great way to onboard good people and to, well, show them how you would build these things.”
+
+
+<p>**Recommended examples of project documentation:** 
+
+ *  [IPFS’s Go repository](https://github.com/ipfs/go-ipfs) 
+
+
+ *  [Django documentation](https://docs.djangoproject.com/en/2.1/) 
+
+
+ *  [Python documentation](https://docs.python.org/3/) 
+
+
+<p>
+**Note:** Scaling Today is funded by the May 2018 Ethereum Grants Program. For more information visit: [scaling.today](https://scaling.today) 
+
+
+
+---
+
+- **Kauri original title:** Insight   1  Documentation
+- **Kauri original link:** https://kauri.io/insight-1-documentation/8ec51946d7104fe9a7ee12b3e85224f8/a
+- **Kauri original author:** Chris Spannos (@chris-spannos)
+- **Kauri original Publication date:** 2018-11-06
+- **Kauri original tags:** none
+- **Kauri original hash:** QmbzdU5Kw47G8yx6UdFP9B4Ts1ZLPBUoV3ehdRQAXCFHP2
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../insight-2--teams/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../insight-2--teams/" class="btn btn-xs btn-link">
+        Insight   2  Teams
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../eli-ben-sasson-on-using-starks-to-scale-ethereum/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../eli-ben-sasson-on-using-starks-to-scale-ethereum/" class="btn btn-xs btn-link">
+        Eli Ben Sasson on using STARKs to scale Ethereum
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Scaling Today/insight-1--documentation.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

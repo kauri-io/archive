@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/introduction-to-mythril-classic-and-symbolic-exec/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Introduction to Mythril Classic and Symbolic Execution - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction to Mythril Classic and Symbolic Execution", url: "#_top", children: [
+              {title: "Symbolic execution", url: "#symbolic-execution" },
+              {title: "What next?", url: "#what-next" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="introduction-to-mythril-classic-and-symbolic-execution">Introduction to Mythril Classic and Symbolic Execution<a class="headerlink" href="#introduction-to-mythril-classic-and-symbolic-execution" title="Permanent link"></a></h1>
+<p><a href="https://github.com/ConsenSys/mythril-classic">Mythril Classic</a>
+ is a cool symbolic execution tool that comes pre-loaded with several detection modules that check for bugs like integer overflows and reentrancy vulnerabilities. I’m one of the core team members of the MythX platform team; maintaining, improving, and buidling Mythril Classic.
+One of the main design goals in Mythril Classic is to make the interaction with the analysis tool simple and effortless. In other words, you don’t have to get a PhD in computer science in order to start using and benefiting from formal methods like symbolic analysis. 
+<a href="https://medium.com/@muellerberndt">Bernhard Mueller</a>
+ has written 
+<a href="https://hackernoon.com/practical-smart-contract-security-analysis-and-exploitation-part-1-6c2f2320b0c">several posts</a>
+ showing how you can use Mythril Classic to up your security game.
+This specific post aims to reveal some of the magic happening behind the scenes, later articles will go more in-depth on the detection module system of Mythril Classic, ultimately providing enough information to start rolling your own custom analysis modules.</p>
+<h3 id="symbolic-execution">Symbolic execution<a class="headerlink" href="#symbolic-execution" title="Permanent link"></a></h3>
+<p>To explain how Mythril works we will need to start with symbolic execution, the core technique used in Mythril Classic. If you are already comfortable with the general idea of symbolic execution, then this post will recap already familiar concepts.
+I think the easiest way to explain symbolic execution is by applying it and graphically showing what happens during execution. To help with that, we’ll be using the following solidity function as a target of our analysis.</p>
+<pre><code>function execute(uint256 input) public (uint256){
+   uint memory result = 0;
+   if (input &gt; 10) {
+      result += 10;
+   }
+   return result;
+}
+</code></pre>
+<p>Our goal will be to see if we can use symbolic analysis to show that it is possible to get the result of the function to be 10.</p>
+<h4 id="concrete-example">Concrete Example<a class="headerlink" href="#concrete-example" title="Permanent link"></a></h4>
+<p>Before we start with actual symbolic execution let’s first look at concrete execution. We can execute the function 
+<code>execute(uint256)</code>
+ with multiple different inputs. Take for example the input 4, which will result in the following execution trace for the function 
+<code>execute</code>
+ (I've added the memory state for each step):</p>
+<pre><code>Initial state (function entry): 
+- currently executing: line 1 
+- input = 4 
+step1: 
+- currently executing: line 2 
+- input = 4 
+- result = uninitialized 
+step2: 
+- currently executing: line 3 
+- input = 4 
+- result = 0 
+step3: 
+- currently executing: line 6: 
+- input = 4 
+- result = 0
+</code></pre>
+<p>And here is a graphical representation of the same trace:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYeLC1q25DRQd9KzandsuBRRyPW6nFav8Sz6Gc7nmSHbi" /></p>
+<p>We can keep trying different inputs until we find an input that makes the function return 10. This approach is called fuzzing, and 
+<a href="https://medium.com/@wuestholz">Valentin Wüstholz</a>
+ has done 
+<a href="https://medium.com/consensys-diligence/finding-vulnerabilities-in-smart-contracts-175c56affe2">an awesome writeup</a>
+ of how Harvey, a state-of-the-art fuzzer, works and is used in the MythX-platform. In this case, however, we are looking at how symbolic execution can be used to solve the problem.</p>
+<h4 id="symbolic-example">Symbolic Example<a class="headerlink" href="#symbolic-example" title="Permanent link"></a></h4>
+<p>Finally, we’re at the part where we’ll be executing the program symbolically. This means that instead of executing the program with the input 4 we’ll execute the program with a symbol, let's call that symbol 
+<code>x</code>
+ . The symbol 
+<code>x</code>
+ can take on any valid value that a 
+<code>uint256</code>
+ could possibly have. Now, we’ll execute the program again.
+Executing the first two steps is still rather straightforward:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmanKdLDQRikZ8pjsKGTFqevnNstx1D2WBPCpEjtit1DpK" /></p>
+<p>This is where it gets interesting. At line 3 the input is compared to a number 
+<code>10</code>
+ , but the input is 
+<code>x</code>
+ , so it could take on any concrete value. Therefore, both options 
+<code>x &gt; 10</code>
+ and 
+<code>x &lt;= 10</code>
+ are possible. If this happens, we 
+<em>branch</em></p>
+<p><em>out</em>
+ and create two new states. One where 
+<code>x &gt; 10</code>
+ must hold, and one where 
+<code>x &lt;= 10</code>
+ must hold. We'll also keep track of these 
+<em>constraints</em>
+ in our states. We do this so we can determine what inputs would follow specific paths.
+Let's extend the state graph with the next steps of the execution:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbqXxgTazypUnrnMRafPk5vC5QTJe7Gv6ctxXhKnqAsMc" /></p>
+<p>These are the states generated by symbolically executing the function. Given these symbolic states, we can write a simple program that tries to find an input for which the function will return 10.</p>
+<pre><code class="language-python">for state in states:
+  # Let's filter all the states that are not return statements
+  if state.currently_executing != 6:
+    continue
+  # We want the result to be 10, let's formulate that as a constraint
+  result_constraint = (state.result == 10)
+
+  # If it is possible to satisfy both the path constraints (these are the constraints collected on each branch)
+  # and the result constraint then there must be an input that makes the function return 10
+  if is_possible(result_constraint and state.constraints):
+    # Using SMT solving we can get an input that will satisfy all the constraints and make the function return 10
+    print(give_satisfying_input(result_constraints and state.constraints))
+</code></pre>
+<p>If we look at the execution of this piece of code then we can clearly see that it will only consider state 3 and state 5.
+For the analysis of state 3, the function 
+<code>is_possible(result_constraint and state.constraints)</code>
+ will return false, because for this state 
+<code>result = 0</code>
+ .
+Looking at state 5, we’ll see something more interesting. Let's look at the two constraints that are considered here: 
+<code>result == 10</code>
+ and 
+<code>x &gt; 10</code>
+ . It's easy to see that the first constraint must be satisfied, because for this state 
+<code>result = 10</code>
+ . We can also easily determine that 
+<code>x &gt; 10</code>
+ can be satisfied; take for example the input 
+<code>11</code>
+ . I just manually found a value that satisfies the constraints. In Mythril Classic itself, actually checking if it is possible to satisfy these constraints is handled by an SMT solver (Z3 in our case). It uses 
+<a href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories">black magic</a>
+ and tells us if it is possible to satisfy the constraints.<br />
+ But Z3's magic doesn't stop there. It can even give you an example that satisfies the constraints; this will allow us to construct a concrete input that will make the function return 10.
+As a conclusion to the analysis of the function 
+<code>execute</code>
+ , we were able to say that</p>
+<ul>
+<li>
+<p>It is possible that the output of the program is 10</p>
+</li>
+<li>
+<p>To get the output of the program to be 10, you could use the input 11</p>
+</li>
+</ul>
+<h3 id="what-next">What next?<a class="headerlink" href="#what-next" title="Permanent link"></a></h3>
+<p>In this post, we saw how we can apply symbolic execution to a small example function and saw how to write a trivial analysis module.
+While this is already cool, in further posts we’ll look at more interesting properties and bugs. For example, we can search for states where we can force the value of a send call to be 10 ether. Something you might not want your contract to allow.
+Thanks to 
+<a href="https://medium.com/@wuestholz">Valentin Wüstholz</a>
+ and 
+<a href="https://medium.com/@dmuhs">Dominik Muhs</a>
+ for feedback on a draft version of this article.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Introduction to Mythril Classic and Symbolic Execution</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/introduction-to-mythril-classic-and-symbolic-execu/36e41e821089493b9e8997c251d68ef2/a</li>
+<li><strong>Kauri original author:</strong> MythX (@mythx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-02</li>
+<li><strong>Kauri original tags:</strong> mythril, symbolic-execution, security, smart-contracts</li>
+<li><strong>Kauri original hash:</strong> QmPufqif5v99VYAPETym2X5bR4PqFS2ZaMKGy7ASK1ovf8</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../does-healthcare-need-blockchain/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../does-healthcare-need-blockchain/" class="btn btn-xs btn-link">
+        DOES HEALTHCARE NEED BLOCKCHAIN?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../aa/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../aa/" class="btn btn-xs btn-link">
+        aa
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/introduction-to-mythril-classic-and-symbolic-exec.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

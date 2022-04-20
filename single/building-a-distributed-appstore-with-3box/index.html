@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-a-distributed-appstore-with-3box/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a Distributed AppStore with 3Box - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a Distributed AppStore with 3Box", url: "#_top", children: [
+              {title: "How to build an app with 3Box SDK and Plugins", url: "#how-to-build-an-app-with-3box-sdk-and-plugins" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-distributed-appstore-with-3box">Building a Distributed AppStore with 3Box<a class="headerlink" href="#building-a-distributed-appstore-with-3box" title="Permanent link"></a></h1>
+<p><img alt="Building a Distributed AppStore with 3Box" src="https://miro.medium.com/max/1920/1*vmW1pnGXRTUFELn5eL0pHw.png" /></p>
+<h2 id="how-to-build-an-app-with-3box-sdk-and-plugins">How to build an app with 3Box SDK and Plugins<a class="headerlink" href="#how-to-build-an-app-with-3box-sdk-and-plugins" title="Permanent link"></a></h2>
+<p>This tutorial will teach you how to build an app using 3Box. We will create a distributed appstore app using React, 3Box SDK, and 3Box plugins. Try the demo. </p>
+<p>3Box allows developers to integrate distributed, user controlled data storage directly in to a frontend application. This is important as it is increasingly clear that on the traditional web, users have very little control, knowledge or agency over how their data is used. </p>
+<p>Developers can integrate 3Box.js, the core 3Box SDK, which implements user-controlled, self-sovereign identity to give users transparency, consent and portability of their data. This is achieved using cryptography and public key infrastructure; cryptographic keys linked to each user’s decentralized identifier are used to sign and encrypt data. </p>
+<p>Taking a more user-centric approach to user data management allows developers to build applications that will start to regain the trust of our users. No longer are we limited to storing user information and content in a centralized database with zero transparency as to how it’s used or secured. On 3Box, data is stored encrypted and distributed, and users are asked for their approval for data to be accessed or updated by an application. Not only does this prevent app developers from mining the data covertly without a user’s knowledge, but now developers don’t even need to worry about the set-up of databases or security of their users’ information. </p>
+<p>Excitingly (especially for frontend developers like myself), this also means that we can build distributed applications with built-in data ownership, using purely frontend code, and without the need for servers, databases, or even smart contracts! </p>
+<p>To illustrate what is currently possible with 3Box, I have created a distributed app store demo. This tutorial will take you through the steps of creating the application, so that you can build your own application with 3Box. By the end, hopefully you will be as excited as myself by the ease and potential of building user-centric apps with 3Box. </p>
+<h3 id="try-the-appstore-demo">👉 <a href="https://gracious-borg-5f6651.netlify.com/">Try the AppStore demo</a><a class="headerlink" href="#try-the-appstore-demo" title="Permanent link"></a></h3>
+<p><img alt="undefined" src="https://miro.medium.com/max/1920/1*P2Go25Q62pwx3A3tTfw3Pw.png" /></p>
+<h3 id="tech-stack">Tech Stack<a class="headerlink" href="#tech-stack" title="Permanent link"></a></h3>
+<p>Our distributed application will include the following tech stack: </p>
+<p>We are using React for this app, but you can use 3Box with other frontend technologies as well. Using React also allows us to use some of the 3Box prebuilt React plugins. Data will be stored on IPFS in OrbitDB instances. If you aren’t familiar with IPFS and Orbit: IPFS provides distributed file storage, while OrbitDB is used to create a database layer on top of IPFS. </p>
+<p>Please note, this tutorial is 3Box and Web3 focused. We assume some react knowledge. For conciseness, we will skip over the details of creating all the react components. If you are completely new to react, we recommend spending some time to be come familiar before tackling this tutorial. </p>
+<h3 id="about-3box">About 3Box<a class="headerlink" href="#about-3box" title="Permanent link"></a></h3>
+<p>3Box works by deriving the database keys which control data in the 3Box system from a message signed by an Ethereum wallet. In this example, we are going integrate with MetaMask as the wallet provider, but you could also use any Ethereum wallet such as Fortmatic, WalletConnect, etc. The wallet will give access to an Ethereum provider, which will return the user’s Ethereum address and allow messages to be be signed by its private key using the personal_sign method. 3Box does not write to the Ethereum blockchain directly, and only needs a signed message from the wallet key pair. This means that there are no associated gas costs and that the 3Box ecosystem is not tied exclusively to Ethereum, opening it up to integrating with other blockchains in the future. </p>
+<p>To get started, I used this boilerplate, built with create react app. This sets up the frontend to easily integrate with 3Box by enabling the Ethereum provider injected into the frontend by MetaMask. </p>
+<p>First, install the boilerplate: </p>
+<pre><code>git clone https://github.com/RachBLondon/metamask-3box-boilerplate.git
+
+</code></pre>
+<p>This boilerplate app already includes code (below) which gives the app access to the user’s MetaMask address, which is then saved to react state. We also set up some basic react state to handle browsers that do not come with a provider, and therefore are not web3 enabled. </p>
+<p>This all happens in the below function: </p>
+<pre><code>async getAddressFromMetaMask() {
+    if (typeof window.ethereum == &quot;undefined&quot;) {     
+         this.setState({ needToAWeb3Browser: true });
+        } else {     
+         const accounts = await window.ethereum.enable();
+             this.setState({ accounts });    }
+}
+
+async componentDidMount() {    
+    await this.getAddressFromMetaMask();    
+}
+
+</code></pre>
+<p>This function is called straight away once the page is loaded in componentDidMount. This is the simplest pattern to implement. We need to wait until after the page has mounted because MetaMask will not have had time to inject the provider into the page. This function also contains a flag to silence warnings about not auto refreshing on network change. </p>
+<pre><code>componentDidMount
+</code></pre>
+<p>Step 1 can be viewed in the codebase within App.js. </p>
+<p>To use 3Box in your application, you will need to install 3Box: </p>
+<pre><code>npm i 3box
+
+</code></pre>
+<p>Now that we have enabled the Ethereum provider and have access to the user’s Ethereum address, we can start working with 3box.js. </p>
+<p>First, instantiate 3Box at the top of the file as the Box object. Then, we can return to the componentDidMount function, and after we call getAddressFrom MetaMask we can add the follow lines: </p>
+<pre><code>Box
+</code></pre>
+<pre><code>componentDidMount
+</code></pre>
+<pre><code>getAddressFrom MetaMask
+</code></pre>
+<pre><code>async componentDidMount() {    
+    await this.getAddressFromMetaMask();  
+    const box = await Box.openBox(this.state.accounts[0], window.ethereum);    
+    const space = box.openSpace('distributed-app-store');
+    this.setState({ space, box });
+ }
+
+</code></pre>
+<p>The first thing we are doing here is calling the openBox method on the 3Box library, this is an important step as it is where we authenticate with 3Box. If this user does not already have a 3Box account, one will be created for them. This is the stage in which the user's cryptographic keys are generated from a signed message. We pass in the user's Ethereum address, and the provider from the wallet, to facilitate signing of this message. </p>
+<pre><code>openBox
+</code></pre>
+<p>After using openBox to authenticate with 3Box, the next step is to authenticate a space. We can do this with openSpace method. This only takes one argument: the name of the space. This name will be used to namespace your space, so chose something unique and specific to your application. For this tutorial 'distributed-app-store' is fine. After we have authenticated with both 3box and our space, we can save both to react state for use later. </p>
+<pre><code>openBox
+</code></pre>
+<pre><code>openSpace
+</code></pre>
+<pre><code>'distributed-app-store'
+</code></pre>
+<p>Step 3 can be viewed in the codebase within in the App.js file. </p>
+<p>The 3Box Threads API allows you to store shared data and messages in a collaborative manner. Each thread lives within a space — for more detail visit our architecture blog. </p>
+<p>We will use threads to store the list of applications shown in our distributed app store. 3Box allows the choice of two different thread types: persistent or ghost. In this case, we want to ensure that the data is persisted, so that it is accessible to all users. Persistent threads does this by storing the data on IPFS within persistent OrbitDB feed stores. Side note: Ghost threads are great for chatrooms and more ephemeral data. </p>
+<pre><code>const thread = await space.joinThread(&quot;application_list&quot;, {
+        firstModerator: moderatorsEthAddress,     
+    members: false
+    });
+
+</code></pre>
+<p>Here we are joining the "application_list" thread, setting a moderator for the thread, and making it an open thread. 3Box provides three different types of persistent threads: </p>
+<pre><code>&quot;application_list&quot;
+</code></pre>
+<p>For our app store, we are using Open Threads as they give us the deserved functionality of allowing anyone to upload a new app. In the code snippet above, when we joinThread , this method will also create a thread the first time it is called with a unique name inside a space. Here we can see that we are setting the moderator to be the Ethereum address in the variable moderatorsEthAddress. The false Boolean flag on the members value will create the thread as an Open Thread. </p>
+<pre><code>joinThread
+</code></pre>
+<pre><code>moderatorsEthAddress
+</code></pre>
+<pre><code>false
+</code></pre>
+<p>Step 4 can be viewed in the codebase in App.js. </p>
+<p>Now that we have successfully joined a thread, we can create a function to retrieve the previous posts, or data saved to that thread. In our case this will be the list of applications already saved to the thread. </p>
+<pre><code>const thread = await space.joinThread(&quot;application_list&quot;, {      
+    firstModerator: moderatorsEthAddress,
+        members: false    
+});
+
+this.setState({ thread }, ()=&amp;gt;(this.getAppsThread());
+
+</code></pre>
+<p>Here after we have created/ joined the thread, we save it to react state, and then call a getAppsThread function. Let’s have a look at that function. </p>
+<pre><code>getAppsThread
+</code></pre>
+<pre><code>async getAppsThread() {  
+    if (!this.state.thread) {
+            console.error(&quot;apps thread not in react state&quot;);    
+        return;
+    }  
+    const posts = await this.state.thread.getPosts();
+    this.setState({posts});  
+    await this.state.thread.onUpdate(async()=&gt; {    
+    const posts = await this.state.thread.getPosts();
+        this.setState({posts});  
+    });
+}
+
+</code></pre>
+<p>Here we use two different threads methods to get, and update the posts in the thread. First of all, after handling the case when there is no thread in react state, we call the getPosts method, as you would expect this method retrieves an array of posts in a thread. After saving to the react state, we make use of another method onUpdate . This method takes a callback that will be called when an update or a sync to the thread is made. This is useful to handle new posts, and re-synching when the thread did not pull the most up to-date array of posts. In this case, whenever an update is made to the thread, we call the getPosts method again, and set the results to react state. </p>
+<pre><code>getPosts
+</code></pre>
+<pre><code>onUpdate
+</code></pre>
+<pre><code>getPosts
+</code></pre>
+<p>Step 5 can be viewed in the codebase in App.js. </p>
+<p>Now that we have authenticated with 3Box, opened a space and a thread, we can write the code that handles contributing new applications to a thread. To do this, I created a component called AddApp (source code). This component will handle the UI and the method to add an application. </p>
+<pre><code>AddApp
+</code></pre>
+<p>First let’s decide on an app schema. For this demo, storing the following object will give us enough information to list store and list the application. </p>
+<pre><code>{
+        name: &quot;Test App&quot;,    
+    url: &quot;https://exampleapp.com&quot;,
+        appImage: &quot;https://example-image.png&quot;,    
+    description: &quot;An example application.&quot;,
+        account: &quot;0x2f4ce4f714c68a3fc871d1f543ffc24b9b3c2386&quot;     //the account of the users who submitted
+}
+
+</code></pre>
+<p>Next I created a react component AppForm (source code) with the following form. </p>
+<pre><code>AppForm
+</code></pre>
+<p>Next in the AddApp file, we can add the following function to save the data the user inputs to 3Box as as an application. Note this is a naive solution, as it does not handle any validation of the data. </p>
+<pre><code>AddApp
+</code></pre>
+<pre><code>savePost = async formData =&gt; {      
+    // add the loggedin account to the form data to be saved
+        formData.account = this.props.accounts[0];       
+    await this.props.thread.post(formData);
+        this.props.getAppsThread();   
+};
+
+</code></pre>
+<p>Here the thread used in this application has been passed in as a prop, then we can us the post method on the thread to append the application object. This function will be called when the submit button is clicked on the form. </p>
+<pre><code>post
+</code></pre>
+<p>So far we have only been working with 3Box.js, however 3Box also provide a suite of drop-in react components. These plugins speed-up development by reducing the amount of frontend work that is required. To finish off this tutorial, we will be using three of these plugins: </p>
+<h3 id="profile-edit-plugin">Profile Edit Plugin<a class="headerlink" href="#profile-edit-plugin" title="Permanent link"></a></h3>
+<p>Providing user profiles makes for a much more human and engaging user experience. Let’s get started by creating a profile page (using react router to handle routing, see App.js). </p>
+<p>Next we can npm i 3box-profile-edit-react and import it to the top of our file. We also need to pass on the space, box and user Ethereum address as prop to the profile edit component that is rendering the Profile Edit component. </p>
+<pre><code>npm i 3box-profile-edit-react
+</code></pre>
+<p>We can now start working with the Edit Profile component inside our render function. </p>
+<pre><code>{!this.state.hideEdit &amp;&amp; (
+    &lt;EditProfile        
+        box={this.props.box}
+                space={this.props.space}        
+        currentUserAddr={this.props.accounts[0]}
+                currentUser3BoxProfile={this.props.threeBoxProfile}        
+        redirectFn={()=&gt;(this.setState({hideEdit : true}))}
+          /&gt;)}
+{this.state.hideEdit &amp;&amp; (    
+    &lt;div&gt;
+       &lt;h2&gt;{this.props.threeBoxProfile.name}&lt;/h2&gt;       
+    &lt;img src={this.props.threeBoxProfile.image.contentUrl['/']}/&gt;       
+    &lt;p&gt;{this.props.threeBoxProfile.description}&lt;/p&gt;       
+    &lt;p&amp;/&gt;{this.props.threeBoxProfile.emoji}&lt;/p&gt;
+       &lt;button onClick={()=&gt;(this.setState({hideEdit : false}))}     
+       &lt;/button&gt;   
+&lt;/div&gt;)
+}
+
+</code></pre>
+<p>For more information, view our Profile Edit documentation. </p>
+<h3 id="profile-hover-plugin">Profile Hover Plugin<a class="headerlink" href="#profile-hover-plugin" title="Permanent link"></a></h3>
+<p>Now that we have added the functionality for users to edit and view their profile, we can also use the Profile Hover component. Rather than sitting in its own route, this component will work nicely on the page where we display the applications. </p>
+<p>Here we can see we are rendering a basic card for each application in the thread (you can see how this is handled in Home.js ). </p>
+<p>To use the Profile Hover component, npm i profile-hover and import in to the file. Then its simply a case of using it like a regular component. The only required attribute is address , we have added some styling and the showName attribute. Read more about the other attributes here. </p>
+<pre><code>npm i profile-hover
+</code></pre>
+<pre><code>address
+</code></pre>
+<pre><code>showName
+</code></pre>
+<pre><code>&lt;ProfileHover      
+    address={post.message.account}
+        style={{ width: &quot;100%&quot; }}      
+showName={true} /&gt;
+
+</code></pre>
+<p>For more information, view our Profile Hover documentation. </p>
+<h3 id="comments-plugin">Comments Plugin<a class="headerlink" href="#comments-plugin" title="Permanent link"></a></h3>
+<p>The last plugin we will use is the Comments Plugin. We will use this to let users add comments to the application listed. First I created a modal for each application. </p>
+<p>Next we can npm i 3box-comments-react . Then it is as simple as: </p>
+<pre><code>npm i 3box-comments-react
+</code></pre>
+<pre><code>&lt;CommentBox
+    spaceName={'distributed-app-store'}   
+    threadName={'application_list'}
+    box={this.props.box} // box created in step 2   
+    currentUserAddr={this.props.usersAddress} //users address from step 1
+    adminEthAddr={&quot;0x2f4cE4f714C68A3fC871d1f543FFC24b9b3c2386&quot;} /&gt;
+
+</code></pre>
+<p>Here the adminEthAddr is the address of the administrator, who can delete posts. spaceName and threadName need to be consistent with those defined in step 2. Likewise box is the same as defined in 2. currentUserAddr is passed in as a prop to the comment, so it is referenced in that way. </p>
+<pre><code>adminEthAddr
+</code></pre>
+<pre><code>spaceName
+</code></pre>
+<pre><code>threadName
+</code></pre>
+<pre><code>box
+</code></pre>
+<pre><code>currentUserAddr
+</code></pre>
+<p>For more information, view our Comments documentation.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a Distributed AppStore with 3Box</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-distributed-appstore-with-3box/a9544b3cd4484369a97cb5171c420ceb/a</li>
+<li><strong>Kauri original author:</strong> Rachel (@rachblondon)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-03</li>
+<li><strong>Kauri original tags:</strong> 3box, ethereum, dapp, ipfs, identity, react</li>
+<li><strong>Kauri original hash:</strong> QmSLy7G23eMpZmbeoGspXS2fmnUiv9JqL6tZ1YgXvh9WSj</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../random-cryptocurrency-cryptoeconomics-thoughts-10/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../random-cryptocurrency-cryptoeconomics-thoughts-10/" class="btn btn-xs btn-link">
+        random cryptocurrency / cryptoeconomics thoughts  10
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../dappboard--the-best-analytics-tool-for-decentrali/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../dappboard--the-best-analytics-tool-for-decentrali/" class="btn btn-xs btn-link">
+        DAppBoard  The Best Analytics Tool for Decentralized applications and protocols.
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-a-distributed-appstore-with-3box.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

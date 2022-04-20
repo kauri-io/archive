@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/populus--testing-your-smart-contract/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Populus  Testing your smart contract - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Populus  Testing your smart contract", url: "#_top", children: [
+              {title: "Populus, the tester chain, and web3.py: Testing your smart contract", url: "#populus-the-tester-chain-and-web3py-testing-your-smart-contract" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="populus-testing-your-smart-contract">Populus  Testing your smart contract<a class="headerlink" href="#populus-testing-your-smart-contract" title="Permanent link"></a></h1>
+<h2 id="populus-the-tester-chain-and-web3py-testing-your-smart-contract">Populus, the tester chain, and web3.py: Testing your smart contract<a class="headerlink" href="#populus-the-tester-chain-and-web3py-testing-your-smart-contract" title="Permanent link"></a></h2>
+<p>This article breaks from the other DappSeries articles, and instead incorporates a set of Python tooling for your smart contract testing needs. </p>
+<p>A note on pending refactors to the Populus tool (a truncated list, per Piper Merriam):</p>
+<ul>
+<li>Change populus to use eth-tester for testing (currently using eth-testrpc)</li>
+<li>Remove need for project.json in project directory</li>
+<li>Removal of the Chain API entirely</li>
+<li>Removal of the scripts that setup local test chains</li>
+<li>Move web3 pytest fixture out of Populus and into eth-tester or maybe web3.py</li>
+<li>For full list, please visit: https://github.com/ethereum/populus/issues/395 </li>
+</ul>
+<p>Things to consider before we keep moving forward. Be aware that some of this functionality will be deprecated in the future. Voith Mascarenhas (https://github.com/voith) is I believe currently the only Populus contributor at the moment, and a lot of the work to improve Populus has been the result of his work. </p>
+<p>In the previous article of the Populus series, we walked through the process of initializing a Populus project, compiling your smart contracts, creating local geth chains, and deploying your smart contracts. </p>
+<p>However, we did not go into significant detail on how to test your smart contracts using Populus. </p>
+<p>To help readers better understand how to write py.test tests for your smart contracts, we will walk through the process together using Populus. </p>
+<p>Populus uses the py.test testing framework. For further information on py.test, please refer to their documentation available at: https://docs.pytest.org/en/latest/contents.html</p>
+<p>Prerequisites</p>
+<ul>
+<li>Populus</li>
+<li>Geth</li>
+<li>Web3.py v3.16.5, Populus can not yet handle web3.py v4+ versions</li>
+</ul>
+<p>Setting up a test file </p>
+<p>Populus requires that all tests reside in the 'tests/' folder and that all tests  match the glob pattern Test*.sol (e.g. test_mysmartcontract.py). </p>
+<p>To simply run your project's test suite, use the following command: </p>
+<pre><code>$ py.test tests/
+</code></pre>
+<p>To run a specific test:</p>
+<pre><code>$ py.test tests/test_greeter.py
+</code></pre>
+<p>Populus provides a set of py.text fixtures to simplify the testing process. </p>
+<ul>
+<li>A project object that is initialized first, of which the rest of the Populus fixtures are derived from.</li>
+<li>A chain fixture that serves as a running 'tester' chain. </li>
+<li>A registrar convenience fixture for the chain.registrar property. </li>
+<li>A provider convenience fixture for the chain.provider property. </li>
+<li>A Web3 convenience fixture for the chain.provider property. </li>
+<li>Basic contract factory classes. </li>
+<li>Accounts.</li>
+<li>And the ability to create your own fixtures. Reference the documentation for further information on fixtures usage. </li>
+</ul>
+<p>Populus current version uses eth-testrpc for testing purposes. Below is basic testing code for your reference. Be mindful currently Populus only supports usage of Web3.py 3.16.5. Support for Web3.py 4+ has not been introduced yet. To run the tests, simple use the command in the project directory: </p>
+<pre><code>py.test tests/
+</code></pre>
+<p>Let's dig further into these tests to understand what's going on. First, we want to make a few imports and create a variable for our 'test_project' project: </p>
+<pre><code>from populus.project import Project
+from time import time
+from web3.testing import Testing
+
+p = Project(project_dir='/home/[name]/Documents/python/populus/test_project/')
+
+dayInSeconds = 86400
+
+with p.get_chain('tester') as chain:
+    web3 = chain.web3
+    testing = Testing(web3)
+
+    # ...tests are inserted here...
+</code></pre>
+<p>The first 3 lines of code import basic functionality, the 'p' variable is then set to a project directory, which in this case is just a dummy directory. The 'dayInSeconds' variable is set to 86400 and will be used to reference daylong time periods for use in our Bounties contract. Lastly, we instantiate the 'tester' chain as our chain with the final 3 lines of code. </p>
+<p>The body of the tests:</p>
+<pre><code>import pytest
+from populus.project import Project
+from time import time
+from web3.testing import Testing
+
+p = Project(project_dir='/home/wil/Documents/python/populus/test_project')
+
+dayInSeconds = 86400
+
+with p.get_chain('tester') as chain:
+    web3 = chain.web3
+    testing = Testing(web3)
+
+    def test_function(web3, chain):
+        bountiesInstance, deploy_tx_hash = chain.provider.get_or_deploy_contract('Bounties')
+        tx_hash = bountiesInstance.transact({'value': 500000000000000000}).issueBounty('data', \
+                web3.eth.getBlock('latest').timestamp + (dayInSeconds * 2))
+
+        chain.wait.for_receipt(tx_hash)
+        tx_receipt = web3.eth.getTransactionReceipt(tx_hash)
+
+        assert tx_receipt['logs'] is not None, &quot;an event exists in the transaction receipt&quot;
+        assert len(tx_receipt['logs']) == 1
+
+        event_logs = bountiesInstance.events.BountyIssued().processReceipt(tx_receipt)
+
+        assert event_logs[0]['args']['bounty_id'] == 0, &quot;bounty_id should be indexed starting at 0&quot;
+        assert event_logs[0]['args']['issuer'] == web3.eth.accounts[0], &quot;issuer should be equal to accounts[0]&quot;
+        assert event_logs[0]['args']['amount'] == 500000000000000000, &quot;should be equal to amount sent by issuer&quot;
+        assert event_logs[0]['args']['data'] == 'data', &quot;should be 'data' string&quot;
+
+    def test_call(web3, chain):
+        bountiesInstance, deploy_tx_hash = chain.provider.get_or_deploy_contract('Bounties')
+        result = bountiesInstance.call(
+                {'from': web3.eth.accounts[0], 'value': 500000000000000000}).issueBounty(
+                        'data', web3.eth.getBlock('latest').timestamp + (dayInSeconds * 2))
+
+        assert result == 0, &quot;issueBounty() call did not return correct value&quot;    
+
+    def test_expiry(web3, chain):
+        bountiesInstance, deploy_tx_hash = chain.provider.get_or_deploy_contract('Bounties')
+        tx_hash = bountiesInstance.transact({'value': 500000000000000000}).issueBounty('data', \
+                web3.eth.getBlock('latest').timestamp + (dayInSeconds *2))
+
+        chain.wait.for_receipt(tx_hash)
+        tx_receipt = web3.eth.getTransactionReceipt(tx_hash)
+
+        issue_event_logs = bountiesInstance.events.BountyIssued().processReceipt(tx_receipt)
+
+        thefuture = testing.timeTravel(int(web3.eth.getBlock('latest').timestamp + (dayInSeconds * 3)))
+        tx_fulfill_hash = bountiesInstance.transact({'from': web3.eth.accounts[1]}).fulfillBounty(
+                0,'data')
+        tx_fulfill_receipt = web3.eth.getTransactionReceipt(tx_fulfill_hash)
+        fulfill_event_logs = bountiesInstance.events.BountyFulfilled().processReceipt(tx_fulfill_receipt)
+
+        assert web3.eth.getTransactionReceipt(tx_fulfill_hash).status == 0
+</code></pre>
+<p>Right now, the only wait to get the web3.eth.getTransactionReceipt('TX_HASH_HERE').status attribute to return is to use the following Populus repo in it's own virtualenv:</p>
+<pre><code>$ pip install -e git+https://github.com/voith/populus.git@update-eth-tester#egg=populus
+</code></pre>
+<p>Voith Mascarenhas (https://github.com/voith) is I believe the sole Populus contributor at the moment, and a lot of the work to improve Populus has been the result of his work. 
+https://github.com/voith</p>
+<p>Your testing needs will vary. The good news is that Populus now supports Web3.py 4.6.0. </p>
+<p>For further For further information on testing, you can use the pytest documentation @ https://docs.pytest.org/en/latest/contents.html and the web3.py documentation @ https://web3py.readthedocs.io/en/stable/</p>
+<p>Populus appears to be planning the implementation of eth-tester in the future. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Populus  Testing your smart contract</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/populus-testing-your-smart-contract/55a5ce344a31434ab7c749da26b58119/a</li>
+<li><strong>Kauri original author:</strong> Wil Barnes (@wil)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-13</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmW4tBPQPWa7S9GT3nbNjko5vzsGNcNLqsMQCMQqMYQMUd</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deploying-a-full-stack-dapp-to-microsoft-azure/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deploying-a-full-stack-dapp-to-microsoft-azure/" class="btn btn-xs btn-link">
+        Deploying a full-stack dapp to Microsoft Azure
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../populus--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../populus--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-link">
+        Populus  Smart contract compilation and deployment
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/populus--testing-your-smart-contract.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

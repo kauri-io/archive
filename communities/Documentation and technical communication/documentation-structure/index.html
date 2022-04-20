@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Documentation%20and%20technical%20communication/documentation-structure/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Documentation structure - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Documentation structure", url: "#_top", children: [
+              {title: "Documentation types", url: "#documentation-types" },
+              {title: "Documentation structure", url: "#documentation-structure_1" },
+              {title: "Page structure", url: "#page-structure" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="documentation-structure">Documentation structure<a class="headerlink" href="#documentation-structure" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWadZ6EmZtwo3E6BHodBkaCTwqcx7MTPgpZ3wUwHC95mY" /></p>
+<p>Documentation structure applies to your documentation as a whole, and to each page. Let's start at the top and work down.</p>
+<p>There are different types of documentation your project might need. The
+terms I use to describe them below are just the terms I use, and others use different terms. The explanation of what they are is more important than what you decide to call
+them is up to you.</p>
+<h3 id="documentation-types">Documentation types<a class="headerlink" href="#documentation-types" title="Permanent link"></a></h3>
+<h4 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h4>
+<p>A Getting started guide is often a starting point with your
+project. It should take people from knowing next to nothing about your
+project to installing and configuring it, and performing their first
+interactions with it. The extent of what "first steps" means
+somewhat depends on your project, but it should be simple enough for
+anyone to complete, but complicated enough that it shows a semi-realistic
+use case that highlights the potential of your project.</p>
+<h4 id="guides">Guides<a class="headerlink" href="#guides" title="Permanent link"></a></h4>
+<p>Guides are a collection of documentation pages that take a user from getting
+started to the next steps. These are typically more in-depth around a particular topic or common use case.</p>
+<h4 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link"></a></h4>
+<p>If your project has an API, error codes, or other particular components
+that need a reference, this is the place. If the rest of your
+documentation tells users how to use your tools to build something, this
+is the place where you explain what individual tools do. Often you can
+autogenerate these docs from code or other sources, and that's fine.
+Anyone digging into this section knows what they are looking for and is
+looking for specifics on how to use it.</p>
+<h4 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link"></a></h4>
+<p>Perhaps most relevant to the Web3 world is a section for the theoretical
+underpinnings of the project. This is where you explain your consensus
+algorithm and encryption methods in depth. Again, not everyone wants or needs to know this information, but certain people will.</p>
+<h3 id="documentation-structure_1">Documentation structure<a class="headerlink" href="#documentation-structure_1" title="Permanent link"></a></h3>
+<p>Creating good structure (or information architecture) for documentation can be a complex process,
+depending on how much documentation you have, the most important
+information people need to know, and the common pathways and questions
+they typically have.</p>
+<p>A good starting point is to divide your documentation along the lines of
+the categories outlined above, and then use feedback and analytics to
+tweak the structure over time. A typical alternative structure is to
+group documentation around use cases, and what a user might be trying to
+do, rather than arbitrary divisions. This doesn't suit all documentation
+projects, especially tools that a developer can use for nearly limitless
+applications, but can work well for focussed SaaS products.</p>
+<p>Another aspect to bear in mind is that no matter how much time you spend on creating the perfect organisation and navigation, a majority of readers arrive at your documentation from search engines. Once
+they arrive, they hopefully continue through the pathways you create, but there is still no guarantee of that. This means that you need to
+generally assume that someone arrives at a page with no knowledge of
+anything else in your documentation and you need to tell them what they should know before reading the page they arrive at. You can do this with
+an explicit pre-requisites section, inline links to concepts and steps,
+or with an expanding menu that won't always show a reader everything
+they need to know but does show them where the document sits in the
+wider structure.</p>
+<p>Finally, if possible, add multiple ways for people to find their way
+around your documentation, for example, a search box, related content,
+next steps etc.</p>
+<h3 id="page-structure">Page structure<a class="headerlink" href="#page-structure" title="Permanent link"></a></h3>
+<p>Good page structure helps readers read. If a page is a wall of text,
+it's hard to process, and for people to find the details they are looking for. Good structure helps break up the reading experience, and
+draws attention to different topic sections, and important pieces of
+information.</p>
+<p>There's an unexpected bonus to using good page structure, and that's
+that it doesn't just improve readability for humans, but also for machines. Crawlers from search engines, digital assistants, semantic
+aggregators and more all have their work assisted by good, predictable
+page structure that follows best practices.</p>
+<h4 id="correct-and-helpful-headings">Correct and helpful headings<a class="headerlink" href="#correct-and-helpful-headings" title="Permanent link"></a></h4>
+<p>Headings help readers identify what a particular section covers. Use
+correct heading hierarchy to indicate topics and sub-topics, but also to
+improve how machines read and understand the content. For example, to
+improve SEO.</p>
+<p>This means that a document should only ever have one top-level heading,
+typically a level one heading unless you are using a generator tool that adds top-level headings from tags or other sources of information.</p>
+<p>Subtitles should be level 2 headings, and any subtopics for those subtitles, level 3, 4 etc. You can use as many of these you need in a
+document, but be as consistent as possible.</p>
+<h4 id="images-and-code-examples">Images and code examples<a class="headerlink" href="#images-and-code-examples" title="Permanent link"></a></h4>
+<p>As people scroll through a web page, their eyes are drawn to page
+elements that break up the wall of text. We are especially drawn to
+images, and developers are drawn to code examples as it's often what
+they are looking for most.</p>
+<p>The trick is ensuring that important explanatory text is around these
+elements, so after someone's eyes are drawn to it, they see the
+surrounding text and (hopefully) read it.</p>
+<p>We cover what makes good images and code examples in other sections.</p>
+<h4 id="paragraphs">Paragraphs<a class="headerlink" href="#paragraphs" title="Permanent link"></a></h4>
+<p>White space is your friend in breaking up a wall of text, don't fear
+it. Every major concept, or half a dozen lines or so, start a new
+paragraph. Even better, if appropriate, add a sub-heading before it.</p>
+<h4 id="highlighting-and-formatting">Highlighting and Formatting<a class="headerlink" href="#highlighting-and-formatting" title="Permanent link"></a></h4>
+<p>Make use of ways to highlight certain important pieces of information
+with formatting. I have my personal preferences which are:</p>
+<ul>
+<li><code>Code formatting</code> for anything that is code.</li>
+<li><em>Italics</em> for paths and actions. Many use code formatting for paths,
+    but that doesn't make sense to me, as it's not code.</li>
+<li><strong>Bold</strong> for important information.</li>
+<li>Any form of "double" or 'single' quote marks to highlight values to add somewhere, or the traditional usage of quote marks in the English language.</li>
+</ul>
+<p>But really what formatting you use for what isn't the important part,
+it's more important to be consistent if someone expects to see italics
+to show file paths, then stick to it.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Documentation structure</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/documentation-structure/cb1cad8db083475389718cbea3217db2/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-11-14</li>
+<li><strong>Kauri original tags:</strong> writing, documentation</li>
+<li><strong>Kauri original hash:</strong> QmY9imMBZxrsfQ6VKq1so4ZgSY5697nTs4iCoP5ZxByyHH</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../why-write-documentation/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../why-write-documentation/" class="btn btn-xs btn-link">
+        Why write documentation
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../language-and-understandable-writing/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../language-and-understandable-writing/" class="btn btn-xs btn-link">
+        Language and understandable writing
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Documentation and technical communication/documentation-structure.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

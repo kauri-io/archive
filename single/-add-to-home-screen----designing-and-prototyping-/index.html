@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/-add-to-home-screen----designing-and-prototyping-/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>‘Add to home screen’   Designing & prototyping a native app in HTML - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u2018Add to home screen\u2019   Designing &amp; prototyping a native app in HTML", url: "#_top", children: [
+              {title: "How does it work?", url: "#how-does-it-work" },
+              {title: "Takeaways", url: "#takeaways" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="add-to-home-screen-designing-prototyping-a-native-app-in-html">‘Add to home screen’   Designing &amp; prototyping a native app in HTML<a class="headerlink" href="#add-to-home-screen-designing-prototyping-a-native-app-in-html" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYpeAFYtC7UPhTP3PC7YNUSpWankTB9SMeeWw58rtND21" /></p>
+<p><strong>TL;DR: at</strong></p>
+<p><a href="https://www.parasut.com/">Paraşüt</a></p>
+<p><strong>we built a</strong></p>
+<p><a href="http://mobile-ui.parasut.com/">prototype</a></p>
+<p><strong>in HTML &amp; CSS to be able to design, prototype and iteratively test our mobile app. Works great, you should try it.</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT9KVb6EWovsRFwNgd4pHZjzA7PooyYBVh6iaT86PfzdB" /></p>
+<p>specially in world of designing for web, CSS is such a brilliant and relatively simple way of ‘owning up’ to your design: instead of designing for a fixed size canvas and data situation, you have to define constraints and be (at least partly) responsible for how your design behaves in different situations. When designing for native mobile this is not so easy — but this story shows how we tackled it for 
+<a href="http://parasut.com/">Paraşüt</a>
+ ’s mobile app.
+About 1,5 years ago we decided to do a mobile app. Paraşüt has been a SaaS product for SME accounting in Turkey, and was exclusively a web app. From a design point of view, we had a useful and fairly scalable design system, based on Atomic Design combined with a library of utility classes. But we wanted to expand on the idea of doing expenses, invoices and contacts on the go.
+We formed a 2-man team; one 
+<a href="https://twitter.com/kukabilgin">developer</a>
+ , one designer ( 
+<a href="https://twitter.com/ldanielswakman">me</a>
+ ). At this point, our startup was mostly rooted in web technologies, which by its continuous development nature made it easier to build an agile product. For me as a designer it was the same; in the past years of designing for web, I had gotten used to being responsible for the designs I made via CSS.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeK5ZzJGuuqigDKwAqGRf8g4e8D3jhgX2e6V9jf1XBYyA" /></p>
+<blockquote>
+<p>“So yeah, we tried design deliverables.”</p>
+</blockquote>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQrK1WytNbz1vQCuqWhvrHDVR6AkExCE6WjGpujkXN8wW" /></p>
+<p>After being set on a clear course for the visual &amp; interaction design of the app, the design (Sketch/Illustrator) files started to look a bit like this (see image).
+This drove 2 people crazy: the developer, who always had to ask about one or two dimensions, colours or font-styles I had forgotten to specify, and me, who felt like using a foreign language to explain from the start a system I had figured out in another language.</p>
+<p><em>(I won’t go into the details of the app’s design language too much; that’s a story for another time.)</em></p>
+<p>It had another major drawback that visual design programs have: being unable to design hover states, active states, empty states, animations and transitions. The 
+<a href="https://zeplin.io/">Zeplin</a>
+ plugin for Sketch takes care of a part of the problems but cannot solve responsive and stateful design. This is the fundamental problem of all classic ‘static canvas’ design tools.</p>
+<blockquote>
+<p>“Designers, don’t stay inside your Sketch cage!”</p>
+</blockquote>
+<p>So at that point, opened an empty index.html file in my browser, and turned on responsive design mode…</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmVorkfJinWZwQ6YkaXn8bBjsQTVsCgZZyT55HF7rFFY4W" /></p>
+<p>… and started to implement the design system in simple HTML and CSS. One page, one html file. Icon fonts. Exact and consistent dimensions. The file structure is nothing more than a folder with 
+<strong>HTML</strong>
+ files, (image) 
+<strong>assets</strong>
+ and (S) 
+<strong>CSS</strong>
+ .</p>
+<p><em>Full disclosure</em>
+ : at Parasut, we love designers who code. We have 4 designers, each in a different (product/marketing) team, that are all comfortable writing HTML, (S)CSS and the odd line of jQuery. In practice, this means we deliver HTML mockups to developers, and manage the growth and maintenance of the SCSS design pattern library.</p>
+<h4 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link"></a></h4>
+<p>Back to the design for our mobile app. The approach was to create one html page for every mobile view. Let’s take the invoice list for example. The mobile design has a Material Design inspired list view, with a colourful top header, tabs for different list types, and a swipeable list view, with a centred plus button to create a new invoice.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmWZmFBSxTR1kjuZjGieA6c6qHo4Zp8BAtbQ5TZTxzsio2" /></p>
+<p>As you can see, the list view design is nothing more than a 
+<strong><ul></strong>
+ with 
+<strong><a></strong>
+ links inside it. We’re using Font Awesome as an icon set, so that’s as easy as adding a 
+<strong><i class=”fa fa-file-text-o”><i></strong>
+ tag. The files sit in a repository on GitHub, which are directly accessible via GitHub Pages as a site, at 
+<a href="http://mobile-ui.parasut.com/">mobile-ui.parasut.com</a>
+ . Any update I push to that repository will directly be visible to any developer, product manager, or test user visiting that URL.
+I’ve set up the file structure so that it contains both the html files for the mockup, as well as the few image assets we have for different resolutions:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmT2ShikfU3DK2jDTKMh5HxNXmxtoDgegcEYvrGqztNDJz" /></p>
+<p>And… as much as I’ld like to dive deeper into how it works, that’s about it! The development workflow comes down to the designer committing the html mockups to the repository and creating a GitHub issue that lists the specs. The developer then opens the mockup in their browser, and keeps referring to that during the implementation. When I asked them about what they think of this workflow, a smile appears on their face and they radiate with joy: no more doubt about how the visual design should be implemented, because it is already defined.</p>
+<h4 id="takeaways">Takeaways<a class="headerlink" href="#takeaways" title="Permanent link"></a></h4>
+<p>After some initial struggling, we found a great way to work out and iterate our app, both for 
+<a href="https://itunes.apple.com/tr/app/parasut-on-muhasebe-ve-fatura/id976151321?mt=8">iOS</a>
+ and 
+<a href="https://play.google.com/store/apps/details?id=com.parasut&amp;hl=en">Android</a>
+ . I find myself constantly handing the web version of the design over to people, both 
+<em>internally</em>
+ when we are discussing the implementation of a new feature — as well as 
+<em>externally</em>
+ , when testing with users if the design works.
+In the end this solution begs the question: wouldn’t it be great if there wasn’t such a disjoint between web and (iOS/Android native)? The web has proven agile and continuously iterative for developers and designers; why can’t designing and building for native mobile be the same? We did once explore the possibility of mapping our SCSS to the Android xml stylesheets, but never took it further.
+Do you have any similar experiences with designing for native mobile? I’m curious for your thoughts on this, or other takes on bridging the gap between design and development. I hope this read has been useful and can help you on your way when you’re dealing with the shady uncanny valley of designing for mobile.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdXdWxAJKXy8qpwctDidkepPmN4dj4b58cguZkzFXoH8b" /></p>
+<p>— L Daniel Swakman</p>
+<p><em>Daniel is a graphic &amp; web designer working on achieving great visual experiences in digital and analog context, both for startups and</em></p>
+<p><a href="http://ldaniel.eu/">freelance</a></p>
+<p><em>.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> ‘Add to home screen’   Designing &amp; prototyping a native app in HTML</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/add-to-home-screen--designing-and-prototyping-a-na/45d39987ae974e5ab52a2cc0dd772c35/a</li>
+<li><strong>Kauri original author:</strong> L Daniel Swakman (@ldanielswakman)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-24</li>
+<li><strong>Kauri original tags:</strong> ux, design, frontend</li>
+<li><strong>Kauri original hash:</strong> QmbAskyjJfF5A7JEhz1GQVRXND78nzPiFgzty2Bj7QvLM2</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../react-burner-wallet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../react-burner-wallet/" class="btn btn-xs btn-link">
+        React Burner Wallet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-in-emerging-economies/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-in-emerging-economies/" class="btn btn-xs btn-link">
+        Ethereum in Emerging Economies
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/-add-to-home-screen----designing-and-prototyping-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

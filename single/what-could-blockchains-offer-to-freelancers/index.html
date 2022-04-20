@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/what-could-blockchains-offer-to-freelancers/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>What could blockchains offer to freelancers? - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "What could blockchains offer to freelancers?", url: "#_top", children: [
+              {title: "The trend of freelancing", url: "#the-trend-of-freelancing" },
+              {title: "Freelancing marketplaces", url: "#freelancing-marketplaces" },
+              {title: "What is a contract?", url: "#what-is-a-contract" },
+              {title: "A simple payment contract", url: "#a-simple-payment-contract" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="what-could-blockchains-offer-to-freelancers">What could blockchains offer to freelancers?<a class="headerlink" href="#what-could-blockchains-offer-to-freelancers" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZrWV2mk6C62Aw9efXT6BZzDJKZjzq3hAiVGCedrTrJrn" /></p>
+<p>Freelance marketplace is one of the exciting fields that blockchain technology could help transform. Imagine the freelancers can independently setup smart contracts with the employers to get rewarded either in cryptocurrencies or tokens that can be vested over time.
+It would be a fundamental change in how people work together since it cut through the middleman and be more flexible for the working relationships.
+This post discusses how the blockchain technologies can be used in the freelancing marketplaces, followed by a simple Dapp to demonstrate a payment smart contract that can be independently managed by a freelancer and employer.</p>
+<h3 id="the-trend-of-freelancing">The trend of freelancing<a class="headerlink" href="#the-trend-of-freelancing" title="Permanent link"></a></h3>
+<p>Based on job market statistics, there is an increasing number of workers choose to escape the 9to5 jobs and work as a freelancer, desired for flexibly work contents they prefer, expand their business networks and grow their personal brands.
+They have the freedom to work with preferable partners and be more flexible in making decisions in which career direction they want to go pursuit.</p>
+<blockquote>
+<p>One of the core principles of the free market is that central planning committees can never be as efficient or effective as the people doing the work.</p>
+<p>The most important feature of free market economies is that each person within them is able to make independent decisions in their own best interest</p>
+</blockquote>
+<p><strong>Why We Hate Working for Big Companies</strong></p>
+<p>medium.com</p>
+<blockquote></blockquote>
+<p>In the era of blockchain technologies, the core value of which is decentralization, it is very likely the trend of freelancing will be accelerated.</p>
+<h3 id="freelancing-marketplaces">Freelancing marketplaces<a class="headerlink" href="#freelancing-marketplaces" title="Permanent link"></a></h3>
+<p>Most of the freelance works are landed via outsourcing platforms like upwork.com and freelancer.com. These platforms provide the facilities for the employer to post the jobs or the employee to apply for the jobs, serving as a job information center.
+The key reason of why these platforms are popular is they serve as the middleman for the working contracts and the funds. They have a set of rules to collect and calculate the ratings for both the employer and employee after completed the contracts.
+The main duty of these platforms is maintaining and securing the contract made between the employer and employee.
+Having a middleman to execute this duty comes at prices:
+1. It is inefficient especially in the payment process. It could be taking days or even weeks to withdraw the money to an oversea bank account. They charge fees for the payments and introduce a cost to both the employer and employee. The fees could be as high as 20% to work for a new client.
+2. The middleman could be biased when dealing with the conflicts of the contracts.
+3. They are in charge of the rules in how the rating calculated and how they are displayed. The rating is the key element for the freelancers as this is what the employer does the evaluation when making the employment, and that needs years of time to cultivate upon the platform. These rating data is owned by the platform and can’t be shared among other platforms.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdrjbwBhfw9DpnroqKTt5VbWWkuKofjPmbk6kenEpiiW4" /></p>
+<blockquote>
+<p>The bad news is that it became much harder for startups, creators, and other groups to grow their internet presence without worrying about centralized platforms changing the rules on them, taking away their audiences and profits.</p>
+</blockquote>
+<p><strong>Why Decentralization Matters</strong></p>
+<p>medium.com</p>
+<blockquote></blockquote>
+<h3 id="what-is-a-contract">What is a contract?<a class="headerlink" href="#what-is-a-contract" title="Permanent link"></a></h3>
+<p>Let’s get back to the question of why we need an employment contract that these centralized platforms facilitate to create.
+Contract in the nutshell:</p>
+<blockquote>
+<p>Agreement about the facts and when they change — that is, a consensus about what is in the ledger, and a trust that the ledger is accurate — is one of the fundamental bases of market capitalism.</p>
+</blockquote>
+<p><strong>The Blockchain Economy: A beginner’s guide to institutional cryptoeconomics</strong></p>
+<p><em>Chris Berg, Sinclair Davidson and Jason Potts are from the RMIT Blockchain Innovation Hub, the world’s first social…</em>
+ medium.com</p>
+<blockquote></blockquote>
+<p>Platforms like upwork or freelancer is basically a centralized database that records and maintains the contracts. These contracts are relying on the trusted central authorities to maintain and validate.
+There are generally two types of contracts:</p>
+<blockquote>
+<p>A complete contract specifies what is to occur under every possible contingency.</p>
+<p>An incomplete contract allows the terms of the contract to be renegotiated in the case of unexpected events.</p>
+</blockquote>
+<p>It is nearly impossible to create a 
+<strong>complete</strong>
+ contract, particularly for small business activities such as freelancing, as it is too expensive to consider all the possible conditions within a contract period.
+So how do we create 
+<strong>incomplete</strong>
+ contracts </p>
+<hr />
+<p>that are both secure and efficient?</p>
+<blockquote>
+<p>The blockchain, though smart contracts, lower the information costs and transactions costs associated with many incomplete contracts and so expands the scale and scope of economic activity that can be undertaken.</p>
+</blockquote>
+<p>The decentralized consensus and immutability features of blockchain enable the contracts to be created with embedded rules that automatically govern the ledger data within the contract.
+With blockchain technologies, it is now possible to create secure contracts without 3rd party institutions.</p>
+<h3 id="a-simple-payment-contract">A simple payment contract<a class="headerlink" href="#a-simple-payment-contract" title="Permanent link"></a></h3>
+<p>To demonstrate the concept, let’s try to implement a simple payroll contract that executes itself without any 3rd party institutions, using Ethereum solidity contract for the backend and React.js for the front end.
+The model of the contract is normally for one to one relationship, that is the rules between an employer and an employee. Also there are other contract models in the software outsourcing fields. The crowdsourcing platforms, such as 
+<a href="http://topcoder.com/">TopCoder</a>
+ and 
+<a href="https://www.kaggle.com/">Kaggle</a>
+ , have a model of one to many relationship. They hold competitions to reward the top performers who participate in the projects.</p>
+<blockquote>
+<p>TopCoder</p>
+<p>Kaggle
+Suppose we want to create a very basic payment contract, which works on time based, one to one model, with the following key requirements:
+1. The employee needs to know if the employer has enough capital to fund the contract agreements.
+2. The employer needs to know if the employee is capable of delivering the vision of the project.
+3. Both the roles should have chances to evaluate if they are in a good fit within a trial period.
+If something doesn’t work well, a contract makes they eligible choose to terminate the contract, so as to avoid potential losses in either monetary or time.</p>
+</blockquote>
+<h4 id="flows-of-contract-rules">Flows of contract rules<a class="headerlink" href="#flows-of-contract-rules" title="Permanent link"></a></h4>
+<ul>
+<li>The employer can create a smart contract with configs in contract full period and trial period in a minute.</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmf3f7sTLJTyuufywdJE8vbKp7SiUNC8CAdE8EBHtLPjmR" /></p>
+<ol>
+<li>Once employer deposited funds into the smart contract, it will proceed to the 
+<strong>handshake</strong>
+ stage where there is a URL, containing the address of this contract, to share to the employee to review this contract.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQmMLc29XkhsqRWe8gWsFnMcSv5xTrhDhhbtJN3cJARPP" /></p>
+<ol>
+<li>With the shared URL, employee can review the periods of the contracts and the available funds deposited. Once confirmed(signed) the contract, the contract starts with the trial period, in which payment requests are disabled. From now on, the deposited fund can only be transferred to the employee’s account address or be refunded by canceling the contract.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmY9zfWnygijzNzWuNVJBGyNe3nKVuEMhqVctRXxAqf1Bw" /></p>
+<ol>
+<li>The employer can choose to cancel the contract. The contract is cancelable during stages of 
+<strong>handshake</strong>
+ and 
+<strong>trial period</strong>
+ . If cancelled, the deposited funds will be withdrew from the contract back into the employer’s wallet account.</li>
+<li>Once trial period passed, the employee can request payment whenever needed and get paid immediately based on the current time and the length of the contract period.
+Alternatively, after the trial period, employer can authorize the contract completed to transfer the total payment to the contractor before the contract end time. This is meant to incentivize the contractor to deliver the quality work faster.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbEgG2KK1LuLfRnC2E5U9BhhuwNsdRYYXqnyHmQoLzk6i" /></p>
+<ol>
+<li>The contract will mark ended when all the fund deposits were paid to the employee.</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmaPiKfMty4ui8grsKsQAxYWPNTux5YepZ1XA1FpcfXgms" /></p>
+<hr />
+<p>This is a simple demo Dapp as a payment contract for the 1 to 1 employment relationship.
+The smart contract demonstrated above is totally owned by the employer and employee. It doesn’t rely on any 3rd party institutions to secure the contract’s rules, which is executed automatically based on the ledger data within the contract.
+It is flexible to set up the rules that are transparent to both the employee and employer to agree upon.
+It costs little to create this smart contract. The only requirements to create the contract is a web browser with the Metamask extension to sign the transactions.
+The source codes for the 
+<a href="https://github.com/katat/payment-contract-app">front end</a>
+ and the 
+<a href="https://github.com/katat/payment-contract-solidity">solidity contract</a>
+ have been published on github. Also, you can play around with it locally with the source codes, or with the 
+<a href="http://katat.me/payment-contract-app">deployed version</a>
+ .</p>
+<blockquote>
+<p>front end</p>
+<p>solidity contract</p>
+<p>deployed version</p>
+</blockquote>
+<p><strong>Potential issues:</strong></p>
+<p>Normally a payment contract could span with a long period of time, during which the prices of the cryptocurrency could be fluctuated dramatically so much that is not acceptable for a normal business entity.
+Fortunately, there are already stable coins emerging in the market. The stable coins, such as Dai, could be used as the primary currency in a payment contract.</p>
+<blockquote></blockquote>
+<p><strong>Maker for Dummies: A Plain English Explanation of the Dai Stablecoin</strong></p>
+<p><em>Summary:</em>
+ medium.com</p>
+<blockquote></blockquote>
+<p>Another notable issue is the speed of the transaction confirmation. Compared to the centralized web apps that is much easier to tune the performance, it could take a long time to get a transaction confirmed in the Ethereum network especially when the supplied gas is too low.
+This would introduce challenges to the UX of the Dapp. To prevent the Dapp users get confused during the period of confirming transactions, a new way of designing the user experiences is highly desired.</p>
+<blockquote></blockquote>
+<p><strong>Web3 Design Principles</strong></p>
+<p><em>A framework of UX rules for Blockchain based Distributed Applications (part 1)</em>
+ medium.com</p>
+<blockquote></blockquote>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>The simple payment Dapp above demonstrated what revolutions the blockchain technologies can help achieve and how powerful it will position itself in the freelancing market.
+In fact, there are already some organizations working for this field from different perspectives, such as 
+<a href="https://aragon.one/">Arogan</a>
+ , 
+<a href="http://ethlance.com">Ethlance</a>
+ , 
+<a href="https://gitcoin.co/">Gitcoin</a>
+ , 
+<a href="http://bounty.network/">Bounty Network</a>
+ etc.</p>
+<blockquote>
+<p>Arogan</p>
+<p>Ethlance</p>
+<p>Gitcoin</p>
+<p>Bounty Network
+We are still in the very early stage of the blockchain. There are a lot of possibilities the blockchain can help realize in this field. It will help freelancers achieve more freedom to work on the projects that best fit their personal interests, without being locked in a specific centralized platforms.
+Thanks for reading. I will appreciate any comments, please feel free to share your thoughts.</p>
+</blockquote>
+<hr />
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRB3vAfbSEV5kvvdw2Jx1668tbC6wF5Pha5Rs2DoSkiXx" /></p>
+<blockquote></blockquote>
+<h4 id="this-story-is-published-in-the-startup-mediums-largest-entrepreneurship-publication-followed-by-323238-people">This story is published in The Startup, Medium’s largest entrepreneurship publication followed by 323,238+ people.<a class="headerlink" href="#this-story-is-published-in-the-startup-mediums-largest-entrepreneurship-publication-followed-by-323238-people" title="Permanent link"></a></h4>
+<blockquote>
+<p>The Startup</p>
+</blockquote>
+<h4 id="subscribe-to-receive-our-top-stories-here">Subscribe to receive our top stories here.<a class="headerlink" href="#subscribe-to-receive-our-top-stories-here" title="Permanent link"></a></h4>
+<blockquote>
+<p>our top stories here</p>
+</blockquote>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmX4tW2jq4KhqCry4wZVWcH9MCfDsWjVzpzwsfpm2HpQzR" /></p>
+<blockquote></blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> What could blockchains offer to freelancers?</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/what-could-blockchains-offer-to-freelancers/3ebc9fe0343c4acf8c9cc65695daab05/a</li>
+<li><strong>Kauri original author:</strong> null (@null)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-30</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmcyoqTgcuTkJ6xMVdz3kvXFLjkX6ryxwpKYiMwR6QHLvp</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../luis-rubio-back-end-engineer/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../luis-rubio-back-end-engineer/" class="btn btn-xs btn-link">
+        Luis Rubio, Back End Engineer
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-setup-ens-address/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-setup-ens-address/" class="btn btn-xs btn-link">
+        How to setup ENS address
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/what-could-blockchains-offer-to-freelancers.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

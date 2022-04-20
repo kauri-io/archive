@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/truffle--adding-a-frontend-with-react-box/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Truffle  Adding a frontend with react box - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Truffle  Adding a frontend with react box", url: "#_top", children: [
+              {title: "Truffle Box", url: "#truffle-box" },
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Unboxing Truffle React", url: "#unboxing-truffle-react" },
+              {title: "Setup Project For Our Bounties dApp", url: "#setup-project-for-our-bounties-dapp" },
+              {title: "Issuing a Bounty", url: "#issuing-a-bounty" },
+              {title: "Deploy", url: "#deploy" },
+              {title: "Metamask", url: "#metamask" },
+              {title: "Subscribing to events", url: "#subscribing-to-events" },
+              {title: "Try it yourself", url: "#try-it-yourself" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="truffle-adding-a-frontend-with-react-box">Truffle  Adding a frontend with react box<a class="headerlink" href="#truffle-adding-a-frontend-with-react-box" title="Permanent link"></a></h1>
+<p>Earlier in the series, we took a look at how to setup Truffle and use it to compile, deploy and interact with our Bounties.sol smart contract.</p>
+<p>This article will walk through the steps required to add a simple react.js front end to our Bounties dApp so that users can interact with our smart contract using their web browser.</p>
+<p><a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-react-box-frontend">Source code for this tutorial can be found here.</a></p>
+<h3 id="truffle-box">Truffle Box<a class="headerlink" href="#truffle-box" title="Permanent link"></a></h3>
+<p>Truffle boxes are helpful boilerplate code, pre-configured to help you get up and running quickly developing your dApp.</p>
+<p>In this article, we'll be using the [react box] (https://github.com/truffle-box/react-box) which is essentially an example truffle project which has been merged with an ejected [create react app] (https://reactjs.org/docs/create-a-new-react-app.html) to create a barebones solidity and react example dApp.</p>
+<p>There are also other truffle boxes with boilerplate for other front-end frameworks such as:</p>
+<ul>
+<li>[Angular.js] (https://github.com/Quintor/angular-truffle-box)</li>
+<li>[Vue.js] (https://github.com/blockchangers/eth-truffle-vue)</li>
+</ul>
+<p>You can <a href="https://truffleframework.com/boxes">read more about truffle boxes here.</a></p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<p><strong>NODEJS 11.0+</strong></p>
+<p><strong>TRUFFLE</strong></p>
+<pre><code>$ npm install -g truffle
+</code></pre>
+<p>[Read more on installing truffle here] (https://truffleframework.com/docs/truffle/getting-started/installation).</p>
+<p><strong>Development Blockchain: Ganache-CLI</strong></p>
+<p>In order to deploy our smart contract, we’re going to need an Ethereum environment to deploy to. For this, we will use Ganache-CLI to run a local development environment</p>
+<p>NOTE: If you have a windows machine you will need to install the windows developer tools first</p>
+<pre><code>npm install -g windows-build-tools
+</code></pre>
+<pre><code>$ npm install -g ganache-cli
+</code></pre>
+<p><strong>Metamask compatible web browser</strong></p>
+<p>Chrome or Firefox</p>
+<h3 id="unboxing-truffle-react">Unboxing Truffle React<a class="headerlink" href="#unboxing-truffle-react" title="Permanent link"></a></h3>
+<p>To use a truffle box, we simply run the truffle unbox command in an empty directory:</p>
+<pre><code>$ truffle unbox react
+
+Downloading...
+Unpacking...
+Setting up...
+Unbox successful. Sweet!
+
+Commands:
+
+  Compile:              truffle compile
+  Migrate:              truffle migrate
+  Test contracts:       truffle test
+  Test dapp:            cd client &amp;&amp; npm test
+  Run dev server:       cd client &amp;&amp; npm run start
+  Build for production: cd client &amp;&amp; npm run build
+</code></pre>
+<p>This creates a new truffle project with an example SimpleStorage dApp example:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTUZDeNyDqWXFCP6GZoi4jW1hSVaXmFVQ2rk5GVvKzyUb" /></p>
+<ul>
+<li><strong>client/</strong>: Files for react app</li>
+<li><strong>client/public/</strong>: store static web files</li>
+<li><strong>client/src/</strong>: source files for react app</li>
+<li><strong>contracts/</strong>: store original codes of the smart contract. We will place our Bounties.sol file here.</li>
+<li><strong>migrations/</strong>: instructions for deploying the smart contract(s) in the “contracts” folder.</li>
+<li><strong>test/</strong>: tests for your smart contract(s), truffle supports tests written in both Javascript and Solidity, well learn about writing tests in the next article</li>
+<li><strong>truffle.js</strong>: configuration file.</li>
+<li><strong>truffle-config.js</strong>: configuration document for windows user.</li>
+</ul>
+<p>To test everything is working we'll need to update the truffle.js file so that we can deploy the contract and test the dApp.</p>
+<p><em>Note For Windows Users: The </em><em>truffle.js</em><em> configuration file will not appear. Whenever </em><em>truffle.js</em><em> is updated in the tutorial, apply it to the </em><em>truffle-config.js</em>* file instead. </p>
+<p>Add the following extract to the truffle.js file inside the module.exports section to configure our local development environment:</p>
+<pre><code>networks: {
+    development: {
+      network_id: &quot;*&quot;,
+      host: 'localhost',
+      port: 8545
+    }
+}
+</code></pre>
+<p>Your truffle.js file should look like this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNXLHM7cV4r7unU5CVKdKMVLFdExXiVHeSqi6nBMiS9H7" /></p>
+<p>Note: Make sure you add the comma after <code>contracts_build_directory: path.join(_dirname, "client/src/contracts"),</code></p>
+<p>In a separate terminal start ganache-cli:</p>
+<pre><code>$ ganache-cli
+
+Ganache CLI v6.1.3 (ganache-core: 2.1.2)
+
+Available Accounts
+==================
+(0) 0xf76f2626937df45f5bd615872f33add8f4ca5d5d
+(1) 0xc4aae7e1d25963a454211b42f0ab7542dcc1abb8
+(2) 0x20f23b739cc9133fd6f9aa068ad5f75e37e83e3b
+(3) 0xba3bfdf6628ee4ff163df572faffbad86e7c605c
+(4) 0x5b9751043a0d203b618dc8252ededba673362f82
+(5) 0xb3ab7896997057dd040fc3a8b6bc9bf60b3f5cc0
+(6) 0x8beb7b2bdb96cea4f789eff5182b7c4c64b2ea50
+(7) 0x211ee29584f25256f303463b776ede6088f5dccf
+(8) 0x49f2849f418643ccac8fdb27ce45de9070ac5cec
+(9) 0x28814e158cf5596df78c32951809e0ffccd11030
+
+Private Keys
+==================
+(0) e4c690778581c79e845981226507e8fd0d2852d76ae1825faec81c578f70d988
+(1) b682d5638d969babcdad976ef87a22cb4e66bbb834dd3e9c71ed476bc12c8654
+(2) fd6338cbf1b75394441680c50923e233d73c753afb7659516810a8ae38f948a5
+(3) 3704987017ed0a08bf4942e34001ec162da909976e338a3dc47cc8becda991f3
+(4) 2ba1e9af08641d85097f2c8e273c8df5648264d6bcd2d55fd2d3a188c875d224
+(5) 2da1d96d0600c5c2cce7adf1d2851c343f1fbdce214493127fcf09a3d73d90e8
+(6) e925893f93f25d4754dbfddb03a935dae9bdb966adecb3bd4bac05ba5bcf3117
+(7) 9bc897b1775c9ea4d8fe57bbb0e42aa6bbf9da43de7ee73b1f3cb6948c3a5df3
+(8) 1232ca9fa7bae16f4dbf225a220fcf9a4eae6e42dc933b212aa78c7f004d0c38
+(9) 020c5813080277bae9e7717e849ba2647a703a27a72253d77a25457b966f7127
+
+HD Wallet
+==================
+Mnemonic:      cupboard spawn carpet person shield knee orange neglect plunge onion acid say
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
+
+Listening on localhost:8545
+</code></pre>
+<p>Now back in truffle, we will need to first deploy the SimpleStorage.sol smart contract by running<code>truffle migrate</code></p>
+<pre><code>Starting migrations...
+======================
+&gt; Network name:    'development'
+&gt; Network id:      1544519873574
+&gt; Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   &gt; transaction hash:    0xa51074cde5e3bd20b6d212eb7d4e3198d069e86841cf23e723f6aefc6879eca2
+   &gt; Blocks: 0            Seconds: 0
+   &gt; contract address:    0xB4b595863373a671823D302ef6aF229c0180556D
+   &gt; account:             0x8cd914820f523c9831822A33c40dEf68196cBd35
+   &gt; balance:             99.98500626
+   &gt; gas used:            283236
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.00566472 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.00566472 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Replacing 'SimpleStorage'
+   -------------------------
+   &gt; transaction hash:    0x8d6cbfa19002df4561b9cb7e9c75b61e694e5da7b80b5d28e923befd6c66746e
+   &gt; Blocks: 0            Seconds: 0
+   &gt; contract address:    0x58Ba32a8143Ac620151A2563D335f2292067E1fb
+   &gt; account:             0x8cd914820f523c9831822A33c40dEf68196cBd35
+   &gt; balance:             99.98188252
+   &gt; gas used:            114159
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.00228318 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.00228318 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.0079479 ETH
+</code></pre>
+<p>Then start the react application by running <code>cd client &amp;&amp; npm run start</code></p>
+<p>Note: The &amp;&amp; command may not be accessible to you, if it doesn't work then just do <code>cd client</code> and <code>npm run start</code> separately. </p>
+<pre><code>$ npm run start
+
+
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+</code></pre>
+<p>You should see the following when you visit <strong>http://localhost:3000</strong> in your browser:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ1ELwN6wTLte71W5h5Fkn374LXc5czNMpd7n9YkNiH4u" /></p>
+<p>Note: Right now this tutorial is assuming that you do not have Metamask installed. Thus if the stored value is 0 do not be alarmed. If you have Metamask installed: switch to the localhost network. You will see a transaction message pop up on the screen. If you reject the transaction you will see a 0 and if you accept it you will see a 5. Either way we will just continue on from this step. </p>
+<h3 id="setup-project-for-our-bounties-dapp">Setup Project For Our Bounties dApp<a class="headerlink" href="#setup-project-for-our-bounties-dapp" title="Permanent link"></a></h3>
+<p>Now that we have the example project up and running, we can now start adapting it for our bounties dApp, we'll need to complete the following steps:</p>
+<ol>
+<li>Install react-bootstrap dependancies we'll be using for our UI</li>
+<li>Replace the SimpleStorage.sol smart contract with our Bounties.sol smart contract</li>
+<li>Update the migrations configuration to deploy our Bounties.sol smart contract</li>
+<li>Update App.js with logic required to interact with our Bounties.sol smart contract</li>
+</ol>
+<p>So first, let's install our react-bootstrap dependancies:</p>
+<pre><code>cd client
+$ npm install react-bootstrap --save
+$ npm install bootstrap@3.3.7 --save
+$ npm install react-bootstrap-table --save
+</code></pre>
+<p>Note: You may have a warning of a vulnerability; just use <code>npm audit fix</code> as it suggests to fix the problem.</p>
+<p>Next, delete the contracts/SimpleStorage.sol file and replace it with the [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol) file we developed previously:</p>
+<p><strong>Note: You will also need to replace inside the Bounties.sol file anything that says SimpleStorage with Bounties.</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSjNJpDkMq4MFX7ucWFoXy6D5wpNikMU3Mm2AWvQwtwnb" /></p>
+<p>Next, update the migration file <code>2_deploy_contracts.js</code> to deploy our <code>Bounties.sol</code> smart contract:</p>
+<pre><code>var Bounties = artifacts.require(&quot;./Bounties.sol&quot;);
+
+module.exports = function(deployer) {
+  deployer.deploy(Bounties);
+};
+</code></pre>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSSC3fraVm6ou7CpEZFSBPa6W5P1ujijz53p1W3bmocn9" /></p>
+<p>Now we have everything set up, we can now start updating our main application logic within the <code>src/App.js</code> file.</p>
+<p><strong>NOTE: Usually with react.js we would structure our app with components and use a state management library such as redux, however for the purpose of this tutorial we will just be focusing on the web3 components required for this dApp.</strong></p>
+<p>So in order to interact with our Bounties.sol smart contract, our App.js file will need to import the ABI (Application Binary Interface) which will be generated by Truffle during compilation. Currently <code>src/App.js</code> is configured to import the SimpleStorage.json file, let's update this:</p>
+<p>From:</p>
+<pre><code>import React, { Component } from 'react'
+import SimpleStorageContract from &quot;./contracts/SimpleStorage.json&quot;
+import getWeb3 from './utils/getWeb3'
+</code></pre>
+<p>To:</p>
+<pre><code>import React, { Component } from 'react'
+import BountiesContract from './contracts/Bounties.json'
+import getWeb3 from './utils/getWeb3'
+</code></pre>
+<p>You will also notice that we are importing <code>getWeb3</code> which we need to instantiate a web3.js object that we can use to interact with an Ethereum node using Javascript. Let's take a look at this file:</p>
+<pre><code>import Web3 from &quot;web3&quot;;
+
+const getWeb3 = () =&gt;
+  new Promise((resolve, reject) =&gt; {
+    // Wait for loading completion to avoid race conditions with web3 injection timing.
+    window.addEventListener(&quot;load&quot;, async () =&gt; {
+      // Modern dapp browsers...
+      if (window.ethereum) {
+        const web3 = new Web3(window.ethereum);
+        try {
+          // Request account access if needed
+          await window.ethereum.enable();
+          // Acccounts now exposed
+          resolve(web3);
+        } catch (error) {
+          reject(error);
+        }
+      }
+      // Legacy dapp browsers...
+      else if (window.web3) {
+        // Use Mist/MetaMask's provider.
+        const web3 = window.web3;
+        console.log(&quot;Injected web3 detected.&quot;);
+        resolve(web3);
+      }
+      // Fallback to localhost; use dev console port by default...
+      else {
+        console.log(process.env.PUBLIC_URL)
+        const provider = new Web3.providers.HttpProvider(
+          &quot;http://127.0.0.1:9545&quot;
+        );
+        const web3 = new Web3(provider);
+        console.log(&quot;No web3 instance injected, using Local web3.&quot;);
+        resolve(web3);
+      }
+    });
+  });
+
+export default getWeb3;
+
+</code></pre>
+<p>The above extract returns a promise which when the window loads will check if a web3 provider has already been loaded by the browser:</p>
+<ul>
+<li>If so, it will return a web3 object with the current web3 provider</li>
+<li>If not, it will return a web3 object with a HttpProvider for a node located at http://127.0.0:9545</li>
+</ul>
+<p><strong>NOTE: Usually if we were to use our local development environment, our node would be running on port 8545 and not 9545. However, in this tutorial, we'll be running our app in the browser, and rely on the browser to supply us with our web3 object so no need to update this, thus please change 9545 to 8545.</strong></p>
+<h4 id="web3-provider">Web3 Provider<a class="headerlink" href="#web3-provider" title="Permanent link"></a></h4>
+<p>A Web3 Provider tells our web3.js instance which ethereum node to send our RPC instructions too.</p>
+<p>Our application will be running in the browser and so we need a way for users to sign transactions with their private key so that they can be sent to an ethereum node for processing.</p>
+<p>For this we'll need a way to manage a user private key(s), in the browser, without rolling our own wallet application.</p>
+<p>There are already services that handle this for you. The most popular of these is <strong>Metamask</strong>.</p>
+<p>Metamask injects their web3 provider into the browser in the global JavaScript object <code>web3</code>. So our <code>getWeb3</code> function above will return the Metamask web3 enabled provider when its loaded in a browser with Metamask installed. We'll install and setup Metamask later, when we are ready to test our app.</p>
+<p><strong>Component Did Mount</strong></p>
+<p>Let's take a look at the <code>componentDidMount()</code> function :</p>
+<pre><code>  componentDidMount = async () =&gt; {
+   try {
+     // Get network provider and web3 instance.
+     const web3 = await getWeb3();
+
+
+     // Use web3 to get the user's accounts.
+     const accounts = await web3.eth.getAccounts();
+
+     // Get the contract instance.
+     const networkId = await web3.eth.net.getId();
+         const deployedNetwork = BountiesContract.networks[networkId];
+         const instance = new web3.eth.Contract(
+           BountiesContract.abi,
+           deployedNetwork &amp;&amp; deployedNetwork.address,
+         );
+
+     // Set web3, accounts, and contract to the state, and then proceed with an
+     // example of interacting with the contract's methods.
+     this.setState({ bountiesInstance: instance, web3: web3, account: accounts[0]})
+
+   } catch (error) {
+     // Catch any errors for any of the above operations.
+     alert(
+       `Failed to load web3, accounts, or contract. Check console for details.`
+     );
+     console.log(error);
+   }
+ };
+
+</code></pre>
+<p><code>componentDidMount()</code> is a react lifecycle method which is called just after the component is mounted  we use this react lifecycle event to initiate our web3 instance by calling <code>getWeb3</code> and also instantiating our contract instance object. This ensures our contract instance and web3 objects are ready for when our application renders.</p>
+<p><strong>Instantiate Contract</strong></p>
+<p>First we use our <code>web3</code> object to get the list of available accounts, we will need this to send transaction from the list of available accounts.</p>
+<pre><code> const accounts = await web3.eth.getAccounts();
+</code></pre>
+<p>To get the contract instance we use the following code:</p>
+<pre><code>const networkId = await web3.eth.net.getId();
+const deployedNetwork = BountiesContract.networks[networkId];
+const instance = new web3.eth.Contract(
+   BountiesContract.abi,
+   deployedNetwork &amp;&amp; deployedNetwork.address,
+);
+</code></pre>
+<p>As well we add in the following to set up web3, accounts, and contract to the state.</p>
+<pre><code>this.setState({ bountiesInstance: instance, web3: web3, account: accounts[0]})
+this.addEventListener(this)
+</code></pre>
+<p>Since we're adding a new state variable <code>bountiesInstance</code> we need to update our constructor to define the initial value of this state variable, we can also remove the storageValue variable since we won't be using it.</p>
+<pre><code>constructor(props) {
+super(props)
+
+    this.state = {
+      bountiesInstance: undefined,
+      account: null,
+      web3: null
+    }
+}
+</code></pre>
+<p>Your constructor should now look like the following:</p>
+<pre><code>class App extends Component {
+constructor(props) {
+    super(props)
+
+    this.state = {
+      bountiesInstance: undefined,
+      account: null,
+      web3: null
+    }
+}
+
+</code></pre>
+<p><strong>Note: Remove the runExample function underneath componentDidMount. We will not be using it.</strong></p>
+<h3 id="issuing-a-bounty">Issuing a Bounty<a class="headerlink" href="#issuing-a-bounty" title="Permanent link"></a></h3>
+<p>Great, now we have everything setup so when the application renders we will have a <code>web3</code> instance using the <code>metamask</code> provider to sign transactions and send them to an ethereum network. We also have a <code>bountiesInstance</code> web3 object which is configured to interact with our deployed Bounties.sol smart contract on the same ethereum network.</p>
+<p>We're now ready to issue a bounty, for this we'll need to render a form which will allow the user to:</p>
+<ul>
+<li>Specify some requirements as a text</li>
+<li>Set the bounty amount in ETH</li>
+<li>Input a deadline in epoch seconds</li>
+<li>A button to submit the data to our smart contract</li>
+<li>We'll also add a link so that the user can track the progress of their submitted transaction on etherscan</li>
+</ul>
+<p>We'll update the <code>render()</code> react lifecycle method to display our form to the user:</p>
+<pre><code>render() {
+if (!this.state.web3) {
+      return &lt;div&gt;Loading Web3, accounts, and contract...&lt;/div&gt;;
+    }
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+              &lt;Grid&gt;
+              &lt;Row&gt;
+              &lt;a href={this.state.etherscanLink} target=&quot;_blank&quot;&gt;Last Transaction Details&lt;/a&gt;
+              &lt;/Row&gt;
+              &lt;Row&gt;
+              &lt;Panel&gt;
+              &lt;Panel.Heading&gt;Issue Bounty&lt;/Panel.Heading&gt;
+              &lt;Form onSubmit={this.handleIssueBounty}&gt;
+                  &lt;FormGroup
+                    controlId=&quot;fromCreateBounty&quot;
+                  &gt;
+                    &lt;FormControl
+                      componentClass=&quot;textarea&quot;
+                      name=&quot;bountyData&quot;
+                      value={this.state.bountyData}
+                      placeholder=&quot;Enter bounty details&quot;
+                      onChange={this.handleChange}
+                    /&gt;
+                    &lt;HelpBlock&gt;Enter bounty data&lt;/HelpBlock&gt;&lt;br/&gt;
+
+                &lt;FormControl
+                      type=&quot;text&quot;
+                      name=&quot;bountyDeadline&quot;
+                      value={this.state.bountyDeadline}
+                      placeholder=&quot;Enter bounty deadline&quot;
+                      onChange={this.handleChange}
+                    /&gt;
+                    &lt;HelpBlock&gt;Enter bounty deadline in seconds since epoch&lt;/HelpBlock&gt;&lt;br/&gt;
+
+                &lt;FormControl
+                      type=&quot;text&quot;
+                      name=&quot;bountyAmount&quot;
+                      value={this.state.bountyAmount}
+                      placeholder=&quot;Enter bounty amount&quot;
+                      onChange={this.handleChange}
+                    /&gt;
+                    &lt;HelpBlock&gt;Enter bounty amount&lt;/HelpBlock&gt;&lt;br/&gt;
+                    &lt;Button type=&quot;submit&quot;&gt;Issue Bounty&lt;/Button&gt;
+                  &lt;/FormGroup&gt;
+              &lt;/Form&gt;
+              &lt;/Panel&gt;
+              &lt;/Row&gt;
+              &lt;/Grid&gt;
+            &lt;/div&gt;
+    );
+}
+</code></pre>
+<p>Above we render the following components:</p>
+<p><strong>Etherscan link</strong></p>
+<p>A hyperlink whose href attribute is controlled by the state variable <code>etherscanLink</code></p>
+<p><strong>Form Create Bounty</strong></p>
+<p>A form where the submit button is handled by the function <code>handleIssueBounty</code></p>
+<p><strong>Bounty Data Text Area</strong></p>
+<p>A text area field whose value is controlled by the state variable bountyData and its onChange callback is handled by the function <code>handleChange</code></p>
+<p><strong>Bounty Deadline Input Field</strong></p>
+<p>A text input field whose value is controlled by the state variable bountyDeadline  and its onChange callback is handled by the function <code>handleChange</code></p>
+<p><strong>Bounty amount input field</strong></p>
+<p>A text input field whose value is controlled by the state variable bountyAmount  and its onChange callback is handled by the function <code>handleChange</code></p>
+<p><strong>Handle Change</strong></p>
+<p>We need to add the callback <code>handleChange</code> to update our form input data as it is updated by the user, add the function <code>handleChange</code> to App.js as follows:</p>
+<pre><code>// Handle form data change
+
+handleChange(event)
+{
+    switch(event.target.name) {
+        case &quot;bountyData&quot;:
+            this.setState({&quot;bountyData&quot;: event.target.value})
+            break;
+        case &quot;bountyDeadline&quot;:
+            this.setState({&quot;bountyDeadline&quot;: event.target.value})
+            break;
+        case &quot;bountyAmount&quot;:
+            this.setState({&quot;bountyAmount&quot;: event.target.value})
+            break;
+        default:
+            break;
+    }
+}
+</code></pre>
+<p>This function simply checks which input object was updated, and then updates the value in our component state.</p>
+<p><strong>Handle Issue Bounty</strong></p>
+<p>We add the <code>issueBounty</code> callback to handle the event which happens when the user submits the form. This function should take the current form input values from the component state, and use the bountiesInstance object to construct and send an issueBounty transaction with the form inputs as arguments.</p>
+<pre><code>// Handle form submit
+
+async handleIssueBounty(event)
+    {
+      if (typeof this.state.bountiesInstance !== 'undefined') {
+        event.preventDefault();
+    let result = await this.state.bountiesInstance.methods.issueBounty(this.state.bountyData,this.state.bountyDeadline).send({from: this.state.account, value: this.state.web3.utils.toWei(this.state.bountyAmount, 'ether')})
+        this.setLastTransactionDetails(result)
+      }
+    }
+</code></pre>
+<p>A note on our transaction parameters <code>from</code> and <code>value</code>. Earlier in the series we learned:</p>
+<ul>
+<li>from: should be set to the address of the bounty issuer (or user sending the transaction)</li>
+<li>value: should be set to the amount of ETH to send to the contract in Weis</li>
+</ul>
+<p>Since we are using Metamask we can set the <code>from</code> field to <code>this.state.account</code> since metamask updates this to the currently selected account, every time the user changes the account in the UI.</p>
+<p>A wei is the smallest sub-unit of Ether — there are 10^18 <code>wei</code> in one ether. We can use web3 to convert our amount in ETH to weis before we send it in our transaction: <code>this.state.web3.utils.toWei(this.state.bountyAmount, 'ether')</code></p>
+<p><strong>Set Transaction Details</strong></p>
+<p>The function <code>setLastTransactionDetails</code> simply take the result of the transaction and updates the current etherscan link so the user is able to view the transaction in etherscan:</p>
+<pre><code>setLastTransactionDetails(result)
+    {
+    if(result.tx !== 'undefined')
+    {
+      this.setState({etherscanLink: etherscanBaseUrl+&quot;/tx/&quot;+result.tx})
+    }
+    else
+    {
+      this.setState({etherscanLink: etherscanBaseUrl})
+    }
+}
+</code></pre>
+<p>We'll need to also add a const etherscanBaseUrl which should be equal to the etherscan url of the environment we'll be deplying to rinkeby</p>
+<pre><code>const etherscanBaseUrl = &quot;https://rinkeby.etherscan.io&quot;
+</code></pre>
+<p><strong>Update Constructor</strong></p>
+<p>Since we're adding new state variables <code>etherscanLink, bountyData, bountyDeadline, and bountyAmount</code> we need to update our constructor to define the initial values of these state variables.</p>
+<p>We also need to bind our <code>handleIssueBounty</code> and <code>handleChange</code> callbacks to our component.</p>
+<pre><code>constructor(props) {
+    super(props)
+
+    this.state = {
+      storageValue: 0,
+      bountiesInstance: undefined,
+      bountyAmount: undefined,
+      bountyData: undefined,
+      bountyDeadline: undefined,
+      etherscanLink: &quot;https://rinkeby.etherscan.io&quot;,
+      account: null,
+      web3: null
+    }
+
+    this.handleIssueBounty = this.handleIssueBounty.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+}
+</code></pre>
+<p>Since we're using <code>react-boostrap</code> components for our input form we'll need to import the react-bootstrap components by adding this line to our imports section:</p>
+<pre><code>import Button from 'react-bootstrap/lib/Button';
+import Form from 'react-bootstrap/lib/Form';
+import FormGroup from 'react-bootstrap/lib/FormGroup';
+import FormControl from 'react-bootstrap/lib/FormControl';
+import HelpBlock from 'react-bootstrap/lib/HelpBlock';
+import Grid from 'react-bootstrap/lib/Grid';
+import Row from 'react-bootstrap/lib/Row';
+import Panel from 'react-bootstrap/lib/Panel';
+</code></pre>
+<p>Also add the bootstrap css to the <code>client/public/index.html</code> file</p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;
+</code></pre>
+<p>Our <code>App.js</code> file should now [look like this] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-react-box-frontend/client/src/App-noEvents.js).</p>
+<h3 id="deploy">Deploy<a class="headerlink" href="#deploy" title="Permanent link"></a></h3>
+<p>We'll be deploying our bounties dApp to a public test network using Infura so lets ensure we have that setup first:</p>
+<p><strong>Infura</strong></p>
+<p>In order to send transactions to a public network, you need access to a network node. Infura is a public hosted Ethereum node cluster, which provides access to its nodes via an API</p>
+<p><a href="https://infura.io/">https://infura.io</a></p>
+<p>If you do not already have an Infura account, the first thing you need to do is [register for an account] (https://infura.io/register).</p>
+<p>Once logged in, create a new project to generate an API key, this allows you to track the usage of each individual dApp you deploy.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYMAmUQavX3Dkzj9CUWonGRzTj7JEZZbpfNtJNs9pDiL8" /></p>
+<p>Once your project is created, select the environment we will be deploying to, in this case <strong>Rinkeby</strong>, from the <strong>Endpoint</strong> drop down and copy the endpoint URL for future reference:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdkpNG8CAJnFjRZcC616JY1CXDFoWMQiRREdyryRBkX6p" /></p>
+<p>Make sure you save this token and keep it private!</p>
+<p><strong>HDWallet Provider</strong></p>
+<p>Infura, for security reasons, does not manage your private keys.We need to add the Truffle HDWallet Provider so that Truffle can sign deployment transactions before sending them to an Infura node.</p>
+<p><a href="https://github.com/trufflesuite/truffle-hdwallet-provider">https://github.com/trufflesuite/truffle-hdwallet-provider</a></p>
+<p>We can install the HDWallet Priovider via npm</p>
+<p><strong>Note: Do not install the wallet inside of the client folder, it should be with all your other project dependencies.</strong></p>
+<pre><code>npm install truffle-hdwallet-provider@web3-one --save
+</code></pre>
+<p><strong>Generate Mnemonic</strong></p>
+<p>To configure the HDWallet Provider we need to provide a mnemonic which generates the account to be used for deployment.</p>
+<p>If you already have a mnemonic, feel free to skip this part.</p>
+<p>You can generate a mnemonic using an <a href="https://iancoleman.io/bip39/">online mnemonic generator</a>.</p>
+<p><a href="https://iancoleman.io/bip39/">https://iancoleman.io/bip39</a></p>
+<p>In the BIP39 Mnemonic code form:</p>
+<ol>
+<li>Select “ETH — Ethereum” from the “Coin” drop down</li>
+<li>Select a minimum of “12” words</li>
+<li>Click the “Generate” button to generate the mnemonic</li>
+<li>Copy and save the mnemonic located in the field “BIP39”, <strong>remember to keep this private as it is the seed that can generate and derive the private keys to your ETH accounts</strong></li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmc1DM8UoVLFaBaYb5Yo27kSgWhD52xgiGKune1NybZYNg" /></p>
+<ol>
+<li>Scroll down the page to the <em>Derived Addresses</em> section and copy and save the <em>Address</em> this will be your Ethereum deployment account.</li>
+</ol>
+<p><strong>NOTE: Your private key will be displayed here, please keep this private.</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmd7EKVWCuC7rRWGJeVf2RBtptSbjjgZ6Dmkqw8GQyEmd7" /></p>
+<p>Above the address we’ll be using is: <strong>0x56fB94c8C667D7F612C0eC19616C39F3A50C3435</strong></p>
+<p><strong>Configure Truffle</strong></p>
+<p>Now we have all the pieces set up, we need to configure truffle to use the HDWallet Provider to deploy to the <strong>Rinkeby</strong> environment. To do this we will need to edit the <code>truffle.js</code> configuration file.</p>
+<p>First let's create a <code>secrets.json</code> file, this file will store your mnemonic and Infura API key so that it can be loaded by the hdwallet provider.</p>
+<p><strong>NOTE: Remember not to check this file into any public repository!</strong></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQ2dyEGmqJXV3epH8yrfqpDcNKYU8FzXYqHrFcq6vcE23" /></p>
+<p>Next, copy the following extract to the <code>truffle.js</code> configuration file:</p>
+<pre><code>const path = require(&quot;path&quot;);
+const HDWalletProvider = require('truffle-hdwallet-provider');
+const fs = require('fs');
+
+let secrets;
+
+if (fs.existsSync('secrets.json')) {
+ secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'));
+}
+
+
+module.exports = {
+  // See &lt;http://truffleframework.com/docs/advanced/configuration&gt;
+  // to customize your Truffle configuration!
+  contracts_build_directory: path.join(__dirname, &quot;client/src/contracts&quot;),
+
+  networks: {
+    development: {
+      network_id: &quot;*&quot;,
+      host: 'localhost',
+      port: 8545
+    },
+    rinkeby: {
+      provider: new HDWalletProvider(secrets.mnemonic, &quot;https://rinkeby.infura.io/v3/&quot;+secrets.infuraApiKey),
+      network_id: '4'
+    }
+  }
+};
+</code></pre>
+<p>The above as we [discussed earlier in the series] (https://beta.kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/v2/truffle:-smart-contract-compilation-and-deployment#configuretruffleforrinkeby), configures truffle to deploy to an environment, rinkeby, using our mnemonic to derive the deployment private key and Infura as the deployment node.</p>
+<h4 id="fund-your-account">Fund Your Account<a class="headerlink" href="#fund-your-account" title="Permanent link"></a></h4>
+<p>Note: Using the faucet to fund your account; you have to wait the required amount of time before you can receive more test ether.</p>
+<p>We’re almost ready to deploy! However we need to make sure we have enough funds in our account to complete the transaction. We can fund our <strong>Rinkeby</strong> test account using the [<strong>Rinkeby</strong> ETH faucet] (https://faucet.rinkeby.io/):</p>
+<p>To request ETH from the faucet we need to complete the following steps:</p>
+<ol>
+<li>
+<p>Post publicly our Ethereum deployment address from one of the following social network accounts: Twitter, Google+or Facebook, in this example we’ll be using Twitter</p>
+</li>
+<li>
+<p>Copy the link to the social media post</p>
+</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNbxv36FC2VPufEiD5dT44QEem4f8oH6RvA3rXAUfwWiy" /></p>
+<ol>
+<li>Paste the link into the [<em>Rinkeby</em> ETH faucet] (https://faucet.rinkeby.io/) and select the amount of ETH to be sent</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qme6jfEALdVa9TeyN3dTp4toRqajhKszTHHgmoup3326QK" /></p>
+<ol>
+<li>Check the Rinkeby etherscan for the status of the transaction</li>
+</ol>
+<p>[https://rinkeby.etherscan.io/address/<YOUR ETHEREUM DEPLOYMENT ADDRESS>] (https://rinkeby.etherscan.io/address/0x56fB94c8C667D7F612C0eC19616C39F3A50C3435)</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSXhyga6tHcjjwascZcuWknrVL12CGRyeFpmtaEmXmWj6" /></p>
+<p><strong>Deploy</strong></p>
+<p>To deploy simply run the <code>truffle migrate</code> command whilst specifying the network to deploy to. The networks are defined in the truffle.js configuration file we configured earlier in this article:</p>
+<pre><code>$ truffle migrate --network rinkeby
+Compiling ./contracts/Bounties.sol...
+Writing artifacts to ./build/contracts
+
+Using network 'rinkeby'.
+
+Starting migrations...
+======================
+&gt; Network name:    'rinkeby'
+&gt; Network id:      4
+&gt; Block gas limit: 7105656
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   &gt; transaction hash:    0xba390351b8d7566a10a67609abe99d74f09cd0d3e411ea34c4b83ef8b0ce8577
+   &gt; Blocks: 0            Seconds: 4
+   &gt; contract address:    0x6708787E11F733e9C4050440e1BFecd52Fc2Ca05
+   &gt; account:             0x56fB94c8C667D7F612C0eC19616C39F3A50C3435
+   &gt; balance:             18.405151424
+   &gt; gas used:            283236
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.00566472 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.00566472 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'Bounties'
+   --------------------
+   &gt; transaction hash:    0x7f02d193c04538acf2466b2e0a32b5b9c2cec6caebb1a82862a6b7dbbecf9a3d
+   &gt; Blocks: 0            Seconds: 12
+   &gt; contract address:    0xF2685CaB92e3Fb3dfEbf15A2674c1172dD2Ac5D2
+   &gt; account:             0x56fB94c8C667D7F612C0eC19616C39F3A50C3435
+   &gt; balance:             18.380009024
+   &gt; gas used:            1215092
+   &gt; gas price:           20 gwei
+   &gt; value sent:          0 ETH
+   &gt; total cost:          0.02430184 ETH
+
+
+   &gt; Saving migration to chain.
+   &gt; Saving artifacts
+   -------------------------------------
+   &gt; Total cost:          0.02430184 ETH
+
+
+Summary
+=======
+&gt; Total deployments:   2
+&gt; Final cost:          0.02996656 ETH
+</code></pre>
+<p><strong>Note: Please install Any Promise &amp; Bindings to ensure there are no errors later on in the project.</strong></p>
+<p><code>npm install mz</code></p>
+<p><code>npm install bindings</code></p>
+<h3 id="metamask">Metamask<a class="headerlink" href="#metamask" title="Permanent link"></a></h3>
+<p>Before we can launch our dApp, we need to ensure we have Metamask enabled in our browser.</p>
+<p>Metamask is a browser extension for Chrome and Firefox that lets users manage their Ethereum accounts and private keys, and provides an interface which users can use to interact with web applications which have web3 enabled.</p>
+<p>Once installed in the browser, a user can interact with any browser dApp (website which has web3 enabled).</p>
+<p>You can [read more about Metamask here] (https://metamask.io/).</p>
+<p>Install Metamask</p>
+<ul>
+<li>Visit <a href="https://metamask.io">https://metamask.io</a></li>
+<li>Select the option to install the extension in your browser, this should take you to the browser extension store</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmb9oQNLHRhX9VYhRxjWG2bJEHGFspCTcByFPtPf8E27PL" /></p>
+<ul>
+<li>In the store, select the option to add the extension to the browser</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeVJnN8xtTWha25crJSj95QwAsPaZdzJMdsQKTnjMAdC2" /></p>
+<ul>
+<li>Accept the permissions to install the Metamask extension</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUZLuuVz9WbAe5YcrBA4cECQmqtDDXhswoYcpU3bZwDwJ" /></p>
+<ul>
+<li>Once installed, open the extension in the browser extension tab and you will be prompted to create an account, if you already have an account you can import it here using your seed phrase</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPCcMzmwZZ8oPZBJWef9hinUgaNR9zxj7VNqmFYCSNCKr" /></p>
+<ul>
+<li>
+<p>Whilst creating your account, Metamask will take you through accepting terms and conditions and then will prompt you to save your seed phrase and force you to re-enter it to sure you remember it</p>
+</li>
+<li>
+<p>Your seed phrase is essentially the mnemonic which generates your accounts public/private key pair. Be sure to keep this safe as its the only way to recover you Metamask account if you forget your password or need to import your account because you updated your browser or bought a new laptop</p>
+</li>
+<li>
+<p>Once done you'll be logged into Metamask with Metamask point at the Ethereum mainnet, so let's ensure we switch the environment to rinkbey test net before we begin</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSx5Mgm1SbHSjdztdkFxVwmpk6CQ7pQqLYnwXJzHvcenf" /></p>
+<p><strong>Fund Account</strong></p>
+<p>Note: Using the faucet to fund your account; you have to wait the required amount of time before you can receive more test ether.</p>
+<p>So now we have a new account set up in Metamask we'll want to fund it! We can do this by using the [rinkeby faucet] (https://faucet.rinkeby.io/)we used earlier in the tutorial.</p>
+<p>We just need to copy our accounts address to send ETH to which we can find in Metamask here:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQGi7gxC5DMvekV3mzrrKcjcBH3mLVzmpHetYSK3FFsiz" /></p>
+<p><strong>Run the app!</strong></p>
+<p>Right we're now ready to run the app:</p>
+<pre><code>$ npm run start
+
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:3000/
+</code></pre>
+<p>Note that the development build is not optimized.
+To create a production build, use npm run build.</p>
+<p>Our dApp will be available at <strong>http://localhost:3000</strong> and should look like this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeMTzTSgCMRFMjtBA36ZWZSZkQuzkK51HtsUAkdWny5cg" /></p>
+<p><strong>Issue a bounty</strong></p>
+<p>Right so if all is working we should be able to issue a bounty by filling out the details in this form and submitting via the <code>issue Bounty</code> button.</p>
+<p>Let's submit the following data:</p>
+<ul>
+<li>Bounty details: “Some requirements to receive 1 ETH”</li>
+<li>Bounty deadline: 1691452800 - (August 8th 2023)</li>
+<li>Bounty amount: 1 (Remember our app will covert this to weis before sending)</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYS72i51Q9q7rzgvfo24VYaA1mpfwx5iaUqG7yaqi6eNm" /></p>
+<p>When you hit the “issue Bounty” button you should expect to see a Metamask popup similar to above. This is a transaction confirmation screen, you have the option to:</p>
+<ul>
+<li><strong>Cancel</strong> the transaction (you do not want to proceed with issuing the bounty)</li>
+<li><strong>Confirm</strong> the transaction (Metamask will sign the transaction with your private key and send it to a node in the ethereum network via Infura)</li>
+<li>You can see we are sending 1 ETH or $270.75 at the time of writing this article</li>
+<li>You also have options to set the gas fee, which can affect how long the transaction will take to confirm</li>
+</ul>
+<p>Awesome, we're now able to issue a bounty in the frontend, however, once the transaction is confirmed, our UI has absolutely no idea. The saving grace is that Metamask will inform the user. However, we still need to show the user the details of the bounty was correctly added. Similarly, other users need to be able to see which bounties are currently available to fulfil!</p>
+<h3 id="subscribing-to-events">Subscribing to events<a class="headerlink" href="#subscribing-to-events" title="Permanent link"></a></h3>
+<p>To keep users updated, we're going to add a table which will display all the bounties which have been created.</p>
+<p>Add the following extract to our render lifecycle in App.js:</p>
+<pre><code>&lt;Row&gt;
+&lt;Panel&gt;
+&lt;Panel.Heading&gt;Issued Bounties&lt;/Panel.Heading&gt;
+&lt;BootstrapTable data={this.state.bounties} striped hover&gt;
+  &lt;TableHeaderColumn isKey dataField='bounty_id'&gt;ID&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='issuer'&gt;Issuer&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='amount'&gt;Amount&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='data'&gt;Bounty Data&lt;/TableHeaderColumn&gt;
+&lt;/BootstrapTable&gt;
+&lt;/Panel&gt;
+&lt;/Row&gt;
+</code></pre>
+<p>The above defines a table which uses the component state variable bounties which would be an array of json objects with the following dataFields to be displayed:</p>
+<ul>
+<li>bonuty_id</li>
+<li>issuer</li>
+<li>amount</li>
+<li>data</li>
+</ul>
+<p>Earlier in the series when developing our smart contract we defined a <code>BountyIssued</code> event which emitted the dataFields in question:</p>
+<pre><code>event BountyIssued(uint bounty_id, address issuer, uint amount, string data);
+</code></pre>
+<p>This event is emitted every time a new bounty is created in our <code>issueBounty</code> function:</p>
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data, BountyStatus.CREATED, msg.value));
+emit BountyIssued(bounties.length - 1,msg.sender, msg.value, _data);
+return (bounties.length - 1);
+</code></pre>
+<p>Using web3.js we can subscribe to these events in our web app and use this to populate our bounties array.</p>
+<p><strong>Add Event Listener</strong></p>
+<p>To subscribe to events we'll add a new function to <code>App.js</code> named <code>addEventListener</code>:</p>
+<pre><code>    addEventListener(component) {
+
+    this.state.bountiesInstance.events.BountyIssued({fromBlock: 0, toBlock: 'latest'})
+    .on('data', function(event){
+      console.log(event); // same results as the optional callback above
+      var newBountiesArray = component.state.bounties.slice()
+      newBountiesArray.push(event.returnValues)
+      component.setState({ bounties: newBountiesArray })
+    })
+    .on('error', console.error);
+  }
+</code></pre>
+<p>The addEventListener method does the following:</p>
+<ul>
+<li>Setting up a web3.js events object which will subscribe <code>BountyIssued</code> events from block 0 (the beginning of blockchain) to the latest</li>
+<li>Next, we use the <code>.on</code> callback which we'll use to process each event we receive</li>
+<li>When we receive an event we simply copy the current <code>bounties</code> array and push the event args into it and set that as our new <code>bounties</code> state. </li>
+</ul>
+<p>A few more things, in our <code>componentDidMount</code> function we'll add a line at the end to start out events listener:</p>
+<pre><code>this.addEventListener(this)
+</code></pre>
+<p>The above should be placed underneath the following line in componentDidMount :</p>
+<p><code>this.setState({ bountiesInstance: instance, web3: web3, account: accounts[0]})</code></p>
+<p>Since we added a new state variable <code>bounties</code> we'll need to update our initial state in our constructor:</p>
+<pre><code>storageValue: 0,
+bountiesInstance: undefined,
+bountyAmount: undefined,
+bountyData: undefined,
+bountyDeadline: undefined,
+etherscanLink: &quot;https://rinkeby.etherscan.io&quot;,
+bounties: [],
+account: null,
+web3: null
+</code></pre>
+<p>Our table is also using some <code>react-bootstrap-table</code> components so we'll need to import those and also import the react-boostrap-table css.</p>
+<pre><code>import BootstrapTable from 'react-bootstrap-table/lib/BootstrapTable';
+import TableHeaderColumn from 'react-bootstrap-table/lib/TableHeaderColumn';
+
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+</code></pre>
+<p>Your App.js file should now [look like this] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-react-box-frontend/client/src/App-withEvents.js).</p>
+<p>We're now ready to relaunch our app, actually since its hot loading we shouldn't have to. Your app should now look like this in the browser:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmacomLt3mKrJCg2LZHUncEoyhNnKjucdXk1hsVfagPbJv" /></p>
+<p>Awesome, that's it! Now when you issue a bounty, the details of the bounty will be available in the table once the transaction has been processed. </p>
+<h4 id="data-storage-with-ipfs">Data Storage With IPFS<a class="headerlink" href="#data-storage-with-ipfs" title="Permanent link"></a></h4>
+<p><strong>IPFS</strong></p>
+<p>Earlier in the series, we briefly introduced IPFS. To recap IPFS (InterPlanetary File System) is a peer to peer protocol for distributing files. Think of it as a filesystem using the ideas behind <strong>BitTorrent</strong> and <strong>Git</strong> where data is content-addressable and immutable.</p>
+<p>You can [learn more about IPFS here] (https://ipfs.io/).</p>
+<p>The requirements and evidence data fields of our issueBounty and fulfil bounty functions currently accept arbitrary length strings. Baring in mind the more data we save on the Ethereum network the more expensive our transaction, a user wanting to send a very long explanation in their requirements would be penalised since their transaction would be more expensive.</p>
+<p>Quite a large portion of dApp development and design will centre around balancing the tradeoffs between security and decentralisation and the transaction cost to the user.</p>
+<p>In any case anyway, we can reduce the transaction cost to the user is a plus!</p>
+<p><strong>Storing requirements in IPFS</strong></p>
+<p>So when issuing a bounty, also when fulfiling one. We can use IPFS to store the requirements text which would be of arbitrary length, and this would return us an id (hash of the content) which we can use to look the data up. This id or hash is always of fixed length and we would send this to the smart contract for reference instead of the requirements. This would mean that the length of the requirements input would no longer increase the cost of our issue bounty transaction!</p>
+<p><strong>Install IPFS-MINI</strong></p>
+<p>ipfs-miniis a Javascript wrapper built around the ipfs Javascript API</p>
+<p>You can [read more about IPFS-MINI here] (https://github.com/silentcicero/ipfs-mini)</p>
+<p>Install ipfs-mini via npm( install this with your other project dependencies / not in client) :</p>
+<pre><code>$ npm install --save ipfs-mini
+</code></pre>
+<p><strong>Update Our App to Use IPFS</strong></p>
+<p>First, let's create the following ipfs helper for our app, copy the following extract in a new file <code>src/utils/IPFS.js</code></p>
+<pre><code>const IPFS = require('ipfs-mini');
+const ipfs = new IPFS({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+
+export const setJSON = (obj) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+        ipfs.addJSON(obj, (err, result) =&gt; {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result);
+            }
+        });
+    });
+}
+
+export const getJSON = (hash) =&gt; {
+    return new Promise((resolve, reject) =&gt; {
+        ipfs.catJSON(hash, (err, result) =&gt; {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(result)
+            }
+        });
+    });
+}
+</code></pre>
+<p>The helper is a simple first creates an IPFS instance which connects to the IPFS node provided by Infura running at <code>ipfs.infura.io:5001</code></p>
+<p>It then gives us 2 functions:</p>
+<ol>
+<li><strong>setJSON</strong>: which takes a JSON object as an argument and add its to IPFS returning the id or ipfsHash</li>
+<li><strong>getJSON</strong>: which takes an ipfsHash or id and returns the JSON object which is references</li>
+</ol>
+<p>We can now update our <code>App.js</code> file to make use of these two functions.</p>
+<p>First, let's import our helper functions:</p>
+<pre><code>import { setJSON, getJSON } from './utils/IPFS.js'
+</code></pre>
+<p>Next, let's update our table definition to include a new field to display the ipfs document, also update the <code>data</code> field to the. name <code>bountyData</code> since we'll want to get the data from ipfs before displaying it.</p>
+<pre><code>&lt;BootstrapTable data={this.state.bounties} striped hover&gt;
+  &lt;TableHeaderColumn isKey dataField='bounty_id'&gt;ID&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='issuer'&gt;Issuer&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='amount'&gt;Amount&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='ipfsData'&gt;Bounty Data&lt;/TableHeaderColumn&gt;
+  &lt;TableHeaderColumn dataField='bountyData'&gt;Bounty Data&lt;/TableHeaderColumn&gt;
+&lt;/BootstrapTable&gt;
+</code></pre>
+<p>Next, let's update our <code>handleIssueBounty</code> callback, here we need to add the <code>bountyData</code> to ipfs using the <code>setJSON</code> function and then use the result of this as the data argument to our <code>issueBounty</code> function.</p>
+<pre><code>  async handleIssueBounty(event)
+ {
+   if (typeof this.state.bountiesInstance !== 'undefined') {
+     event.preventDefault();
+     const ipfsHash = await setJSON({ bountyData: this.state.bountyData });
+     let result = await this.state.bountiesInstance.methods.issueBounty(ipfsHash,this.state.bountyDeadline).send({from: this.state.account, value: this.state.web3.utils.toWei(this.state.bountyAmount, 'ether')})
+     this.setLastTransactionDetails(result)
+   }
+ }
+</code></pre>
+<p>Next, let's update our <code>addEventListener</code> callback, here we first get the JSON data from ipfs using the id or ipfsHash which will be present in the data field of our event. We then update the results args with 2 new fields before we add them to the new bounties array:</p>
+<ul>
+<li><strong>bountyData</strong>: the original requirements input from the bounty issuer</li>
+<li><strong>ipfsData</strong>: a link to the ipfs document containing the requirements</li>
+</ul>
+<pre><code>  addEventListener(component) {
+
+    this.state.bountiesInstance.events.BountyIssued({fromBlock: 0, toBlock: 'latest'})
+    .on('data', async function(event){
+      //First get the data from ipfs and add it to the event
+      var ipfsJson = {}
+      try{
+        ipfsJson = await getJSON(event.returnValues.data);
+      }
+      catch(e)
+      {
+
+      }
+
+      if(ipfsJson.bountyData !== undefined)
+      {
+        event.returnValues['bountyData'] = ipfsJson.bountyData;
+        event.returnValues['ipfsData'] = ipfsBaseUrl+&quot;/&quot;+event.returnValues.data;
+      }
+      else {
+        event.returnValues['ipfsData'] = &quot;none&quot;;
+        event.returnValues['bountyData'] = event.returnValues['data'];
+      }
+
+      var newBountiesArray = component.state.bounties.slice()
+      newBountiesArray.push(event.returnValues)
+      component.setState({ bounties: newBountiesArray })
+    })
+    .on('error', console.error);
+}
+</code></pre>
+<p>Last but not least we need to define our const ipfsBaseUrl which is the url for a public IPFS gateway:</p>
+<pre><code>const ipfsBaseUrl = &quot;https://ipfs.infura.io/ipfs&quot;;
+</code></pre>
+<p>Your App.js file should now [look like this] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/truffle-react-box-frontend/client/src/App.js)</p>
+<p><strong>Run Our dApp</strong></p>
+<p>We're now ready to relaunch our app</p>
+<pre><code>$ npm run start
+</code></pre>
+<p><strong>Issue a bounty</strong></p>
+<p>Once running lets issue another bounty</p>
+<p>Let's submit the following data:</p>
+<ul>
+<li>Bounty details: “Some requirements that wiil earn will you 1.5 ETH”</li>
+<li>Bounty deadline: 1691452800 - (August 8th 2023)</li>
+<li>Bounty amount: 1.5 (Remember our app will covert this to weis before sending)</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYspPfPiXwnxeqaTUuGvXvZxZVgQVYqAbmojJLbFPAHmr" /></p>
+<p>Once the transaction is confirmed and processed, our app should look like this:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcaKWkjWapYUKh9oR5sxrPAk3LMmGjaKWJrSUAGU5brXR" /></p>
+<p>That's all folk! You have successfully built and deployed a bounty dApp to the rinkeby development environment. The dApp which uses ipfs to store bounty requirements, and we've developed a front end to allow a user to issue a bounty!</p>
+<h3 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link"></a></h3>
+<p>You'll have noticed that our front end does not currently support:</p>
+<ul>
+<li>Cancelling a bounty</li>
+<li>Fulfiling a bounty</li>
+<li>Accepting a fulfilment</li>
+</ul>
+<p>Try adding UI components so users can use these features.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Truffle  Adding a frontend with react box</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle-adding-a-frontend-with-react-box/86903f66d39d4379a2e70bd583700ecf/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-01-24</li>
+<li><strong>Kauri original tags:</strong> TUTORIAL, TRUFFLE, WEB3JS, REACT</li>
+<li><strong>Kauri original hash:</strong> QmZhG4DHRTtB381LTiyG9FMyVYhv2ZPfrSrb7YZtQMZVKo</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../embark--smart-contract-compilation-and-deployment/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../embark--smart-contract-compilation-and-deployment/" class="btn btn-xs btn-link">
+        Embark  Smart Contract Compilation & Deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../truffle--testing-your-smart-contract/" class="btn btn-xs btn-link">
+        Truffle  Testing your smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/truffle--adding-a-frontend-with-react-box.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

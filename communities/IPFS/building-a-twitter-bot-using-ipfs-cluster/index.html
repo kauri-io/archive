@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/IPFS/building-a-twitter-bot-using-ipfs-cluster/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a Twitter Bot using IPFS Cluster 🤖 - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a Twitter Bot using IPFS Cluster \ud83e\udd16", url: "#_top", children: [
+              {title: "Intro to IPFS Cluster", url: "#intro-to-ipfs-cluster" },
+              {title: "Setting up Your IPFS Peer", url: "#setting-up-your-ipfs-peer" },
+              {title: "Setting up Your IPFS Cluster Peer", url: "#setting-up-your-ipfs-cluster-peer" },
+              {title: "Making a few changes to IPFS Cluster Config", url: "#making-a-few-changes-to-ipfs-cluster-config" },
+              {title: "Starting Your IPFS Cluster Network", url: "#starting-your-ipfs-cluster-network" },
+              {title: "Creating a Twitter Developer Account", url: "#creating-a-twitter-developer-account" },
+              {title: "Building the Twitter Bot \ud83e\udd16", url: "#building-the-twitter-bot" },
+              {title: "Installing Golang", url: "#installing-golang" },
+              {title: "Writing the Twitter Bot Code \ud83d\udc69\u200d\ud83d\udcbb\ud83d\udc68\u200d\ud83d\udcbb", url: "#writing-the-twitter-bot-code" },
+              {title: "Final Showdown", url: "#final-showdown" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-twitter-bot-using-ipfs-cluster">Building a Twitter Bot using IPFS Cluster 🤖<a class="headerlink" href="#building-a-twitter-bot-using-ipfs-cluster" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXKWmtk8ecAEq5VKAsSDdxaCjKBuyXr8Eq9ddyFVES7Dp" /></p>
+<p>This article was first published on our open-source platform, <a href="https://simpleaswater.com/ipfs-cluster-twitter-pinbot/">SimpleAsWater.com</a>. If you are interested in IPFS, Libp2p, Ethereum, Zero-knowledge Proofs, Defi, CryptoEconomics, IPLD, Multi formats, and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out <a href="https://simpleaswater.com/">SimpleAsWater</a>.</p>
+<hr />
+<p>Till now, we have explored a number of fun examples using <a href="https://simpleaswater.com/ipfs?ref=saw-twitter-post">InterPlanetary File System</a> (IPFS), <a href="https://simpleaswater.com/ipfs/#tutorials?ref=saw-twitter-post">InterPlanetary Linked Data</a> (IPLD) &amp; <a href="https://simpleaswater.com/libp2p?ref=saw-twitter-post">Libp2p</a>. We have built <a href="https://simpleaswater.com/hosting-website-using-ipfs?ref=saw-twitter-article">Websites on IPFS</a>, <a href="https://simpleaswater.com/youtube-on-ipfs?ref=saw-twitter-article">Youtube on IPFS</a>, <a href="https://simpleaswater.com/online-publishing-using-ipld?ref=saw-twitter-post">Online Publication on IPLD</a> &amp; <a href="https://simpleaswater.com/chat-using-libp2p?ref=saw-twitter-article">Chat Application on Libp2p</a>.</p>
+<p>In this tutorial we are going to build a Twitter Bot(or a Pinbot) using <a href="https://simpleaswater.com/ipfs-cluster?ref=saw-twitter-post">IPFS
+Cluster</a>.</p>
+<p>You can see our Twitter bot in action!</p>
+<p><img alt="SimpleAsWater Twitter bot Tweet" src="https://i.pinimg.com/originals/4e/a7/cb/4ea7cb4a1bc5eb4d937524328d33b7b0.png" /></p>
+<p><strong>You can try it out yourself.</strong></p>
+<ol>
+<li>Follow the <a href="https://twitter.com/simpleaswater_">@simpleaswater_</a> twitter account <strong>so that bot can filter your tweets out.</strong></li>
+<li>Tweet a photo, gif, video or any media, and mention “<a href="https://twitter.com/simpleaswater_">@simpleaswater_</a>” in your tweet. Just like below:</li>
+</ol>
+<p><img alt="Tweeting to SimpleAsWater Twitter Bot" src="https://i.pinimg.com/originals/1b/02/be/1b02beaa19025b5bf08e245debb31fd1.png" /></p>
+<p>The bot will reply with the links to your content stored on the IPFS Cluster Network. </p>
+<p>Cool, right? Let’s see how you can build your own twitter pinbot!</p>
+<hr />
+<p>In this tutorial, we are go through:</p>
+<ul>
+<li><a href="#intro-to-ipfs-cluster">An Intro to IPFS Cluster, its significance &amp; use-cases.</a></li>
+<li><a href="#setting-up-your-ipfs-peer">Setting up an IPFS Cluster Network.</a></li>
+<li><a href="#creating-a-twitter-developer-account">Setting up Twitter Developer Account.</a></li>
+<li><a href="#building-the-twitter-bot-">Building a Twitter bot.</a></li>
+</ul>
+<p>You can find the <strong><a href="https://github.com/simpleaswater/twitter-pinbot">full code implementation here</a></strong>.</p>
+<p><strong>If you get stuck in any part or have any queries/doubts, then feel free to reach us out on our <a href="https://discord.gg/x2kmUXW">discord channel</a>.</strong></p>
+<h4 id="intro-to-ipfs-cluster">Intro to IPFS Cluster<a class="headerlink" href="#intro-to-ipfs-cluster" title="Permanent link"></a></h4>
+<p>Before setting up our own IPFS Cluster network, it’s good to spend a few minutes to understand why do we need IPFS Cluster and what is it.</p>
+<p>If you are new to <a href="https://ipfs.io">InterPlanetary File System (IPFS)</a> then we would recommend you to check out <a href="https://medium.com/hackernoon/understanding-ipfs-in-depth-1-5-a-beginner-to-advanced-guide-e937675a8c8a">this post first</a>.</p>
+<p>If you are familiar with IPFS, then you already know that IPFS aims to make the internet decentralized using content addressing approach.</p>
+<p>The way this works is similar to services like BitTorrent where every user does not just consume the data but also serves it to other people in the BitTorrent network. That means you can not only get the data(let’s say Star Wars movie) from anyone on the network who has it, but also share this data with anyone who asks for it on the network.</p>
+<p>But if all the people who have the Star Wars movie go offline, then you are out of luck.</p>
+<p>No movie for you 😔</p>
+<p><img alt="Sorry, No movie for you" src="https://media.tenor.com/images/4f52aa49b0476c65164089786d4f3e03/tenor.gif" /></p>
+<p>Now to understand <strong>why do we need IPFS Cluster</strong> consider the following scenario:</p>
+<p>Let’s suppose you want to store your collection of favorite songs on the IPFS Network. You upload your playlist on the IPFS network and the people who also love the same songs can get the songs from you.Now, you may also have other things on your device that you want to keep(your Movies, vacation photos, etc.). So, you decide to remove the playlist from your device. After all, you can get your playlist from the people who downloaded it from you earlier. So, you are not worried about your songs getting lost, and go to sleep happily.One fine day, you want to get your songs back for your long workout session but are devastated to see that you can’t find your playlist on the IPFS Network 😨But how can this happen? You saved it on the network, right?It turns out that all the people who saved the playlist are either offline or have deleted the songs, as they got bored with them.The problem was that our playlist was <strong>not stored redundantly</strong> on a number of nodes(or devices) so that we could be sure that it would not get lost in the oblivion.</p>
+<p>So, how do we ensure data availability and redundancy on IPFS?</p>
+<p>Enter IPFS Cluster.</p>
+<p><img alt="IPFS Cluster Super Hero Entry" src="https://media.tenor.com/images/ff11b4599ff3fadf96eb7eedea8cd7c9/tenor.gif" /></p>
+<blockquote>
+<p><em>The purpose of IPFS Cluster is to make it easy for you to orchestrate/manage  data across several IPFS peers by allocating, replicating and tracking a global pinset(list of saved data) distributed among multiple peers.</em></p>
+</blockquote>
+<p>This way you can build a network of IPFS peers which redundantly store data for us.</p>
+<p>If you want to know more about IPFS Cluster and see how it works under the hood, then <a href="https://simpleaswater.com/ipfs-cluster/">head here</a>.</p>
+<p><strong>If you have any queries/doubts till now, then feel free to reach us out on our <a href="https://discord.gg/x2kmUXW">discord channel</a>.</strong></p>
+<p>Now, as we have explored why we need IPFS Cluster let’s setup our own IPFS Cluster network, on which we will save our tweets.</p>
+<h4 id="setting-up-your-ipfs-peer">Setting up Your IPFS Peer<a class="headerlink" href="#setting-up-your-ipfs-peer" title="Permanent link"></a></h4>
+<p>As IPFS Cluster network is a collection of IPFS peers, first we need to install &amp; run an IPFS peer.</p>
+<p>You can follow this guide to install IPFS Peer on your device.</p>
+<p>After installing the IPFS, you can test your installation using <code>ipfs version</code></p>
+<pre><code class="language-shell">$ ipfs version
+ipfs version &lt;VERSION_NUMBER&gt;
+
+$ ipfs help
+USAGE:
+
+ipfs - Global p2p merkle-dag filesystem.
+...
+</code></pre>
+<blockquote>
+<p><em>NOTE: Throughout this tutorial, we use the </em><em>$</em><em> character to indicate your terminal’s shell prompt. When following along, don’t type the </em><em>$</em><em> character,or you’ll get some weird errors.</em></p>
+</blockquote>
+<p>Now, let’s initialize your IPFS peer using <code>ipfs init</code></p>
+<pre><code class="language-shell">$ ipfs init
+
+initializing IPFS node at /home/vasa/.ipfs
+generating 2048-bit RSA keypair...done
+peer identity: Qmcpo2iLBikrdf1d6QU6vXuNb6P7hwrbNPW9kLAH8eG67z
+to get started, enter:
+
+ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
+</code></pre>
+<p>Voila! Your IPFS peer setup is complete!</p>
+<p><strong>If you are having any problems while setting up your IPFS peer, then feel free to reach us out on our <a href="https://discord.gg/x2kmUXW">discord channel</a>.</strong></p>
+<h4 id="setting-up-your-ipfs-cluster-peer">Setting up Your IPFS Cluster Peer<a class="headerlink" href="#setting-up-your-ipfs-cluster-peer" title="Permanent link"></a></h4>
+<p>In order to run an IPFS Cluster peer we need to install <code>ipfs-cluster-service</code>.</p>
+<ul>
+<li>First, <a href="https://dist.ipfs.io/#ipfs-cluster-service">download the</a><code>ipfs-cluster-service</code><a href="https://dist.ipfs.io/#ipfs-cluster-service"> binary for your Operating System.</a></li>
+<li>Now, unzip/untar the downloaded binary and you will find a <code>ipfs-cluster-service</code> executable inside the folder. Place this binary where it can be run by a system user(usually <code>usr/local/bin</code>).</li>
+<li>Now run the following command to initialize generate the IPFS Cluster configuration file.</li>
+</ul>
+<pre><code class="language-shell">$ ipfs-cluster-service init
+</code></pre>
+<p>Viola! You have setup your IPFS Cluster Peer.</p>
+<h4 id="making-a-few-changes-to-ipfs-cluster-config">Making a few changes to IPFS Cluster Config<a class="headerlink" href="#making-a-few-changes-to-ipfs-cluster-config" title="Permanent link"></a></h4>
+<p>In order to make the twitter bot example work, we need to change the IPFS Cluster config a bit. If you want to know why we are doing these changes, then you can refer to <a href="https://discuss.ipfs.io/t/libp2p-peer-fails-to-dial-in-twitter-bot-example/6977">this discussion thread</a>.</p>
+<p>To make the changes, first open your IPFS Cluster config located at <code>$HOME/.ipfs-cluster/service.json</code>.</p>
+<p>Now, scroll down to the <code>api</code> JSON object. In the <code>api</code> section, you will find <code>restapi</code> JSON object. You need to add these 3 key-values: <code>libp2p_listen_multiaddress</code>, <code>private_key</code> and <code>id</code> as shown below.</p>
+<pre><code>{
+...
+&quot;api&quot;: {
+    &quot;ipfsproxy&quot;: {
+        ...
+    },
+    &quot;restapi&quot;: {
+      &quot;libp2p_listen_multiaddress&quot;: &quot;/ip4/127.0.0.1/tcp/9696&quot;,
+      &quot;private_key&quot;: &quot;CAASqAkwggSkAgEAAoIBAQDLZZcGcbe4urMBVlcHgN0fpBymY+xcr14ewvamG70QZODJ1h9sljlExZ7byLiqRB3SjGbfpZ1FweznwNxWtWpjHkQjTVXeoM4EEgDSNO/Cg7KNlU0EJvgPJXeEPycAZX9qASbVJ6EECQ40VR/7+SuSqsdL1hrmG1phpIju+D64gLyWpw9WEALfzMpH5I/KvdYDW3N4g6zOD2mZNp5y1gHeXINHWzMF596O72/6cxwyiXV1eJ000k1NVnUyrPjXtqWdVLRk5IU1LFpoQoXZU5X1hKj1a2qt/lZfH5eOrF/ramHcwhrYYw1txf8JHXWO/bbNnyemTHAvutZpTNrsWATfAgMBAAECggEAQj0obPnVyjxLFZFnsFLgMHDCv9Fk5V5bOYtmxfvcm50us6ye+T8HEYWGUa9RrGmYiLweuJD34gLgwyzE1RwptHPj3tdNsr4NubefOtXwixlWqdNIjKSgPlaGULQ8YF2tm/kaC2rnfifwz0w1qVqhPReO5fypL+0ShyANVD3WN0Fo2ugzrniCXHUpR2sHXSg6K+2+qWdveyjNWog34b7CgpV73Ln96BWae6ElU8PR5AWdMnRaA9ucA+/HWWJIWB3Fb4+6uwlxhu2L50Ckq1gwYZCtGw63q5L4CglmXMfIKnQAuEzazq9T4YxEkp+XDnVZAOgnQGUBYpetlgMmkkh9qQKBgQDvsEs0ThzFLgnhtC2Jy//ZOrOvIAKAZZf/mS08AqWH3L0/Rjm8ZYbLsRcoWU78sl8UFFwAQhMRDBP9G+RPojWVahBL/B7emdKKnFR1NfwKjFdDVaoX5uNvZEKSl9UubbC4WZJ65u/cd5jEnj+w3ir9G8n+P1gp/0yBz02nZXFgSwKBgQDZPQr4HBxZL7Kx7D49ormIlB7CCn2i7mT11Cppn5ifUTrp7DbFJ2t9e8UNk6tgvbENgCKXvXWsmflSo9gmMxeEOD40AgAkO8Pn2R4OYhrwd89dECiKM34HrVNBzGoB5+YsAno6zGvOzLKbNwMG++2iuNXqXTk4uV9GcI8OnU5ZPQKBgCZUGrKSiyc85XeiSGXwqUkjifhHNh8yH8xPwlwGUFIZimnD4RevZI7OEtXw8iCWpX2gg9XGuyXOuKORAkF5vvfVriV4e7c9Ad4Igbj8mQFWz92EpV6NHXGCpuKqRPzXrZrNOA9PPqwSs+s9IxI1dMpk1zhBCOguWx2m+NP79NVhAoGBAI6WSoTfrpu7ewbdkVzTWgQTdLzYNe6jmxDf2ZbKclrf7lNr/+cYIK2Ud5qZunsdBwFdgVcnu/02czeS42TvVBgs8mcgiQc/Uy7yi4/VROlhOnJTEMjlU2umkGc3zLzDgYiRd7jwRDLQmMrYKNyEr02HFKFn3w8kXSzW5I8rISnhAoGBANhchHVtJd3VMYvxNcQb909FiwTnT9kl9pkjhwivx+f8/K8pDfYCjYSBYCfPTM5Pskv5dXzOdnNuCj6Y2H/9m2SsObukBwF0z5Qijgu1DsxvADVIKZ4rzrGb4uSEmM6200qjJ/9U98fVM7rvOraakrhcf9gRwuspguJQnSO9cLj6&quot;,
+      &quot;id&quot;: &quot;QmcrQZ6RJdpYuGvZqD5QEHAv6qX4BrQLJLQPQUrTrzdcgm&quot;,
+      ...
+      }
+  }
+  ...
+} 
+</code></pre>
+<blockquote>
+<p><em>NOTE: The </em><code>private_key</code><em> that we are using is just for the demo purpose. If you are building a production bot, you should create your own libp2p </em><code>private_key</code><em> and </em><code>id</code><em>.</em></p>
+</blockquote>
+<h4 id="starting-your-ipfs-cluster-network">Starting Your IPFS Cluster Network<a class="headerlink" href="#starting-your-ipfs-cluster-network" title="Permanent link"></a></h4>
+<p>Now, as we have installed IPFS and IPFS Cluster peers, we can start our Cluster network.</p>
+<ul>
+<li>Open a terminal window and start the IPFS peer using <code>ipfs daemon</code></li>
+<li>Open <strong>another terminal </strong>and start the IPFS Cluster peer using
+<code>ipfs-cluster-service daemon</code></li>
+</ul>
+<p><img alt="Running IPFS daemon" src="https://cdn-images-1.medium.com/max/800/0*D2vTKb4YJxLvpmpt.png" />
+<span class="figcaption_hack">Running IPFS daemon</span></p>
+<ul>
+<li>Open <strong>another terminal </strong>and start the IPFS Cluster peer using
+<code>ipfs-cluster-service daemon</code></li>
+</ul>
+<p><img alt="Running IPFS Cluster daemo" src="https://cdn-images-1.medium.com/max/800/0*uvLdOHFgdtJ3XJzx.png" />
+<span class="figcaption_hack">Running IPFS Cluster daemon</span></p>
+<p>If you managed to reach here, then you deserve a pat on your back!</p>
+<p>You are now running a IPFS Cluster network with 1 peer. For the purpose of this tutorial we will proceed with this setup. In case, you want to setup a more complex production infrastructure, then you can refer to <a href="https://cluster.ipfs.io/documentation/">IPFS Cluster docs</a>.</p>
+<p><strong>If you have any queries/doubts, then feel free to reach us out on our </strong><a href="https://discord.gg/x2kmUXW">discord channel</a><strong>.</strong></p>
+<h4 id="creating-a-twitter-developer-account">Creating a Twitter Developer Account<a class="headerlink" href="#creating-a-twitter-developer-account" title="Permanent link"></a></h4>
+<p>To build a twitter bot, first we need to setup a developer account on twitter.</p>
+<ul>
+<li>Go to <a href="https://developer.twitter.com/en/apps">Twitter developers website</a>. Click the “Create an app” button.</li>
+</ul>
+<p><img alt="Create an app" src="https://cdn-images-1.medium.com/max/800/0*plAwjxvfh0U6m_JP.png" /></p>
+<ul>
+<li>You will be prompted to apply for the twitter developer account.</li>
+</ul>
+<p><img alt="twitter developer account" src="https://cdn-images-1.medium.com/max/800/0*n3-enwtZScp5gpxC.png" /></p>
+<ul>
+<li>Now, select the “Making a bot” option for your primary reason for using twitter
+developer tools, and click “Next”.</li>
+</ul>
+<p><img alt="Making a twitter bot" src="https://cdn-images-1.medium.com/max/800/0*YLbYXLEuYtNvvYRl.png" /></p>
+<ul>
+<li>In the next page, you will be asked some personal details. Fill them up and click “Next”.</li>
+<li>In the next page you will be asked a few more questions about how will you use twitter’s APIs. Fill up the answers by saying that you are creating a bot for fun 😉. After filling all the info, click “Next”.</li>
+<li>In the last page, you will be asked to confirm the details that you provided.</li>
+<li>You may have to confirm your email account. And wait for sometime to get your account approved.</li>
+</ul>
+<p>After your account has been approved, you can go your <a href="https://developer.twitter.com/en/apps">twitter apps page</a>, and click “Create an app”, fill the app details and hit “Create” button.</p>
+<p>Congratulations! You now have a twitter app 🎉</p>
+<p>Now, come back to the <a href="https://developer.twitter.com/en/apps">twitter apps page</a>, where you can see your app. Click on the “details” button.</p>
+<p><img alt="Twitter apps page" src="https://cdn-images-1.medium.com/max/800/0*xElOsAJ92uGaEXfU.png" /></p>
+<p>Navigate to the “keys and tokens” section, where you will find all the credentials we want. Copy the “API key”, “API secret key”, “Access token” &amp; “Access token secret”.</p>
+<h4 id="building-the-twitter-bot">Building the Twitter Bot 🤖<a class="headerlink" href="#building-the-twitter-bot" title="Permanent link"></a></h4>
+<p>Now, as we have everything we need to build the Twitter Pinbot, let’s fire up our code editor!</p>
+<h4 id="installing-golang">Installing Golang<a class="headerlink" href="#installing-golang" title="Permanent link"></a></h4>
+<p>We are going to use <a href="https://golang.org/">Golang</a> to build our Twitter bot. You can <a href="https://golang.org/dl/#featured">download Golang from here</a>.</p>
+<ul>
+<li>First you need to <a href="https://golang.org/dl/#featured">download Golang</a>.</li>
+<li>You will be redirected to a page with installation instructions. Follow these instructions to install Golang.</li>
+</ul>
+<p>After installing Golang, we are ready to start with the twitter bot code.</p>
+<h4 id="writing-the-twitter-bot-code">Writing the Twitter Bot Code 👩‍💻👨‍💻<a class="headerlink" href="#writing-the-twitter-bot-code" title="Permanent link"></a></h4>
+<p>We are going to build a twitter bot which works in the following way:</p>
+<ul>
+<li>You need to follow the twitter bot account, so that the bot can filter out your tweets from all the tweets.</li>
+<li>Then you can “pin”, “unpin” or “add” data to the IPFS Cluster Network by tweeting to <em>@botHandle</em> with some specific text.</li>
+</ul>
+<pre><code class="language-text">//To pin a CID with a name/label to IPFS Cluster Network
+@botHandle !pin &lt;cid&gt; &lt;name&gt;
+
+//To unpin a CID from IPFS Cluster Network
+@botHandle !unpin &lt;cid&gt;
+
+//To add a file(via URL) to IPFS Cluster Network
+@botHandle !add &lt;url-to-single-file&gt;
+
+//To check out what the bot can do
+@botHandle !help
+
+//Adding photos, memes, videos to IPFS Cluster Network
+Tweet to @botHandle attaching photos, memes or videos 
+</code></pre>
+<p>Now, let’s start by downloading some boilerplate code.</p>
+<p>Clone the <em>boilerplate </em>branch of <a href="https://github.com/simpleaswater/twitter-pinbot/tree/boilerplate">twitter-pinbot repo</a>.</p>
+<pre><code class="language-shell">$ git clone --single-branch --branch boilerplate https://github.com/simpleaswater/twitter-pinbot
+</code></pre>
+<p>Now, first we need to make a few changes in the <em>config.json </em>file.</p>
+<pre><code class="language-json">{
+  &quot;twitter_name&quot;: &quot;@botHandle&quot;,
+  &quot;twitter_id&quot;: &quot;@botHandle&quot;,
+  &quot;consumer_key&quot;: &quot;API key&quot;,
+  &quot;consumer_secret&quot;: &quot;API secret key&quot;,
+  &quot;access_key&quot;: &quot;Access token&quot;,
+  &quot;access_secret&quot;: &quot;Access token secret&quot;,
+  &quot;cluster_peer_addr&quot;: &quot;cluster peer multiaddress&quot;,
+  &quot;cluster_username&quot;: &quot;&quot;,
+  &quot;cluster_password&quot;: &quot;&quot;
+}
+</code></pre>
+<p>You need to add your <em>@botHandle</em> and the credentials that we got from the twitter developer portal.</p>
+<p>Then replace the <em>“cluster peer multiaddress”</em> with:</p>
+<pre><code class="language-text">/ip4/127.0.0.1/tcp/9696/ipfs/QmcrQZ6RJdpYuGvZqD5QEHAv6qX4BrQLJLQPQUrTrzdcgm
+</code></pre>
+<p>If you look closely, you can see that this is the same multiaddress which we added above while changing the IPFS Cluster config file.</p>
+<p>We do this to interact with the IPFS Cluster Setup that we created above.</p>
+<p>You can leave the <em>“cluster_username”</em> &amp; <em>“cluster_password”</em> blank.</p>
+<p>Now, as we are done with our <em>config.json </em>file, let’s start working on <em>main.go.</em></p>
+<pre><code class="language-go">package main
+
+import (
+    &quot;regexp&quot;
+)
+
+// ConfigFile is the path of the default configuration file
+var ConfigFile = &quot;config.json&quot;
+
+// Gateway
+var IPFSGateway = &quot;https://ipfs.io&quot;
+
+const twittercom = &quot;twitter.com&quot;
+
+type Action string
+
+// Variables containing the different available actions
+var (
+    // (spaces)(action)whitespaces(arguments)
+    actionRegexp = regexp.MustCompile(`^\s*([[:graph:]]+)\s+(.+)`)
+    // (cid)whitespaces(name with whitespaces). [:graph:] does not
+    // match line breaks or spaces.
+    pinRegexp          = regexp.MustCompile(`([[:graph:]]+)\s+([[:graph:]\s]+)`)
+    PinAction   Action = &quot;!pin&quot;
+    UnpinAction Action = &quot;!unpin&quot;
+    AddAction   Action = &quot;!add&quot;
+    HelpAction  Action = &quot;!help&quot;
+)
+
+func main() {
+    //Let's code ☕
+}
+</code></pre>
+<p>The <em>main.go</em> file contains a few constants that we will be using as we move forward in the tutorial.</p>
+<p>Let’s first add a way to read and manage the data from <em>config.json</em>.</p>
+<pre><code class="language-go">// Config is the configuration format for the Twitter Pinbot
+type Config struct {
+    TwitterID       string `json:&quot;twitter_id&quot;`
+    TwitterName     string `json:&quot;twitter_name&quot;`
+    AccessKey       string `json:&quot;access_key&quot;`
+    AccessSecret    string `json:&quot;access_secret&quot;`
+    ConsumerKey     string `json:&quot;consumer_key&quot;`
+    ConsumerSecret  string `json:&quot;consumer_secret&quot;`
+    ClusterPeerAddr string `json:&quot;cluster_peer_addr&quot;`
+    ClusterUsername string `json:&quot;cluster_username&quot;`
+    ClusterPassword string `json:&quot;cluster_password&quot;`
+}
+
+// Function to read JSON config file
+func readConfig(path string) *Config {
+    cfg := &amp;Config{}
+    cfgFile, err := ioutil.ReadFile(path)
+    if err != nil {
+        log.Fatal(err)
+    }
+    err = json.Unmarshal(cfgFile, &amp;cfg)
+    if err != nil {
+        log.Fatal(err)
+    }
+    return cfg
+}
+</code></pre>
+<p>Here we have <code>Config</code> struct which manages different key-value pairs from our <em>config.json</em> file. Also, we have the function <code>readConfig(path string)</code> which takes the path of the <em>config.json</em> and parses the <code>JSON</code> from the file.</p>
+<p>Next, we create the <code>Bot</code> struct, which is used to manage the different
+functionalities of the twitter pinbot.</p>
+<pre><code class="language-go">// Bot is a twitter bot which reads a user's timeline
+// and performs actions on IPFS Cluster if the tweets
+// match, i.e. a tweet with: &quot;@botHandle !pin &lt;cid&gt; &lt;name&gt;&quot;
+// will pin something. The users with pin permissions are
+// those who follow the bot. Retweets by users who follow
+// the bot should also work. The bot will answer
+// the tweet with a result.
+type Bot struct {
+    ctx    context.Context
+    cancel context.CancelFunc
+
+    name          string
+    id            string
+    twClient      *twitter.Client
+    clusterClient client.Client
+
+    followedBy sync.Map
+
+    die chan struct{}
+}
+</code></pre>
+<p>You will also have to import these 2 modules:</p>
+<pre><code class="language-go">import (
+    &quot;github.com/dghubble/go-twitter/twitter&quot;
+    &quot;github.com/ipfs/ipfs-cluster/api/rest/client&quot;
+)
+</code></pre>
+<p>Now, let’s add the function to create a <code>Bot</code>.</p>
+<pre><code class="language-go">import (
+    &quot;github.com/multiformats/go-multiaddr&quot;
+    &quot;github.com/dghubble/oauth1&quot;
+)
+
+// New creates a new Bot with the Config.
+func New(cfg *Config) (*Bot, error) {
+    ctx, cancel := context.WithCancel(context.Background())
+
+    // Creating Twitter client
+    ocfg := oauth1.NewConfig(cfg.ConsumerKey, cfg.ConsumerSecret)
+    token := oauth1.NewToken(cfg.AccessKey, cfg.AccessSecret)
+    httpClient := ocfg.Client(ctx, token)
+    twClient := twitter.NewClient(httpClient)
+
+    // Creating IPFS Cluster client
+    peerAddr, err := multiaddr.NewMultiaddr(cfg.ClusterPeerAddr)
+    if err != nil {
+        cancel()
+        return nil, err
+    }
+    clusterClient, err := client.NewDefaultClient(&amp;client.Config{
+        APIAddr:  peerAddr,
+        Username: cfg.ClusterUsername,
+        Password: cfg.ClusterPassword,
+        LogLevel: &quot;info&quot;,
+    })
+
+    if err != nil {
+        cancel()
+        return nil, err
+    }
+
+    //Creating Bot Object
+    bot := &amp;Bot{
+        ctx:           ctx,
+        cancel:        cancel,
+        twClient:      twClient,
+        clusterClient: clusterClient,
+        name:          cfg.TwitterName,
+        id:            cfg.TwitterID,
+        die:           make(chan struct{}, 1),
+    }
+
+    bot.fetchFollowers()
+    go bot.watchFollowers()
+    go bot.watchTweets()
+    return bot, nil
+}
+</code></pre>
+<p>Here we first create <code>twClient</code> which interacts with the twitter APIs. Also, we create <code>clusterClient</code> which interacts with our IPFS Cluster Setup. Then, using these 2, we create our <code>Bot</code> object.</p>
+<p>At last, we have 3 methods:</p>
+<ul>
+<li><code>fetchFollowers()</code>: This method is used to fetch the list of bot followers, so that we can track their tweets, and respond accordingly.</li>
+<li><code>watchFollowers()</code>: This <code>goroutine</code> is used to watch the list of bot followers every 60 seconds. In case, somebody follows the bot, the list will be updated within 60 minutes, after which we will start filtering the tweets of the recent follower.</li>
+<li><code>watchTweets()</code>: This <code>goroutine</code> is used to watch &amp; filter the tweets who mention our <em>@botHandle</em>.</li>
+</ul>
+<p>We will implement these 3 methods in a while.</p>
+<p>Next, we have a few small utility functions.</p>
+<pre><code class="language-go">// Kill destroys this bot.
+func (b *Bot) Kill() {
+    b.cancel()
+}
+
+// Name returns the twitter handle used by the bot
+func (b *Bot) Name() string {
+    return b.name
+}
+
+// ID returns the twitter user ID used by the bot
+func (b *Bot) ID() string {
+    return b.id
+}
+</code></pre>
+<p>As explained in the comments:</p>
+<ul>
+<li><code>Kill()</code>: destroys the bot.</li>
+<li><code>Name()</code>: returns the twitter handle used by the bot.</li>
+<li><code>ID()</code>: returns the twitter user ID used by the bot.</li>
+</ul>
+<p>Now, let’s implement the above 3 methods.</p>
+<pre><code class="language-go">//Fetching the bot Followers
+func (b *Bot) fetchFollowers() {
+    var nextCursor int64 = -1
+    includeEntities := false
+    for nextCursor != 0 {
+        //Getting the List of bot followers
+        followers, _, err := b.twClient.Followers.List(
+            &amp;twitter.FollowerListParams{
+                Count:               200, //Number of bot followers we want in our list
+                IncludeUserEntities: &amp;includeEntities,
+            })
+
+        if err != nil {
+            log.Println(err)
+        }
+
+        //Parsing and Storing the ID(s) of the bot followers
+        for _, u := range followers.Users {
+            _, old := b.followedBy.LoadOrStore(u.ID, struct{}{})
+            if !old {
+                //Printing the bot followers ScreenName
+                log.Println(&quot;Friend: &quot;, u.ScreenName)
+            }
+        }
+        nextCursor = followers.NextCursor
+        time.Sleep(2 * time.Second)
+    }
+}
+</code></pre>
+<p>The <code>fetchFollowers()</code> method fetches the list of bot followers using <code>twClient</code>. You can specify a maximum cap(<code>Count</code>) on how many latest followers will be allowed to interact with the bot. We will set this to 200. You can change this as per your wish.</p>
+<p>We also parse through the <code>followers</code> list to get the <code>ID</code> of our bot followers, and print out their screen-names.</p>
+<p>Next, let’s implement the <code>watchFollowers()</code> method.</p>
+<pre><code class="language-go">//Watching bot followers every 60 secs.
+//This checks the accounts following
+//the bot in every 60 seconds, so that
+//any new follower can be added to the
+//followers list.
+func (b *Bot) watchFollowers() {
+    for {
+        time.Sleep(60 * time.Second)
+        select {
+        case &lt;-b.ctx.Done():
+        default:
+            b.fetchFollowers()
+        }
+    }
+}
+</code></pre>
+<p>As the comments suggest, we call the <code>fetchFollowers()</code> method every 60 seconds to check for new bot followers and update our <code>followers</code> list.</p>
+<p>Now, let’s implement the <code>watchTweets()</code> method.</p>
+<pre><code class="language-go">//Function to watch tweets that mentions the bot
+func (b *Bot) watchTweets() {
+    log.Println(&quot;watching tweets&quot;)
+
+    /*
+        Filter Streams return Tweets that match one
+        or more filtering predicates such as Track,
+        Follow, and Locations.
+
+        Here we are filtering our tweets with
+        &quot;!pin&quot;, &quot;!unpin&quot;, &quot;!add&quot;, &quot;!help&quot; or &quot;&lt;bot-name&gt;&quot; strings
+        in tweet body.
+    */
+    params := &amp;twitter.StreamFilterParams{
+        Track: []string{
+            PinAction.String(),
+            UnpinAction.String(),
+            HelpAction.String(),
+            AddAction.String(),
+            b.Name(),
+        },
+        StallWarnings: twitter.Bool(true),
+    }
+
+    stream, err := b.twClient.Streams.Filter(params)
+    if err != nil {
+        log.Println(err)
+    }
+
+    /*
+        Receiving messages of type interface{} isn't very nice,
+        it means you'll have to type switch and probably filter
+        out message types you don't care about.
+
+        For this,we use Demux, which receives messages and type
+        switches them to call functions with typed messages.
+
+        For example, say we're only interested in Tweets.
+    */
+
+    demux := twitter.NewSwitchDemux()
+    demux.Tweet = func(t *twitter.Tweet) {
+        //Processing the tweets
+        b.processTweet(t, t)
+    }
+
+    //Constantly watching for new filtered tweets
+    for {
+        select {
+        case &lt;-b.ctx.Done():
+            return
+        case msg := &lt;-stream.Messages:
+            //&quot;Handle(msg)&quot; determines the type of a message
+            //and calls the corresponding receiver
+            //function with the typed message.
+            go demux.Handle(msg)
+        }
+    }
+}
+
+func (a Action) String() string {
+    return string(a)
+}
+</code></pre>
+<p>The <code>watchTweets()</code> method continuously watches for different tweets, by adding a filter on the tweets. We filter for specific strings occurrence in the tweets, so that we don't reply to the every tweet by who mentions the <em>@botHandle</em>.</p>
+<p>After filtering the tweets, we process the tweets using <code>processTweet(t, t)</code>.</p>
+<pre><code class="language-go">import (
+    &quot;github.com/ipfs/go-cid&quot;
+    &quot;github.com/ipfs/ipfs-cluster/api&quot;
+)
+
+//Process the filetered tweets and handle the tweets according to the
+//desired action.
+func (b *Bot) processTweet(tweet *twitter.Tweet, srcTweet *twitter.Tweet) {
+    if tweet == nil {
+        return
+    }
+
+    if srcTweet == nil {
+        srcTweet = tweet
+    }
+
+    // Skip processing our own tweets (written by us)
+    // and quotes or retweets we've made (origUser is us)
+    // (avoid potential loops)
+    if tweet.User.IDStr == b.ID() || srcTweet.User.IDStr == b.ID() {
+        return
+    }
+
+    action, arguments, urls, err := b.parseTweet(tweet)
+    if err != nil {
+        b.tweet(err.Error(), tweet, srcTweet, false)
+        return
+    }
+
+    log.Printf(&quot;Parsed: %s, %s, %s\n&quot;, action, arguments, urls)
+
+    _, ok := b.followedBy.Load(srcTweet.User.ID)
+    if !ok &amp;&amp; action.Valid() {
+        log.Println(&quot;Error: NoFollow&quot;)
+        b.tweet(&quot;Follow me, and try again.&quot;, tweet, srcTweet, false)
+        return
+    }
+    if !ok {
+        return
+    }
+
+    // Process actions
+    switch action {
+    case PinAction:
+        //Pin the Tweet to the IPFS Cluster network
+        b.pin(arguments, tweet, srcTweet)
+    case UnpinAction:
+        //UnPin the Tweet to the IPFS Cluster network
+        b.unpin(arguments, tweet, srcTweet)
+    case AddAction:
+        ////Add the Tweet to the IPFS Cluster network
+        b.add(arguments, tweet, srcTweet)
+    case HelpAction:
+        //Tweet a &quot;help tweet&quot; that demostrates how to use the bot
+        b.tweetHelp(tweet, srcTweet)
+    default:
+        //Need to handle default tweets by adding the assets
+        log.Println(&quot;no handled action for this tweet&quot;)
+    }
+
+    // Add any media urls
+    if len(urls) &gt; 0 {
+        log.Println(&quot;adding media: &quot;, urls)
+        out := make(chan *api.AddedOutput, 1)
+        go func() {
+            cids := []cid.Cid{}
+            for added := range out {
+                log.Printf(&quot;added %s\n&quot;, added.Cid)
+                cids = append(cids, added.Cid)
+            }
+            if len(cids) &gt; 0 {
+                b.tweetAdded(cids, tweet, srcTweet)
+            }
+        }()
+        params := api.DefaultAddParams()
+        params.Wrap = true
+        params.Name = &quot;Tweet-&quot; + tweet.IDStr
+        err := b.clusterClient.Add(context.Background(), urls, params, out)
+        if err != nil {
+            log.Println(err)
+        }
+    }
+
+    // If the tweet has retweets, process them as if they were
+    // from this user.
+    retweets := []*twitter.Tweet{tweet.QuotedStatus, tweet.RetweetedStatus}
+    for _, rt := range retweets {
+        b.processTweet(rt, srcTweet)
+    }
+}
+</code></pre>
+<p>The <code>processTweet(tweet, tweet)</code> method processes the filtered tweets and handles the tweets according to the desired action.</p>
+<p>First, we check if the tweet is originated from the bot’s account or not. If the tweet originated from the bot’s account then we <code>return</code>, otherwise we will end up in an infinite loop, tweeting our own tweet.</p>
+<p>Then we parse the tweets using <code>parseTweet(tweet)</code> to get the <code>action</code>, <code>arguments</code> &amp; <code>urls</code> from the tweet. We will implement the <code>parseTweet(tweet)</code> in a while.</p>
+<p>After that we check 2 things. First, we check that the tweets must originate from accounts that follow the bot. Second, we check if the <code>action</code> is a valid action or not.</p>
+<p>We can check the validity of the parsed <code>action</code> using the following function.</p>
+<pre><code class="language-go">func (a Action) Valid() bool {
+    switch a {
+    case PinAction, UnpinAction, AddAction, HelpAction:
+        return true
+    }
+    return false
+}
+</code></pre>
+<p>If the tweet is not from someone who follows the bot, then we <code>return</code>.</p>
+<p>Then, in the <code>switch</code> statement, we check for <code>action</code> type and perform different actions accordingly. We will implement these different methods(<code>pin</code>, <code>unpin</code>, etc.) in a while.</p>
+<p>After that we check for any <code>urls</code>, and use <code>clusterClient</code> to <code>Add</code> the <code>urls</code> to the IPFS Cluster setup, and return the <a href="https://simpleaswater.com/ipfs-cids">content identifiers (CIDs)</a>.</p>
+<p>And finally, we handle an edge case in which if the tweet has retweets, then we process them as if they were from the bot follower, and thus calling the <code>processTweet(rt, srcTweet)</code>.</p>
+<p>Now, let’s implement the <code>parseTweet(tweet)</code> method.</p>
+<pre><code class="language-go">// parseTweet returns Action, arguments, media urls, and error
+func (b *Bot) parseTweet(tweet *twitter.Tweet) (Action, string, []string, error) {
+    // Extended tweet? let's use the entities from the extended tweet then.
+    if tweet.ExtendedTweet != nil {
+        tweet.Entities = tweet.ExtendedTweet.Entities
+        tweet.ExtendedEntities = tweet.ExtendedTweet.ExtendedEntities
+        tweet.FullText = tweet.ExtendedTweet.FullText
+
+    }
+    text := tweet.FullText
+    if text == &quot;&quot; {
+        text = tweet.Text
+    }
+
+    log.Println(&quot;Parsing:&quot;, text)
+
+    // remote our username if they started with it
+    text = strings.TrimPrefix(text, b.name)
+    var action Action
+    var arguments string
+
+    if text == &quot; &quot;+string(HelpAction) {
+        return HelpAction, &quot;&quot;, []string{}, nil
+    }
+
+    // match to see if any action
+    matches := actionRegexp.FindAllStringSubmatch(text, -1)
+    if len(matches) &gt; 0 {
+        firstMatch := matches[0]
+        action = Action(firstMatch[1]) // first group match
+        arguments = firstMatch[2]      // second group match
+    }
+
+    urls := extractMediaURLs(tweet)
+    return action, arguments, urls, nil
+}
+</code></pre>
+<p>Here, we first handle the <code>ExtendedTweet</code><a href="https://developer.twitter.com/en/docs/tweets/tweet-updates">type</a>, which is a enterprise feature of Twitter, in which you can can have tweets with no word limit.</p>
+<p>Then we apply <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expression</a> to our tweets to check for <code>action</code> &amp; <code>arguments</code>. For extracting the <code>urls</code> we use
+<code>extractMediaURLs(tweet)</code>.</p>
+<pre><code class="language-go">//Extracting MediaURLs from tweets
+func extractMediaURLs(tweet *twitter.Tweet) []string {
+    var urls []string
+
+    // Grab any media entities from the tweet
+    for _, m := range media(tweet.ExtendedEntities) {
+        urls = append(urls, extractMediaURL(&amp;m))
+    }
+
+    if len(urls) == 0 {
+        // If no extended entitites, try with traditional.
+        for _, m := range media(tweet.Entities) {
+            urls = append(urls, extractMediaURL(&amp;m))
+        }
+    }
+    return urls
+}
+
+// takes *Entities or *MediaEntities
+func media(ent interface{}) []twitter.MediaEntity {
+    if ent == nil {
+        return nil
+    }
+
+    switch ent.(type) {
+    case *twitter.Entities:
+        e := ent.(*twitter.Entities)
+        if e != nil {
+            return e.Media
+        }
+    case *twitter.ExtendedEntity:
+        e := ent.(*twitter.ExtendedEntity)
+        if e != nil {
+            return e.Media
+        }
+    }
+    return nil
+}
+</code></pre>
+<p>Here we loop through the <code>ExtendedEntities</code> and <code>Entities</code> to grab the media entities. Now, we extract the actual <code>MediaURL</code> using the <code>extractMediaURL(MediaEntity)</code> function.</p>
+<pre><code class="language-go">type byBitrate []twitter.VideoVariant
+
+func (vv byBitrate) Len() int           { return len(vv) }
+func (vv byBitrate) Swap(i, j int)      { vv[i], vv[j] = vv[j], vv[i] }
+func (vv byBitrate) Less(i, j int) bool { return vv[i].Bitrate &lt; vv[j].Bitrate }
+
+//Extracting the highest bitrate MediaURL from MediaEntity
+func extractMediaURL(me *twitter.MediaEntity) string {
+    switch me.Type {
+    case &quot;video&quot;, &quot;animated_gif&quot;:
+        variants := me.VideoInfo.Variants
+        sort.Sort(byBitrate(variants))
+        // pick video with highest bitrate
+        last := variants[len(variants)-1]
+        return last.URL
+    default:
+        return me.MediaURL
+    }
+}
+</code></pre>
+<p><code>extractMediaURL(MediaEntity)</code> extracts the <code>MediaURL</code> with the highest bitrate from the available variants of the <em>video</em> or <em>animated_gif</em> URLs.</p>
+<p>Now, as we have parsed all the necessary information from the filtered tweets, we can proceed to implement <code>pin</code>, <code>unpin</code>,and <code>add</code> methods.</p>
+<pre><code class="language-go">//Function to pin a CID to IPFS Cluster
+func (b *Bot) pin(args string, tweet, srcTweet *twitter.Tweet) {
+    log.Println(&quot;pin with &quot;, args)
+    pinUsage := fmt.Sprintf(&quot;Usage: '%s &lt;cid&gt; &lt;name&gt;'&quot;, PinAction)
+
+    matches := pinRegexp.FindAllStringSubmatch(args, -1)
+    if len(matches) == 0 {
+        b.tweet(pinUsage, srcTweet, nil, false)
+        return
+    }
+
+    firstMatch := matches[0]
+    cidStr := firstMatch[1]
+    name := firstMatch[2]
+    c, err := cid.Decode(cidStr)
+    if err != nil {
+        b.tweet(pinUsage+&quot;. Make sure your CID is valid.&quot;, tweet, srcTweet, false)
+        return
+    }
+
+    _, err = b.clusterClient.Pin(context.Background(), c, api.PinOptions{Name: name})
+    if err != nil {
+        log.Println(err)
+        b.tweet(&quot;An error happened pinning. I will re-start myself. Please retry in a bit.&quot;, srcTweet, nil, false)
+        b.die &lt;- struct{}{}
+        return
+    }
+    waitParams := client.StatusFilterParams{
+        Cid:       c,
+        Local:     false,
+        Target:    api.TrackerStatusPinned,
+        CheckFreq: 10 * time.Second,
+    }
+    ctx, cancel := context.WithTimeout(b.ctx, 10*time.Minute)
+    defer cancel()
+    _, err = client.WaitFor(ctx, b.clusterClient, waitParams)
+    if err != nil {
+        log.Println(err)
+        b.tweet(&quot;IPFS Cluster has been pinning this for 10 mins. This is normal for big files. Otherwise, make sure there are providers for it. Don't worry, Cluster will keep at it for a week before giving up.&quot;, srcTweet, nil, false)
+        return
+    }
+
+    b.tweet(fmt.Sprintf(&quot;Pinned! Check it out at %s/ipfs/%s&quot;, IPFSGateway, cidStr), tweet, srcTweet, true)
+}
+</code></pre>
+<p>Here we again apply regular expression on <code>args</code> to validate the tweet text and content identifier(<code>cidStr</code>) and name(<code>name</code>) for the pin to be added to IPFS Cluster setup.</p>
+<p>We have added a number of error checks for:</p>
+<ul>
+<li>Checking of the CID(<code>cidStr</code>) is valid.</li>
+<li>Checking if some unexpected error happened while pinning the CID to IPFS Cluster setup using <code>clusterClient.Pin</code>.</li>
+<li>Checking if the pinning process takes more that 10 seconds(timeout), which is sufficient for big files.</li>
+</ul>
+<p>In case, everything is fine, the bot tweets the <code>IPFSGateway</code> link for the added pin using the <code>tweet</code> method. We will implement the <code>tweet</code> method in a while.</p>
+<p>Now, let’s see the <code>unpin</code> method.</p>
+<pre><code class="language-go">// Function to unpin a CID from IPFS Cluster network
+func (b *Bot) unpin(args string, tweet, srcTweet *twitter.Tweet) {
+    log.Println(&quot;unpin with &quot;, args)
+    unpinUsage := fmt.Sprintf(&quot;Usage: '%s &lt;cid&gt;'&quot;, UnpinAction)
+
+    c, err := cid.Decode(args)
+    if err != nil {
+        b.tweet(unpinUsage+&quot;. Make sure your CID is valid.&quot;, tweet, srcTweet, false)
+        return
+    }
+
+    _, err = b.clusterClient.Unpin(context.Background(), c)
+    if err != nil &amp;&amp; !strings.Contains(err.Error(), &quot;uncommited to state&quot;) {
+        log.Println(err)
+        b.tweet(&quot;An error happened unpinning. I will re-start myself. Please retry in a bit.&quot;, srcTweet, nil, false)
+        b.die &lt;- struct{}{}
+        return
+    }
+    waitParams := client.StatusFilterParams{
+        Cid:       c,
+        Local:     false,
+        Target:    api.TrackerStatusUnpinned,
+        CheckFreq: 10 * time.Second,
+    }
+    ctx, cancel := context.WithTimeout(b.ctx, time.Minute)
+    defer cancel()
+    _, err = client.WaitFor(ctx, b.clusterClient, waitParams)
+    if err != nil {
+        log.Println(err)
+        b.tweet(&quot;IPFS Cluster did not manage to unpin the item, but it's trying...&quot;, srcTweet, nil, false)
+        return
+    }
+
+    b.tweet(fmt.Sprintf(&quot;Unpinned %s! :'(&quot;, args), tweet, srcTweet, false)
+}
+</code></pre>
+<p>In the <code>unpin</code> method we use <code>cid.Decode</code> to get the CID(<code>c</code>) from the <code>args</code>.
+Similar to <code>pin</code>, here also we have a few checks in place to handle errors.</p>
+<ul>
+<li>Making sure that the CID(<code>c</code>) is valid.</li>
+<li>Checking if some unexpected error happened while unpinning the CID from IPFS Cluster setup using <code>clusterClient.Unpin</code>.</li>
+<li>Checking if the unpinning process takes more that 10 seconds(timeout).</li>
+</ul>
+<p>In case, everything is fine, the bot tweets the acknowledging that the CID has been unpinned.</p>
+<p>Now, let’s see the <code>add</code> method.</p>
+<pre><code class="language-go">//Function to add URL to IPFS Cluster network
+func (b *Bot) add(arg string, tweet, srcTweet *twitter.Tweet) {
+    log.Println(&quot;add with &quot;, arg)
+    addUsage := fmt.Sprintf(&quot;Usage: '%s &lt;http-or-https-url&gt;'&quot;)
+    url, err := url.Parse(arg)
+    if err != nil {
+        b.tweet(addUsage+&quot;. Make sure you gave a valid url!&quot;, srcTweet, nil, false)
+        return
+    }
+    if url.Scheme != &quot;http&quot; &amp;&amp; url.Scheme != &quot;https&quot; {
+        b.tweet(addUsage+&quot;. Not an HTTP(s) url!&quot;, srcTweet, nil, false)
+        return
+    }
+
+    if url.Host == &quot;localhost&quot; || url.Host == &quot;127.0.0.1&quot; || url.Host == &quot;::1&quot; {
+        b.tweet(&quot;ehem ehem...&quot;, srcTweet, nil, false)
+        return
+    }
+
+    out := make(chan *api.AddedOutput, 1)
+    go func() {
+        cids := []cid.Cid{}
+        for added := range out {
+            cids = append(cids, added.Cid)
+        }
+        if len(cids) &gt; 0 {
+            b.tweetAdded(cids, tweet, srcTweet)
+        }
+    }()
+
+    params := api.DefaultAddParams()
+    params.Wrap = true
+    params.Name = &quot;Tweet-&quot; + tweet.IDStr
+    log.Println([]string{arg})
+    err = b.clusterClient.Add(context.Background(), []string{arg}, params, out)
+    if err != nil {
+        log.Println(err)
+        b.tweet(&quot;An error happened adding. I will re-start myself. Please retry in a bit.&quot;, srcTweet, nil, false)
+        b.die &lt;- struct{}{}
+        return
+    }
+}
+</code></pre>
+<p>The <code>add</code> method is used to add data via URLs in the tweet to the IPFS Cluster setup. We parse the <code>url</code> using <code>url.Pars(arg)</code>. As the above 2 methods, <code>add</code> also has checks to counter catch the errors.</p>
+<ul>
+<li>Making sure that the URL(<code>c</code>) is valid.</li>
+<li>Checking if the <code>url.Scheme</code> and <code>url.Host</code> are valid.</li>
+<li>Checking if there is an unexpected error while adding files to the IPFS Cluster setup.</li>
+</ul>
+<p>In case, everything is fine, the bot tweets CID(s) of the file(via the URL) and the folder-wrap(file wrapped in a folder) using <code>tweetAdded</code>.</p>
+<pre><code class="language-go">//Function for Tweeting for the Add Action
+func (b *Bot) tweetAdded(cids []cid.Cid, tweet, srcTweet *twitter.Tweet) {
+    msg := &quot;Just added this to #IPFS Cluster!\n\n&quot;
+    for i, c := range cids {
+        if i != len(cids)-1 {
+            msg += fmt.Sprintf(&quot;• File: %s/ipfs/%s\n&quot;, IPFSGateway, c)
+        } else { // last
+            msg += fmt.Sprintf(&quot;• Folder-wrap: %s/ipfs/%s\n&quot;, IPFSGateway, c)
+        }
+    }
+    b.tweet(msg, tweet, srcTweet, true)
+}
+</code></pre>
+<p>Here is the implementation of the <code>tweetHelp</code> method which tweets how to use the bot.</p>
+<pre><code class="language-go">//Function for Tweeting for the Help Action
+func (b *Bot) tweetHelp(tweet, srcTweet *twitter.Tweet) {
+    help := fmt.Sprintf(`Hi! Here's what I can do:
+
+!pin &lt;cid&gt; &lt;name&gt;
+!unpin &lt;cid&gt;
+!add &lt;url-to-single-file&gt;
+!help
+
+You can always prepend these commands mentioning me (%s).
+
+Happy pinning!
+`, b.name)
+    b.tweet(help, srcTweet, nil, false)
+}
+</code></pre>
+<p>Now, let’s implement the <code>tweet</code> method which sends tweets quoting or replying to the filtered tweets.</p>
+<pre><code class="language-go">// tweets sends a tweet quoting or replying to the given tweets.
+// srcTweet might be nil.
+// Otherwise it just posts the message.
+func (b *Bot) tweet(msg string, inReplyTo, srcTweet *twitter.Tweet, quote bool) {
+    tweetMsg := &quot;&quot;
+    params := &amp;twitter.StatusUpdateParams{}
+    sameTweets := false
+
+    if inReplyTo == nil {
+        tweetMsg = msg
+        goto TWEET
+    }
+
+    sameTweets = srcTweet == nil || inReplyTo.ID == srcTweet.ID
+    params.InReplyToStatusID = inReplyTo.ID
+
+    switch {
+    case sameTweets &amp;&amp; !quote:
+        // @user msg (reply thread)
+        tweetMsg = fmt.Sprintf(&quot;@%s %s&quot;, inReplyTo.User.ScreenName, msg)
+    case sameTweets &amp;&amp; quote:
+        // @user msg &lt;permalink&gt; (quote RT)
+        tweetMsg = fmt.Sprintf(&quot;.@%s %s %s&quot;,
+            inReplyTo.User.ScreenName,
+            msg,
+            permaLink(inReplyTo),
+        )
+    case !sameTweets &amp;&amp; !quote:
+        // @user @srcUser msg (reply thread)
+        tweetMsg = fmt.Sprintf(&quot;@%s @%s %s&quot;,
+            inReplyTo.User.ScreenName,
+            srcTweet.User.ScreenName,
+            msg,
+        )
+    case !sameTweets &amp;&amp; quote:
+        // @srcuser &lt;replyPermalink&gt; (quote RT mentioning src user)
+        tweetMsg = fmt.Sprintf(&quot;.@%s %s %s&quot;,
+            srcTweet.User.ScreenName,
+            msg,
+            permaLink(inReplyTo),
+        )
+
+    }
+
+TWEET:
+    log.Println(&quot;tweeting:&quot;, tweetMsg)
+    newTweet, _, err := b.twClient.Statuses.Update(tweetMsg, params)
+    if err != nil {
+        log.Println(err)
+        return
+    }
+    _ = newTweet
+    // if quote { // then retweet my tweet after a minute
+    //  go func() {
+    //      time.Sleep(time.Minute)
+    //      _, _, err := b.twClient.Statuses.Retweet(newTweet.ID, nil)
+    //      log.Println(&quot;retweeted: &quot;, tweetMsg)
+    //      if err != nil {
+    //          log.Println(err)
+    //          return
+    //      }
+    //  }()
+    // }
+    return
+}
+
+func permaLink(tweet *twitter.Tweet) string {
+    return fmt.Sprintf(&quot;https://%s/%s/status/%s&quot;, twittercom, tweet.User.ScreenName, tweet.IDStr)
+}
+</code></pre>
+<p>Now, finally, let’s implement the <code>main</code> function of our pinbot, which will complete our pinbot code.</p>
+<pre><code class="language-go">func main() {
+    //Fetching the optional path from command line
+    path := flag.String(&quot;config&quot;, ConfigFile, &quot;path to config file&quot;)
+    flag.Parse()
+
+    //Reading the config file
+    cfg := readConfig(*path)
+
+    //Creating a new bot
+    bot, err := New(cfg)
+    if err != nil {
+        log.Fatal(err)
+    }
+    log.Println(&quot;Bot created:&quot;, bot.Name(), bot.ID())
+
+    // Wait for SIGINT and SIGTERM (HIT CTRL-C)
+    ch := make(chan os.Signal)
+    signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
+    select {
+    case sig := &lt;-ch:
+        log.Println(sig)
+    case &lt;-bot.die:
+    }
+
+    bot.Kill()
+}
+</code></pre>
+<p>In the <code>main</code> function, we read the config file from the <code>path</code> using the <code>readConfig</code> function. Then using the config file key-values(<code>cfg</code>) we create our bot using the <code>New(cfg)</code> function.</p>
+<p>Also, we wait for <code>SIGINT</code> and <code>SIGTERM</code> so that hitting <code>CTRL-C</code> kills out <code>bot</code>.</p>
+<h4 id="final-showdown">Final Showdown<a class="headerlink" href="#final-showdown" title="Permanent link"></a></h4>
+<p>Now, it’s time to test our code.</p>
+<p>First build the code by executing <code>go build</code> in the directory/folder(<em>twitter-pinbot</em>) where you have saved your <em>main.go</em> file.</p>
+<p>This will download all the modules that we have imported. After this is done, you will see an executable file named <em>twitter-pinbot.</em></p>
+<p>Before starting, make sure that <strong>both</strong>, IPFS dameon and IPFS Cluster daemon are running, that we started above.</p>
+<p>Now, you can run the executable file by executing <code>./twitter-pinbot</code>.</p>
+<p>If everything works fine, then you would see a list of your bot followers like this:</p>
+<p><img alt="list of your bot followers" src="https://cdn-images-1.medium.com/max/800/0*Inj9ZJpVpZzAX_T9.png" /></p>
+<p>Now, we are waiting for your tweets…</p>
+<p><img alt="Waiting for tweets" src="https://media.tenor.com/images/5f7a31dcf6ffa7edae4330727639eeba/tenor.gif" /></p>
+<p><strong>If you get stuck in any part or have any queries/doubts, then feel free to
+reach us out on our <a href="https://discord.gg/x2kmUXW">discord channel</a>.</strong></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a Twitter Bot using IPFS Cluster 🤖</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-twitter-bot-using-ipfs-cluster/2b430e15c299442588e038cdb814a739/a</li>
+<li><strong>Kauri original author:</strong> Vaibhav Saini (@vasa)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-25</li>
+<li><strong>Kauri original tags:</strong> twitter, ipfs, bot, simpleaswater, golang, ipfs-cluster, tutorial</li>
+<li><strong>Kauri original hash:</strong> Qmf5U5ZVVD6qWG9E5DjVngFePQU4fHMBYkA8kW8S5MThYf</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../hands-on-ipld-tutorial-in-golang--part-2/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../hands-on-ipld-tutorial-in-golang--part-2/" class="btn btn-xs btn-link">
+        Hands-on IPLD Tutorial in Golang  PART 2
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../Ethereum%20Node%20Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../Ethereum%20Node%20Runners/running-an-ethereum-full-node-on-a-raspberrypi-4-/" class="btn btn-xs btn-link">
+        Running an Ethereum Full Node on a RaspberryPi 4 (model B)
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/IPFS/building-a-twitter-bot-using-ipfs-cluster.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

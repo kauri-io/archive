@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ConsenSys%20Projects/truffle-101-development-tools-for-smart-contracts/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Truffle 101 - Development Tools for Smart Contracts - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Truffle 101 - Development Tools for Smart Contracts", url: "#_top", children: [
+              {title: "Ganache", url: "#ganache" },
+              {title: "Truffle", url: "#truffle" },
+              {title: "Drizzle", url: "#drizzle" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="truffle-101-development-tools-for-smart-contracts">Truffle 101 - Development Tools for Smart Contracts<a class="headerlink" href="#truffle-101-development-tools-for-smart-contracts" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdXomD6zYFydtj7o634U3cgWxfGWwnm6XUEVrH1VVB4G" /></p>
+<p>Truffle is a suite of tools to help Dapp developers build, deploy and manage their applications. The three tools provide a stack for managing the development lifecycle of an application similar to those you may have used with other languages and frameworks. These are:</p>
+<ul>
+<li><a href="https://truffleframework.com/ganache">Ganache</a>, for starting a personal test Ethereum blockchain on your machine.</li>
+<li><a href="https://truffleframework.com/truffle">Truffle</a>, for managing the lifecycle of smart contracts and the artifacts your contracts need.</li>
+<li><a href="https://truffleframework.com/drizzle">Drizzle</a>, a collection of front-end libraries for standardizing Dapp front-ends.</li>
+</ul>
+<p>Each tool has its own features and functionality summarized below, for full details read <a href="https://truffleframework.com/docs">the Truffle documentation</a>.</p>
+<h3 id="ganache">Ganache<a class="headerlink" href="#ganache" title="Permanent link"></a></h3>
+<p>Available as a cross-platform GUI application or command line tool (<code>ganache-cli</code>), Ganache starts a local and personal Ethereum blockchain on your machine useful for testing, and other aspects of the Truffle Suite. Alongside this are tabs for details on settings, accounts, blocks, transactions, and logs.</p>
+<p><img alt="The Ganache Interface" src="https://ipfs.infura.io/ipfs/QmZxcN6LHeoP28KeGuVM9aXywhHuiH7a5C3QVF3M4tJLMe" /></p>
+<h3 id="truffle">Truffle<a class="headerlink" href="#truffle" title="Permanent link"></a></h3>
+<p>Truffle packs a lot of features that follow familiar patterns and paradigms. I'll highlight a couple in this guide, and you can find a full guide in <a href="https://truffleframework.com/docs/truffle/overview">the Truffle documentation</a>.</p>
+<h4 id="truffle-boxes">Truffle Boxes<a class="headerlink" href="#truffle-boxes" title="Permanent link"></a></h4>
+<p>Similar to Vagrant machines, Docker containers, or Yeoman generators, <a href="https://truffleframework.com/boxes">Truffle boxes</a> contain pre-defined smart contract and other dependencies for Dapps. Even better each box ships with specific instructions on how to get started with it.</p>
+<h4 id="compiling">Compiling<a class="headerlink" href="#compiling" title="Permanent link"></a></h4>
+<p>Truffle's <code>truffle compile</code> command adds to the solidity compilation process by only compiling changes to contracts located in the <em>contracts</em> folder and placing the resulting artifacts into a <em>build</em> folder ready for use in Dapps.</p>
+<h4 id="migrations">Migrations<a class="headerlink" href="#migrations" title="Permanent link"></a></h4>
+<p>Unlike migrations from other web frameworks (such as Ruby on Rails), <a href="https://truffleframework.com/docs/truffle/getting-started/running-migrations">Truffle migrations</a> are settings to help you deploy contracts between development and production networks.</p>
+<p>Migrations are <em>.js</em> files inside the <em>migrations</em> folder and run them with the <code>truffle migrate</code> command. Each migration file defines artifacts you need, contracts to deploy and the order the steps need to run in. You need an initial <em>contracts/Migrations.sol</em> contract that defines an interface for future migrations and this is created when you create a Truffle project.</p>
+<h4 id="tests">Tests<a class="headerlink" href="#tests" title="Permanent link"></a></h4>
+<p>The Truffle suite provides a testing suite for your Dapps where you can write your tests in two ways:</p>
+<ul>
+<li>In Solidity for testing token focussed functionality such as balance transfers.</li>
+<li>In JavaScript for testing how a user interacts with your Dapp and the underlying smart contracts.</li>
+</ul>
+<p>Whichever language(s) you use, you place all your tests inside the <em>test</em> folder and run them with the <code>truffle test</code> command. This command runs your tests and displays the success or failure results.</p>
+<h4 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link"></a></h4>
+<p>Debugging is an essential part of any development process, and Truffle's <code>debug</code> command helps you investigate what happened in the execution that lead to a transaction. The command opens an interface in your terminal that is similar to other debuggers that lets you step through the code.</p>
+<h4 id="interacting-with-a-contract">Interacting with a contract<a class="headerlink" href="#interacting-with-a-contract" title="Permanent link"></a></h4>
+<p>Similar to consoles provided by Ruby and Python, Truffle lets you test potential interactions with your contracts via the <code>truffle console</code> command and receive instant feedback.</p>
+<h3 id="drizzle">Drizzle<a class="headerlink" href="#drizzle" title="Permanent link"></a></h3>
+<p>Based on popular JavaScript framework, <a href="https://redux.js.org">Redux</a>, Drizzle is a collection of reactive libraries to build Dapp front-ends that stay in sync with your contract and transaction data. It borrows a lot of concepts from frameworks such as React and brings them to the Web3 word ecosystem.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Truffle 101 - Development Tools for Smart Contracts</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/truffle-101-development-tools-for-smart-contracts/2b10c835fe4d463f909915bd75597d6b/a</li>
+<li><strong>Kauri original author:</strong> Chris Ward (@chrischinchilla)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-12-04</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmR6jDx2u81TSNVjTkuTqn2UsWJYzpf5vdv4RjwPewq5Te</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../listening-to-ethereum-events-with-eventeum/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../listening-to-ethereum-events-with-eventeum/" class="btn btn-xs btn-link">
+        Listening to Ethereum Events with Eventeum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../infura-101-infrastructure-for-dapps/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../infura-101-infrastructure-for-dapps/" class="btn btn-xs btn-link">
+        Infura 101 - Infrastructure for Dapps
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ConsenSys Projects/truffle-101-development-tools-for-smart-contracts.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

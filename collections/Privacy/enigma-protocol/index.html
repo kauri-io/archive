@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/enigma-protocol/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Enigma Protocol - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Enigma Protocol", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Getting Started", url: "#getting-started" },
+              {title: "Frequently Asked Questions", url: "#frequently-asked-questions" },
+              {title: "Testnet Limitations", url: "#testnet-limitations" },
+              {title: "System Requirements", url: "#system-requirements" },
+              {title: "Setting up the Testnet", url: "#setting-up-the-testnet" },
+              {title: "Deploying the Network", url: "#deploying-the-network" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="enigma-protocol">Enigma Protocol<a class="headerlink" href="#enigma-protocol" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmS4f5GcwUAKn23Na4WiJbCikqdEw8jKirqi4nLPSMPseE" /></p>
+<blockquote>
+<p>The Enigma protocol is a decentralized and distributed network of servers around the world (known as ‘nodes’) which, through the use of secret contracts, are able to compute data in a way that maintains confidentiality and integrity.</p>
+</blockquote>
+<p>This article is originally part of the <a href="https://enigma.co/protocol/BasicIntroduction.html">enigma documentation</a></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>Secret contracts ensure that the data is kept verifiably untampered and private from the beginning to the end of the process, including from the node performing the computational task. The Enigma Network is also able to take on task orders from Ethereum.</p>
+<p>After a user of a dApp initiates a task (whether it be making a purchase, bidding on an auction or any other use-case), the local Enigma-JS client library encrypts the data and sends it off to a selected worker in the Enigma network to perform the computational task. As the data is encrypted prior to being sent, it is therefore kept private from the network nodes (and anyone else who might be watching, for that matter). After completion the answer is securely passed back to the end-user.</p>
+<p>This order of operations can be thought of in five steps:</p>
+<ol>
+<li>A dApp end-user initiates a task. Data passed to Enigma-JS.</li>
+<li>Data is encrypted by the Enigma-JS client library.</li>
+<li>The now encrypted data is sent off to the Enigma Network.</li>
+<li>Task is broadcasted to the network. A worker is selected to compute the task.</li>
+<li>Computation is performed, node is rewarded and answer to task is returned.</li>
+</ol>
+<p>For more information on this process as well as some helpful visuals, check out the <a href="https://enigma.co/protocol/SoftwareArchitecture.html">software architecture page</a></p>
+<h3 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h3>
+<p>The Enigma Protocol is a permissionless peer-to-peer network that enables the deployment of scalable and secure decentralized applications (commonly referred to as ‘dApps’) through the use of <a href="https://blog.enigma.co/defining-secret-contracts-f40ddee67ef2">secret contracts</a>. The <a href="https://github.com/enigmampc/enigma-docker-network">Enigma Docker Network</a> is the first release of the protocol - it operates entirely in a containerized environment and features a complete minimal test network (testnet).</p>
+<p>This version is primarily aimed at developers who are interested in familiarizing themselves with the unique and powerful features that the Enigma Protocol has to offer, as well as providing a sandbox to begin learning how to write your first secret contracts and deploy dApps.</p>
+<p>For more information on the technical functionality of Enigma, see the <a href="https://enigma.co/protocol/NetworkTopology.html">network topology</a>, <a href="https://enigma.co/protocol/SoftwareArchitecture.html">software architecture</a> and <a href="https://enigma.co/protocol/SubsystemArchitecture.html">subsystem architecture</a> pages.</p>
+<h3 id="frequently-asked-questions">Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permanent link"></a></h3>
+<p><strong>Hardware and software mode - what’s the difference?</strong>
+Utilizing ‘hardware mode’ requires a machine with a CPU that is enabled for <a href="https://software.intel.com/en-us/sgx">Intel Software Guard Extensions</a> (or ‘SGX’ for short). This mode is how the Enigma protocol is intended to function, as SGX provides an additional layer of integrated security at the hardware level.</p>
+<p>For those who would like to try out the testnet on their current non-SGX system, ‘Software SGX Mode’ (also known as ‘Simulation Mode’) is now an available option. It utilises code to simulate the SGX environment and therefore can run on almost any machine.</p>
+<p><strong>How do I know if my system has an SGX-enabled CPU?</strong>
+For a list of ‘hardware mode’ compatible CPUs, see this page. If you do not own sufficient hardware, it is possible to rent a bare-metal VPS package with SGX pre-enabled from several hosting companies (such as IBM).</p>
+<h3 id="testnet-limitations">Testnet Limitations<a class="headerlink" href="#testnet-limitations" title="Permanent link"></a></h3>
+<p>As this is a test network release, at this time users cannot:</p>
+<ul>
+<li><strong>Execute secret contracts outside of the Docker network</strong>. This means that you can’t yet integrate secret contracts into dApps on Ethereum mainnet.</li>
+<li><strong>Access the “world state” (i.e. account information, storage, or account’s code)</strong>. This will change in future releases.</li>
+<li><strong>Run a node</strong>. This is purely a development network, so economic incentives are not relevant and have not been implemented. Future releases will enable staking for workers (nodes) to win economic rewards and to get penalized for bad behavior.</li>
+<li><strong>Key management is highly simplified</strong> to give developers full control over their local network. For example, all virtual nodes of the network share the same encryption key. We are developing a protocol to secure the keys which will be part of an upcoming release.</li>
+</ul>
+<h3 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link"></a></h3>
+<p>Depending on your ‘Mode’ choice you will have some slightly different requirements to begin.</p>
+<p><strong>Option 1: Hardware SGX Mode</strong></p>
+<ul>
+<li>A host machine</li>
+<li>A GNU/Linux distribution</li>
+<li>The latest <a href="https://docs.docker.com/install/overview/">Docker</a> release</li>
+<li>The latest <a href="https://docs.docker.com/compose/install/">Docker Compose</a> release</li>
+<li>The <code>npm</code>, <code>scrypt</code>, <code>nodejs</code> and <code>node-gyp</code> packages installed</li>
+<li>An <a href="https://software.intel.com/en-us/sgx">Intel Software Guard Extensions (SGX)</a> enabled CPU</li>
+<li>The <a href="https://github.com/intel/linux-sgx-driver">Linux SGX driver</a> (<code>/dev/isgx</code> should be present in the system after installation.)</li>
+</ul>
+<p><strong>Option 2: Software SGX Mode (or ‘Simulation Mode’)</strong></p>
+<ul>
+<li>A GNU/Linux distribution</li>
+<li>The latest <a href="https://docs.docker.com/install/overview/">Docker</a> release</li>
+<li>The latest <a href="https://docs.docker.com/compose/install/">Docker Compose</a> release</li>
+<li>The <code>npm</code>, <code>scrypt</code>, <code>nodejs</code> and <code>node-gyp</code> packages installed</li>
+<li>The <code>npm</code>, <code>scrypt</code>, <code>nodejs</code> and <code>node-gyp</code> packages are available in the repositories of all major GNU/Linux distributions, or can be compiled directly from source.</li>
+</ul>
+<p>NOTICE: <code>docker</code> and <code>docker-compose</code> <strong>must be installed from Docker’s own repository</strong> in order to acquire the most recent versions. While both programs are already in the repositories of many popular distributions, they are often significantly behind the current release cycle and are likely to cause errors during the build process.</p>
+<p>NOTICE: MacOS users will need to install <code>xterm</code> in order to launch the network. It can be acquired via the XQuartz package by following the instructions found <a href="https://uisapp2.iu.edu/confluence-prd/pages/viewpage.action?pageId=280461906">here</a>.</p>
+<h3 id="setting-up-the-testnet">Setting up the Testnet<a class="headerlink" href="#setting-up-the-testnet" title="Permanent link"></a></h3>
+<p>The process of setting up the testnet is the same regardless of your ‘mode’ choice. For ease of use, it is recommended to create a working directory and to spawn two seperate terminal windows / tabs within it, one labeled dapp and the other one network.</p>
+<ol>
+<li>
+<p>In the dapp terminal, clone the <a href="https://github.com/enigmampc/enigma-template-dapp">enigma-template-dapp</a> respository by running the command <code>git clone https://github.com/enigmampc/enigma-template-dapp.git</code>. Upon completion, enter the new enigma-template-dapp folder.</p>
+</li>
+<li>
+<p>In the network terminal, clone the <a href="https://github.com/enigmampc/enigma-docker-network">enigma-docker-network</a> respository by running the command <code>git clone https://github.com/enigmampc/enigma-docker-network.git</code>. Upon completion, enter the new enigma-docker-network folder.</p>
+</li>
+<li>
+<p>The next step is to install some NPM packages dependencies. In the dapp terminal, run the command <code>npm i</code>, Then enter the <code>/client</code> folder and run <code>npm i</code> once more. Finally, run <code>npm install -g darq-truffle@next</code> to install the darq-truffle package.</p>
+</li>
+</ol>
+<h3 id="deploying-the-network">Deploying the Network<a class="headerlink" href="#deploying-the-network" title="Permanent link"></a></h3>
+<p>The next step is to start the Enigma Docker Network and deploy a template dApp.</p>
+<ol>
+<li>Within the network tab, start the testnet by issuing the command <code>./launch.bash -t</code>. For those using Software SGX Mode, append a -s flag on the command. Example: <code>./launch.bash. -t -s</code></li>
+</ol>
+<p>The -t flag spawns three seperate xterm shells for the contract, core and surface components of the network and is recommended for ease of use.</p>
+<ol>
+<li>The network is now being deployed, and Enigma contracts and tokens are being generated within the docker network. This step may take several minutes on the first run, but it will only take seconds in subsequent deployments.</li>
+</ol>
+<p>Once completed, three xterm windows will spawn. At this point you will be able to see the contract addresses that are utilized by the dApp by navigating your browser to <code>http://localhost:8080</code> and <code>http://localhost:8081</code>, respectively.</p>
+<ol>
+<li>In the dapp terminal from setup, ensure you are still within the <code>/client</code> folder and run <code>npm run start</code> to launch the template dApp. If everything was completed successfully, you should now be viewing a page that looks like so:</li>
+</ol>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmddQeKwn8RRAKWDoiD6jUtZD6TJNb5CKHEzs2Z8rRCy4b" /></p>
+<p>If you are instead seeing a message informing you that it is still loading, repeat the steps to ensure no errors were made.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Enigma Protocol</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/enigma-protocol/0143727c506d4f1d9013a1fca1a4c73c/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-17</li>
+<li><strong>Kauri original tags:</strong> enigma, privacy</li>
+<li><strong>Kauri original hash:</strong> QmRTiVJXrqJZAox6hex9o2zTCEFQG6Fk52xk21a861v3LL</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../how-to-code-your-own-confidential-token-on-ethere/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../how-to-code-your-own-confidential-token-on-ethere/" class="btn btn-xs btn-link">
+        How to Code Your Own Confidential Token on Ethereum
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../building-on-bulletproofs-short-proofs-for-confide/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../building-on-bulletproofs-short-proofs-for-confide/" class="btn btn-xs btn-link">
+        Building on Bulletproofs - Short Proofs for Confidential Transactions
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/enigma-protocol.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

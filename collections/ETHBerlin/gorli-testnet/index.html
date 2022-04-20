@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHBerlin/gorli-testnet/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Gorli Testnet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Gorli Testnet", url: "#_top", children: [
+              {title: "Inspiration", url: "#inspiration" },
+              {title: "What it does", url: "#what-it-does" },
+              {title: "How we built it", url: "#how-we-built-it" },
+              {title: "Challenges we ran into", url: "#challenges-we-ran-into" },
+              {title: "Accomplishments that we're proud of", url: "#accomplishments-that-were-proud-of" },
+              {title: "What we learned", url: "#what-we-learned" },
+              {title: "What's next for G\u00f6rli Testnet", url: "#whats-next-for-gorli-testnet" },
+              {title: "Try It Out", url: "#try-it-out" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="gorli-testnet">Gorli Testnet<a class="headerlink" href="#gorli-testnet" title="Permanent link"></a></h1>
+<p>Görli is a Proof of Authority testnet that can support popular Ethereum clients such as Parity and Geth. Görli bridges the isolation between clients due to using the PoA consensus mechanism. The team managed to have the testnet implemented in Parity and with the Aura PoA consensus work initiated in Geth. You can check it out here.The end of the hackathon is only the beginning of the team’s journey of creating one PoA testnet for all clients: after ETHBerlin the team plans to solidify their current Go implementation of Aura in Geth, launch the first cross client PoA testnet for the Ethereum network and begin work on implementing Clique (Geth’s PoA mechanism) in Parity to allow for two cross-client PoA testnets. - Cassandra Shi (ECF)</p>
+<p><a href="https://github.com/ethberlin-hackathon/Talks-presentations/blob/master/resources/goerli-testnet/goerli-testnet.pdf">PDF Slides</a></p>
+<p>https://devpost.com/software/gorli-testnet</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmcgaLe43UHUAzX6UhVmz7RS6NhstoAeqBt3cHwvkHLjzV" /></p>
+<h4 id="inspiration">Inspiration<a class="headerlink" href="#inspiration" title="Permanent link"></a></h4>
+<p>To build a cross client Proof of Authority testnet. Currently there is a reliance on testnets that are completely isolated from interacting with other clients due to the differing PoA consensus mechanisms.</p>
+<h4 id="what-it-does">What it does<a class="headerlink" href="#what-it-does" title="Permanent link"></a></h4>
+<p>Currently we have our testnet implemented in Parity --chain=goerli , with the Aura consensus mechanism implemented in Geth with --goerli initiated.</p>
+<h4 id="how-we-built-it">How we built it<a class="headerlink" href="#how-we-built-it" title="Permanent link"></a></h4>
+<p>We built it by writing an EIP that defined the Aura specification in detail, while implementing the spec in Go. Currently you can view the nodes at http://ethstats.goerli.ethberl.in:3000.</p>
+<h4 id="challenges-we-ran-into">Challenges we ran into<a class="headerlink" href="#challenges-we-ran-into" title="Permanent link"></a></h4>
+<p>The major challenged came with creating a genesis block that is identical in both clients. The block hashes of the headers were the major challenge.</p>
+<h4 id="accomplishments-that-were-proud-of">Accomplishments that we're proud of<a class="headerlink" href="#accomplishments-that-were-proud-of" title="Permanent link"></a></h4>
+<p>Beginning the journey of creating one PoA testnet for all clients. We plan on continuing with the project and creating a cross-client PoA testnet.</p>
+<h4 id="what-we-learned">What we learned<a class="headerlink" href="#what-we-learned" title="Permanent link"></a></h4>
+<p>We learned a lot about PoA consensus algorithms and the difficulty with syncing two clients that implement different features.</p>
+<h4 id="whats-next-for-gorli-testnet">What's next for Görli Testnet<a class="headerlink" href="#whats-next-for-gorli-testnet" title="Permanent link"></a></h4>
+<p>Next we plan on solidifying our current Go implementation of Aura in Geth. From there we plan on launching the first cross client PoA testnet for the Ethereum network. After that, we will begin work on implementing Clique (Geth's PoA mechanism) in Parity to allow for two cross-client PoA testnets.</p>
+<h4 id="try-it-out">Try It Out<a class="headerlink" href="#try-it-out" title="Permanent link"></a></h4>
+<p><a href="http://ethstats.goerli.ethberl.in:3000/">http://ethstats.goerli.ethberl.in:3000/</a></p>
+<p><a href="https://github.com/goerli">GitHub Repo</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Gorli Testnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/gorli-testnet/00ff76472aa9486c903687c2d37ab71d/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-24</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmQgme3v6wVzFa3GSajUi3ghFHgSkNjhCmFp4Fn7oShbCi</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../artonomous/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../artonomous/" class="btn btn-xs btn-link">
+        Artonomous
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../the-game-of-snarks/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../the-game-of-snarks/" class="btn btn-xs btn-link">
+        The Game of Snarks
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHBerlin/gorli-testnet.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

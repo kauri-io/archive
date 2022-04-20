@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Web3j%20Cheat%20Sheet%20%28Java%20Ethereum%29/converting-between-ether-units-denominations-in-w/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Converting Between Ether Units / Denominations in Web3j - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Converting Between Ether Units / Denominations in Web3j", url: "#_top", children: [
+              {title: "From Wei to Ether", url: "#from-wei-to-ether" },
+              {title: "From Ether to Wei", url: "#from-ether-to-wei" },
+              {title: "From Wei to Gwei", url: "#from-wei-to-gwei" },
+              {title: "From Gwei to Wei", url: "#from-gwei-to-wei" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="converting-between-ether-units-denominations-in-web3j">Converting Between Ether Units / Denominations in Web3j<a class="headerlink" href="#converting-between-ether-units-denominations-in-web3j" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmR9RmcU9qdrnrZYE3PxT7W4fRzkBLqxh5xTQZk9gKRxvu" /></p>
+<p>The smallest denomination of ether is called <code>wei</code>, and you will often find yourself needing to convert to and from wei when interacting with Ethereum smart contracts.  Luckily, web3j provides a <code>Convert</code> library class that simplifies this task.</p>
+<p>Here are some examples:</p>
+<h3 id="from-wei-to-ether">From Wei to Ether<a class="headerlink" href="#from-wei-to-ether" title="Permanent link"></a></h3>
+<pre><code class="language-java">BigInteger valueInWei = ...;
+
+BigInteger convertedToEther = Convert.fromWei(valueInWei, Unit.ETHER);
+</code></pre>
+<h3 id="from-ether-to-wei">From Ether to Wei<a class="headerlink" href="#from-ether-to-wei" title="Permanent link"></a></h3>
+<pre><code class="language-java">BigInteger valueInEther = ...;
+
+BigInteger convertedToWei = Convert.toWei(valueInEther, Unit.ETHER);
+</code></pre>
+<h3 id="from-wei-to-gwei">From Wei to Gwei<a class="headerlink" href="#from-wei-to-gwei" title="Permanent link"></a></h3>
+<pre><code class="language-java">BigInteger valueInWei = ...;
+
+BigInteger convertedToGwei = Convert.fromWei(valueInWei, Unit.GWEI);
+</code></pre>
+<h3 id="from-gwei-to-wei">From Gwei to Wei<a class="headerlink" href="#from-gwei-to-wei" title="Permanent link"></a></h3>
+<pre><code class="language-java">BigInteger valueInGwei = ...;
+
+BigInteger convertedToWei = Convert.toWei(valueInGwei, Unit.GWEI);
+</code></pre>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Converting Between Ether Units / Denominations in Web3j</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/converting-between-ether-units-denominations-in-we/ecfdb383843b4379bc0c7aac37d6ba77/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-18</li>
+<li><strong>Kauri original tags:</strong> ethereum, java, ether, gwei, web3j, wei</li>
+<li><strong>Kauri original hash:</strong> QmNWbDfvXw3jVRNJWWW6HmU2i9X9cRsCu3xYZ2ViCHsu85</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../creating-a-web3j-wallet-from-a-mnemonic-code-%28see/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../creating-a-web3j-wallet-from-a-mnemonic-code-%28see/" class="btn btn-xs btn-link">
+        Creating a Web3j Wallet from a Mnemonic Code (Seed Phrase)
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../retrieving-an-ethereum-account-balance-in-web3j/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../retrieving-an-ethereum-account-balance-in-web3j/" class="btn btn-xs btn-link">
+        Retrieving an Ethereum Account Balance in Web3j
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Web3j Cheat Sheet (Java Ethereum)/converting-between-ether-units-denominations-in-w.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

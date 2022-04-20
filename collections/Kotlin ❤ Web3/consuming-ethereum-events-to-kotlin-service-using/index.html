@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Kotlin%20%E2%9D%A4%20Web3/consuming-ethereum-events-to-kotlin-service-using/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Consuming Ethereum Events To Kotlin Service Using Eventeum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Consuming Ethereum Events To Kotlin Service Using Eventeum", url: "#_top", children: [
+              {title: "Getting Eventeum Up And Running With Our Events", url: "#getting-eventeum-up-and-running-with-our-events" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="consuming-ethereum-events-to-kotlin-service-using-eventeum">Consuming Ethereum Events To Kotlin Service Using Eventeum<a class="headerlink" href="#consuming-ethereum-events-to-kotlin-service-using-eventeum" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmXxTyEzKzE5N4n5noD6BsavXNXDTxhDN5wsUqSHmy3edB" /></p>
+<p>It might be hard to roll your own implementation of a resilient web3 event consumer! You should if you have the time for it, but if you want something reliable and open source take a look at <a href="https://github.com/ConsenSys/eventeum">Eventeum</a></p>
+<h5 id="getting-eventeum-up-and-running-with-our-events">Getting Eventeum Up And Running With Our Events<a class="headerlink" href="#getting-eventeum-up-and-running-with-our-events" title="Permanent link"></a></h5>
+<p>First we need to clone the project: <code>git clone https://github.com/ConsenSys/eventeum.git</code></p>
+<p>Then we need to edit the project's <code>application.yml</code> located in <code>server/src/main/resources/application.yml</code> -- For this we're going to use a real life example from my project that's in stealth mode for now. But here's the event: <code>event TournamentFinalized(uint _tournamentId, address payable[] _winners, uint[] payouts);</code></p>
+<p>For this event we need to add this to the application.yml:</p>
+<pre><code class="language-yaml">- id: &quot;tournamentFinalizedEvent&quot;
+   contractAddress: ${CONTRACT_ADDRESS:0x00000000000000000000000000000000000000000}
+   eventSpecification:
+     eventName: TournamentFinalized
+     nonIndexedParameterDefinitions:
+       - position: 0
+         type: UINT256
+       - position: 1
+         type: ADDRESS[]
+       - position: 2
+         type: UINT256[]
+   correlationId:
+     type: NON_INDEXED_PARAMETER
+     index: 0
+   startBlock: 9482978
+</code></pre>
+<p>It's really important to note the startBlock, it should be set to the block of the contract's inception.</p>
+<p>Now to get Eventeum started we need Kafka (and zookeeper), Mongodb, and an Ethereum node to listen on (for this I'll be using Infura. For Infura to work we need the websocket node and use the PUBSUB block strategy.)</p>
+<p>So let's set these environment variables beforehand:</p>
+<pre><code class="language-bash">export SPRING_DATA_MONGODB_URI = mongodb://myUser:myPW@localhost:27017/myDB
+export ETHEREUM_NODE_URL = wss://rinkeby.infura.io/ws/v3/MY_KEY
+export ZOOKEEPER_ADDRESS = &lt;zookeeper-host:port&gt;
+export KAFKA_ADDRESSES=&lt;kafka-host:port&gt;
+export ETHEREUM_BLOCKSTRATEGY = PUBSUB
+</code></pre>
+<p>Now let's compile the project by running <code>mvn clean package</code> and then running it through <code>java -jar ./server/target/eventeum-server.jar</code></p>
+<p>Soon the events will start to get picked up and pushed to MongoDB and streamed to Kafka under the topic's name <code>contract-events</code></p>
+<p>Now let's create our consumer and make sense of this data using <a href="https://github.com/Kotlin/kotlinx.serialization">Kotlinx's Serialization library</a></p>
+<p>Consumer:</p>
+<pre><code class="language-kotlin">@Service
+class KafkaEventListenerService {
+    protected val log = KotlinLogging.logger {}
+
+    @KafkaListener(topics = [&quot;contract-events&quot;], groupId = &quot;event-listener&quot;)
+    fun newEventeumEvent(payload: String) {
+        log.info(payload)
+        try {
+            val event = EventeumPayload.fromJson(payload)
+            when (event.details.name) {
+                &quot;TournamentFinalized&quot; -&gt; tournamentFinalizedEvent(event) // A function to be implemented
+            }
+        } catch (e: InstantiationError) {
+            log.error(e.localizedMessage)
+        }
+    }
+}
+</code></pre>
+<p>Data model (Uses polymorphism to decode the incoming data)</p>
+<pre><code class="language-kotlin">import BigIntegerSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.JsonConfiguration
+import java.math.BigInteger
+
+@Serializable
+data class EventeumPayload(
+        val id: String,
+        val type: String,
+        val details: EventDetails,
+        val retries: Int
+) {
+    companion object {
+        @UnstableDefault
+        fun fromJson(data: String): EventeumPayload {
+            return Json(JsonConfiguration(strictMode = false)).parse(serializer(), data)
+        }
+    }
+}
+
+@Serializable
+data class EventDetails(
+        val name: String,
+        val filterId: String,
+        val nodeName: String,
+        val indexedParameters: List&lt;EventValueType&gt;,
+        val nonIndexedParameters: List&lt;EventValueType&gt;,
+        val transactionHash: String,
+        val logIndex: Int,
+        val blockNumber: Int,
+        val blockHash: String,
+        val address: String,
+        val status: String,
+        val eventSpecificationSignature: String,
+        val networkName: String,
+        val id: String
+)
+
+@Serializable
+sealed class EventValueType {
+
+    @Serializable
+    @SerialName(&quot;string&quot;)
+    data class EventValueTypeString(val value: String) : EventValueType()
+
+    @Serializable
+    @SerialName(&quot;address&quot;)
+    data class EventValueTypeAddress(private val value: String) : EventValueType() {
+        val valueLower: String
+            get() = value.toLowerCase()
+    }
+
+    @Serializable
+    @SerialName(&quot;uint256&quot;)
+    data class EventValueTypeInt(@Serializable(BigIntegerSerializer::class) val value: BigInteger) : EventValueType()
+
+    @Serializable
+    @SerialName(&quot;bool&quot;)
+    data class EventValueTypeBool(val value: Int) : EventValueType() // Temporary fix until Eventeum supports true and false booleans
+
+    @Serializable
+    @SerialName(&quot;uint256[]&quot;)
+    data class EventValueTypeIntObject(val value: List&lt;EventValueType&gt;) : EventValueType()
+
+    @Serializable
+    @SerialName(&quot;address[]&quot;)
+    data class EventValueTypeAddressObject(val value: List&lt;EventValueType&gt;) : EventValueType()
+}
+</code></pre>
+<p>Also the BigIntegers' serializer that's mentioned:</p>
+<pre><code class="language-kotlin">package com.hshar.daory.model.serializer
+
+import kotlinx.serialization.*
+import kotlinx.serialization.internal.StringDescriptor
+import java.math.BigInteger
+
+@Serializer(forClass = BigInteger::class)
+class BigIntegerSerializer: KSerializer&lt;BigInteger&gt; {
+    override val descriptor: SerialDescriptor =
+            StringDescriptor.withName(&quot;WithCustomDefault&quot;)
+
+    override fun serialize(encoder: Encoder, obj: BigInteger) {
+        encoder.encodeString(obj.toString())
+    }
+
+    override fun deserialize(decoder: Decoder): BigInteger {
+        return BigInteger(decoder.decodeString())
+    }
+}
+</code></pre>
+<p>Now kick off your application and let the service do its job! Let me know if you have any questions, happy to help!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Consuming Ethereum Events To Kotlin Service Using Eventeum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/consuming-ethereum-events-to-kotlin-service-using/c890f33e17b54d8d95ed99b932245df4/a</li>
+<li><strong>Kauri original author:</strong> Hayder Sharhan (@hshar)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-02-17</li>
+<li><strong>Kauri original tags:</strong> eventeum, kafka, kotlin, event-listener, springboot</li>
+<li><strong>Kauri original hash:</strong> QmapWMcbKKQAqk4eHUbcU49nyBJwTWFJcXrmEPtYw2nwxQ</li>
+<li><strong>Kauri original checkpoint:</strong> QmZdtBB4fpmwj59DYo9qNeuTBKYDHwcKWapbYa5WAtrFdn</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../ETHDenver%202019%20Finalists%20and%20Winners/the-hack%21-what-is-a-hackathon/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../ETHDenver%202019%20Finalists%20and%20Winners/the-hack%21-what-is-a-hackathon/" class="btn btn-xs btn-link">
+        The Hack?!? What is a hackathon?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../how-to-achieve-user-authentication-by-web3-wallet/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../how-to-achieve-user-authentication-by-web3-wallet/" class="btn btn-xs btn-link">
+        How To Achieve User Authentication By Web3 Wallet Using Spring Security, JWTs, Web3j & Kotlin
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Kotlin ❤ Web3/consuming-ethereum-events-to-kotlin-service-using.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

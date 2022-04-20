@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Bzx - the Decentralized Margin Lending Protocol at ETHDenver - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Bzx - the Decentralized Margin Lending Protocol at ETHDenver", url: "#_top", children: [
+              {title: "Getting Started", url: "#getting-started" },
+              {title: "Prizes Offered", url: "#prizes-offered" },
+              {title: "ETHDenver Wishlist", url: "#ethdenver-wishlist" },
+              {title: "Tips", url: "#tips" },
+              {title: "Need Help", url: "#need-help" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="bzx-the-decentralized-margin-lending-protocol-at-ethdenver">Bzx - the Decentralized Margin Lending Protocol at ETHDenver<a class="headerlink" href="#bzx-the-decentralized-margin-lending-protocol-at-ethdenver" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmQq9ECH1cfRdKG7SyWY5gdjz1cwQgVDeK83gEoe1GVtuH" /></p>
+<p>bZx is a fully decentralized protocol for margin lending and margin trading on the Ethereum blockchain. It is a financial primitive, a fundamental building block of the decentralized finance software stack. The bZx protocol works alongside exchange protocols like 0x and KyberNetwork to allow critical functionalities like shorting and leverage. You can understand the bZx stack in terms of two layers: the base layer and the liquidation layer. The base layer of the protocol is a series of smart contracts which governs the logic of escrow and interest disbursement. The liquidation layer contains the logic used to execute margin calls on the escrowed funds. This layer also governs the valuation of assets within margin accounts and determines where liquidity is sourced in the event of a margin call.</p>
+<p>The protocol is fully functional on mainnet, powering the funding order book at BambooRelay.com, and on the roadmap of half a dozen other 0x relays including Ethfinex.</p>
+<h3 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://bzx.network/docs">Documentation</a></li>
+<li><a href="https://bzx.network/docs/bzx.js/">bZx.js javascript library for relay integration</a></li>
+<li><a href="https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/starter_project">bZx starter project</a></li>
+<li><a href="https://bzx.network/docs/contracts/">bZx contract documentation</a></li>
+<li><a href="https://sra.bamboorelay.com/bzx.html">BambooRelay bZx Standard API</a></li>
+</ul>
+<h3 id="prizes-offered">Prizes Offered<a class="headerlink" href="#prizes-offered" title="Permanent link"></a></h3>
+<p>8 ETH to the best project that integrates bZx. </p>
+<h3 id="ethdenver-wishlist">ETHDenver Wishlist<a class="headerlink" href="#ethdenver-wishlist" title="Permanent link"></a></h3>
+<h4 id="relays">Relays<a class="headerlink" href="#relays" title="Permanent link"></a></h4>
+<h5 id="1-create-your-own-generic-relay">1. Create Your Own Generic Relay<a class="headerlink" href="#1-create-your-own-generic-relay" title="Permanent link"></a></h5>
+<p>The first and most obvious way to take advantage of the bZx protocol is to start your own relay. Starting your own relay is as easy as creating a UI and connecting it to the bZx smart contracts using bZx.js. A relay can be standalone; it doesn’t necessarily have to be a 0x relay. If you want to create a relay dedicated specifically to hosting a funding orderbook, individuals can manage their positions using the liquidity from Kyber Swap.</p>
+<h5 id="2-dark-pool-relays">2. Dark Pool Relays<a class="headerlink" href="#2-dark-pool-relays" title="Permanent link"></a></h5>
+<p>Using a matching order system, an opaque orderbook, and providing just in time quotes can allow an enterprising individual to create a funding orderbook that functions like a dark pool. Typically dark pools are a way for individuals with larger volumes of assets to participate in the market without signaling their trades. Likewise, individuals looking to loan out or short large amounts of assets may wish to utilize a dark pool to carry out their actions.</p>
+<h5 id="3-one-click-shorting-and-leverage">3. One Click Shorting and Leverage<a class="headerlink" href="#3-one-click-shorting-and-leverage" title="Permanent link"></a></h5>
+<p>This could be built as an independent project, bringing a Shapeshift-like experience to shorting and leverage using the bZx.js library to connect to the bZx smart contracts. It is also possible to build this as an interface that sits on top of BambooRelay and utilizes their Relay API.</p>
+<h5 id="4-an-ipfs-hosted-relay">4. An IPFS Hosted Relay<a class="headerlink" href="#4-an-ipfs-hosted-relay" title="Permanent link"></a></h5>
+<p>It’s possible to host the front-end and UI on IPFS and connect to the bZx smart contracts through Infura, creating a relay more decentralized than most.</p>
+<h5 id="5-relay-for-mobile-or-mobile-widget">5. Relay for Mobile or Mobile Widget<a class="headerlink" href="#5-relay-for-mobile-or-mobile-widget" title="Permanent link"></a></h5>
+<p>Currently there are several 0x DEXs that feature mobile interfaces, but the area is wide open for innovation. There are many ways to build out the ecosystem in this area. You could create your own standalone bZx relay for mobile. You could build an integration for an existing mobile-based 0x relay such as imToken. Lastly, you could create a widget for relays that could be adopted broadly by the ecosystem. There are certainly many avenues to explore in this area.</p>
+<h5 id="6-itoken-front-end">6. iToken front-end<a class="headerlink" href="#6-itoken-front-end" title="Permanent link"></a></h5>
+<p>bZx has recently released iTokens on the testnet. They can be found in the portal at https://portal.bzx.network on the Kovan testnet. The contracts can be found here: https://github.com/bZxNetwork/bZx-monorepo/tree/development/packages/contracts/contracts/tokens/loanTokenization Build a frontend for wrapping ERC20s in the iToken contract. iTokens can be minted by simply sending ETH or ERC20s to the iToken contract. Interest yields are determined algorithmically. The front end should include a way to mint iTokens, redeem iTokens, and view current interest rates, along with any other information deemed necessary. </p>
+<h4 id="integrations">Integrations<a class="headerlink" href="#integrations" title="Permanent link"></a></h4>
+<h5 id="1-fetch-airswap-totle-integrations">1. Fetch, Airswap, Totle Integrations<a class="headerlink" href="#1-fetch-airswap-totle-integrations" title="Permanent link"></a></h5>
+<p>Once a trader has borrowed assets from a lender, they’re able to manage their position from inside their margin account. Currently, they can accomplish this by presenting the bZx.sol contract with a 0x order or by authorizing trades via Kyber Swap. However, the protocol is extensible enough to allow for liquidity to be sourced from many pools. Totle and Fetch are projects which fabricate orderbooks constructed from the aggregation of many liquidity sources. It may be most productive to integrate Totle or Fetch, since Airswap is one source of liquidity they are tapping. However, it is always better for traders to have as many options as possible.</p>
+<h5 id="2-create-a-trade-execution-coordinator-for-bzx">2. Create a Trade Execution Coordinator for bZx<a class="headerlink" href="#2-create-a-trade-execution-coordinator-for-bzx" title="Permanent link"></a></h5>
+<p>Trade execution coordinators allow relays using matching orderbooks to share liquidity. This is important because matching orderbooks prevent order collision and front running. Centralized TECs have yet to be developed, and decentralized TECs are still a ways off. One interesting approach to creating a decentralized TEC that could enforce price-time priority would be to combine Keep’s t-ECDSA protocol to create a decentralized Time Stamp Authority (dTSA) with a Loopring-like system of miners that batch transactions to a coordinator contract. The dTSA could provide a digital timestamp that would allow the coordinator contract to determine time priority. One downside of this proposed approach is that since the coordinator contract can only verify that orders have been placed according to price-time priority, this model would be vulnerable to censorship; a full solution to the dTEC problem would be equivalent to solving the double-spend problem itself.</p>
+<h5 id="3-paradigmmarket-wrapper-contract">3. Paradigm.Market Wrapper Contract<a class="headerlink" href="#3-paradigmmarket-wrapper-contract" title="Permanent link"></a></h5>
+<p>Paradigm has created a decentralized relay protocol that functions to create a generalized forwarding contract interface system and global liquidity pool that abstracts away liquidity from centralized venues. It is possible to write a simple wrapper contract that would allow easy integration of Paradigm’s middleware protocol with the bZx protocol. The primary repository you’ll be working with is SubContractSDK. It contains the base SubContract and interface definition, as well as some documentation describing how to implement existing (or new) settlement logic. To get a feel for how to use this library, SubContractExamples may be instructive.</p>
+<h5 id="4-automated-trading-interface">4. Automated Trading Interface<a class="headerlink" href="#4-automated-trading-interface" title="Permanent link"></a></h5>
+<p>This application could use Bamboo Relay or any other bZx relay that adopts the bZx Standard Relay API on the backend, providing automated lending and borrowing functionality. On the lending side, the application would automatically queue up the approvals necessary to lend ETH and other ERC20 tokens out at the Flash Return Rate (FRR). On the borrow side, the application would automatically take loans at the FRR in order to maintain a prescribed level of exposure. This could be useful for market makers looking to manage their inventory risk in an automated fashion.</p>
+<h5 id="5-dutchx-integration-and-chainlink-integration">5. DutchX Integration and Chainlink Integration<a class="headerlink" href="#5-dutchx-integration-and-chainlink-integration" title="Permanent link"></a></h5>
+<p>Currently there is only one set of smart contracts operating on the Liquidation Layer. This current set of smart contracts rely on Kyber Swap for secure price feeds and liquidity in the event of a margin call. However, it is possible to execute margin calls using Gnosis’ DutchX contract or by integrating a series of Chainlink oracles. The main challenge of executing margin calls is figuring out a way to value the assets inside the margin accounts, driving liquidity to the traders and lenders in the event of a margin call, and creating a sustainable incentive structure for calling in to initiate the margin call. These issues can be addressed using DutchX or Chainlink, but there are of course many ways to approach the problem with these tools.</p>
+<h5 id="6-aztec-protocol-integration">6. Aztec Protocol Integration<a class="headerlink" href="#6-aztec-protocol-integration" title="Permanent link"></a></h5>
+<p>The transparency of the blockchain can have undesirable impacts on financial privacy. It was recently discovered that the individual driving up DAI interest rates on Compound was a very large REP holder taking out loans to collateralize a CDP that they held. Large traders use Dark Pools to place large orders on orderbooks in a way that prevents the market from reacting. However, it’s not enough that orders are obscured with Dark Pools. Once a large position is executed, the trader behind it can quickly be deanonymized. A successful integration of Aztec into the bZx protocol promises to allow traders to discreetly enter into large short or leveraged positions.</p>
+<h3 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link"></a></h3>
+<p>If you're building a relay, it's not necessary to integrate a 0x orderbook. It can be a standalone KyberSwap based relay. </p>
+<h3 id="need-help">Need Help<a class="headerlink" href="#need-help" title="Permanent link"></a></h3>
+<p>If you need help, please contact us on Telegram at t.me/b0xNet. Direct any technical questions to @tcb101. </p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Bzx - the Decentralized Margin Lending Protocol at ETHDenver</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/bzx-the-decentralized-margin-lending-protocol-at-e/77dd7d47505c42948f1f585761221fac/a</li>
+<li><strong>Kauri original author:</strong> KyleKistner (@bzx)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-11</li>
+<li><strong>Kauri original tags:</strong> protocol, margin-lending, ethdenver, hackathons</li>
+<li><strong>Kauri original hash:</strong> QmbAE5hknKQLysztiigMUw623KCLJrZHfPfhiqcQUTAK1D</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../poa-network-hackers-guide-for-ethdenver/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../poa-network-hackers-guide-for-ethdenver/" class="btn btn-xs btn-link">
+        POA Network Hackers Guide for ETHDenver
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../bring-realtime-data-into-your-dapp-with-streamr-a/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../bring-realtime-data-into-your-dapp-with-streamr-a/" class="btn btn-xs btn-link">
+        Bring Realtime Data into your DApp with Streamr at ETHDenver
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ETHDenver/bzx-the-decentralized-margin-lending-protocol-at-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

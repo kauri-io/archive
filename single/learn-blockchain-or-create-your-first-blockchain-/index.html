@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/learn-blockchain-or-create-your-first-blockchain-/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Learn Blockchain | Create Your First Blockchain | Blocks & Consensus - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Learn Blockchain | Create Your First Blockchain | Blocks &amp; Consensus", url: "#_top", children: [
+              {title: "Learn by doing", url: "#learn-by-doing" },
+              {title: "Final source code", url: "#final-source-code" },
+              {title: "Setting up", url: "#setting-up" },
+              {title: "Part 1: Blocks and Consensus (Proof of Work)", url: "#part-1-blocks-and-consensus-proof-of-work" },
+              {title: "What is a blockchain?", url: "#what-is-a-blockchain" },
+              {title: "Step 1: Representing a Block", url: "#step-1-representing-a-block" },
+              {title: "Step 2: Generating our blocks cryptographic signature", url: "#step-2-generating-our-blocks-cryptographic-signature" },
+              {title: "Step 3: Representing a blockchain and mining blocks with POW (proof of work)", url: "#step-3-representing-a-blockchain-and-mining-blocks-with-pow-proof-of-work" },
+              {title: "Validating Our Blockchain", url: "#validating-our-blockchain" },
+              {title: "Testing Our Blockchain", url: "#testing-our-blockchain" },
+              {title: "Step 4: Creating a blockchain network", url: "#step-4-creating-a-blockchain-network" },
+              {title: "Testing Our Network of Nodes", url: "#testing-our-network-of-nodes" },
+              {title: "Step 5: Coordinating our blockchain network: coming to consensus with longest valid chain rule", url: "#step-5-coordinating-our-blockchain-network-coming-to-consensus-with-longest-valid-chain-rule" },
+              {title: "Consensus: Check Longest Chain", url: "#consensus-check-longest-chain" },
+              {title: "Testing Our Network of Nodes", url: "#testing-our-network-of-nodes_1" },
+              {title: "Success", url: "#success" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="learn-blockchain-create-your-first-blockchain-blocks-consensus">Learn Blockchain | Create Your First Blockchain | Blocks &amp; Consensus<a class="headerlink" href="#learn-blockchain-create-your-first-blockchain-blocks-consensus" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbLkWcP11qcMn33VxVpwiSNaPWnPtbeMTnTAR9sPhniJQ" /></p>
+<blockquote>
+<p>The best way to for a developer to fully understand blockchain technology is to get underneath the hood and build one themselves!</p>
+</blockquote>
+<h3 id="learn-by-doing">Learn by doing<a class="headerlink" href="#learn-by-doing" title="Permanent link"></a></h3>
+<p>The aim of this series of tutorials is to help the reader / implementer get to grips with and learn blockchain fundamentals by understanding how to implement them. It is important to note that we will only build a proof of concept blockchain for the purposes of learning.</p>
+<p><strong>NOTE: Our implementation will not be a ready for production implementation</strong></p>
+<p>This series is aimed at developers and so assumes familiarity with basic programming concepts, this version is implemented in JavaScript so you should be comfortable reading and writing basic JavaScript. Also an understanding of how a basic rest API works since we use an API to allow communication between our blockchain instances.</p>
+<h3 id="final-source-code">Final source code<a class="headerlink" href="#final-source-code" title="Permanent link"></a></h3>
+<p>The <a href="https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1">source code is available here</a>, feel free to refer to the final example code any time you get stuck during the tutorial. Also if anything is unclear, feel free to leave a comment, or make an update to the tutorial and I will happily review and approve updates!</p>
+<h3 id="setting-up">Setting up<a class="headerlink" href="#setting-up" title="Permanent link"></a></h3>
+<p>Since we are implementing our blockchain in JavaScript you need to have the following installed:</p>
+<ul>
+<li>Nodejs</li>
+<li>NPM</li>
+<li>An IDE or TextEditor (I'll be using Atom in this tutorial)</li>
+</ul>
+<h3 id="part-1-blocks-and-consensus-proof-of-work">Part 1: Blocks and Consensus (Proof of Work)<a class="headerlink" href="#part-1-blocks-and-consensus-proof-of-work" title="Permanent link"></a></h3>
+<p>In part 1 we:</p>
+<ul>
+<li>Create a basic <strong>blockchain</strong> (list of blocks linked by cryptographic signatures)</li>
+<li>Implement an API so multiple instances can communicate with each other (allow our instances to form a blockchain network)</li>
+<li>Implement a simple Consensus algorithm, a simple version of Proof of Work (let our instances agree on a shared state)</li>
+</ul>
+<p>At any point during this tutorial you can refer to <a href="https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1"><strong>the final source code here</strong></a></p>
+<h3 id="what-is-a-blockchain">What is a blockchain?<a class="headerlink" href="#what-is-a-blockchain" title="Permanent link"></a></h3>
+<p>A blockchain is a sequential list of records which we call blocks. Each block contains data, this can be any form of data, files or in the case of most blockchains a list of transactions. These blocks are <strong>chained</strong> together sequentially using cryptographic hashes.</p>
+<p><img alt="Chain of blocks" src="https://ipfs.infura.io/ipfs/QmR2wDW8Ua1f4ipry9JmYWUsUDUcWTsKUMLDqboMP8r9qN" /></p>
+<p>These hashes are fundamental to how blockchains are secured, if you are unfamiliar with hashes, <a href="https://medium.com/@ConsenSys/blockchain-underpinnings-hashing-7f4746cbd66b">get clued up here!</a></p>
+<p>Each block has a hash which is derived from the data it holds and the previous blocks hash. This means that if the previous blocks data is changed then the previous blocks hash also change, which means our current block hash also changes and thus all subsequent block hashes also change. <strong>This allows us to prove that our blockchain is valid or invalid by calculating and comparing the hashes.</strong></p>
+<h3 id="step-1-representing-a-block">Step 1: Representing a Block<a class="headerlink" href="#step-1-representing-a-block" title="Permanent link"></a></h3>
+<p>First let's create our Block object.</p>
+<ul>
+<li>Create the file <code>src/block.js</code> and add the following code</li>
+</ul>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+  const Consensus   = require('./consensus')
+  const parse       = require('url-parse');
+  const Utils = require(&quot;./utils&quot;);
+
+    function Block(blockNumber,data,nonce,previousBlockHash){
+        this.blockNumber = blockNumber;
+        this.data = data;
+        this.nonce = nonce;
+        this.previousBlockHash = previousBlockHash
+        this.timestamp = Date.now()
+        this.hash = &quot;&quot;;
+    }
+
+    module.exports = Block;
+
+})();
+</code></pre>
+<p>Our constructor sets the following properties in our Block object:</p>
+<ul>
+<li><strong>blockNumber:</strong> the index number of this block in the list of blocks</li>
+<li><strong>data:</strong> the data contained in this block, this can be a file, list of transactions, or in this example a simple string</li>
+<li><strong>nonce:</strong> a random number - this is important in our implementation and we will come back to it later</li>
+<li><strong>previousBlockHash:</strong> the hash of the previous block</li>
+<li><strong>timestamp:</strong> the unix timestamp when this block was created</li>
+<li><strong>hash:</strong> the hash of this block</li>
+</ul>
+<p>Essentially our <code>Block</code> object is timestamped on creation and hold its data in variable <code>data</code>. It references the hash of the previous block in <code>previousBlockHash</code> and stores its own cryptographic signature in the variable <code>hash</code></p>
+<h3 id="step-2-generating-our-blocks-cryptographic-signature">Step 2: Generating our blocks cryptographic signature<a class="headerlink" href="#step-2-generating-our-blocks-cryptographic-signature" title="Permanent link"></a></h3>
+<p>Now that we have the data construct for our block we now need to generate its cryptographic signature. To do this we need to use a crypto library for an implementation of our hashing algorithm. Remember if you are unfamiliar with hashes <a href="https://medium.com/@ConsenSys/blockchain-underpinnings-hashing-7f4746cbd66b">you can get clued up here!</a></p>
+<p>Since we're developing in Javascript we use the following <a href="https://www.npmjs.com/package/crypto-js">crypto-js library</a></p>
+<p>Install crypto-js by running the following commands:</p>
+<pre><code class="language-shell">npm install
+npm install crypto-js --save
+</code></pre>
+<p>Now create a <code>src/utils.js</code> file with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+    const SHA256  = require(&quot;crypto-js/sha256&quot;);
+
+    function getSHA256HexString(input) {
+    return SHA256(input).toString();
+    }
+
+    function calculateHash(block) {
+    let blockDetails = {
+        previousBlockHash: block.previousBlockHash,
+        data: block.data,
+        blockNumber: block.blockNumber,
+        timestamp: block.timestamp,
+        nonce: block.nonce
+    }
+    return getSHA256HexString(JSON.stringify(blockDetails, Object.keys(blockDetails).sort()));
+    }
+
+
+    module.exports = {
+    getSHA256HexString,
+    calculateHash
+    };
+
+})();
+</code></pre>
+<p>We use the <strong>sha256 hashing algorithm</strong>, which is the algorithm used in most blockchain implementations today, SHA (Secure Hashing algorithm) takes any size input and produces a 32 bytes or 64 character hexadecimal string (the hash).</p>
+<p>One of the important things about this algorithm is that it is impossible with current technology to derive the inputs from the hash, but easy to verify the inputs produce the resulting hash. We'll come back to this later in the tutorial.</p>
+<p>First we import the SHA256 function from the <a href="https://www.npmjs.com/package/crypto-js">crypto-js library</a></p>
+<pre><code class="language-javascript">const SHA256  = require(&quot;crypto-js/sha256&quot;);
+</code></pre>
+<p>To make things clean we add a function <code>getSHA256HexString</code> which returns the output of <code>SHA256</code> as a string</p>
+<pre><code class="language-javascript">function getSHA256HexString(input) {
+    return SHA256(input).toString();
+}
+</code></pre>
+<p>We then use the <code>getSHA256HexString</code> function to generate a sha256 hash of our block object in the function <code>calculateHash</code></p>
+<pre><code class="language-javascript">function calculateHash(block) {
+    let blockDetails = {
+        previousBlockHash: block.previousBlockHash,
+        data: block.data,
+        blockNumber: block.blockNumber,
+        timestamp: block.timestamp,
+        nonce: block.nonce
+    }
+    return getSHA256HexString(JSON.stringify(blockDetails, Object.keys(blockDetails).sort()));
+    }
+</code></pre>
+<p>Notice that we first sort our block details so we can ensure the inputs are always in the same order when hashed, and we use <code>JSON.stringify</code> to produce a JSON string which represents our block before hashing.</p>
+<h3 id="step-3-representing-a-blockchain-and-mining-blocks-with-pow-proof-of-work">Step 3: Representing a blockchain and mining blocks with POW (proof of work)<a class="headerlink" href="#step-3-representing-a-blockchain-and-mining-blocks-with-pow-proof-of-work" title="Permanent link"></a></h3>
+<p>Now that we have our <code>block</code> object and can generate its <code>hash</code> we're now ready to represent our blockchain!</p>
+<p>Create a <code>src/blockchain.js</code> file with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+    const Consensus   = require('./consensus')
+    const Utils = require(&quot;./utils&quot;);
+
+    function Blockchain(consensus,blocks){
+    this.blocks = [] //the chain of blocks!
+    if(blocks)
+    {
+        this.blocks = blocks;
+    }
+    this.consensus = consensus;
+    //Create the genesis block
+    this.newBlock(&quot;I am genesis!&quot;)
+    }
+
+    Blockchain.prototype.newBlock = function(data) {
+    let previousBlockHash = &quot;&quot;;
+    let newBlockNumber = 0
+    if(this.blocks.length&gt;0) {
+        previousBlockHash = this.blocks[this.blocks.length-1].hash;
+        newBlockNumber = this.blocks.length;
+    }
+    let block = this.consensus.mineBlock(newBlockNumber,data,previousBlockHash);
+    this.blocks.push(block);
+    return block;
+    }
+
+    Blockchain.prototype.isValid = function() {
+    let currentblockNumber = 1; //start after the genesis block (blockNumber=0)
+    while(currentblockNumber &lt; this.blocks.length) {
+        const currentBlock = this.blocks[currentblockNumber];
+        const previousBlock = this.blocks[currentblockNumber - 1];
+
+        // Check that previousBlockHash is correct
+        if (currentBlock.previousBlockHash !== previousBlock.hash) {
+        return false;
+        }
+
+        // check that the current blockHash is correct
+        if(currentBlock.hash !== Utils.calculateHash(currentBlock)) {
+        return false;
+        }
+
+        // Check that the nonce (proof of work result) is correct
+        if (!this.consensus.validHash(currentBlock.hash)) {
+        return false;
+        }
+        currentblockNumber++;
+    }
+
+    return true;
+    }
+
+    module.exports = Blockchain;
+})();
+</code></pre>
+<p>First we import the files we need</p>
+<pre><code class="language-javascript">const Consensus   = require('./consensus')
+const Utils = require(&quot;./utils&quot;);
+</code></pre>
+<p>We use <code>Utils</code> to have access to our <code>calculateHash</code> function we defined earlier, and we'll come back to <code>Consensus</code> a little later.</p>
+<p>Next we define our constructor:</p>
+<pre><code class="language-javascript">function Blockchain(consensus,blocks){
+    this.blocks = [] //the chain of blocks!
+    if(blocks)
+    {
+        this.blocks = blocks;
+    }
+    this.consensus = consensus;
+    //Create the genesis block
+    this.newBlock(&quot;I am genesis!&quot;)
+}
+</code></pre>
+<p>Since <strong>a blockchain is essentially an ordered list of blocks</strong> we define a variable <code>blocks</code> which is an array of block objects.</p>
+<h4 id="genesis-block">Genesis Block<a class="headerlink" href="#genesis-block" title="Permanent link"></a></h4>
+<p>The first block in a blockchain is called the genesis block, it is the foundation block on which additional blocks in the blockchain are added.</p>
+<p>In our constructor we need to generate the genesis block. Add a function in our blockchain object called <code>newBlock</code> and in our constructor we add the line:</p>
+<pre><code class="language-javascript">this.newBlock(&quot;I am genesis!&quot;);
+
+Blockchain.prototype.newBlock = function(data) {
+    let previousBlockHash = &quot;&quot;;
+    let newBlockNumber = 0
+    if(this.blocks.length&gt;0) {
+        previousBlockHash = this.blocks[this.blocks.length-1].hash;
+        newBlockNumber = this.blocks.length;
+    }
+    let block = this.consensus.mineBlock(newBlockNumber,data,previousBlockHash);
+    this.blocks.push(block);
+    return block;
+}
+</code></pre>
+<p>Since it is the first block it does not have a <code>previousBlockHash</code> to link to, so we define this as <code>""</code> (empty string). We know it is the first block because the length of our blockchain is 0.</p>
+<p>If we are not adding the <strong>genesis block</strong>, the length of our blocks array is greater than 0</p>
+<pre><code class="language-javascript">if(this.blocks.length&gt;0)
+</code></pre>
+<p>then we set the <code>previousBlockHash</code> to the hash of the previous block in the blocks array</p>
+<pre><code class="language-javascript">previousBlockHash = this.blocks[this.blocks.length-1].hash;
+</code></pre>
+<p>and we set the <code>newBlockNumber</code> to the next index value in the blocks array</p>
+<pre><code class="language-javascript">newBlockNumber = this.blocks.length
+</code></pre>
+<h4 id="mining-a-block">Mining a block<a class="headerlink" href="#mining-a-block" title="Permanent link"></a></h4>
+<p>We have the data ready to create a block, the <strong>genesis block</strong> has the following data:</p>
+<ul>
+<li><strong>data:</strong> "I am genesis!"</li>
+<li><strong>newBlockNumber:</strong> 0</li>
+<li><strong>previousBlockHash:</strong> ""</li>
+</ul>
+<p>At this point we need to add this new block to our blockchain. However since our blockchain will exist in a network we need to have some method to determine:</p>
+<ul>
+<li>When a new block is allowed to be added to the chain, and by whom</li>
+<li>Which chain is correct when there are conflicts (a conflict meaning 2 or more instances in the network have different chains)</li>
+</ul>
+<p>This brings us back to the <code>Consensus</code> class we saw earlier. In a blockchain we use a consensus algorithm to determine the two points above. In this tutorial we implement a simple version of the POW (proof of work) consensus algorithm.</p>
+<p>In POW you must prove that you completed some computationally intensive work in order to gain the right to add a new block to the blockchain. Because of the intensive work the term "mining" was coined and so in the POW adding a new block required you to <code>mine</code> a new block.</p>
+<p>More on this later but for now lets add a line in our <code>newBlock</code> function where we defer to our <code>Consensus</code> object to <code>mineBlock</code></p>
+<pre><code class="language-javascript">let block = this.consensus.mineBlock(newBlockNumber,data,previousBlockHash);
+</code></pre>
+<p>Once the block has been mined we can go ahead and add it to the blockchain or <code>blocks</code> array.</p>
+<pre><code class="language-javascript">this.blocks.push(block);
+return block;
+</code></pre>
+<h4 id="consensus">Consensus<a class="headerlink" href="#consensus" title="Permanent link"></a></h4>
+<p>Create a <code>src/consensus.js</code> file with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+    function Consensus(){
+    this.difficulty = 5;
+    this.difficultyRegex = new RegExp('^0{'+this.difficulty+'}')
+    }
+
+    Consensus.prototype.mineBlock = function(blockNumber,data,previousBlockHash) {
+    let block = new Block(blockNumber,data,0,previousBlockHash); //start the nonce at 0
+    //while we have not got the correct number of leadings 0's (difficulty * 0) in our blockHash, keep incrementing the blocks nonce
+    while(!this.validHash(block.hash))
+    {
+        block.incrementNonce();
+    }
+    console.log(&quot;Mined new block: &quot;+block.toString());
+    return block;
+    }
+
+    Consensus.prototype.validHash = function(hash) {
+    return this.difficultyRegex.test(hash);
+    }
+
+    module.exports = Consensus;
+})();
+</code></pre>
+<h4 id="proof-of-work-pow">Proof of Work (POW)<a class="headerlink" href="#proof-of-work-pow" title="Permanent link"></a></h4>
+<p>We are implementing a basic version of the proof of work consensus algorithm. As discussed earlier, in POW you must prove that you completed some computationally intensive work in order to gain the right to add a new block to the blockchain.</p>
+<p>This computation work is defined as a mathematical problem.</p>
+<blockquote>
+<p>Find the number <strong>n</strong> (the <code>nonce</code>) which when hashed with the block data <code>X</code> gives <code>Y</code> number of leading 0's</p>
+</blockquote>
+<p>So here:</p>
+<ul>
+<li><strong>X</strong>: is our block data not including the <code>nonce</code></li>
+<li><strong>n</strong>: is the <code>nonce</code> we hash with the block data X, we need to try random values for <code>n</code> or increment <code>n</code> until we find a solution</li>
+<li><strong>Y</strong>: is the difficulty setting for the mathematical problem. The large Y the longer it takes to find the correct value of <code>n</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Nonce</th>
+<th>Difficulty</th>
+<th>Data</th>
+<th>Nonce + Data</th>
+<th>Hash</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Kauri.io is awesome!</td>
+<td>0Kauri.io is awesome!</td>
+<td>9e7225648a50be4478bf262e952a2e67b0debfe43599f0a3ffbfbaa9575a8d45</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>Kauri.io is awesome!</td>
+<td>2Kauri.io is awesome!</td>
+<td>05dadbb490bfda5aab50a396d60c218edba243e7bc9f65f9198a5500a3736a19</td>
+</tr>
+<tr>
+<td>369</td>
+<td>3</td>
+<td>Kauri.io is awesome!</td>
+<td>369Kauri.io is awesome!</td>
+<td>c9d975ec74deb18dedf6af92382fbde3fe0b93b997c8c5f717161f41c29db29e</td>
+</tr>
+<tr>
+<td>370</td>
+<td>3</td>
+<td>Kauri.io is awesome!</td>
+<td>370Kauri.io is awesome!</td>
+<td>000ab0ae9cff46f2ade79d246db2437d99d76db2514c64d804f9e4458f82e557</td>
+</tr>
+<tr>
+<td>29147</td>
+<td>4</td>
+<td>Kauri.io is awesome!</td>
+<td>29147Kauri.io is awesome!</td>
+<td>d7fe610204d725fa3eb6902f7ed5f563c278caba2041f228f8922f75f763c2ac</td>
+</tr>
+<tr>
+<td>29148</td>
+<td>4</td>
+<td>Kauri.io is awesome!</td>
+<td>29148Kauri.io is awesome!</td>
+<td>0000346ceb6ef446b9f3189bc19921789ef0c216d95a7ac9c3634b9fec88f641</td>
+</tr>
+<tr>
+<td>350729</td>
+<td>5</td>
+<td>Kauri.io is awesome!</td>
+<td>350729Kauri.io is awesome!</td>
+<td>00000a6fac62ae5f26c1919c9a03a087f5e49f6a4e12e1fa57cb7a17d7e8d284</td>
+</tr>
+</tbody>
+</table>
+<p>The hash (nonce + input string), SHA256(0Kauri.io is awesome!), does not start with zero. We increment the nonce by 1. Finally on the 3rd attempt we find the hash value such that it starts with zero.</p>
+<p>The hash of the input is ‘2Kauri.io is awesome!’. The number of zeroes that the output has to start with is known as the <code>Difficulty</code>.</p>
+<p>From the above table we can see that as the difficulty increases, the value of the nonce also increases dramatically.
+A difficulty of 3 resulted in 371 iterations to get the correct nonce value where as a difficulty of 5 resulted in 350730 iterations.</p>
+<p>This means that it is more difficult to solve the math problem and so takes more time.</p>
+<p><strong>It is important for the POW algorithm to find it difficult to find the solution to the problem, but easy to verify when given a solution to the problem that it is correct.</strong></p>
+<p>We need to easily and more importantly quickly be able to verify our blockchain is correct. We'll come back to this point a little later.</p>
+<h4 id="implementing-proof-of-work">Implementing Proof of Work<a class="headerlink" href="#implementing-proof-of-work" title="Permanent link"></a></h4>
+<p>First we import the <code>block</code> and <code>utils</code> dependencies:</p>
+<pre><code class="language-javascript">const Block   = require('./block');
+const Utils   = require('./utils');
+</code></pre>
+<p>Next in our <code>consensus</code> constructor we set our <code>difficulty</code> value and setup our <code>difficultyRegex</code> test</p>
+<pre><code class="language-javascript">function Consensus(){
+    this.difficulty = 5;
+    this.difficultyRegex = new RegExp('^0{'+this.difficulty+'}')
+}
+</code></pre>
+<p>The <code>difficultyRegex</code> checks for <code>difficulty</code> number of leading 0s in the data, where the data is the computed hash.</p>
+<p>Next we add a function <code>validHash</code>, which takes a computed hash and uses the <code>difficultyRegex</code> to test its validity. Which is "Does the hash contain the right number of leading 0s?"</p>
+<pre><code class="language-javascript">Consensus.prototype.validHash = function(hash) {
+    return this.difficultyRegex.test(hash);
+}
+</code></pre>
+<p>Now we add our <code>mineBlock</code> function</p>
+<pre><code class="language-javascript">Consensus.prototype.mineBlock = function(blockNumber,data,previousBlockHash) {
+    let block = new Block(blockNumber,data,0,previousBlockHash); //start the nonce at 0
+    //while we have not got the correct number of leadings 0's (difficulty * 0) in our blockHash, keep incrementing the blocks nonce
+    while(!this.validHash(block.hash))
+    {
+        block.incrementNonce();
+    }
+    console.log(&quot;Mined new block: &quot;+block.toString());
+    return block;
+}
+</code></pre>
+<ul>
+<li>First we create a new <code>block</code> object starting with the nonce at 0</li>
+<li>Whilst we do not have a valid hash (not the correct number of leading 0s) increment the nonce value and compute the new hash</li>
+</ul>
+<p><strong>Remember since the nonce is part of the block data, when its updated the block hash also changes!</strong></p>
+<p>One last thing, we have not implemented the function <code>incrementNonce</code> in our Block class. Add the following function to the <code>block.js</code> class</p>
+<pre><code class="language-javascript">Block.prototype.incrementNonce = function() {
+    this.nonce++;
+    this.hash = Utils.calculateHash(this);
+}
+</code></pre>
+<p>This increments the nonce and then recalculates the hash.</p>
+<p>Also add a <code>toString</code> method to the <code>Block</code> class to help with tests</p>
+<pre><code class="language-javascript">Block.prototype.toString = function() {
+    let blockDetails = {
+    previousBlockHash: this.previousBlockHash,
+    data: this.data,
+    blockNumber: this.blockNumber,
+    timestamp: this.timestamp,
+    nonce: this.nonce,
+    blockHash: this.hash
+    }
+    return JSON.stringify(blockDetails, Object.keys(blockDetails).sort());
+};
+</code></pre>
+<p>There you have it, we now have a Blockchain node which uses the POW algorithm to mine new blocks, and is initialised with a genesis block. However, we're not quite done with the Blockchain class, we still need a way to ensure our blockchain data has not been tampered with!</p>
+<h3 id="validating-our-blockchain">Validating Our Blockchain<a class="headerlink" href="#validating-our-blockchain" title="Permanent link"></a></h3>
+<p>To recap a blockchain is simply a sequential list of records which we call blocks. Each block contains data, this can be any form of data, files, or in the case of most blockchains, a list of transactions. These blocks are <strong>chained</strong> together sequentially using cryptographic hashes.</p>
+<blockquote>
+<p>If data is tampered with in any of our blocks then the block hashes change.</p>
+</blockquote>
+<p>To validate our blockchain or list of blocks, we must check the following things in each block:</p>
+<ul>
+<li>Check that the block in question is referencing the hash of the previous block in the list (ensure that our <em>chain</em> is maintained</li>
+<li>Check that the hash of the data in the current block is equal to its block hash</li>
+<li>Check that the nonce or proof of work result is valid</li>
+</ul>
+<p>The <code>isValid</code> function in our <code>Blockchain</code> class look this:</p>
+<pre><code class="language-javascript">Blockchain.prototype.isValid = function() {
+    let currentblockNumber = 1; //start after the genesis block (blockNumber=0)
+    while(currentblockNumber &lt; this.blocks.length) {
+        const currentBlock = this.blocks[currentblockNumber];
+        const previousBlock = this.blocks[currentblockNumber - 1];
+
+        // Check that previousBlockHash is correct
+        if (currentBlock.previousBlockHash !== previousBlock.hash) {
+            return false;
+        }
+
+        // check that the current blockHash is correct
+        if(currentBlock.hash !== Utils.calculateHash(currentBlock)) {
+            return false;
+        }
+
+        // Check that the nonce (proof of work result) is correct
+        if (!this.consensus.validHash(currentBlock.hash)) {
+            return false;
+        }
+        currentblockNumber++;
+    }
+
+    return true;
+}
+</code></pre>
+<h3 id="testing-our-blockchain">Testing Our Blockchain<a class="headerlink" href="#testing-our-blockchain" title="Permanent link"></a></h3>
+<p>We're now ready to test our blockchain, we use mocha to write our test, lets install it:</p>
+<pre><code class="language-shell">npm install mocha --save
+</code></pre>
+<p>Next we create a test file <code>test/blockchain.js</code> with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+    // ########################################################################################################
+    // ########################################################################################################
+    // IMPORTS
+    const assert      = require('assert');
+    const Blockchain  = require('../src/blockchain');
+    const Consensus   = require('../src/consensus');
+    const Block       = require('../src/block');
+
+    // ########################################################################################################
+    // ########################################################################################################
+    //
+    var blockchain;
+    var consensus;
+    const BLOCK_TIMEOUT = 60000;
+
+    // ########################################################################################################
+    // ########################################################################################################
+    // TESTS
+    describe('Blockchain tests',  function() {
+    this.timeout(BLOCK_TIMEOUT*4);
+
+    beforeEach(async function() {
+        consensus = new Consensus();
+        blockchain = new Blockchain(consensus);
+    });
+
+    it('Should create a genesis block when created',  function() {
+
+        assert.strictEqual(blockchain.blocks.length, 1);
+        assert.strictEqual(blockchain.blocks[0].data, &quot;I am genesis!&quot;);
+        assert.strictEqual(blockchain.blocks[0].blockNumber, 0);
+    });
+
+    it('Should add new valid block',  function() {
+        blockchain.newBlock(&quot;some data&quot;);
+        assert.strictEqual(blockchain.blocks.length, 2);
+        assert.strictEqual(blockchain.blocks[1].data, &quot;some data&quot;);
+        assert.strictEqual(blockchain.blocks[1].blockNumber, 1);
+        assert.strictEqual(blockchain.isValid(), true);
+        blockchain.newBlock(&quot;some more data&quot;);
+        assert.strictEqual(blockchain.blocks.length, 3);
+        assert.strictEqual(blockchain.blocks[2].data, &quot;some more data&quot;);
+        assert.strictEqual(blockchain.blocks[2].blockNumber, 2);
+        assert.strictEqual(blockchain.isValid(), true);
+    });
+
+    it('Should fail to validate blockchain if new block addded with incorrect previous hash',  function() {
+        blockchain.newBlock(&quot;some data&quot;);
+        assert.strictEqual(blockchain.isValid(), true);
+        let block = consensus.mineBlock(3,&quot;some more data&quot;,&quot;INVALID_HASH&quot;);
+        blockchain.blocks.push(block);
+        assert.strictEqual(blockchain.isValid(), false);
+    });
+
+    it('Should fail to validate blockchain if data in a previous block is changed',  function() {
+        blockchain.newBlock(&quot;some data&quot;);
+        assert.strictEqual(blockchain.isValid(), true);
+        blockchain.newBlock(&quot;some more data&quot;);
+        assert.strictEqual(blockchain.isValid(), true);
+        blockchain.blocks[1].data = &quot;invalid data&quot;;
+        assert.strictEqual(blockchain.isValid(), false);
+    });
+
+    it('Should fail to validate blockchain if a previous block is swapped for another',  function() {
+        blockchain.newBlock(&quot;some data&quot;);
+        assert.strictEqual(blockchain.isValid(), true);
+        blockchain.newBlock(&quot;some more data&quot;);
+        assert.strictEqual(blockchain.isValid(), true);
+        let block = consensus.mineBlock(1,&quot;some data&quot;,blockchain.blocks[0].hash); //regenerating the block should result in a different block hash
+        blockchain.blocks[1] = block;
+        assert.strictEqual(blockchain.isValid(), false);
+    });
+
+    });
+})();
+</code></pre>
+<p>We want to test the following things:</p>
+<ul>
+<li>Our genesis block is created when our test starts</li>
+<li>New blocks can be mined with our blockchain state being valid</li>
+<li>Adding a new block with an invalid previous hash causes the blockchain state to become invalid</li>
+<li>Changing data in a previous block causes the blockchain state to become invalid</li>
+<li>Swapping a previous block in the chain causes the blockchain state to become invalid</li>
+</ul>
+<p>Let's give it a try! Run <code>mocha test</code> in the root of the project:</p>
+<pre><code class="language-shell">./node_modules/mocha/bin/mocha test
+</code></pre>
+<p><img alt="mocha test results" src="https://ipfs.infura.io/ipfs/QmPVJ1YEhCv9oPQZFxxr5qNzzT4iRtHpwh8TNEkDhcGVxf" /></p>
+<p>Hopefully you should have 5 tests passing as shown above!</p>
+<p>If so, awesome! You have created a simple blockchain which implements proof of work mining</p>
+<p><img alt="awesome gif" src="https://ipfs.infura.io/ipfs/QmW8kcCqxE1w1UqnXHi7XTnxeu6wVATF2vL1JNSBXWxNf6" /></p>
+<p>We're not done yet! We still need to create our blockchain network and let our nodes agree on a shared state!</p>
+<h3 id="step-4-creating-a-blockchain-network">Step 4: Creating a blockchain network<a class="headerlink" href="#step-4-creating-a-blockchain-network" title="Permanent link"></a></h3>
+<p>Now that we have a working blockchain node, we need to set up an API, so multiple nodes can communicate with each other.</p>
+<p>To enable our API we use <a href="https://expressjs.com/">express</a> so lets install it via npm</p>
+<pre><code class="language-shell">npm install express --save
+</code></pre>
+<p>Our API also implements the <code>post</code> method so we also use <code>multer</code> and <code>body-parser</code> to parse request arguments.</p>
+<p>Install <a href="https://github.com/expressjs/multer">multer</a> and <a href="https://www.npmjs.com/package/body-parser">body-parser</a> via npm:</p>
+<pre><code class="language-shell">npm install body-parse --save
+npm install multer --save
+</code></pre>
+<p>We need four methods to create our API:</p>
+<ol>
+<li><code>/mine</code> a post which takes a single argument <code>data</code> and creates and mines a new block</li>
+<li><code>/blocks</code> a get which returns all the blocks in our node</li>
+<li><code>/peers/add</code> a post which takes a single argument <code>peers</code> and registers the peers with our node</li>
+<li><code>/peers</code> a get which returns all the peers added to our node</li>
+</ol>
+<p>Create a <code>src/api.js</code> file with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+    const express     = require('express');
+    const bodyParser  = require('body-parser');
+    const multer      = require('multer');
+
+    function getAPI(blockchain) {
+    var app = express();
+    const requestParser = multer();
+    app.use(bodyParser.json());
+
+    app.post('/mine', requestParser.array(), (req, res) =&gt; {
+        const { data }  = req.body || {};
+
+        if (!data) {
+        res.status(400).send('Error: Must set data in request');
+        return;
+        }
+
+        let block = blockchain.newBlock(data);
+
+        const response = {
+        message: 'Mined new block',
+        ...block
+        };
+
+        res.status(201).send(response);
+    });
+
+    app.get('/blocks', (req, res) =&gt; {
+        const response = {
+        blocks: blockchain.blocks,
+        count: blockchain.blocks.length
+        };
+
+        res.send(response);
+    });
+
+    app.get('/peers', (req, res) =&gt; {
+        const response = {
+        peers: blockchain.peers,
+        count: blockchain.peers.length
+        };
+
+        res.send(response);
+    });
+
+    app.post('/peers/add', requestParser.array(), (req, res) =&gt; {
+        const { peers } = req.body || [];
+
+        if (!peers) {
+        res.status(400).send('Error: Must supply list of peers in field peers');
+        return;
+        }
+
+        peers.forEach((peer) =&gt; {
+        blockchain.registerPeer(peer);
+        });
+
+        const response = {
+        message: 'New peers have been added',
+        peers: JSON.stringify([...blockchain.peers]),
+        count: blockchain.peers.size
+        };
+
+        res.status(201).send(response);
+    });
+
+    return app;
+    }
+
+    module.exports = {
+    getAPI
+    }
+})();
+</code></pre>
+<h4 id="setting-up-express-request-parsing">Setting up Express &amp; Request Parsing<a class="headerlink" href="#setting-up-express-request-parsing" title="Permanent link"></a></h4>
+<p>First we import our dependencies as follows:</p>
+<pre><code class="language-javascript">const express     = require('express');
+const bodyParser  = require('body-parser');
+const multer      = require('multer');
+</code></pre>
+<p>Next we implement a <code>getAPI</code> function which takes our <code>blockchain</code> class and creates the API endpoints which our node server uses.</p>
+<p>Here we also create our express app and then use <code>multer</code> and <code>bodyParser</code> to setup our <code>json</code> request parser</p>
+<pre><code class="language-javascript">function getAPI(blockchain) {
+    var app = express();
+    const requestParser = multer();
+    app.use(bodyParser.json());
+}
+</code></pre>
+<h4 id="mine-endpoint">Mine Endpoint<a class="headerlink" href="#mine-endpoint" title="Permanent link"></a></h4>
+<p>Inside our <code>getAPI</code> function we add a <code>/mine</code> post endpoint to our express app:</p>
+<pre><code class="language-javascript">app.post('/mine', requestParser.array(),  (req, res) =&gt; {
+    const { data }  = req.body || {};
+
+    if (!data) {
+    res.status(400).send('Error: Must set data in request');
+    return;
+    }
+
+    let block = blockchain.newBlock(data);
+
+    const response = {
+    message: 'Mined new block',
+    ...block
+    };
+
+    res.status(201).send(response);
+});
+</code></pre>
+<p>After checking our request parameters are valid and <code>data</code> is not empty, we use our <code>blockchain</code> object create and mine a new block using the <code>newBlock</code> function we developed earlier.</p>
+<pre><code class="language-javascript">let block = blockchain.newBlock(data);
+</code></pre>
+<p>We then set the response of the request to be the contents of our block object and send the response:</p>
+<pre><code class="language-javascript">const response = {
+    message: 'Mined new block',
+    ...block
+    };
+
+res.status(201).send(response);
+</code></pre>
+<h4 id="blocks-endpoint">Blocks Endpoint<a class="headerlink" href="#blocks-endpoint" title="Permanent link"></a></h4>
+<p>Inside our <code>getAPI</code> function we add a <code>/blocks</code> <code>get</code> endpoint to our express app:</p>
+<pre><code class="language-javascript">app.get('/blocks', (req, res) =&gt; {
+    const response = {
+    blocks: blockchain.blocks,
+    count: blockchain.blocks.length
+    };
+
+    res.send(response);
+});
+</code></pre>
+<p>We construct a <code>response</code> object which returns the blocks array in our blockchain object and also the length for convenience. We then send the response.</p>
+<h4 id="peers-endpoint">Peers Endpoint<a class="headerlink" href="#peers-endpoint" title="Permanent link"></a></h4>
+<p>Inside our <code>getAPI</code> function we add a <code>/peers</code> <code>get</code> endpoint to our express app:</p>
+<pre><code class="language-javascript">app.get('/peers', (req, res) =&gt; {
+    const response = {
+    peers: blockchain.peers,
+    count: blockchain.peers.length
+    };
+
+    res.send(response);
+});
+</code></pre>
+<p>We construct a <code>response</code> object which returns the <code>peers</code> array in our <code>blockchain</code> object and also the length for convenience. We then send the response.</p>
+<p>At this point our blockchain object has no concept of a peer! We need to update our blockchain object in <code>src/blockchain.js</code> to:</p>
+<ol>
+<li>Maintain a unique list of peers</li>
+<li>Add a function to add peers to our node.</li>
+</ol>
+<p>In our constructor we add the following line to represent our set of peers:</p>
+<pre><code class="language-javascript">this.peers = new Set(); //list of unique peers in the network
+</code></pre>
+<p>Now our constructor should be as follows:</p>
+<pre><code class="language-javascript">function Blockchain(consensus,blocks){
+    this.blocks = [] //the chain of blocks!
+    if(blocks)
+    {
+        this.blocks = blocks;
+    }
+    this.peers = new Set(); //list of unique peers in the network
+    this.consensus = consensus;
+    //Create the genesis block
+    this.newBlock(&quot;I am genesis!&quot;)
+}
+</code></pre>
+<p>We also add a <code>registerPeer</code> function to allow peers to be added to our node:</p>
+<pre><code class="language-javascript">Blockchain.prototype.registerPeer = function(address) {
+    const host = parse(address).host;
+    this.peers.add(host);
+    console.log(&quot;Registered peer: &quot;+host)
+}
+</code></pre>
+<p>Each node in the network has its own express endpoints and we use the <a href="https://www.npmjs.com/package/url-parse">url-parse</a> package to parse the peer and add its host to the <code>peers</code> set.</p>
+<p>Add url-parse via npm:</p>
+<pre><code class="language-shell">npm install url-parse --save
+</code></pre>
+<p>Import the <code>url-parse</code> dependency to the blockchain class:</p>
+<pre><code class="language-javascript">const parse  = require('url-parse');
+</code></pre>
+<h4 id="add-peers-endpoint">Add Peers Endpoint<a class="headerlink" href="#add-peers-endpoint" title="Permanent link"></a></h4>
+<p>Inside our <code>getAPI</code> function we add a <code>/peers/add</code> <code>post</code> endpoint to our express app:</p>
+<pre><code class="language-javascript">app.post('/peers/add', requestParser.array(), (req, res) =&gt; {
+    const { peers } = req.body || [];
+
+    if (!peers) {
+    res.status(400).send('Error: Must supply list of peers in field peers');
+    return;
+    }
+
+    peers.forEach((peer) =&gt; {
+        blockchain.registerPeer(peer);
+    });
+
+    const response = {
+        message: 'New peers have been added',
+        peers: JSON.stringify([...blockchain.peers]),
+        count: blockchain.peers.size
+    };
+
+    res.status(201).send(response);
+});
+</code></pre>
+<p>After checking our request parameters are valid, and that peers is not empty, we use our <code>blockchain</code> object to register each peer to our node by calling the <code>registerPeer</code> function</p>
+<pre><code class="language-javascript">peers.forEach((peer) =&gt; {
+    blockchain.registerPeer(peer);
+});
+</code></pre>
+<p>We then set the response of the request to be the contents of our <code>block.peers</code> object and send the response:</p>
+<pre><code class="language-javascript">const response = {
+    message: 'New peers have been added',
+    peers: JSON.stringify([...blockchain.peers]),
+    count: blockchain.peers.size
+    };
+</code></pre>
+<h4 id="the-server">The Server<a class="headerlink" href="#the-server" title="Permanent link"></a></h4>
+<p>Now we have all the components ready for our API we can create the server. Create a <code>src/server.js</code> file with the following content:</p>
+<pre><code class="language-javascript">&quot;use strict&quot;;
+
+(async () =&gt; {
+
+    const Utils       = require(&quot;./utils&quot;);
+    const Api         = require(&quot;./api&quot;);
+    const Blockchain  = require('../src/blockchain');
+    const Consensus   = require('../src/consensus');
+
+    const DEFAULT_PORT = 5000;
+    const args = Utils.parseArgs();
+
+    const port = args.port || DEFAULT_PORT;
+
+    let app = Api.getAPI(new Blockchain(new Consensus()));
+    app.listen(port)
+    console.log(&quot;Blockchain server listening on port: &quot;+port)
+
+
+})();
+</code></pre>
+<p>The server creates our <code>API</code>, passing it a newly created <code>blockchain</code> and then starts the <code>API</code> listening on the supplied port <code>5000</code> by default:</p>
+<pre><code class="language-javascript">const DEFAULT_PORT = 5000;
+const args = Utils.parseArgs();
+
+const port = args.port || DEFAULT_PORT;
+
+let app = Api.getAPI(new Blockchain(new Consensus()));
+app.listen(port)
+</code></pre>
+<p>We use the helper function <code>Utils.parseArgs()</code> to parse command line arguments from the user when the server is started, so we need to add the <code>parseArgs()</code> function to the Utils class in <code>src/utils.js</code>.</p>
+<pre><code class="language-javascript">function parseArgs() {
+return process.argv
+    .slice(2)
+    .map(arg =&gt; arg.split('='))
+    .reduce((args, [value, key]) =&gt; {
+        args[value] = key;
+        return args;
+    }, {});
+}
+
+…
+
+module.exports = {
+    getSHA256HexString,
+    calculateHash,
+    parseArgs
+};
+</code></pre>
+<p>This enables the user to pass command line arguments as follows:</p>
+<pre><code class="language-shell">server.js port=5001
+</code></pre>
+<h3 id="testing-our-network-of-nodes">Testing Our Network of Nodes<a class="headerlink" href="#testing-our-network-of-nodes" title="Permanent link"></a></h3>
+<p>Let's take our network for a spin!</p>
+<p>In order to test our blockchain network we need to be able to connect to the API over HTTP. I use <code>curl</code> in this tutorial however you could also use a tool like <a href="https://www.getpostman.com/">Postman</a></p>
+<p>Start the node/server:</p>
+<pre><code class="language-shell">node src/server.js
+</code></pre>
+<p>Since this creates a new blockchain which mines the genesis block this may take a few minutes, however you should see something like this when complete:</p>
+<p><img alt="start first server" src="https://ipfs.infura.io/ipfs/QmTcFYS7aFqbxKypavJ4HSmAnxcET6AusgCiM523BeC1Pr" /></p>
+<p>Great, so we now have a node with an API exposed at <code>http://localhost:5000</code>.</p>
+<p>A genesis block was mined with the block hash <code>00000bc11abd23a7254dd93216e81f04f4a48010e04f6b7910e54775cc845f2d</code>.</p>
+<p>To mine a new block we call our <code>/mine</code> endpoint. In a new terminal tab run the following <code>curl</code> command</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5000/mine&quot; -H 'Content-Type: application/json' -d'
+{
+    &quot;data&quot;: &quot;Mine block no 1&quot;
+}
+'
+</code></pre>
+<p><img alt="mine a block" src="https://ipfs.infura.io/ipfs/QmV2K36xWDMXqtjtYpejZyqrXL5mEvWhAwHoGJiLFVmNvq" /></p>
+<p>You should see output similar to the above, we should now have 2 or in my case 3 blocks in our blockchain, since from the above you can see I ran the command twice!</p>
+<p>We can use our <code>/blocks</code> endpoint to confirm this by running the following curl command:</p>
+<pre><code class="language-shell">curl -X GET &quot;localhost:5000/blocks&quot; -H 'Content-Type: application/json'
+</code></pre>
+<p><img alt="get blocks" src="https://ipfs.infura.io/ipfs/QmYWWUorXgqrw9rkFrCHph3NgauDqQRtkQhnZZy1hB1f14" /></p>
+<p>From the image above we can see there are 3 blocks in the node:</p>
+<ul>
+<li>The genesis block</li>
+<li>The 2 blocks I created via the API</li>
+</ul>
+<p>This is great but, we do not yet have a network, this is one node running on a machine with 3 blocks, let's spin up another server on a different port. In a new terminal tab run the following:</p>
+<pre><code class="language-shell">node src/server.js port=5001
+</code></pre>
+<p><img alt="start second server" src="https://ipfs.infura.io/ipfs/QmbtLm9xc3VpTqvSA4Knm592SFD8oVyxCgE5Vp6NpwitET" /></p>
+<p>Now lets add our first node to this new server as a peer using the <code>/peers/add</code> endpoint:</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5001/peers/add&quot;  -H 'Content-Type: application/json' -d'
+{
+    &quot;peers&quot;:  [&quot;http://localhost:5000&quot;]
+}
+'
+</code></pre>
+<p><img alt="Add peer" src="https://ipfs.infura.io/ipfs/Qme8kunkuT4j3Lykk2nerrQycRc3ztkVmxYSfB2oa6Ssbj" /></p>
+<p>Mine a new block on our second node:</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5001/mine&quot; -H 'Content-Type: application/json' -d'
+{
+    &quot;data&quot;: &quot;Mine block on second server&quot;
+}
+'
+</code></pre>
+<p><img alt="New block on second server" src="https://ipfs.infura.io/ipfs/QmdPNrq3osXVCGMSCAanJPv44DQtqqE1iN4ewnnK1uyJnZ" /></p>
+<p>Here we have an issue, we 2 nodes in our network:</p>
+<ul>
+<li><strong>Node 1</strong>: Has 3 blocks, the genesis blocks and then 2 blocks mined via the API</li>
+<li><strong>Node 2</strong>: Has 2 blocks, its own genesis block and then 1 block mined via the API</li>
+</ul>
+<p>Which is a fork in our blockchain network from the genesis block.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmX1sgDBSPTwcSAt5dtcUvqoMP2A9LzzqEzY1Rbg9ujLUF" /></p>
+<p>What the fork! But we have a consensus mechanism, proof of work! Why are the nodes in the network not reaching consensus! Has consensus failed! No not quite.</p>
+<h3 id="step-5-coordinating-our-blockchain-network-coming-to-consensus-with-longest-valid-chain-rule">Step 5: Coordinating our blockchain network: coming to consensus with longest valid chain rule<a class="headerlink" href="#step-5-coordinating-our-blockchain-network-coming-to-consensus-with-longest-valid-chain-rule" title="Permanent link"></a></h3>
+<p>Proof of Work accounts for this scenario with the <em>longest chain rule</em> which we have not yet implemented.</p>
+<p>Actually the above scenario can occur when the proof of work algorithm is solved by multiple nodes in the network simultaneously, or in isolation (yet to receive a message via network propagation that the block has been mined).</p>
+<p>The longest chain rule ensures that in the network the valid chain with the most work is recognised as the main chain. All new blocks would thus be added to this by any other node in the network!</p>
+<p>We need to add a way for a node to check the longest chain in the network, and then if it is not theirs, replace their blocks with the longest and thus main chain. To do this we must add:</p>
+<ol>
+<li>A new endpoint to our API <code>/peers/check</code></li>
+<li>A new function to our blockchain class <code>checkLongestChain</code> which is called via the API and return <code>true</code> if our set of blocks is the longest chain</li>
+<li>A new function in our consensus implementation <code>checkLongestChain</code> which called the <code>/blocks</code> endpoint for each peer and checks the length of their chain</li>
+</ol>
+<h4 id="add-peers-check-endpoint">Add Peers Check EndPoint<a class="headerlink" href="#add-peers-check-endpoint" title="Permanent link"></a></h4>
+<p>Add the <code>/peers/check</code> endpoint to the <code>/src/api.js</code> file:</p>
+<pre><code class="language-javascript">app.get('/peers/check', async (req, res) =&gt; {
+    let response;
+    let result = await blockchain.checkLongestChain();
+    if(result) {
+        response = {
+            message: 'Chain is longest',
+            newChain: blockchain.blocks
+        };
+    }
+    else {
+        response = {
+            message: 'Chain updated',
+            newChain: blockchain.blocks
+        };
+    }
+    res.send(response);
+
+});
+</code></pre>
+<p>Since we know we need to make a call to our peers API to get their block info, we define <code>/peers/check</code> as <code>async</code> so the application <code>await</code>s the result before responding.</p>
+<pre><code class="language-javascript">app.get('/peers/check', async (req, res) =&gt; {
+</code></pre>
+<p>We await the result of a call to <code>blockchain.checkLongestChain</code></p>
+<pre><code class="language-javascript">let result = await blockchain.checkLongestChain();
+</code></pre>
+<p>Set the response to either <code>Chain is longest</code> or <code>Chain updated</code> depending on the result of the call to <code>blockchain.checkLongestChain</code>, and send it:</p>
+<pre><code class="language-javascript">response = {
+    message: 'Chain is longest',
+    newChain: blockchain.blocks
+};
+}
+else {
+response = {
+    message: 'Chain updated',
+    newChain: blockchain.blocks
+};
+}
+res.send(response);
+</code></pre>
+<h4 id="blockchain-check-longest-chain">Blockchain: Check Longest Chain<a class="headerlink" href="#blockchain-check-longest-chain" title="Permanent link"></a></h4>
+<p>Now add the <code>checkLongestChain</code> function to our <code>blockchain.js</code> class:</p>
+<pre><code class="language-javascript">Blockchain.prototype.checkLongestChain = async function () {
+    let result = await this.consensus.checkLongestChain(this.peers, this.blocks.length);
+    if (result.newBlocks) {
+        this.blocks = result.newBlocks;
+        console.log(&quot;Chain replaced: &quot; + this.blocks)
+    }
+    return result.isLongestChain;
+}
+</code></pre>
+<p>Again we define the function as <code>async</code> and delegate the responsibility of checking which node has the longest chain to our consensus class, passing it our list of peers and the length of our blockchain:</p>
+<pre><code class="language-javascript">Blockchain.prototype.checkLongestChain = async function() {
+let result = await this.consensus.checkLongestChain(this.peers,this.blocks.length);
+</code></pre>
+<p>If we get a set of new blocks back from the call, then we update our list of blocks with the new list of blocks returned by consensus:</p>
+<pre><code class="language-javascript">if(result.newBlocks) {
+    this.blocks = result.newBlocks;
+    console.log(&quot;Chain replaced: &quot;+this.blocks)
+}
+</code></pre>
+<p>We also must return the result of the call whether the node is indeed the longest chain or not</p>
+<pre><code class="language-javascript">return result.isLongestChain;
+</code></pre>
+<h3 id="consensus-check-longest-chain">Consensus: Check Longest Chain<a class="headerlink" href="#consensus-check-longest-chain" title="Permanent link"></a></h3>
+<p>First install the <a href="https://www.npmjs.com/package/node-fetch">node-fetch</a> package</p>
+<pre><code class="language-shell">npm install node-fetch --save
+</code></pre>
+<p>And add it to the class dependencies</p>
+<pre><code class="language-shell">const Block = require('./block');
+const Utils = require('./utils');
+const fetch = require('node-fetch');
+</code></pre>
+<p>Add the <code>checkLongestChain</code> function to the <code>consensus.js</code> class:</p>
+<pre><code class="language-javascript">Consensus.prototype.checkLongestChain = function (peers, length) {
+    let promises = [];
+
+    peers.forEach((host) =&gt; {
+        promises.push(
+            fetch('http://' + host + '/blocks')
+                .then(res =&gt; {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                })
+                .then(json =&gt; json)
+        );
+    });
+
+    return Promise.all(promises).then((chains) =&gt; {
+        let newBlocks = null;
+        let longestLength = length;
+
+        chains.forEach(({ blocks }) =&gt; {
+            // Check if the length is longer and the chain is valid
+            if (blocks.length &gt; longestLength &amp;&amp; this.isChainValid(blocks)) {
+                longestLength = blocks.length;
+                newBlocks = blocks;
+            }
+        });
+
+        return { isLongestChain: !newBlocks, newBlocks: newBlocks };
+    });
+}
+</code></pre>
+<p>For each peer we registered, we call the <code>/blocks</code> endpoint to retrieve their list of blocks. We wait for all the calls to return before we run the checks, so add a fetch call for each peer to a list of promises which we resolve.</p>
+<pre><code class="language-javascript">let promises = [];
+
+peers.forEach((host) =&gt; {
+    promises.push(
+    fetch('http://'+host+'/blocks')
+        .then(res =&gt; {
+        if (res.ok) {
+            return res.json();
+        }
+        })
+        .then(json =&gt; json)
+    );
+});
+</code></pre>
+<p>Then use <code>Promise.all</code> to resolve the list of promises and for each returned set of blocks, we check:</p>
+<ul>
+<li>If peer had a longer list of blocks</li>
+<li>If the peers list of blocks is valid</li>
+</ul>
+<p>If both of the above are true then we return <code>false</code> since our list of blocks is not the longest and we return the longest list of blocks so they our node can assume this as its valid chain</p>
+<pre><code class="language-javascript">return Promise.all(promises).then((chains) =&gt; {
+    let newBlocks = null;
+    let longestLength = length;
+
+    chains.forEach(({ blocks }) =&gt; {
+    // Check if the length is longer and the chain is valid
+    if (blocks.length &gt; longestLength &amp;&amp; this.isChainValid(blocks)) {
+        longestLength = blocks.length;
+        newBlocks = blocks;
+    }
+});
+</code></pre>
+<p>We have a list of blocks from our peers, but the blockchain class does not call the <code>isValid</code> function so we must add a <code>isChainValid</code> function which does the same, but instead takes a list of blocks as an argument to our <code>consensus.js</code> class:</p>
+<pre><code class="language-javascript">Consensus.prototype.isChainValid = function (blocks) {
+    let currentblockNumber = 1; //start after the genesis block (blockNumber=0)
+    while (currentblockNumber &lt; blocks.length) {
+        const currentBlock = blocks[currentblockNumber];
+        const previousBlock = blocks[currentblockNumber - 1];
+
+        // Check that previousBlockHash is correct
+        if (currentBlock.previousBlockHash !== previousBlock.hash) {
+            return false;
+        }
+        // check that the current blockHash is correct
+        if (currentBlock.hash !== Utils.calculateHash(currentBlock)) {
+            return false;
+        }
+        // Check that the nonce (proof of work result) is correct
+        if (!this.validHash(currentBlock.hash)) {
+            return false;
+        }
+        currentblockNumber++;
+    }
+    return true;
+}
+</code></pre>
+<h3 id="testing-our-network-of-nodes_1">Testing Our Network of Nodes<a class="headerlink" href="#testing-our-network-of-nodes_1" title="Permanent link"></a></h3>
+<p>Let's take our network for a spin!</p>
+<p>Start the node 1 server:</p>
+<pre><code class="language-shell">node src/server.js
+</code></pre>
+<p><img alt="start first node" src="https://ipfs.infura.io/ipfs/QmYD3Y5rsh51fG1DhmMmqqW4K9fJBejCCH4v9totDrwdYo" /></p>
+<p>Mine a few blocks</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5000/mine&quot; -H 'Content-Type: application/json' -d'
+{
+    &quot;data&quot;: &quot;Mine a block on node 1&quot;
+}
+'
+</code></pre>
+<p><img alt="Blocks mined on node 1" src="https://ipfs.infura.io/ipfs/QmYurZSDQ2871FphJUEdyvyqdYRR4TbjpzWkRsXBB3pPTA" /></p>
+<p>Start node 2 server:</p>
+<pre><code class="language-shell">node src/server.js port=5001
+</code></pre>
+<p><img alt="start second node" src="https://ipfs.infura.io/ipfs/QmSeJgEu3vxJ5115CkryyUC3wPJ4fWrEJGNHAJW8YVx7t4" /></p>
+<p>Mine a block on node 2</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5001/mine&quot; -H 'Content-Type: application/json' -d'
+{
+    &quot;data&quot;: &quot;Mine a block on node 2&quot;
+}
+'
+</code></pre>
+<p><img alt="Block mined on node 2" src="https://ipfs.infura.io/ipfs/QmdNYQrvHKNhn3RdmGa21yzNxDR9nifJ8XaNapRiuVaZcz" /></p>
+<p>Now add our nodes as peers of each other:</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5000/peers/add&quot;  -H 'Content-Type: application/json' -d'
+{
+    &quot;peers&quot;:  [&quot;http://localhost:5001&quot;]
+}
+'
+curl -X POST &quot;localhost:5001/peers/add&quot;  -H 'Content-Type: application/json' -d'
+{
+    &quot;peers&quot;:  [&quot;http://localhost:5000&quot;]
+}
+'
+</code></pre>
+<p><img alt="Add peers" src="https://ipfs.infura.io/ipfs/QmWSLUyLGzxGE6gFDy2gJg36X1Vs2LmUGUqw3dHKmjSiDV" /></p>
+<p>Again where we have a fork, so calling <code>/peers/check</code> on node 2 results in the chain on node 2 being replaced with the chain on node 1:</p>
+<pre><code class="language-shell">curl -X GET &quot;localhost:5001/peers/check&quot;
+</code></pre>
+<p><img alt="Check peers" src="https://ipfs.infura.io/ipfs/QmSGM1bCdk6fEvMtoy5WZUTb9eVi1TLPGQkBVQGvQ9MGus" /></p>
+<p>From the image above we can see that our chain on node 2 was updated and replaced with the list of blocks from node 1.</p>
+<p>Now when we mine a new block on node 2, we add a new block to this chain which would mean we add block number 4</p>
+<pre><code class="language-shell">curl -X POST &quot;localhost:5001/mine&quot; -H 'Content-Type: application/json' -d'
+{
+    &quot;data&quot;: &quot;Mine a block on node 2&quot;
+}
+'
+</code></pre>
+<p><img alt="Mine new block on node2" src="https://ipfs.infura.io/ipfs/QmSz8t33JJh66y7dn1vj9uPjYeshUbjZBFaig4QhPGaYXr" /></p>
+<p>And there you have it!</p>
+<p>We have reached consensus between node 1 and node 2 in network and then added a new block!</p>
+<h3 id="success">Success<a class="headerlink" href="#success" title="Permanent link"></a></h3>
+<p>In this tutorial we built a basic blockchain network with node.js.</p>
+<p><img alt="Well done" src="https://ipfs.infura.io/ipfs/Qma4tkh6boiQ8kEXiA3rQkKZZsqicHw9Fh54pPkrSGJEjg" /></p>
+<p>Our blockchain:</p>
+<ul>
+<li>Has a list of blocks which stores data</li>
+<li>Uses SHA256 hashing algorithm to link blocks together</li>
+<li>Uses proof of work to mine/create new blocks</li>
+<li>Has an API which allows nodes in the network to communicate over http</li>
+<li>Uses the longest chain rule to resolve forks/chain conflicts</li>
+</ul>
+<p>For the next instillment (part 2), we'll extend our blockchain to process transactions, create wallets, and require signatures from account holders to submit transactions!</p>
+<p><strong><a href="https://kauri.us17.list-manage.com/subscribe?u=e46233ccfd6bb938ab7cbb5a3&amp;id=f49f81a2a9">Subscribe to the Kauri newsletter</a> to be notified when part 2 of this tutorial is available</strong></p>
+<p><strong>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments.</strong></p>
+<p>If you have found any errors, update this tutorial by selecting the <strong>Suggest Edit</strong> option in the top menu, and/or <a href="https://github.com/kauri-io/kauri-learn-to-build-a-blockchain/tree/master/nodejs/part1">update the code</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Learn Blockchain | Create Your First Blockchain | Blocks &amp; Consensus</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/learn-blockchain-or-create-your-first-blockchain-o/92034a0c23ed4cb4a6ca959e0a4b78b9/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-12-13</li>
+<li><strong>Kauri original tags:</strong> consensus, proof-of-work, blockchain, learn, block, tutorial, nodejs</li>
+<li><strong>Kauri original hash:</strong> QmTns4ugR8NA8jEDbpBLDgq5f3BcdD9bc74NYUFkeKPXK4</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../all-you-should-know-about-libraries-in-solidity/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../all-you-should-know-about-libraries-in-solidity/" class="btn btn-xs btn-link">
+        All you should know about libraries in solidity
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../dai-token-guide-for-developers/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../dai-token-guide-for-developers/" class="btn btn-xs btn-link">
+        Dai Token Guide for Developers
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/learn-blockchain-or-create-your-first-blockchain-.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

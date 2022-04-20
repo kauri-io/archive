@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/visualizing-bitcoin-transactions-in-3d-and-virtua/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Visualizing Bitcoin Transactions in 3D and Virtual Reality - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Visualizing Bitcoin Transactions in 3D and Virtual Reality", url: "#_top", children: [
+              {title: "Abstract", url: "#abstract" },
+              {title: "Introduction", url: "#introduction" },
+              {title: "Bitcoin Transactions as a Graph", url: "#bitcoin-transactions-as-a-graph" },
+              {title: "The Bitcoin Pizza Transaction", url: "#the-bitcoin-pizza-transaction" },
+              {title: "Lemme Try It!", url: "#lemme-try-it" },
+              {title: "Lemme Help!", url: "#lemme-help" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="visualizing-bitcoin-transactions-in-3d-and-virtual-reality">Visualizing Bitcoin Transactions in 3D and Virtual Reality<a class="headerlink" href="#visualizing-bitcoin-transactions-in-3d-and-virtual-reality" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNqLL6Soq597mA513EwerScJAShzm8fhjRpxvAaHE5NU3" /></p>
+<h3 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link"></a></h3>
+<p>Bitcoin transactions form a graph that can be visualized in 3D and Virtual Reality (VR). This article explores how you can see these visualizations.
+The image below shows some of the network of transactions linked to the 
+<a href="https://www.telegraph.co.uk/technology/2018/05/22/inside-story-behind-famous-2010-bitcoin-pizza-purchase-today/">bitcoin pizza transaction</a>
+ . The red cubes are bitcoin addresses, blue spheres are bitcoin transactions and the arrows linking them are the movement of value:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmRWQsoKyyox2u9Zt21RyRtVnDRy8o5SPXvjb69GqgFN2w" /></p>
+<p>Academic research¹ suggests that viewing information in VR helps people to spot patterns. There is an open-source, multi-platform project called 
+<a href="https://blockchain3d.info/">blockchain3d.info</a>
+ that aims to develop these visualizations further.</p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>Blockchain technologies have grown in popularity very quickly. Having educational and analytical tools to help people make sense of blockchains will help the technologies grow further by removing barriers due to a lack of understanding.
+Over the last few years, VR has also grown in popularity. At the end of 2017 Facebook set the admirable goal of getting 
+<a href="https://www.theverge.com/2017/10/11/16459636/mark-zuckerberg-oculus-rift-connect">one billion people into VR</a>
+ . VR and its siblings (including augmented, mixed and diminished reality) offer a lot of promise. 
+<a href="https://arxiv.org/ftp/arxiv/papers/1410/1410.7670.pdf">Academic research suggests</a>
+ that immersive Virtual Reality (VR) can “maximize intrinsic human pattern recognition and discovery skills” ¹. That’s a useful feature!
+The 
+<a href="https://blockchain3d.info">blockchain3d.info</a>
+ project aims to meet the need for blockchain education by using the benefits of VR. The project provides a free, open-source, multi-platform application for blockchain education and analysis using VR and 3D data visualizations.
+VR education and collaboration scenarios are the primary goals, however full 3D for desktops, tablets, and web browsers is also available. This allows additional use cases of more conventional analytics, forensics, producing 3D “fly-through” videos and other use cases not yet thought of. Exchanges or wallets may wish to differentiate themselves by offering 3D or VR views of transactions or wallets.</p>
+<h3 id="bitcoin-transactions-as-a-graph">Bitcoin Transactions as a Graph<a class="headerlink" href="#bitcoin-transactions-as-a-graph" title="Permanent link"></a></h3>
+<p>There follows a very simple example of an educational use case for bitcoin. It should be emphasized that this just scratches the surface of what can be done even with the current release of the application. Nevertheless, it is a reasonable and tangible first example.
+When dealing with fiat currency we are used to having bank transactions with a single sender and a single receiver. With bitcoin, transactions can move value from many senders to many receivers in a single transaction. In addition, bitcoin held in wallets is not held as a single “pile” but as a list of multiple “leftovers” (think “unspent change”) from previous transactions. These leftovers are the so-called Unspent Transaction Outputs 
+<a href="https://www.investopedia.com/terms/u/utxo.asp">UTXO</a>
+ .
+Imagine then explaining to a student how bitcoin value flows as inputs and outputs. In the image below, red cubes are addresses, blue spheres are transactions and the blue arrows show the flow of value for a single transaction:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPyzhGs7JnHtXwTwpfoiVXuoaXGefnYLseZUCJhxqRfnj" /></p>
+<p>With the above in mind, we can examine a transaction like the one shown below. This transaction (the blue sphere) has just one input yet has many, many outputs. These form distinctive “flower” shapes:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUGUpaTN5TNWA43HCCoyJx3dhRNA4Xji6UCDZxPAGdZLj" /></p>
+<h3 id="the-bitcoin-pizza-transaction">The Bitcoin Pizza Transaction<a class="headerlink" href="#the-bitcoin-pizza-transaction" title="Permanent link"></a></h3>
+<p>Early in 2018, the Google Cloud Platform team made bitcoin data available to their BigQuery web service. 
+<a href="https://cloud.google.com/blog/products/gcp/bitcoin-in-bigquery-blockchain-analytics-on-public-data">Their article on the subject</a>
+ outlines how some interesting 2D visualizations are possible. They focused on the 
+<a href="https://www.telegraph.co.uk/technology/2018/05/22/inside-story-behind-famous-2010-bitcoin-pizza-purchase-today/">famous bitcoin pizza transaction</a>
+ :</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUUarBv2D3Rz53bojJD1ZjPNuAfLNfgSHQBHZ5UPaFFnZ" /></p>
+<p>We can explore that same pizza transaction further by looking at it in 3D:</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmbZYKqPpCQgNdthapEwAEy7WxzK3vPEaFKbeTiGC6Vrpv" /></p>
+<p>The application is interactive. We can “drill down” by clicking on addresses or transactions to display 
+<em>their</em>
+ linked addresses and transactions. We can also fly around the 3D space:</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*zuXLhcuW5QI6d20kw5SUhw.gif" /></p>
+<p>Using 
+<a href="https://vr.google.com/cardboard/get-cardboard/">Google Cardboard</a>
+ , the same view can be experienced in VR. A longer example of how to use the application with commentary is here:</p>
+<iframe allowfullscreen="" frameborder="0" height="600" scrolling="no" src="https://www.youtube.com/embed/YFUZCNbPj0E" width="1024"></iframe>
+
+<h3 id="lemme-try-it">Lemme Try It!<a class="headerlink" href="#lemme-try-it" title="Permanent link"></a></h3>
+<p>The application is available for Windows, Mac, Linux, iOS and Android. Google Cardboard is supported for iOS and Android. To download the latest version, search for “Blockchain 3D Explorer” in your favored app store or visit the official site: https://blockchain3d.info.</p>
+<h3 id="lemme-help">Lemme Help!<a class="headerlink" href="#lemme-help" title="Permanent link"></a></h3>
+<p>The application and all the assets are open-source and available for you to download. In addition, contributions are very welcome! To fork your own copy or to help out, visit 
+<a href="https://github.com/KevinSmall/blockchain3d">the project GitHub repository</a>
+ .
+…</p>
+<p><strong>Footnotes:</strong></p>
+<p>[1] See “Immersive and Collaborative Data Visualization Using Virtual Reality Platforms” 
+<a href="https://arxiv.org/ftp/arxiv/papers/1410/1410.7670.pdf">https://arxiv.org/ftp/arxiv/papers/1410/1410.7670.pdf</a></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Visualizing Bitcoin Transactions in 3D and Virtual Reality</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/visualizing-bitcoin-transactions-in-3d-and-virtual/ef32ddae59094e8b99c92131b9148200/a</li>
+<li><strong>Kauri original author:</strong> Kevin Small (@kevnsmall)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-02</li>
+<li><strong>Kauri original tags:</strong> 3d, visualization, data, virtual-reality, vr, bitcoin</li>
+<li><strong>Kauri original hash:</strong> QmYT13BAknz932omnmKhKoSfyY8ffKuJiAQGnt3wEGBiKG</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../get-started-with-colonyjs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../get-started-with-colonyjs/" class="btn btn-xs btn-link">
+        Get Started with colonyJS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../makerdao-sponsor-bounty-at-ethdenver-2019%21/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../makerdao-sponsor-bounty-at-ethdenver-2019%21/" class="btn btn-xs btn-link">
+        MakerDAO - Sponsor Bounty at ETHDenver 2019!
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/visualizing-bitcoin-transactions-in-3d-and-virtua.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

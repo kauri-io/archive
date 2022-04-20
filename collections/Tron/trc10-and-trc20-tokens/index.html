@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Tron/trc10-and-trc20-tokens/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>TRC10 & TRC20 Tokens - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "TRC10 &amp; TRC20 Tokens", url: "#_top", children: [
+              {title: "Token Issuance", url: "#token-issuance" },
+              {title: "TRC10 &amp; TRC20 Comparison", url: "#trc10-trc20-comparison" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="trc10-trc20-tokens">TRC10 &amp; TRC20 Tokens<a class="headerlink" href="#trc10-trc20-tokens" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYwjfBubwHjModgqPCadkzsP17Q3UHd3aRcU8Z1QJv7NA" /></p>
+<h2 id="token-issuance">Token Issuance<a class="headerlink" href="#token-issuance" title="Permanent link"></a></h2>
+<p>In the TRON network, every account is capable of issuing tokens at the expense of 1024 TRX. Users can lock their tokens in separately. To issue tokens, the issuer needs to specify a token name, total capitalization, the exchange rate to TRX, circulation duration, description, website, maximum bandwidth points consumption per account, total bandwidth points consumption, and token freeze.</p>
+<p>For example: </p>
+<p><code>assetissue password abc 1000000 1 1 2018-5-31 2018-6-30 abcdef a.com 1000 1000000 200000 180 300000 365</code>  </p>
+<p>Tokens named abc are issued with the above command, with a capitalization totaling 1 million. The exchange rate of abc to TRX is 1:1. The duration of circulation is May 31-June 30, 2018. The token has a description of <code>abcdef</code>. The provided website is <code>a.com</code> domain.</p>
+<p>A maximum of 1000 bandwidth points can be charged from the issuer’s account per day. A maximum of 1,000,000 bandwidth points can be charged from the issuer’s account for all token holders’ transactions each day. In total capitalization, 200,000 tokens are locked for 180 days and 300,000 tokens are locked for 365 days.</p>
+<h2 id="trc10-trc20-comparison">TRC10 &amp; TRC20 Comparison<a class="headerlink" href="#trc10-trc20-comparison" title="Permanent link"></a></h2>
+<p>TRC-10 is a technical token standard supported by the TRON blockchain natively. TRC‌-20 is a technical standard used for smart contracts on the TRON blockchain for implementing tokens with the TRON Virtual Machine (TVM). It is <a href="https://theethereum.wiki/w/index.php/ERC20_Token_Standard" target="_blank">fully compatible to ERC‌-20</a>. Below is the interface:</p>
+<pre><code>contract TRC20Interface {
+    function totalSupply() public constant returns (uint);
+    function balanceOf(address tokenOwner) public constant returns (uint balance);
+    function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
+    function transfer(address to, uint tokens) public returns (bool success);
+    function approve(address spender, uint tokens) public returns (bool success);
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+}
+</code></pre>
+<p>The following are some comparisons between TRC-10 and TRC-20, and how these differences might be significant for each of the communities. The highlights are that TRC-10 has about 1000 times lower transaction fee than TRC-20 and can be accessed via API.  </p>
+<h3 id="developers">Developers<a class="headerlink" href="#developers" title="Permanent link"></a></h3>
+<div></div>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Developers Learning Curve*</td>
+    <td>Easy</td>
+    <td>Medium</td>
+    <td>Medium to Hard</td>
+  </tr>
+  <tr>
+    <td>Interface Customization?</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Accessible by Smart Contract?</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Accessible by API?**</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Lost Token Protection</td>
+    <td>No</td>
+    <td>No</td>
+    <td>ERC223 allows avoiding accidentally losing tokens inside contracts not designed to work with sent tokens.</td>
+  </tr>
+  <tr>
+    <td>Handle Incoming Token Transactions</td>
+    <td>No</td>
+    <td></td>
+    <td>ERC223 & ERC777 allow contract developers to handle incoming token txns</td>
+  </tr>
+  <tr>
+    <td>GUI for ICO</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Deposit from Contract Address</td>
+    <td>No</td>
+    <td>No</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Can contracts & addresses control/reject which tokens are sent?</td>
+    <td>No</td>
+    <td>No</td>
+    <td>By ERC777, this can be done by registering a tokensToSend hook. (Rejection is done by reverting in the hook function.)</td>
+  </tr>
+  <tr>
+    <td>Can token holders authorize/revoke operators sending tokens on their behalf?***</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Available ERC777</td>
+  </tr>
+</table>
+
+<p>&ast; <em><strong>Each TRC-20 can have more interfaces</strong></em>
+&ast;&ast; <em><strong>For example, Create Token API</strong></em>
+&ast;&ast;&ast; <em><strong>These operators are intended to be verified contracts, such as an exchange, a check processor, or an automatic charging system.</strong></em></p>
+<p>
+### Investors
+
+<div></div>
+
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Token Structure Learning Curve</td>
+    <td>Easy (Common structure)</td>
+    <td>Medium (Need to learn each token structure before sending to contract address)</td>
+    <td>Medium to Hard (Need to learn each token structure)</td>
+  </tr>
+</table>
+
+<p>
+### Exchanges/Wallets
+
+<div></div>
+
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Token Structure Learning Curve</td>
+    <td>Easy (Common structure)</td>
+    <td>Medium (Need to learn each token structure before sending to contract address)</td>
+    <td>Medium to Hard (Need to learn each token structure)</td>
+  </tr>
+</table>
+
+<p>
+### Platform
+
+<div></div>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Easy to Track</td>
+    <td>Easy - Built In</td>
+    <td>Need 3rd-party platform to track</td>
+    <td>Hard</td>
+  </tr>
+  <tr>
+    <td>In Development</td>
+    <td>TVM support are in developers</td>
+    <td>Compatible with ERC20</td>
+    <td>Some popular standards are available and widely used</td>
+  </tr>
+  <tr>
+    <td>Token Name Management</td>
+    <td>Name can be duplicated</td>
+    <td>Name can be duplicated</td>
+    <td>Name can be duplicated</td>
+  </tr>
+  <tr>
+    <td>Decimal</td>
+    <td>Not supported</td>
+    <td>Up to 18</td>
+    <td>Up to 18</td>
+  </tr>
+  <tr>
+    <td>Tron-Scan Observable</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+</table>
+
+<p>
+### Bugs/Security
+
+<div></div>
+
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>batchOverflow</td>
+    <td></td>
+    <td><a href="https://medium.com/@peckshield/alert-new-batchoverflow-bug-in-multiple-erc20-smart-contracts-cve-2018-10299-511067db6536" target="_blank">Medium article on batchOverflow Bug in ERC20 Smart Contracts (CVE-2018-10299)</a></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>
+### Cost
+
+<div></div>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Transaction Fee</td>
+    <td>~ 1000 times lower than TRC20 (using API, not by smart contract)</td>
+    <td>~ 1000 times (dynamic) higher than TRC10</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Transfer</td>
+    <td>Can use API to transfer, but costs bandwidth points; transfer in smart contract costs both bandwidth points and energy.</td>
+    <td>Energy & Bandwidth Points</td>
+    <td>ERC223 transfer to contract consumes half as much gas as ERC20 approve and transferFrom at receiver contract.</td>
+  </tr>
+   <tr>
+    <td>Deposit</td>
+    <td>Can use API to deposit, but costs bandwidth points; deposit in smart contract costs both bandwidth points and energy.</td>
+    <td>Energy & Bandwidth Points</td>
+    <td>ERC223 allows depositing tokens into contract with a single transaction.</td>
+  </tr>
+</table>
+
+<p>
+### Community
+
+<div></div>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Resources</td>
+    <td>Relatively less, since it is new.</td>
+    <td>High amount of resources.</td>
+    <td>Fair amount of resources.</td>
+  </tr>
+</table>
+
+<p>
+### Links
+
+<div></div>
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+ }
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+</style>
+<table>
+  <col width="100">
+  <col width="20">
+  <col width="40">
+  <col width="100">
+  <tr>
+    <th>Features</th>
+    <th>TRC-10</th>
+    <th>TRC-20</th>
+    <th>Others</th>
+  </tr>
+  <tr>
+    <td>Token Listing Website</td>
+    <td><a href="https://tronscan.org/#/tokens/list" target="_blank">Tronscan Token List</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ICO Website</td>
+    <td><a href="https://tronscan.org/#/tokens/create" target="_blank">Tronscan Token Creation</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Participation Website</td>
+    <td><a href="https://tronscan.org/#/tokens/view" target="_blank">Participate in TRON Token Issuance</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Developers Documentation</td>
+    <td><a href="https://developers.tron.network/v1.0/reference#tronwebapi" target="_blank">Developers API Documentation</a></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Smart Contract Templates</td>
+    <td></td>
+    <td><a href="https://github.com/tronprotocol/tron-contracts/tree/master/tokens/TRC20" target="_blank">Templates GitHub Repository</a></td>
+    <td></td>
+  </tr>
+</table>
+
+
+---
+
+- **Kauri original title:** TRC10 & TRC20 Tokens
+- **Kauri original link:** https://kauri.io/trc10-and-trc20-tokens/6b8ebe84d0a14af48bdc09b62bf3d27c/a
+- **Kauri original author:** Kauri Team (@kauri)
+- **Kauri original Publication date:** 2019-04-01
+- **Kauri original tags:** beginner, tron
+- **Kauri original hash:** Qmb7gSPWzScCR8xP87uSdSmeGK9qfbrBXsrNsftqttt8RV
+- **Kauri original checkpoint:** QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../IPFS%20101/peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../IPFS%20101/peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-link">
+        Peer-to-peer hypermedia with IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../trc10-transfer-in-smart-contracts/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../trc10-transfer-in-smart-contracts/" class="btn btn-xs btn-link">
+        TRC10 Transfer in Smart Contracts
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Tron/trc10-and-trc20-tokens.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

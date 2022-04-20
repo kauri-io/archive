@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-a-chat-application-using-libp2p/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a Chat Application using Libp2p - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a Chat Application using Libp2p", url: "#_top", children: [
+              {title: "But, Why do we need to rethink about networking in 2019?", url: "#but-why-do-we-need-to-rethink-about-networking-in-2019" },
+              {title: "Building Chat Application using Libp2p", url: "#building-chat-application-using-libp2p" },
+              {title: "Install node.js", url: "#install-nodejs" },
+              {title: "Create an empty project", url: "#create-an-empty-project" },
+              {title: "Build a libp2p bundle", url: "#build-a-libp2p-bundle" },
+              {title: "Create an instance of a libp2p node", url: "#create-an-instance-of-a-libp2p-node" },
+              {title: "Start the node and listen for connections", url: "#start-the-node-and-listen-for-connections" },
+              {title: "Add multiplexing and encryption", url: "#add-multiplexing-and-encryption" },
+              {title: "Let\u2019s go interplanetary!", url: "#lets-go-interplanetary" },
+              {title: "Let\u2019s Talk to the Moon", url: "#lets-talk-to-the-moon" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-chat-application-using-libp2p">Building a Chat Application using Libp2p<a class="headerlink" href="#building-a-chat-application-using-libp2p" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmZUii1zraq5yn7jcfsFZEMnup6GycfUw1hDGxMuGkp8Xy" /></p>
+<p>This article was first published on our open-source platform, <a href="https://simpleaswater.com/chat-using-libp2p">SimpleAsWater.com</a>. If you are interested in IPFS, Libp2p, Ethereum, IPLD, Multiformats, IPFS Cluster and other Web 3.0 projects, concepts and interactive tutorials, then be sure to check out <a href="https://simpleaswater.com">SimpleAsWater</a>.</p>
+<hr />
+<p>Around the 1960s, the early research on ARPANET(predecessor of the internet)
+began around the question that</p>
+<blockquote>
+<p>How do you build a network which is so resilient, so that it could even survive
+a <em>NUCLEAR WAR</em>?</p>
+</blockquote>
+<p>The reason that this topic was of such interest in the 1960s was that most of
+the communication infrastructure at that time looked like this:</p>
+<p><a href="https://youtu.be/2BzRjfOoiVQ"><img alt="IMAGE ALT TEXT HERE" src="https://i.ytimg.com/an_webp/2BzRjfOoiVQ/mqdefault_6s.webp?du=3000&amp;sqp=CKjrnvAF&amp;rs=AOn4CLB5oekGlDs5hXCaDsagXx4hpZdD4g" /></a></p>
+<p>These were banks of human operators connecting wires to facilitate country-wide
+communication. This was a highly centralized system, which could be destroyed
+easily in a nuclear war.</p>
+<p>Fast-forward to today’s world, most of the internet companies today have
+centralized servers, most of which are hosted in the data centers outside the
+cities. The internet we see today is still somehow full of services similar to
+the bank of human operators which are highly centralized and fragile(well, we
+aren’t in a constant threat of a nuclear war today, but any technical or natural
+disaster can cause great damage).</p>
+<h5 id="but-why-do-we-need-to-rethink-about-networking-in-2019"><strong>But, Why do we need to rethink about networking in 2019?</strong><a class="headerlink" href="#but-why-do-we-need-to-rethink-about-networking-in-2019" title="Permanent link"></a></h5>
+<p>Today, we are dependent on the internet more than ever. We are dependent on it
+for life and death situations. But the current internet, as we see it today is
+quite fragile and has several design problems. Most of these problems stem from
+the <a href="https://simpleaswater.com/location-addressing">location-addressing</a>.</p>
+<hr />
+<p>We can go on and on about <a href="https://simpleaswater.com/why-libp2p/">Why do we need
+Libp2p</a> and <a href="https://simpleaswater.com/what-is-libp2p/">How it
+works</a>. </p>
+<p>But, we are here to BUILD STUFF. </p>
+<p>So, let’s get right into it.</p>
+<p>In this series, we are going to cover a number of posts, which go into the
+practical, or even wild applications of peer-to-peer systems using Libp2p. We
+will build and also break a lot of stuff.</p>
+<p>You can <strong><a href="https://vasa486547.typeform.com/to/phna8b">suggest any topic for future tutorials</a></strong> related to Blockchains and in
+general Web 3.0.</p>
+<p>This is the first in a series of tutorials on working with libp2p’s javascript
+implementation, <a href="https://github.com/libp2p/js-libp2p">js-libp2p</a>.</p>
+<h4 id="building-chat-application-using-libp2p">Building Chat Application using Libp2p<a class="headerlink" href="#building-chat-application-using-libp2p" title="Permanent link"></a></h4>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*AvrV3t_DNoV8p3fX_rpcPw.jpeg" /></p>
+<p>After going through this tutorial, you will be able to:</p>
+<ul>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#install-node-js">Install NodeJS</a></li>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#create-an-empty-project">Create an empty
+project</a></li>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#build-a-libp2p-bundle">Create a libp2p “bundle” from
+scratch.</a></li>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#add-multiplexing-and-encryption">Adding support for multiplex &amp;
+encryption.</a></li>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#let-s-go-interplanetary-">Create &amp; Start a libp2p
+peer.</a></li>
+<li><a href="https://simpleaswater.com/chat-using-libp2p/#let-s-talk-to-the-moon">Send messages back and forth between two
+peers.</a></li>
+</ul>
+<h4 id="install-nodejs">Install node.js<a class="headerlink" href="#install-nodejs" title="Permanent link"></a></h4>
+<p>Working with js-libp2p requires <a href="https://nodejs.org/">node.js</a> for development.
+If you haven’t already, install node using whatever package manager you prefer
+or <a href="https://nodejs.org/en/download/">using the official installer</a>.</p>
+<p>We recommend using the latest stable version of node, but anything fairly recent
+should work fine. If you want to see how low you can go, the current version
+requirements can always be found at the <a href="https://github.com/libp2p/js-libp2p">js-libp2p project
+page</a>.</p>
+<h4 id="create-an-empty-project">Create an empty project<a class="headerlink" href="#create-an-empty-project" title="Permanent link"></a></h4>
+<p>We need a place to put our work, so open a terminal to make a new directory for
+your project somewhere and set it up as an <code>npm</code> project:</p>
+<pre><code class="language-sh">## create a directory for the project and `cd` into it
+$ mkdir -p hello-libp2p/src
+$ cd hello-libp2p
+
+## make it a git repository
+$ git init .
+Initialized empty Git repository in /home/vasa/Desktop/simpleaswater/libp2p/.git/
+
+## make it an npm project
+$ npm init -y
+</code></pre>
+<p>Side note: throughout this tutorial, we use the <strong>$</strong> character to indicate your
+terminal’s shell prompt. When following along, don’t type the <strong>$</strong> character,
+or you’ll get some weird errors.</p>
+<h4 id="build-a-libp2p-bundle"><strong>Build a libp2p bundle</strong><a class="headerlink" href="#build-a-libp2p-bundle" title="Permanent link"></a></h4>
+<p>As we learned in <a href="https://simpleaswater.com/what-is-libp2p">what is Libp2p</a>
+post, libp2p is a very modular framework, which allows javascript devs to target
+different runtime environments and opt-in to various features by including a
+custom selection of modules.</p>
+<p>In easy words, let’s suppose you are at a hardware store and want to buy some
+tools for your toolbox. Now, you see all the available wrenches in the store.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/0*2GFkwsuKtvx_zrX6.jpg" /></p>
+<p>For most of us, we only want a few sizes of wrenches. So, we pick only the ones
+that we want.</p>
+<p>Similarly, when we build a networking stack(toolbox) for our application, we
+only need a few protocols &amp; modules(wrenches). So, we should be able to select
+what protocols and modules we want to use and use them independently.</p>
+<p>Libp2p allows you to do the same for networking, as the hardware store does for
+the hardware tools, i.e. allowing you to select and use only the tools that you
+want to use.</p>
+<p>Now, as everyone needs a different set of wrenches, similarily, every
+application needs a different “bundle” with just the modules the application
+needs.</p>
+<p>You can even make more than one bundle if you want to target multiple javascript
+runtimes with different features. For example, the IPFS project uses two libp2p
+bundles, <a href="https://github.com/ipfs/js-ipfs/tree/master/src/core/runtime/libp2p-nodejs.js">one for
+node.js</a>
+and <a href="https://github.com/ipfs/js-ipfs/blob/master/src/core/runtime/libp2p-browser.js">one for the
+browser</a>.</p>
+<p>Since, we’re here to learn how libp2p works, we’re going to start from scratch
+and define our own bundle. We’ll start with a very simple bundle and add
+features as we need them.</p>
+<p>First, install the libp2p dependency. We’ll also need at least one transport
+module, so we’ll pull in <code>libp2p-tcp</code> as well, and the
+<code>@nodeutils/defaults-deep</code> helper which we'll use when building the bundle.</p>
+<pre><code class="language-sh">$ npm install libp2p@^0.26.2 libp2p-tcp@^0.13.2 @nodeutils/defaults-deep@^1.1.0 --save
+</code></pre>
+<p>In a production application, it may make sense to create a separate npm module
+for your bundle, which will give you one place to manage the <em>libp2p</em>
+dependencies for all your javascript projects. In that case, you should not
+depend on <em>libp2p</em> directly in your application. Instead, you’d depend on your
+bundle, which would, in turn, depend on libp2p and whatever modules (transports,
+etc) you might need.</p>
+<p>For this tutorial, our bundle will just be a javascript file in our application
+source.</p>
+<p>Make a file called <em>src/libp2p_bundle.js</em> with the following content:</p>
+<pre><code class="language-js">const Libp2p = require('libp2p')
+const TCP = require('libp2p-tcp')
+const defaultsDeep = require('@nodeutils/defaults-deep')
+const DEFAULT_OPTS = {
+  modules: {
+    transport: [
+      TCP
+    ]
+  }
+}
+class P2PNode extends Libp2p {
+  constructor (opts) {
+    super(defaultsDeep(opts, DEFAULT_OPTS))
+  }
+}
+module.exports = P2PNode
+</code></pre>
+<p>The <code>libp2p</code> module exports a <code>libp2p.Node</code> class which we extend into our own
+<code>P2PNode</code> class.</p>
+<p>Right now our class just adds the <code>libp2p-tcp</code> transport module to the default
+constructor options of the base class. As we go, we'll extend our bundle to
+include more transports and configure other aspects of the libp2p stack.</p>
+<h4 id="create-an-instance-of-a-libp2p-node"><strong>Create an instance of a libp2p node</strong><a class="headerlink" href="#create-an-instance-of-a-libp2p-node" title="Permanent link"></a></h4>
+<p>As we know, libp2p was born while working InterPlanetary File System project, it
+makes sense to make our libp2p nodes InterPlanetary. Let’s make our first node,
+<em>moon.js</em>.</p>
+<p>Using the bundle we defined above, we can create a new <code>P2PNode</code> instance.</p>
+<p>To do so, create a file called <em>src/moon.js</em> and make it look like this:</p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+PeerId.createFromJSON(require('./ids/moonId'), (err, peerId) =&gt; {
+    if (err) {
+        throw err
+    }
+const peerInfo = new PeerInfo(peerId)
+    peerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    const nodeListener = new Node({ peerInfo })
+})
+</code></pre>
+<p>We also have to create a <em>JSON</em> file containing the <code>peerId</code> of our moon peer.
+This will help other peers find our moon peer.</p>
+<p>Create a file named <em>src/ids/moonId.json</em></p>
+<pre><code class="language-sh">$ mkdir ids
+$ touch moonId.json; touch earthId.json
+</code></pre>
+<p>Now, add the <code>peerId</code> in <em>moonId.json</em></p>
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;QmcrQZ6RJdpYuGvZqD5QEHAv6qX4BrQLJLQPQUrTrzdcgm&quot;,
+    &quot;privKey&quot;: &quot;CAASqAkwggSkAgEAAoIBAQDLZZcGcbe4urMBVlcHgN0fpBymY+xcr14ewvamG70QZODJ1h9sljlExZ7byLiqRB3SjGbfpZ1FweznwNxWtWpjHkQjTVXeoM4EEgDSNO/Cg7KNlU0EJvgPJXeEPycAZX9qASbVJ6EECQ40VR/7+SuSqsdL1hrmG1phpIju+D64gLyWpw9WEALfzMpH5I/KvdYDW3N4g6zOD2mZNp5y1gHeXINHWzMF596O72/6cxwyiXV1eJ000k1NVnUyrPjXtqWdVLRk5IU1LFpoQoXZU5X1hKj1a2qt/lZfH5eOrF/ramHcwhrYYw1txf8JHXWO/bbNnyemTHAvutZpTNrsWATfAgMBAAECggEAQj0obPnVyjxLFZFnsFLgMHDCv9Fk5V5bOYtmxfvcm50us6ye+T8HEYWGUa9RrGmYiLweuJD34gLgwyzE1RwptHPj3tdNsr4NubefOtXwixlWqdNIjKSgPlaGULQ8YF2tm/kaC2rnfifwz0w1qVqhPReO5fypL+0ShyANVD3WN0Fo2ugzrniCXHUpR2sHXSg6K+2+qWdveyjNWog34b7CgpV73Ln96BWae6ElU8PR5AWdMnRaA9ucA+/HWWJIWB3Fb4+6uwlxhu2L50Ckq1gwYZCtGw63q5L4CglmXMfIKnQAuEzazq9T4YxEkp+XDnVZAOgnQGUBYpetlgMmkkh9qQKBgQDvsEs0ThzFLgnhtC2Jy//ZOrOvIAKAZZf/mS08AqWH3L0/Rjm8ZYbLsRcoWU78sl8UFFwAQhMRDBP9G+RPojWVahBL/B7emdKKnFR1NfwKjFdDVaoX5uNvZEKSl9UubbC4WZJ65u/cd5jEnj+w3ir9G8n+P1gp/0yBz02nZXFgSwKBgQDZPQr4HBxZL7Kx7D49ormIlB7CCn2i7mT11Cppn5ifUTrp7DbFJ2t9e8UNk6tgvbENgCKXvXWsmflSo9gmMxeEOD40AgAkO8Pn2R4OYhrwd89dECiKM34HrVNBzGoB5+YsAno6zGvOzLKbNwMG++2iuNXqXTk4uV9GcI8OnU5ZPQKBgCZUGrKSiyc85XeiSGXwqUkjifhHNh8yH8xPwlwGUFIZimnD4RevZI7OEtXw8iCWpX2gg9XGuyXOuKORAkF5vvfVriV4e7c9Ad4Igbj8mQFWz92EpV6NHXGCpuKqRPzXrZrNOA9PPqwSs+s9IxI1dMpk1zhBCOguWx2m+NP79NVhAoGBAI6WSoTfrpu7ewbdkVzTWgQTdLzYNe6jmxDf2ZbKclrf7lNr/+cYIK2Ud5qZunsdBwFdgVcnu/02czeS42TvVBgs8mcgiQc/Uy7yi4/VROlhOnJTEMjlU2umkGc3zLzDgYiRd7jwRDLQmMrYKNyEr02HFKFn3w8kXSzW5I8rISnhAoGBANhchHVtJd3VMYvxNcQb909FiwTnT9kl9pkjhwivx+f8/K8pDfYCjYSBYCfPTM5Pskv5dXzOdnNuCj6Y2H/9m2SsObukBwF0z5Qijgu1DsxvADVIKZ4rzrGb4uSEmM6200qjJ/9U98fVM7rvOraakrhcf9gRwuspguJQnSO9cLj6&quot;,
+    &quot;pubKey&quot;: &quot;CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLZZcGcbe4urMBVlcHgN0fpBymY+xcr14ewvamG70QZODJ1h9sljlExZ7byLiqRB3SjGbfpZ1FweznwNxWtWpjHkQjTVXeoM4EEgDSNO/Cg7KNlU0EJvgPJXeEPycAZX9qASbVJ6EECQ40VR/7+SuSqsdL1hrmG1phpIju+D64gLyWpw9WEALfzMpH5I/KvdYDW3N4g6zOD2mZNp5y1gHeXINHWzMF596O72/6cxwyiXV1eJ000k1NVnUyrPjXtqWdVLRk5IU1LFpoQoXZU5X1hKj1a2qt/lZfH5eOrF/ramHcwhrYYw1txf8JHXWO/bbNnyemTHAvutZpTNrsWATfAgMBAAE=&quot;
+}
+</code></pre>
+<p>Let’s see what we did above.</p>
+<p>In <em>moon.js</em> we start out by importing a few modules. Apart from the <code>P2PNode</code>
+bundle we defined earlier, <code>peer-id</code>, which contains a
+<a href="https://simpleaswater.com/libp2p-glossary/#peerid">PeerId</a> associated with a
+peer, and <code>peer-info</code>, which provides a libp2p Peer abstraction.</p>
+<p>The constructor for our bundle(<em>libp2p_bundle.js</em>) requires a <code>peerInfo</code>
+argument. This can either be generated on-the-fly or loaded from a byte buffer
+or <code>JSON</code> object. Here, we're generating a new <code>PeerInfo</code> object for our peer
+using <em>ids/moonId.json</em>. This will generate a new <code>PeerId</code> containing the
+cryptographic key pair that we added in <em>moonId.json</em>.</p>
+<p>Once we have our <code>peerId</code>, we next create a
+<a href="https://docs.libp2p.io/reference/glossary/#multiaddr">multiaddress</a> for
+<code>/ip4/127.0.0.1/tcp/10333</code>, which is the <a href="https://en.wikipedia.org/wiki/Localhost">localhost IPv4
+address</a> on the TCP port <code>10333</code>.</p>
+<p>Adding the new multiaddr to our <code>peerInfo</code> object will cause our node to try to
+listen to that address when the node starts.</p>
+<p>Next, we create our peer, passing in the <code>peerInfo</code> constructor option. That's
+it for setting up our moon node.</p>
+<h4 id="start-the-node-and-listen-for-connections"><strong>Start the node and listen for connections</strong><a class="headerlink" href="#start-the-node-and-listen-for-connections" title="Permanent link"></a></h4>
+<p>Before starting our nodes, let’s add some colors and emojis to our command line
+using <code>chalk</code> and <code>node-emoji</code>.</p>
+<pre><code class="language-sh">$ npm i chalk node-emoji --save-dev
+</code></pre>
+<p>Now, let’s start our moon node. To do that, replace <em>moon.js</em> with following
+code:</p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+const chalk = require('chalk');
+const emoji = require('node-emoji')
+PeerId.createFromJSON(require('./ids/moonId'), (err, peerId) =&gt; {
+    if (err) {
+        throw err
+    }
+    const peerInfo = new PeerInfo(peerId)
+    peerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    const nodeListener = new Node({ peerInfo })
+nodeListener.start((err) =&gt; {
+        if (err) {
+            throw err
+        }
+console.log(emoji.get('moon'), chalk.blue(' Moon ready '),
+            emoji.get('headphones'), chalk.blue(' Listening on: '));
+peerInfo.multiaddrs.forEach((ma) =&gt; {
+            console.log(ma.toString() + '/p2p/' + peerId.toB58String())
+        })
+console.log('\n' + emoji.get('moon'), chalk.blue(' Moon trying to connect with Earth '),
+            emoji.get('large_blue_circle'));
+    })
+})
+</code></pre>
+<p>Now, try to run the <em>moon.js</em>, using <em>node moon.js</em>. You will see something like
+below.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*7DUfc9CD74MPJRH2JtlPJQ.png" /></p>
+<p>Now, we have started our moon node and listening for the earth node. So, we need
+another node, <em>earth.js</em>. But before building our earth node, we need to add one
+final thing to make our moon node work.</p>
+<p>In case you are stuck somewhere, let us know <a href="https://discord.gg/x2kmUXW">here</a>.</p>
+<h4 id="add-multiplexing-and-encryption"><strong>Add multiplexing and encryption</strong><a class="headerlink" href="#add-multiplexing-and-encryption" title="Permanent link"></a></h4>
+<p>We can now start a node and listen for connections, but we can’t really do
+anything yet. This is because we’re missing a key libp2p component called a
+<a href="https://docs.libp2p.io/reference/glossary/#multiplexer">stream multiplexer</a>,
+which lets us interleave multiple independent streams of communication across
+one network connection.</p>
+<h5 id="but-what-is-multiplexing"><strong>But, what is multiplexing?</strong><a class="headerlink" href="#but-what-is-multiplexing" title="Permanent link"></a></h5>
+<p>To understand multiplexing, let’s take an example of your TV cable or WiFi
+router. You can see multiple channels, which all comes through a single cable
+attached from your setup box. Also, multiple people can connect to the same WiFi
+router and watch videos and read an article all at the same time…Ever wondered
+how you can do multiple things using a single wire or router?</p>
+<p>The answer is multiplexing.</p>
+<p>Multiplexing (or <em>muxing</em>) is a way of sending multiple signals or streams of
+information over a communications link at the same time in the form of a single,
+complex signal; the receiver recovers the separate signals, a process called
+demultiplexing (or <em>demuxing</em>).</p>
+<p>While we’re at it, we’ll also add support for encrypted communication, which
+will secure our moon-earth communications so that anyone cannot eavesdrop our
+messages.</p>
+<p>Let’s add two new dependencies:</p>
+<pre><code class="language-sh">$ npm install --save libp2p-mplex@^0.8.5 libp2p-secio@^0.11.1
+</code></pre>
+<p>And we'll need to edit our bundle. Open <em>src/libp2p_bundle.js</em> and import the
+new modules:</p>
+<pre><code class="language-js">const Multiplex = require('libp2p-mplex') 
+const SECIO = require('libp2p-secio')
+</code></pre>
+<p>Then change the <code>DEFAULT_OPTS</code> constant to look like this:</p>
+<pre><code class="language-js">const DEFAULT_OPTS = {
+  modules: {
+    transport: [
+      TCP
+    ],
+    connEncryption: [
+      SECIO
+    ],
+    streamMuxer: [
+      Multiplex
+    ]
+  }
+}
+</code></pre>
+<p>That’s it! Now we can open multiple independent streams over our single TCP
+connection, and our connection will be upgraded to a securely encrypted channel
+using the <a href="https://github.com/libp2p/js-libp2p-secio">secio module</a>.</p>
+<h4 id="lets-go-interplanetary"><strong>Let’s go interplanetary!</strong><a class="headerlink" href="#lets-go-interplanetary" title="Permanent link"></a></h4>
+<p>As we have now added all the necessary components for our communication, let’s
+build our earth node.</p>
+<p>Add the following code in <em>src/earth.js</em></p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+const async = require('async')
+const chalk = require('chalk');
+const emoji = require('node-emoji')
+let moonPeerId
+async.parallel([
+    (callback) =&gt; {
+        PeerId.createFromJSON(require('./ids/earthId'), (err, earthPeerId) =&gt; {
+            if (err) {
+                throw err
+            }
+            callback(null, earthPeerId)
+        })
+    },
+    (callback) =&gt; {
+        PeerId.createFromJSON(require('./ids/moonId'), (err, moonPeerId) =&gt; {
+            if (err) {
+                throw err
+            }
+            callback(null, moonPeerId)
+        })
+    }
+], (err, ids) =&gt; {
+    if (err) throw err
+    const earthPeerInfo = new PeerInfo(ids[0])
+    earthPeerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/0')
+    const nodeDialer = new Node({ peerInfo: earthPeerInfo })
+    const moonPeerInfo = new PeerInfo(ids[1])
+    moonPeerId = ids[1]
+    moonPeerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    nodeDialer.start((err) =&gt; {
+        if (err) {
+            throw err
+        }
+        console.log(emoji.get('large_blue_circle'), chalk.blue(' Earth Ready '),
+                    emoji.get('headphones'), chalk.blue(' Listening on: '));
+        nodeDialer.dialProtocol(moonPeerInfo, '/chat/1.0.0', (err, conn) =&gt; {
+            if (err) {
+                throw err
+            }
+            console.log('\n' + emoji.get('large_blue_circle'),
+                        chalk.blue(' Earth dialed to Moon on protocol: /chat/1.0.0'));
+            console.log(`${emoji.get('incoming_envelope')}
+                         ${chalk.bold(`Type a message and press enter. See what happens...`)}`)
+        })
+    })
+})
+</code></pre>
+<p>And similarly to the moon peer, we also have to create a <em>JSON</em> file containing
+the <code>peerId</code> of our earth peer.</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;Qma3GsJmB47xYuyahPZPSadh1avvxfyYQwk8R3UnFrQ6aP&quot;,
+    &quot;privKey&quot;: &quot;CAASpwkwggSjAgEAAoIBAQCaNSDOjPz6T8HZsf7LDpxiQRiN2OjeyIHUS05p8QWOr3EFUCFsC31R4moihE5HN+FxNalUyyFZU//yjf1pdnlMJqrVByJSMa+y2y4x2FucpoCAO97Tx+iWzwlZ2UXEUXM1Y81mhPbeWXy+wP2xElTgIER0Tsn/thoA0SD2u9wJuVvM7dB7cBcHYmqV6JH+KWCedRTum6O1BssqP/4Lbm2+rkrbZ4+oVRoU2DRLoFhKqwqLtylrbuj4XOI3XykMXV5+uQXz1JzubNOB9lsc6K+eRC+w8hhhDuFMgzkZ4qomCnx3uhO67KaICd8yqqBa6PJ/+fBM5Xk4hjyR40bwcf41AgMBAAECggEAZnrCJ6IYiLyyRdr9SbKXCNDb4YByGYPEi/HT1aHgIJfFE1PSMjxcdytxfyjP4JJpVtPjiT9JFVU2ddoYu5qJN6tGwjVwgJEWg1UXmPaAw1T/drjS94kVsAs82qICtFmwp52Apg3dBZ0Qwq/8qE1XbG7lLyohIbfCBiL0tiPYMfkcsN9gnFT/kFCX0LVs2pa9fHCRMY9rqCc4/rWJa1w8sMuQ23y4lDaxKF9OZVvOHFQkbBDrkquWHE4r55fchCz/rJklkPJUNENuncBRu0/2X+p4IKFD1DnttXNwb8j4LPiSlLro1T0hiUr5gO2QmdYwXFF63Q3mjQy0+5I4eNbjjQKBgQDZvZy3gUKS/nQNkYfq9za80uLbIj/cWbO+ZZjXCsj0fNIcQFJcKMBoA7DjJvu2S/lf86/41YHkPdmrLAEQAkJ+5BBNOycjYK9minTEjIMMmZDTXXugZ62wnU6F46uLkgEChTqEP57Y6xwwV+JaEDFEsW5N1eE9lEVX9nGIr4phMwKBgQC1TazLuEt1WBx/iUT83ita7obXqoKNzwsS/MWfY2innzYZKDOqeSYZzLtt9uTtp4X4uLyPbYs0qFYhXLsUYMoGHNN8+NdjoyxCjQRJRBkMtaNR0lc5lVDWl3bTuJovjFCgAr9uqJrmI5OHcCIk/cDpdWb3nWaMihVlePmiTcTy9wKBgQCU0u7c1jKkudqks4XM6a+2HAYGdUBk4cLjLhnrUWnNAcuyl5wzdX8dGPi8KZb+IKuQE8WBNJ2VXVj7kBYh1QmSJVunDflQSvNYCOaKuOeRoxzD+y9Wkca74qkbBmPn/6FFEb7PSZTO+tPHjyodGNgz9XpJJRjQuBk1aDJtlF3m1QKBgE5SAr5ym65SZOU3UGUIOKRsfDW4Q/OsqDUImvpywCgBICaX9lHDShFFHwau7FA52ScL7vDquoMB4UtCOtLfyQYA9995w9oYCCurrVlVIJkb8jSLcADBHw3EmqF1kq3NqJqm9TmBfoDCh52vdCCUufxgKh33kfBOSlXuf7B8dgMbAoGAZ3r0/mBQX6S+s5+xCETMTSNv7TQzxgtURIpVs+ZVr2cMhWhiv+n0Omab9X9Z50se8cWl5lkvx8vn3D/XHHIPrMF6qk7RAXtvReb+PeitNvm0odqjFv0J2qki6fDs0HKwq4kojAXI1Md8Th0eobNjsy21fEEJT7uKMJdovI/SErI=&quot;,
+    &quot;pubKey&quot;: &quot;CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCaNSDOjPz6T8HZsf7LDpxiQRiN2OjeyIHUS05p8QWOr3EFUCFsC31R4moihE5HN+FxNalUyyFZU//yjf1pdnlMJqrVByJSMa+y2y4x2FucpoCAO97Tx+iWzwlZ2UXEUXM1Y81mhPbeWXy+wP2xElTgIER0Tsn/thoA0SD2u9wJuVvM7dB7cBcHYmqV6JH+KWCedRTum6O1BssqP/4Lbm2+rkrbZ4+oVRoU2DRLoFhKqwqLtylrbuj4XOI3XykMXV5+uQXz1JzubNOB9lsc6K+eRC+w8hhhDuFMgzkZ4qomCnx3uhO67KaICd8yqqBa6PJ/+fBM5Xk4hjyR40bwcf41AgMBAAE=&quot;
+}
+</code></pre>
+<p>Here in <em>earth.js</em>, we used the same modules as we used in <em>moon.js</em>. The only
+new module we use here is <code>async</code>, which is used to generate <code>peerIds</code> for moon
+and earth peers, in parallel.</p>
+<p>Then, as we did in <em>moon.js</em> we create the <code>earthPeerInfo</code>, add a
+<a href="https://docs.libp2p.io/reference/glossary/#multiaddr">multiaddr</a>,
+<code>/ip4/127.0.0.1/tcp/0</code> and finally, create our earth node <code>nodeDialer</code>.</p>
+<p>Notice that we also, create <code>moonPeerInfo</code> and add the same
+<a href="https://docs.libp2p.io/reference/glossary/#multiaddr">multiaddr</a>, that we added
+in <em>moon.js</em>. We do this as the earth node needs to know about the
+<code>moonPeerInfo</code> in order to <em>dial</em> our moon peer. So, the <code>moonPeerInfo</code> acts
+like a phone number here.</p>
+<p>And finally, we start our earth peer and dial the moon peer using
+<code>nodeDialer.dialProtocol</code>. While dialing to our moon peer, we need to specify a
+protocol (<code>/chat/1.0.0</code>), using which we will talk to our moon peer. It's like
+deciding a common language before we start talking to each other. Otherwise, it
+would make no sense.</p>
+<p>Now, as earth peer hash defined that it will use <code>/chat/1.0.0</code> protocol to
+communicate with the moon peer, let's add that to the <em>moon.js</em> as well.</p>
+<p>To do that, we need to install a few more libs:</p>
+<pre><code class="language-sh">$ npm i pull-stream@^3.6.9 pull-pushable --save
+</code></pre>
+<p>Now, replace the <em>moon.js</em> with the following code:</p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+const pull = require('pull-stream')
+const Pushable = require('pull-pushable')
+const p = Pushable()
+const chalk = require('chalk');
+const emoji = require('node-emoji')
+PeerId.createFromJSON(require('./ids/moonId'), (err, peerId) =&gt; {
+    if (err) {
+        throw err
+    }
+    const peerInfo = new PeerInfo(peerId)
+    peerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    const nodeListener = new Node({ peerInfo })
+    nodeListener.start((err) =&gt; {
+        if (err) {
+            throw err
+        }
+        nodeListener.on('peer:connect', (peerInfo) =&gt; {
+            console.log(emoji.get('moon'), chalk.blue(' Moon found Earth '),
+                        emoji.get('large_blue_circle'),
+                        chalk.blue(` on: ${peerInfo.id.toB58String()}`));
+            console.log('\n' + emoji.get('moon'),
+                        chalk.green(' Moon waiting for message from Earth ')
+                        + emoji.get('large_blue_circle'))
+        })
+        nodeListener.handle('/chat/1.0.0', (protocol, conn) =&gt; {
+            pull(
+                p,
+                conn
+            )
+            pull(
+                conn,
+                pull.map((data) =&gt; {
+                    return data.toString('utf8').replace('\n', '')
+                }),
+                pull.drain(console.log)
+            )
+        })
+        console.log(emoji.get('moon'), chalk.blue(' Moon ready '),
+                    emoji.get('headphones'), chalk.blue(' Listening on: '));
+        peerInfo.multiaddrs.forEach((ma) =&gt; {
+            console.log(ma.toString() + '/p2p/' + peerId.toB58String())
+        })
+        console.log('\n' + emoji.get('moon'),
+                    chalk.blue(' Moon trying to connect with Earth '),
+                    emoji.get('large_blue_circle'));
+    })
+})
+</code></pre>
+<p>Now, as have defined <code>/chat/1.0.0</code> protocol for moon peer too, let's try to
+connect earth peer to our moon peer.</p>
+<p>First, run node <em>moon.js</em> in one terminal. Then fire up another terminal and run
+<em>node earth.js</em>.</p>
+<p>If everything went right, then you would see something like below:</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*KC6_f43jGgas4hYQ2mSXWg.gif" /></p>
+<p>In case you are stuck somewhere, let us know <a href="https://discord.gg/x2kmUXW">here</a>.</p>
+<h4 id="lets-talk-to-the-moon"><strong>Let’s Talk to the Moon</strong><a class="headerlink" href="#lets-talk-to-the-moon" title="Permanent link"></a></h4>
+<p>Till now we have managed to connect moon peer and earth peer. Another
+interesting thing that we can do here to allow these 2 peers to communicate with
+each other.</p>
+<p>We will use the command line to write and send our messages.</p>
+<p>To do that we need to handle and send messages from the command prompt. We can
+do that using <em>process</em> module available in NodeJS.</p>
+<p>Replace <em>moon.js</em> with the following code:</p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+const pull = require('pull-stream')
+const Pushable = require('pull-pushable')
+const p = Pushable()
+const chalk = require('chalk');
+const emoji = require('node-emoji')
+
+PeerId.createFromJSON(require('./ids/moonId'), (err, peerId) =&gt; {
+    if (err) {
+        throw err
+    }
+    const peerInfo = new PeerInfo(peerId)
+    peerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    const nodeListener = new Node({ peerInfo })
+
+    nodeListener.start((err) =&gt; {
+        if (err) {
+            throw err
+        }
+
+        nodeListener.on('peer:connect', (peerInfo) =&gt; {
+            console.log(emoji.get('moon'), 
+                        chalk.blue(' Moon found Earth '),
+                        emoji.get('large_blue_circle'),
+                        chalk.blue(` on: ${peerInfo.id.toB58String()}`));
+            console.log('\n' + emoji.get('moon'),
+                        chalk.green(' Moon waiting for message from Earth ')
+                        + emoji.get('large_blue_circle'))
+        })
+
+        nodeListener.handle('/chat/1.0.0', (protocol, conn) =&gt; {
+            pull(
+                p,
+                conn
+            )
+
+            pull(
+                conn,
+                pull.map((data) =&gt; {
+                    return data.toString('utf8').replace('\n', '')
+                }),
+                pull.drain(console.log)
+            )
+
+            process.stdin.setEncoding('utf8')
+            process.openStdin().on('data', (chunk) =&gt; {
+                var data = `${chalk.blue(&quot;Message received from Moon: &quot;)}\n\n`
+                + chunk.toString() + `\n${emoji.get('incoming_envelope')}
+                ${chalk.blue(&quot;  Send message from Earth:&quot;)}`
+
+                p.push(data)
+            })
+        })
+
+        console.log(emoji.get('moon'), chalk.blue(' Moon ready '),
+                    emoji.get('headphones'), chalk.blue(' Listening on: '));
+
+        peerInfo.multiaddrs.forEach((ma) =&gt; {
+            console.log(ma.toString() + '/p2p/' + peerId.toB58String())
+        })
+
+        console.log('\n' + emoji.get('moon'), chalk.blue(' Moon trying to connect with Earth '),
+                    emoji.get('large_blue_circle'));
+    })
+})
+</code></pre>
+<p>Replace <em>earth.js</em> with the following code:</p>
+<pre><code class="language-js">'use strict'
+/* eslint-disable no-console */
+
+const PeerId = require('peer-id')
+const PeerInfo = require('peer-info')
+const Node = require('./libp2p_bundle')
+const pull = require('pull-stream')
+const async = require('async')
+const chalk = require('chalk');
+const emoji = require('node-emoji')
+const Pushable = require('pull-pushable')
+const p = Pushable()
+let moonPeerId
+
+async.parallel([
+    (callback) =&gt; {
+        PeerId.createFromJSON(require('./ids/earthId'), (err, earthPeerId) =&gt; {
+            if (err) {
+                throw err
+            }
+            callback(null, earthPeerId)
+        })
+    },
+    (callback) =&gt; {
+        PeerId.createFromJSON(require('./ids/moonId'), (err, moonPeerId) =&gt; {
+            if (err) {
+                throw err
+            }
+            callback(null, moonPeerId)
+        })
+    }
+], (err, ids) =&gt; {
+    if (err) throw err
+    const earthPeerInfo = new PeerInfo(ids[0])
+    earthPeerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/0')
+    const nodeDialer = new Node({ peerInfo: earthPeerInfo })
+
+    const moonPeerInfo = new PeerInfo(ids[1])
+    moonPeerId = ids[1]
+    moonPeerInfo.multiaddrs.add('/ip4/127.0.0.1/tcp/10333')
+    nodeDialer.start((err) =&gt; {
+        if (err) {
+            throw err
+        }
+
+        console.log(emoji.get('large_blue_circle'), chalk.blue(' Earth Ready '),
+                    emoji.get('headphones'), chalk.blue(' Listening on: '));
+
+        nodeDialer.dialProtocol(moonPeerInfo, '/chat/1.0.0', (err, conn) =&gt; {
+            if (err) {
+                throw err
+            }
+            console.log('\n' + emoji.get('large_blue_circle'),
+                        chalk.blue(' Earth dialed to Moon on protocol: /chat/1.0.0'));
+            console.log(`${emoji.get('incoming_envelope')}
+                         ${chalk.bold(`Type a message and press enter. See what happens...`)}`)
+            // Write operation. Data sent as a buffer
+            pull(
+                p,
+                conn
+            )
+            // Sink, data converted from buffer to utf8 string
+            pull(
+                conn,
+                pull.map((data) =&gt; {
+                    return data.toString('utf8').replace('\n', '')
+                }),
+                pull.drain(console.log)
+            )
+
+            process.stdin.setEncoding('utf8')
+            process.openStdin().on('data', (chunk) =&gt; {
+                var data = chunk.toString()
+                var data = `${chalk.blue(&quot;Message received from Earth: &quot;)}\n\n`
+                + chunk.toString() + `\n${emoji.get('incoming_envelope')}
+                ${chalk.blue(&quot;  Send message from Moon:&quot;)}`
+
+                p.push(data)
+            })
+        })
+    })
+})
+</code></pre>
+<p>That’s all. <strong>First</strong>, <strong>run node moon.js</strong> in one terminal. Then <strong>fire up
+another terminal and run node earth.js</strong>.</p>
+<p>Now, if everything in fine, then you will see the earth peer asking you to
+<strong>type something and press enter</strong>. If you do that, you can see the same message
+is received on the moon peer. Also, if you type something and press enter from
+the moon peer, you can see the same message on the earth peer.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/800/1*r5IeY8-6FmkB77MkP1T2aA.gif" /></p>
+<p>Congratulations🎉🎉 You are one of the very few people to communicate from earth
+to moon!!</p>
+<p>In case you are stuck somewhere, let us know <a href="https://discord.gg/x2kmUXW">here</a>.</p>
+<hr />
+<p>This article was first published on
+<a href="https://simpleaswater.com/chat-using-libp2p/">SimpleAsWater.com</a><em>.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a Chat Application using Libp2p</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-chat-application-using-libp2p/32b0d9455bfa4312a2f6fb02cae8383f/a</li>
+<li><strong>Kauri original author:</strong> Vaibhav Saini (@vasa)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-05</li>
+<li><strong>Kauri original tags:</strong> tcp, trasports, secio, ipfs, libp2p, tutorial, bundle</li>
+<li><strong>Kauri original hash:</strong> QmfUNCDadmkVNiQ8nMsbUDVnRRC2jpTYYePCxtMLb4Mygx</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../iexec-v3-for-developers/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../iexec-v3-for-developers/" class="btn btn-xs btn-link">
+        iExec V3 for developers
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../cdp-rebalance/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../cdp-rebalance/" class="btn btn-xs btn-link">
+        CDP Rebalance
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-a-chat-application-using-libp2p.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

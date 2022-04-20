@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/unmanned-vs.-human-oracles/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Unmanned vs. Human Oracles - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Unmanned vs. Human Oracles", url: "#_top", children: [
+              {title: "Human Oracles", url: "#human-oracles" },
+              {title: "Unmanned Oracles", url: "#unmanned-oracles" },
+              {title: "There Is No Battle", url: "#there-is-no-battle" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="unmanned-vs-human-oracles">Unmanned vs. Human Oracles<a class="headerlink" href="#unmanned-vs-human-oracles" title="Permanent link"></a></h1>
+<hr />
+<p><img alt="" src="https://cdn-images-1.medium.com/max/2000/1*Fcr4RtRWU4Wa7yrdQUfL2Q.png" /></p>
+<p>Smart contracts can only connect with information directly available on their own blockchain. This is known as 
+the oracle problem.</p>
+<p><a href="https://medium.com/@peterhaymond/why-decentralized-oracles-matter-7920ad04ee37">Decentralized oracles</a>
+ make smart contracts truly smart by supplying them data points from external sources.</p>
+<p>Who won the elections? What was the price of BTC on May 14th? What was the result of a football game? How much does a file weigh? An oracle gives smart contracts answers to questions about the external world. If an oracle doesn’t feed a smart contract information, it won’t be able to know what it needs in order to execute its desired actions.</p>
+<p>Oracles are key for the future of the decentralized systems we’re building. A lot has been written about networks trying to solve the oracle problem, but we need to make a clear distinction between the two main approaches: 
+<strong>human and unmanned oracles</strong>
+ . Let’s look into both and how their nature is 
+<strong>not restrictive, but actually complementary.</strong></p>
+<h3 id="human-oracles">Human Oracles<a class="headerlink" href="#human-oracles" title="Permanent link"></a></h3>
+<p>Human oracles basically rely on people voting on the truth. The truth can refer to the outcome of an event, like in 
+<a href="http://docs.augur.net/">Augur’s oracle</a>
+ , which works to provide Augur’s prediction market with the outcome of all the markets opened in the platform.
+Depending on the mechanism chosen for reporting the truth, these oracles will tell smart contracts the answer to a specific question. They do so by letting humans (either one specific person, or groups of people) vote and achieve a consensus.</p>
+<p><strong>Human oracles are especially useful in decisions where subjectivity is involved</strong>
+ . Imagine creating a prediction market with the question “Will Edward Snowden betray his country?” in 2012. The answer to this question, once resolved and whatever it is, can’t be retrieved from data, and therefore it is tough for smart contracts to get it without the intervention of a human oracle.
+These type of oracle can also have a strong impact on governance, as mentioned in 
+<a href="https://github.com/aragon/whitepaper">Aragon Network’s new whitepaper</a>
+ . The Aragon Network has the aim of acting as a digital jurisdiction for decentralized organizations; a decentralized court system.</p>
+<blockquote>
+<p>“Courts are the native enforcement mechanism for the Aragon Network, they provide users with a neutral shared context for Arbitration. Each court produces an oracle feed of judgments on subjective disputes. Over time, as disputes are successfully resolved and jurors earn reputation, the judgments of a court will become more consistent as precedents are set and reinforced”. — Aragon Network whitepaper</p>
+</blockquote>
+<p>Either way, 
+<strong>human oracles feed smart contracts data (decisions, outcomes…) through the actions of people working for a network</strong>
+ . Now that we’ve looked at why and how they are useful, let’s look at why and how unmanned oracles are needed.</p>
+<h3 id="unmanned-oracles">Unmanned Oracles<a class="headerlink" href="#unmanned-oracles" title="Permanent link"></a></h3>
+<p><strong>Unmanned oracles provide a way to feed smart contracts data without the need for human intervention</strong>. <a href="https://medium.com/witnet/witnet-smart-contracts-with-real-power-f79e326da3a4">Witnet is an example of a Decentralized Oracle Network</a> that connects smart contracts to data points available outside the contracts’ own blockchain.</p>
+<blockquote>
+<p>“The core functionality of Witnet as a DON provides an efficient way to retrieve, attest and deliver verified web contents. This alone is enough to enable the creation of countless novel applications capable of reacting to the outer world without human intervention or relying on single, centralized — thus corruptible or hackable — sources of information.” — Witnet whitepaper</p>
+</blockquote>
+<p>Unmanned oracles are a very efficient way to provide data to smart contracts in a decentralized, trustless manner. 
+<strong>In contrast to human oracles, they are purely objective</strong>; anonymous computer nodes working for the network retrieve data from the place they’ve been precisely told and deliver it to the requester independently.</p>
+<p>When specific data must be given to a smart contract in order for it to execute any action, unmanned oracles are the most efficient provider possible. The more specific the data point, the more useful they become compared to human oracles.</p>
+<p>One of the great advantages of unmanned oracles is the speed at which they provide answers. Human oracles need a certain latency for their answers to achieve consensus. This is necessary for some use cases, as there must be a period where participants in the network can challenge others’ decisions. Yet some applications can’t bear this latency for their every day operations. A smart contract tracking the price of an asset every five minutes, for example, shouldn’t have to wait days or weeks for a verified response.</p>
+<p>Scalability is another challenge unmanned oracles can take on swiftly. The more requests per second that have to be assessed, the more computing power the network will be provided from its nodes, as they are incentivized to do so. Human oracle networks’ input is people’s time, which might prove not so scalable in the long term.</p>
+<h3 id="there-is-no-battle">There Is No Battle<a class="headerlink" href="#there-is-no-battle" title="Permanent link"></a></h3>
+<p>Contradicting the title of this post, 
+<strong>there really is no fight between unmanned an human oracles</strong>
+ . An unmanned oracle is a necessary base layer for other kinds of oracles to be able to work in the long term. As we’ve seen, human oracles’ very much needed activity can itself be optimized with the use of an unmanned oracle.
+On the other hand, unmanned oracles are the optimal way for human oracles to feed their decisions into smart contracts. Lots of human oracles will be created, since any DAO can work as a human oracle if it’s designed to do so. Smart contracts from any blockchain will be able to access information coming from these human oracles in a decentralized, trustless way using a unmanned oracle network.</p>
+<blockquote>
+<p>Human oracles will act as another source available for smart contracts to retrieve data from using an unmanned oracle.</p>
+</blockquote>
+<p>Unmanned oracles like 
+<a href="http://witnet.io">Witnet</a>
+ will also have layers built on top of them to facilitate the tasks performed by human oracles. It’s a great match, and developers will be able to work with existing human oracles and to create new ones to help make them more efficient. Networks matter, and a solid base layer where to build any kind of decentralized oracle will make specific applications benefit from network effects as well.</p>
+<hr />
+<p>Smart contracts are key to not only the future of Ethereum, but that of the crypto ecosystem as a whole. They are driving developers and entrepreneurs all over the world to think about the possibilities of decentralization. To make smart contracts achieve their full potential, we must connect them to information coming from outside their blockchain. We must open their eyes to the real world. Oracles do just that. Solving this challenging problem will take smart contracts’ possibilities to a whole new level.</p>
+<hr />
+<h4 id="thanks-a-lot-for-reading-you-can-also">Thanks a lot for reading! You can also:<a class="headerlink" href="#thanks-a-lot-for-reading-you-can-also" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p><a href="https://t.me/witnetio">Join the community Telegram group</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Unmanned vs. Human Oracles</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/unmanned-vs-human-oracles/f1a6b5651969494fa592ca44573d5a7b/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-19</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmSN5Wi3QMMyL6RgzqLJZZjTRziKPVXz2aTdppcmRP8D2m</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../ethereum-witnet/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../ethereum-witnet/" class="btn btn-xs btn-link">
+        Ethereum ❤ Witnet
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../global-trade-system/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../global-trade-system/" class="btn btn-xs btn-link">
+        Global Trade System
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/unmanned-vs.-human-oracles.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

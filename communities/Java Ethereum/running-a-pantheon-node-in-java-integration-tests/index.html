@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/communities/Java%20Ethereum/running-a-pantheon-node-in-java-integration-tests/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Running a Pantheon Node in Java Integration Tests - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Running a Pantheon Node in Java Integration Tests", url: "#_top", children: [
+              {title: "Prerequisites", url: "#prerequisites" },
+              {title: "Running a Node with Testcontainers", url: "#running-a-node-with-testcontainers" },
+              {title: "Including the Testcontainers library", url: "#including-the-testcontainers-library" },
+              {title: "Starting Pantheon", url: "#starting-pantheon" },
+              {title: "Connecting to the Pantheon container using Web3j", url: "#connecting-to-the-pantheon-container-using-web3j" },
+              {title: "Stopping Pantheon / Web3j", url: "#stopping-pantheon-web3j" },
+              {title: "Summary", url: "#summary" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="running-a-pantheon-node-in-java-integration-tests">Running a Pantheon Node in Java Integration Tests<a class="headerlink" href="#running-a-pantheon-node-in-java-integration-tests" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPS8X2k3fEVfFr37L2Paq8Gj1KVgMBEKAHMdLyNrSxsHa" /></p>
+<p>The first problem you are likely to meet when attempting to write integration tests for your Java Ethereum application is that you need a running node to connect to for sending transactions. One option to overcome this is to run a node yourself manually in the background, but this becomes hard to manage if you want to run your tests in a CI pipeline, and forcing all contributors to you codebase to run a node manually is not ideal. Luckily there's a better way!</p>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link"></a></h3>
+<ul>
+<li>A running Docker daemon</li>
+<li>An understanding of <a href="https://junit.org/">Junit</a></li>
+<li>Code to test. This tutorial doesn't show this code explicitly, but you can <a href="https://github.com/kauri-io/java-web3j-pantheon-testing/blob/4814ff2c81d5e1141671b4d1f0680e901bc72051/src/test/java/io/kauri/java/test/TestWeb3jPantheon.java#L63">find an example that builds upon other tutorials in this community on GitHub</a>.</li>
+</ul>
+<h3 id="running-a-node-with-testcontainers">Running a Node with Testcontainers<a class="headerlink" href="#running-a-node-with-testcontainers" title="Permanent link"></a></h3>
+<p><a href="https://www.testcontainers.org/">Testcontainers</a> is a useful library that allows you to fire up a Docker container programmatically within your test code, and there are several Ethereum clients that have ready-made Docker containers uploaded to Dockerhub, which makes this task easier.</p>
+<p>In this guide, I describe how to start and shutdown a <a href="https://github.com/PegaSysEng/pantheon">Pantheon</a> node during your integration tests, so you don't have to start a node manually or within your CI pipeline</p>
+<h3 id="including-the-testcontainers-library">Including the Testcontainers library<a class="headerlink" href="#including-the-testcontainers-library" title="Permanent link"></a></h3>
+<p>We get the Testcontainers library dependency via maven central, so to include the library, add the following dependency to your <em>pom.xml</em> (or equivalent in Gradle):</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+ &lt;groupId&gt;org.testcontainers&lt;/groupId&gt;
+ &lt;artifactId&gt;testcontainers&lt;/artifactId&gt;
+ &lt;version&gt;1.12.0&lt;/version&gt;
+ &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="starting-pantheon">Starting Pantheon<a class="headerlink" href="#starting-pantheon" title="Permanent link"></a></h3>
+<p>It's better and more performant to start Pantheon once, before all tests execute, rather than before every test. To achieve this behaviour, we instantiate a static <code>GenericContainer</code> annotated with a <code>@ClassRule</code> JUnit annotation.</p>
+<p>Create a new class in the project <em>test</em> folder, and add the code below to it:</p>
+<p><em>ClassRule</em></p>
+<pre><code class="language-java">@ClassRule
+public static final GenericContainer pantheonContainer =
+ new GenericContainer(&quot;pegasyseng/pantheon:1.1.3&quot;)
+ .withExposedPorts(8545, 8546)
+ .withCommand(
+ &quot;--miner-enabled&quot;,
+ &quot;--miner-coinbase=0xfe3b557e8fb62b89f4916b721be55ceb828dbd73&quot;,
+ &quot;--rpc-http-enabled&quot;,
+ &quot;--rpc-ws-enabled&quot;,
+ &quot;--network=dev&quot;)
+ .waitingFor(Wait.forHttp(&quot;/liveness&quot;).forStatusCode(200).forPort(8545));
+</code></pre>
+<p>Before any tests run, a <code>GenericContainer</code> is instantiated, with a docker image name as an argument. We're using the 1.1.3 version of Pantheon in this instance, and we expose the standard default ports for HTTP and websocket RPC with the <code>withExposedPorts(..)</code> method.</p>
+<p>We set some runtime command arguments which configure the node in a way that is suitable for testing the following:</p>
+<ul>
+<li><code>--miner-enabled</code>: Enables mining so that the transactions we send within our tests are included within blocks.</li>
+<li><code>--miner-coinbase</code>: Set the coinbase to an account that you have a private key for. This is mandatory when mining is enabled. Here we set the account to be the well-known Pantheon dev account, which is automatically loaded with Ether when in dev mode.</li>
+<li><code>--rpc-http-enabled</code>: Enable the HTTP RPC endpoint so that Web3j can connect.</li>
+<li><code>--rpc-ws-enabled</code>: Enable the websocket RPC endpoint. This is not required if you are only testing HTTP.</li>
+<li><code>--network=dev</code>: Sets the network type to <code>dev</code>. This starts a private development node, with a pre-defined configuration to make mining easier on CPU usage.</li>
+</ul>
+<p>For a full list of all available Pantheon commands, <a href="https://docs.pantheon.pegasys.tech/en/stable/Reference/Pantheon-CLI-Syntax/">read the official documentation</a>.</p>
+<h4 id="waiting-for-pantheon-to-start">Waiting for Pantheon to Start<a class="headerlink" href="#waiting-for-pantheon-to-start" title="Permanent link"></a></h4>
+<p>We must wait for Pantheon to start before running our tests fully. Pantheon comes autoconfigured with a liveness endpoint, so testcontainers automatically polls the <code>/liveness</code> endpoint on port <code>8545</code> until it returns a 200 response. We can then be confident that Pantheon is running.</p>
+<h3 id="connecting-to-the-pantheon-container-using-web3j">Connecting to the Pantheon container using Web3j<a class="headerlink" href="#connecting-to-the-pantheon-container-using-web3j" title="Permanent link"></a></h3>
+<p>Pantheon should now be up and running on <code>localhost</code>. You can now connect to the Pantheon node within your test classes, and perform Ethereum operations such as sending transactions by using Web3j:</p>
+<pre><code class="language-java">private Web3j web3j;
+
+private Credentials credentials = 
+    Credentials.create(&quot;0x8f2a55949038a9610f50fb23b5883af3b4ecb3c3bb792cbcefbd1542c692be63&quot;);  
+
+@Before
+public void initWeb3() {
+  final Integer port = pantheonContainer.getMappedPort(8545);
+  web3j = Web3j.build(new HttpService(
+      &quot;http://localhost:&quot; + port), 500, Async.defaultExecutorService());
+}
+
+</code></pre>
+<h4 id="mapped-port">Mapped Port<a class="headerlink" href="#mapped-port" title="Permanent link"></a></h4>
+<p>We exposed the default JSON RPC port, 8545 when creating the container, but did not map it to the same port on localhost. A random available port is automatically selected instead, which is beneficial because it removes the chance of the port not being open on your test machine (which could happen if you are running the tests in parallel for example).</p>
+<p>To get the mapped port number, call the <code>getMappedPort(..)</code> method on the container. We can use these ports when constructing the Web3j connection URL.</p>
+<h4 id="polling-interval">Polling Interval<a class="headerlink" href="#polling-interval" title="Permanent link"></a></h4>
+<p>By default, Web3j polls the connected Ethereum client every 10 seconds for operations such as getting the latest mined blocks and checking if events have been emitted. Our Pantheon test network generally creates blocks much faster than every 10 seconds, so reducing the poll interval in Web3j should increase the speed of the tests. We can pass the poll interval to the <code>Web3j.build</code> static method, and above, we configure the interval to 500ms.</p>
+<h4 id="test-credentials">Test Credentials<a class="headerlink" href="#test-credentials" title="Permanent link"></a></h4>
+<p>Sending transactions in our private dev network still requires gas, so we must have access to an account with a positive balance, and the development network has some accounts pre-loaded with more test Ether than you could ever need! The private keys of these accounts are documented <a href="https://docs.pantheon.pegasys.tech/en/stable/Configuring-Pantheon/Accounts-for-Testing/">here</a>, which makes it easy to generate a <code>Credentials</code> object for use in your tests.</p>
+<h3 id="stopping-pantheon-web3j">Stopping Pantheon / Web3j<a class="headerlink" href="#stopping-pantheon-web3j" title="Permanent link"></a></h3>
+<p>As we're using a <code>@ClassRule</code> annotation, stopping the Pantheon container is handled automatically at the end of the test class execution. Its a good idea to shutdown the web3j instance after each test though:</p>
+<pre><code class="language-java">@After
+public void shutdownWeb3j() {
+ web3j.shutdown();
+}
+</code></pre>
+<h3 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link"></a></h3>
+<p>Using the Testcontainers library to start a Pantheon node is a convenient way to ensure that an Ethereum node is accessible to your tests. This makes running the tests in your continuous integration pipeline less arduous, and also means that other third party contributors can run your tests on their local machine more easily.</p>
+<p>You can find an example test class demonstrating the code described in this tutorial <a href="https://github.com/kauri-io/java-web3j-pantheon-testing/blob/master/src/test/java/io/kauri/java/test/TestWeb3jPantheon.java">on GitHub</a>, from the <a href="https://github.com/kauri-io/java-web3j-pantheon-testing">java-web3j-pantheon-testing</a> project.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Running a Pantheon Node in Java Integration Tests</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/running-a-pantheon-node-in-java-integration-tests/7dc3ecc391e54f7b8cbf4e5fa0caf780/a</li>
+<li><strong>Kauri original author:</strong> Craig Williams (@craig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-08-13</li>
+<li><strong>Kauri original tags:</strong> ethereum, junit, java, web3j, testing, pantheon</li>
+<li><strong>Kauri original hash:</strong> QmUAyrxMcrhPuX1AjXenAcrE46e42Dm9sdZio9mJd8QZ4X</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../managing-storage-in-a-java-application-with-ipfs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../managing-storage-in-a-java-application-with-ipfs/" class="btn btn-xs btn-link">
+        Managing storage in a Java application with IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../manage-erc20-tokens-in-java-with-web3j/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../manage-erc20-tokens-in-java-with-web3j/" class="btn btn-xs btn-link">
+        Manage ERC20 tokens in Java with Web3j
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/communities/Java Ethereum/running-a-pantheon-node-in-java-integration-tests.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

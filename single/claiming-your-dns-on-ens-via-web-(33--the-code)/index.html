@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/claiming-your-dns-on-ens-via-web-%2833--the-code%29/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Claiming your DNS on ENS via Web (3/3  The code) - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Claiming your DNS on ENS via Web (3/3  The code)", url: "#_top", children: [
+              {title: "1. Setup Truffle box", url: "#1-setup-truffle-box" },
+              {title: "2. Install necessary npm modules", url: "#2-install-necessary-npm-modules" },
+              {title: "3. Create &amp; run a migration file", url: "#3-create-run-a-migration-file" },
+              {title: "4. Write frontend code", url: "#4-write-frontend-code" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="claiming-your-dns-on-ens-via-web-33-the-code">Claiming your DNS on ENS via Web (3/3  The code)<a class="headerlink" href="#claiming-your-dns-on-ens-via-web-33-the-code" title="Permanent link"></a></h1>
+<hr />
+<ul>
+<li>
+<ol>
+<li>The Theory</li>
+</ol>
+</li>
+<li>
+<ol>
+<li>The Demo</li>
+</ol>
+</li>
+<li>
+<p><strong>3. The Code</strong> 
+ <strong>Previously</strong> 
+In the second blog post, I showed you how the demo web app works. In this final blog post, I will explain how this demo code was built by assembling the multiple ENS related libraries.
+[NOTE: The library API are evolving and it will more likely become out of date fairly quickly]
+ <strong>3. The code</strong> 
+Before diving into the code, let me quickly explain various components which this demo code uses.</p>
+</li>
+<li>
+<p><a href="https://github.com/ensdomains/ens">ENS</a> = The main smart contract repository which contains various smart contracts.</p>
+</li>
+<li>
+<p><a href="https://github.com/ensdomains/dnssec-oracle/blob/master/contracts/DNSSEC.sol">DNSSEC Oracle</a> = The smart contract that stores DNSSEC proofs.</p>
+</li>
+<li>
+<p><a href="https://github.com/ensdomains/dnsprovejs">dnsproverjs</a> = This library is in charge of extracting DNS information from DNS servers and storing the proof into the DNSSEC Oracle contract. You do not need to interact with this library directly as there is another wrapper library I will explain next.</p>
+</li>
+<li>
+<p><a href="https://github.com/ensdomains/dnsregistrar">dnsregistrar</a> = This project contains a special <a href="https://docs.ens.domains/en/latest/implementers.html#writing-a-registrar">registrar</a> smart contract that allows you to claim the ENS name based on the proof existing on DNSSEC Oracle as well a wrapper to the dnsprovejs library.
+ <a href="https://github.com/makoto/dnssec-ens-example">The demo code is on my github</a> . It’s quickly built on top of Truffle react box. and I will show you the process step by step.</p>
+</li>
+</ul>
+<h4 id="1-setup-truffle-box">1. Setup Truffle box<a class="headerlink" href="#1-setup-truffle-box" title="Permanent link"></a></h4>
+<p>First thing first, you create react and unbox react components.</p>
+<pre><code>$ mkdir react
+$ cd react
+$ truffle unbox react
+$ truffle migrate
+$ npm run start
+</code></pre>
+<p>If it’s successful, you should see the stored value of 5 on the page.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*LtWy8_7alSb_Lq9yuhkskA.png" /></p>
+<p>When I first tried, it was just showing 0. It was because I was starting up ganache on port 8545, you need to edit getWeb3.js manually to change port number.</p>
+<h4 id="2-install-necessary-npm-modules">2. Install necessary npm modules<a class="headerlink" href="#2-install-necessary-npm-modules" title="Permanent link"></a></h4>
+<pre><code>npm install --save @ensdomains/ens @ensdomains/dnssec-oracle @ensdomains/dnsregistrar eth-ens-namehash
+</code></pre>
+<p>I already explained the three libraries. <code>eth-ens-namehash</code> is used to hash your ENS name when looking up if your ENS entity exists.</p>
+<h4 id="3-create-run-a-migration-file">3. Create &amp; run a migration file<a class="headerlink" href="#3-create-run-a-migration-file" title="Permanent link"></a></h4>
+<p>You don’t need to see what <a href="https://github.com/makoto/dnssec-ens-example/blob/dnssec/migrations/2_deploy_contracts.js">this migration file</a> does line by line as we are trying to encapsulate it, but this is what the migration does:</p>
+<ul>
+<li>
+<p>Deploy ENS and DNSSEC contract.</p>
+</li>
+<li>
+<p>Deploy DNSRegistrar with ENS address, DNSSEC address, and <code>.xyz</code> domain name.</p>
+</li>
+<li>
+<p>Set <code>.xyz</code> as a top level domain (TLD) of ENS contract.</p>
+</li>
+<li>
+<p>Set algorithm and digest to DNSSEC contract for verifying signature.
+Once the migration file is created, run <code>truffle migrate</code> .</p>
+</li>
+</ul>
+<h4 id="4-write-frontend-code">4. Write frontend code<a class="headerlink" href="#4-write-frontend-code" title="Permanent link"></a></h4>
+<p><a href="https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684dadd">I modified Truffle box default App.js.</a> Looks like it’s doing a lot but the gist of the code is not a lot.
+ <strong>4.1</strong>  <a href="https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684daddR99">Instantiate DNSRegistrarjs</a> </p>
+<pre><code>registrarjs = new DNSRegistrarJS(
+  this.state.web3.currentProvider, registrar.address
+);
+</code></pre>
+<p><code>DNSRegistrarJS</code> is a very thin wrapper of DNSRegistrar contract and <code>dnsprovejs</code> js libray. It requires your web3 provider and DNS registrar address (given that you run the migration, you can access the address via <code>DNSRegistrar</code> truffle function call.
+ <strong>4.2</strong>  <a href="https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684daddR106">call registrarjs.claim()</a> 
+This function looks up DNS server for the given domain name and returns an <code>claim</code> object with <code>found</code> attribute.</p>
+<pre><code>return registrarjs.claim(this.state.domain);
+</code></pre>
+<p>if the domain name prefixed with <code>_ens.</code> contains a record, the <code>found</code> attribute returns true.
+ <strong>4.3</strong>  <a href="https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684daddR69">claim.submit()</a> 
+By calling the function, it will send two transactions, one to call <a href="https://github.com/ensdomains/dnssec-oracle/blob/master/contracts/DNSSEC.sol">DNSSEC#submitRRSets</a> that submits the proof and another transaction to call <a href="https://github.com/ensdomains/dnsregistrar/blob/master/contracts/dnsregistrar.sol#L44">DNSRegistrar#claim</a> that sets ownership on ENS.
+ <strong>4.4 Bonus:</strong>  <a href="https://github.com/makoto/dnssec-ens-example/compare/dnssec?expand=1#diff-14b1e33d5bf5649597cdc0e4f684daddR120">claim.oracle.knownProof()</a>  <strong>to check if the oracle has the proof</strong> 
+If you want to get more info about the detail of DNS record or proofs of DNSSEC Oracle, the <code>claim</code> object returns a few more attributes exposing the guts of <a href="https://github.com/ensdomains/dnsprovejs#api">dnsprovejs API</a> .</p>
+<pre><code>// Iterate each DNSSEC Proof
+claim.result.proofs.map((proof, index)=&gt;{
+  // Ask DNSSEC Oracle if the proof exists.
+  claim.oracle.knownProof(proof).then((proven)=&gt;{
+    // Do something with the response
+  })
+})
+</code></pre>
+<p>(NOTE, this is exposed more for debugging purpose and we may exclude in the future release.)
+Once frontend code is created, run <code>npm run start</code> which should open browser pointing to <code>localhost:3000</code> .
+ <strong>TODO</strong> 
+It’s a super breeding edge version and it is highly likely that many things are missing/broken (so it’s only for the brave). These are the outstanding tasks I may work on during ENS Hackathon (if I have time…)</p>
+<ul>
+<li>
+<p>Deleting a record (using <a href="https://simpledns.com/help/nsec-records">NSEC</a> record)</p>
+</li>
+<li>
+<p>Support for Ropsten network (once the new DNSSEC Oracle smart contract is deployed).</p>
+</li>
+<li>
+<p>Make migration file as a separate function so that you don’t have to copy &amp; paste each time</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Claiming your DNS on ENS via Web (3/3  The code)</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/claiming-your-dns-on-ens-via-web-33-the-code/3bb9fee637a540d7b1e027cba121ab14/a</li>
+<li><strong>Kauri original author:</strong> Makoto Inoue (@makoto)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-10-30</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmdLCs3guAFBThCYEv2kAwhLtuyNVYqtBVSj1kUCVW45xX</li>
+<li><strong>Kauri original checkpoint:</strong> QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../what-s-the-difference-between-monero-zcash-and-be/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../what-s-the-difference-between-monero-zcash-and-be/" class="btn btn-xs btn-link">
+        What’s the difference between Monero, Zcash, and BEAM?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../ethereum-for-trekkies/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../ethereum-for-trekkies/" class="btn btn-xs btn-link">
+        Ethereum for Trekkies
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/claiming-your-dns-on-ens-via-web-(33--the-code).md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

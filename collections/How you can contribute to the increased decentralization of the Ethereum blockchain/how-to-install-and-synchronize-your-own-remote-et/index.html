@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-install-and-synchronize-your-own-remote-et/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to install and synchronize your own remote Ethereum node - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to install and synchronize your own remote Ethereum node", url: "#_top", children: [
+              {title: "Why would you even want to be responsible for your own Ethereum node?", url: "#why-would-you-even-want-to-be-responsible-for-your-own-ethereum-node" },
+              {title: "The problem", url: "#the-problem" },
+              {title: "What we're covering", url: "#what-were-covering" },
+              {title: "The hardest part first", url: "#the-hardest-part-first" },
+              {title: "Configuring your node for remote access", url: "#configuring-your-node-for-remote-access" },
+              {title: "Coming up", url: "#coming-up" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="how-to-install-and-synchronize-your-own-remote-ethereum-node">How to install and synchronize your own remote Ethereum node<a class="headerlink" href="#how-to-install-and-synchronize-your-own-remote-ethereum-node" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdT9d8GN645HMzYrU8GaJ19HGirfKAJ9Dc7rEnADVjHWw" /></p>
+<p>This is a two part tutorial. The first part covers the process of installing an Ethereum node remotely on a Virtual Private Server (VPS), synchronizing it with the blockchain, and setting it up to allow secure remote access.</p>
+<h3 id="why-would-you-even-want-to-be-responsible-for-your-own-ethereum-node">Why would you even <em>want</em> to be responsible for your own Ethereum node?<a class="headerlink" href="#why-would-you-even-want-to-be-responsible-for-your-own-ethereum-node" title="Permanent link"></a></h3>
+<p>At a recent <a href="https://deconomy.com/"><em>Deconomy</em> conference</a> in Seoul, South Korea, <a href="https://en.wikipedia.org/wiki/Joseph_Lubin_(entrepreneur)">Joe Lubin</a> gave a speech called <a href="https://media.consensys.net/joe-lubin-why-ethereum-will-become-the-global-settlement-layer-9b5f90d85be2/"><em>Why Ethereum Will Become the Global Settlement Layer</em></a>. In it he stated:</p>
+<blockquote>
+<p>We would achieve maximal decentralization of a blockchain network if every person on the planet owned precisely one full node device connected to the network.</p>
+</blockquote>
+<p>This is one of the core concepts behind Ethereum and other blockchains: to create a network with so many nodes holding copies of the blockchain that it would be impossible for any government, corporate entity, or cohort of nefarious actors to take down or censor the network. It's vital that the data be spread across the globe as widely as possible.</p>
+<h3 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link"></a></h3>
+<p>When the Ethereum blockchain sprang to life on <a href="https://blog.ethereum.org/2015/07/30/ethereum-launches/">July 30, 2015</a>, its creators assumed that those who wanted to participate would download the client software, set it up, and then synchronize their new client with the Ethereum blockchain. This was the only way to join in at the time. Early adopters were generally technical in nature so it didn't prove too much of a challenge. Since then the Ethereum blockchain has grown larger and larger and an increasing number of people are now involved, with broader skills and interests than the early adopters. In addition, distributed application (dApp) developers started looking for an easier, more scalable way to offer services to their customers rather than having to build out an Ethereum node farm to handle the load.</p>
+<p>To meet these demands, services like <a href="https://infura.io/about/">Infura</a>, <a href="https://quiknode.io/">QuikNode</a>, and <a href="https://www.blockcypher.com/">BlockCypher</a> came into being. Instead of taking on the responsibility of running your own Ethereum client, one of these services does it for you. This has become one of the main ways for dApp developers to interact with the Ethereum blockchain.</p>
+<p>As a result, large chunks of the network run on the Infura infrastructure, which itself relies for the most part on Amazon Web Services (AWS). Make no mistake: Infura is doing an incredible job; the Ethereum network would be much much weaker if it suddenly disappeared. But the problem here lies in the fact that a large number of the nodes that operate the Ethereum blockchain belong to Infura and other such services. From an <a href="https://www.ccn.com/dev-ethereum-may-fail-if-it-relies-on-infura-to-run-nodes-potential-solution/">article</a> on CCN:</p>
+<blockquote>
+<p>The concern in regards to the influence of Infura in the node ecosystem of the blockchain is that if dApps do not run their own nodes or rely on a network of light clients, it will increase centralization in the protocol, which was structured and designed to operate as a global supercomputer.</p>
+</blockquote>
+<p>This is opposite to the core concept of blockchain decentralization. The takeaway from all of this is that if it's at all within your capabilities and means, running your own Ethereum node should be on your to-do list.</p>
+<h3 id="what-were-covering">What we're covering<a class="headerlink" href="#what-were-covering" title="Permanent link"></a></h3>
+<p>When you've completed the steps I describe in these articles you will be running your own Ethereum node securely on a remote machine, thus contributing to the decentralization of the Ethereum network. That machine could be a Virtual Private Server (VPS), such as that provided by <a href="https://www.digitalocean.com/">Digital Ocean</a>, <a href="https://www.linode.com/">Linode</a>, or <a href="https://aws.amazon.com/">AWS</a>, or it could be a computer in your own home. You will also set up an SSH tunnel to make your remote node appear to be available on your local machine. You will learn how to point <a href="https://metamask.io/#about">MetaMask</a> at your node to take advantage of your own contribution to the Ethereum network. I also explain how to make your efforts permanent, automatically restarting on any failure or reboot. All in all you'll be significantly ahead of a large percentage of Ethereum users. I think it's worth the effort.</p>
+<h3 id="the-hardest-part-first">The hardest part first<a class="headerlink" href="#the-hardest-part-first" title="Permanent link"></a></h3>
+<p>To start, we delve into how to set up a <a href="https://geth.ethereum.org/">Go Ethereum</a> (<code>geth</code>) node on a Linux-based server. That sounds scary as all get-out, doesn't it? Don't worry, you won't actually have to install Linux itself. I'm going to give guidance on how to create a Linux instance on Linode, a Linux VPS provider. In fact, I'm running my own <code>geth</code> node on an Arch Linux Linode VPS. For this exercise we'll stick with a more common Linux distribution, Ubuntu. Linode's Ubuntu image has several utilities pre-installed, such as <code>sshd</code>, <code>wget</code>, <code>tmux</code>, and <code>sudo</code>. This avoids having to explain how to install these utilities, allowing us to concentrate on the task at hand. Go to <a href="https://www.linode.com/">https://www.linode.com/</a> and — if you don't already have one — sign up for an account.</p>
+<h4 id="an-aside">An aside<a class="headerlink" href="#an-aside" title="Permanent link"></a></h4>
+<p>Yes, using a VPS for this costs you some money. There are many reasons to sacrifice your cash in this way, but there are also <a href="http://eips.ethereum.org/EIPS/eip-908">people</a> thinking of <a href="https://medium.com/vipnode/an-economic-incentive-for-running-ethereum-full-nodes-ecc0c9ebe22">ways</a> to <a href="https://ethresear.ch/t/incentives-for-running-full-ethereum-nodes/1239">incentivize</a> us to run full nodes. Until then, if you have it within your means consider making a sacrifice for the health of the network. On the other hand, if you have the equipment and the technical know-how, go ahead and set up a node on your own hardware, keeping your costs to a minimum.</p>
+<h4 id="back-to-business">Back to business<a class="headerlink" href="#back-to-business" title="Permanent link"></a></h4>
+<p>Once you have an account on Linode, log in and go to your dashboard if you're not automatically dropped there. Click the <em>Create</em> button at the top. Choose <em>Linode</em> from the resulting dropdown menu. Under <em>Choose a distribution</em> click <em>Ubuntu</em>. Under <em>Region</em>, make a choice appropriate for your locale. Under <em>Linode Plan</em> choose the level of commitment you're comfortable with. According to <a href="https://etherscan.io/chart2/chaindatasizefast">Etherscan</a>, a <code>geth</code> node that's been fast-synced currently takes up about 133GB of disk space. You could probably, for a time, get away with a <em>Linode 8GB</em> VPS with 160GB of storage, but you will run out of space quickly. You could start with that size to try things out; Linode allows you to resize an instance at any time so you could step up to the next level if you decide to make your node permanent. For now, I'll assume you chose <em>Linode 16GB</em> to avoid any storage issues. For <em>Linode Label</em>, provide a name by which to refer to your VPS, or just leave it at the default built up from your choices. Under <em>Root Password</em>, enter a password that you have to provide later in order to log into your VPS. On the right you see a summary of your choices and a big <em>Create</em> button. Click the button.</p>
+<p>Your new VPS will now be created. When it's done, click on <em>Launch Console</em> at the top right. A new window pops up and presents you with a login prompt. Log in as <code>root</code>, using the password you provided on creation. You should be left at a command line prompt that looks like this:</p>
+<pre><code class="language-shell">root@localhost:~#
+</code></pre>
+<h4 id="housekeeping">Housekeeping<a class="headerlink" href="#housekeeping" title="Permanent link"></a></h4>
+<p>There's a bit of housekeeping to take care of before we can begin the <code>geth</code> installation. First create a non-root user. You <em>never</em> want to log in as <code>root</code>. Never. For normal day-to-day operation you operate as a user with standard privileges, only acquiring root privileges as necessary. Issue the <code>useradd</code> command, replacing <code>Regular User</code> and <code>user</code> with your own choices unless, of course, your name is actually <em>Regular User</em>. After that, add this new user to the <code>sudo</code> system as one who can elevate their privileges. Finally, provide a password for the user. From this point on I use <code>#</code> at the beginning of a line to indicate commands to run as root and <code>$</code> for those to run as a regular user. It's never necessary to type that character.</p>
+<pre><code class="language-shell">## useradd -c &quot;Regular User&quot; -d /home/user -m -s /bin/bash user
+## echo &quot;%user ALL=(ALL:ALL) ALL&quot; &gt; /etc/sudoers.d/user
+## chmod 440 /etc/sudoers.d/user
+## passwd user
+</code></pre>
+<p>Now we lock the <code>root</code> account's password so nobody can ever log in as <code>root</code>, not even you. After that, reboot.</p>
+<pre><code class="language-shell">## passwd --lock root
+## reboot
+</code></pre>
+<p>Once you're back at a login prompt, log in using the username and password of the user we just created. After logging in, make sure that you can switch to the <code>root</code> user account. Type <code>sudo su -</code>. After providing your password you should see this response:</p>
+<pre><code class="language-shell">$ sudo su -
+[sudo] password for user:
+root@localhost:~#
+</code></pre>
+<p>Type <code>exit</code> to return to the regular user's account. You're now ready to install <code>geth</code>.</p>
+<h4 id="installing-geth">Installing <code>geth</code><a class="headerlink" href="#installing-geth" title="Permanent link"></a></h4>
+<p>We use the latest version of <code>geth</code> from the Go Ethereum team. As of this writing, that version is <em>Punisher (v1.8.27)</em>. For the latest version when you read this, go <a href="https://geth.ethereum.org/downloads/">here</a> and right-click on the <em>Geth x.x.xx for Linux</em> button near the top. Choose <em>Copy Link Address</em> or whatever the equivalent is for your browser. At your command prompt, type <code>wget</code>, then a space, then paste the link you just copied and hit <code>return</code>. Next, uncompress the freshly-downloaded file and move it to a location the system knows about. After that you should test that the system <em>does</em> know how to locate <code>geth</code>.</p>
+<pre><code class="language-shell">$ wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.8.27-4bcc0a37.tar.gz
+$ tar xf geth-linux-amd64-1.8.27-4bcc0a37.tar.gz
+$ cd geth-linux-amd64-1.8.27-4bcc0a37
+$ sudo mv geth /usr/bin/
+$ cd ~
+$ geth version
+Geth
+Version: 1.8.27-stable
+Git Commit: 4bcc0a37ab70cb79b16893556cffdaad6974e7d8
+Architecture: amd64
+Protocol Versions: [63 62]
+Network Id: 1
+Go Version: go1.11.9
+Operating System: linux
+GOPATH=
+GOROOT=/home/travis/.gimme/versions/go1.11.9.linux.amd64
+</code></pre>
+<p>If you don't get something like the response above from <code>geth</code> then you'll have to do some troubleshooting. If you did, <em>congratulations!</em> You now have a working Linux VPS with <code>geth</code> installed correctly.</p>
+<h4 id="synchronizing-your-node">Synchronizing your node<a class="headerlink" href="#synchronizing-your-node" title="Permanent link"></a></h4>
+<p>Before we can do anything we need to synchronize our node with the Ethereum blockchain. This takes a long time, even in "fast" mode. Days, in fact. To start the process, type:</p>
+<pre><code class="language-shell">$ tmux
+$ geth --syncmode &quot;fast&quot; --cache=1024
+</code></pre>
+<p>You see several lines of output from <code>geth</code> and then it pauses for a while. Once you see lines start to appear with <em>Imported new block headers</em> you know the sync has started. This is the part that goes for days. In order for you to safely close windows and leave <code>geth</code> to finish its sync, type <code>ctrl-b d</code>. In other words, hold down the <code>control</code> key and hit <code>b</code>. Release the <code>control</code> key and hit <code>d</code>.  You should see the following output:</p>
+<pre><code class="language-shell">[detached (from session 0)]
+</code></pre>
+<p>The <code>geth</code> sync continues on in the background and you're free to log off and do more productive things than watching log output. To check on the progress of the synchronization, attach to the <code>geth</code> node via the built-in JavaScript console and issue the <code>syncing</code> command.</p>
+<pre><code class="language-shell">$ geth attach
+&gt; web3.eth.syncing
+&gt; {
+  currentBlock: 142490,
+  highestBlock: 7640000,
+  knownStates: 143562,
+  pulledStates: 143174,
+  startingBlock: 0
+}
+&gt;
+</code></pre>
+<p>Press <code>ctrl-d</code> to exit the console. Check again occasionally to monitor the progress. When the result changes from block and state count to <code>false</code>, your node is in sync with the Ethereum mainnet. You can safely close that terminal window. When you come back to this terminal window by hitting the <em>Launch Console</em> link as before, you can reconnect to your <code>geth</code> instance by typing the following:</p>
+<pre><code class="language-shell">$ tmux attach -t 0
+</code></pre>
+<p>This should return you to a screen that shows the continuing output from your running <code>geth</code> node.</p>
+<h3 id="configuring-your-node-for-remote-access">Configuring your node for remote access<a class="headerlink" href="#configuring-your-node-for-remote-access" title="Permanent link"></a></h3>
+<p>Now that you've synchronized, there's nothing further to do if your aim was to provide an additional node to the Ethereum network. That would, however, be overly-selfless. You want to take advantage of your node, using it for your own Ethereum transactions and even perhaps contract deployment and access through your own dApp. A more general use would be to have MetaMask point to your node instead of its default Infura nodes. This is a confusing process, but if you follow the steps carefully there shouldn't be a problem.</p>
+<h4 id="setting-up-rpc-access">Setting up RPC access<a class="headerlink" href="#setting-up-rpc-access" title="Permanent link"></a></h4>
+<p>RPC stands for <em>remote procedure call</em>, which means one computer requesting action from another. <code>geth</code> supports this with what are called <em>command-line switches</em>: instructions to <code>geth</code> on startup. Configuring <code>geth</code> to accept connections from any computer on the internet is extremely hazardous to your node's health. It's safer to allow RPC access <em>only</em> from the machine that's running <code>geth</code>. This makes no sense, I know, but I'll explain how to get around that restriction securely later. For now, we want to change the switches we use to start <code>geth</code>.</p>
+<p>Go back to your Linode dashboard and make sure you're on the <em>Linodes</em> tab on the left. Click on the three dots to the right of name you gave the VPS that's running <code>geth</code>. Choose <em>Launch Console</em> from the dropdown menu. Once the terminal window appears and you've logged back in, reconnect to your <code>geth</code> instance with:</p>
+<pre><code class="language-shell">$ tmux attach -t 0
+</code></pre>
+<p>If you've confirmed that your node has completed syncing, you should see a slow but steady stream of <em>Imported new chain segment</em> log lines. Only proceed from here if that is the case. Otherwise, be patient and wait.</p>
+<p>Stop your <code>geth</code> node with <code>ctrl-c</code>. It will take a while for it to shut down as it executes some housekeeping, but eventually you'll be left at a command prompt. Your <code>geth</code> is dead. We now start it up again with a different set of switches. Type the following to start <code>geth</code> with RPC enabled for the local machine:</p>
+<pre><code class="language-shell">$ geth --rpc --rpcaddr localhost --rpcport 8545
+</code></pre>
+<p>Your node will eventually get back to spitting out lines with <em>Imported new chain segment</em>. With that, you've completed setting up your <code>geth</code> node.</p>
+<h3 id="coming-up">Coming up<a class="headerlink" href="#coming-up" title="Permanent link"></a></h3>
+<p>In the <a href="https://kauri.io/article/348d6c66da2949978c85bf2cd913d0ac/v1/make-use-of-your-remote-ethereum-node-using-an-ssh-tunnel-and-metamask">second article</a> of this series I describe how to set up a local SSH tunnel and make MetaMask use that tunnel to interact with our <code>geth</code> node. To finish up I describe how to make everything we've done survive crashes and reboots, having it all restart automatically. See you there!</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> How to install and synchronize your own remote Ethereum node</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/how-to-install-and-synchronize-your-own-remote-eth/c287fe53de9b4073a18065443253a86d/a</li>
+<li><strong>Kauri original author:</strong> Daniel Ellison (@zigguratt)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-24</li>
+<li><strong>Kauri original tags:</strong> metamask, ethereum, geth, blockchain, infura, ssh-tunnel, tutorial</li>
+<li><strong>Kauri original hash:</strong> QmQynEB8S5cBDvGdGAkufJrY7oWaTz4yhL4pbNRUtYCAYV</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../make-use-of-your-remote-ethereum-node-using-an-ss/" class="btn btn-xs btn-link">
+        Make use of your remote Ethereum node using an SSH tunnel and MetaMask
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../MythX/mythx-is-real./" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../MythX/mythx-is-real./" class="btn btn-xs btn-link">
+        MythX is real.
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/How you can contribute to the increased decentralization of the Ethereum blockchain/how-to-install-and-synchronize-your-own-remote-et.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

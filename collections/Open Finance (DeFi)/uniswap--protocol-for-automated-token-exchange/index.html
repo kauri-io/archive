@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/uniswap--protocol-for-automated-token-exchange/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Uniswap  Protocol for automated token exchange - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Uniswap  Protocol for automated token exchange", url: "#_top", children: [
+              {title: "Getting Started", url: "#getting-started" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="uniswap-protocol-for-automated-token-exchange">Uniswap  Protocol for automated token exchange<a class="headerlink" href="#uniswap-protocol-for-automated-token-exchange" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmdt5x7zcKbDghBhuguBTkQtvYJTGYbYRg1BjULT2Gzpxv" /></p>
+<blockquote>
+<p>Uniswap is a decentralized token exchange protocol that utilizes a "constant product market maker" model. This model allows defining the asset price based on the available staked liquidity of traded assets. There is no token to facilitate the exchange as ether is used as an intermediary of each trade. - Description from <a href="https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview">ethhub.io</a></p>
+</blockquote>
+<p><em>This article originally appeared on the <a href="https://docs.uniswap.io/">Uniswap page</a></em></p>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h2>
+<p>These docs are still being worked on. Some parts may be unfinished</p>
+<p>Designed with simplicity in mind the Uniswap protocol provides an interface for seamless exchange of ERC20 tokens on Ethereum. By eliminating unnecessary forms of rent extraction and middlemen it allows faster, more efficient exchange. Where it makes tradeoffs, decentralization, censorship resistance, and security are prioritized. </p>
+<p>Uniswap is open source and functions as a public good. There is no central token or platform fee. No special treatment is given to early investors, adopters, or developers. Token listing is open and free. All smart contract functions are public and all upgrades are opt-in. </p>
+<p>This site will serve as a project overview for Uniswap - explaining how it works, how to use it, and how to build on top of it. These docs are actively being worked on and more information will be added soon.</p>
+<h3 id="v1-features">V1 Features<a class="headerlink" href="#v1-features" title="Permanent link"></a></h3>
+<ul>
+<li>Add support for any ERC20 token using the Uniswap <a href="https://github.com/Uniswap/contracts-vyper/blob/master/contracts/uniswap_exchange.vy">factory</a></li>
+<li><a href="https://docs.uniswap.io/frontend-integration/pool#add-liquidity">Join liquidity pools</a> to collect fees on ETH-ERC20 pairs</li>
+<li>Liquidity-sensitive automated pricing using <a href="https://github.com/runtimeverification/verified-smart-contracts/blob/uniswap/uniswap/x-y-k.pdf">constant product formula</a></li>
+<li>Trade <a href="https://docs.uniswap.io/frontend-integration/swap#eth-erc20-trades">ETH for any ERC20</a> without wrapping</li>
+<li>Trade any <a href="https://docs.uniswap.io/frontend-integration/swap#erc20-to-erc20">ERC20 for any ERC20</a> in a single transaction </li>
+<li>Trade and transfer to a different address in a single transaction</li>
+<li>Lowest gas cost of any decentralized exchange</li>
+<li>Support for private and custom uniswap exchanges</li>
+<li>Buy ERC20 tokens from any wallet using ENS (coming soon)</li>
+<li><a href="https://github.com/runtimeverification/verified-smart-contracts/tree/uniswap/uniswap">Partially verified</a> smart contracts written in Vyper</li>
+<li>Mobile optimized open source <a href="https://github.com/Uniswap/uniswap-frontend">frontend implementation</a>  </li>
+<li>Funded through an <a href="https://blog.ethereum.org/2018/08/17/ethereum-foundation-grants-update-wave-3/">Ethereum Foundation grant</a></li>
+</ul>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link"></a></h3>
+<ul>
+<li><a href="https://uniswap.io/">Website</a></li>
+<li><a href="https://github.com/uniswap">Github</a></li>
+<li><a href="https://twitter.com/UniswapExchange">Twitter</a></li>
+<li><a href="https://www.reddit.com/r/UniSwap/">Reddit</a></li>
+<li><a href="https://join.slack.com/t/uni-swap/shared_invite/enQtNDYwMjg1ODc5ODA4LWEyYmU0OGU1ZGQ3NjE4YzhmNzcxMDAyM2ExNzNkZjZjZjcxYTkwNzU0MGE3M2JkNzMxOTA2MzE2ZWM0YWQwNjU">Slack</a></li>
+<li><a href="mailto:contact@uniswap.io?Subject=Contact%20Uniswap">Email</a></li>
+<li><a href="https://hackmd.io/s/HJ9jLsfTz">Whitepaper</a></li>
+</ul>
+<h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link"></a></h3>
+<p>Uniswap is made up of a series of ETH-ERC20 exchange contracts. There is exactly one exchange contract per ERC20 token. If a token does not yet have an exchange it can be created by anyone using the Uniswap factory contract. The factory serves as a public registry and is used to look up all token and exchange addresses added to the system.</p>
+<p>Each exchange holds reserves of both ETH and its associated ERC20 token. Anyone can become a liquidity provider on an exchange and contribute to its reserves. This is different than buying or selling; it requires depositing an equivalent value of both ETH and the relevant ERC20 token. Liquidity is pooled across all providers and an internal "pool token" (ERC20) is used to track each providers relative contribution. Pool tokens are minted when liquidity is deposited into the system and can be burned at any time to withdraw a proportional share of the reserves. </p>
+<p>Exchange contracts are automated market makers between an ETH-ERC20 pair. Traders can swap between the two in either direction by adding to the liquidity reserve of one and withdrawing from the reserve of the other. Since ETH is a common pair for all ERC20 exchanges, it can be used as an intermediary allowing direct ERC20-ERC20 trades in a single transaction. Users can specify a recipient address if they want to receive purchased tokens at a different address from the one used to make a transaction. </p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmPpUpr9uaKBQyCzHrKj1HVzHgD4oLbm2iNKUDAX7hu9hn" /></p>
+<p>Uniswap uses a "constant product" market making formula which sets the exchange rate based off of the relative size of the ETH and ERC20 reserves, and the amount with which an incoming trade shifts this ratio. Selling ETH for ERC20 tokens increases the size of the ETH reserve and decreases the size of the ERC20 reserve. This shifts the reserve ratio, increasing the ERC20 token's price relative to ETH for subsequent transactions. The larger a trade relative to the total size of the reserves, the more price slippage will occur. Essentially, exchange contracts use the open financial market to decide on the relative value of a pair and uses that as a market making strategy.  </p>
+<p>A small liquidity provider fee (0.3%) is taken out of each trade and added to the reserves. While the ETH-ERC20 reserve ratio is constantly shifting, fees makes sure that the total combined reserve size increases with every trade. This functions as a payout to liquidity providers that is collected when they burn their pool tokens to withdraw their portion of total reserves. Guaranteed arbitrage opportunities from price fluctuations should push a steady flow of transactions through the system and increase the amount of fee revenue generated. </p>
+<p>Since Uniswap is entirely on-chain, prices can change between when a transaction is signed and when it is included in a block. Traders can bound price fluctuations by specifying the minimum amount bought on sell orders, or the maximum amount sold on buy orders. This acts as a limit order that will automatically cancel if it is not filled. It is also possible to set transaction deadlines which will cancel orders if they are not executed fast enough.  </p>
+<p>The reason only one exchange per token can be registered to the factory is to encourage providers to pool their liquidity into a single reserve. However, Uniswap has built in support for ERC20-to-ERC20 trades using the public pools from the factory on one side of the transaction and custom, user-specified pool on the other. Custom pools could have fund managers, use alternate pricing mechanisms,  remove liquidity provider fees,  integrate complex three dimensional fomo-based ponzi-schemes and more. They just need to implement the Uniswap interface and accept ETH as an intermediary asset. Custom pools do not have the same safety properties as the public ones. It is recommended users only interact with audited, open-source smart contracts. </p>
+<p>Upgrading censorship resistant, decentralized smart contracts is difficult. If significant improvements are made to the system a new version will be released. Liquidity providers can choose between moving to the new system or staying in the old one. If possible, new versions will be backwards compatible and able to trade ERC20-to-ERC20 with the old versions similar to a custom pool. </p>
+<h3 id="how-to-use-it">How to use it<a class="headerlink" href="#how-to-use-it" title="Permanent link"></a></h3>
+<p><a href="https://uniswap.io/">Uniswap.io</a> is the landing page for the Uniswap protocol. It describes the project and directs users where they need to go.  </p>
+<p>The Uniswap smart contracts live on Ethereum. Anyone can interact with them directly using Web3 function calls. </p>
+<p>The Uniswap frontend is an open source interface designed to improve user experience when interacting with the smart contracts. Anyone can use the source code to host an interface, or build their own. Hosted interfaces are independent of Uniswap, and should comply with their jurisdictional laws and regulations. </p>
+<h5 id="list-of-interfaces-updated-november-2-2018">List of interfaces (updated November 2, 2018)<a class="headerlink" href="#list-of-interfaces-updated-november-2-2018" title="Permanent link"></a></h5>
+<ul>
+<li><a href="https://uniswap.exchange/swap">Uniswap.exchange</a></li>
+</ul>
+<h5 id="_1"><a class="headerlink" href="#_1" title="Permanent link"></a></h5>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Uniswap  Protocol for automated token exchange</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/uniswap-protocol-for-automated-token-exchange/ec1b2b004813442a82a916b561efecfb/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-01</li>
+<li><strong>Kauri original tags:</strong> dex, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmedkJDfkqAxf258gt2574aT3QHw89KDCgWnYKQ4eKfJJP</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../set-protocol--baskets-of-tokenized-assets/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../set-protocol--baskets-of-tokenized-assets/" class="btn btn-xs btn-link">
+        Set Protocol  Baskets of tokenized assets
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../makerdao--decentralized-stablecoin-and-collateral/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../makerdao--decentralized-stablecoin-and-collateral/" class="btn btn-xs btn-link">
+        MakerDAO  Decentralized stablecoin and collateral loans
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/uniswap--protocol-for-automated-token-exchange.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

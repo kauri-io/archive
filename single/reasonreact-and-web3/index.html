@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/reasonreact-and-web3/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>ReasonReact and Web3 - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "ReasonReact and Web3", url: "#_top", children: [
+              {title: "What is this series about", url: "#what-is-this-series-about" },
+              {title: "Web3 as just another technology in the stack", url: "#web3-as-just-another-technology-in-the-stack" },
+              {title: "Thinking about Onchain and Offchain data", url: "#thinking-about-onchain-and-offchain-data" },
+              {title: "Where does ReasonReact piece into this?", url: "#where-does-reasonreact-piece-into-this" },
+              {title: "dApp component domains", url: "#dapp-component-domains" },
+              {title: "NEXT", url: "#next" },
+              {title: "BrowserWeb3Capabilities.make()", url: "#browserweb3capabilitiesmake" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="reasonreact-and-web3">ReasonReact and Web3<a class="headerlink" href="#reasonreact-and-web3" title="Permanent link"></a></h1>
+<h3 id="what-is-this-series-about">What is this series about<a class="headerlink" href="#what-is-this-series-about" title="Permanent link"></a></h3>
+<p>This will be a two part series about frontend development in the Web3 world, illustrated through examples using ReasonReact.</p>
+<p>The first part of the series being an introduction about how to think in the new Web3 paradigm; lightly touching the available api methods in the Web3.js library but at the same time compartmentalising them into three individual domains being :-
+- The browser
+- The connected network
+- And the accounts available to your dApp.</p>
+<p>The second part of the series is focused around transactions. You may have heard of the buzzword smart contracts being mentioned in blockchain news. 
+Well we have a lot in store for you coming up as we will start to delve into smart contract and wallet interactions! 
+This part may feel a bit advanced JS and Web3 wise because we build upon the concepts taught in the first series to handle state management within your dApp from two separate origin data sources; the Ethereum blockchain and your dApp's private centralised (not really a bad thing honestly!) database.</p>
+<p>Here I personally have some UI/UX recommendations from experience on working on Kauri's frontend codebase within one's dApp.
+We want to be encouraging and handholding your dApp users along the way!</p>
+<p>At the end of this series, the aim is for you to have enough knowledge to architect your own frontend technology stack (whether you use ReasonReact or React.js does not actually matter!), understanding when and how to use these previously unknown technologies.</p>
+<h3 id="web3-as-just-another-technology-in-the-stack">Web3 as just another technology in the stack<a class="headerlink" href="#web3-as-just-another-technology-in-the-stack" title="Permanent link"></a></h3>
+<p>Web3 is really an assortment of tools that have decentralised and p2p implementations underlying them.
+But without each tool, there cannot be the whole Web3 Suisse army knife-like toolset!
+There are many decentralised libraries outside the context of the Web3 API suite too btw, we'll delve into some of those too. Confusing, I know, just as confusing as the JS ecosystem is to be fair!</p>
+<p>There are actually multiple language implementations for the Web3 API, which is great! So as previously mentioned, we are specifically looking at the Web3.js library so maybe the Web3-Rust =&gt; WASM =&gt; Browser implementation could be an ideal future for your dApp, who knows?</p>
+<p>In JS land, the Web3.js library is isomorphic/universal so you get the same data in and out whether the JS runtime is Node.js or the Browser compatible runtime!</p>
+<p>The implications of that is that you can delegate Web3 interactions to being in the frontend or the backend and/or the backend being reactive to Web3 interactions triggered by the frontend (as we do in Kauri!).
+This gets a bit confusing as you can decide to have specific parts of the data coming from the same origin but layered behind your dApp's backend GraphQL api (REST is so 20th century...) or have a fat client implementation. 
+<em>The choice is really up to you!</em></p>
+<h3 id="thinking-about-onchain-and-offchain-data">Thinking about Onchain and Offchain data<a class="headerlink" href="#thinking-about-onchain-and-offchain-data" title="Permanent link"></a></h3>
+<p>You know when I said this can be confusing architecture wise?
+Yeahhh..., gonna explain that right now so hold onto your seat.</p>
+<ol>
+<li>Offchain data is your database or anything that isn't stored in the Ethereum blockchain</li>
+<li>Onchain data anything stored in the Ethereum blockchain</li>
+</ol>
+<p>Phew... that was easy!
+Nah wait up!</p>
+<p>So really, Onchain data is expensive, you have to pay gas in the form of ETH to reward the p2p interaction for compute time and storage.</p>
+<p>Given that, we don't want everything Onchain, but only where it makes sense. Interacting with the blockchain is a user experience too you know!</p>
+<p>Onchain benefits are due to the implementation of the blockchain technology but not limited to p2p value transfer. Currently explored dApp uses are governance, voting, data integrity and proof of authorship or ownership. Many more are unexplored...</p>
+<p>In this series, we utilise a commonly used pattern of linking Offchain and Onchain data as many (if not all) resources and files in the Web3 world have unique, immutable, timestamped IDs.</p>
+<h3 id="where-does-reasonreact-piece-into-this">Where does ReasonReact piece into this?<a class="headerlink" href="#where-does-reasonreact-piece-into-this" title="Permanent link"></a></h3>
+<p>There are many React patterns that are possible in React.js but in ReasonReact we're given a limited set of ideal practices due to the ML language implementation.
+Rebuilding React in ML has surfaced them!</p>
+<p>Enums called variant types, render props and labelled prop arguments all have fancy names but are readable and understandable when we get to them.</p>
+<p>To illustrate what's relevant to the frontend world of Web3, we start with the types first and let the code flow all the way down.
+The takeaway of this series are the concepts, not the code.</p>
+<h2 id="dapp-component-domains">dApp component domains<a class="headerlink" href="#dapp-component-domains" title="Permanent link"></a></h2>
+<h3 id="the-web3-enabled-browser">The Web3-enabled browser<a class="headerlink" href="#the-web3-enabled-browser" title="Permanent link"></a></h3>
+<p>Tl;dr some storage, cryptography, p2p and networking protocol apis required by Web3.js are not bundled directly with the mainstream browsers out of the box but are accessible via their extensions/plugin frameworks.</p>
+<p>The most common extension used by the ecosystem is <a href="MetaMask">https://metamask.io</a> so go ahead and install that and save your seed words somewhere safe!</p>
+<p>Once you're setup, every webpage gets window.web3 injected.
+If you installed MetaMask, calling <code>web3.version.api</code> in console returns <code>"0.20.3"</code>.
+(Yeah they refuse to update, lol.)</p>
+<p>Okay so now we think about the different states that matter in the context of our dApp.
+In the Web3 world, you carry your identity by your private key which can also be represented by those seed words as you may have already read whilst getting setup with MetaMask.</p>
+<p>This means that you can log into any dApp with your single private key. It is common for people to create multiple accounts/private keys per wallet, one for each dApp they use to isolate privacy!</p>
+<p>Didn't say the Web3 world was straight forward or easy... Well now you're reading this series then you can contribute now to the UX! Hopefully in ReasonML!</p>
+<h3 id="browserweb3capabilities">BrowserWeb3Capabilities<a class="headerlink" href="#browserweb3capabilities" title="Permanent link"></a></h3>
+<p><code>&lt;BrowserWeb3Capabilities /&gt;</code></p>
+<p>Here I am going to outline a component API in ReasonML to connect your dApp's business logic and the Web3 state of the world.</p>
+<p><img alt="/BrowserWeb3Capabilities.png" src="https://ipfs.infura.io/ipfs/QmV2NY2CGcAzRee5d5DgzyCPvmZr1QZqdzzcnEDTxFZKnm" /></p>
+<p><img alt="/BrowserWeb3State.png" src="https://ipfs.infura.io/ipfs/QmSkzyg9VhhEXKkP1GMbrshSLcwvnWQppyu5z7gzgunCrs" /></p>
+<blockquote>
+<p>We use <em>is</em>, <em>can</em> and <em>has</em> prefixes for the props that revolve around this Web3 component's capabilities!</p>
+</blockquote>
+<ol>
+<li>Internally the component polls the Web.js library and sets React state starting via componentDidMount().</li>
+<li><em>isLoggedIn</em>, <em>currentLoggedInAddress</em> props are passed to our component for deriving state from props passed in from your own dApp. Did say they were business logic!</li>
+</ol>
+<p><img alt="/BrowserWeb3Actions.png" src="https://ipfs.infura.io/ipfs/QmfQuawGF9bbkp8Ln9bTwB1Hn76TGGsS6KuAZgEUg7js7w" /></p>
+<blockquote>
+<p>Actions are enums but in ReasonML they're variant types with constructors. You see they're wrapping a typed value. Think of them as action.payload in React.js but with amazing type inference.</p>
+</blockquote>
+<p><img alt="/BrowserWeb3Reducer.png" src="https://ipfs.infura.io/ipfs/QmUU5naDfUjjN4JAyqN1BbEZ5pPMWC2cL6ASncftPvyqyW" /></p>
+<blockquote>
+<p>ReasonReact has the redux reducer model built into its components but is based on the ReasonML/OCaml based pattern type matching.
+Those above actions are types right... you can wrap the action payload in a type and switch case over it, that's it! <strong>OMG</strong>.</p>
+</blockquote>
+<h3 id="web3ethaccounts-arraystring">web3.eth.accounts: array(string)<a class="headerlink" href="#web3ethaccounts-arraystring" title="Permanent link"></a></h3>
+<p>Easy right?</p>
+<p>Well now we're gonna go into how we derive relevant Web3 dApp states to render helpful React components that guide the user on what they can and cannot or need to do!</p>
+<ul>
+<li>No window.Web3 found</li>
+</ul>
+<p>Well, what about users without <code>window.web3</code> in their browser?
+You get back <code>hasWeb3 === false</code>.</p>
+<p>So they can't do <code>web3.personal.sign()</code> to even login... 
+(A common pattern, where the backend decrypts an arbitrary signed message  via a shared secret that is signed with the user's private key in return for a dApp JWT)</p>
+<ul>
+<li>Logged in/out but locked account</li>
+</ul>
+<p><code>web3.eth.accounts === []</code> means that the user has a locked account.
+<code>window.web3</code> is available but lacking their unlocked account with a user entered passphrase prevents access to the user's address interactions and the Ethereum blockchain.</p>
+<blockquote>
+<p>Locking/Logging out MetaMask and calling <code>window.web3.eth.accounts</code> yields this empty array.</p>
+</blockquote>
+<ul>
+<li>Current Web3 account differs to dApp logged in one</li>
+</ul>
+<p><code>hasWeb3 &amp;&amp; isLoggedIn &amp;&amp; (currentLoggedInAddress !== web3.eth.accounts[0])</code>
+Sigh. This means we can't orchestrate Offchain and Onchain data properly. 
+<code>currentLoggedInAddress</code> should be derived from your dApp's JWT btw.</p>
+<ul>
+<li>All good</li>
+</ul>
+<p><code>web3.eth.accounts === ["0xABC..."]</code> means an account is unlocked and <code>hasWeb3 === true</code>. WOOHOO! We can go wild and play around with our dApp! 
+Well still not quite until the next part of the series :(.</p>
+<h2 id="next">NEXT<a class="headerlink" href="#next" title="Permanent link"></a></h2>
+<p>Next part of the series will include contracts and transaction lifecycles!</p>
+<p>We'll talk about truffle-contract calling Solidity compiled ABI JSON files, checking your dApp's network capability</p>
+<h3 id="dapp-network-compatibility">dApp network compatibility<a class="headerlink" href="#dapp-network-compatibility" title="Permanent link"></a></h3>
+<p>There is a mapping of well known network ids to their network names:</p>
+<pre><code>    let networksTypes = {
+      1: &quot;mainnet&quot;,
+      2: &quot;morden&quot;,
+      3: &quot;ropsten&quot;,
+      42: &quot;kovan&quot;,
+      4: &quot;rinkeby&quot;
+    };
+</code></pre>
+<ul>
+<li>No deployed smart contracts found on current network</li>
+<li>Invalid network</li>
+<li>Network not found</li>
+<li>Fetching/Loading network status</li>
+</ul>
+<h3 id="co-ordinating-offchain-and-onchain-state-and-what-to-render">Co-ordinating offchain and onchain state and what to render<a class="headerlink" href="#co-ordinating-offchain-and-onchain-state-and-what-to-render" title="Permanent link"></a></h3>
+<h3 id="thinking-about-what-parts-of-your-dapp-are-web2-and-web3">Thinking about what parts of your dApp are Web2 and Web3<a class="headerlink" href="#thinking-about-what-parts-of-your-dapp-are-web2-and-web3" title="Permanent link"></a></h3>
+<h4 id="what-really-we-should-show-to-users-who-dont-have-web3-enabled-browsers">What really we should show to users who don't have Web3 enabled browsers<a class="headerlink" href="#what-really-we-should-show-to-users-who-dont-have-web3-enabled-browsers" title="Permanent link"></a></h4>
+<h3 id="how-to-guide-users-pre-intra-and-post-transactions">How to guide users pre, intra and post transactions<a class="headerlink" href="#how-to-guide-users-pre-intra-and-post-transactions" title="Permanent link"></a></h3>
+<hr />
+<h2 id="browserweb3capabilitiesmake">BrowserWeb3Capabilities.make()<a class="headerlink" href="#browserweb3capabilitiesmake" title="Permanent link"></a></h2>
+<p>Here's the ReasonReact component implementation code btw!</p>
+<p><img alt="/BrowserWeb3Make.png" src="https://ipfs.infura.io/ipfs/QmS2v8ZEm9B2QwoZaqQ3dcykbURexT4JLFkW4wkJXAjLfb" /></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> ReasonReact and Web3</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/reasonreact-and-web3/99d20b1ab1bc43518bf65cdefd77c445/a</li>
+<li><strong>Kauri original author:</strong> Eric Juta (@ericjuta)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-09-19</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> Qmf6ZRGc5BwrLTUpPcWBppNmZA3T9tanz79PyyZ84i4mEb</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../monero-and-zcash-are-no-longer-privacy-coins/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../monero-and-zcash-are-no-longer-privacy-coins/" class="btn btn-xs btn-link">
+        Monero and Zcash are no longer privacy coins?
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../so-you-want-to-contribute-to-artemis/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../so-you-want-to-contribute-to-artemis/" class="btn btn-xs btn-link">
+        So you want to contribute to Artemis?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/reasonreact-and-web3.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/trustless.health/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Trustless.Health - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Trustless.Health", url: "#_top", children: [
+              {title: "Trustless.Health (+ WebAssembly interpreter with Fully Homomorphic Encryption)", url: "#trustlesshealth-webassembly-interpreter-with-fully-homomorphic-encryption" },
+              {title: "Status.im ID for Each Team Member", url: "#statusim-id-for-each-team-member" },
+              {title: "Detailed Project Description", url: "#detailed-project-description" },
+              {title: "Tech Stack", url: "#tech-stack" },
+              {title: "Track", url: "#track" },
+              {title: "All Bounties Completed/Incorporated", url: "#all-bounties-completedincorporated" },
+              {title: "Github", url: "#github" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="trustlesshealth">Trustless.Health<a class="headerlink" href="#trustlesshealth" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdHGyjmVbvZ5RsfoPNbg7ugzqxktpzMaxQmwGHR5MtC8L" /></p>
+<h2 id="trustlesshealth-webassembly-interpreter-with-fully-homomorphic-encryption">Trustless.Health (+ WebAssembly interpreter with Fully Homomorphic Encryption)<a class="headerlink" href="#trustlesshealth-webassembly-interpreter-with-fully-homomorphic-encryption" title="Permanent link"></a></h2>
+<p><strong>Tagline:</strong> We present a WebAssembly interpreter with Fully Homomorphic Encryption to power a DApp for zero-knowledge analysis of sensitive medical data</p>
+<h3 id="team-members">Team Members<a class="headerlink" href="#team-members" title="Permanent link"></a></h3>
+<ul>
+<li>Jeppe Hallgren</li>
+<li>Andreas Rasmussen</li>
+<li>Mads Broegger</li>
+</ul>
+<h2 id="statusim-id-for-each-team-member">Status.im ID for Each Team Member<a class="headerlink" href="#statusim-id-for-each-team-member" title="Permanent link"></a></h2>
+<pre><code>Jeppe: https://get.status.im/user/0x042b65a02cd4b4081f3c5f9cc70dcb2df6a2573a74015190ea9ebad045d8e23de95d1c432f138cf3ec6e0be32bbc2613f53046d33db84e40897fbf2d1698746ea3
+Andreas: https://get.status.im/user/0x04a86f7621a579e68c3615004ed1e9f5648ed1b0c171789171641093055a684b10b25ae945361bf10919c8e9b66180a4fdd4758686e885d5cd8b84994c075d6292
+Mads: https://get.status.im/user/0x04866f5d2f6cdff75c6b24ee357d9647cadc7339ac342395c10bf20e6d8a30240d0930228a7d8021f6abb8c0fee3774353a41e53a9d07a4f5dfb044ed358f63213
+</code></pre>
+<h2 id="detailed-project-description">Detailed Project Description<a class="headerlink" href="#detailed-project-description" title="Permanent link"></a></h2>
+<p>Today, we are experiencing rapid growth in the amount of medical data collected - full genome sequencing, microbiome data, etc - and this presents an opportunity for machine learning algorithms to significantly improve health care. However, the current services require you to upload your medical data in clear text (unacceptable with regards to privacy) and lacks proper bench-marking. We introduce <strong>Trustless.Health</strong>, a decentralised and transparent platform for machine analysis of medical data based on top of Ethereum. We also present <strong>fhe-wasm</strong>, a WebAssembly interpreter with support for full homomorphic encryption, that backs all models on Trustless.Health meaning no user data (including the results of the analysis!) is ever revealed to the model service providers.</p>
+<h2 id="tech-stack">Tech Stack<a class="headerlink" href="#tech-stack" title="Permanent link"></a></h2>
+<p>The core of Trustless.Health is the compute engine which runs all models using fully homomorphic encryption. To make sure the platform would support as many languages as possible, an interpreter, written on top of NuCypher's nuFHE package, was achieved that can execute models compiled for WebAssembly under FHE. In the <strong>rust-example</strong> directory, we show how a DNA analysis model written in Rust is compiled to WASM and then executed on encrypted input data using fhe-wasm.</p>
+<p>The front-end, hosted at <a href="https://trustless.health">https://trustless.health</a>, is a React/Redux DApp written in typescript with ts-lint for strong type-safety. The web app uses axios to query a local Python server, which uses the nuFHE package to generate encryption keys as well as encrypting/decrypting of messages. Users should run this locally (see the client-server directory). The webapp is web3 compatible and should work out of the box with Metamask.</p>
+<h2 id="track">Track<a class="headerlink" href="#track" title="Permanent link"></a></h2>
+<p>Open Track</p>
+<h2 id="all-bounties-completedincorporated">All Bounties Completed/Incorporated<a class="headerlink" href="#all-bounties-completedincorporated" title="Permanent link"></a></h2>
+<p>NuCypher Bounty 1, using the NuCypher fully homomorphic encryption (nuFHE) library.</p>
+<h2 id="github">Github<a class="headerlink" href="#github" title="Permanent link"></a></h2>
+<p>https://github.com/hallex/trustless-health</p>
+<hr />
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Trustless.Health</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/trustlesshealth/e129ae9b7863409e86ce18dbaf905d30/a</li>
+<li><strong>Kauri original author:</strong> null (@null)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-02-17</li>
+<li><strong>Kauri original tags:</strong> ethdenver-2019-submission, bounty-nucypher-2019</li>
+<li><strong>Kauri original hash:</strong> QmeN2CKHpxtdpbL8M48sQuN4vJRhySdCFd7y3CJAtMsPC8</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../guide-to-market-makers-for-devs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../guide-to-market-makers-for-devs/" class="btn btn-xs btn-link">
+        Guide to Market Makers for Devs
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../monero-and-zcash-are-no-longer-privacy-coins/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../monero-and-zcash-are-no-longer-privacy-coins/" class="btn btn-xs btn-link">
+        Monero and Zcash are no longer privacy coins?
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/trustless.health.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

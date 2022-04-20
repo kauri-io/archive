@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Privacy/a-beginner-s-guide-to-zcash/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>A beginner’s guide to Zcash - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "A beginner\u2019s guide to Zcash", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="a-beginners-guide-to-zcash">A beginner’s guide to Zcash<a class="headerlink" href="#a-beginners-guide-to-zcash" title="Permanent link"></a></h1>
+<p>This article was originally published on <a href="https://medium.com/@linda.xie/a-beginners-guide-to-zcash-3b37190affc">Medium</a> </p>
+<p><strong>What is Zcash?</strong></p>
+<p>According to the 
+<a href="https://z.cash/">Zcash</a>
+ website,</p>
+<blockquote>
+<p>“Zcash is the first open, permissionless cryptocurrency that can fully protect the privacy of transactions using zero-knowledge cryptography.”</p>
+</blockquote>
+<p>Bitcoin is an open and permissionless cryptocurrency but there is a common misconception that bitcoin transactions are anonymous. A history of every bitcoin transaction is 
+<a href="https://blockchain.info/">displayed</a>
+ on a public ledger called the blockchain. Sophisticated software can be used to determine who is responsible for a significant number of these transactions. In response to this lack of privacy, there have been a number of cryptocurrencies that have focused on adding 
+<a href="https://hackernoon.com/privacy-on-the-blockchain-7549b50160ec">privacy functionality</a>
+ . This post should help those who are new to Zcash to understand how it is different than other cryptocurrencies like bitcoin.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUdKrD7XcrVWHzsQt6LA7sTQFm2PLfBDWjVGMRCvqjTwn" /></p>
+<p><strong>Similarities and differences from Bitcoin</strong></p>
+<p>Zcash (ZEC) uses a new technology involving zero-knowledge proofs which allow one to prove something (e.g. prover owns greater than 10 ZEC) without requiring the prover to reveal any sensitive information (e.g. the total number of ZEC owned by prover). It gets its name from the fact that zero knowledge is revealed to the verifier in the process. The anonymous transactions produced from this technology are referred to as shielded transactions in Zcash.
+This is in sharp contrast to Bitcoin where if your bitcoin address is ever shared publicly, anyone can view your balance and all other bitcoin addresses you have ever transacted with. Even if you don’t share your address publicly, companies such as 
+<a href="https://www.chainalysis.com/">Chainalysis</a>
+ and 
+<a href="https://www.elliptic.co/">Elliptic</a>
+ have built software that can de-anonymize your address if you have transacted with other addresses that are not anonymous. Imagine if everyone you knew, and even strangers, could know how much money you had in your bank account, and how you spent your money. Despite perfectly legitimate transactions, you likely do not want the entire world to know this information.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSBVKKnFtxcSvmgcoWFJ7KvKboGrFrBbhdTXfyfN7K8ez" /></p>
+<p>Zcash and Bitcoin both have a total supply of 21 million units and are released through a process called mining. One unique aspect of Zcash is that the corporate development team (the Zcash Company, CEO 
+<a href="https://twitter.com/zooko">Zooko Wilcox</a>
+ ) and the non-profit Zcash Foundation (Chair of the Board, 
+<a href="https://twitter.com/socrates1024">Andrew Miller</a>
+ ), are funded directly from the blockchain. To achieve this, 20% of the mining reward for Zcash for the first 4 years goes to the stakeholders of the Zcash company (founders, employees, advisors, investors) resulting in 10% of the overall total supply. This “ 
+<a href="https://z.cash/blog/funding.html">Founders’ Reward</a>
+ ” provides funding and incentive-alignment for the continued support and improvement of Zcash.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmdr3PKTU9iJSV33bdGLQsSZW8e6oV88kqz8SGEWn8hKzu" /></p>
+<p><strong>Technology</strong></p>
+<p>Zcash uses a specific cutting edge form of zero knowledge verification called 
+<a href="https://z.cash/technology/zksnarks.html">zk-SNARKs</a>
+ (zero knowledge succinct non-interactive arguments of knowledge). This technology was pioneered by a number of 
+<a href="https://z.cash/team.html">researchers</a>
+ including professors 
+<a href="http://eli.net.technion.ac.il/">Eli Ben-Sasson</a>
+ and 
+<a href="http://people.eecs.berkeley.edu/~alexch/">Alessandro Chiesa</a>
+ .
+Zcash allows for public and private transactions with the option for the user to selectively disclose information about their private transactions. Optional transparency can be beneficial for situations where an entity needs to be audited or submit information for tax purposes.
+A user can share a “view key” with others to allow transaction details to be selectively viewed by certain individuals. This “view key” is separate from the “spend key” used to spend funds. This separation into 
+<a href="https://github.com/zcash/zcash/wiki/Concepts-in-Zcash">two different keys</a>
+ ensures that one may allow a third party to view transaction details without allowing the viewer to spend all of their funds. Drawing an analogy to the existing financial system: the bank login information needed to access your funds is similar to a spend key while accessing a copy of your bank account statement is similar to a view key.
+Zcash also provides 
+<a href="https://z.cash/blog/encrypted-memo-field.html">encrypted memo fields</a>
+ , which allows a secret message to be sent from the sender to receiver. This can be compared to writing a note on a check but instead of anyone handling the check being able to see it, only the holder of the view key is able to. This can be used for a variety of purposes such as including a payment code or sending a message to the recipient.</p>
+<p><strong>Future Work</strong></p>
+<p>Zcash’s technology isn’t without limitations. Future work aims to address the main two limitations of zk-SNARKS — setup and computation.
+The tradeoff to zk-SNARKs is that it requires the generation of public parameters where a group of individuals must perform a multi-party computation ceremony as part of the initial creation of Zcash. To maintain an accurate total of the Zcash monetary base you need to trust that at least one member in the group has successfully completed their part without being compromised. Note that this parameter does not affect Zcash privacy guarantees. Given this tradeoff, there is already research happening with a newer technology called 
+<a href="https://www.youtube.com/watch?v=HJ9K_o-RRSY">zk-STARKs</a>
+ that enables privacy but doesn’t require a trusted setup.
+Generating shielded transactions in Zcash requires a relatively significant amount of computer memory and time which makes it inconvenient for regular use. As a result currently not all transactions are shielded in Zcash which affects fungibility. This means that some coins may be more valuable than others because they don’t have a tainted history associated with it. However, the team has focused on 
+<a href="https://z.cash/blog/cultivating-sapling-faster-zksnarks.html">performance improvements</a>
+ in a future update which will significantly reduce the amount of time and memory required. Even mobile phones will be capable of generating proofs. This means that a greater percentage of Zcash transactions will be shielded, increasing overall privacy. The development team has even alluded to a future plan for deprecating transparent addresses altogether.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmYtSjKdYPUYWcXd63PRpsvHQ3i8ViqFRT1rgTq7aQiwNu" /></p>
+<p><strong>Resources</strong></p>
+<p>Zcash, founded in Oct 2016, is a relatively new cryptocurrency with powerful technology and a strong focus on development. Below are some links that may help you understand Zcash further and keep up with the development.</p>
+<p><em>Understanding Zcash</em></p>
+<ul>
+<li>
+<p><a href="https://z.cash/">Website</a> </p>
+</li>
+<li>
+<p><a href="https://z.cash/support/faq.html">FAQ</a> </p>
+</li>
+<li>
+<p><a href="http://www.radiolab.org/story/ceremony/">Radiolab podcast</a> </p>
+</li>
+<li>
+<p><a href="https://blog.keep.network/zero-knowledge-proofs-zcash-and-ethereum-f6d89fa7cba8">Zero-knowledge proofs, Zcash, and Ethereum</a> </p>
+</li>
+</ul>
+<p><em>Keeping up with Zcash</em></p>
+<ul>
+<li>
+<p><a href="https://forum.z.cash/">Forum</a> </p>
+</li>
+<li>
+<p><a href="https://twitter.com/zcashco">Twitter</a> </p>
+</li>
+<li>
+<p><a href="https://z.cash/blog/index.html?page=0">Blog</a> </p>
+</li>
+<li>
+<p><a href="https://www.reddit.com/r/zec/">Reddit</a> </p>
+</li>
+</ul>
+<p>Thank you to 
+<a href="https://medium.com/@willwarren89">Will Warren</a>, 
+<a href="https://medium.com/@jcliff">Jordan Clifford</a>, and Linda Lee for reviewing this post.</p>
+<p><em>Disclaimer: I own Zcash.</em></p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> A beginner’s guide to Zcash</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/a-beginners-guide-to-zcash/c38a4e3859eb47f09879f8b115d2e81c/a</li>
+<li><strong>Kauri original author:</strong> Linda Xie (@ljxie)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-03</li>
+<li><strong>Kauri original tags:</strong> privacy</li>
+<li><strong>Kauri original hash:</strong> QmbPKi2aNRDGav57VMJkKx4QCoBrQD5YKiAuVMYUmUnXBg</li>
+<li><strong>Kauri original checkpoint:</strong> QmRS3wCLX2MRi62bg9NTM89qNkgm3XjpKXciLvCKAr1f1g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../a-beginner-s-guide-to-monero/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../a-beginner-s-guide-to-monero/" class="btn btn-xs btn-link">
+        A beginner’s guide to Monero
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../introduction-to-mimblewimble-and-grin/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../introduction-to-mimblewimble-and-grin/" class="btn btn-xs btn-link">
+        Introduction to MimbleWimble and Grin
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Privacy/a-beginner-s-guide-to-zcash.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

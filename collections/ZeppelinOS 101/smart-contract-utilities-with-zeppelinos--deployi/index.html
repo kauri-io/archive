@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/ZeppelinOS%20101/smart-contract-utilities-with-zeppelinos--deployi/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet", url: "#_top", children: [
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="smart-contract-utilities-with-zeppelinos-deploying-to-mainnet">Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet<a class="headerlink" href="#smart-contract-utilities-with-zeppelinos-deploying-to-mainnet" title="Permanent link"></a></h1>
+<p>In previous tutorials, we used our local development environment for testing. This tutorial describes how to change your code so that you can deploy to the Etehreum mainnet.</p>
+<p>The first step is to install the truffle hdwallet provider. The wallet allows you to sign (authenticate) transactions.</p>
+<p><strong>Note</strong>: You must install the wallet in every project.</p>
+<pre><code class="language-shell">npm install truffle-hdwallet-provider
+</code></pre>
+<p>Next use <a href="https://infura.io/">Infura</a> to gain access to a network node, you need to <a href="https://infura.io/register">register</a> for an account. Infura allows the user to remotely attach to a node on the network and run their application. Otherwise the user has to run the node on their computer.</p>
+<p>Once signed in, create a new project and from the Endpoint drop down select <em>mainnet</em> or one of the test networks depending on where you want to deploy. Write down the project ID because we need it in a couple of steps.</p>
+<p>Now we have a node and a wallet but we need an account to join the two together. Install <a href="https://metamask.io/">Metamask</a>, which allows you to create an account where you can store funds, run dApps, and sign transactions. Upon creation of your account you are given a mnemonic, aka secret phrase associated with your account. We will use this mnemonic later.</p>
+<p>Now that you have your mnemonic, project ID, and account we can make changes to the configuration file. In the <em>truffle-config.js</em> file add the following:</p>
+<pre><code class="language-javascript">const HDWalletProvider = require(&quot;truffle-hdwallet-provider&quot;);
+const fs = require(&quot;fs&quot;);
+
+let secrets;
+
+if (fs.existsSync(&quot;secrets.json&quot;)) {
+  secrets = JSON.parse(fs.readFileSync(&quot;secrets.json&quot;, &quot;utf8&quot;));
+}
+
+module.exports = {
+  networks: {
+    development: {
+      network_id: &quot;*&quot;,
+      host: &quot;localhost&quot;,
+      port: 8545
+    },
+    rinkeby: {
+      provider: new HDWalletProvider(
+        secrets.mnemonic,
+        &quot;https://rinkeby.infura.io/v3/&quot; + secrets.infuraProjectID
+      ),
+      network_id: &quot;4&quot;
+    },
+    kovan: {
+      provider: new HDWalletProvider(
+        secrets.mnemonic,
+        &quot;https://kovan.infura.io/v3/&quot; + secrets.infuraProjectID
+      ),
+      network_id: &quot;42&quot;
+    },
+    ropsten: {
+      provider: new HDWalletProvider(
+        secrets.mnemonic,
+        &quot;https://ropsten.infura.io/v3/&quot; + secrets.infuraProjectID
+      ),
+      network_id: &quot;3&quot;
+    },
+    main: {
+      provider: new HDWalletProvider(
+        secrets.mnemonic,
+        &quot;https://main.infura.io/v3/&quot; + secrets.infuraProjectID
+      ),
+      network_id: &quot;1&quot;
+    }
+  }
+};
+</code></pre>
+<p>You also need to create a <em>secrets.json</em> file within your project folder. Add your mnemonic and Infura and Project ID to it.</p>
+<pre><code class="language-json">{
+  &quot;mnemonic&quot;: &quot;mnemonic-here&quot;,
+  &quot;infuraProjectID&quot;: &quot;project-id-here&quot;
+}
+</code></pre>
+<p>Now we can push to the mainnet or test net. If you want to deploy to a test net, replace mainnet with the name of your test net.</p>
+<pre><code class="language-shell">zos push --network mainnet
+</code></pre>
+<p>That's it!! Your contract is now published. To apply this to our previous tutorials we change the commands that say <code>--network local</code> to <code>--network mainnet</code>, as well as follow the steps outlined above.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h2>
+<ul>
+<li><a href="https://docs.zeppelinos.org/docs/mainnet">https://docs.zeppelinos.org/docs/mainnet</a></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Smart Contract Utilities with ZeppelinOS  Deploying to Mainnet</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/smart-contract-utilities-with-zeppelinos-deploying/c6aadc15a87b403ca428602f4d6ea30e/a</li>
+<li><strong>Kauri original author:</strong> Juliette Rocco (@jmrocco)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-03-06</li>
+<li><strong>Kauri original tags:</strong> smart-contract, zeppelinos, zeppelin, mainnet, deploy</li>
+<li><strong>Kauri original hash:</strong> QmXiCwMWGuLGWx6yW9srS66RDadcBuzjHdTosGGDcg7dSz</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../ConsenSys%20Projects/3box-social-profiles-for-web3-applications/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../ConsenSys%20Projects/3box-social-profiles-for-web3-applications/" class="btn btn-xs btn-link">
+        3Box - Social profiles for  web3 applications
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../smart-contract-utilities-with-zeppelinos--linking/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../smart-contract-utilities-with-zeppelinos--linking/" class="btn btn-xs btn-link">
+        Smart Contract Utilities with ZeppelinOS  Linking, Publishing, and Vouching
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/ZeppelinOS 101/smart-contract-utilities-with-zeppelinos--deployi.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

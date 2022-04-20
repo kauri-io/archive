@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/why-smart-contracts-shouldn-t-trust-the-messenger/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Why Smart Contracts Shouldn’t Trust the Messenger - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Why Smart Contracts Shouldn\u2019t Trust the Messenger", url: "#_top", children: [
+              {title: "Trusting the Messenger", url: "#trusting-the-messenger" },
+              {title: "Smart Contracts", url: "#smart-contracts" },
+              {title: "The Last Mile In Peer to Peer Networks", url: "#the-last-mile-in-peer-to-peer-networks" },
+              {title: "Thank you for your time! You can also:", url: "#thank-you-for-your-time-you-can-also" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="why-smart-contracts-shouldnt-trust-the-messenger">Why Smart Contracts Shouldn’t Trust the Messenger<a class="headerlink" href="#why-smart-contracts-shouldnt-trust-the-messenger" title="Permanent link"></a></h1>
+<hr />
+<p>Blockchains are 
+<a href="https://ethereum.stackexchange.com/questions/3557/why-do-smart-contract-languages-need-to-be-deterministic">deterministic</a>
+ by design. Delivering data into smart contracts is the reason 
+<a href="https://medium.com/witnet/why-do-we-need-a-decentralized-oracle-network-91ba455d074d">why smart contracts need oracles</a>. However, 
+<strong>there are several types of oracles</strong>
+ with a variety of technical architectures. Some rely on a central authority (API providers, data carrier companies) to provide data verification. Much thought has been put into how to best design oracles and blockchains to work together and we feel it is an important conversation to revisit to make sure we remain vigilant in our development.</p>
+<p>At a basic level, oracles should be as trustless as the blockchains they provide data to. 
+<strong>End-to-end trustless computation is the reason why smart contracts need a Decentralized Oracle Network.</strong>
+ For smart contracts to fulfill their mission, they can’t keep trusting the messenger.</p>
+<blockquote>
+<p>Oracles should be as trustless as the blockchains they provide data to.</p>
+</blockquote>
+<p>Witnet’s Decentralized Oracle Network acts as a trustless data carrier for smart contracts. A decentralized network of nodes, called 
+<em>witnesses</em>, run a headless browser to retrieve the desired data point(s), which are then agreed upon by the protocol’s consensus algorithm.</p>
+<p>While some projects are exploring on-chain data oracle solutions, let’s take a look into the reasons why Witnet has taken a different approach to making truly trustless oracles from a fundamental level.</p>
+<h4 id="trusting-the-messenger">Trusting the Messenger<a class="headerlink" href="#trusting-the-messenger" title="Permanent link"></a></h4>
+<p>In earlier times, before the advent of the printing press and telecommunications, the flow of information relied on word of mouth. Some 
+<a href="https://en.wikipedia.org/wiki/Marathon#Origin">people</a>
+ were even tasked to fulfill the task of transmitting information from one person to another, or from one place to another.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1600/1*1mOhlYav-SNLNB-yfARkHA.png" /></p>
+<p>When someone like a monarch, an army officer, or a noble received information from a messenger coming from another kingdom, an enemy’s war camp or another family, they had to trust that this messenger was telling the truth. The original source of information was unreachable by the recipient of the news, so the only party responsible for its veracity was the messenger.</p>
+<p>Nowadays we’re seeing problems associated with trusting the messenger more than ever. Fake news is all about certain messengers and intermediaries manipulating information at their will, often programatically, and spreading it to the masses, few of whom check if there are any real sources to back up the news they’re consuming.</p>
+<p>In all cases where smart contracts are limited by the “oracle problem,” the messenger, or the transmitter of information, is a trusted third party. Whether a person or smart contract are executing a decision based off of their judgment (programming), 
+<strong>if the data they are processing to make an ultimate outcome is bad or corrupt, the entire process is corrupt</strong>.</p>
+<h4 id="smart-contracts">Smart Contracts<a class="headerlink" href="#smart-contracts" title="Permanent link"></a></h4>
+<p>The purpose of smart contract code is to execute the terms agreed between parties 
+<strong>without the need of oversight from a trusted third party</strong>. If we look more deeply at 
+<a href="https://en.wikipedia.org/wiki/Smart_contract">their definition in Wikipedia</a>
+ we find a simple condition:</p>
+<blockquote>
+<p><em>“A smart contract is a computer protocol intended to digitally facilitate, verify, or enforce the negotiation or performance of a</em> <a href="https://en.wikipedia.org/wiki/Contract">contract</a><em>. Smart contracts allow the performance of credible transactions</em> <strong>without third parties</strong><em>.”</em></p>
+</blockquote>
+<p>Looking at 
+<a href="http://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html">Nick Szabo’s definition of a smart contract</a>, the one the 
+<a href="https://github.com/ethereum/wiki/wiki/White-Paper">Ethereum whitepaper</a>
+ links to when first mentioning the term, we find the same requirement:</p>
+<blockquote>
+<p>“A smart contract is a computerized transaction protocol that executes the terms of a contract. The general objectives of smart contract design are to satisfy common contractual conditions (such as payment terms, liens, confidentiality, and even enforcement), minimize exceptions both malicious and accidental, and_ <strong>minimize the need for trusted intermediaries</strong>.”</p>
+</blockquote>
+<p>For smart contracts to achieve their 
+<a href="https://en.wikipedia.org/wiki/Raison_d%27%C3%AAtre">reason of being</a>, they must be able to execute desired actions without trusting a third party. Yet, as of today, when smart contracts need to access data from outside their native blockchain, they must rely on a trusted third party to deliver that data.</p>
+<h4 id="the-last-mile-in-peer-to-peer-networks">The Last Mile In Peer to Peer Networks<a class="headerlink" href="#the-last-mile-in-peer-to-peer-networks" title="Permanent link"></a></h4>
+<p>Looking at definition of smart contracts we can understand why trusting a third party to access information potentially defeats their whole purpose. Let’s look at a use-case to illustrate this.</p>
+<p>A simple example of this would be home or disaster insurance. Let’s imagine a person in Thailand is having trouble finding a company to cover her home insurance. She is told about a p2p insurance Dapp that connects her with other peers willing to provide that insurance in a fully decentralized, peer to peer way. The smart contract is set up and she’s now part of an insurance agreement with other peers willing to take that insurance risk (peers she might not even know or identify).</p>
+<p>Once an event happens, like a flood, who’s to report that flood’s existence, magnitude and consequences to the smart contract? The p2p insurance dapp would have to rely on a central provider of data, which would act as a single point of failure, as it might have incentives to provide data which met their own interests.</p>
+<p>Established insurance corporations have no real need for smart contracts. They set the terms, and clients agree upon them or not. </p>
+<p><strong>Smart contracts enable decentralized networks with peer to peer value transactions to capture opportunities</strong>
+ like the one in the previous example. Without a trustless oracle as a data provider, these networks are inherently flawed.</p>
+<hr />
+<p>“Don’t shoot the messenger” is a saying that we hear often when we get information about something important to us that doesn’t meet our needs or expectations. This is inherently a cop out when building decentralized and trustless systems. Up until recently this hasn’t been an articulated problem that anyone was holistically trying to solve for. When building any sort of decentralized application that aims to harness the full power of smart contracts, relying on trusted data providers diminishes its whole purpose.</p>
+<p>Smart contract platforms grant us much power to create entirely new ways of doing business with each other. Dapp users don’t need to trust people on the other end of the system to conduct transactions or any sort of peer to peer interaction. But the last bit of the life cycle of these ideas, commonly called “the Oracle Problem” sheds light on how important it is to broaden the scope of trustlessness in these systems in relation to real world data. </p>
+<p><strong>Once a Dapp is connected to Witnet’s Decentralized Oracle Network, participants in the decentralized web will be able to retrieve data from different sources, aggregate it through trustless consensus and deliver it to smart contracts</strong>
+ so that they won’t have to trust data providers fairness or accuracy anymore.</p>
+<hr />
+<h4 id="thank-you-for-your-time-you-can-also">Thank you for your time! You can also:<a class="headerlink" href="#thank-you-for-your-time-you-can-also" title="Permanent link"></a></h4>
+<ul>
+<li>
+<p><a href="https://witnet.io/static/witnet-whitepaper.pdf">Read the Witnet whitepaper</a> 📃</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/faq">Read the FAQ</a> ❓</p>
+</li>
+<li>
+<p>Join the community <a href="https://t.me/witnetio">Telegram</a>, <a href="https://discord.gg/QKEa5gU">Discord</a> and <a href="https://community.witnet.io/">Discourse Chat</a> 💬</p>
+</li>
+<li>
+<p><a href="https://twitter.com/witnet_io">Follow @witnet_io on Twitter</a> 🐦</p>
+</li>
+<li>
+<p><a href="https://witnet.io/#/contact">Discover other Witnet community channels</a> 👥</p>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Why Smart Contracts Shouldn’t Trust the Messenger</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/why-smart-contracts-shouldnt-trust-the-messenger/9d97c9aa9bff4424ad47a803f02ace86/a</li>
+<li><strong>Kauri original author:</strong> Witnet (@witnet)</li>
+<li><strong>Kauri original Publication date:</strong> 2018-11-20</li>
+<li><strong>Kauri original tags:</strong> none</li>
+<li><strong>Kauri original hash:</strong> QmNYEL7chi5g57YV8oySeZvSGD2xMXu21LhehsZSSjzQWS</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../witnet-monthly-report-september-2018/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../witnet-monthly-report-september-2018/" class="btn btn-xs btn-link">
+        Witnet Monthly Report — September 2018
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../team-insights--daniele-witnet-s-operations-lead/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../team-insights--daniele-witnet-s-operations-lead/" class="btn btn-xs btn-link">
+        Team Insights  Daniele, Witnet’s Operations Lead
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/why-smart-contracts-shouldn-t-trust-the-messenger.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Full%20Stack%20dApp%20Tutorial%20Series/understanding-smart-contract-compilation-and-depl/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Understanding smart contract compilation and deployment - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Understanding smart contract compilation and deployment", url: "#_top", children: [
+              {title: "Steps", url: "#steps" },
+              {title: "Solc Compiler", url: "#solc-compiler" },
+              {title: "Development Blockchain: Geth &amp; Ganache-CLI", url: "#development-blockchain-geth-ganache-cli" },
+              {title: "Deployment", url: "#deployment" },
+              {title: "Interacting with our contract", url: "#interacting-with-our-contract" },
+              {title: "Next Steps", url: "#next-steps" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="understanding-smart-contract-compilation-and-deployment">Understanding smart contract compilation and deployment<a class="headerlink" href="#understanding-smart-contract-compilation-and-deployment" title="Permanent link"></a></h1>
+<p>As discussed earlier in the series, when developing dApps, and especially writing smart contracts, there are many repetitive tasks you will undertake. Such as compiling source code, generating ABIs, testing, and deployment.</p>
+<p>Development frameworks hide the complexity of these tasks and enable you as a developer to focus on developing your dApp/idea.</p>
+<p>Before we take a look at these frameworks such as [truffle] (https://truffleframework.com/), [embark] (https://embark.status.im/) and [populous] (https://github.com/ethereum/populus), we’re going to take a detour and have a look at the tasks performed and hidden by these frameworks.</p>
+<p>Understanding whats happening under the hood is particularly useful when you run into issues or bugs with these frameworks.</p>
+<p>So this article will walk you through how to manually compile and deploy your Bounties.sol smart contract from the command line, to a local development blockchain.</p>
+<h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link"></a></h3>
+<p>Before deployment, a smart contract needs to be encoded into EVM friendly binary called bytecode, much like a compiled Java class.
+The following steps typically need to take place before a contract is deployed:</p>
+<ol>
+<li>Smart contract is written in a human friendly language (e.g Solidity)</li>
+<li>The code is compiled into bytecode and a set of function descriptors (Application Binary Interface, known as ABI) by a compiler (e.g Solc)</li>
+<li>The bytecode is packed with other parameters into a transaction</li>
+<li>The transaction is signed by the account deploying the contract</li>
+<li>The signed transaction is sent to the blockchain and mined</li>
+</ol>
+<p>So for step 1, will we use the [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/manual-compilation-and-deploy/Bounties.sol) contract we have written previously in this series.</p>
+<h3 id="solc-compiler">Solc Compiler<a class="headerlink" href="#solc-compiler" title="Permanent link"></a></h3>
+<p>Step 2 requires us to compile our smart contract, in order to compile Solidity we need to use the Solc compiler. Typically frameworks such as [truffle] (https://truffleframework.com/), [embark] (https://embark.status.im/) and [populous] (https://github.com/ethereum/populus) come with a version of solc preconfigured, however since we will be compiling without a framework, we will need to install solc manually.</p>
+<h4 id="installing-solc">Installing Solc<a class="headerlink" href="#installing-solc" title="Permanent link"></a></h4>
+<p>We can install solc using homebrew:</p>
+<pre><code>$ brew update
+$ brew upgrade
+$ brew tap ethereum/ethereum
+$ brew install solidity
+</code></pre>
+<p>Or on ubuntu like so:</p>
+<pre><code>$ sudo add-apt-repository ppa:ethereum/ethereum
+$ sudo apt-get update
+$ sudo apt-get install solc
+</code></pre>
+<p>Or on Windows like this:</p>
+<p><code>npm install solc</code></p>
+<p>Read more about [installing solc here] (http://solidity.readthedocs.io/en/latest/installing-solidity.html)</p>
+<p>One installed double check its installed by checking the compiler version like so:</p>
+<pre><code>$ solc --version
+
+solc, the solidity compiler commandline interface
+Version: 0.5.1+commit.c8a2cb62.Linux.g++
+</code></pre>
+<h4 id="installing-jq">Installing JQ<a class="headerlink" href="#installing-jq" title="Permanent link"></a></h4>
+<p>To help with processing json content, during compilation and deployment lets install JQ
+Using homebrew:</p>
+<pre><code>brew install jq
+</code></pre>
+<p>Or on ubuntu like so:</p>
+<pre><code>sudo apt-get install jq
+</code></pre>
+<p>Read more about [installing jq here] (https://stedolan.github.io/jq/download/)</p>
+<p>Windows users should also read the link above.</p>
+<h4 id="compiling-solidity">Compiling Solidity<a class="headerlink" href="#compiling-solidity" title="Permanent link"></a></h4>
+<p>Once solc is installed we can now compile our smart contract. Here we want to generate</p>
+<ul>
+<li>The bytecode (binary)to be deployed to the blockchain</li>
+<li>The ABI (Application Binary Interface) which tells us how to interact with the deployed contract</li>
+</ul>
+<p>So lets setup our directory to work from and copy our Bounties.sol smart contract</p>
+<pre><code>mkdir dapp-series-bounties
+cd dapp-series-bounties
+touch Bounties.sol
+</code></pre>
+<p>Now copy the contents of [Bounties.sol] (https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/manual-compilation-and-deploy/Bounties.sol) which we previously developed into the Bounties.sol file.</p>
+<p>The command to compile would be:</p>
+<pre><code>$ solc --combined-json abi,bin Bounties.sol &gt; Bounties.json
+</code></pre>
+<p>This command tells the compiler to combine both the abi and binary output into one json file, Bounties.json</p>
+<p>We can view the output using jq:</p>
+<pre><code>$ cat Bounties.json| jq
+
+{
+&quot;contracts&quot;: {
+&quot;Bounties.sol:Bounties&quot;: {
+&quot;abi&quot;: &quot;[{\&quot;constant\&quot;:false,\&quot;inputs\...&quot;]}&quot;,
+&quot;bin&quot;: &quot;6080604052348015...&quot;
+}
+},
+&quot;version&quot;: &quot;0.5.1+commit.c8a2cb62.Linux.g++&quot;
+}
+</code></pre>
+<p>The above output has been trimmed down since the abi and bin outputs are quite large, however from the output above we can see the structure of the compiled json output:</p>
+<ul>
+<li>The name of the Solidity file and the name of the contract specified within it <em>Bounties</em></li>
+<li>The ABI</li>
+<li>The bytecode (bin)</li>
+<li>The version of the compiler</li>
+</ul>
+<h3 id="development-blockchain-geth-ganache-cli">Development Blockchain: Geth &amp; Ganache-CLI<a class="headerlink" href="#development-blockchain-geth-ganache-cli" title="Permanent link"></a></h3>
+<p>In order to deploy our smart contract we’re going to need an Ethereum environment to deploy to. For this, we will use Ganache-CLI to run a local development blockchain environment.</p>
+<h4 id="installing-ganache-cli">Installing Ganache-CLI<a class="headerlink" href="#installing-ganache-cli" title="Permanent link"></a></h4>
+<p>NOTE: If you have a windows machine you will need to install the windows developer tools first</p>
+<pre><code>npm install -g windows-build-tools
+</code></pre>
+<pre><code>$ npm install -g ganache-cli
+</code></pre>
+<h4 id="installing-geth">Installing Geth<a class="headerlink" href="#installing-geth" title="Permanent link"></a></h4>
+<p>We will also install [Geth] (https://github.com/ethereum/go-ethereum/wiki/geth), which is the Go implementation of an Ethereum node. You can run Geth to setup your own private network by following these [instructions] (https://github.com/ethereum/go-ethereum/wiki/Private-network). However, we will only be using Geth in this tutorial as a helper since it provides a nice Javascript console environment with web3 installed which we can use to interact with Ganache-CLI.</p>
+<p>Using homebrew:</p>
+<pre><code>$ brew tap ethereum/ethereum
+$ brew install ethereum
+</code></pre>
+<p>Or on ubuntu like so:</p>
+<pre><code>$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository -y ppa:ethereum/ethereum
+$ sudo apt-get update
+$ sudo apt-get install ethereum
+</code></pre>
+<p>Read more about [installing Geth here] (https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)</p>
+<p>*Windows users should check out the link above.</p>
+<h4 id="starting-ganache-cli-attaching-geth-console">Starting Ganache-CLI &amp; attaching Geth Console<a class="headerlink" href="#starting-ganache-cli-attaching-geth-console" title="Permanent link"></a></h4>
+<p>So lets start our local development blockchain environment:</p>
+<pre><code>$ ganache-cli
+
+Ganache CLI v6.1.3 (ganache-core: 2.1.2)
+Available Accounts
+==================
+(0) 0x11541c020ab6d85cb46124e1754790319f6d8c75
+(1) 0xc44914b445ced4d36f7974ec9b07545c6b39d58d
+(2) 0x443078060573a942bbf61dcdae9c711c9e0f3426
+(3) 0x509fc43d6b95b570d31bd1e76b57046131e815ab
+(4) 0xaf3464e80e8981e868907e39df4db9116518b0b8
+(5) 0x9894e6253606ee0ce9e0f32ae98cacf9cedc580c
+(6) 0x8dc4480b3d868bbeb6caf7848f60ff2866d5e98d
+(7) 0x5da85775ca3cdf0048bff35e664a885ed2e02ff7
+(8) 0x1acc13d7d69ac44a96c7ee60aeee13af6b001783
+(9) 0x9c112d3a812b47909c2054a14fefbbb7a87fb721
+Private Keys
+==================
+(0) 08f8aaea81590cea30e780666c8bdc6a3a17144130dcf20b07b55229b2d5996b
+(1) b8ef92de39bcaf83eb7622ba62c2dd055f0d0c62053ab381aa5902fdd8698f91
+(2) 8d0a626a420f68c6a1c99025fe4c17e02b8853feefd82a908bebdb994c589e31
+(3) 7d6a122d935f9244b47919a24e218d9bb6d54eff63de5eb120405e3194bf7658
+(4) 738d3ddcd659cc45ddf4044bc512ff841717af3cd0f27f77338bc759d6a9769d
+(5) e9f82c125a8b9ca386b7cd59101ba4105a7c25d30727fdb937391798a01211ef
+(6) 2c70bd342bf610cbc974b24ec6f11260cebd537cdde65d7922971a7d4858cc5b
+(7) 8f27ce51b5b4784a75cddc2428861dc07c3dd4ceac81c2f32eb4d8f86ff51ca0
+(8) 377ab95e5c5fbe97f8a298b4a108062b063e9ce5fa7e513691494f5458419f7a
+(9) 4919c7b8934160a1ec197cf19474d326486d63ced25dfb65f0a692bdba3d2208
+HD Wallet
+==================
+Mnemonic: attend frost dignity wheat shell field comic tooth include enter border theory
+Base HD Path: m/44'/60'/0'/0/{account_index}
+Gas Price
+==================
+20000000000
+Gas Limit
+==================
+6721975
+
+Listening on localhost:8545
+</code></pre>
+<p>The above output shows ganache-cli has started and is listening on <em>localhost:8545</em></p>
+<p>Now lets attach the Geth Javascript console to our environment:</p>
+<pre><code>$ geth attach http://localhost:8545
+
+Welcome to the Geth JavaScript console!
+
+instance: EthereumJS TestRPC/v2.3.1/ethereum-js
+coinbase: 0x5d297b105fcc3a635b7f3b35eec353a6aacb2e9a
+at block: 0 (Mon, 10 Dec 2018 17:00:39 UTC)
+ modules: eth:1.0 evm:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0
+&gt;
+</code></pre>
+<h4 id="deployment-preparation">Deployment preparation<a class="headerlink" href="#deployment-preparation" title="Permanent link"></a></h4>
+<p>In order to deploy we first need to load our compiled json output into our Geth console.</p>
+<p>In a separate terminal, we’ll first prepare a .js script which we can load into the Geth console.</p>
+<p>Navigate to the directory where the compiled Bounties.json output is located.</p>
+<p>Run the following:</p>
+<pre><code>$ echo &quot;var bountiesOuput=&quot; &gt; Bounties.js
+$ cat Bounties.json &gt;&gt; Bounties.js
+</code></pre>
+<p>This should setup a variable named <code>bountiesOuput</code> which is equal to the compiled json file we produced earlier.</p>
+<pre><code>$ cat Bounties.js
+
+var bountiesOutput=
+{&quot;contracts&quot;:{&quot;Bounties.sol:Bounties&quot;:{
+&quot;abi&quot;:&quot;[{\&quot;constant\&quot;:false,\&quot;inputs\&quot;:[{\&quot;name\&quot;:\&quot;_bountyId\&quot;,\&quot;type\&quot;:\&quot;uint256\...&quot;}]&quot;}]&quot;,
+&quot;bin&quot;:&quot;608060405234801561001057600080fd5b506...&quot;}},
+&quot;version&quot;:&quot;0.5.1+commit.c8a2cb62.Linux.g++&quot;}
+</code></pre>
+<p><em>Note:</em> the output above has been trimmed down since the abi and bin outputs are quite large.</p>
+<p>Now in our Geth console terminal, we run the following to load the Bounties.js script and thus the <code>bountiesOuput</code> variable into our console environment:</p>
+<pre><code>&gt; loadScript('Bounties.js')
+true
+&gt; bountiesOutput
+{
+contracts: {
+Bounties.sol:Bounties: {
+abi: &quot;[{\&quot;constant\&quot;:false,\&quot;inputs\&quot;:[{\&quot;name\&quot;:\&quot;_bountyId\&quot;,\&quot;type\&quot;:\&quot;uint256\...&quot;}]&quot;}],
+bin: &quot;608060405234801561001057600080fd5b506...&quot;
+}
+},
+version: &quot;0.4.24+commit.e67f0147.Darwin.appleclang&quot;
+}
+</code></pre>
+<p>Let’s prepare the object that will help us interact with the contract. We give it the ABI that, among other things, defines the available methods. However, since the ABI interface was created in stringified form, we need to parse it first:</p>
+<pre><code>&gt; typeof bountiesOutput.contracts[&quot;Bounties.sol:Bounties&quot;].abi
+&quot;string&quot;
+&gt; var bountiesContract = eth.contract(JSON.parse(bountiesOutput.contracts[&quot;Bounties.sol:Bounties&quot;].abi));
+undefined
+&gt; bountiesContract
+{
+abi: [{
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;fulfillBounty&quot;,
+outputs: [],
+payable: false,
+stateMutability: &quot;nonpayable&quot;,
+type: &quot;function&quot;
+}, {
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;issueBounty&quot;,
+outputs: [{...}],
+payable: true,
+stateMutability: &quot;payable&quot;,
+type: &quot;function&quot;
+}, {
+....
+at: function(address, callback),
+getData: function(),
+new: function()
+</code></pre>
+<p><em>bountiesContract</em> is our <em>web3</em> contract object, we take a further look into web3 later on in this series. This web3 contract object is not an instance, it is a factory class which can be used to create contract instances with the <strong>.at()</strong> and <strong>.new()</strong> functions.</p>
+<p>Lets also now prepare the bin (compiled binary bytecode) into a variable. Notice that in order to have the expected hex value we need to add <code>"0x"</code> to the beginning.</p>
+<pre><code>&gt; var bountiesBin = &quot;0x&quot; + bountiesOutput.contracts[&quot;Bounties.sol:Bounties&quot;].bin
+undefined
+&gt; bountiesBin
+&quot;Ox608060405234801561001057600080fd5b50611040806100206000396000f30060806040526004361061006d576000357c01000000000000000000000000000000000000000....&quot;
+</code></pre>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link"></a></h3>
+<p>Now its time to deploy our smart contract!</p>
+<p>We first construct our <strong>deployTransactionObject</strong>:</p>
+<pre><code>&gt; var deployTransationObject = { from: eth.coinbase, data: bountiesBin, gas: 3000000 };
+undefined
+</code></pre>
+<p>We set the following paramaters in our transaction object.</p>
+<ul>
+<li><strong>from: eth.coinbase:</strong> the transaction should be sent from the coinbase account</li>
+<li><strong>data: bountiesBin:</strong> set the binary of our compliled contract as the data input of our transaction</li>
+<li><strong>gas: 3000000:</strong> we set enough gas for our contract to be deployed</li>
+</ul>
+<p>We then invoke our BountiesContract factory function <strong>.new()</strong> passing in our <strong>deployTransationObject</strong> as an argument.</p>
+<pre><code>&gt; var bountiesInstance = bountiesContract.new(deployTransationObject);
+&gt; bountiesInstance
+{
+abi: [{
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;fulfillBounty&quot;,
+outputs: [],
+payable: false,
+stateMutability: &quot;nonpayable&quot;,
+type: &quot;function&quot;
+}, {
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;issueBounty&quot;,
+outputs: [{...}],
+payable: true,
+stateMutability: &quot;payable&quot;,
+type: &quot;function&quot;
+}, {
+...}],
+address: undefined,
+transactionHash: &quot;0xbeee5a5db59504c289e30a9843d8bf05bd0dcd66831993fde6a3986e2f022a52&quot;
+}
+</code></pre>
+<p>So <strong>bountiesInstance</strong> is a web3 object which represents the bounties contract instance deployed to our development environment.</p>
+<p>Depending on the version of Geth you are using, you may or may not have the address field set, in the contract instance. Usually this will be set when the transaction to deploy the contract has been mined.</p>
+<p>If not, as above address field is set to <strong>undefined</strong>, we will have to manually set the contract address</p>
+<p>We can find the contract address by viewing the transaction receipt of the deploy contract transaction. Our <strong>bountiesInstance</strong> object will have a reference to the transactionHash.</p>
+<pre><code>eth.getTransactionReceipt(bountiesInstance.transactionHash);
+{
+blockHash: &quot;0x565c4ebb83d9036518c33634d425f37b9ef3aa125e9b09386fbbdd44099892d9&quot;,
+blockNumber: 1,
+contractAddress: &quot;0x1f81f1dd0de1670eac0bfa9e00a854733470d646&quot;,
+cumulativeGasUsed: 911612,
+gasUsed: 911612,
+logs: [],
+logsBloom: &quot;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;,
+status: &quot;0x1&quot;,
+transactionHash: &quot;0xbeee5a5db59504c289e30a9843d8bf05bd0dcd66831993fde6a3986e2f022a52&quot;,
+transactionIndex: 0
+}
+</code></pre>
+<p>We can see the contract address above is: <strong>“0x1f81f1dd0de1670eac0bfa9e00a854733470d646”</strong></p>
+<p>We can save this as a variable for later use:</p>
+<pre><code>&gt; var bountiesAddress = eth.getTransactionReceipt(bountiesInstance.transactionHash).contractAddress;
+undefined
+
+&gt; bountiesAddress
+&quot;0x1f81f1dd0de1670eac0bfa9e00a854733470d646&quot;
+</code></pre>
+<p>We now override our existing <strong>bountiesInstance</strong> object using the .at() function of the <strong>bountiesContract</strong> factory to create a bountiesInstance pointing at the correct contract address:</p>
+<pre><code>&gt; var bountiesInstance = bountiesContract.at(bountiesAddress)
+undefined
+&gt; bountiesInstance
+{
+abi: [{
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;fulfillBounty&quot;,
+outputs: [],
+payable: false,
+stateMutability: &quot;nonpayable&quot;,
+type: &quot;function&quot;
+}, {
+constant: false,
+inputs: [{...}, {...}],
+name: &quot;issueBounty&quot;,
+outputs: [{...}],
+payable: true,
+stateMutability: &quot;payable&quot;,
+type: &quot;function&quot;
+}, {
+...}],
+address: &quot;0x1f81f1dd0de1670eac0bfa9e00a854733470d646&quot;,
+transactionHash: null,
+BountyCancelled: function(),
+BountyFulfilled: function(),
+BountyIssued: function(),
+FulfillmentAccepted: function(),
+acceptFulfillment: function(),
+allEvents: function(),
+bounties: function(),
+cancelBounty: function(),
+fulfillBounty: function(),
+issueBounty: function()
+</code></pre>
+<p>Above now you notice the <strong>bountiesInstance</strong> object now references the correct contract address: <strong>“0x1f81f1dd0de1670eac0bfa9e00a854733470d646”</strong></p>
+<p>Also, we can see the list available functions which are provided by our smart contract.</p>
+<h3 id="interacting-with-our-contract">Interacting with our contract<a class="headerlink" href="#interacting-with-our-contract" title="Permanent link"></a></h3>
+<p>In our console, it is also possible to interact with our Bounties contract.</p>
+<p>Lets attempt to issue a bounty. To do this we’ll need to set the <code>string _data</code> argument to some string “some requirements” and set the <code>uint64 _deadline</code> argument to a unix timestamp in the future e.g “1691452800” August 8th 2023.</p>
+<pre><code>&gt; bountiesInstance.issueBounty(&quot;some requirements&quot;,&quot;1691452800&quot;,{ from: eth.accounts[0], value: web3.toWei(1, &quot;ether&quot;), gas: 3000000 });
+&quot;0xb3a41fa36c09010abbfa9bf80c3cd11242e4476506d6bf8b363b8feeb3cf946d&quot;
+
+&gt; eth.getTransactionReceipt(&quot;0xb3a41fa36c09010abbfa9bf80c3cd11242e4476506d6bf8b363b8feeb3cf946d&quot;)
+{
+blockHash: &quot;0x8acd35b251c3f1c23a6276540e73b958de28686a89367ed108bef9f614771099&quot;,
+blockNumber: 5,
+contractAddress: null,
+cumulativeGasUsed: 133594,
+gasUsed: 133594,
+logs: [{
+address: &quot;0x1f81f1dd0de1670eac0bfa9e00a854733470d646&quot;,
+blockHash: &quot;0x8acd35b251c3f1c23a6276540e73b958de28686a89367ed108bef9f614771099&quot;,
+blockNumber: 5,
+data: &quot;0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c74a4fba809c8f0e6b410b349f2908a4dbb881230000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000011736f6d6520726571756972656d656e7473000000000000000000000000000000&quot;,
+logIndex: 0,
+topics: [&quot;0xba1576d8891bfe57a45ac4b986d4a4aa912c62f44771d4eec8ab2ce06e3be5b7&quot;],
+transactionHash: &quot;0xb3a41fa36c09010abbfa9bf80c3cd11242e4476506d6bf8b363b8feeb3cf946d&quot;,
+transactionIndex: 0,
+type: &quot;mined&quot;
+}],
+logsBloom: &quot;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000040000000000000000000000000000004000000000000010000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;,
+status: &quot;0x1&quot;,
+transactionHash: &quot;0xb3a41fa36c09010abbfa9bf80c3cd11242e4476506d6bf8b363b8feeb3cf946d&quot;,
+transactionIndex: 0
+}
+</code></pre>
+<p>Above is log output of both the transaction to issue a bounty and the transaction receipt showing the transaction has been successfully mined.</p>
+<p>Because this was the first bounty issued, we know from our contract code that the issueBounty function will create this bounty with bountyId of 0.</p>
+<p>Also if we inspect the data element of the logs element from the results of the transaction receipt. We will see that the first part of the data ouput is indeed the bountyId of our newly issued bounty:</p>
+<pre><code>logs: [{
+address: &quot;0x1f81f1dd0de1670eac0bfa9e00a854733470d646&quot;,
+blockHash: &quot;0x8acd35b251c3f1c23a6276540e73b958de28686a89367ed108bef9f614771099&quot;,
+blockNumber: 5,
+data: &quot;0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c74a4fba809c8f0e6b410b349f2908a4dbb881230000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000000000011736f6d6520726571756972656d656e7473000000000000000000000000000000&quot;,
+logIndex: 0,
+topics: [&quot;0xba1576d8891bfe57a45ac4b986d4a4aa912c62f44771d4eec8ab2ce06e3be5b7&quot;],
+transactionHash: &quot;0xb3a41fa36c09010abbfa9bf80c3cd11242e4476506d6bf8b363b8feeb3cf946d&quot;,
+transactionIndex: 0,
+type: &quot;mined&quot;
+}]
+</code></pre>
+<p>Now we know the bountyId, we can call the <em>bounties</em> function of our <em>bountiesInstance</em> web3 object to double check the issueBounty function stored our data correctly:</p>
+<pre><code>&gt; bountiesInstance.bounties.call(0)
+[&quot;0xc74a4fba809c8f0e6b410b349f2908a4dbb88123&quot;, 1691452800, &quot;some requirements&quot;, 0, 1000000000000000000]
+</code></pre>
+<p>Here we confirm from the output that our bounty with bountyId=0 has the following data:</p>
+<ul>
+<li>Issuer: “0xc74a4fba809c8f0e6b410b349f2908a4dbb88123”</li>
+<li>deadline: 1691452800</li>
+<li>data: “some requirements”</li>
+<li>bountyId: 0</li>
+<li>amount: 1000000000000000000 (Weis)</li>
+</ul>
+<p>Success!</p>
+<p>There you have it, we have successfully:</p>
+<ul>
+<li>Compiled out Bounties.sol smart contract</li>
+<li>Deployed it to a local development blockchain</li>
+<li>Issued a bounty by sending a transaction</li>
+<li>Checked out bounty data by making a call to the contract</li>
+</ul>
+<p>Now that we have done it the hard way, the next part of the series will look at home development frameworks such as [truffle] (https://truffleframework.com/), [embark] (https://embark.status.im/) and [populous] (https://github.com/ethereum/populus) hide the complexity of this process from us, and allow us to focus on writing smart contracts when developing our dApps!</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link"></a></h3>
+<ul>
+<li>Read the next guide: <a href="https://kauri.io/article/cbc38bf09088426fbefcbe7d42ac679f/truffle:-smart-contract-compilation-and-deployment">Truffle: Smart Contract Compilation &amp; Deployment</a></li>
+<li>Learn more about the Truffle suite of tools from the <a href="https://truffleframework.com/">website</a></li>
+</ul>
+<blockquote>
+<p>If you enjoyed this guide, or have any suggestions or questions, let me know in the comments. </p>
+<p>If you have found any errors, feel free to update this guide by selecting the <strong>'Update Article'</strong> option in the right hand menu, and/or <a href="https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/truffle-compilation-and-deploy">update the code</a></p>
+</blockquote>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Understanding smart contract compilation and deployment</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/understanding-smart-contract-compilation-and-deplo/973c5f54c4434bb1b0160cff8c695369/a</li>
+<li><strong>Kauri original author:</strong> Josh Cassidy (@joshorig)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-02</li>
+<li><strong>Kauri original tags:</strong> smart-contract, ethereum, abi, deploy, solidity</li>
+<li><strong>Kauri original hash:</strong> Qmd5yizBatsxkSz1XiwX23HEsX3JAA5PGDCWddHvBcqrhV</li>
+<li><strong>Kauri original checkpoint:</strong> QmYRYAA1TRyDiXS6uLXdt6qS8AnW63tqJHYpUQKrdyNz7h</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../truffle--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../truffle--smart-contract-compilation-and-deploymen/" class="btn btn-xs btn-link">
+        Truffle  Smart Contract Compilation & Deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../remix-ide-your-first-smart-contract/" class="btn btn-xs btn-link">
+        Remix IDE - Your first smart contract
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Full Stack dApp Tutorial Series/understanding-smart-contract-compilation-and-depl.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

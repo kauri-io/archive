@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/building-a-profile-hover-with-3box/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Building a profile hover with 3box - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Building a profile hover with 3box", url: "#_top", children: [
+              {title: "Introducing the 3Box SDK and APIs", url: "#introducing-the-3box-sdk-and-apis" },
+              {title: "Overview on profile hovers", url: "#overview-on-profile-hovers" },
+              {title: "Using profile hovers in a React app", url: "#using-profile-hovers-in-a-react-app" },
+              {title: "Using the HTML element", url: "#using-the-html-element" },
+              {title: "Customize the profile hover", url: "#customize-the-profile-hover" },
+              {title: "Conclusion", url: "#conclusion" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="building-a-profile-hover-with-3box">Building a profile hover with 3box<a class="headerlink" href="#building-a-profile-hover-with-3box" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmUucLRhbzCcXpi2Cyf4pxcgf3TKhaHXwBjxCE2rULyja1" /></p>
+<p>By design public addresses in Ethereum are represented by a 40 character hexadecimal hash which is unappealing for users. This problem can be solved using profile hovers which instead of displaying a user's Ethereum address, we can display a basic social identity, think of it like using <a href="https://kauri.io/ens:-beginner's-guide/e7f098b57fd24afe9b70506517dd5a63/a">ENS domains</a> but more sociable.
+Here  is what a profile hover looks like:</p>
+<p><img alt="Profile hover" src="https://i.imgur.com/nSgxd9a.png" /></p>
+<p>In this tutorial, we expand on what 3Box offers and how to use the profile hovers it offers in React and HTML/CSS apps.</p>
+<h3 id="introducing-the-3box-sdk-and-apis">Introducing the 3Box SDK and APIs<a class="headerlink" href="#introducing-the-3box-sdk-and-apis" title="Permanent link"></a></h3>
+<p>3Box helps front-end web developers to keep user data on an open storage network instead of a centralized database server, browser localStorage, or the blockchain. With 3Box, developers are able to build more secure, lightweight, and powerful applications.</p>
+<p>All the data is publicly available but only private data can be decrypted by the user giving explicit permission.</p>
+<p>3Box provides a JS SDK and various APIs. The profile hover uses the <a href="https://docs.3box.io/api/index#profiles">profiles API</a> to get basic data of the user such as the name.</p>
+<p>There are different APIs available and these are the most important ones:</p>
+<p><a href="https://docs.3box.io/api/index#identity">Identity API</a>: This one allows developers to perform various actions such as getting the decentralized identity (DID) from a user address or linking new addresses to the DID</p>
+<p><a href="https://docs.3box.io/api/index#auth">Auth API</a>: This API allows developers to request access to a user's 3box profile and spaces.</p>
+<p><a href="https://docs.3box.io/api/index#profiles">Profiles API</a>: This API allows developers to perform various actions such as getting public and private information from the user profile.</p>
+<p><a href="https://docs.3box.io/api/index">Read more about all the available APIs</a>.</p>
+<h3 id="overview-on-profile-hovers">Overview on profile hovers<a class="headerlink" href="#overview-on-profile-hovers" title="Permanent link"></a></h3>
+<p>Integrating profile hovers into an application not only is a good way to associate hex addresses to 3Box profiles but it also increases social verification of other users in the network.</p>
+<p>If you have a decentralized application and you want to replace user's hex addresses with human-readable names, images, descriptions, and other social metadata in their application's UI then you're in the right place! 
+The <code>profile-hover</code> component consists of two elements: <code>tile</code> and <code>hover</code>, they both have different functionalities.</p>
+<p>The <code>tile</code> element appears when we need to display an Ethereum address. It has a default style associated with it but you can also decide not to use it.</p>
+<p><img alt="Tile" src="https://github.com/Solexplorer/Content/blob/master/3Box/images/tile.png" /></p>
+<p>The <code>hover</code> element appears once the <code>tile</code> element is hovered and it pulls the data from the user's 3Box profile such as name, image, and description.</p>
+<p><img alt="Hover" src="https://github.com/Solexplorer/Content/blob/master/3Box/images/hover.png" /></p>
+<p>As outlined in the previous section the profile-hover uses the profiles API to get the data but if the user didn't sign up with 3Box it shows the shortened address and a blocky identicon like this:</p>
+<p><img alt="No account" src="https://github.com/Solexplorer/Content/blob/master/3Box/images/no_account.png" /></p>
+<h3 id="using-profile-hovers-in-a-react-app">Using profile hovers in a React app<a class="headerlink" href="#using-profile-hovers-in-a-react-app" title="Permanent link"></a></h3>
+<p>Before diving in, we need to have NodeJS installed, follow the guide
+<a href="https://nodejs.org/en/download/package-manager/">here</a></p>
+<p>As a first step, we will need to create a React application in which we will use
+profile hovers.</p>
+<pre><code class="language-shell">npx create-react-app profile-demo
+</code></pre>
+<p>Afterward, install the <code>profile-hover</code> component.</p>
+<pre><code class="language-shell">cd profile-demo
+npm i -S profile-hover
+</code></pre>
+<p>Open <code>App.js</code> and import the package:</p>
+<pre><code class="language-javascript">import ProfileHover from 'profile-hover';
+</code></pre>
+<p>At this point, we can use the imported component to our liking. There are various
+ways with which we can customize how to display it.</p>
+<p>Let's modify the <code>App.js</code> in order to see how to use this feature.</p>
+<pre><code class="language-javascript">import React from 'react';
+import &quot;./App.css&quot;;
+import ProfileHover from 'profile-hover';
+const App = ({}) =&gt; {
+  return (
+    &lt;&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; url=&quot;www.kauri.io&quot; showName tileStyle address='0x3f46680099cf623163c96747a8addb85a1da1cd1' /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; noImgs showName tileStyle address='0xec1f83cf6a6dc7ee04a79c99a67cd3800111b355' /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; noCoverImg showName tileStyle address='0x499c9c826a356f72926a258afa63bcdb4df33702' /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; noCoverImg showName tileStyle address='0xfc27bf5bdc304ea27e74fd3f514e5400f0a9e76d' /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; noImgs showName address='0x781901682d3e9341a6c195ee6fe58047a9235f07' /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; displayFull showName address='0x442dccee68425828c106a3662014b4f131e3bd9b
+' fullDisplay /&gt;
+      &lt;/div&gt;
+      &lt;div className='ethAddress'&gt;
+        &lt;ProfileHover orientation=&quot;right&quot; showName address='0xd75bb1e6ef53d0c65bcf53ecb19d8c64a7026c58' noTheme&gt;
+          0xa8ee0babe72cd9a80ae45dd74cd3eae7a82fd5d1
+        &lt;/ProfileHover&gt;
+      &lt;/div&gt;
+    &lt;/&gt;
+  )
+}
+export default App;
+</code></pre>
+<p>Let me explain the example above, <code>ProfileHover</code> is the React component used to
+define various profiles, there are multiple properties associated with it for example
+we can use a custom theme for the <code>Tile</code> instead of using the default one by using
+the <code>noTheme</code> property or we can also specify the location of the hover.</p>
+<p>Last but not least, let's also modify <code>App.css</code> so we can visualize the
+profiles in a smooth way adding the following lines:</p>
+<pre><code class="language-css">.ethAddress {
+        padding: 20px 0px 0px 40px;
+        height: 80px;
+}
+</code></pre>
+<p>Now we can run the React app.</p>
+<pre><code class="language-shell">npm start
+</code></pre>
+<p><img alt="App" src="https://github.com/Solexplorer/Content/blob/master/3Box/images/app.png" /></p>
+<h3 id="using-the-html-element">Using the HTML element<a class="headerlink" href="#using-the-html-element" title="Permanent link"></a></h3>
+<p>Create a new HTML file named <code>index.html</code> and add the script before the closing <code>HTML</code> tag.</p>
+<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/profile-hover&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p>To display an address, we need to add the following tag in the <code>body</code> section.</p>
+<pre><code class="language-html">&lt;threebox-address data-address='0x442dccee68425828c106a3662014b4f131e3bd9b'&gt;&lt;/threebox-address&gt;
+</code></pre>
+<p>There are few other ways to customize our profile hover, we can add <code>data-display='full'</code>
+to show the entire address instead of the shortened one.</p>
+<p>We can also decide to not use the default styling using <code>data-theme='none'</code>.</p>
+<p>This is an example of how we can use profile hovers in a HTML App.</p>
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Profile demo&lt;/title&gt;
+    &lt;link href=&quot;./App.css&quot; rel=&quot;stylesheet&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class='ethAddress'&gt;
+      &lt;threebox-address data-address='0x442dccee68425828c106a3662014b4f131e3bd9b' data-display='full'&gt;&lt;/threebox-address&gt;
+    &lt;/div&gt;
+    &lt;div class='ethAddress'&gt;
+      &lt;threebox-address data-address='0xfc27bf5bdc304ea27e74fd3f514e5400f0a9e76d' data-theme='none'&gt;
+      &lt;/threebox-address&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/profile-hover@1.1.1/dist/widget.js&quot;&gt;&lt;/script&gt;
+  &lt;/html&gt;
+</code></pre>
+<h3 id="customize-the-profile-hover">Customize the profile hover<a class="headerlink" href="#customize-the-profile-hover" title="Permanent link"></a></h3>
+<p>Imagine you like the hover but you want to change how they are shown,
+this is possible. Let's take a look at the important properties.</p>
+<p>The <code>address</code> property displays the profile hover since every 3Box
+profile is associated with an address.</p>
+<p>The <code>showName</code> property makes it possible to show the user's name from their 3Box profile,
+if we don't use the property it shows the address shortened. If a user didn't add a
+name to the profile, it will show the shortened address.</p>
+<p>The <code>url</code> property allows redirecting to a specific link when clicking on the <code>Tile</code>.</p>
+<p>The <code>displayFull</code> property shows the entire address instead of the shortened address.
+Remember that if we add the <code>showName</code> property after, it will override it (look
+at the penultimate profile in the example above ).</p>
+<p>These are the most important properties, if you want to take a look at all of them,
+<a href="https://github.com/3box/profile-hover#prop-types">read more in the documentation</a>.</p>
+<h3 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h3>
+<p>We have seen how to use this feature, now I hope you will use it to improve your
+UI. 
+If you have any questions regarding profile hovers head over to the official
+documentation <a href="https://docs.3box.io">here</a> and if you want to discuss something
+there is a <a href="https://discordapp.com/invite/TAefehN">Discord Server</a> for that.</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Building a profile hover with 3box</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/building-a-profile-hover-with-3box/e16d5d2362c64f879426b2bed7a976e7/a</li>
+<li><strong>Kauri original author:</strong> Rachid (@rachid)</li>
+<li><strong>Kauri original Publication date:</strong> 2020-01-27</li>
+<li><strong>Kauri original tags:</strong> 3box, profile-hover, profiles</li>
+<li><strong>Kauri original hash:</strong> QmRY8mqo8ZLhR3dy2oEfkdjNaQXZyCGXNwLy7bF5QF3nyb</li>
+<li><strong>Kauri original checkpoint:</strong> QmUP9qZg9vxiTYmDyCRfVzpyYLQbtd6r3GAM7CyqCFhShv</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../cdp-rebalance/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../cdp-rebalance/" class="btn btn-xs btn-link">
+        CDP Rebalance
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../xdai-point-of-sale/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../xdai-point-of-sale/" class="btn btn-xs btn-link">
+        xDai Point of Sale
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/building-a-profile-hover-with-3box.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

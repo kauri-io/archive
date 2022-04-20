@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/single/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Среда разработки Remix - создайте свой первый Smart Contract - kauri.io</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u0421\u0440\u0435\u0434\u0430 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 Remix - \u0441\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u0441\u0432\u043e\u0439 \u043f\u0435\u0440\u0432\u044b\u0439 Smart Contract", url: "#_top", children: [
+              {title: "\u041f\u0440\u0438\u043c\u0435\u0447\u0430\u043d\u0438\u044f \u043e\u0442 \u043f\u0435\u0440\u0435\u0432\u043e\u0434\u0447\u0438\u043a\u0430", url: "#_1" },
+              {title: "\u0421\u0440\u0435\u0434\u0430 \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0438 Remix - \u0441\u043e\u0437\u0434\u0430\u0439\u0442\u0435 \u0441\u0432\u043e\u0439 \u043f\u0435\u0440\u0432\u044b\u0439 Smart Contract", url: "#remix-smart-contract_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="remix-smart-contract">Среда разработки Remix - создайте свой первый Smart Contract<a class="headerlink" href="#remix-smart-contract" title="Permanent link"></a></h1>
+<h2 id="_1">Примечания от переводчика<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<p>Данная статья является переводом [материала][link-original-article], опубликованного пользователм [@joshorig][joshorig-profile]. Переводчик сохранил авторский стиль изложения от первого лица.</p>
+<p>Во избежание неоднозначностей и разночтений, часть устоявшихся терминов оставлена без перевода. Например: <code>JavaScript</code>, <code>Blockchain</code>, <code>Solidity</code>.</p>
+<p>Ссылки, приведенные в статье, ведут на страницы с англолязычной документацией, поскольку соответствующая документация на русском отсутствует на момент создания данного перевода.</p>
+<h2 id="remix-smart-contract_1">Среда разработки Remix - создайте свой первый Smart Contract<a class="headerlink" href="#remix-smart-contract_1" title="Permanent link"></a></h2>
+<h3 id="1">1. Вступление от автора<a class="headerlink" href="#1" title="Permanent link"></a></h3>
+<p>Простейшим способом разработать свой <code>smart contract</code> на языке <code>Solidity</code> является использование [онлайн-окружения Remix][remix-ide-open]</p>
+<p>Оно не требует никаких действий по установке либо настройке, 
+поскольку сделано как сайт, а не как настольное приложение. 
+Просто откройте [этот сайт][remix-ide-open] - 
+и вы уже готовы приступить к написанию кода своего контракта.</p>
+<p>Среда разработки Remix предоставляет обширный набор вспомогательных средств для отладки, статического анализа и публикации кода контракта. Все они доступны как часть единого онлайн-окружения.</p>
+<p>[Исходный код][tutorial-source-root], приведенный в данном обучающем материале, можно найти [по этой ссылке][tutorial-source-root].</p>
+<p><br>
+Прежде, чем продолжить, вспомним: </p>
+<pre><code>&quot;А что, собственно, будет являться 
+конечным результатом нашей работы?&quot;
+</code></pre>
+<p><br>
+Итак, идея распределенного приложения такова:</p>
+<pre><code>Пользователи нашего распределенного приложения (dApp)
+смогут создавать задания
+и выплачивать за их выполнение гонорар 
+в криптовалюте &quot;эфир&quot; (имеющей буквенный код ETH).
+</code></pre>
+<ul>
+<li>Любой пользователь, имеющий учетную запись в блокчейне Ethereum, может создать задание. Задание содержит описание критериев приемки выполненной работы, а также значение суммы гонорара для исполнителя.
+(под учетной записью понимается пара ключей <code>"public key/pivate key"</code> - прим. переводчика)</li>
+<li>Любой пользователь может подать заявку на получение гонорара, предоставив доказательства факта выполнения задания надлежащим образом.</li>
+<li>Создатель задания должен подтвердить приемку работы, дабы получить ее результат. В этом случае вознаграждение будет автоматически выплачено исполнителю созданным нами контрактом.</li>
+</ul>
+<h3 id="2-remix">2. Создание контракта в среде Remix<a class="headerlink" href="#2-remix" title="Permanent link"></a></h3>
+<p>Откройте [страницу][remix-ide-open] среды Remix. В левом верхнем углу вы увидите кнопку с иконкой <code>"+"</code>. Нажмите на нее и введите <code>"Bounties.sol"</code> в качестве имени файла в появившееся диалоговое окно.</p>
+<p>![screenshot : creatng a file in remix][screenshot-remix-create-file]</p>
+<p>В качестве первой строки нашего контракта на языке Solidity обязательно должен находиться номер версии компилятора.</p>
+<pre><code>pragma solidity ^0.5.0;
+</code></pre>
+<p>Благодаря этой инструкции, Solidity будет знать, что нужен компилятор версии <code>0.5.0</code> либо новее. Но не более новый, чем <code>0.6.0</code>, в которой могут быть изменения, ломающие обратную совместимость. Данное ограничение обеспечивается символом <code>^</code>, стоящим перед номером версии.
+(Таким образом, <code>Solidity</code> следует правилам [semantic versioning][link-semantic-versioning] - прим. переводчика)</p>
+<p>Теперь создадим сам класс, который будет содежжать код котракта. Для этого напишем </p>
+<pre><code>contract Bounties 
+{
+}
+</code></pre>
+<p>Далее, добавим конструктор, дабы иметь возможность создать экземпляр нашего контракта.</p>
+<pre><code>constructor() public {}
+</code></pre>
+<h3 id="3">3. Компиляция контракта<a class="headerlink" href="#3" title="Permanent link"></a></h3>
+<p>На этом этапе мы получили базовый каркас электронного контракта (Smart Contract). Далее - скомпилируем его в Remix IDE.</p>
+<p>Ваш файл <code>Bounties.sol</code> сейчас должен выглядеть следующим образом:</p>
+<pre><code>pragma solidity ^0.5.0;
+
+contract Bounties 
+{
+    constructor() public {}
+}
+</code></pre>
+<p>В окружении Remix выберите <code>вкладку "Compile"</code> в правом верхнем углу экрана и запустите процесс компиляции нажатием <code>кнопки "Start to Compile"</code> как показано на снимке экрана ниже.</p>
+<p>![screenshot: compile a smart contract in Remix IDE][screenshot-remix-compile]</p>
+<p>В случаче успеха вы должны увидеть название своего <code>контракта "Bounties"</code> на зеленом фоне, как показано на том же снимке экрана.</p>
+<h3 id="4">4. Публикация задания<a class="headerlink" href="#4" title="Permanent link"></a></h3>
+<p>Пришло время расширить наш каркас контракта некоторой функциональностью.
+Начнем с публикации задания.</p>
+<h4 id="41">4.1 Объявление переменных для хранения состояния<a class="headerlink" href="#41" title="Permanent link"></a></h4>
+<p>Что же такое переменные состояния в <code>Solidity</code>? 
+Дело в том, что экземпляр электронного контракта имеет возможность запоминать свое состояние,
+помещая его в хранилище EVM (Ehtereum Virtual Machine - прим. переводчика).
+Это состояние описываеться одной либо несколькими переменными, 
+которые могут иметь один из встроенных в язык Solidity типов. 
+Значение, хранящееся в этих переменных, может быть изменено 
+лишь функциями, вызванными во время транзакции.</p>
+<p>Исчерпывающий список типов можно найти в документации языка <code>Solidity</code>. 
+А именно, в [секции "Types"][doc-solidity-types].</p>
+<p>Первым делом, давайте объявим перечислимый тип, 
+описывающий множество состояний, в которых может находиться задача.</p>
+<pre><code>// множество &quot;состояния задачи&quot;
+//
+enum BountyStatus 
+{ 
+    CREATED  , // &quot;создано&quot; - новая задача, ожидающая иполнителя
+    ACCEPTED , // &quot;принято к исполнению&quot; - исполнитель найден и утвержден
+    CANCELLED  // &quot;отменена&quot; - работодатель больше не нуждается в данной услуге
+}
+</code></pre>
+<p><br>
+Далее объявим структуру, для хранения данных о задаче.</p>
+<pre><code>// структура &quot;заказ&quot; (работа за вознаграждение)
+//
+struct Bounty 
+{
+    // учетная запись ethereum работодателя
+    //
+    address issuer;
+
+    // срок выполнения.
+    // исполнитель не получит вознаграждение, если нарушит его.
+    //
+    uint deadline;
+
+    // описание задания
+    //
+    string data;
+
+    // состояние задачи
+    // тип enum был только что объявлен нами выше
+    //
+    BountyStatus status;
+
+    // сумма вознаграждения в WEI
+    // WEI - минимальная неделимая дробная часть валюты &quot;эфир&quot;
+    // 10^18 WEI == 1 ETH 
+    //
+    uint amount;
+}
+</code></pre>
+<p><br/>
+Что такое структура? 
+Структура - это конструкция языка, 
+позволяющая описывать собственные типы данных. 
+По сути, это - набор переменных, 
+которые могут принадлежать как типам, встроенным в язык Solidity, так и являться другими структурами.
+Набор переменных объединяют в структуру
+с целью их группирования и более понятной организации 
+при разработке кода контракта.</p>
+<p>
+Давайте-ка добавим в наш контракт переменную-массив, 
+хранящую данные обо всех созданных контрактах.
+
+
+<pre><code>Bounty[] public bounties;
+</code></pre>
+
+
+#### 4.2 Функция "создать задание"
+
+Ранее мы подготовили переменные для работы с состоянием.
+Теперь же - напишем функции для взаимодействия с нашим `smart contract`.
+
+
+<pre><code>// создать задание
+//
+function issueBounty(
+    string memory _data,        // описание работ
+    uint64        _deadline     // срок исполнения 
+
+) public   // функция может быть вызвана любым пользователем или другим контрактом в сети Ethereum
+  payable  // при вызове этой функции контракт может получать эфир
+           // полученный эфир будет храниться &quot;на балансе&quot; контракта
+
+    hasValue()  // проверяем, что при вызове контракту был отправлен эфир в ненулевом объеме.
+                // реализацию этого modifier запрограммируем позже
+    validateDeadline(_deadline) 
+                // проверяем, что крайний срок не исчерпан на момент задания
+                // реализацию этого modifier запрограммируем позже
+returns (uint)  // возвращает целое число - порядковый номер последнего добавленного задания
+{
+    bounties.push(
+        Bounty(
+            msg.sender, // адрес отправителя эфира, вызвавшего функцию. 
+                        // он же создатель нового задания.
+                        //
+            _deadline,  // срок исполнения. передан как параметр.
+            _data,      // описание работ. передан как параметр.
+            BountyStatus.CREATED, // статус &quot;задача создана&quot;, исполнитель еще не назначен
+            msg.value   // размер награды. 
+                        // до выполнения задания сам эфир будет храниться в контракте.
+                        // в структуру попадает только его количество
+                        // измеряемое в WEI
+        )
+    );
+
+    // отнимаем единицу, поскольку 
+    // нумерация элементов массива начинается с нуля
+    return (bounties.length - 1);
+}
+</code></pre>
+
+
+Функция `issueBounty()` принимает следующие параметры:
+* `_data` - требования к исполнителю и описание работы. Имеет тип `string memory`
+* `_deadline` - время и дата крайнего срока исполнения задания 
+с точностью до секунды в формате [unix timestamp][link-unix-timestamp-wiki]
+
+Начиная с версии `0.5.0` языка Solidity, 
+нужно обязательно указывать явно
+способ хранения (`memory` либо `storage`)
+для всех переменных, имеющих тип
+* строка - `string`
+* массив - `array`
+* ассоциативный массив - `mapping`
+
+Для контрактов более ранних версий 
+будут использованы соответствующие способы хранения по умолчанию.
+Детальную информацию об этих важных изменениях 
+в версии `0.5.0`
+можно прочитать по данной [ссылке][doc-solidity-0.5.0-breaking]
+
+
+Реализация строк в языке `Solidity` 
+базируется на байтовом массиве 
+(что в случае длинных строк может быть достаточно затратно 
+по сравнению с хранением данных 
+более простых типов таких как `uint64` - прим. переводчика).
+Следовательно, для параметра `_data` 
+мы должны указать тип хранения.
+Наш выбор падет на `memory`, 
+поскольку нам не нужно хранить эти данные 
+после окончания работы функции `issueBounty()`,
+а также транзакции, в рамках которой эта функция будет выполняться.
+
+Язык `Solidity` требует объявления 
+типа возвращаемого значения 
+(или нескольких типов в случае, 
+если возвращается больше одного значения).
+Мы указали `returns(uint)` - беззнаковое целое.
+В него будет записываться индекс последнего, 
+только что добавленного, задания.
+
+Функция объявлена с областью видимости `public`. 
+Дополнительную информацию о `видимости функций в Solidity` 
+вы найдете [по данной ссылке][doc-solidity-function-visibility]
+
+Для того, чтоб контракт при вызове функции `issueBounty()`
+мог получать средства в криптовалюте "эфир" - `ETH`,
+необходимо добавить ключевое слово `payable`
+в описание указанной функции.
+Без данного ключевого слова 
+контракт будет отвергать все попытки
+послать ему эфир при вызове функции `issueBounty()`.
+
+
+Тело функции состоит всего лишь из двух инструкций
+
+<pre><code>bounties.push(Bounty(msg.sender, _deadline, _data,
+BountyStatus.CREATED, msg.value));
+</code></pre>
+
+
+Сперва мы формируем экземпляр структуры
+объявленного нами ранее типа `struct Bounty`
+со статусом `BountyStatus.CREATED` 
+и помещаем ее в наш массив `bounties`.
+
+В языке solidity каждая функция имеет скрытый параметр `msg`,
+в котором содержится контекст выполнения - 
+то есть, разная полезная информация о транзакции.
+Нас интересуют такие поля как
+* `msg.sender` - поскольку там хранится адрес пользователя или контракта, вызвавшего нашу функцию (имеет тип `address`)
+* `msg.value` - содержит количество перечисленных средств. 
+Измеряется в WEI - минимально допустимой, неделимой дробной части эфира.
+(1 ETH = 1000000000000000000 wei = 10^18 wei)
+
+Таким образом, мы зададим `msg.sender` в качесиве поля `issuer`
+и `msg.value` в качестве поля `amount` соответственно.
+(поля принадлежат объявленной нами ранее структуре `struct Bounty`).
+
+
+
+<pre><code>return (bounties.length - 1);
+</code></pre>
+
+
+Далее мы просто возвращаем индекс 
+только что созданной структуры в массиве.
+Поскольку мы ее только что создали и поместили в массив,
+его длина гарантированно будет больше нуля, 
+и ошибок можно пока не опасаться.
+
+### 5. Проверка входных данных с помощью Modifiers
+
+Modifier - функция, объявленная особым образом,
+которую можно "прикрепить" средствами языка `Solidity`
+к другой, "основной" функции.
+Логика modifier может быть исполнена как перед, так и после 
+выполнения основной функции.
+
+
+<pre><code>Широко распространена практика 
+запуска modifier перед основной функцией
+с целью проверки её входных параметров
+</code></pre>
+
+
+### 5.1 Проверка крайнего срока выполнения (при создании задания)
+
+Добавим **функцию-модификатор**
+`modifier validateDeadline(_deadline)` ,
+дабы с его помощью удостовериться,
+что переданная конечная дата находится в будущем.
+У пользователей не должно быть возможности создавать задания,
+срок исполнения которых истек, так и не успев начаться.
+
+
+
+<pre><code>modifier validateDeadline(uint _newDeadline)
+{
+    require(_newDeadline &gt; now);
+    _;
+}
+</code></pre>
+
+
+Для объявления такой специальной функции
+необходимо использовать ключевое слово `modifier`.
+Модификаторы могут иметь свои входные параметры - 
+так же, как и "обычные" функции языка `Solidity`.
+
+Расположение инструкции `_;` - 
+самая важная часть логики модификатора.
+В этом месте будет исполнен код "основной" 
+("модифицируемой") функции.
+
+Таким образом, `modifier validateDeadline()`
+сперва выполнит проверку `require(_newDeadline > now);`, 
+а затем - основную функцию.
+
+Использованная для проверки функция `require()`, 
+принимает логическое условие в качестве параметра.
+Если условие ложно - то выполнение будет остановлено, 
+транзакция - отменена, а оставшийся газ - возвращен отправителю (он же `msg.sender`).
+
+Обычно `require()` используется для проверки входных данных
+до выполнения основной логики функции.
+
+В общем случае,
+для обработки нештатных ситуаций 
+и остановки работы контракта
+могут применяться 
+такие функции как:
+* `assert()`
+* `require()`
+* `revert()`
+
+Подробную информацию об этих функциях и обработке ошибок
+можно найти в [документации solidity][doc-solidity-error-handling]
+
+Таким образом, логику модификатора `modifier validateDeadline()`
+следует трактовать следующим образом :
+
+Если `deadline > now` - продолжаем исполнять основную функцию.
+Иначе - отменяем транзакцию 
+и возвращаем еще не использованный остаток газа 
+его вледельцу.
+
+
+#### 5.2 Модификатор `hasValue()`
+
+Реализуем логику `modifier hasValue()`, 
+дабы с его помощью удостовериться,
+что количество адресованного контракту эфира 
+не равно нулю.
+
+Ранее упомянутое ключевое слово `payable`
+предоставляет возможность получать эфир,
+но не гарантирует этого. 
+Поскольку количество отправляемого эфира может быть любым.
+То есть, другой пользователь имеет полное право
+"отправить" нулевое количество.
+
+
+<pre><code>Примечание переводчика: очевидно, что это количество не может быть отрицательным
+поскольку это было бы эквивалентно 
+&quot;забрать силой эфир у другого пользователя&quot;
+что абсолютно недопустипо.
+</code></pre>
+
+
+Абсолютно так же, как в `modifier validateDeadline()`,
+мы воспользуемся функцией `require()`
+чтоб удостовериться в выполнении условия 
+`количество отправленного эфира больше нуля`.
+
+
+<pre><code>modifier hasValue() 
+{
+    require(msg.value &gt; 0);
+    _;
+}
+</code></pre>
+
+
+Кстати, ранее использованный нами `payable` - это
+тоже модификатор, но встроенный в язык `Solidity`.
+Он гарантирует, что эфир (а также, газ) отправляется контракту
+при вызове функции, которая требует финансирования.
+
+Детальную информацию о модификаторах,
+а также о контроле доступа,
+можно найти в [документации языка Solidity][doc-solidity-modifiers].
+
+
+#### 6. Событие-уведомление "задание создано"
+
+В разработке на Solidity 
+считается хорошим тоном сгенерировать событие
+при изменении состояния контракта.
+События позволяют клиентским приложениям 
+подписываться на них и реагировать на произошедшие изменения.
+Например, web site может добавить на свою страницу новое задание,
+получив такой event от blockchain 
+при выполнении написанной нами ранее функции `issueBounty()`.
+Разумеется, мы можем обновить страницу 
+просто дождавшись окончания своей транзакции.
+Благодаря событиям-уведомлениям 
+(в англоязычных материалах - `events`)
+мы можем показать пользователю обновленную страницу
+даже если инициатором транзакции был другой пользователь.
+Это возможно благодаря `децентрализации`, идеи которой
+заложены в технологии блокчейна Ethereum.
+Технически, клиентское приложение узнает об изменениях, 
+произошедших в blockchain, именно благодаря механизму `events`
+(о котором идет речь в данном разделе).
+
+Еще одним примером использования events является 
+обновление списка входящих и исходящих транзакций
+для некоторого контракта
+на сервисе [etherscan][link-etherscan-example].
+Как можно увидеть, транзакции были
+произведены разными пользователями.
+Что еще раз иллюстрирует идею описанную в предыдущем абзаце.
+
+Более детально о событиях как конструкции языка Solidity
+можно прочитать в [документации][doc-solidity-events].
+
+
+Поскольку в функции `issueBounty()` 
+нашего контракта `Bounties.sol`
+состояние меняется,
+мы сгенерируем событие `BountyIssued`. 
+Для этого объявим его :
+
+
+<pre><code>event BountyIssued(
+    uint    bounty_id, // индекс задания в массиве
+    address issuer   , // создатель задания, который внес в контракт средства для вознаграждения
+    uint    amount   , // сумма гонорара
+    string  data     ); // описание требований к заданию
+</code></pre>
+
+
+Таким образом, событие `BountyIssued` 
+передает клиентским приложениям следующую информацию
+о свежесозданном задании с вознаграждением: 
+
+* *bountyId:* - идентификатор нового задания
+* *issuer:* - учетная запись пользователя, создавшего задание и оплатившего его
+* *amount:* - сумма вознаграждения за исполнения задания (количество WEI)
+* *data:* - строка с описанием требований к исполнению заданию
+
+Добавим же генерацию события в функцию `issueBounty()`
+
+<pre><code>bounties.push(
+    Bounty(
+        msg.sender, 
+        _deadline, 
+        _data, 
+        BountyStatus.CREATED, 
+        msg.value));
+
+emit BountyIssued(            // добавленное событие
+        bounties.length - 1,  // индекс нового задания в качестве идентификатора
+        msg.sender,           // пользователь, финансирующий задание
+        msg.value,            // размер гонорара
+        _data);               // описание задания
+
+return (bounties.length - 1);
+</code></pre>
+
+
+После описанного выше добавления функции `issueBounty`
+наш контракт `Bounties.sol` будет выглядеть примерно вот так :
+
+
+<pre><code>pragma solidity ^0.5.0;
+/**
+* @title Bounties
+* @author Joshua Cassidy- &lt;joshua.cassidy@consensys.net&gt;
+* @dev Простой электронный контракт
+* который позволяет любому пользователю
+* оплатить криптовалютой &quot;эфир&quot;
+* задание с четко определенными критериями приёмки
+* награду может получить любой пользователь
+* предоставивший доказательства исполнения задачи
+*/
+
+contract Bounties 
+{
+
+/*
+* Множества (перечислимые типы)
+*/
+enum BountyStatus 
+{ 
+    CREATED  , // &quot;создано&quot; - новая задача, ожидающая иполнителя
+    ACCEPTED , // &quot;принято к исполнению&quot; - исполнитель найден и утвержден
+    CANCELLED  // &quot;отменена&quot; - работодатель больше не нуждается в данной услуге
+}
+
+/*
+* Состояние, хранилище
+*/
+Bounty[] public bounties;
+
+/*
+* Структуры
+*/
+struct Bounty 
+{
+    // учетная запись ethereum работодателя
+    //
+    address issuer;
+
+    // срок выполнения.
+    // исполнитель не получит вознаграждение, если нарушит его.
+    //
+    uint deadline;
+
+    // описание задания
+    //
+    string data;
+
+    // состояние задачи
+    // тип enum был только что объявлен нами выше
+    //
+    BountyStatus status;
+
+    // сумма вознаграждения в WEI
+    // WEI - минимальная неделимая дробная часть валюты &quot;эфир&quot;
+    // 10^18 WEI == 1 ETH 
+    //
+    uint amount;
+}
+
+
+/**
+* @dev Конструктор
+*/
+constructor() public 
+{
+}
+
+
+/**
+* @dev issueBounty(): создает новое задание и выделяет на него средства
+* @param _deadline the unix timestamp after which fulfillments will no longer be accepted
+* @param _data the requirements of the bounty
+*/
+function issueBounty(
+    string memory _data, // описание работ
+    uint64 _deadline     // срок исполнения 
+
+) public   // функция может быть вызвана 
+           // любым пользователем 
+           // или другим контрактом в сети Ethereum
+           // ---
+  payable  // при вызове этой функции контракт может получать эфир
+           // полученный эфир будет храниться &quot;на балансе&quot; контракта
+    hasValue()  // проверяем, что при вызове 
+                // контракту был отправлен эфир
+                // в ненулевом объеме.
+    validateDeadline(_deadline) // проверяем, что крайний срок
+                                // не исчерпан на момент создания нового задания
+returns (uint)  // возвращает целое число - 
+                // порядковый номер последнего добавленного задания
+{
+ bounties.push(
+        Bounty(
+            msg.sender, // адрес отправителя эфира, вызвавшего функцию. 
+                        // он же создатель нового задания.
+                        // ---
+            _deadline,  // срок исполнения. передан как параметр.
+            _data,      // описание работ. передан как параметр.
+            BountyStatus.CREATED, // статус &quot;задача создана&quot;, исполнитель еще не назначен
+            msg.value   // размер награды. 
+                        // до выполнения задания сам эфир будет храниться в контракте.
+                        // в структуру попадает только его количество
+                        // измеряемое в WEI
+        )
+    );
+
+    emit BountyIssued(            // добавленное событие
+        bounties.length - 1,  // индекс нового задания в качестве идентификатора
+        msg.sender,           // пользователь, финансирующий задание
+        msg.value,            // размер гонорара
+        _data);               // описание задания
+
+    // отнимаем единицу, поскольку 
+    // нумерация элементов массива начинается с нуля
+    return (bounties.length - 1);
+}
+
+/**
+* Модификаторы
+* Проверка входных параметров
+*/
+modifier hasValue() 
+{
+    require(msg.value &gt; 0); // проверяем, что контракт получил достаточно эфира
+    _; // исполняем основную функцию
+}
+
+modifier validateDeadline(uint _newDeadline) 
+{
+    require(_newDeadline &gt; now); // проверяем, что введенная дата не в прошлом. 
+                                 // чтоб контракт не &quot;забивался&quot; бесполезными данными.
+    _; // исполняем основную функцию
+}
+
+/**
+* События-сообщения
+*/
+event BountyIssued(
+        uint    bounty_id, 
+        address issuer   , 
+        uint    amount   , 
+        string  data     );
+}
+</code></pre>
+
+
+### 7. Публикация контракта и взаимодействие с ним средствами Remix
+
+И вот, наш контракт написан. 
+А значит, мы, наконец, можем поместить его
+в локальный тестовый мини-блокчейн внутри Remix IDE
+в целях тестирования функции `issueBounty()`.
+
+Первым делом, скомпилируем наш контракт `Bounties.sol`
+и убедимся в отсутствии ошибок. 
+Для этого нужно выбрать вкладку `"Compile"`
+в правом верхнем углу экрана 
+и запустить процесс компиляции 
+нажатием на кнопку `"Start to Compile"`.
+
+![screenshot: remix IDE compilation result with static warnings][screenshot-remix-static-warnings]
+
+Как вы заметили, 
+над результатом компиляции появилось сообщение
+об ошибках, найденных при статическом анализе.
+Окружение Remix запускает при компиляции 
+некоторые эвристики статического анализа,
+позволяющие выявить известные уязвимости в коде контракта.
+Также исправление этих ошибок поможет 
+следовать общепринятым рекомендациям и правилам
+качественной разработки кода контрактов.
+
+Больше информации о статическом анализе в среде Remix 
+можно найти [по ссылке][doc-remix-analyzer].
+
+В рамках данного обучающего материала 
+эти ошибки можно временно не принимать во внимание
+и перейти непосредственно к публикации нашего контракта,
+а также к его тестированию.
+
+Для этого выберем вкладку `"Run"`
+в правом верхнем углу экрана.
+В выпадающем списке `"Environment"` 
+следует выбрать вариант `"JavaScript VM"`
+как показано на снимке экрана ниже.
+
+![screenshot: ethereum environment drop-down][screenshot-virtual-machine-dropdown]
+
+При использовании данной настройки
+в браузере будет создана виртуальная машина
+для блокчейна средствами JavaScript.
+Таким образом, все взаимодействие с контрактом
+будет происходить локально, не выходя за пределы
+вашего компьютера и браузера.
+Это очень полезно тем, что не требует установки
+дополнительных программ на ваш компьютер
+для знакомства с электронными контрактами.
+
+Узнать больше об исполнении транзакций внутри Remix IDE
+можно [из документации][doc-remix-javascript-vm]
+
+На вкладке `"Run"` окружения Remix, 
+выбрав окружение `"JavaScript VM"`,
+нажмите на кнопку `"Deploy"`
+как показано на снимке экрана ниже.
+
+![screenshot: "deploy" button in the "run" tab][screenshot-remix-deploy-button]
+
+Это действие выполнит транзакцию по публикации контракта
+в блокчейн, работающий локально в браузре.
+Подобные транзакции будут описаны подробней в последующих статьях.
+
+В консоли среды `Remix`, 
+расположенной прямо под областью редактирования кода, 
+можно увидеть результат выполнения транзакции,
+которая создала экземпляр контракта.
+Этот результат будет похож на снимок экрана ниже
+
+![screenshot: results of the constructor transaction][screenshot-remix-constructor-transaction]
+
+Иконка "зеленый кружок с галочкой" означает, 
+что транзакция прошла успешно.
+
+<br/>
+
+Теперь во вкладке `"Run"` окружения Remix
+можно выбрать наш контракт `"Bounties"`,
+чтоб вызвать функцию `issueBounty()`.
+Для этого следует найти нужную функцию 
+в секции `"Deployed Contracts"`.
+
+На данный момент секция содержит следующие функции:
+* `issueBounty` - розовый цвет этой кнопки 
+означает, что ее нажатие и вызов соответствующей функции
+создаст новую транзакцию.
+* `bounties` - синий цвет этой кнопки означает
+простой вызов функции без транзакции 
+и изменения состояния контракта.
+
+![screenshot: buttons to invoke contract functions][screenshot-remix-contract-invoke-buttons]
+
+Для вызова функции `issueBounty` 
+сперва нужно задать ее аргументы,
+вписав их в соответствующее поле ввода
+(расположенное напротив розовой кнопки).
+Порядок расположения значений при вводе
+должен совпадать с порядком объявления 
+соответствующих параметров в коде контракта.
+
+В качестве параметра `string _data` укажем `"некоторые требования"`
+(кавычки необходимы для типа `string`).
+В свою очередь, в качестве `uint64 _deadline`
+запишем значение `1691452800` 
+(без кавычек, поскольку `uint64` - целочисленный тип), 
+что соответствует дате `8 августа 2023 года`
+
+Поскольку функция `issueBounty` помечена ключевым словом `payable`,
+мы должны убедиться, что параметр `msg.value` задан.
+Ввести нужное значение количество эфира 
+можно в верхней части вкладки `"Run"` в среде Remix.
+
+Там мы увидим следующие настройки :
+
+* `Environment:` как уже изложено выше, 
+позволяет выбрать блокчейн, с которым предстоит работать
+(в котором находится наш опубликованный контракт).
+
+* `Account:` позволяет выбрать учетную запись (имеет тип `address`), 
+от имени которого будет произведен вызов функции.
+С баланса этого `address` будут списаны эфир и газ
+для исполнения вызова функции.
+Также тут можно посмотреть 
+список доступных учетных записей
+и их балансов.
+
+* `Gas Limit:` позволяет задать верхний предел
+количества газа, который можно 
+использовать для выполнения кода в рамках данной транзакции.
+
+* `Value:` количество эфира, перечисляемого на счет контракта.
+Для удобства ввода суммы можно выбрать единицу измерения: `Wei`, `Gwei`, `Finney`, `Ether`
+Стоит отметить, что внутри контракта 
+это значение доступно из переменной `msg.value`
+и там оно будет всегда измеряться в Wei 
+и не зависит от настроек Remix.
+
+Итак, давайте зададим в поле `"Value"` какое-нибудь значение 
+больше нуля. В рамках даного упражнения введем `1 ETH`.
+
+Теперь можно нажать кнопку `"issueBounty"` 
+в секции `"Deployed Contracts"` вкладки `"Run"`
+и таким образом запустить транзакцию,
+которая вызовет функцию `issueBounty()` контракта `Bounties`.
+
+В консоли будет отображен результат работы этой транзакции.
+
+![screenshot: issueBounty function invoked][screenshot-invoked-issue-bounty]
+
+Иконка "зеленый кружок с галочкой" 
+свидетельствует об успехе транзакции.
+
+Раскодированный вывод содержит значение, 
+которое вернула вызванная функция. 
+В данном случае это ноль `0`.
+
+Мы ожидаем получить индекс нового экземпляра
+структуры типа `Bounty` 
+в массиве, хранящем состояние контракта.
+Мы можем проверить это, 
+вызвав функцию `bounties` 
+в секции `Deployed Contracts`.
+Введем ноль `0` в качестве аргумента и нажмем синюю кнопку 
+с названием `bounties`.
+
+![screenshot: the result of bounties getter invocation][screenshot-array-getter-called]
+
+На этом снимке экрана мы можем увидеть, что данные, 
+которые мы ввели ранее при вызове `issueBounty`,
+успешно записаны в хранилище `smart contract`.
+Поскольку именно их мы только что извлекли 
+вызовом функции `bounties` из одноименного поля-массива.
+
+#### 8. Попробуйте сами!
+
+Прочитав эту статью, 
+вы изучили "как реализовать функцию добавления нового задания".
+Теперь попробуйте самостоятельно добавить следующие функции:
+
+* `fulfilBounty(uint _bountyId, string _data)` - 
+эта функция должна сохранить запись 
+о выполнении задачи с заданным идентификатором-индексом.
+`msg.sender` следует трактовать как учетную запись исполнителя.
+
+* `acceptFulfilment(uint _bountyId, uint _fulfilmentId)` - 
+вызвав эту функцию, создатель контракта 
+подтверждает приемку работы и соглашается, 
+что она была выполнена надлежащим образом.
+При этом вознаграждение выплачивается исполнителю
+при условии, что существует заявка от исполнителя.
+
+* `function cancelBounty(uint _bountyId)` -
+эта функция должна отменить заказ на работу
+при условии отсутствия факта приёмки этого заказа.
+В этом случае средства возвращаются создателю задания.
+
+Примечание автора: для реализации функции `acceptFulfilment`
+нужно будет использовать функцию `address.transfer(uint amount)`,
+которая производит пересылку эфира из контракта на адрес исполнителя.
+
+[Документация][doc-solidity-transfer] по функции `address.transfer` 
+находится [по ссылке][doc-solidity-transfer].
+
+Полную версию контракта `Bounties.sol` 
+можно посмотреть в справочных целях
+[на github][tutorial-source-full-contract]
+
+
+### 9. Что дальше?
+
+- Прочитайте следующую статью данного цикла: [Understanding smart contract compilation and deployment](https://kauri.io/article/973c5f54c4434bb1b0160cff8c695369/understanding-smart-contract-compilation-and-deployment)
+- Изучите возможности среды Remix по [документации](https://remix.readthedocs.io/en/latest/) и [github репозиторию](https://github.com/ethereum/remix-ide)
+
+
+> Понравился этот обущающий материал? 
+Появились вопросы или предложения по его содержанию? 
+
+Тогда откройте [статью-оригинал][link-original-article]
+и напишите там свои комментарии на английском языке.
+Автор будет рад пообщаться с вами.
+
+> Нашли ошибку в содержании статьи? 
+
+Тогда откройте [статью-оригинал][link-original-article]
+и отредактируйте ее, нажав кнопку `Update Article`
+в меню по правую сторону экрана.
+
+> Нашли ошибку перевода или опечатку?
+
+Тогда отредактируйте этот перевод,
+нажав кнопку `Update Article` в меню по правую сторону экрана.
+
+> Нашли ошибку в коде? 
+
+Отправьте pull request [на github](https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract)
+
+
+[link-original-article]: https://kauri.io/article/124b7db1d0cf4f47b414f8b13c9d66e2/v8/remix-ide-your-first-smart-contract
+[joshorig-profile]: https://kauri.io/public-profile/7b88584d0e6a608fa3a8716b0ca1620d61834a0c
+
+[remix-ide-open]: https://remix.ethereum.org/
+[tutorial-source-root]: https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/tree/master/remix-bounties-smartcontract
+[tutorial-source-full-contract]: https://github.com/kauri-io/kauri-fullstack-dapp-tutorial-series/blob/master/remix-bounties-smartcontract/Bounties-complete.sol
+
+[screenshot-remix-create-file]: https://ipfs.infura.io/ipfs/QmYMw578VU2z4nUwGbDwcoMBBmDTEsbriSNs7H44smJpYZ
+[screenshot-remix-compile]: https://ipfs.infura.io/ipfs/QmSxzksHcCp9AibwAGsTxdYntdn6hGiBmjeCZm3bpKf4h6
+[screenshot-remix-static-warnings]: https://ipfs.infura.io/ipfs/QmPbH2hJxqjwyCbo7iLMovVQLZyb96V9EbzKkUhJnS4Eem
+[screenshot-virtual-machine-dropdown]: https://ipfs.infura.io/ipfs/QmdAgBc9WzFmE4GwKBxHkMRCBBdAapHP1Ym3dR8mS2atSF
+[screenshot-remix-deploy-button]: https://ipfs.infura.io/ipfs/QmerrAduWYrYaxMT5254xE5DjngDid81hgaVT32uqGt1qt
+[screenshot-remix-constructor-transaction]: https://ipfs.infura.io/ipfs/QmXCiXYPFLbuk8X8eWv16F3PQFSp2ZEi8pstDrsSbYNybw
+[screenshot-remix-contract-invoke-buttons]: https://ipfs.infura.io/ipfs/QmUzyH4Vugc3vN52hna8r1r5hRzuLKTVXRC3vP4Huejqwt
+[screenshot-invoked-issue-bounty]: https://ipfs.infura.io/ipfs/QmQ1JYgeqgViBNxcSajU1NMh41v2UD2UFtYcdodDMv63zR
+[screenshot-array-getter-called]: https://ipfs.infura.io/ipfs/QmS17UXysJzMLibRzDShajzzMsV5Lkvi3jdjJQTYVqrQzu
+
+[link-semantic-versioning]: https://semver.org/
+[link-unix-timestamp-wiki]: https://ru.wikipedia.org/wiki/UNIX-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F 
+[link-etherscan-example]: https://etherscan.io/address/0x69a70e299367ff4c3ba1fe8c93fbddd9b5b4771a
+
+[doc-solidity-types]: http://solidity.readthedocs.io/en/latest/types.html
+[doc-solidity-0.5.0-breaking]: https://solidity.readthedocs.io/en/v0.5.0/050-breaking-changes.html
+
+[doc-solidity-function-visibility]: https://solidity.readthedocs.io/en/v0.4.24/contracts.html#visibility-and-getters
+[doc-solidity-error-handling]: http://solidity.readthedocs.io/en/v0.4.24/control-structures.html#error-handling-assert-require-revert-and-exceptions
+[doc-solidity-modifiers]: https://solidity.readthedocs.io/en/v0.4.24/common-patterns.html?highlight=modifier#restricting-access
+[doc-solidity-events]: https://solidity.readthedocs.io/en/latest/contracts.html#events
+[doc-remix-analyzer]: https://remix.readthedocs.io/en/latest/analysis_tab.html
+[doc-remix-javascript-vm]: https://remix.readthedocs.io/en/latest/run_tab.html
+[doc-solidity-transfer]: https://solidity.readthedocs.io/en/latest/units-and-global-variables.html#address-related
+
+
+
+
+
+---
+
+- **Kauri original title:** Среда разработки Remix - создайте свой первый Smart Contract
+- **Kauri original link:** https://kauri.io/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart/ac1bde5c6c5f48b786e1e17909da095a/a
+- **Kauri original author:** Alex D. (@alex-d)
+- **Kauri original Publication date:** 2019-05-31
+- **Kauri original tags:** ethereum, remix, solidity
+- **Kauri original hash:** QmarPoh4HFpoFHefLsWn5VkQ1AgxppP9izXgiazf34RV5R
+- **Kauri original checkpoint:** QmSRv329t5c2hpHHf1Yz4XZomqgeBc8LVh9KNJC9z4PVDS
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../reducing-mainnet-transactions-with-a-sidechain/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../reducing-mainnet-transactions-with-a-sidechain/" class="btn btn-xs btn-link">
+        Reducing Mainnet Transactions with a Sidechain
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../all-you-should-know-about-libraries-in-solidity/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../all-you-should-know-about-libraries-in-solidity/" class="btn btn-xs btn-link">
+        All you should know about libraries in solidity
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/single/sreda-razrabotki-remix-sozdajte-svoj-pervyj-smart.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Decentralized%20Storage/swarm--distributed-storage-platform-and-content-d/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Swarm  Distributed Storage Platform and Content Distribution Service - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Swarm  Distributed Storage Platform and Content Distribution Service", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "What is Swarm?", url: "#what-is-swarm" },
+              {title: "Objective", url: "#objective" },
+              {title: "Overview", url: "#overview" },
+              {title: "Available APIs", url: "#available-apis" },
+              {title: "Code", url: "#code" },
+              {title: "Roadmap", url: "#roadmap" },
+              {title: "Public gateways", url: "#public-gateways" },
+              {title: "Example Dapps", url: "#example-dapps" },
+              {title: "Reporting a bug and contributing", url: "#reporting-a-bug-and-contributing" },
+              {title: "Credits", url: "#credits" },
+              {title: "The Core team", url: "#the-core-team" },
+              {title: "Sponsors and collaborators", url: "#sponsors-and-collaborators" },
+              {title: "Special thanks", url: "#special-thanks" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="swarm-distributed-storage-platform-and-content-distribution-service">Swarm  Distributed Storage Platform and Content Distribution Service<a class="headerlink" href="#swarm-distributed-storage-platform-and-content-distribution-service" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmSrXYRE3kieqVJgwqq72C4JavHKKXb7hQhKw9qbHApTR3" /></p>
+<blockquote>
+<p>Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum web3 stack</p>
+</blockquote>
+<p><em>This article originally appears in the Swarm <a href="https://github.com/ethersphere/swarm-guide/blob/master/contents/introduction.rst">repository</a></em></p>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link"></a></h3>
+<p>This guide walks you through understanding, installing, and using Swarm. It also explains how to contribute or ask for help. Swarm is in active development and it is untested in the wild, so use it at your own risk. To interact with Swarm, you will need to use the command line. If you are not comfortable using it, it might be worth to familiarise yourself <a href="http://linuxcommand.org/lc3_lts0010.php">here</a> first.</p>
+<h3 id="what-is-swarm">What is Swarm?<a class="headerlink" href="#what-is-swarm" title="Permanent link"></a></h3>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmV2kyWHnJagmEsemH7ZzAg9YCVYE6vvgsHgMmqaUkttbX" /></p>
+<p>Swarm is a distributed storage platform and content distribution service, a native base layer service of the ethereum <code>web3</code> stack. The primary objective of Swarm is to provide a sufficiently decentralized and redundant store of Ethereum's public record, in particular to store and distribute dapp code and data as well as blockchain data. From an economic point of view, it allows participants to efficiently pool their storage and bandwidth resources in order to provide these services to all participants of the network, all while being incentivised by Ethereum.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VgTZV471WFM" style="margin-bottom: 30px;" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+<h3 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link"></a></h3>
+<p>Swarm's broader objective is to provide infrastructure services for developers of decentralised web applications (dapps), notably: messaging, data streaming, peer to peer accounting, mutable resource updates, storage insurance, proof of custody scan and repair, payment channels and database services.</p>
+<p>From the end user's perspective, Swarm is not that different from the world wide web, with the exception that uploads are not hosted on a specific server. Swarm offers a peer-to-peer storage and serving solution that is DDoS-resistant, has zero-downtime, fault-tolerant and censorship-resistant as well as self-sustaining due to a built-in incentive system which uses peer-to-peer accounting and allows trading resources for payment. Swarm is designed to deeply integrate with the devp2p multiprotocol network layer of Ethereum as well as with the Ethereum blockchain for domain name resolution (using ENS), service payments and content availability insurance.</p>
+<p>Please refer to our <a href="https://github.com/ethersphere/swarm/wiki/roadmap">development roadmap</a> to stay informed with our progress.</p>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link"></a></h3>
+<p>Swarm is set out to provide base layer infrastructure for a new decentralised internet.
+Swarm is a peer-to-peer network of nodes providing distributed digital services by contributing resources (storage, message forwarding, payment processing) to each other. These contributions are accurately accounted for on a peer to peer basis, allowing nodes to trade resource for resource, but offering monetary compensation to nodes consuming less than they serve.
+<img alt="" src="https://ipfs.infura.io/ipfs/Qmdy3VB8srRFmpSTN2aUGUCVgHFT1dQmcfrTjoJJU1cYRr" /></p>
+<p>The Ethereum Foundation operates a Swarm testnet that can be used to test out functionality in a similar manner to the Ethereum testnet (ropsten).
+Everyone can join the network by running the Swarm client node on their server, desktop, laptop or mobile device. See <code>Getting Started</code> for how to do this.
+The Swarm client is part of the Ethereum stack, the reference implementation is written in golang and found under the go-ethereum repository. Currently at POC (proof of concept) version 0.3 is running on all nodes.</p>
+<p>Uploaded content is <strong>not guaranteed to persist on the testnet</strong> until storage insurance is implemented (see <a href="https://github.com/orgs/ethersphere/projects/5">Roadmap</a> for more details). All participating nodes should consider participation a voluntary service with no formal obligation whatsoever and should be expected to delete content at their will. Therefore, users should <strong>under no circumstances regard Swarm as safe storage</strong> until the incentive system is functional.</p>
+<p>Swarm offers a <strong>local HTTP proxy</strong> API that dapps or command line tools can use to interact with Swarm. Some modules like <a href="PSS">messaging</a> are only available through RPC-JSON API. The foundation servers on the testnet are offering public gateways, which serve to easily demonstrate functionality and allow free access so that people can try Swarm without even running their own node.</p>
+<p>Swarm is a collection of nodes of the devp2p network each of which run the BZZ URL schemes on the same network id.</p>
+<p>Swarm nodes can also connect with one (or several) Ethereum blockchains for domain name resolution and one ethereum blockchain for bandwidth and storage compensation.
+Nodes running the same network id are supposed to connect to the same blockchain for payments. A Swarm network is identified by its network id which is an arbitrary integer.</p>
+<p>Swarm allows for :dfn:<code>upload and disappear</code> which means that any node can just upload content to the Swarm and then is allowed to go offline. As long as nodes do not drop out or become unavailable, the content will still be accessible due to the 'synchronization' procedure in which nodes continuously pass along available data between each other.</p>
+<p>Swarm supports encryption. Upload of unencrypted sensitive and private data is highly discouraged as <strong>there is no way to undo an upload</strong>. Users should refrain from uploading illegal, controversial or unethical content. </p>
+<p>Always use encryption for sensitive content. For encrypted content, uploaded data is 'protected', i.e. only those that know the reference to the root chunk (the Swarm hash of the file) as well as the decryption key can access the content. Since publishing this reference (on ENS or with Feeds) requires an extra step, users are mildly protected against careless publishing as long as they use encryption. Even though there is no guarantees for removal, unaccessed content that is not explicitly insured will eventually disappear from the Swarm, as nodes will be incentivised to garbage collect it in case of storage capacity limits. </p>
+<p>Swarm is a <a href="https://en.wikipedia.org/wiki/Persistent_data_structure&gt;">Persistent Data Structure</a>, therefore there is no notion of delete/remove action in Swarm. This is because content is disseminated to Swarm nodes who are incentivised to serve it.</p>
+<p><strong>Important:</strong> It is not possible to <strong>delete or remove</strong> content uploaded to Swarm. <strong>Always encrypt</strong> sensitive content using the integrated Swarm encryption.</p>
+<h3 id="available-apis">Available APIs<a class="headerlink" href="#available-apis" title="Permanent link"></a></h3>
+<p>Swarm offers several APIs:
+ * CLI
+ * JSON-RPC - using web3 bindings over Geth's IPC
+ * HTTP interface - every Swarm node exposes a local HTTP proxy that implements the :ref:<code>BZZ URL schemes</code>
+ * Javascript - available through the <a href="https://erebos.js.org">erebos</a>, <a href="https://github.com/MaiaVictor/swarm-js">swarm-js</a> or <a href="https://www.npmjs.com/package/swarmgw">swarmgw</a> packages</p>
+<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link"></a></h3>
+<p>Source code is located at https://github.com/ethereum/go-ethereum/.</p>
+<h3 id="roadmap">Roadmap<a class="headerlink" href="#roadmap" title="Permanent link"></a></h3>
+<p>Roadmap is located at https://github.com/ethersphere/Swarm/wiki/roadmap</p>
+<p><strong>Important:</strong> Swarm is experimental code and untested in the wild. Use with extreme care. We encourage developers to connect to the testnet with their permanent nodes and give us feedback.</p>
+<h3 id="public-gateways">Public gateways<a class="headerlink" href="#public-gateways" title="Permanent link"></a></h3>
+<p>Swarm offers a local HTTP proxy API that Dapps can use to interact with Swarm. The Ethereum Foundation is hosting a public gateway, which allows free access so that people can try Swarm without running their own node.</p>
+<p>The Swarm public gateway can be found at https://swarm-gateways.net and is always running the latest <code>stable</code> Swarm release.</p>
+<p><strong>Important:</strong> Swarm public gateways are temporary and users should not rely on their existence for production services.</p>
+<h3 id="example-dapps">Example Dapps<a class="headerlink" href="#example-dapps" title="Permanent link"></a></h3>
+<ul>
+<li>https://swarm-gateways.net/bzz://swarmapps.eth</li>
+<li>source code: https://github.com/ethersphere/Swarm-dapps</li>
+</ul>
+<h3 id="reporting-a-bug-and-contributing">Reporting a bug and contributing<a class="headerlink" href="#reporting-a-bug-and-contributing" title="Permanent link"></a></h3>
+<p>Issues are tracked on github and github only. Swarm related issues and PRs have labels prefixed with <em>swarm</em>:</p>
+<ul>
+<li>https://github.com/ethersphere/go-ethereum/issues</li>
+<li><a href="https://github.com/ethersphere/go-ethereum/issues?utf8=✓&amp;q=is%3Aopen+is%3Aissue+label%3A" title="good+first+issue">Good first issues</a></li>
+</ul>
+<p>Please include the commit and branch when reporting an issue.</p>
+<p>Pull requests should by default commit on the <code>master</code> branch.</p>
+<p>Prospective contributors please read the <a href="https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide">Developers' Guide</a></p>
+<h3 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link"></a></h3>
+<p>Swarm is funded by the Ethereum Foundation and industry sponsors.</p>
+<h2 id="the-core-team">The Core team<a class="headerlink" href="#the-core-team" title="Permanent link"></a></h2>
+<ul>
+<li>Viktor Trón - @zelig</li>
+<li>Daniel A. Nagy - @nagydani</li>
+<li>Aron Fischer - @homotopycolimit</li>
+<li>Louis Holbrook - @nolash</li>
+<li>Lewis Marshal - @lmars</li>
+<li>Fabio Barone - @holisticode</li>
+<li>Anton Evangelatov - @nonsense</li>
+<li>Janoš Guljaš - @janos</li>
+<li>Balint Gabor - @gbalint</li>
+<li>Elad Nachmias - @justelad</li>
+</ul>
+<p>were on the core team:</p>
+<ul>
+<li>Zahoor Mohamed - @jmozah</li>
+<li>Zsolt Felföldi - @zsfelfoldi</li>
+<li>Nick Johnson - @Arachnid</li>
+</ul>
+<h2 id="sponsors-and-collaborators">Sponsors and collaborators<a class="headerlink" href="#sponsors-and-collaborators" title="Permanent link"></a></h2>
+<ul>
+<li>http://status.im</li>
+<li>http://livepeer.org</li>
+<li>http://jaak.io</li>
+<li>http://datafund.io</li>
+<li>http://mainframe.com</li>
+<li>http://wolk.com</li>
+<li>http://riat.at</li>
+<li>http://datafund.org</li>
+<li>http://216.com</li>
+<li>http://cofound.it</li>
+<li>http://iconomi.net</li>
+<li>http://infura.io</li>
+<li>http://epiclabs.io</li>
+<li>http://asseth.fr</li>
+</ul>
+<h2 id="special-thanks">Special thanks<a class="headerlink" href="#special-thanks" title="Permanent link"></a></h2>
+<ul>
+<li>Felix Lange, Alex Leverington for inventing and implementing devp2p/rlpx</li>
+<li>Jeffrey Wilcke, Peter Szilagyi and the entire ethereum foundation go team for continued support, testing and direction</li>
+<li>Gavin Wood and Vitalik Buterin for the holy trinity vision of web3</li>
+<li>Nick Johnson for ENS and ENS Swarm integration</li>
+<li>Alex Van der Sande, Fabian Vogelsteller, Bas van Kervel, Victor Maia, Everton Fraga and the Mist team</li>
+<li>Elad Verbin for his continued technical involvement as an advisor and ideator</li>
+<li>Nick Savers for his unrelenting support and meticulous reviews of our papers</li>
+<li>Gregor Zavcer, Alexei Akhunov, Alex Beregszaszi, Daniel Varga, Julien Boutloup for inspiring discussions and ideas</li>
+<li>Juan Benet and the IPFS team for continued inspiration</li>
+<li>Carl Youngblood, Shane Howley, Paul Le Cam, Doug Leonard and the mainframe team for their contribution to PSS and Feeds</li>
+<li>Sourabh Niyogi and the entire Wolk team for the inspiring collaboration on databases</li>
+<li>Ralph Pilcher for implementing the swap swear and swindle contract suite in solidity/truffle and Oren Sokolowsky for the initial version</li>
+<li>Javier Peletier from Epiclabs (ethergit) for his contribution to Feeds</li>
+<li>Jarrad Hope and Carl Bennet (Status) for their support</li>
+<li>Participants of the orange lounge research group and the Swarm orange summits</li>
+<li>Roman Mandeleil and Anton Nashatyrev for an early java implementation of swarm</li>
+<li>Igor Sharudin, Dean Vaessen for example dapps</li>
+<li>Community contributors for feedback and testing</li>
+<li>Daniel Kalman, Benjamin Kampmann, Daniel Lengyel, Anand Jaisingh for contributing to the swarm websites</li>
+<li>Felipe Santana, Paolo Perez and Paratii team for filming at the 2017 swarm summit and making the summit website</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Swarm  Distributed Storage Platform and Content Distribution Service</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/swarm-distributed-storage-platform-and-content-dis/0a733fa8a829458584d16abe37750041/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-05-13</li>
+<li><strong>Kauri original tags:</strong> ethereum, storage</li>
+<li><strong>Kauri original hash:</strong> Qmb41y76T4Z9ACcn3eGgdrPa9G6eTbeKkiQDFYC8k9kHdA</li>
+<li><strong>Kauri original checkpoint:</strong> Qmekp5iiDi5N5M4KdtAVGBEJEF3ahMgWYZJqL7s1qmkQ9g</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../peer-to-peer-hypermedia-with-ipfs/" class="btn btn-xs btn-link">
+        Peer-to-peer hypermedia with IPFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-set-up-a-simple-linux-firewall/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../How%20you%20can%20contribute%20to%20the%20increased%20decentralization%20of%20the%20Ethereum%20blockchain/how-to-set-up-a-simple-linux-firewall/" class="btn btn-xs btn-link">
+        How to set up a simple Linux firewall
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Decentralized Storage/swarm--distributed-storage-platform-and-content-d.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

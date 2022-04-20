@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="canonical" href="https://kauri.io/collections/Open%20Finance%20%28DeFi%29/compound--money-markets-on-ethereum/">
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Compound  Money markets on Ethereum - kauri.io</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Compound  Money markets on Ethereum", url: "#_top", children: [
+              {title: "QuickBorrow Contract Experience", url: "#quickborrow-contract-experience" },
+              {title: "Building QuickBorrow", url: "#building-quickborrow" },
+              {title: "Repay", url: "#repay" },
+              {title: "Withdraw", url: "#withdraw" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-172017815-1', 'kauri.io');
+        ga('send', 'pageview');
+    </script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    <h1 id="compound-money-markets-on-ethereum">Compound  Money markets on Ethereum<a class="headerlink" href="#compound-money-markets-on-ethereum" title="Permanent link"></a></h1>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmNVeYrVj3v38LQMspq5iShDbkVEjDRJ7ipqZw3HCukyAb" /></p>
+<blockquote>
+<p>Compound gives you the ability to borrow and lend tokens. In Compound, users contribute to a shared pool of tokens, from which lenders can receive a debt. Lenders can repay the debt at any time, as long as they maintain enough collateral. In case their debt becomes under collateralized, users of the protocol can default the lender’s debt by selling his assets in an auction. - Description from <a href="https://docs.ethhub.io/built-on-ethereum/open-finance/0x-protocol/#0x-protocol-overview">ethhub.io</a></p>
+</blockquote>
+<p><em>This article originally appeared on the <a href="https://medium.com/compound-finance/building-on-compound-d6ddcf869178">Compound blog</a></em></p>
+<p>The Compound Protocol functions can be called by any Ethereum address, which means that any developer can leverage the liquidity &amp; interest rate mechanics of Compound as a foundation to BUIDL interesting new products. For the first time, any smart contract can generate interest from token balances, or borrow a token (to use elsewhere in Ethereum) from Compound on-demand.
+In addition to the 
+<a href="https://compound.finance/documents/Compound.Whitepaper.v04.pdf">whitepaper</a>
+ and full 
+<a href="https://compound.finance/developers">documentation</a>
+ , today we’re releasing a sample contract, 
+<a href="https://github.com/compound-finance/QuickBorrow">QuickBorrow</a>
+ , as inspiration — 
+<em>please note: this contract has not been audited, and is not meant for production usage in the current state.</em></p>
+<p>QuickBorrow is a smart contract designed to do one thing well; allow a user to instantly borrow a token, using Ether as collateral.</p>
+<ul>
+<li>
+<p>When a user sends Ether to the QuickBorrow contract, they instantly receive borrowed tokens (such as BAT) directly to their address, in one transaction.</p>
+</li>
+<li>
+<p>A user can add collateral for their borrowing by sending more Ether to the QuickBorrow contract</p>
+</li>
+<li>
+<p>A user can repay their borrow by calling approve and repay functions
+We’ve deployed QuickBorrow to 
+<a href="https://rinkeby.etherscan.io/address/0xbf7bbeef6c56e53f79de37ee9ef5b111335bd2ab">Rinkeby</a>
+ , which you can use to borrow mock-BAT. We’re excited to see you extend QuickBorrow with new use cases; to borrow any asset, to instantly trade borrowed tokens on Kyber, 0x, or Bancor, to add a web3 interface, etc. If you’d like our help building something new, join our #development channel in 
+<a href="https://discord.gg/XuSKm5B">Discord</a>
+ — to ask questions, request an API key, or show off what you’ve built.</p>
+</li>
+</ul>
+<h3 id="quickborrow-contract-experience">QuickBorrow Contract Experience<a class="headerlink" href="#quickborrow-contract-experience" title="Permanent link"></a></h3>
+<p>When the QuickBorrow contract receives Ether, the following steps occur in a single 
+<a href="https://rinkeby.etherscan.io/tx/0xbaf8878f19d1530f4d2a04fc8b7b4c2f7cf45e04665fdf8ce14a965bb1fd288e">transaction</a>
+ :</p>
+<ul>
+<li>
+<p>A custodial contract (CDP) is deployed, to house the collateral value and borrowed position</p>
+</li>
+<li>
+<p>Ether is wrapped into WETH, and supplied to the Compound Protocol</p>
+</li>
+<li>
+<p>The borrowable asset is borrowed from the Compound Protocol, such that the user’s collateral value is equal to 1.75x the borrowed position, and sent to the user</p>
+</li>
+</ul>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmTxYwyBYMyaiftW6oDh5eAofEPckAaXLLVjdALArMqnax" /></p>
+<p>The user will eventually need to repay the borrowed tokens. To do this, the user must 
+<code>approve</code>
+ the TokenBorrowFactory to transfer the amount they wish to repay. 
+<a href="https://rinkeby.etherscan.io/tx/0xdc90e4c88d3168ec297df6486bc3abecca4717eaeb7e00e514ae1b46026155ad">Example</a></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/Qmdwn7Q8sS2RhMxuJUqr4HSfH9m7n6k8MP39iC4GzCFZSf" /></p>
+<p>The user then calls 
+<code>repay</code>
+ . The original borrow plus interest owed is repaid, and collateral is returned with interest received. That’s it! One function call to borrow an asset, two to return it.</p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmdYsVzK6Lnjw2bAZmr16RKDtBYijac5jzvRBRpBJxYkga" /></p>
+<p><img alt="" src="https://ipfs.infura.io/ipfs/QmeZiZNUYe9NaxKt8XAhgNY7JnaxJwbrGrVhdYp93BRrbD" /></p>
+<h3 id="building-quickborrow">Building QuickBorrow<a class="headerlink" href="#building-quickborrow" title="Permanent link"></a></h3>
+<p>The Compound Money Market has four primary functions: 
+<code>supply</code>
+ , 
+<code>withdraw</code>
+ , 
+<code>borrow</code>
+ , and 
+<code>repay</code>
+ . QuickBorrow uses all four functions; supply and borrow when sending Ether, and repay and withdraw when closing the position. In both cases, QuickBorrow is combing two money market transactions into one call. In fact, to accurately perform these operations, it is necessary to perform a few other operations.
+Let’s explore the Compound interface, using QuickBorrow as our guide.</p>
+<p><a href="https://github.com/compound-finance/money-market/blob/master/contracts/MoneyMarket.sol#L877">#Supply</a></p>
+<p>The Compound Protocol (hereinafter “the protocol”) operates solely on ERC-20 tokens. Compound supports 
+<a href="https://etherscan.io/address/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2">Wrapped Ether (WETH)</a>
+ . We need to use the Wrapped Ether deposit function in order to get an ERC-20 representation of our Ether. Then we’ll supply the resulting tokenized Ether to Compound!</p>
+<pre><code>import &quot;./WrappedEtherInterface.sol&quot;;
+weth = WrappedEtherInterface(&quot;0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&quot;);
+</code></pre>
+<pre><code>weth.deposit.value(msg.value)();     
+uint supplyStatus = compoundMoneyMarket.supply(weth, msg.value);
+require(supplyStatus == 0, &quot;keep reading to find out why supply status has to be 0!&quot;);
+</code></pre>
+<p>We wrapped our Ether, and then supplied all of it to Compound. Then we checked that the supply action completed successfully with require(supplyStatus == 0). A full list of Compound status codes can be found 
+<a href="https://compound.finance/developers#error-codes">here</a>
+ , but suffice it to say that if we don’t get back 0 ( Success ), we want the transaction to revert and the user to keep their Ether!</p>
+<p><a href="https://github.com/compound-finance/money-market/blob/master/contracts/MoneyMarket.sol#L1921">#Borrow</a></p>
+<p>Having successfully deposited Ether into the protocol, it is time to borrow some tokens! But how much can we borrow? The protocol requires 
+<a href="https://www.investopedia.com/terms/o/overcollateralization.asp">overcollateralization</a>
+ to let users borrow without credit, so we must know the collateral requirement. Also, we can read the current price of the asset ( token / eth ) from the protocol. Therefore, we can calculate the number of tokens we can borrow.</p>
+<pre><code>// calculating how much basic attention token to borrow
+address BATAddress = &quot;0x0d8775f648430679a709e98d2b0cb6250d2887ef&quot;;
+uint collateralRatio = compoundMoneyMarket.collateralRatio();
+uint assetPrice = compoundMoneyMarket.assetPrices(BATAddress);
+</code></pre>
+<pre><code>// it is recommended to use a math library such as SafeMath for this calculation, but for purposes of demonstration...
+uint numTokensToBorrow = (msg.value / collateralRatio) * assetPrice;
+</code></pre>
+<p>After calculating the number of tokens we are able to borrow, let’s borrow them!</p>
+<pre><code>uint borrowStatus = compoundMoneyMarket.borrow(BATAddress, numTokensToBorrow);
+require(borrowStatus == 0, &quot;failed to borrow tokens);
+</code></pre>
+<p>Again, we assert that the operation completed successfully.
+Finally, a sample of a single function to allow a contract to supply and borrow from Compound.</p>
+<pre><code>import &quot;./WrappedEtherInterface.sol&quot;;
+import &quot;./MoneyMarketInterface.sol&quot;;
+import &quot;./EIP20Interface.sol&quot;;
+</code></pre>
+<pre><code>contract CDP {
+  WrappedEtherInterface weth;
+  MoneyMarketInterface compoundMoneyMarket;
+  EIP20Interface basicAttentionToken;
+</code></pre>
+<pre><code>  constructor () {
+    weth = WrappedEtherInterface(&quot;0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&quot;);
+    compoundMoneyMarket = MoneyMarketInterface(&quot;0x3fda67f7583380e67ef93072294a7fac882fd7e7&quot;);
+    basicAttentionToken = EIP20Interface(&quot;&quot;0x0d8775f648430679a709e98d2b0cb6250d2887ef&quot;);
+</code></pre>
+<pre><code>  }
+</code></pre>
+<pre><code>  function fund() payable {
+    weth.deposit.value(msg.value)();
+    weth.approve(compoundMoneyMarket, uint(-1));    
+</code></pre>
+<pre><code>    uint supplyStatus = compoundMoneyMarket.supply(weth, msg.value);
+    require(supplyStatus == 0, &quot;supply succeeded, keep going!&quot;);
+</code></pre>
+<pre><code>    uint collateralRatio = compoundMoneyMarket.collateralRatio();
+    uint assetPrice = compoundMoneyMarket.assetPrices(basicAttentionToken);
+    uint numTokensToBorrow = (msg.value / collateralRatio) * assetPrice;
+</code></pre>
+<pre><code>    uint borrowStatus = compoundMoneyMarket.borrow(BATAddress, numTokensToBorrow);
+    require(borrowStatus == 0, &quot;failed to borrow tokens);
+</code></pre>
+<pre><code>// give the borrowed tokens to the user
+    uint tokenBalance = basicAttentionToken.balanceOf(address(this));  
+    basicAttentionToken.transfer(msg.sender, tokenBalance);
+</code></pre>
+<pre><code>  }
+}
+</code></pre>
+<p>In less than 30 lines of code, we’ve demonstrated how to supply Ether and borrow BAT from the Compound Money Market. There’s more to it than that, though! This contract takes in Ether and borrows tokens, and sends them back to the user, just like 
+<a href="https://github.com/compound-finance/QuickBorrow/blob/master/contracts/CDP.sol#L62">QuickBorrow</a>
+ . We also need a way to repay our borrow.</p>
+<h2 id="repay">Repay<a class="headerlink" href="#repay" title="Permanent link"></a></h2>
+<p>To get back our precious Ether posted as collateral, it is necessary to repay the borrowed tokens. The protocol follows the approve-transferFrom pattern to pull tokens into itself, so we’ll follow suit and assume the user of the CDP contract has approved it to transfer the borrowed tokens held by the user on their behalf. After that, it’s a simple matter of calling the protocol’s repayBorrow function. We’ll pass in uint(-1) to signify we want to repay everything we can.</p>
+<pre><code>uint borrowBalance = compoundMoneyMarket.getBorrowBalance(address(this), basicAttentionToken);
+</code></pre>
+<pre><code>basicAttentionToken.transferFrom(msg.sender, address(this), borrowBalance)
+basicAttentionToken.approve(compoundMoneyMarket, uint(-1));
+</code></pre>
+<pre><code>uint repayStatus = compoundMoneyMarket.repayBorrow(borrowedToken, uint(-1));    
+require(repayStatus == 0, &quot;repay failed&quot;);
+</code></pre>
+<h2 id="withdraw">Withdraw<a class="headerlink" href="#withdraw" title="Permanent link"></a></h2>
+<p>Okay! Having made productive use of our borrowed tokens elsewhere, we have repaid our debt to the protocol. Now, time to withdraw our original collateral and be on our way. First, read our balance from the protocol, we’ve probably accrued some interest if we’ve waited a few blocks before withdrawing. Then, we’ll pull it all out, unwrap the weth, and send the Ether back to the user.</p>
+<pre><code>uint supplyBalance = compoundMoneyMarket.getSupplyBalance(address(this), weth);
+uint withdrawStatus = compoundMoneyMarket.withdraw(weth, supplyBalance);    
+require(withdrawStatus == 0 , &quot;withdrawal failed&quot;);
+</code></pre>
+<pre><code>/* ---------- return ether to user ---------*/    
+uint wethBalance = weth.balanceOf(address(this));    weth.withdraw(wethBalance);    msg.sender.transfer(address(this).balance);
+</code></pre>
+<p>Grouping repaying and withdrawing into one function and adding it to the contract above:</p>
+<pre><code>import &quot;./WrappedEtherInterface.sol&quot;;
+import &quot;./MoneyMarketInterface.sol&quot;;
+import &quot;./EIP20Interface.sol&quot;;
+</code></pre>
+<pre><code>contract CDP {
+  WrappedEtherInterface weth;
+  MoneyMarketInterface compoundMoneyMarket;
+  EIP20Interface basicAttentionToken;
+</code></pre>
+<pre><code>constructor () {
+    weth = WrappedEtherInterface(&quot;0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&quot;);
+    compoundMoneyMarket = MoneyMarketInterface(&quot;0x3fda67f7583380e67ef93072294a7fac882fd7e7&quot;);
+    basicAttentionToken = EIP20Interface(&quot;&quot;0x0d8775f648430679a709e98d2b0cb6250d2887ef&quot;);
+</code></pre>
+<pre><code>}
+</code></pre>
+<pre><code>function fund() payable {
+    weth.deposit.value(msg.value)();
+    weth.approve(compoundMoneyMarket, uint(-1));    
+    uint supplyStatus = compoundMoneyMarket.supply(weth, msg.value);
+    require(supplyStatus == 0, &quot;supply succeeded, keep going!&quot;);
+</code></pre>
+<pre><code>    uint collateralRatio = compoundMoneyMarket.collateralRatio();
+    uint assetPrice = compoundMoneyMarket.assetPrices(basicAttentionToken);
+    uint numTokensToBorrow = (msg.value / collateralRatio) * assetPrice;
+</code></pre>
+<pre><code>    uint borrowStatus = compoundMoneyMarket.borrow(basicAttentionToken, numTokensToBorrow);
+    require(borrowStatus == 0, &quot;failed to borrow tokens);
+</code></pre>
+<pre><code>    uint tokenBalance = basicAttentionToken.balanceOf(address(this));  
+    basicAttentionToken.transfer(msg.sender, tokenBalance);    
+  }
+</code></pre>
+<pre><code>  function repay() {
+    uint borrowBalance = compoundMoneyMarket.getBorrowBalance(address(this), basicAttentionToken);
+    basicAttentionToken.transferFrom(msg.sender, address(this), borrowBalance)
+    basicAttentionToken.approve(compoundMoneyMarket, uint(-1));
+</code></pre>
+<pre><code>    uint repayStatus = compoundMoneyMarket.repayBorrow(borrowedToken, uint(-1));    
+    require(repayStatus == 0, &quot;repay failed&quot;);
+</code></pre>
+<pre><code>    uint supplyBalance = compoundMoneyMarket.getSupplyBalance(address(this), weth);
+    uint withdrawStatus = compoundMoneyMarket.withdraw(weth, supplyBalance);    
+    require(withdrawStatus == 0 , &quot;withdrawal failed&quot;);
+</code></pre>
+<pre><code>    uint wethBalance = weth.balanceOf(address(this));
+    weth.withdraw(wethBalance);
+    msg.sender.transfer(address(this).balance);
+  }
+}
+</code></pre>
+<p>That’s it! In less than 50 lines of Solidity, we are able to deposit Ether in the Compound Money Market, borrow another token, send that one anywhere we like ( back to the user in this case ), then allow the user to repay that borrowed token and receive their Ether back with interest earned.
+For a full implementation with more nuanced borrow and withdraw amounts ( maintaining a supply / balance ratio of collateral requirement + 25% ), a newly deployed contract for each new user, and unit tests using mocked interfaces, see the 
+<a href="https://github.com/compound-finance/QuickBorrow">QuickBorrow project on github</a>
+ !</p>
+<hr />
+<ul>
+<li><strong>Kauri original title:</strong> Compound  Money markets on Ethereum</li>
+<li><strong>Kauri original link:</strong> https://kauri.io/compound-money-markets-on-ethereum/33e45b49f47f42228d3c35726a341a1b/a</li>
+<li><strong>Kauri original author:</strong> Kauri Team (@kauri)</li>
+<li><strong>Kauri original Publication date:</strong> 2019-04-08</li>
+<li><strong>Kauri original tags:</strong> lending, open-finance</li>
+<li><strong>Kauri original hash:</strong> QmbV8jkjP2GUZqJRKxEk9mKfYGCayFV6Kd8RbBqTabWvjx</li>
+<li><strong>Kauri original checkpoint:</strong> QmZSRFGq9bnBLosiVwSTANrDR9YdXbWkwG71aw35jAjyLo</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../0x--peer-to-peer-exchange-protocol/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../0x--peer-to-peer-exchange-protocol/" class="btn btn-xs btn-link">
+        0x  Peer-to-peer exchange protocol
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../kyber-network--on-chain-liquidity-protocol/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../kyber-network--on-chain-liquidity-protocol/" class="btn btn-xs btn-link">
+        Kyber Network  On-chain liquidity protocol
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/kauri-io/archive/edit/main/docs/collections/Open Finance (DeFi)/compound--money-markets-on-ethereum.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
