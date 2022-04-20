@@ -293,10 +293,10 @@ version.BuildInfo{Version:"v3.0.2", GitCommit:"19e47ee3283ae98139d98460de796c1be
 <br />
 **3. Add the repository for official charts**
 
-Configure the repository `stable https://kubernetes-charts.storage.googleapis.com` to access the [official charts](https://github.com/helm/charts/tree/master/stable)
+Configure the repository `stable https://charts.helm.sh/stable` to access the [official charts](https://github.com/helm/charts/tree/master/stable)
 
 ```
-$ helm repo add stable https://kubernetes-charts.storage.googleapis.com
+$ helm repo add stable https://charts.helm.sh/stable
 "stable" has been added to your repositories
 
 $ helm repo update
