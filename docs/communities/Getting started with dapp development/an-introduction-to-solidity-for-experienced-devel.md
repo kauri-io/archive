@@ -164,7 +164,7 @@ Similar to classes in C++ or Java, interfaces, and abstract contracts in Solidit
 
 ### Error handling
 
-Solidity does not have the concept of `try/catch` common in other programming languages. Instead, it provides 3 convenience functions to check if conditions are met before performing an operation. If the conditions are not met, all changes made to state in the current function call (and sub-calls) are reverted, and an error message generated. The three functions work in slightly different ways, and to serve different potential error flows. Read more about the details and how to use them [in the documentation](https://solidity.readthedocs.io/v0.5.15/latest/control-structures.html#error-handling-assert-require-revert-and-exceptions).
+Solidity does not have the concept of `try/catch` common in other programming languages. Instead, it provides 3 convenience functions to check if conditions are met before performing an operation. If the conditions are not met, all changes made to state in the current function call (and sub-calls) are reverted, and an error message generated. The three functions work in slightly different ways, and to serve different potential error flows. Read more about the details and how to use them [in the documentation](https://docs.soliditylang.org/en/v0.8.16/units-and-global-variables.html?highlight=error%20handling#error-handling).
 
 ### Subscribing to events
 
