@@ -363,7 +363,7 @@ session.CheckBoard()
 Let's create a `NewSession()` function that creates a new usable session and returns it, add this to the bottom of your `main.go` file:
 
 ```
-func NewSession(ctx context.Context) (session quiz.QuizSession) {
+func NewSession(ctx context.Context,gasPrice *big.Int) (session quiz.QuizSession) {
     loadEnv()
     keystore, err := os.Open(myenv["KEYSTORE"])
     if err != nil {
@@ -380,6 +380,8 @@ func NewSession(ctx context.Context) (session quiz.QuizSession) {
     if err != nil {
         log.Printf("%s\n", err)
     }
+    
+	  auth.GasPrice = gasPrice
 
     // Return session without contract instance
     return quiz.QuizSession{
@@ -405,7 +407,11 @@ We can then create a new session in `main()`:
 ```
 func main(){
     // ...
-    session := NewSession(context.Background())
+    gasPrice, err := client.SuggestGasPrice(context.Background())
+    if err := nil{
+      log.Fatal(err)
+    }
+    session := NewSession(context.Background(), gasPrice)
 }
 ```
 
