@@ -59,7 +59,7 @@ The first line specifies in which mode we would like to write the k3s configurat
 
 ```
 $ export K3S_KUBECONFIG_MODE="644"
-$ export INSTALL_K3S_EXEC=" --no-deploy servicelb --no-deploy traefik"
+$ export INSTALL_K3S_EXEC=" --disable servicelb --disable traefik"
 ```
 
 <br />
